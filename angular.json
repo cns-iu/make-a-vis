@@ -125,6 +125,46 @@
           }
         }
       }
+    },
+    "make-a-vis": {
+      "root": "projects/make-a-vis",
+      "sourceRoot": "projects/make-a-vis/src",
+      "projectType": "library",
+      "prefix": "mav",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/make-a-vis/tsconfig.lib.json",
+            "project": "projects/make-a-vis/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/make-a-vis/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/make-a-vis/src/test.ts",
+            "tsConfig": "projects/make-a-vis/tsconfig.spec.json",
+            "karmaConfig": "projects/make-a-vis/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/make-a-vis/tsconfig.lib.json",
+              "projects/make-a-vis/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "make-a-vis-demo"
