@@ -2,7 +2,7 @@ import { FactoryProvider } from '@angular/core';
 import { LoggerFactory } from './logger-factory';
 
 export abstract class Logger {
-  static for(category: string): FactoryProvider {
+  static for(category?: string): FactoryProvider {
     return {
       provide: Logger,
       useFactory: (factory: LoggerFactory) => factory.createLogger(category),
