@@ -1,2 +1,2 @@
-export { Logger } from './logger.service';
-export { LoggerFactoryService } from './logger-factory.service';
+export { Logger } from './logger';
+export { LoggerFactory } from './logger-factory';

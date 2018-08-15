@@ -1,13 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Logger } from '../logger';
 
-@Injectable({
-  providedIn: null
-})
-export class Logger {
-  set level(level: string) { }
+export class DefaultLogger extends Logger {
+  set level(unused: string) { }
   get level(): string { return 'OFF'; }
-
-  constructor(readonly category?: string) { }
 
   isLevelEnabled(level?: string): boolean { return false; }
   isTraceEnabled(): boolean { return false; }
