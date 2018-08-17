@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 
 @Component({
-  selector: 'mav-make-a-vis',
-  template: `
-    <p>
-      make-a-vis works!
-    </p>
-  `,
-  styles: []
+  selector: 'mav-main',
+  templateUrl: './make-a-vis.component.html',
+  styleUrls: ['./make-a-vis.component.scss'],
 })
 export class MakeAVisComponent implements OnInit {
+  @Input() theme = 'light-theme';
 
   constructor() { }
 
