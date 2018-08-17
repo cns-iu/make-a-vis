@@ -9,5 +9,6 @@ export abstract class LoggerFactory {
     };
   }
 
-  abstract createLogger(category?: string): Logger;
+  constructor(readonly parent?: LoggerFactory) { }
+  abstract createLogger(name?: string): Logger;
 }

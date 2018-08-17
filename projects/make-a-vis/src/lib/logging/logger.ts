@@ -1,33 +1,33 @@
 import { FactoryProvider } from '@angular/core';
+import { LogLevel } from './log-levels';
 import { LoggerFactory } from './logger-factory';
 
+export type ValueOrFactory<T> = T | (() => T);
+
 export abstract class Logger {
-  static for(category?: string): FactoryProvider {
+  static for(name?: string): FactoryProvider {
     return {
       provide: Logger,
-      useFactory: (factory: LoggerFactory) => factory.createLogger(category),
+      useFactory: (factory: LoggerFactory) => factory.createLogger(name),
       deps: [LoggerFactory]
     };
   }
 
-  abstract set level(level: string);
-  abstract get level(): string;
+  abstract get name(): string;
+  abstract get level(): LogLevel;
 
-  constructor(readonly category?: string) { }
+  isLevelEnabled(level: LogLevel): boolean { return level >= this.level; }
+  isTraceEnabled(): boolean { return this.isLevelEnabled(LogLevel.Trace); }
+  isDebugEnabled(): boolean { return this.isLevelEnabled(LogLevel.Debug); }
+  isInfoEnabled(): boolean { return this.isLevelEnabled(LogLevel.Info); }
+  isWarnEnabled(): boolean { return this.isLevelEnabled(LogLevel.Warn); }
+  isErrorEnabled(): boolean { return this.isLevelEnabled(LogLevel.Error); }
+  isFatalEnabled(): boolean { return this.isLevelEnabled(LogLevel.Fatal); }
 
-  abstract isLevelEnabled(level?: string): boolean;
-  abstract isTraceEnabled(): boolean;
-  abstract isDebugEnabled(): boolean;
-  abstract isInfoEnabled(): boolean;
-  abstract isWarnEnabled(): boolean;
-  abstract isErrorEnabled(): boolean;
-  abstract isFatalEnabled(): boolean;
-
-  abstract log(...args: any[]): void;
-  abstract trace(message: any, ...args: any[]): void;
-  abstract debug(message: any, ...args: any[]): void;
-  abstract info(message: any, ...args: any[]): void;
-  abstract warn(message: any, ...args: any[]): void;
-  abstract error(message: any, ...args: any[]): void;
-  abstract fatal(message: any, ...args: any[]): void;
+  abstract trace(message: ValueOrFactory<string>): void;
+  abstract debug(message: ValueOrFactory<string>): void;
+  abstract info(message: ValueOrFactory<string>): void;
+  abstract warn(message: ValueOrFactory<string>): void;
+  abstract error(message: ValueOrFactory<string>, error?: ValueOrFactory<Error>): void;
+  abstract fatal(message: ValueOrFactory<string>, error?: ValueOrFactory<Error>): void;
 }
