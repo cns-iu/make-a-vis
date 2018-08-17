@@ -10,7 +10,7 @@ export enum LogLevel {
   Off
 }
 
-export namespace LogLevel {
+export namespace LogLevel_Ext {
   const levelToStringMap: {[level: number]: string} = {};
   const stringToLevelMap: {[name: string]: number} = {};
 

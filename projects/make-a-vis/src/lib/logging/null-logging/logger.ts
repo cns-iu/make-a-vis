@@ -1,8 +1,6 @@
-import { Injectable } from '@angular/core';
 import { LogLevel } from '../log-levels';
 import { Logger, ValueOrFactory } from '../logger';
 
-@Injectable()
 export class NullLogger extends Logger {
   get level(): LogLevel { return LogLevel.Off; }
   constructor(readonly name: string = '<?>') { super(); }

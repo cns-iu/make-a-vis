@@ -4,6 +4,7 @@ import { LoggerFactory } from './logger-factory';
 
 export type ValueOrFactory<T> = T | (() => T);
 
+// @dynamic
 export abstract class Logger {
   static for(name?: string): FactoryProvider {
     return {

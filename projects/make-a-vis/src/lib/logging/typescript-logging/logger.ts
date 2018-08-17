@@ -1,4 +1,3 @@
-import { Injectable } from '@angular/core';
 import { Category, LogLevel as ImplLogLevel } from 'typescript-logging';
 import { LogLevel } from '../log-levels';
 import { Logger, ValueOrFactory } from '../logger';
