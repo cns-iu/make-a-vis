@@ -12,15 +12,18 @@ import { LegendViewModule } from './legend-view/legend-view.module';
 import { ToolbarModule } from './toolbar/toolbar.module';
 import { VisualizationViewModule } from './visualization-view/visualization-view.module';
 
-import { MakeAVisComponent } from './make-a-vis.component';
+// Themes
 import { LightThemeComponent } from './light-theme/light-theme.component';
+
+// Main component
+import { MakeAVisComponent } from './make-a-vis.component';
 
 @NgModule({
   imports: [
     CommonModule,
     DataViewModule, LegendViewModule, ToolbarModule, VisualizationViewModule
   ],
-  declarations: [MakeAVisComponent, LightThemeComponent],
+  declarations: [LightThemeComponent, MakeAVisComponent],
   exports: [MakeAVisComponent, ToolbarModule],
   providers: [
     LoggerFactory.use(NullLoggerFactory),

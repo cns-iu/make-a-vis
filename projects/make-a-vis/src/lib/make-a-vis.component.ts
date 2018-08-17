@@ -12,5 +12,4 @@ export class MakeAVisComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
