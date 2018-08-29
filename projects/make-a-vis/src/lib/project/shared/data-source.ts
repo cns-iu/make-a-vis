@@ -8,8 +8,8 @@ export interface DataSourceOptions {
 export interface DataSource {
   id: string;
   template: string;
-  properties: Map<string, DataSourceOptions>;
-  streams: RecordStream<any>[];
+  properties: { [id: string]:  DataSourceOptions };
+  recordStreams: RecordStream[];
 
   toJSON(): any;
 }

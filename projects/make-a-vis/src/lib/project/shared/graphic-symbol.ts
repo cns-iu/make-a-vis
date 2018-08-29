@@ -5,5 +5,5 @@ export interface GraphicSymbol {
   id: string;
   type: string;
   recordStream: RecordStream;
-  graphicVariables: Map<string, GraphicVariable>;
+  graphicVariables: { [id: string]: GraphicVariable };
 }

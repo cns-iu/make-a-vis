@@ -12,12 +12,13 @@ export class Project {
     public dataSources: DataSource[] = [],
     public recordSets: RecordSet[] = [],
     public graphicVariables: GraphicVariable[] = [],
-    public visualizations: Map<string, Visualization> = new Map()
+    public visualizations: Visualization[] = [],
+    public rawData: { [id: string]: any } = {}
   ) { }
 
   getRecordStream<T>(id: string): RecordStream<T> {
     for (const dataSource of this.dataSources) {
-      for (const stream of dataSource.streams) {
+      for (const stream of dataSource.recordStreams) {
         if (stream.id === id) {
           return stream;
         }
