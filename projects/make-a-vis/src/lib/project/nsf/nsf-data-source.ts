@@ -1,9 +1,10 @@
 import { DataSource, DataSourceOptions } from './../shared/data-source';
 import { RecordStream } from './../shared/record-stream';
+import { NSFRecord } from './nsf-records';
 
 export class NSFDataSource implements DataSource {
   template: 'nsf';
-  streams: Map<string, RecordStream<any>>;
+  streams: RecordStream<NSFRecord>[];
   properties: Map<string, DataSourceOptions>;
 
   constructor(public id: string) {

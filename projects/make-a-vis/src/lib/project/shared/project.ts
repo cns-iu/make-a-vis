@@ -1,3 +1,4 @@
+import { GraphicVariable } from './graphic-variable';
 import { DataSource } from './data-source';
 import { RecordStream } from './record-stream';
 import { RecordSet } from './record-set';
@@ -8,19 +9,20 @@ export class Project {
 
   constructor(
     public metadata: any = { dateCreated: new Date() },
-    public dataSources: Map<string, DataSource> = new Map(),
-    public recordSets: Map<string, RecordSet<any>> = new Map(),
-    public graphicVariables: Map<string, any> = new Map(),
+    public dataSources: DataSource[] = [],
+    public recordSets: RecordSet[] = [],
+    public graphicVariables: GraphicVariable[] = [],
     public visualizations: Map<string, Visualization> = new Map()
   ) { }
 
   getRecordStream<T>(id: string): RecordStream<T> {
-    const results: RecordStream<T>[] = [];
-    this.dataSources.forEach((dataSource) => {
-      if (dataSource.streams.has(id)) {
-        results.push(dataSource.streams.get(id));
+    for (const dataSource of this.dataSources) {
+      for (const stream of dataSource.streams) {
+        if (stream.id === id) {
+          return stream;
+        }
       }
-    });
-    return results.length > 0 ? results[0] : null;
+    }
+    return null;
   }
 }

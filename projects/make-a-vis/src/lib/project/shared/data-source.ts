@@ -5,11 +5,11 @@ export interface DataSourceOptions {
   rawData?: string;
 }
 
-export interface DataSource<T = any> {
+export interface DataSource {
   id: string;
   template: string;
   properties: Map<string, DataSourceOptions>;
-  streams: Map<string, RecordStream<T>>;
+  streams: RecordStream<any>[];
 
   toJSON(): any;
 }

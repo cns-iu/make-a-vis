@@ -1,9 +1,9 @@
 import { RecordStream } from './record-stream';
 import { GraphicVariable } from './graphic-variable';
 
-export class GraphicSymbol {
+export interface GraphicSymbol {
   id: string;
-  recordStream: RecordStream<any>;
   type: string;
+  recordStream: RecordStream;
   graphicVariables: Map<string, GraphicVariable>;
 }

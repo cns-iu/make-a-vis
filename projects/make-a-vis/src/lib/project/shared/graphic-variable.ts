@@ -1,11 +1,12 @@
-import { BoundField } from '@ngx-dino/core';
+import { BoundField, simpleField, access } from '@ngx-dino/core';
 
 export class GraphicVariable {
   id: string;
+  label: string;
   type: string;
   selector: string;
 
-  asBoundField(): BoundField<any> {
-    return null;
+  asBoundField<T = any>(): BoundField<T> {
+    return simpleField<T>({ label: this.label, operator: access(this.selector) }).getBoundField();
   }
 }

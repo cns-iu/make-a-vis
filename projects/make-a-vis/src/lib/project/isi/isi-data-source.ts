@@ -1,10 +1,11 @@
 import { DataSource, DataSourceOptions } from './../shared/data-source';
 import { RecordStream } from './../shared/record-stream';
+import { ISIRecord } from './isi-records';
 
 
 export class ISIDataSource implements DataSource {
   template: 'isi';
-  streams: Map<string, RecordStream<any>>;
+  streams: RecordStream<ISIRecord>[];
   properties: Map<string, DataSourceOptions>;
 
   constructor(public id: string) {

@@ -1,9 +1,9 @@
 import { RISRecords } from './ris-records';
 
-export interface ISIRecords {
+export interface ISIRecord {
   title: string;
 }
 
-export function parseISIFile(fileContents: string): ISIRecords[] {
+export function parseISIFile(fileContents: string): ISIRecord[] {
   return RISRecords(fileContents);
 }

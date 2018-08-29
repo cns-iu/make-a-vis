@@ -14,6 +14,7 @@ dataSources:
       dataURL: https://cns-iu.github.io/make-a-vis/examples/test.json
     recordStreams:
       - id: cowsToo
+        label: Cows Too
 
   - id: myJSONDataSource
     template: json
@@ -37,7 +38,6 @@ recordSets:
   - id: author
     label: Author
     labelPlural: Authors
-    defaultRecordStream: authors
     dataVariables:
       - id: name
         label: Name
@@ -47,7 +47,6 @@ recordSets:
   - id: publication
     label: Publication
     labelPlural: Publications
-    defaultRecordStream: publications
     dataVariables:
       - id: language
         label: Language
@@ -57,7 +56,6 @@ recordSets:
   - id: coauthor
     label: Co-Author
     labelPlural: Co-Authors
-    defaultRecordStream: coauthors
     dataVariables:
       - id: author1
         label: Author 1
@@ -170,13 +168,13 @@ graphicVariables:
 visualizations:
   - template: scatterplot
     properties:
-        drawGridLines: true
+      drawGridLines: true
     
     graphicSymbols:
       - id: points
         type: area
         recordStream: publications
-        variables:
+        graphicVariables:
           identifier:
             recordSet: author
             dataVariable: name
@@ -195,10 +193,10 @@ visualizations:
       drawGridLines: true
 
     graphicSymbols:
-      - id: points
+      - id: nodes
         type: area
         recordStream: authors
-        variables:
+        graphicVariables:
           identifier:
             recordSet: author
             dataVariable: name
@@ -215,7 +213,7 @@ visualizations:
       - id: edges
         type: line
         recordStream: coauthors
-        variables:
+        graphicVariables:
           source:
             recordSet: coauthor
             dataVariable: author1
@@ -232,6 +230,11 @@ visualizations:
 rawData: 
   testData:
     {"cows": [{"cow":"moo"},{"a":1,"b":2}]}
+  testData2:
+    cowsToo:
+      - moo: 1
+      - moo: 2
+      - moo: 3
   isiFile: |
     H4sICJ0sc1sAA3NhdmVkcmVjcy5pc2kAzH3rcttIsuZ/PUXF2YgZOY4IEwCvrdiIhihQosRbE6Tc
     dodjokhCIiyQ4ACEZHoebX/sI+0rbH5ZBRCgJLd7pmd35pzuFkmgLllZefkyK+v//K//3R2KTijj
