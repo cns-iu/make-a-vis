@@ -5,8 +5,8 @@ import { ISIRecord } from './isi-records';
 
 export class ISIDataSource implements DataSource {
   template: 'isi';
-  streams: RecordStream<ISIRecord>[];
-  properties: Map<string, DataSourceOptions>;
+  recordStreams: RecordStream<ISIRecord>[];
+  properties: DataSourceOptions;
 
   constructor(public id: string) {
 

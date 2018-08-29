@@ -4,8 +4,8 @@ import { NSFRecord } from './nsf-records';
 
 export class NSFDataSource implements DataSource {
   template: 'nsf';
-  streams: RecordStream<NSFRecord>[];
-  properties: Map<string, DataSourceOptions>;
+  recordStreams: RecordStream<NSFRecord>[];
+  properties: DataSourceOptions;
 
   constructor(public id: string) {
 
