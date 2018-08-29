@@ -1,10 +1,15 @@
 import { RecordStream } from './record-stream';
 
-export interface DataSource {
+export interface DataSourceOptions {
+  dataURL?: string;
+  rawData?: string;
+}
+
+export interface DataSource<T = any> {
   id: string;
   template: string;
-  properties: Map<string, any>;
-  streams: Map<string, RecordStream<any>>;
+  properties: Map<string, DataSourceOptions>;
+  streams: Map<string, RecordStream<T>>;
 
   toJSON(): any;
 }

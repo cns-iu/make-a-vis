@@ -1,5 +1,9 @@
 import { parse } from 'papaparse';
 
-function parseNSFString(fileContents: string): any[] {
+export interface NSFRecord {
+  title: string;
+}
+
+export function parseNSFFile(fileContents: string): NSFRecord[] {
   return parse(fileContents).data;
 }

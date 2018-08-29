@@ -9,8 +9,8 @@ export class Project {
   constructor(
     public metadata: any = { dateCreated: new Date() },
     public dataSources: Map<string, DataSource> = new Map(),
-    public recordStreams: Map<string, RecordStream<any>> = new Map(),
     public recordSets: Map<string, RecordSet<any>> = new Map(),
+    public graphicVariables: Map<string, any> = new Map(),
     public visualizations: Map<string, Visualization> = new Map()
   ) { }
 

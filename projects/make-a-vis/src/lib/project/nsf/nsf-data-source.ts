@@ -1,12 +1,10 @@
-import { Project } from './../shared/project';
-import { DataSource } from './../shared/data-source';
+import { DataSource, DataSourceOptions } from './../shared/data-source';
 import { RecordStream } from './../shared/record-stream';
-
 
 export class NSFDataSource implements DataSource {
   template: 'nsf';
   streams: Map<string, RecordStream<any>>;
-  properties: Map<string, any>;
+  properties: Map<string, DataSourceOptions>;
 
   constructor(public id: string) {
 
@@ -17,16 +15,5 @@ export class NSFDataSource implements DataSource {
   }
   toJSON(): any {
     return null;
-  }
-}
-
-export class NSFTemplateProjectFactory {
-  static create(nsfFileContent: string): Project {
-    return null;
-  }
-}
-export class NSFTemplateProject extends Project {
-  constructor(nsfFileContent: string) {
-    super();
   }
 }

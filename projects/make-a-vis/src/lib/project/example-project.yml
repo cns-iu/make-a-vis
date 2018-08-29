@@ -37,7 +37,7 @@ recordSets:
   - id: author
     label: Author
     labelPlural: Authors
-    recordStream: authors
+    defaultRecordStream: authors
     dataVariables:
       - id: name
         label: Name
@@ -47,7 +47,7 @@ recordSets:
   - id: publication
     label: Publication
     labelPlural: Publications
-    recordStream: publications
+    defaultRecordStream: publications
     dataVariables:
       - id: language
         label: Language
@@ -57,7 +57,7 @@ recordSets:
   - id: coauthor
     label: Co-Author
     labelPlural: Co-Authors
-    recordStream: coauthors
+    defaultRecordStream: coauthors
     dataVariables:
       - id: author1
         label: Author 1
@@ -73,110 +73,99 @@ recordSets:
         dataType: integer
         scaleType: interval
 
-graphicVariableMappings:
-  - recordSet: author
-    dataVariable: name
+graphicVariables:
+  - recordStream: authors
     mappings:
-      - recordStream: authors
-        graphicVariables:
-          - id: axis
-            type: axis
-            selector: name
-          - id: label
-            type: text
-            selector: name
-          - id: color
-            type: color
-            selector: color
-          - id: shape
-            type: shape
-            selector: shape
-          - id: size
-            type: size
-            selector: size
-      - recordStream: publications
-        graphicVariables:
-          - id: size.agg
-            type: size
-            label: Aggregate Size
-            selector: authorAgg.size
-          - id: shape.agg
-            type: shape
-            label: Aggregate Shape
-            selector: authorAgg.shape
-          - id: size.firstAuthor
-            type: size
-            label: First Author Size
-            selector: firstAuthor.size
-          - id: shape.firstAuthor
-            type: shape
-            label: First Author Shape
-            selector: firstAuthor.shape
-          - id: axis.firstAuthor
-            type: axis
-            label: First Author Name
-            selector: firstAuthor.name
-      - recordStream: coauthors
-        graphicVariables:
-          - id: axis
-            type: axis
-            selector: name
-          - id: identifier
-            type: identifier
-            selector: name
-          - id: label
-            type: text
-            selector: name
-          - id: color
-            type: color
-            selector: color
-          - id: shape
-            type: shape
-            selector: shape
-          - id: size
-            type: size
-            selector: size
-  - recordSet: publication
-    dataVariable: language
+      author:
+        name:
+          axis:
+            - id: axis
+              selector: name
+          text:
+            - id: label
+              selector: name
+          color:
+            - id: color
+              selector: color
+          shape:
+            - id: shape
+              selector: shape
+          size:
+            - id: size
+              selector: size
+
+  - recordStream: publications
+    mappings: 
+      author:
+        name:
+          size:
+            - id: size.agg
+              label: Aggregate Size
+              selector: authorAgg.size
+            - id: size.firstAuthor
+              label: First Author Size
+              selector: firstAuthor.size
+          shape:
+            - id: shape.agg
+              label: Aggregate Shape
+              selector: authorAgg.shape
+            - id: shape.firstAuthor
+              label: First Author Shape
+              selector: firstAuthor.shape
+          axis:
+            - id: axis.firstAuthor
+              label: First Author Name
+              selector: firstAuthor.name
+      publication:
+        language:
+          shape:
+            - id: shape
+              selector: languageShape
+          color:
+            - id: color
+              selector: languageColor
+
+  - recordStream: coauthors
     mappings:
-      - recordStream: publications
-        graphicVariables:
-          - id: shape
-            type: shape
-            selector: languageShape
-          - id: color
-            type: color
-            selector: languageColor
-  - recordSet: coauthor
-    dataVariable: author1
-    mappings:
-      - recordStream: coauthors
-        graphicVariables:
-          - id: label
-            type: text
-            selector: author1Name
-          - id: identifier
-            type: identifier
-            selector: author1Name
-  - recordSet: coauthor
-    dataVariable: author2
-    mappings:
-      - recordStream: coauthors
-        graphicVariables:
-          - id: label
-            type: text
-            selector: author2Name
-          - id: identifier
-            type: identifier
-            selector: author2Name
-  - recordSet: coauthor
-    dataVariable: numCoauths
-    mappings:
-      - recordStream: coauthors
-        graphicVariables:
-          - id: size
-            type: size
-            selector: numCoauthsSize
+      author:
+        name:
+          axis:
+            - id: axis
+              selector: name
+          identifier:
+            - id: identifier
+              selector: name
+          text:
+            - id: label
+              selector: name
+          color:
+            - id: color
+              selector: color
+          shape:
+            - id: shape
+              selector: shape
+          size:
+            - id: size
+              selector: size
+      coauthor:
+        author1:
+          text:
+            - id: label
+              selector: author1Name
+          identifier:
+            - id: identifier
+              selector: author1Name
+        author2:
+          text:
+            - id: label
+              selector: author2Name
+          identifier:
+            - id: identifier
+              selector: author2Name
+        numCoauths:
+          size:
+            - id: size
+              selector: numCoauthsSize
 
 visualizations:
   - template: scatterplot
@@ -188,7 +177,7 @@ visualizations:
         type: area
         recordStream: publications
         variables:
-          id:
+          identifier:
             recordSet: author
             dataVariable: name
             graphicVariable: identifier
@@ -209,8 +198,11 @@ visualizations:
       - id: points
         type: area
         recordStream: authors
-
         variables:
+          identifier:
+            recordSet: author
+            dataVariable: name
+            graphicVariable: identifier
           shape:
             recordSet: author
             dataVariable: name
@@ -223,7 +215,6 @@ visualizations:
       - id: edges
         type: line
         recordStream: coauthors
-
         variables:
           source:
             recordSet: coauthor
