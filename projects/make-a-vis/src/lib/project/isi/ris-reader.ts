@@ -1,4 +1,18 @@
-const TAGS = {
+export interface Tag {
+  endrecord?: boolean;
+  ignored?: boolean;
+  list?: boolean;
+  number?: boolean;
+  string?: boolean;
+  remap?: string;
+  separator?: string;
+}
+
+export interface TagMapping {
+  [id: string]: Tag;
+}
+
+export const DEFAULT_TAGS: TagMapping = {
   'FN': { ignored: true },
   'VR': { ignored: true },
   'AU': { list: true },
@@ -11,14 +25,13 @@ const TAGS = {
 };
 
 const LINE_PATTERN = new RegExp(/^([A-Z ][A-Z0-9 ]) *\-* *(.*)$/);
-function parseISIString(data: string): any {
+function parseRISString(data: string): any {
   return data.split(/[\r\n]+/).map((s) => s.match(LINE_PATTERN)).filter(s => !!s).map(s => s.slice(1));
 }
-
-export function RISRecords(data: string, tagDefinitions = TAGS): any[] {
+export function parseRISRecords(data: string, tagDefinitions: TagMapping = DEFAULT_TAGS): any[] {
   const records: any[] = [];
-  let record: any = {}, lastTag = null;
-  for (const [tag, value] of parseISIString(data)) {
+  let record: any = {}, lastTag = null, lastField = null;
+  for (const [tag, value] of parseRISString(data)) {
     let flags = tagDefinitions[tag] || tagDefinitions['default'] || { ignored: true };
     if (flags.ignored) {
       continue;
@@ -31,20 +44,21 @@ export function RISRecords(data: string, tagDefinitions = TAGS): any[] {
       if (!lastTag) {
         // do nothing
       } else if (flags.list) {
-        record[lastTag].push(value);
+        record[lastField].push(value);
       } else if (flags.string) {
-        record[lastTag] += (tag.separator || ' ') + value;
+        record[lastField] += (tag.separator || ' ') + value;
       } else {
-        record[lastTag] = value;
+        record[lastField] = value;
       }
     } else {
       lastTag = tag;
+      lastField = flags.remap ? flags.remap : tag;
       if (flags.list) {
-        record[tag] = [value];
-      } else if (record.hasOwnProperty(tag)) {
-        throw new Error(`Duplicate tag found: ${tag}, Old Value: ${record[tag]}, New Value: ${value}`);
+        record[lastField] = [value];
+      } else if (record.hasOwnProperty(lastField)) {
+        throw new Error(`Duplicate tag found: ${lastField}, Old Value: ${record[lastField]}, New Value: ${value}`);
       } else {
-        record[tag] = value;
+        record[lastField] = value;
       }
     }
   }

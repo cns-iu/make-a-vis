@@ -1,4 +1,4 @@
-import { GraphicSymbolMapping } from './graphic-symbol-mapping';
+import { GraphicSymbol } from './graphic-symbol';
 import { GraphicVariableMapping } from './graphic-variable-mapping';
 import { DataSource } from './data-source';
 import { RecordStream } from './record-stream';
@@ -14,7 +14,7 @@ export class Project {
     public dataSources: DataSource[] = [],
     public recordSets: RecordSet[] = [],
     public graphicVariableMappings: GraphicVariableMapping[] = [],
-    public graphicSymbolMappings: GraphicSymbolMapping[] = [],
+    public graphicSymbolMappings: GraphicSymbol[] = [],
     public visualizations: Visualization[] = [],
     public rawData: { [id: string]: any } = {}
   ) { }
