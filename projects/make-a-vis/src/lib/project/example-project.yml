@@ -39,7 +39,7 @@ dataSources:
     recordStreams:
       - id: authors
       - id: publications
-      - id: co-author-links
+      - id: coAuthorLinks
 
 recordSets:
   - id: author
@@ -88,7 +88,7 @@ recordSets:
         dataType: integer
         scaleType: ratio
 
-  - id: co-author-link
+  - id: coAuthorLink
     label: Co-Author
     labelPlural: Co-Authors
     dataVariables:
@@ -200,7 +200,7 @@ graphicVariableMappings:
           size:
             - selector: yearSize
 
-  - recordStream: co-author-links
+  - recordStream: coAuthorLinks
     mappings:
       author:
         name:
@@ -222,7 +222,7 @@ graphicVariableMappings:
           size:
             - id: size
               selector: size
-      co-author-link:
+      coAuthorLink:
         author1:
           text:
             - id: label
@@ -242,10 +242,10 @@ graphicVariableMappings:
             - id: size
               selector: numCoauthsSize
 
-graphicSymbolMapping:
-  - id: author-points
+graphicSymbolMappings:
+  - id: authorPoints
     type: area
-    recordStream: author
+    recordStream: authors
     graphicVariables:
       x:
         recordSet: author
@@ -256,7 +256,7 @@ graphicSymbolMapping:
         dataVariable: numCites
         graphicVariable: axis
 
-  - id: author-nodes
+  - id: authorNodes
     type: area
     recordStream: authors
     graphicVariables:
@@ -273,16 +273,16 @@ graphicSymbolMapping:
         dataVariable: name
         graphicVariable: color.byName
 
-  - id: co-author-links
+  - id: coAuthorLinks
     type: line
-    recordStream: co-author-links
+    recordStream: coAuthorLinks
     graphicVariables:
       source:
-        recordSet: co-author-link
+        recordSet: coAuthorLink
         dataVariable: author1
         graphicVariable: identifier
       target:
-        recordSet: co-author-link
+        recordSet: coAuthorLink
         dataVariable: author2
         graphicVariable: identifier
       color:
@@ -290,7 +290,7 @@ graphicSymbolMapping:
         dataVariable: name
         graphicVariable: co-author.color.byName
 
-  - id: publication-points
+  - id: publicationPoints
     type: area
     recordStream: publications
     graphicVariables:
@@ -313,22 +313,22 @@ visualizations:
     properties:
       drawGridLines: true    
     graphicSymbols:
-      points: author-points
+      points: authorPoints
 
   - id: scatterplot2
     template: scatterplot
     properties:
       drawGridLines: true    
     graphicSymbols:
-      points: publication-points
+      points: publicationPoints
 
   - id: coauthorNetwork1
     template: network
     properties:
       drawGridLines: true
     graphicSymbols:
-      nodes: author-nodes
-      edges: co-author-links
+      nodes: authorNodes
+      edges: coAuthorLinks
 
 rawData: 
   testData2:

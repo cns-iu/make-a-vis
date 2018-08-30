@@ -1,4 +1,6 @@
+import { deflate, inflate } from 'pako';
 import { RecordStream } from './record-stream';
+
 
 export interface DataSourceOptions {
   dataURL?: string;
@@ -12,4 +14,13 @@ export interface DataSource {
   recordStreams: RecordStream[];
 
   toJSON(): any;
+}
+
+export class DataSourceUtils {
+  static compressFile(fileContents: string): string {
+    return deflate(fileContents, { to: 'string' });
+  }
+  static decompressFile(compressedContents: string): string {
+    return inflate(compressedContents, { to: 'string' });
+  }
 }

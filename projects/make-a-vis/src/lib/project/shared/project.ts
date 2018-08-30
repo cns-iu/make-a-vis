@@ -1,8 +1,10 @@
+import { GraphicSymbolMapping } from './graphic-symbol-mapping';
 import { GraphicVariableMapping } from './graphic-variable-mapping';
 import { DataSource } from './data-source';
 import { RecordStream } from './record-stream';
 import { RecordSet } from './record-set';
 import { Visualization } from './visualization';
+
 
 export class Project {
   apiVersion = '1';
@@ -12,6 +14,7 @@ export class Project {
     public dataSources: DataSource[] = [],
     public recordSets: RecordSet[] = [],
     public graphicVariableMappings: GraphicVariableMapping[] = [],
+    public graphicSymbolMappings: GraphicSymbolMapping[] = [],
     public visualizations: Visualization[] = [],
     public rawData: { [id: string]: any } = {}
   ) { }
