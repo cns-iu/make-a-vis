@@ -51,4 +51,17 @@
   .card {
     cursor: grab;
   }
+
+  .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header {
+    &:not([aria-disabled='true']) {
+      &.cdk-keyboard-focused,
+      &.cdk-program-focused {
+        background: none;
+      }
+    }
+  }
+
+  .mat-expansion-panel-header {
+    padding: 0 1vw;
+  }
 }

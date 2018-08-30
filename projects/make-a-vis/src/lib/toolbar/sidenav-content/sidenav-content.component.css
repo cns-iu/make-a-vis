@@ -1,0 +1,57 @@
+.sidenav-content {
+  width: 20vw;
+  height: 90vh
+}
+
+.sidenav-content .title, .expansion-title {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.first-panel:hover, .sidenav-content .title:hover {
+  background:#f5f5f5;
+  cursor: pointer;
+}
+
+.expansion-title:hover, .first-panel, .first-panel.mat-expanded:hover {
+  background: none;
+}
+
+.sidenav-content .title .label {
+  display: flex;
+  align-items: center;
+}
+
+.sidenav-content .title .icon {
+  padding: 0 1vw;
+}
+
+.sidenav-content .title .toggle {
+  padding: 1vw;
+}
+
+.expansion-title .icon {
+  padding-right: 1vw;
+}
+
+.expansion-content {
+  padding-left: 3vw;
+  padding-bottom: 1vw;
+}
+
+.expansion-content .field{
+  width: 14vw;
+}
+
+.expansion-content .button-toggle {
+  width: 5vw;
+  text-align: center;
+}
+
+.expansion-content .button {
+  margin-top: 1vw;
+  border-radius: 16px;
+}
