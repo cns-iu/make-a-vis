@@ -8,20 +8,29 @@ metadata:
   dateSaved: 2013-01-01
 
 dataSources:
-  - id: myJSONDataSource
+  - id: myJSONDataSource1
     template: json
     properties:
-      dataURL: https://cns-iu.github.io/make-a-vis/examples/test.json
+      dataURL: http://example.com/example.json
     recordStreams:
-      - id: cowsToo
-        label: Cows Too
+      - id: testStream1
+        label: A test stream populated by an external JSON link
 
-  - id: myJSONDataSource
+  - id: myJSONDataSource2
     template: json
     properties:
-      rawData: testData
+      rawData: testData2
     recordStreams:
-      - id: cows
+      - id: testStream2
+        label: A test stream populated by attached JSON data
+
+  - id: myJSONDataSource3
+    template: json
+    properties:
+      rawData: testData3
+    recordStreams:
+      - id: testStream3
+        label: A test stream populated by attached YML data
 
   - id: isiDataSource
     template: isi
@@ -30,9 +39,7 @@ dataSources:
     recordStreams:
       - id: authors
       - id: publications
-      - id: publishers
-      - id: coauthors
-      - id: author-pub-edges
+      - id: co-author-links
 
 recordSets:
   - id: author
@@ -43,17 +50,45 @@ recordSets:
         label: Name
         dataType: text
         scaleType: nominal
+      - id: paperCount
+        label: \# Papers
+        dataType: integer
+        scaleType: ratio
+      - id: coauthorCount
+        label: \# Co-Authors
+        dataType: integer
+        scaleType: ratio
+      - id: numCites
+        label: \# Citations
+        dataType: integer
+        scaleType: ratio
 
   - id: publication
     label: Publication
     labelPlural: Publications
     dataVariables:
-      - id: language
-        label: Language
+      - id: id
+        label: WoS ID
+        dataType: text
+        scaleType: nominal #?
+      - id: title
+        label: Title
         dataType: text
         scaleType: nominal
+      - id: authors
+        label: Authors
+        dataType: text
+        scaleType: nominal
+      - id: journalName
+        label: Journal Name
+        dataType: text
+        scaleType: nominal
+      - id: year
+        label: Year Published
+        dataType: integer
+        scaleType: ratio
 
-  - id: coauthor
+  - id: co-author-link
     label: Co-Author
     labelPlural: Co-Authors
     dataVariables:
@@ -77,53 +112,95 @@ graphicVariableMappings:
       author:
         name:
           axis:
-            - id: axis
-              selector: name
+            - selector: name
           text:
-            - id: label
-              selector: name
+            - selector: name
+        paperCount:
+          axis:
+            - selector: paperCount
+          text:
+            - selector: paperCount
           color:
-            - id: color
-              selector: color
-          shape:
-            - id: shape
-              selector: shape
+            - selector: paperCountColor
           size:
-            - id: size
-              selector: size
+            - selector: paperCountSize
+        coauthorCount:
+          axis:
+            - selector: coauthorCount
+          text:
+            - selector: coauthorCount
+          color:
+            - selector: coauthorCountColor
+          size:
+            - selector: coauthorCountSize
+        numCites:
+          axis:
+            - selector: numCites
+          text:
+            - selector: numCites
+          color:
+            - selector: numCitesColor
+          size:
+            - selector: numCitesSize
 
   - recordStream: publications
     mappings: 
       author:
         name:
-          size:
-            - id: size.agg
-              label: Aggregate Size
-              selector: authorAgg.size
-            - id: size.firstAuthor
-              label: First Author Size
-              selector: firstAuthor.size
-          shape:
-            - id: shape.agg
-              label: Aggregate Shape
-              selector: authorAgg.shape
-            - id: shape.firstAuthor
-              label: First Author Shape
-              selector: firstAuthor.shape
           axis:
-            - id: axis.firstAuthor
-              label: First Author Name
+            - id: firstAuthor.name
+              label: First Author
               selector: firstAuthor.name
-      publication:
-        language:
-          shape:
-            - id: shape
-              selector: languageShape
+          text:
+            - id: firstAuthor.name
+              label: First Author
+              selector: firstAuthor.name
+            - id: authorsJoined
+              label: All Authors
+              selector: authorsJoined
+        paperCount:
+          axis:
+            - id: authorAgg.paperCount
+              label: Aggregate \# Papers
+              selector: authorAgg.paperCount
+            - id: firstAuthor.paperCount
+              label: First Author \# Papers
+              selector: firstAuthor.paperCount
+          text:
+            - id: authorAgg.paperCount
+              label: Aggregate \# Papers
+              selector: authorAgg.paperCount
+            - id: firstAuthor.paperCount
+              label: First Author \# Papers
+              selector: firstAuthor.paperCount
           color:
-            - id: color
-              selector: languageColor
+            - id: authorAgg.paperCountColor
+              label: Aggregate \# Papers
+              selector: authorAgg.paperCountColor
+            - id: firstAuthor.paperCountColor
+              label: First Author \# Papers
+              selector: firstAuthor.paperCountColor
+          size:
+            - id: authorAgg.paperCountSize
+              label: Aggregate \# Papers
+              selector: authorAgg.paperCountSize
+            - id: firstAuthor.paperCountSize
+              label: First Author \# Papers
+              selector: firstAuthor.paperCountSize
+        # repeat for coauthorCount and numCites
 
-  - recordStream: coauthors
+      publication:
+        year:
+          axis:
+            - selector: year
+          text:
+            - selector: year
+          color:
+            - selector: yearColor
+          size:
+            - selector: yearSize
+
+  - recordStream: co-author-links
     mappings:
       author:
         name:
@@ -145,7 +222,7 @@ graphicVariableMappings:
           size:
             - id: size
               selector: size
-      coauthor:
+      co-author-link:
         author1:
           text:
             - id: label
@@ -165,76 +242,105 @@ graphicVariableMappings:
             - id: size
               selector: numCoauthsSize
 
+graphicSymbolMapping:
+  - id: author-points
+    type: area
+    recordStream: author
+    graphicVariables:
+      x:
+        recordSet: author
+        dataVariable: paperCount
+        graphicVariable: axis
+      y:
+        recordSet: author
+        dataVariable: numCites
+        graphicVariable: axis
+
+  - id: author-nodes
+    type: area
+    recordStream: authors
+    graphicVariables:
+      identifier:
+        recordSet: author
+        dataVariable: name
+        graphicVariable: identifier
+      shape:
+        recordSet: author
+        dataVariable: name
+        graphicVariable: shape
+      color:
+        recordSet: author
+        dataVariable: name
+        graphicVariable: color.byName
+
+  - id: co-author-links
+    type: line
+    recordStream: co-author-links
+    graphicVariables:
+      source:
+        recordSet: co-author-link
+        dataVariable: author1
+        graphicVariable: identifier
+      target:
+        recordSet: co-author-link
+        dataVariable: author2
+        graphicVariable: identifier
+      color:
+        recordSet: author
+        dataVariable: name
+        graphicVariable: co-author.color.byName
+
+  - id: publication-points
+    type: area
+    recordStream: publications
+    graphicVariables:
+      identifier:
+        recordSet: author
+        dataVariable: name
+        graphicVariable: identifier
+      shape:
+        recordSet: author
+        dataVariable: name
+        graphicVariable: publication.shape
+      color:
+        recordSet: author
+        dataVariable: name
+        graphicVariable: publication.color.byName
+
 visualizations:
-  - template: scatterplot
+  - id: scatterplot1
+    template: scatterplot
+    properties:
+      drawGridLines: true    
+    graphicSymbols:
+      points: author-points
+
+  - id: scatterplot2
+    template: scatterplot
+    properties:
+      drawGridLines: true    
+    graphicSymbols:
+      points: publication-points
+
+  - id: coauthorNetwork1
+    template: network
     properties:
       drawGridLines: true
-    
     graphicSymbols:
-      - id: points
-        type: area
-        recordStream: publications
-        graphicVariables:
-          identifier:
-            recordSet: author
-            dataVariable: name
-            graphicVariable: identifier
-          shape:
-            recordSet: author
-            dataVariable: name
-            graphicVariable: publication.shape
-          color:
-            recordSet: author
-            dataVariable: name
-            graphicVariable: publication.color.byName
-
-  - template: network
-    properties:
-      drawGridLines: true
-
-    graphicSymbols:
-      - id: nodes
-        type: area
-        recordStream: authors
-        graphicVariables:
-          identifier:
-            recordSet: author
-            dataVariable: name
-            graphicVariable: identifier
-          shape:
-            recordSet: author
-            dataVariable: name
-            graphicVariable: shape
-          color:
-            recordSet: author
-            dataVariable: name
-            graphicVariable: color.byName
-
-      - id: edges
-        type: line
-        recordStream: coauthors
-        graphicVariables:
-          source:
-            recordSet: coauthor
-            dataVariable: author1
-            graphicVariable: identifier
-          target:
-            recordSet: coauthor
-            dataVariable: author2
-            graphicVariable: identifier
-          color:
-            recordSet: author
-            dataVariable: name
-            graphicVariable: coauthor.color.byName
+      nodes: author-nodes
+      edges: co-author-links
 
 rawData: 
-  testData:
-    {"cows": [{"a":133,"b":232},{"a":1,"b":2},{"a":5656,"b":656565}]}
   testData2:
-    cowsToo:
-      - moo: 1
-      - moo: 2
-      - moo: 3
+    {"testStream2": [{"var1":133,"var2":232},{"var1":1,"var2":2},{"var1":5656,"var2":656565}]}
+  testData3:
+    testStream3:
+      - var1: 1
+        var2: abc
+      - var1: 2
+        var2: def
+      - var1: 3
+        var2: ghi
   isiFile: |
     FN Clarivate Analytics Web of Science
     VR 1.0

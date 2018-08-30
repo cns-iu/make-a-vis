@@ -1,4 +1,4 @@
-import { GraphicVariable } from './graphic-variable';
+import { GraphicVariableMapping } from './graphic-variable-mapping';
 import { DataSource } from './data-source';
 import { RecordStream } from './record-stream';
 import { RecordSet } from './record-set';
@@ -11,7 +11,7 @@ export class Project {
     public metadata: any = { dateCreated: new Date() },
     public dataSources: DataSource[] = [],
     public recordSets: RecordSet[] = [],
-    public graphicVariables: GraphicVariable[] = [],
+    public graphicVariableMappings: GraphicVariableMapping[] = [],
     public visualizations: Visualization[] = [],
     public rawData: { [id: string]: any } = {}
   ) { }
