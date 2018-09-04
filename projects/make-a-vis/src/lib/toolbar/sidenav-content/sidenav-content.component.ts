@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidenav-content.component.css']
 })
 export class SidenavContentComponent implements OnInit {
+  panelOpenState = true;
+
   constructor() { }
 
   ngOnInit() {

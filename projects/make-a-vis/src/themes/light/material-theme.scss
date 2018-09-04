@@ -10,8 +10,9 @@
 // hue.
 // mat-palette accepts $palette-name, main, lighter and darker variants
 $mav-primary: mat-palette($mat-blue);
-$mav-accent:  mat-palette($mat-light-blue);
+$mav-accent:  mat-palette($mat-green);
 // The warn palette is optional (defaults to red).
 
 // Create the theme object (a Sass map containing all of the palettes).
 $mav-theme-light: mat-light-theme($mav-primary, $mav-accent);
+

@@ -1,3 +1,86 @@
-<p>
-  sidenav-content works!
-</p>
+<div class="sidenav-content">
+  <div class="title">
+    <div class="label">
+      <mav-save-icon class="icon"></mav-save-icon>
+      <span>Save Project</span>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+
+  <div class="title">
+    <div class="label">
+      <mav-load-project-icon class="icon"></mav-load-project-icon>
+      <span>Load Project</span>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+
+  <!-- .first panel allows to override default behavior of .cdk-program-focused -->
+  <mat-expansion-panel class="mat-elevation-z0 first-panel" (opened)="panelOpenState=true" (closed)="panelOpenState=false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <div class="expansion-title">
+          <mav-new-project-icon class="icon"></mav-new-project-icon>
+          <span>New Project</span>
+        </div>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p class="expansion-content">
+      <mat-button-toggle-group name="newProject" aria-label="New Project" class="button-toggle-group">
+        <mat-button-toggle value="nsf" class="button-toggle">NSF</mat-button-toggle>
+        <mat-button-toggle value="isi" class="button-toggle">ISI</mat-button-toggle>
+      </mat-button-toggle-group>
+      <br>
+      <button mat-stroked-button isRoundButton class="button">Get Data</button>
+    </p>
+  </mat-expansion-panel>
+  <mat-divider></mat-divider>
+
+  <mat-expansion-panel class="mat-elevation-z0" (opened)="panelOpenState=true" (closed)="panelOpenState=false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <div class="expansion-title">
+          <mav-export-snapshot-icon class="icon"></mav-export-snapshot-icon>
+          <span>Export Snapshot</span>
+        </div>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p class="expansion-content">
+      <mat-button-toggle-group name="exportSnapshot" aria-label="Export Snapshot" class="button-toggle-group">
+        <mat-button-toggle value="png" class="button-toggle">PNG</mat-button-toggle>
+        <mat-button-toggle value="svg" class="button-toggle">SVG</mat-button-toggle>
+        <mat-button-toggle value="pdf" class="button-toggle">PDF</mat-button-toggle>
+      </mat-button-toggle-group>
+      <button mat-stroked-button isRoundButton class="button">Export</button>
+    </p>
+  </mat-expansion-panel>
+  <mat-divider></mat-divider>
+
+  <mat-expansion-panel class="mat-elevation-z0" (opened)="panelOpenState=true" (closed)="panelOpenState=false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <div class="expansion-title">
+          <mav-share-icon class="icon"></mav-share-icon>
+          <span>Share</span>
+        </div>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p class="expansion-content">
+      <mat-form-field appearance="outline" class="field">
+        <input matInput placeholder="">
+      </mat-form-field>
+      <button mat-stroked-button class="button">Get Link</button>
+    </p>
+  </mat-expansion-panel>
+  <mat-divider></mat-divider>
+
+
+  <div class="title">
+    <div class="label">
+      <mav-logging-icon class="icon"></mav-logging-icon>
+      <span>Logging</span>
+    </div>
+    <mat-slide-toggle class="toggle"></mat-slide-toggle>
+  </div>
+  <mat-divider></mat-divider>
+</div>
