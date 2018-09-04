@@ -46,6 +46,7 @@ dataSources:
       - id: publications
       - id: authors
       - id: coAuthorLinks
+      - id: scienceMapSubdisciplines
 
 recordSets:
   - id: author
@@ -265,6 +266,13 @@ graphicVariableMappings:
             - id: size
               selector: numCoauthsSize
 
+  - recordStream: scienceMapSubdisciplines
+    mappings:
+      publication:
+        journalName:
+          journalId:
+            - selector: journalId
+
 graphicSymbolMappings:
   - id: authorPoints
     type: area
@@ -330,6 +338,15 @@ graphicSymbolMappings:
         dataVariable: name
         graphicVariable: publication.color.byName
 
+  - id: ucsdMapPoints
+    type: area
+    recordStream: scienceMapSubdisciplines
+    graphicVariables:
+      identifier:
+        recordSet: scienceMapSubdiscipline
+        dataVariable: name
+        graphicVariable: identifier
+
 visualizations:
   - id: scatterplot1
     template: scatterplot
@@ -355,7 +372,25 @@ visualizations:
 
   - id: ucsdMap
     template: ucsdMap
+    properties:
+      showMultidisciplinary: false
+    graphicSymbols:
+      nodes: ucsdMapPoints
 
+  - id: usMap
+    template: geographicMap
+    properties:
+      scope: us
+    graphicSymbols:
+      points: publicationPoints
+      states: publicationPoints
+
+  - id: horizontalBarGraph
+    template: horizontalBarGraph
+    properties:
+      drawGridLines: true    
+    graphicSymbols:
+      points: authorPoints
 
 rawData: 
   testData1:
