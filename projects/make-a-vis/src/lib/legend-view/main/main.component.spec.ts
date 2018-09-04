@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MakeAVisModule } from 'make-a-vis';
 import { MainComponent } from './main.component';
 
 describe('MainComponent', () => {
@@ -9,7 +8,6 @@ describe('MainComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MakeAVisModule],
       declarations: [ MainComponent ]
     })
     .compileComponents();

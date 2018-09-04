@@ -1,0 +1,23 @@
+<ng-container [ngSwitch]="icon">
+  <ng-template [ngSwitchCase]="'scatterGraph'">
+    <mav-scatter-graph-icon class="icon"></mav-scatter-graph-icon>
+  </ng-template>
+
+  <ng-template [ngSwitchCase]="'geomap'">
+    <mav-geomap-icon class="icon"></mav-geomap-icon>
+  </ng-template>
+
+  <ng-template [ngSwitchCase]="'mapOfScience'">
+    <mav-map-of-science-icon class="icon"></mav-map-of-science-icon>
+  </ng-template>
+
+  <ng-template [ngSwitchCase]="'network'">
+    <mav-network-icon class="icon"></mav-network-icon>
+  </ng-template>
+
+  <ng-template [ngSwitchCase]="'hbg'">
+    <mav-horizontal-bar-graph-icon class="icon"></mav-horizontal-bar-graph-icon>
+  </ng-template>
+
+  {{label}}
+</ng-container>

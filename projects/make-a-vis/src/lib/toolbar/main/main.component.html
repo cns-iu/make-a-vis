@@ -1,13 +1,13 @@
 <mav-toolbar-content (toggleSidenav)="setSidenavState($event)">
-</mav-toolbar-content> 
+</mav-toolbar-content>
 
 <mat-sidenav-container>
     <mat-sidenav #sidenav class="sidenav" mode="over" [(opened)]="isSidenavOpen">
-        <mav-sidenav-content></mav-sidenav-content>
+        <mav-sidenav-content [panelsOpenState]="isSidenavOpen"></mav-sidenav-content>
     </mat-sidenav>
 
     <mat-sidenav-content class="main-content">
-      main content goes here!
+        <ng-content></ng-content>
     </mat-sidenav-content>
 
 </mat-sidenav-container>

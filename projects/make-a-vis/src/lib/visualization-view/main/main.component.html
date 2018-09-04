@@ -1,0 +1,29 @@
+<mat-tab-group [color]="'#ffffff'" [disableRipple]="true" [(selectedIndex)]="selectedTab" class="tab-group">
+  <mat-tab *ngFor="let label of tabs; let index=index" [disabled]="false">
+    
+    <ng-template mat-tab-label>
+      <mat-chip-list [selectable]="true">
+        <mat-chip [selected]="index===selectedTab" (click)="selected(index)" class="tab-label">
+          <div class="text">{{label}}</div>
+          <mav-cancel-icon (click)="removeTab(index)"></mav-cancel-icon>
+        </mat-chip>
+      </mat-chip-list>
+    </ng-template>
+    
+    <ng-template matTabContent>
+      {{label}} Loaded!
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
+
+<div class="add-visualization">
+  <mav-add-icon [matMenuTriggerFor]="menu"></mav-add-icon>
+  Add New
+</div>
+
+<mat-menu #menu>
+  <button (click)="addTab(option.label)" *ngFor="let option of menuOptions;" mat-menu-item>
+    <mav-visualization-menu [label]="option.label" [icon]="option.icon" class="menu">
+    </mav-visualization-menu>
+  </button>
+</mat-menu>
