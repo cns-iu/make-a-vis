@@ -3,4 +3,6 @@ export interface DataVariable {
   label: string;
   dataType: string;
   scaleType: string;
+
+  toJSON(): any;
 }

@@ -3,7 +3,6 @@ import { RecordStream } from './record-stream';
 
 
 export interface DataSourceOptions {
-  dataURL?: string;
   rawData?: string;
 }
 

@@ -7,8 +7,10 @@ export interface GraphicVariableMapping {
   mappings: {
     [recordSetId: string]: {
       [dataVariableId: string]: {
-        [graphicVariableType: string]: GraphicVariable;
+        [graphicVariableType: string]: GraphicVariable[];
       }
     }
   };
+
+  toJSON(): any;
 }
