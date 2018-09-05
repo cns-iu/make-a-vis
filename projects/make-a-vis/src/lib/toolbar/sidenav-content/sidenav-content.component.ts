@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
+import { MatAccordion } from '@angular/material';
 
 @Component({
   selector: 'mav-sidenav-content',
@@ -6,6 +14,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidenav-content.component.css']
 })
 export class SidenavContentComponent implements OnInit {
+  @ViewChild(MatAccordion) accordion: MatAccordion;
+  @Input() set panelsOpenState(sidenavOpenState: boolean) {
+    if (!sidenavOpenState) {
+      this.accordion.closeAll();
+    }
+  }
+
   panelOpenState = true;
 
   constructor() { }

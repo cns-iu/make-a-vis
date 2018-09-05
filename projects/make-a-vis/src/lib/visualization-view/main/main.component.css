@@ -1,0 +1,25 @@
+.tab-group {
+  float: left;
+  width: 85%;
+}
+
+.tab-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.tab-label .text {
+  padding-right: 10px;
+}
+
+.add-visualization {
+  display: flex;
+  align-items: center;
+  margin-left: 85%;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+}

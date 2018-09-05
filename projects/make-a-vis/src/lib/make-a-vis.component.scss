@@ -1,0 +1,30 @@
+.main-view {
+  display: flex;
+  width: 100%;
+  height: 93vh;
+  align-items: stretch;
+  overflow: hidden;
+
+  .data-view {
+    width: 35%;
+    padding: 1vh .25vw 1vh 1vw;
+  }
+
+  .visualization-and-legend-view {
+    position: relative;
+    width: 65%;
+    flex-direction: column;
+    padding: 1vh 1vw 1vh .25vw;
+    display: flex;
+
+    .visualization {
+      margin-bottom: 1vh;
+      height: 67vh;
+    }
+
+    .legend {
+      display: flex;
+      height: 23vh;
+    }
+  }
+}

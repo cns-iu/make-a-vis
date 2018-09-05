@@ -1,6 +1,14 @@
 <mav-light-theme *ngIf="theme === 'light-theme'"></mav-light-theme>
 <div [class]="theme">
   <mav-toolbar>
-    <!-- <visualization-something></visualization-something> -->
+    <div class="main-view">
+      <div class="data-view">
+        <mav-data-view></mav-data-view>
+      </div>
+      <div class="visualization-and-legend-view">
+        <mav-visualization-view class="visualization"></mav-visualization-view>
+        <mav-legend-view class="legend"></mav-legend-view>
+      </div>
+    </div>
   </mav-toolbar>
 </div>
