@@ -17,8 +17,13 @@ describe('ToolbarContentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MatIconModule, MatToolbarModule],
-      declarations: [CnsLogoIconComponent, GithubIconComponent, MenuIconComponent, ToolbarContentComponent]
+      imports: [
+        MatIconModule, MatToolbarModule
+      ],
+      declarations: [
+        CnsLogoIconComponent, GithubIconComponent, MenuIconComponent,
+        ToolbarContentComponent
+      ]
     })
     .compileComponents();
   }));
