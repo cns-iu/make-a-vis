@@ -12,14 +12,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
-import { ExportSnapshotIconComponent } from '../icons/export-snapshot/export-snapshot-icon.component';
-import { LoadProjectIconComponent } from '../icons/load-project/load-project-icon.component';
-import { LoggingIconComponent } from '../icons/logging/logging-icon.component';
-import { MenuIconComponent } from '../icons/menu/menu-icon.component';
-import { NewProjectIconComponent } from '../icons/new-project/new-project-icon.component';
-import { SaveIconComponent } from '../icons/save/save-icon.component';
-import { ShareIconComponent } from '../icons/share/share-icon.component';
-
+import { createStubComponent } from '../../../testing/utility';
 import { SidenavContentComponent } from './sidenav-content.component';
 
 describe('toolbar', () => {
@@ -45,14 +38,9 @@ describe('SidenavContentComponent', () => {
         MatDividerModule
       ],
       declarations: [
-        ExportSnapshotIconComponent,
-        LoadProjectIconComponent,
-        LoggingIconComponent,
-        MenuIconComponent,
-        NewProjectIconComponent,
-        SaveIconComponent,
-        ShareIconComponent,
-
+        ...[
+          'export-snapshot', 'load-project', 'logging', 'menu', 'new-project', 'save', 'share'
+        ].map((name) => createStubComponent(`mav-${name}-icon`)),
         SidenavContentComponent
       ]
     })
