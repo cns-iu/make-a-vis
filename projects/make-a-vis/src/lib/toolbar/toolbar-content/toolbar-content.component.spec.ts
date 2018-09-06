@@ -11,6 +11,7 @@ import { MenuIconComponent } from '../icons/menu/menu-icon.component';
 
 import { ToolbarContentComponent } from './toolbar-content.component';
 
+describe('toolbar', () => {
 describe('ToolbarContentComponent', () => {
   let component: ToolbarContentComponent;
   let fixture: ComponentFixture<ToolbarContentComponent>;
@@ -37,4 +38,5 @@ describe('ToolbarContentComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+});
 });

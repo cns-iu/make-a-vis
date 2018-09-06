@@ -22,6 +22,7 @@ import { ShareIconComponent } from '../icons/share/share-icon.component';
 
 import { SidenavContentComponent } from './sidenav-content.component';
 
+describe('toolbar', () => {
 describe('SidenavContentComponent', () => {
   let component: SidenavContentComponent;
   let fixture: ComponentFixture<SidenavContentComponent>;
@@ -67,4 +68,5 @@ describe('SidenavContentComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+});
 });

@@ -1,5 +1,6 @@
 import { DataViewModule } from './data-view.module';
 
+describe('data-view', () => {
 describe('DataViewModule', () => {
   let dataViewModule: DataViewModule;
 
@@ -10,4 +11,5 @@ describe('DataViewModule', () => {
   it('should create an instance', () => {
     expect(dataViewModule).toBeTruthy();
   });
+});
 });

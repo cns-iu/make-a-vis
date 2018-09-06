@@ -1,5 +1,6 @@
 import { VisualizationViewModule } from './visualization-view.module';
 
+describe('visualization-view', () => {
 describe('VisualizationViewModule', () => {
   let visualizationViewModule: VisualizationViewModule;
 
@@ -10,4 +11,5 @@ describe('VisualizationViewModule', () => {
   it('should create an instance', () => {
     expect(visualizationViewModule).toBeTruthy();
   });
+});
 });
