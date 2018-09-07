@@ -1,40 +1,20 @@
-import { access, RawChangeSet } from '@ngx-dino/core';
-import { Observable, defer } from 'rxjs';
-import { map } from 'rxjs/operators';
 
+import { DataSource, DataSourceOptions } from '../../shared/data-source';
 import { ObjectFactory, ObjectFactoryRegistry } from '../../shared/object-factory';
-import { RawData } from '../../shared/raw-data';
-import { DataSource, DataSourceOptions } from './../../shared/data-source';
-import { Project } from './../../shared/project';
-import { RecordStream } from './../../shared/record-stream';
-
-
-export class DefaultRecordStream<T = any> implements RecordStream<T> {
-
-  constructor(public id: string, public label: string, private dataSource) {}
-
-  asObservable(): Observable<RawChangeSet<T>> {
-    return defer<T[]>(this.getData.bind(this)).pipe(map(RawChangeSet.fromArray));
-  }
-  async getData(): Promise<T[]> {
-    const data = await this.dataSource.getRawData().getData();
-    return access<T[]>(this.id, []).get(data);
-  }
-  toJSON(): any {
-    return { id: this.id, label: this.label || undefined };
-  }
-}
+import { Project } from '../../shared/project';
+import { RecordStream } from '../../shared/record-stream';
+import { DefaultRecordStream } from './default-record-stream';
 
 export class DefaultDataSource<T = any> implements DataSource {
+  id: string;
   template: 'default';
+  properties: DataSourceOptions;
   recordStreams: RecordStream<T>[];
 
-  constructor(public id, recordStreams: any[], public properties: DataSourceOptions, private project: Project) {
-    this.recordStreams = recordStreams.map((rs) => new DefaultRecordStream(rs.id, rs.label || rs.id, this));
-  }
-
-  getRawData(): RawData {
-    return this.project.rawData.find(d => d.id === this.properties.rawData);
+  constructor(data: any, private project: Project) {
+    const rawData = this.project.rawData.find(d => d.id === this.properties.rawData);
+    const recordStreams = data.recordStreams.map((rs) => new DefaultRecordStream({id: rs.id, label: rs.label || rs.id}, rawData));
+    Object.assign(this, data, { recordStreams });
   }
 
   toJSON(): any {
@@ -54,7 +34,7 @@ export class DefaultDataSourceFactory implements ObjectFactory<DataSource, Proje
     if (registry.hasObjectFactory('dataSource', data.template)) {
       return await registry.fromJSON<DataSource>('dataSource', data.template, data, context);
     }
-    return new DefaultDataSource(data.id, data.recordStreams, data.properties, context);
+    return new DefaultDataSource(data, context);
   }
 
   toJSON(instance: DataSource, context: Project, registry: ObjectFactoryRegistry): any {

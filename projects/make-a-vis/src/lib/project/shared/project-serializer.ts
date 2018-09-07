@@ -13,8 +13,7 @@ export class ProjectSerializer {
     return registry.toJSON<Project>('project', 'default', project, project);
   }
   static async fromJSON(data: any, registry: ObjectFactoryRegistry = ProjectSerializer.defaultRegistry): Promise<Project> {
-    const project = new Project();
-    return registry.fromJSON<Project>('project', 'default', data, project);
+    return registry.fromJSON<Project>('project', 'default', data, null);
   }
 
   static async toYAML(project: Project, registry: ObjectFactoryRegistry = ProjectSerializer.defaultRegistry): Promise<string> {

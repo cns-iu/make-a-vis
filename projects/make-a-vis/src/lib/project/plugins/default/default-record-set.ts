@@ -1,22 +1,9 @@
 import { Project } from './../../shared/project';
-import { ObjectFactory } from './../../shared/object-factory';
 import { DataVariable } from './../../shared/data-variable';
 import { ObjectFactory, ObjectFactoryRegistry } from '../../shared/object-factory';
 import { RecordSet } from '../../shared/record-set';
+import { DefaultDataVariable } from './default-data-variable';
 
-export class DefaultDataVariable implements DataVariable {
-  id: string;
-  label: string;
-  dataType: string;
-  scaleType: string;
-
-  constructor(data: any) {
-    Object.assign(this, data);
-  }
-  toJSON(): any {
-    return Object.assign({}, this);
-  }
-}
 
 export class DefaultRecordSet implements RecordSet {
   id: string;
