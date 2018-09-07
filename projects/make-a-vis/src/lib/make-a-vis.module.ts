@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LoggerFactory, TypescriptLoggerFactory } from '@ngx-dino/core';
 
 // Submodules
 import { DataViewModule } from './data-view/data-view.module';
@@ -20,6 +21,6 @@ import { MakeAVisComponent } from './make-a-vis.component';
   ],
   declarations: [LightThemeComponent, MakeAVisComponent],
   exports: [MakeAVisComponent, ToolbarModule],
-  providers: []
+  providers: [{ provide: LoggerFactory, useExisting: TypescriptLoggerFactory }]
 })
 export class MakeAVisModule { }
