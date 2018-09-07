@@ -1,12 +1,15 @@
 import { NgModule, Optional, Self, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Logger, LoggerConfig, LoggerFactory, TypescriptLoggerFactory } from '@ngx-dino/core';
+import { Logger, LoggerConfig, LoggerFactory, LogLevel, TypescriptLoggerFactory } from '@ngx-dino/core';
 
 // Submodules
 import { DataViewModule } from './data-view/data-view.module';
 import { LegendViewModule } from './legend-view/legend-view.module';
 import { ToolbarModule } from './toolbar/toolbar.module';
 import { VisualizationViewModule } from './visualization-view/visualization-view.module';
+
+// Services
+import { LoggingControlService } from './shared/logging-control.service';
 
 // Themes
 import { LightThemeComponent } from './light-theme/light-theme.component';
@@ -30,4 +33,9 @@ import { MakeAVisComponent } from './make-a-vis.component';
     }
   ]
 })
-export class MakeAVisModule { }
+export class MakeAVisModule {
+  constructor(loggingControl: LoggingControlService, logger: Logger) {
+    loggingControl.enableLogging();
+    logger.setLevel(LogLevel.Error);
+  }
+}
