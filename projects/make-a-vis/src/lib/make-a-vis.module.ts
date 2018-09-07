@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Optional, Self, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoggerFactory, TypescriptLoggerFactory } from '@ngx-dino/core';
+import { Logger, LoggerConfig, LoggerFactory, TypescriptLoggerFactory } from '@ngx-dino/core';
 
 // Submodules
 import { DataViewModule } from './data-view/data-view.module';
@@ -21,6 +21,13 @@ import { MakeAVisComponent } from './make-a-vis.component';
   ],
   declarations: [LightThemeComponent, MakeAVisComponent],
   exports: [MakeAVisComponent, ToolbarModule],
-  providers: [{ provide: LoggerFactory, useExisting: TypescriptLoggerFactory }]
+  providers: [
+    { provide: LoggerFactory, useExisting: TypescriptLoggerFactory },
+    { provide: LoggerConfig, useValue: { name: 'make-a-vis' } },
+    {
+      provide: Logger, useFactory(factory, parent, config) { return factory.createLogger(parent, config); },
+      deps: [LoggerFactory, [new Optional(), new SkipSelf(), Logger], [new Self(), LoggerConfig]]
+    }
+  ]
 })
 export class MakeAVisModule { }
