@@ -1,4 +1,3 @@
----
 # Example Project
 apiVersion: 1
 
@@ -139,6 +138,10 @@ graphicVariableMappings:
             - selector: name
           text:
             - selector: name
+          identifier:
+            - selector: name
+          shape:
+            - selector: name
         paperCount:
           axis:
             - selector: paperCount
@@ -171,6 +174,8 @@ graphicVariableMappings:
     mappings: 
       author:
         name:
+          identifier:
+            - selector: firstAuthor.name
           axis:
             - id: firstAuthor.name
               label: First Author
@@ -182,6 +187,9 @@ graphicVariableMappings:
             - id: authorsJoined
               label: All Authors
               selector: authorsJoined
+          shape:
+            - id: publication.shape
+              selector: firstAuthor.name
         paperCount:
           axis:
             - id: authorAgg.paperCount
@@ -281,11 +289,13 @@ graphicSymbolMappings:
       x:
         recordSet: author
         dataVariable: paperCount
-        graphicVariable: axis
+        graphicVariableType: axis
+        graphicVariableId: axis
       y:
         recordSet: author
         dataVariable: numCites
-        graphicVariable: axis
+        graphicVariableType: axis
+        graphicVariableId: axis
 
   - id: authorNodes
     type: area
@@ -294,15 +304,18 @@ graphicSymbolMappings:
       identifier:
         recordSet: author
         dataVariable: name
-        graphicVariable: identifier
+        graphicVariableType: identifier
+        graphicVariableId: identifier
       shape:
         recordSet: author
         dataVariable: name
-        graphicVariable: shape
+        graphicVariableType: shape
+        graphicVariableId: shape
       color:
         recordSet: author
-        dataVariable: name
-        graphicVariable: color.byName
+        dataVariable: paperCount
+        graphicVariableType: color
+        graphicVariableId: color
 
   - id: coAuthorLinks
     type: line
@@ -311,15 +324,18 @@ graphicSymbolMappings:
       source:
         recordSet: coAuthorLink
         dataVariable: author1
-        graphicVariable: identifier
+        graphicVariableType: identifier
+        graphicVariableId: identifier
       target:
         recordSet: coAuthorLink
         dataVariable: author2
-        graphicVariable: identifier
+        graphicVariableType: identifier
+        graphicVariableId: identifier
       color:
         recordSet: author
         dataVariable: name
-        graphicVariable: co-author.color.byName
+        graphicVariableType: color
+        graphicVariableId: color
 
   - id: publicationPoints
     type: area
@@ -328,24 +344,28 @@ graphicSymbolMappings:
       identifier:
         recordSet: author
         dataVariable: name
-        graphicVariable: identifier
+        graphicVariableType: identifier
+        graphicVariableId: identifier
       shape:
         recordSet: author
         dataVariable: name
-        graphicVariable: publication.shape
+        graphicVariableType: shape
+        graphicVariableId: publication.shape
       color:
         recordSet: author
-        dataVariable: name
-        graphicVariable: publication.color.byName
+        dataVariable: paperCount
+        graphicVariableType: color
+        graphicVariableId: firstAuthor.paperCountColor
 
-  - id: ucsdMapPoints
-    type: area
-    recordStream: scienceMapSubdisciplines
-    graphicVariables:
-      identifier:
-        recordSet: scienceMapSubdiscipline
-        dataVariable: name
-        graphicVariable: identifier
+  # - id: ucsdMapPoints
+  #   type: area
+  #   recordStream: scienceMapSubdisciplines
+  #   graphicVariables:
+  #     identifier:
+  #       recordSet: scienceMapSubdiscipline
+  #       dataVariable: name
+  #       graphicVariableType: identifier
+  #       graphicVariableId: identifier
 
 visualizations:
   - id: scatterplot1
@@ -370,12 +390,12 @@ visualizations:
       nodes: authorNodes
       edges: coAuthorLinks
 
-  - id: ucsdMap
-    template: ucsdMap
-    properties:
-      showMultidisciplinary: false
-    graphicSymbols:
-      nodes: ucsdMapPoints
+  # - id: ucsdMap
+  #   template: ucsdMap
+  #   properties:
+  #     showMultidisciplinary: false
+  #   graphicSymbols:
+  #     nodes: ucsdMapPoints
 
   - id: usMap
     template: geographicMap
@@ -393,13 +413,13 @@ visualizations:
       points: authorPoints
 
 rawData: 
-  testData1:
+  - id: testData1
     template: json-url
     url: http://example.com/example.json
-  testData2:
+  - id: testData2
     template: json
     data: {"testStream2": [{"var1":133,"var2":232},{"var1":1,"var2":2},{"var1":5656,"var2":656565}]}
-  testData3:
+  - id: testData3
     template: json
     data:
       testStream3:
@@ -409,7 +429,7 @@ rawData:
           var2: def
         - var1: 3
           var2: ghi
-  isiFile:
+  - id: isiFile
     template: string
     data: |
       FN Clarivate Analytics Web of Science

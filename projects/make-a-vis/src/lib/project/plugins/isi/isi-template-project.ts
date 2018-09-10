@@ -7,8 +7,8 @@ export class ISITemplateProjectFactory {
   }
 }
 
-export class ISITemplateProject extends Project {
-  constructor(isiFileContent: string) {
-    super();
-  }
-}
+// export class ISITemplateProject extends Project {
+//   constructor(isiFileContent: string) {
+//     super();
+//   }
+// }

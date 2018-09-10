@@ -1,5 +1,5 @@
-import { DataSource, DataSourceOptions } from './../shared/data-source';
-import { RecordStream } from './../shared/record-stream';
+import { DataSource, DataSourceOptions } from '../../shared/data-source';
+import { RecordStream } from '../../shared/record-stream';
 import { NSFRecord } from './nsf-records';
 
 export class NSFDataSource implements DataSource {

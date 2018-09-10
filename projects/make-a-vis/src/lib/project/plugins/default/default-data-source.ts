@@ -12,9 +12,9 @@ export class DefaultDataSource<T = any> implements DataSource {
   recordStreams: RecordStream<T>[];
 
   constructor(data: any, private project: Project) {
+    Object.assign(this, data);
     const rawData = this.project.rawData.find(d => d.id === this.properties.rawData);
-    const recordStreams = data.recordStreams.map((rs) => new DefaultRecordStream({id: rs.id, label: rs.label || rs.id}, rawData));
-    Object.assign(this, data, { recordStreams });
+    this.recordStreams = data.recordStreams.map((rs) => new DefaultRecordStream({id: rs.id, label: rs.label || rs.id}, rawData));
   }
 
   toJSON(): any {

@@ -12,7 +12,7 @@ export class DefaultVisualization implements Visualization {
   constructor(data: any, project: Project) {
     const graphicSymbols: any = {};
     for (const [slot, symbolId] of Object.entries(data.graphicSymbols)) {
-      const matches = project.findObjects(project.graphicVariables, {id: symbolId});
+      const matches = project.findObjects(project.graphicSymbols, {id: symbolId});
       if (matches.length > 0) {
         graphicSymbols[slot] = matches[0];
       } else {

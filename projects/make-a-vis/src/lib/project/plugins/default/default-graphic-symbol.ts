@@ -3,6 +3,7 @@ import { Project } from '../../shared/project';
 import { RecordStream } from '../../shared/record-stream';
 import { GraphicSymbol } from '../../shared/graphic-symbol';
 import { ObjectFactory, ObjectFactoryRegistry } from '../../shared/object-factory';
+import { RecordSet } from '../../shared/record-set';
 
 
 export class DefaultGraphicSymbol implements GraphicSymbol {
@@ -17,12 +18,23 @@ export class DefaultGraphicSymbol implements GraphicSymbol {
     this.recordStream = project.getRecordStream(data.recordStream);
 
     this.graphicVariables = {};
-    for (const [id, gvar] of Object.entries(data.graphicVariables)) {
+    for (const [id, gvarData] of Object.entries(data.graphicVariables)) {
+      const recordSet = project.recordSets.find((rs) => rs.id === gvarData['recordSet']);
+      if (!recordSet) {
+        throw new Error(`${id}: RecordSet => ${gvarData['recordSet']} not found.`);
+      }
+      const gvar: Partial<GraphicVariable> = {
+        recordStream: this.recordStream,
+        recordSet,
+        dataVariable: recordSet.dataVariables.find((dv) => dv.id === gvarData['dataVariable']),
+        type: gvarData['graphicVariableType'],
+        id: gvarData['graphicVariableId']
+      };
       const matches = project.findObjects(project.graphicVariables, gvar);
       if (matches.length > 0) {
         this.graphicVariables[id] = matches[0];
       } else {
-        throw new Error(`${id}: ${JSON.stringify(gvar)} not found in graphicVariables`);
+        throw new Error(`${id}: ${this.recordStream.id} => ${JSON.stringify(gvarData, null, 2)} not found in graphicVariables`);
       }
     }
   }
@@ -33,7 +45,8 @@ export class DefaultGraphicSymbol implements GraphicSymbol {
       graphicVariables[id] = {
         recordSet: gvar.recordSet.id,
         dataVariable: gvar.dataVariable.id,
-        graphicVariable: gvar.id
+        graphicVariableType: gvar.type,
+        graphicVariableId: gvar.id
       };
     }
 

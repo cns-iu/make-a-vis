@@ -1,4 +1,4 @@
-import { Project } from '../shared/project';
+import { Project } from '../../shared/project';
 
 
 export class NSFTemplateProjectFactory {
@@ -7,8 +7,8 @@ export class NSFTemplateProjectFactory {
   }
 }
 
-export class NSFTemplateProject extends Project {
-  constructor(nsfFileContent: string) {
-    super();
-  }
-}
+// export class NSFTemplateProject extends Project {
+//   constructor(nsfFileContent: string) {
+//     super();
+//   }
+// }

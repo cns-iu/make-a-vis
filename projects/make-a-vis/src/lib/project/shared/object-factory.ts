@@ -39,7 +39,7 @@ export class ObjectFactoryRegistry {
     return this.factories[objectType][template];
   }
   hasObjectFactory(objectType: string, template: string): boolean {
-    return !this.factories.hasOwnProperty(objectType) || !this.factories[objectType].hasOwnProperty[template];
+    return this.factories.hasOwnProperty(objectType) && this.factories[objectType].hasOwnProperty(template);
   }
 
   async fromJSONArray<T, C = any>(objectType: string, template: string, data: any[], context?: C): Promise<T[]> {

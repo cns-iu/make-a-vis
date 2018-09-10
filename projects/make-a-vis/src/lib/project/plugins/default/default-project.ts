@@ -38,7 +38,7 @@ export class DefaultProject implements Project {
   findObjects<T>(data: T[], search: { [key: string]: any; }): T[] {
     return data.filter((d) => {
       for (const key in search) {
-        if (search[key] !== data[key]) {
+        if (search[key] !== d[key]) {
           return false;
         }
       }
@@ -52,24 +52,24 @@ export class DefaultProjectFactory implements ObjectFactory<Project, Project> {
   type = 'project';
 
   async fromJSON(data: any, context: Project, registry: ObjectFactoryRegistry): Promise<Project> {
+    const p = context = new DefaultProject();
     // Make sure raw data is parsed first
-    const rawData = await registry.fromJSONArray<RawData>('rawData', 'default', data.rawData, context);
-
-    const metadata = data.metadata || undefined;
-    const dataSources = await registry.fromJSONArray<DataSource>('dataSource', 'default', data.dataSources, context);
-    const recordSets = await registry.fromJSONArray<RecordSet>('recordSet', 'default', data.recordSets, context);
-    const graphicVariables =
+    p.rawData = await registry.fromJSONArray<RawData>('rawData', 'default', data.rawData, context);
+    p.metadata = data.metadata || undefined;
+    p.dataSources = await registry.fromJSONArray<DataSource>('dataSource', 'default', data.dataSources, context);
+    p.recordSets = await registry.fromJSONArray<RecordSet>('recordSet', 'default', data.recordSets, context);
+    p.graphicVariables =
       await registry.fromJSON<GraphicVariable[]>('graphicVariableMappings', 'default', data.graphicVariableMappings, context);
-    const graphicSymbols =
+    p.graphicSymbols =
       await registry.fromJSONArray<GraphicSymbol>('graphicSymbolMappings', 'default', data.graphicSymbolMappings, context);
-    const visualizations = await registry.fromJSONArray<Visualization>('visualization', 'default', data.visualizations, context);
-
-    return new DefaultProject({ metadata, rawData, dataSources, recordSets, graphicVariables, graphicSymbols, visualizations });
+    p.visualizations = await registry.fromJSONArray<Visualization>('visualization', 'default', data.visualizations, context);
+    return p;
   }
 
   async toJSON(instance: Project, context: Project, registry: ObjectFactoryRegistry): Promise<any> {
     instance.metadata.dateSaved = new Date();
     const data: any = {
+      apiVersion: 1,
       metadata: instance.metadata,
       dataSources: await registry.toJSONArray<DataSource>('dataSource', 'default', instance.dataSources, instance),
       recordSets: await registry.toJSONArray<RecordSet>('recordSet', 'default', instance.recordSets, instance),

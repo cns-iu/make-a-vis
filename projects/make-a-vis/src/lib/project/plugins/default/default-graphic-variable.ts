@@ -27,6 +27,7 @@ export class DefaultGraphicVariable implements GraphicVariable {
   }
   toJSON(): any {
     return Object.assign({}, this, {
+      recordStream: this.recordStream.id,
       recordSet: this.recordSet.id,
       dataVariable: this.dataVariable.id
     });
@@ -34,20 +35,29 @@ export class DefaultGraphicVariable implements GraphicVariable {
 }
 
 export class DefaultGraphicVariableMapping {
-  static fromJSON(data: any, project: Project): GraphicVariable[] {
-    const recordStream = project.getRecordStream(data.recordStream);
+  static fromJSON(allData: any[], project: Project): GraphicVariable[] {
     const variables: GraphicVariable[] = [];
-
-    for (const [recordSetId, dvMapping] of Object.entries(data.mappings)) {
-      for (const [dataVariableId, gvMapping] of Object.entries(dvMapping)) {
-        for (const [type, gvData] of Object.entries(gvMapping)) {
-          const recordSet = project.recordSets.find(rs => rs.id === recordSetId);
-          const dataVariable = recordSet.dataVariables.find(dv => dv.id === dataVariableId);
-          variables.push(Object.assign({}, <GraphicVariable>gvData, { recordSet, dataVariable, type }));
+    for (const data of allData) {
+      const recordStream = project.getRecordStream(data.recordStream);
+      for (const [recordSetId, dvMapping] of Object.entries(data.mappings)) {
+        for (const [dataVariableId, gvMapping] of Object.entries(dvMapping)) {
+          for (const [type, gvDatas] of Object.entries(gvMapping)) {
+            const recordSet = project.recordSets.find(rs => rs.id === recordSetId);
+            const dataVariable = recordSet.dataVariables.find(dv => dv.id === dataVariableId);
+            const gvDataArray: any[] = <any[]>gvDatas;
+            for (const gvData of gvDataArray) {
+              if (!gvData.id && gvDataArray.length === 1) {
+                gvData.id = type;
+              }
+              variables.push(new DefaultGraphicVariable({
+                id: gvData.id, label: gvData.label || gvData.id, type, selector: gvData.selector,
+                recordStream, recordSet, dataVariable
+              }));
+            }
+          }
         }
       }
     }
-
     return variables;
   }
 
@@ -74,7 +84,6 @@ export class DefaultGraphicVariableMapping {
       mappings[recordStream][recordSet][dataVariable][type].push({
         id: gvar.id,
         label: gvar.label || gvar.id,
-        type: gvar.type,
         selector: gvar.selector
       });
     }
