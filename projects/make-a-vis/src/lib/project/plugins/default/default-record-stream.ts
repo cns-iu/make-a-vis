@@ -9,7 +9,7 @@ import { RecordStream } from '../../shared/record-stream';
 export class DefaultRecordStream<T = any> implements RecordStream<T> {
   public id: string;
   public label: string;
-  constructor(data: any, private rawData: RawData) {
+  constructor(data: {id: string, label?: string}, private rawData: RawData) {
     Object.assign(this, { id: data.id, label: data.label || data.id });
   }
   asObservable(): Observable<RawChangeSet<T>> {

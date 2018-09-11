@@ -12,7 +12,7 @@ export class DefaultGraphicSymbol implements GraphicSymbol {
   recordStream: RecordStream;
   graphicVariables: { [id: string]: GraphicVariable; };
 
-  constructor(data: any, private project: Project) {
+  constructor(data: {id: string, type: string, recordStream: string, graphicVariables: any}, private project: Project) {
     this.id = data.id;
     this.type = data.type;
     this.recordStream = project.getRecordStream(data.recordStream);

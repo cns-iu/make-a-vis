@@ -1,7 +1,7 @@
 apiVersion: 1
 metadata:
-  dateCreated: 2018-09-11T14:50:43.165Z
-  dateSaved: 2018-09-11T14:50:43.176Z
+  dateCreated: 2018-09-11T16:26:40.373Z
+  dateSaved: 2018-09-11T16:26:40.385Z
 dataSources:
   - id: isiDataSource
     template: isi
@@ -12,10 +12,75 @@ dataSources:
     recordStreams:
       - id: publications
         label: publications
-recordSets: []
-graphicVariableMappings: []
-graphicSymbolMappings: []
-visualizations: []
+recordSets:
+  - id: publication
+    label: Publication
+    labelPlural: Publications
+    dataVariables:
+      - id: wosId
+        label: WoS ID
+        dataType: text
+        scaleType: nominal
+      - id: title
+        label: Title
+        dataType: text
+        scaleType: nominal
+      - id: authors
+        label: Authors
+        dataType: text
+        scaleType: nominal
+      - id: year
+        label: Year
+        dataType: integer
+        scaleType: interval
+graphicVariableMappings:
+  - recordStream: publications
+    mappings:
+      publication:
+        wosId:
+          identifier:
+            - id: identifier
+              label: identifier
+              selector: wosId
+        year:
+          axis:
+            - id: axis
+              label: axis
+              selector: year
+          text:
+            - id: text
+              label: text
+              selector: year
+          color:
+            - id: color
+              label: color
+              selector: year
+          size:
+            - id: size
+              label: size
+              selector: year
+graphicSymbolMappings:
+  - id: publicationPoints
+    type: area
+    recordStream: publications
+    graphicVariables:
+      identifier:
+        recordSet: publication
+        dataVariable: wosId
+        graphicVariableType: identifier
+        graphicVariableId: identifier
+      color:
+        recordSet: publication
+        dataVariable: year
+        graphicVariableType: color
+        graphicVariableId: color
+visualizations:
+  - id: scattergraph1
+    template: scattergraph
+    properties:
+      drawGridLines: true
+    graphicSymbols:
+      points: publicationPoints
 rawData:
   - id: isiFile
     template: string

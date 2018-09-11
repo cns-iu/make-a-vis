@@ -9,7 +9,7 @@ export class DefaultVisualization implements Visualization {
   properties: { [key: string]: any; };
   graphicSymbols: { [slot: string]: GraphicSymbol; };
 
-  constructor(data: any, project: Project) {
+  constructor(data: {id: string, template?: string, properties: any, graphicSymbols: any}, project: Project) {
     const graphicSymbols: any = {};
     for (const [slot, symbolId] of Object.entries(data.graphicSymbols)) {
       const matches = project.findObjects(project.graphicSymbols, {id: symbolId});
@@ -30,6 +30,7 @@ export class DefaultVisualization implements Visualization {
 
     return {
       id: this.id,
+      template: this.template,
       properties: this.properties,
       graphicSymbols
     };

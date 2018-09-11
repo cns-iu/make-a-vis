@@ -11,7 +11,7 @@ export class DefaultDataSource<T = any> implements DataSource {
   properties: DataSourceOptions;
   recordStreams: RecordStream<T>[];
 
-  constructor(data: any, private project: Project) {
+  constructor(data: {id: string, template?: string, properties: any, recordStreams: any[]}, private project: Project) {
     Object.assign(this, data);
     const rawData = this.project.rawData.find(d => d.id === this.properties.rawData);
     this.recordStreams = data.recordStreams.map((rs) => new DefaultRecordStream({id: rs.id, label: rs.label || rs.id}, rawData));

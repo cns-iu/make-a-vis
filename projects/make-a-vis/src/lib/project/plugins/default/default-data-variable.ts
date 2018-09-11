@@ -5,7 +5,8 @@ export class DefaultDataVariable implements DataVariable {
   label: string;
   dataType: string;
   scaleType: string;
-  constructor(data: any) {
+
+  constructor(data: {id: string, label: string, dataType: string, scaleType: string}) {
     Object.assign(this, data);
   }
   toJSON(): any {

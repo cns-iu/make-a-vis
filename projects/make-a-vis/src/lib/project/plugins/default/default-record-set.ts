@@ -11,7 +11,7 @@ export class DefaultRecordSet implements RecordSet {
   labelPlural: string;
   dataVariables: DataVariable[];
 
-  constructor(data: any) {
+  constructor(data: {id: string, label: string, labelPlural: string, dataVariables: any[]}) {
     const dataVariables = data.dataVariables.map(d => new DefaultDataVariable(d));
     Object.assign(this, data, { dataVariables });
   }

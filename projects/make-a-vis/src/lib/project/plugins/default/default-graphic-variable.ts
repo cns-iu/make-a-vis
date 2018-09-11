@@ -18,7 +18,10 @@ export class DefaultGraphicVariable implements GraphicVariable {
   recordSet: RecordSet;
   dataVariable: DataVariable;
 
-  constructor(data: any) {
+  constructor(data: {
+    id: string, label: string, type: string, selector: string,
+    recordStream: RecordStream, recordSet: RecordSet, dataVariable: DataVariable;
+  }) {
     Object.assign(this, data);
   }
 
