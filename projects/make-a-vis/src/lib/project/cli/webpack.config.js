@@ -9,7 +9,10 @@ module.exports = {
     __dirname: true,
     fs: true
   },
-  entry: path.resolve(__dirname, 'validate-project.ts'),
+  entry: {
+    'mav-validate-project': path.resolve(__dirname, 'validate-project.ts'),
+    'mav-import-project': path.resolve(__dirname, 'import-project.ts'),
+  },
   // mode: 'production',
   mode: 'development',
   module: {
@@ -31,20 +34,24 @@ module.exports = {
   },
   externals: [nodeExternals()],
   output: {
-    filename: 'mav-validate-project.js',
+    filename: '[name].js',
     path: path.resolve('dist', 'make-a-vis')
   },
 
   plugins: [
     function () {
-      this.plugin('done', function() {
-        var dist = path.resolve('dist', 'make-a-vis');
+      function mkExecutable(dist, fname) {
         shell
           .echo('#!/usr/bin/env node\n')
-          .cat(path.resolve(dist, 'mav-validate-project.js'))
-          .to(path.resolve(dist, 'mav-validate-project'));
-        shell.chmod(755, path.resolve(dist, 'mav-validate-project'));
-        shell.rm(path.resolve(dist, 'mav-validate-project.js'));
+          .cat(path.resolve(dist, fname + '.js'))
+          .to(path.resolve(dist, fname));
+        shell.chmod(755, path.resolve(dist, fname));
+        shell.rm(path.resolve(dist, fname + '.js'));
+      }
+      this.plugin('done', function() {
+        var dist = path.resolve('dist', 'make-a-vis');
+        mkExecutable(dist, 'mav-validate-project');
+        mkExecutable(dist, 'mav-import-project');
       });
     },
   ]

@@ -16,7 +16,6 @@ export interface Project {
   graphicSymbols: GraphicSymbol[];
   visualizations: Visualization[];
   rawData: RawData[];
-  plugins: any[];
 
   getRecordStream<T>(id: string): RecordStream<T>;
   findObjects<T>(data: T[], search: { [key: string]: any}): T[];

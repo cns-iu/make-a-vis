@@ -18,7 +18,6 @@ export class DefaultProject implements Project {
   graphicSymbols: GraphicSymbol[] = [];
   visualizations: Visualization[] = [];
   rawData: RawData[] = [];
-  plugins: any[] = [];
 
   constructor(data: any = {}) {
     Object.assign(this, data);

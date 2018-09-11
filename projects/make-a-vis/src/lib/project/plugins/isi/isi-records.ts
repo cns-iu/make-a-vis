@@ -28,8 +28,8 @@ export interface ISIRecord {
   eissn: string;
   journalName: string;
   journalFullname: string;
-  authors: string;
-  authorsFullname: string;
+  authors: string[];
+  authorsFullname: string[];
   publicationYear: number;
   abstract: string;
   publicationType: string;

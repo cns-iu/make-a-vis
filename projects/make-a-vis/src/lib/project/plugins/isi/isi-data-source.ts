@@ -1,34 +1,42 @@
+import { ISIParsedRawData } from './isi-parsed-raw-data';
 import { Project } from './../../shared/project';
 import { DataSource, DataSourceOptions } from './../../shared/data-source';
 import { RecordStream } from './../../shared/record-stream';
 import { ISIRecord } from './isi-records';
 import { ObjectFactory, ObjectFactoryRegistry } from '../../shared/object-factory';
-import { RawData } from '../../shared/raw-data';
+import { DefaultRecordStream } from '../default/default-record-stream';
+import { DefaultRawData } from '../default/default-raw-data';
 
-export interface ISIDataSourceOptions {
-  id: string;
-  properties: DataSourceOptions;
-  recordStreams: RecordStream<ISIRecord>[];
-}
-export interface ISITemplateOptions {
-  id: string;
-  fileContents?: string;
-  fileUrl?: string;
-}
 
+export interface ISIDataSourceOptions extends DataSourceOptions {
+  parsedData?: string;
+  saveParsedData?: boolean;
+}
 
 export class ISIDataSource implements DataSource {
   id: string;
-  template: 'isi';
+  template = 'isi';
   recordStreams: RecordStream<ISIRecord>[];
-  properties: DataSourceOptions;
+  properties: ISIDataSourceOptions;
 
-  constructor(options: ISIDataSourceOptions) {
-    Object.assign(this, options);
+  constructor(data: any, private project: Project) {
+    Object.assign(this, data);
+    const rawData = this.project.rawData.find(d => d.id === this.properties.rawData);
+    let parsedData = this.project.rawData.find(d => d.id === this.properties.parsedData);
+    if (!parsedData) {
+      parsedData = new ISIParsedRawData(this.properties.parsedData, rawData);
+      if (this.properties.saveParsedData) {
+        this.project.rawData.push(parsedData);
+      }
+    }
+    this.recordStreams = data.recordStreams.map((rs) => new DefaultRecordStream({id: rs.id, label: rs.label || rs.id}, parsedData));
   }
 
   toJSON(): any {
-    return Object.assign({}, this, { recordStreams: this.recordStreams.map(s => s.id) });
+    return {
+      id: this.id, template: this.template, properties: this.properties,
+      recordStreams: this.recordStreams.map(s => s.toJSON())
+    };
   }
 }
 
@@ -37,13 +45,7 @@ export class ISIDataSourceFactory implements ObjectFactory<DataSource, Project> 
   type = 'dataSource';
 
   async fromJSON(data: any, context: Project, registry: ObjectFactoryRegistry): Promise<DataSource> {
-    // create deferred record streams... only populate them once its been requested
-
-    return new ISIDataSource({
-      id: data.id,
-      properties: data.properties,
-      recordStreams: data.recordStreams
-    });
+    return new ISIDataSource(data, context);
   }
   toJSON(instance: DataSource, context: Project, registry: ObjectFactoryRegistry): any {
     return instance.toJSON();

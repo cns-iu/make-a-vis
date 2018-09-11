@@ -10,7 +10,7 @@ export class DefaultRawData implements RawData {
   private url: string;
   private _url_data_: any;
 
-  constructor(data: any) {
+  constructor(data: {id: string, template: string, data?: any, url?: string}) {
     Object.assign(this, data);
   }
 
@@ -20,15 +20,19 @@ export class DefaultRawData implements RawData {
     } else if (this._url_data_) {
       return this._url_data_;
     } else if (this.url) {
-      const data = (await fetch(this.url)).json();
-      this._url_data_ = data;
-      return data;
+      const data = (await fetch(this.url));
+      if (this.template === 'string') {
+        this._url_data_ = await data.text();
+      } else {
+        this._url_data_ = await data.json();
+      }
+      return this._url_data_;
     } else {
       return {};
     }
   }
   toJSON(): any {
-    return Object.assign({}, this, {_url_data_: undefined});
+    return Object.assign({id: this.id, template: this.template, data: this.data, url: this.url});
   }
 }
 

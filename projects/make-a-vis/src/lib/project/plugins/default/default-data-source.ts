@@ -30,7 +30,6 @@ export class DefaultDataSourceFactory implements ObjectFactory<DataSource, Proje
   type = 'dataSource';
 
   async fromJSON(data: any, context: Project, registry: ObjectFactoryRegistry): Promise<DataSource> {
-    // create deferred record streams... only populate them once its been requested
     if (registry.hasObjectFactory('dataSource', data.template)) {
       return await registry.fromJSON<DataSource>('dataSource', data.template, data, context);
     }

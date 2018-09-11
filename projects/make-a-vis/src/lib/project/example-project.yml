@@ -414,7 +414,7 @@ visualizations:
 
 rawData: 
   - id: testData1
-    template: json-url
+    template: json
     url: http://example.com/example.json
   - id: testData2
     template: json

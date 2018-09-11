@@ -4,9 +4,10 @@ import { Project } from './project';
 import { ObjectFactoryRegistry, ObjectFactoryPlugin } from './object-factory';
 
 import { DefaultPlugin } from '../plugins/default/default-plugin';
+import { ISIPlugin } from '../plugins/isi/isi-plugin';
 
 export class ProjectSerializer {
-  static defaultPlugins: ObjectFactoryPlugin[] = [ new DefaultPlugin() ];
+  static defaultPlugins: ObjectFactoryPlugin[] = [ new DefaultPlugin(), new ISIPlugin() ];
 
   static defaultRegistry = new ObjectFactoryRegistry(ProjectSerializer.defaultPlugins);
   static async toJSON(project: Project, registry: ObjectFactoryRegistry = ProjectSerializer.defaultRegistry): Promise<any> {
