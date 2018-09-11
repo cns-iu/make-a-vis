@@ -10,8 +10,8 @@ module.exports = {
     fs: true
   },
   entry: {
-    'mav-validate-project': path.resolve(__dirname, 'validate-project.ts'),
-    'mav-import-project': path.resolve(__dirname, 'import-project.ts'),
+    'dvl-fw-validate': path.resolve(__dirname, 'validate-project.ts'),
+    'dvl-fw-import': path.resolve(__dirname, 'import-project.ts'),
   },
   // mode: 'production',
   mode: 'development',
@@ -35,7 +35,7 @@ module.exports = {
   externals: [nodeExternals()],
   output: {
     filename: '[name].js',
-    path: path.resolve('dist', 'make-a-vis')
+    path: path.resolve('dist', 'dvl-fw')
   },
 
   plugins: [
@@ -49,9 +49,9 @@ module.exports = {
         shell.rm(path.resolve(dist, fname + '.js'));
       }
       this.plugin('done', function() {
-        var dist = path.resolve('dist', 'make-a-vis');
-        mkExecutable(dist, 'mav-validate-project');
-        mkExecutable(dist, 'mav-import-project');
+        var dist = path.resolve('dist', 'dvl-fw');
+        mkExecutable(dist, 'dvl-fw-validate');
+        mkExecutable(dist, 'dvl-fw-import');
       });
     },
   ]
