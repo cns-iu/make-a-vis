@@ -62,7 +62,21 @@ export class ISITemplateProject extends DefaultProject {
           {id: 'id', label: 'WoS ID', dataType: 'text', scaleType: 'nominal'},
           {id: 'title', label: 'Title', dataType: 'text', scaleType: 'nominal'},
           {id: 'authors', label: 'Authors', dataType: 'text', scaleType: 'nominal'},
-          {id: 'year', label: 'Year', dataType: 'integer', scaleType: 'interval'},
+          {id: 'journalName', label: 'Journal', dataType: 'text', scaleType: 'nominal'},
+          {id: 'publicationYear', label: 'Year', dataType: 'integer', scaleType: 'interval'},
+          {id: 'numCites', label: '#Cites', dataType: 'integer', scaleType: 'ratio'}
+        ]
+      }),
+      new DefaultRecordSet({
+        id: 'journal',
+        label: 'Journal',
+        labelPlural: 'Journals',
+        dataVariables: [
+          {id: 'name', label: 'Name', dataType: 'text', scaleType: 'nominal'},
+          {id: 'numPapers', label: '#Papers', dataType: 'integer', scaleType: 'ratio'},
+          {id: 'numCites', label: '#Cites', dataType: 'integer', scaleType: 'ratio'},
+          {id: 'firstYear', label: 'First Year', dataType: 'integer', scaleType: 'interval'},
+          {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'},
         ]
       })
     ];
@@ -79,19 +93,93 @@ export class ISITemplateProject extends DefaultProject {
                 {selector: 'id'}
               ]
             },
-            year: {
+            publicationYear: {
               axis: [
-                {selector: 'year'}
+                {selector: 'publicationYear'}
               ],
               text: [
-                {selector: 'year'}
+                {selector: 'publicationYear'}
               ],
               color: [
-                {selector: 'year'}
+                {selector: 'publicationYear'}
               ],
               size: [
-                {selector: 'year'}
+                {selector: 'publicationYear'}
               ],
+            }
+          }
+        }
+      },
+      {
+        recordStream: 'journals',
+        mappings: {
+          journal: {
+            name: {
+              identifier: [
+                {selector: 'name'}
+              ],
+              axis: [
+                {selector: 'name'}
+              ],
+              text: [
+                {selector: 'name'}
+              ]
+            },
+            numCites: {
+              axis: [
+                {selector: 'numCites'}
+              ],
+              text: [
+                {selector: 'numCites'}
+              ],
+              size: [
+                {selector: 'numCites'}
+              ],
+              fontSize: [
+                {selector: 'numCites'}
+              ]
+            },
+            numPapers: {
+              axis: [
+                {selector: 'numPapers'}
+              ],
+              text: [
+                {selector: 'numPapers'}
+              ],
+              size: [
+                {selector: 'numPapers'}
+              ],
+              fontSize: [
+                {selector: 'numPapers'}
+              ]
+            },
+            firstYear: {
+              axis: [
+                {selector: 'firstYear'}
+              ],
+              text: [
+                {selector: 'firstYear'}
+              ],
+              size: [
+                {selector: 'firstYear'}
+              ],
+              fontSize: [
+                {selector: 'firstYear'}
+              ]
+            },
+            lastYear: {
+              axis: [
+                {selector: 'lastYear'}
+              ],
+              text: [
+                {selector: 'lastYear'}
+              ],
+              size: [
+                {selector: 'lastYear'}
+              ],
+              fontSize: [
+                {selector: 'lastYear'}
+              ]
             }
           }
         }
@@ -100,31 +188,80 @@ export class ISITemplateProject extends DefaultProject {
   }
 
   getGraphicSymbols(): GraphicSymbol[] {
-    return [new DefaultGraphicSymbol({
-      id: 'publicationPoints',
-      type: 'area',
-      recordStream: 'publications',
-      graphicVariables: {
-        identifier: {
-          recordSet: 'publication',
-          dataVariable: 'id',
-          graphicVariableType: 'identifier',
-          graphicVariableId: 'identifier'
-        },
-        color: {
-          recordSet: 'publication',
-          dataVariable: 'year',
-          graphicVariableType: 'color',
-          graphicVariableId: 'color'
+    return [
+      new DefaultGraphicSymbol({
+        id: 'publicationPoints',
+        type: 'area',
+        recordStream: 'publications',
+        graphicVariables: {
+          identifier: {
+            recordSet: 'publication',
+            dataVariable: 'id',
+            graphicVariableType: 'identifier',
+            graphicVariableId: 'identifier'
+          },
+          color: {
+            recordSet: 'publication',
+            dataVariable: 'publicationYear',
+            graphicVariableType: 'color',
+            graphicVariableId: 'color'
+          }
         }
-      }
-    }, this)];
+      }, this),
+      new DefaultGraphicSymbol({
+        id: 'journalPoints',
+        type: 'area',
+        recordStream: 'journals',
+        graphicVariables: {
+          identifier: {
+            recordSet: 'journal',
+            dataVariable: 'name',
+            graphicVariableType: 'identifier',
+            graphicVariableId: 'identifier'
+          },
+          x: {
+            recordSet: 'journal',
+            dataVariable: 'firstYear',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          y: {
+            recordSet: 'journal',
+            dataVariable: 'numPapers',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          label: {
+            recordSet: 'journal',
+            dataVariable: 'name',
+            graphicVariableType: 'text',
+            graphicVariableId: 'text'
+          },
+          labelSize: {
+            recordSet: 'journal',
+            dataVariable: 'numCites',
+            graphicVariableType: 'fontSize',
+            graphicVariableId: 'fontSize'
+          },
+        }
+      }, this)
+    ];
   }
 
   getVisualizations(): Visualization[] {
     return [
       new DefaultVisualization({
-        id: 'scattergraph1',
+        id: 'SG01',
+        template: 'scattergraph',
+        properties: {
+          drawGridLines: true
+        },
+        graphicSymbols: {
+          points: 'journalPoints'
+        }
+      }, this),
+      new DefaultVisualization({
+        id: 'SG02',
         template: 'scattergraph',
         properties: {
           drawGridLines: true

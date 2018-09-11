@@ -1,7 +1,7 @@
 apiVersion: 1
 metadata:
-  dateCreated: 2018-09-11T18:53:23.409Z
-  dateSaved: 2018-09-11T18:53:23.421Z
+  dateCreated: 2018-09-11T19:48:38.114Z
+  dateSaved: 2018-09-11T19:48:38.128Z
 dataSources:
   - id: isiDataSource
     template: isi
@@ -12,6 +12,8 @@ dataSources:
     recordStreams:
       - id: publications
         label: publications
+      - id: journals
+        label: journals
 recordSets:
   - id: publication
     label: Publication
@@ -29,8 +31,40 @@ recordSets:
         label: Authors
         dataType: text
         scaleType: nominal
-      - id: year
+      - id: journalName
+        label: Journal
+        dataType: text
+        scaleType: nominal
+      - id: publicationYear
         label: Year
+        dataType: integer
+        scaleType: interval
+      - id: numCites
+        label: '#Cites'
+        dataType: integer
+        scaleType: ratio
+  - id: journal
+    label: Journal
+    labelPlural: Journals
+    dataVariables:
+      - id: name
+        label: Name
+        dataType: text
+        scaleType: nominal
+      - id: numPapers
+        label: '#Papers'
+        dataType: integer
+        scaleType: ratio
+      - id: numCites
+        label: '#Cites'
+        dataType: integer
+        scaleType: ratio
+      - id: firstYear
+        label: First Year
+        dataType: integer
+        scaleType: interval
+      - id: lastYear
+        label: Last Year
         dataType: integer
         scaleType: interval
 graphicVariableMappings:
@@ -42,23 +76,107 @@ graphicVariableMappings:
             - id: identifier
               label: identifier
               selector: id
-        year:
+        publicationYear:
           axis:
             - id: axis
               label: axis
-              selector: year
+              selector: publicationYear
           text:
             - id: text
               label: text
-              selector: year
+              selector: publicationYear
           color:
             - id: color
               label: color
-              selector: year
+              selector: publicationYear
           size:
             - id: size
               label: size
-              selector: year
+              selector: publicationYear
+  - recordStream: journals
+    mappings:
+      journal:
+        name:
+          identifier:
+            - id: identifier
+              label: identifier
+              selector: name
+          axis:
+            - id: axis
+              label: axis
+              selector: name
+          text:
+            - id: text
+              label: text
+              selector: name
+        numCites:
+          axis:
+            - id: axis
+              label: axis
+              selector: numCites
+          text:
+            - id: text
+              label: text
+              selector: numCites
+          size:
+            - id: size
+              label: size
+              selector: numCites
+          fontSize:
+            - id: fontSize
+              label: fontSize
+              selector: numCites
+        numPapers:
+          axis:
+            - id: axis
+              label: axis
+              selector: numPapers
+          text:
+            - id: text
+              label: text
+              selector: numPapers
+          size:
+            - id: size
+              label: size
+              selector: numPapers
+          fontSize:
+            - id: fontSize
+              label: fontSize
+              selector: numPapers
+        firstYear:
+          axis:
+            - id: axis
+              label: axis
+              selector: firstYear
+          text:
+            - id: text
+              label: text
+              selector: firstYear
+          size:
+            - id: size
+              label: size
+              selector: firstYear
+          fontSize:
+            - id: fontSize
+              label: fontSize
+              selector: firstYear
+        lastYear:
+          axis:
+            - id: axis
+              label: axis
+              selector: lastYear
+          text:
+            - id: text
+              label: text
+              selector: lastYear
+          size:
+            - id: size
+              label: size
+              selector: lastYear
+          fontSize:
+            - id: fontSize
+              label: fontSize
+              selector: lastYear
 graphicSymbolMappings:
   - id: publicationPoints
     type: area
@@ -71,11 +189,46 @@ graphicSymbolMappings:
         graphicVariableId: identifier
       color:
         recordSet: publication
-        dataVariable: year
+        dataVariable: publicationYear
         graphicVariableType: color
         graphicVariableId: color
+  - id: journalPoints
+    type: area
+    recordStream: journals
+    graphicVariables:
+      identifier:
+        recordSet: journal
+        dataVariable: name
+        graphicVariableType: identifier
+        graphicVariableId: identifier
+      x:
+        recordSet: journal
+        dataVariable: firstYear
+        graphicVariableType: axis
+        graphicVariableId: axis
+      y:
+        recordSet: journal
+        dataVariable: numPapers
+        graphicVariableType: axis
+        graphicVariableId: axis
+      label:
+        recordSet: journal
+        dataVariable: name
+        graphicVariableType: text
+        graphicVariableId: text
+      labelSize:
+        recordSet: journal
+        dataVariable: numCites
+        graphicVariableType: fontSize
+        graphicVariableId: fontSize
 visualizations:
-  - id: scattergraph1
+  - id: SG01
+    template: scattergraph
+    properties:
+      drawGridLines: true
+    graphicSymbols:
+      points: journalPoints
+  - id: SG02
     template: scattergraph
     properties:
       drawGridLines: true
@@ -2756,7 +2909,8 @@ rawData:
           issn: 1932-6203
           numPapers: 10
           numCites: 183
-          firstYear: 2018
+          firstYear: 2011
+          lastYear: 2018
           journalId: 14924
           subdisciplineId: 523
         - name: P NATL ACAD SCI USA
@@ -2764,7 +2918,8 @@ rawData:
           issn: 0027-8424
           numPapers: 4
           numCites: 328
-          firstYear: 2018
+          firstYear: 2004
+          lastYear: 2018
           journalId: 15868
           subdisciplineId: -2
         - name: SCIENCE
@@ -2774,6 +2929,7 @@ rawData:
           numPapers: 1
           numCites: 3
           firstYear: 2018
+          lastYear: 2018
           journalId: 17311
           subdisciplineId: -2
         - name: SCIENTOMETRICS
@@ -2782,7 +2938,8 @@ rawData:
           eissn: 1588-2861
           numPapers: 14
           numCites: 560
-          firstYear: 2018
+          firstYear: 2005
+          lastYear: 2018
           journalId: 17373
           subdisciplineId: 403
         - name: MENOPAUSE
@@ -2792,6 +2949,7 @@ rawData:
           numPapers: 1
           numCites: 1
           firstYear: 2017
+          lastYear: 2017
           journalId: 12902
           subdisciplineId: 490
         - name: J ASSOC INF SCI TECH
@@ -2800,6 +2958,7 @@ rawData:
           numPapers: 1
           numCites: 1
           firstYear: 2017
+          lastYear: 2017
           subdisciplineId: -1
         - name: INFORM VISUAL
           label: Inf. Vis.
@@ -2808,6 +2967,7 @@ rawData:
           numPapers: 1
           numCites: 5
           firstYear: 2016
+          lastYear: 2016
           journalId: 8105
           subdisciplineId: 188
         - name: ISSUES SCI TECHNOL
@@ -2817,6 +2977,7 @@ rawData:
           numPapers: 1
           numCites: 1
           firstYear: 2016
+          lastYear: 2016
           journalId: 9091
           subdisciplineId: 409
         - name: TRENDS COGN SCI
@@ -2825,6 +2986,7 @@ rawData:
           numPapers: 1
           numCites: 5
           firstYear: 2015
+          lastYear: 2015
           journalId: 18875
           subdisciplineId: 144
         - name: COMPUT GRAPH FORUM
@@ -2834,6 +2996,7 @@ rawData:
           numPapers: 1
           numCites: 5
           firstYear: 2015
+          lastYear: 2015
           journalId: 4200
           subdisciplineId: 188
         - name: IEEE T VIS COMPUT GR
@@ -2843,6 +3006,7 @@ rawData:
           numPapers: 1
           numCites: 9
           firstYear: 2014
+          lastYear: 2014
           journalId: 7790
           subdisciplineId: 188
         - name: EMBO REP
@@ -2852,6 +3016,7 @@ rawData:
           numPapers: 2
           numCites: 12
           firstYear: 2014
+          lastYear: 2014
           journalId: 5441
           subdisciplineId: 1
         - name: SCI REP-UK
@@ -2860,6 +3025,7 @@ rawData:
           numPapers: 1
           numCites: 14
           firstYear: 2013
+          lastYear: 2013
           subdisciplineId: -1
         - name: EUR PHYS J-SPEC TOP
           label: Eur. Phys. J.-Spec. Top.
@@ -2867,6 +3033,7 @@ rawData:
           numPapers: 1
           numCites: 6
           firstYear: 2012
+          lastYear: 2012
           journalId: 6024
           subdisciplineId: 376
         - name: NATURE
@@ -2875,6 +3042,7 @@ rawData:
           numPapers: 1
           numCites: 2
           firstYear: 2012
+          lastYear: 2012
           journalId: 13439
           subdisciplineId: -2
         - name: COMMUN ACM
@@ -2884,6 +3052,7 @@ rawData:
           numPapers: 1
           numCites: 37
           firstYear: 2011
+          lastYear: 2011
           journalId: 4075
           subdisciplineId: 57
         - name: J INFORMETR
@@ -2891,7 +3060,8 @@ rawData:
           issn: 1751-1577
           numPapers: 3
           numCites: 232
-          firstYear: 2011
+          firstYear: 2007
+          lastYear: 2011
           journalId: 10572
           subdisciplineId: 105
         - name: CTS-CLIN TRANSL SCI
@@ -2900,6 +3070,7 @@ rawData:
           numPapers: 1
           numCites: 51
           firstYear: 2010
+          lastYear: 2010
           journalId: 4561
           subdisciplineId: 479
         - name: SCI TRANSL MED
@@ -2908,6 +3079,7 @@ rawData:
           numPapers: 1
           numCites: 78
           firstYear: 2010
+          lastYear: 2010
           journalId: 17348
           subdisciplineId: 394
         - name: IEEE INTELL SYST
@@ -2916,6 +3088,7 @@ rawData:
           numPapers: 1
           numCites: 0
           firstYear: 2009
+          lastYear: 2009
           journalId: 7633
           subdisciplineId: 446
         - name: GENOME BIOL
@@ -2924,6 +3097,7 @@ rawData:
           numPapers: 1
           numCites: 86
           firstYear: 2008
+          lastYear: 2008
           subdisciplineId: -1
         - name: ENVIRON PLANN B
           label: Environ. Plan. B-Plan. Des.
@@ -2931,6 +3105,7 @@ rawData:
           numPapers: 2
           numCites: 12
           firstYear: 2007
+          lastYear: 2007
           journalId: 5606
           subdisciplineId: 529
         - name: ANNU REV INFORM SCI
@@ -2939,7 +3114,8 @@ rawData:
           eissn: 1550-8382
           numPapers: 2
           numCites: 548
-          firstYear: 2007
+          firstYear: 2003
+          lastYear: 2007
           journalId: 1535
           subdisciplineId: 276
         - name: COMPLEXITY
@@ -2947,7 +3123,8 @@ rawData:
           issn: 1076-2787
           numPapers: 2
           numCites: 136
-          firstYear: 2007
+          firstYear: 2005
+          lastYear: 2007
           journalId: 4128
           subdisciplineId: 108
         - name: GLOBAL ENVIRON CHANG
@@ -2956,6 +3133,7 @@ rawData:
           numPapers: 1
           numCites: 189
           firstYear: 2006
+          lastYear: 2006
           journalId: 6895
           subdisciplineId: 434
         - name: BLOOD
@@ -2964,6 +3142,7 @@ rawData:
           numPapers: 1
           numCites: 0
           firstYear: 2005
+          lastYear: 2005
           journalId: 2646
           subdisciplineId: 19
         - name: ANIM BEHAV
@@ -2973,6 +3152,7 @@ rawData:
           numPapers: 1
           numCites: 16
           firstYear: 2005
+          lastYear: 2005
           journalId: 1304
           subdisciplineId: 401
         - name: PRESENCE-TELEOP VIRT
@@ -2982,6 +3162,7 @@ rawData:
           numPapers: 2
           numCites: 6
           firstYear: 2005
+          lastYear: 2005
           journalId: 15143
           subdisciplineId: 474
         - name: J AM SOC INF SCI TEC
@@ -2990,6 +3171,7 @@ rawData:
           numPapers: 1
           numCites: 62
           firstYear: 2003
+          lastYear: 2003
           journalId: 11582
           subdisciplineId: 276
         - name: ARTIF INTELL REV
@@ -2998,6 +3180,7 @@ rawData:
           numPapers: 1
           numCites: 5
           firstYear: 2001
+          lastYear: 2001
           journalId: 1960
           subdisciplineId: 160
   - id: isiFile

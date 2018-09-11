@@ -12,6 +12,7 @@ export interface Journal {
   numCites: number;
 
   firstYear: number;
+  lastYear: number;
 
   journalId: number;
   subdisciplineId: number;
@@ -45,18 +46,24 @@ export function extractJournals(publications: ISIRecord[]): Journal[] {
         label: pub.journalFullname,
         issn: pub.issn,
         eissn: pub.eissn,
-        numPapers: 1,
-        numCites: pub.numCites,
+        numPapers: 0,
+        numCites: 0,
         firstYear: pub.publicationYear,
+        lastYear: pub.publicationYear,
         journalId: undefined,
         subdisciplineId: -1
       };
       journalList.push(<Journal>journal);
-    } else {
-      journal.numPapers++;
-      journal.numCites += pub.numCites || 0;
     }
 
+    journal.numPapers++;
+    journal.numCites += pub.numCites || 0;
+    if (pub.publicationYear < journal.firstYear) {
+      journal.firstYear = pub.publicationYear;
+    }
+    if (pub.publicationYear > journal.lastYear) {
+      journal.lastYear = pub.publicationYear;
+    }
     if (!journal.journalId) {
       Object.assign(journal, scienceLocatePublication(pub));
     }
