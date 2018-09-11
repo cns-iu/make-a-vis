@@ -1,5 +1,5 @@
 import { RawData } from '../../shared/raw-data';
-import { parseISIFile } from './data-model/isi-records';
+import { createISIDatabase, ISIDatabase } from './data-model/isi-database';
 
 
 export class ISIParsedRawData implements RawData {
@@ -8,17 +8,10 @@ export class ISIParsedRawData implements RawData {
 
   constructor(public id: string, private isiData: RawData) { }
 
-  parseRawData(isiFileContent: string): any {
-    const publications = parseISIFile(isiFileContent);
-    return {
-      publications
-    };
-  }
-
   async getData(): Promise<any> {
     if (!this.data) {
       const isiFileContents = await this.isiData.getData();
-      this.data = this.parseRawData(isiFileContents);
+      this.data = createISIDatabase(isiFileContents);
     }
     return this.data;
   }

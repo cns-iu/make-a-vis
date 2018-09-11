@@ -35,11 +35,11 @@ export class ISITemplateProject extends DefaultProject {
   getRawData(isiFileContent: string): RawData[] {
     const rawData = new DefaultRawData({id: 'isiFile', template: 'string', data: isiFileContent});
     const parsedData = new ISIParsedRawData('isiRawData', rawData);
-    return [rawData, parsedData];
+    return [parsedData, rawData];
   }
 
   async prePopulateData() {
-    await this.rawData[1].getData();
+    await this.rawData[0].getData();
   }
 
   getDataSources(): DataSource[] {
@@ -47,7 +47,7 @@ export class ISITemplateProject extends DefaultProject {
       new ISIDataSource({
         id: 'isiDataSource',
         properties: { rawData: 'isiFile', parsedData: 'isiRawData', saveParsedData: true },
-        recordStreams: [{id: 'publications'}] // , 'authors', 'coAuthorLinks']
+        recordStreams: [{id: 'publications'}, {id: 'journals'}] // , 'authors', 'coAuthorLinks']
       }, this)
     ];
   }

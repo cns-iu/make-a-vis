@@ -13,6 +13,7 @@ export interface ISIRecord {
   abstract: string;
   publicationType: string;
   issue: number;
+  numCites: number;
 }
 
 export const ISI_TAGS: TagMapping = {
@@ -33,7 +34,9 @@ export const ISI_TAGS: TagMapping = {
 
   'AB': { string: true, separator: ' ', remap: 'abstract' },
   'PT': { string: true, separator: ' ', remap: 'publicationType' },
-  'IS': { number: true, remap: 'issue' }
+  'IS': { number: true, remap: 'issue' },
+
+  'TC': { number: true, remap: 'numCites' }
 };
 
 export function parseISIFile(fileContents: string): ISIRecord[] {

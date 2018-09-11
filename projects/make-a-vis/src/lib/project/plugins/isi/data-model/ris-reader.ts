@@ -47,6 +47,8 @@ export function parseRISRecords(data: string, tagDefinitions: TagMapping = DEFAU
         record[lastField].push(value);
       } else if (flags.string) {
         record[lastField] += (tag.separator || ' ') + value;
+      } else if (flags.number) {
+        record[lastField] = Number(value);
       } else {
         record[lastField] = value;
       }
@@ -57,6 +59,8 @@ export function parseRISRecords(data: string, tagDefinitions: TagMapping = DEFAU
         record[lastField] = [value];
       } else if (record.hasOwnProperty(lastField)) {
         throw new Error(`Duplicate tag found: ${lastField}, Old Value: ${record[lastField]}, New Value: ${value}`);
+      } else if (flags.number) {
+        record[lastField] = Number(value);
       } else {
         record[lastField] = value;
       }
