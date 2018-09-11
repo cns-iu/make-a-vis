@@ -75,6 +75,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
+            "watch": false,
             "styles": [
               "src/styles.scss"
             ],
@@ -149,7 +150,8 @@
           "options": {
             "main": "projects/make-a-vis/src/test.ts",
             "tsConfig": "projects/make-a-vis/tsconfig.spec.json",
-            "karmaConfig": "projects/make-a-vis/karma.conf.js"
+            "karmaConfig": "projects/make-a-vis/karma.conf.js",
+            "watch": false
           }
         },
         "lint": {
@@ -158,6 +160,42 @@
             "tsConfig": [
               "projects/make-a-vis/tsconfig.lib.json",
               "projects/make-a-vis/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "dvl-fw": {
+      "root": "projects/dvl-fw",
+      "sourceRoot": "projects/dvl-fw/src",
+      "projectType": "library",
+      "prefix": "dvl",
+      "targets": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/dvl-fw/tsconfig.lib.json",
+            "project": "projects/dvl-fw/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dvl-fw/src/test.ts",
+            "tsConfig": "projects/dvl-fw/tsconfig.spec.json",
+            "karmaConfig": "projects/dvl-fw/karma.conf.js",
+            "watch": false
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/dvl-fw/tsconfig.lib.json",
+              "projects/dvl-fw/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

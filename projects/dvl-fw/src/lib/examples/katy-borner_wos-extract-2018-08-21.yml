@@ -1,7 +1,7 @@
 apiVersion: 1
 metadata:
-  dateCreated: 2018-09-11T19:48:38.114Z
-  dateSaved: 2018-09-11T19:48:38.128Z
+  dateCreated: 2018-09-11T20:17:37.904Z
+  dateSaved: 2018-09-11T20:17:37.916Z
 dataSources:
   - id: isiDataSource
     template: isi
@@ -206,7 +206,7 @@ graphicSymbolMappings:
         dataVariable: firstYear
         graphicVariableType: axis
         graphicVariableId: axis
-      y:
+      'y':
         recordSet: journal
         dataVariable: numPapers
         graphicVariableType: axis
