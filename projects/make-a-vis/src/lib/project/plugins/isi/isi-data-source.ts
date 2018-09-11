@@ -2,7 +2,7 @@ import { ISIParsedRawData } from './isi-parsed-raw-data';
 import { Project } from './../../shared/project';
 import { DataSource, DataSourceOptions } from './../../shared/data-source';
 import { RecordStream } from './../../shared/record-stream';
-import { ISIRecord } from './isi-records';
+import { ISIRecord } from './data-model/isi-records';
 import { ObjectFactory, ObjectFactoryRegistry } from '../../shared/object-factory';
 import { DefaultRecordStream } from '../default/default-record-stream';
 import { DefaultRawData } from '../default/default-raw-data';

@@ -1,27 +1,26 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import 'hammerjs';
 
-// Material
-import { MatIconModule} from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
-
-// Icons
-import { CnsLogoIconComponent } from '../icons/cns-logo/cns-logo-icon.component';
-import { GithubIconComponent } from '../icons/github/github-icon.component';
-import { MenuIconComponent } from '../icons/menu/menu-icon.component';
-
-import { ToolbarContentComponent } from '../toolbar-content/toolbar-content.component';
+import { createStubComponent } from '../../../testing/utility';
 import { MainComponent } from './main.component';
 
+describe('toolbar', () => {
 describe('MainComponent', () => {
   let component: MainComponent;
   let fixture: ComponentFixture<MainComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MatIconModule, MatToolbarModule],
+      imports: [
+        BrowserAnimationsModule,
+        MatSidenavModule
+      ],
       declarations: [
-        CnsLogoIconComponent, GithubIconComponent, MenuIconComponent,
-        ToolbarContentComponent, MainComponent
+        createStubComponent('mav-toolbar-content', { outputs: ['toggleSidenav'] }),
+        createStubComponent('mav-sidenav-content', { inputs: ['panelsOpenState'] }),
+        MainComponent
       ]
     })
     .compileComponents();
@@ -36,4 +35,5 @@ describe('MainComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+});
 });

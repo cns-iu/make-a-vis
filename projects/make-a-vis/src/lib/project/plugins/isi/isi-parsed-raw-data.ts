@@ -1,5 +1,5 @@
 import { RawData } from '../../shared/raw-data';
-import { parseISIFile } from './isi-records';
+import { parseISIFile } from './data-model/isi-records';
 
 
 export class ISIParsedRawData implements RawData {

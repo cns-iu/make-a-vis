@@ -59,7 +59,7 @@ export class ISITemplateProject extends DefaultProject {
         label: 'Publication',
         labelPlural: 'Publications',
         dataVariables: [
-          {id: 'wosId', label: 'WoS ID', dataType: 'text', scaleType: 'nominal'},
+          {id: 'id', label: 'WoS ID', dataType: 'text', scaleType: 'nominal'},
           {id: 'title', label: 'Title', dataType: 'text', scaleType: 'nominal'},
           {id: 'authors', label: 'Authors', dataType: 'text', scaleType: 'nominal'},
           {id: 'year', label: 'Year', dataType: 'integer', scaleType: 'interval'},
@@ -74,9 +74,9 @@ export class ISITemplateProject extends DefaultProject {
         recordStream: 'publications',
         mappings: {
           publication: {
-            wosId: {
+            id: {
               identifier: [
-                {selector: 'wosId'}
+                {selector: 'id'}
               ]
             },
             year: {
@@ -107,7 +107,7 @@ export class ISITemplateProject extends DefaultProject {
       graphicVariables: {
         identifier: {
           recordSet: 'publication',
-          dataVariable: 'wosId',
+          dataVariable: 'id',
           graphicVariableType: 'identifier',
           graphicVariableId: 'identifier'
         },

@@ -1,5 +1,6 @@
 import { ToolbarModule } from './toolbar.module';
 
+describe('toolbar', () => {
 describe('ToolbarModule', () => {
   let toolbarModule: ToolbarModule;
 
@@ -10,4 +11,5 @@ describe('ToolbarModule', () => {
   it('should create an instance', () => {
     expect(toolbarModule).toBeTruthy();
   });
+});
 });
