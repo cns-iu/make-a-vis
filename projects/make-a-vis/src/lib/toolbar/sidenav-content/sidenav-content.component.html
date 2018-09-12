@@ -47,12 +47,12 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
       <p class="expansion-content">
-        <mat-button-toggle-group name="exportSnapshot" aria-label="Export Snapshot" class="button-toggle-group">
+        <mat-button-toggle-group name="exportSnapshot" [(ngModel)]="exportSnapshotType"  aria-label="Export Snapshot" class="button-toggle-group">
           <mat-button-toggle value="png" class="button-toggle">PNG</mat-button-toggle>
           <mat-button-toggle value="svg" class="button-toggle">SVG</mat-button-toggle>
           <mat-button-toggle value="pdf" class="button-toggle">PDF</mat-button-toggle>
         </mat-button-toggle-group>
-        <button mat-stroked-button isRoundButton class="button">Export</button>
+        <button mat-stroked-button isRoundButton (click)="exportSnapshot()" class="button">Export</button>
       </p>
     </mat-expansion-panel>
     <mat-divider></mat-divider>

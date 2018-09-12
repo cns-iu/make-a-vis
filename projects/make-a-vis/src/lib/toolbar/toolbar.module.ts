@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 // Material
 import { MatButtonModule } from '@angular/material/button';
@@ -35,7 +36,7 @@ import { ToolbarContentComponent } from './toolbar-content/toolbar-content.compo
   imports: [
     BrowserAnimationsModule,
     CommonModule,
-
+    FormsModule,
     MatButtonModule,
     MatButtonToggleModule,
     MatDividerModule,

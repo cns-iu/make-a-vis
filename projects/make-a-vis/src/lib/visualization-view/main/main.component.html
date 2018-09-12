@@ -8,12 +8,16 @@
           <mav-cancel-icon (click)="removeTab(index)"></mav-cancel-icon>
         </mat-chip>
       </mat-chip-list>
+     
     </ng-template>
     
     <ng-template matTabContent>
-      {{label}} Loaded!
+      <div class="tab-content">
+        <mav-app-scatterplot></mav-app-scatterplot>
+      </div>
     </ng-template>
   </mat-tab>
+ 
 </mat-tab-group>
 
 <div class="add-visualization">

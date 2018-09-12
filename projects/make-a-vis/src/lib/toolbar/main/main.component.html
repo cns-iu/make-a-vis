@@ -3,7 +3,7 @@
 
 <mat-sidenav-container>
     <mat-sidenav #sidenav class="sidenav" mode="over" [(opened)]="isSidenavOpen">
-        <mav-sidenav-content [panelsOpenState]="isSidenavOpen"></mav-sidenav-content>
+        <mav-sidenav-content (sideNavEvent)="sideNavChanged($event)" [panelsOpenState]="isSidenavOpen"></mav-sidenav-content>
     </mat-sidenav>
 
     <mat-sidenav-content class="main-content">

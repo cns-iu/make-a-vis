@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { MenuComponent } from './menu/menu.component';
 import { MainComponent } from './main/main.component';
 
+import { ScatterplotModule } from '@ngx-dino/scatterplot';
+
 // Icons
 import { AddIconComponent } from './icons/add/add-icon.component';
 import { CancelIconComponent } from './icons/cancel/cancel-icon.component';
@@ -18,10 +20,13 @@ import { ScatterGraphIconComponent } from './icons/scatter-graph/scatter-graph-i
 import { MatChipsModule } from '@angular/material/chips';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTabsModule } from '@angular/material/tabs';
+import { ScatterplotComponent } from './scatterplot/scatterplot.component';
 
 @NgModule({
   imports: [
     CommonModule,
+
+    ScatterplotModule,
 
     MatChipsModule,
     MatMenuModule,
@@ -37,7 +42,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     GeomapIconComponent,
     MapOfScienceIconComponent,
     NetworkIconComponent,
-    ScatterGraphIconComponent
+    ScatterGraphIconComponent,
+    ScatterplotComponent
   ],
   exports: [MainComponent]
 })
