@@ -47,7 +47,7 @@ export class ISITemplateProject extends DefaultProject {
       new ISIDataSource({
         id: 'isiDataSource',
         properties: { rawData: 'isiFile', parsedData: 'isiRawData', saveParsedData: true },
-        recordStreams: [{id: 'publications'}, {id: 'journals'}] // , 'authors', 'coAuthorLinks']
+        recordStreams: [{id: 'publications'}, {id: 'journals'}, {id: 'authors'}, {id: 'coAuthorLinks'}]
       }, this)
     ];
   }
@@ -78,6 +78,32 @@ export class ISITemplateProject extends DefaultProject {
           {id: 'firstYear', label: 'First Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'},
         ]
+      }),
+      new DefaultRecordSet({
+        id: 'author',
+        label: 'Author',
+        labelPlural: 'Authors',
+        dataVariables: [
+          {id: 'name', label: 'Name', dataType: 'text', scaleType: 'nominal'},
+          {id: 'fullname', label: 'Full Name', dataType: 'text', scaleType: 'nominal'},
+          {id: 'numPapers', label: '#Papers', dataType: 'integer', scaleType: 'ratio'},
+          {id: 'numCites', label: '#Cites', dataType: 'integer', scaleType: 'ratio'},
+          {id: 'firstYear', label: 'First Year', dataType: 'integer', scaleType: 'interval'},
+          {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'},
+        ]
+      }),
+      new DefaultRecordSet({
+        id: 'coAuthorLink',
+        label: 'Co-Author Link',
+        labelPlural: 'Co-Author Links',
+        dataVariables: [
+          {id: 'author1', label: 'Author 1', dataType: 'text', scaleType: 'nominal'},
+          {id: 'author2', label: 'Author 2', dataType: 'text', scaleType: 'nominal'},
+          {id: 'numPapers', label: '#Papers', dataType: 'integer', scaleType: 'ratio'},
+          {id: 'numCites', label: '#Cites', dataType: 'integer', scaleType: 'ratio'},
+          {id: 'firstYear', label: 'First Year', dataType: 'integer', scaleType: 'interval'},
+          {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'},
+        ]
       })
     ];
   }
@@ -102,6 +128,26 @@ export class ISITemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'title'}
+              ]
+            },
+            numCites: {
+              axis: [
+                {selector: 'numCitesLabel'}
+              ],
+              text: [
+                {selector: 'numCitesLabel'}
+              ],
+              areaSize: [
+                {selector: 'numCitesAreaSize'}
+              ],
+              fontSize: [
+                {selector: 'numCitesFontSize'}
+              ],
+              color: [
+                {selector: 'numCitesColor'}
+              ],
+              strokeColor: [
+                {selector: 'numCitesStrokeColor'}
               ]
             },
             publicationYear: {
@@ -140,6 +186,224 @@ export class ISITemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'name'}
+              ]
+            },
+            numCites: {
+              axis: [
+                {selector: 'numCitesLabel'}
+              ],
+              text: [
+                {selector: 'numCitesLabel'}
+              ],
+              areaSize: [
+                {selector: 'numCitesAreaSize'}
+              ],
+              fontSize: [
+                {selector: 'numCitesFontSize'}
+              ],
+              color: [
+                {selector: 'numCitesColor'}
+              ],
+              strokeColor: [
+                {selector: 'numCitesStrokeColor'}
+              ]
+            },
+            numPapers: {
+              axis: [
+                {selector: 'numPapersLabel'}
+              ],
+              text: [
+                {selector: 'numPapersLabel'}
+              ],
+              areaSize: [
+                {selector: 'numPapersAreaSize'}
+              ],
+              fontSize: [
+                {selector: 'numPapersFontSize'}
+              ],
+              color: [
+                {selector: 'numPapersColor'}
+              ],
+              strokeColor: [
+                {selector: 'numPapersStrokeColor'}
+              ]
+            },
+            firstYear: {
+              axis: [
+                {selector: 'firstYearLabel'}
+              ],
+              text: [
+                {selector: 'firstYearLabel'}
+              ],
+              areaSize: [
+                {selector: 'firstYearAreaSize'}
+              ],
+              fontSize: [
+                {selector: 'firstYearFontSize'}
+              ],
+              color: [
+                {selector: 'firstYearColor'}
+              ],
+              strokeColor: [
+                {selector: 'firstYearStrokeColor'}
+              ]
+            },
+            lastYear: {
+              axis: [
+                {selector: 'lastYearLabel'}
+              ],
+              text: [
+                {selector: 'lastYearLabel'}
+              ],
+              areaSize: [
+                {selector: 'lastYearAreaSize'}
+              ],
+              fontSize: [
+                {selector: 'lastYearFontSize'}
+              ],
+              color: [
+                {selector: 'lastYearColor'}
+              ],
+              strokeColor: [
+                {selector: 'lastYearStrokeColor'}
+              ]
+            }
+          }
+        }
+      },
+      {
+        recordStream: 'authors',
+        mappings: {
+          author: {
+            name: {
+              identifier: [
+                {selector: 'name'}
+              ],
+              axis: [
+                {selector: 'name'}
+              ],
+              text: [
+                {selector: 'name'}
+              ]
+            },
+            fullname: {
+              identifier: [
+                {selector: 'fullname'}
+              ],
+              axis: [
+                {selector: 'fullname'}
+              ],
+              text: [
+                {selector: 'fullname'}
+              ]
+            },
+            numCites: {
+              axis: [
+                {selector: 'numCitesLabel'}
+              ],
+              text: [
+                {selector: 'numCitesLabel'}
+              ],
+              areaSize: [
+                {selector: 'numCitesAreaSize'}
+              ],
+              fontSize: [
+                {selector: 'numCitesFontSize'}
+              ],
+              color: [
+                {selector: 'numCitesColor'}
+              ],
+              strokeColor: [
+                {selector: 'numCitesStrokeColor'}
+              ]
+            },
+            numPapers: {
+              axis: [
+                {selector: 'numPapersLabel'}
+              ],
+              text: [
+                {selector: 'numPapersLabel'}
+              ],
+              areaSize: [
+                {selector: 'numPapersAreaSize'}
+              ],
+              fontSize: [
+                {selector: 'numPapersFontSize'}
+              ],
+              color: [
+                {selector: 'numPapersColor'}
+              ],
+              strokeColor: [
+                {selector: 'numPapersStrokeColor'}
+              ]
+            },
+            firstYear: {
+              axis: [
+                {selector: 'firstYearLabel'}
+              ],
+              text: [
+                {selector: 'firstYearLabel'}
+              ],
+              areaSize: [
+                {selector: 'firstYearAreaSize'}
+              ],
+              fontSize: [
+                {selector: 'firstYearFontSize'}
+              ],
+              color: [
+                {selector: 'firstYearColor'}
+              ],
+              strokeColor: [
+                {selector: 'firstYearStrokeColor'}
+              ]
+            },
+            lastYear: {
+              axis: [
+                {selector: 'lastYearLabel'}
+              ],
+              text: [
+                {selector: 'lastYearLabel'}
+              ],
+              areaSize: [
+                {selector: 'lastYearAreaSize'}
+              ],
+              fontSize: [
+                {selector: 'lastYearFontSize'}
+              ],
+              color: [
+                {selector: 'lastYearColor'}
+              ],
+              strokeColor: [
+                {selector: 'lastYearStrokeColor'}
+              ]
+            }
+          }
+        }
+      },
+      {
+        recordStream: 'coAuthorLinks',
+        mappings: {
+          coAuthorLink: {
+            author1: {
+              identifier: [
+                {selector: 'author1'}
+              ],
+              axis: [
+                {selector: 'author1'}
+              ],
+              text: [
+                {selector: 'author1'}
+              ]
+            },
+            author2: {
+              identifier: [
+                {selector: 'author2'}
+              ],
+              axis: [
+                {selector: 'author2'}
+              ],
+              text: [
+                {selector: 'author2'}
               ]
             },
             numCites: {

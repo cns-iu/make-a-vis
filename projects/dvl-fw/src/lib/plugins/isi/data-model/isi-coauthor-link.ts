@@ -4,48 +4,31 @@ import {
   norm0to100, formatNumber, formatYear
 } from '../../../encoding';
 
-export class JournalStats {
+export class CoAuthorLinkStats {
   numPapersMax = 0;
   numCitesMax = 0;
   yearMax = 0;
   yearMin = 9999;
 
-  count(journal: Journal) {
-    this.numPapersMax = Math.max(this.numPapersMax, journal.numPapers);
-    this.numCitesMax = Math.max(this.numCitesMax, journal.numCites);
-    this.yearMax = Math.max(this.yearMax, journal.firstYear, journal.lastYear);
-    this.yearMin = Math.min(this.yearMin, journal.firstYear, journal.lastYear);
+  count(coAuthorLink: CoAuthorLink) {
+    this.numPapersMax = Math.max(this.numPapersMax, coAuthorLink.numPapers);
+    this.numCitesMax = Math.max(this.numCitesMax, coAuthorLink.numCites);
+    this.yearMax = Math.max(this.yearMax, coAuthorLink.firstYear, coAuthorLink.lastYear);
+    this.yearMin = Math.min(this.yearMin, coAuthorLink.firstYear, coAuthorLink.lastYear);
   }
 }
 
 // @dynamic
-export class Journal {
-  // Data Variables
-  name: string;
-  label: string;
-  issn: string;
-  eissn: string;
+export class CoAuthorLink {
+  author1: string;
+  author2: string;
   numPapers: number;
   numCites: number;
   firstYear: number;
   lastYear: number;
-  journalId: number;
-  subdisciplineId: number;
-  globalStats: JournalStats;
+  globalStats: CoAuthorLinkStats;
 
-  constructor(data: {
-    name: string;
-    label: string;
-    issn: string;
-    eissn: string;
-    numPapers: number;
-    numCites: number;
-    firstYear: number;
-    lastYear: number;
-    journalId: number;
-    subdisciplineId: number;
-    globalStats: JournalStats;
-  }) {
+  constructor(data: any) {
     Object.assign(this, data);
   }
 

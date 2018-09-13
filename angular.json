@@ -173,12 +173,17 @@
       "sourceRoot": "projects/dvl-fw/src",
       "projectType": "library",
       "prefix": "dvl",
-      "targets": {
+      "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
             "tsConfig": "projects/dvl-fw/tsconfig.lib.json",
             "project": "projects/dvl-fw/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/dvl-fw/ng-package.prod.json"
+            }
           }
         },
         "test": {

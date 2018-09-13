@@ -6,7 +6,7 @@ import { ColorScale } from './color-scale';
 export function norm0to100(field: string, maxField: string, minField?: string): Operator<any, number> {
   if (!minField) {
     return chain(
-      combine([access(field, 0), access(maxField, 1)]), 
+      combine([access(field, 0), access(maxField, 1)]),
       map(([val, maxVal]) => val / maxVal * 100)
     );
   } else {

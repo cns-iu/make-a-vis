@@ -1,23 +1,35 @@
 import { ISIRecord, parseISIFile } from './isi-record';
-import { extractJournals } from './isi-extract-journals';
+import { Author } from './isi-author';
+import { CoAuthorLink } from './isi-coauthor-link';
 import { Journal } from './isi-journal';
+import { Publication } from './isi-publication';
+import { extractAuthors } from './isi-extract-authors';
+import { extractCoAuthorLinks } from './isi-extract-coauthor-links';
+import { extractJournals } from './isi-extract-journals';
+import { extractPublications } from './isi-extract-publications';
 
 // @dynamic
 export class ISIDatabase {
-  publications: ISIRecord[];
+  publications: Publication[];
   journals: Journal[];
+  authors: Author[];
+  coAuthorLinks: CoAuthorLink[];
 
   static fromISIFile(isiFileContents: string): ISIDatabase {
-    const publications = parseISIFile(isiFileContents);
+    const records = parseISIFile(isiFileContents);
     return {
-      journals: extractJournals(publications),
-      publications
+      journals: extractJournals(records),
+      authors: extractAuthors(records),
+      coAuthorLinks: extractCoAuthorLinks(records),
+      publications: extractPublications(records)
     };
   }
   static fromJSON(data: any): ISIDatabase {
     return {
       journals: (data.journals || []).map(j => new Journal(j)),
-      publications: (data.publications || [])
+      authors: (data.authors || []).map(a => new Author(a)),
+      coAuthorLinks: (data.coAuthorLinks || []).map(c => new CoAuthorLink(c)),
+      publications: (data.publications || []).map(p => new Publication(p))
     };
   }
 }

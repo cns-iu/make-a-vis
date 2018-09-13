@@ -54,6 +54,6 @@ export function extractJournals(publications: ISIRecord[]): Journal[] {
       Object.assign(journal, scienceLocatePublication(pub));
     }
   }
-  journalList.forEach((j) => globalStats.count(j));
+  journalList.forEach(j => globalStats.count(j));
   return journalList;
 }

@@ -33,7 +33,7 @@ export function parseRISRecords(data: string, tagDefinitions: TagMapping = DEFAU
   let record: any = {}, lastTag = null, lastField = null;
   for (const [tag, value] of parseRISString(data)) {
     let flags = tagDefinitions[tag] || tagDefinitions['default'] || { ignored: true };
-    if (flags.ignored) {
+    if (flags.ignored && tag !== '  ') {
       continue;
     } else if (flags.endrecord) {
       records.push(record);
