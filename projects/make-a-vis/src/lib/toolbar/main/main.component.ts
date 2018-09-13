@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewChild, ContentChild, ElementRef } from '@angular/core';
-import { SidenavEvent } from '../shared/events';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'mav-toolbar',
@@ -7,8 +6,6 @@ import { SidenavEvent } from '../shared/events';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
-  @ViewChild('scatterplot') scatterplot: ElementRef;
 
   isSidenavOpen = false;
 
