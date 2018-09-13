@@ -52,7 +52,7 @@
           <mat-button-toggle value="svg" class="button-toggle">SVG</mat-button-toggle>
           <mat-button-toggle value="pdf" class="button-toggle">PDF</mat-button-toggle>
         </mat-button-toggle-group>
-        <button mat-stroked-button isRoundButton (click)="exportSnapshot()" class="button">Export</button>
+        <button [disabled]="!exportService.visualizationElement" mat-stroked-button isRoundButton (click)="exportSnapshot()" class="button">Export</button>
       </p>
     </mat-expansion-panel>
     <mat-divider></mat-divider>
