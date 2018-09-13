@@ -1,7 +1,7 @@
 apiVersion: 1
 metadata:
-  dateCreated: 2018-09-11T20:26:53.567Z
-  dateSaved: 2018-09-11T20:26:53.579Z
+  dateCreated: 2018-09-13T13:12:27.764Z
+  dateSaved: 2018-09-13T13:12:27.777Z
 dataSources:
   - id: isiDataSource
     template: isi
@@ -76,23 +76,44 @@ graphicVariableMappings:
             - id: identifier
               label: identifier
               selector: id
+        title:
+          identifier:
+            - id: identifier
+              label: identifier
+              selector: id
+          axis:
+            - id: axis
+              label: axis
+              selector: title
+          text:
+            - id: text
+              label: text
+              selector: title
         publicationYear:
           axis:
             - id: axis
               label: axis
-              selector: publicationYear
+              selector: publicationYearLabel
           text:
             - id: text
               label: text
-              selector: publicationYear
+              selector: publicationYearLabel
+          areaSize:
+            - id: areaSize
+              label: areaSize
+              selector: publicationYearAreaSize
+          fontSize:
+            - id: fontSize
+              label: fontSize
+              selector: publicationYearFontSize
           color:
             - id: color
               label: color
-              selector: publicationYear
-          size:
-            - id: size
-              label: size
-              selector: publicationYear
+              selector: publicationYearColor
+          strokeColor:
+            - id: strokeColor
+              label: strokeColor
+              selector: publicationYearStrokeColor
   - recordStream: journals
     mappings:
       journal:
@@ -113,70 +134,102 @@ graphicVariableMappings:
           axis:
             - id: axis
               label: axis
-              selector: numCites
+              selector: numCitesLabel
           text:
             - id: text
               label: text
-              selector: numCites
-          size:
-            - id: size
-              label: size
-              selector: numCites
+              selector: numCitesLabel
+          areaSize:
+            - id: areaSize
+              label: areaSize
+              selector: numCitesAreaSize
           fontSize:
             - id: fontSize
               label: fontSize
-              selector: numCites
+              selector: numCitesFontSize
+          color:
+            - id: color
+              label: color
+              selector: numCitesColor
+          strokeColor:
+            - id: strokeColor
+              label: strokeColor
+              selector: numCitesStrokeColor
         numPapers:
           axis:
             - id: axis
               label: axis
-              selector: numPapers
+              selector: numPapersLabel
           text:
             - id: text
               label: text
-              selector: numPapers
-          size:
-            - id: size
-              label: size
-              selector: numPapers
+              selector: numPapersLabel
+          areaSize:
+            - id: areaSize
+              label: areaSize
+              selector: numPapersAreaSize
           fontSize:
             - id: fontSize
               label: fontSize
-              selector: numPapers
+              selector: numPapersFontSize
+          color:
+            - id: color
+              label: color
+              selector: numPapersColor
+          strokeColor:
+            - id: strokeColor
+              label: strokeColor
+              selector: numPapersStrokeColor
         firstYear:
           axis:
             - id: axis
               label: axis
-              selector: firstYear
+              selector: firstYearLabel
           text:
             - id: text
               label: text
-              selector: firstYear
-          size:
-            - id: size
-              label: size
-              selector: firstYear
+              selector: firstYearLabel
+          areaSize:
+            - id: areaSize
+              label: areaSize
+              selector: firstYearAreaSize
           fontSize:
             - id: fontSize
               label: fontSize
-              selector: firstYear
+              selector: firstYearFontSize
+          color:
+            - id: color
+              label: color
+              selector: firstYearColor
+          strokeColor:
+            - id: strokeColor
+              label: strokeColor
+              selector: firstYearStrokeColor
         lastYear:
           axis:
             - id: axis
               label: axis
-              selector: lastYear
+              selector: lastYearLabel
           text:
             - id: text
               label: text
-              selector: lastYear
-          size:
-            - id: size
-              label: size
-              selector: lastYear
+              selector: lastYearLabel
+          areaSize:
+            - id: areaSize
+              label: areaSize
+              selector: lastYearAreaSize
           fontSize:
             - id: fontSize
               label: fontSize
-              selector: lastYear
+              selector: lastYearFontSize
+          color:
+            - id: color
+              label: color
+              selector: lastYearColor
+          strokeColor:
+            - id: strokeColor
+              label: strokeColor
+              selector: lastYearStrokeColor
 graphicSymbolMappings:
   - id: publicationPoints
     type: area
@@ -2913,6 +2966,11 @@ rawData:
           lastYear: 2018
           journalId: 14924
           subdisciplineId: 523
+          globalStats: &ref_0
+            numPapersMax: 14
+            numCitesMax: 560
+            yearMax: 2018
+            yearMin: 2001
         - name: P NATL ACAD SCI USA
           label: Proc. Natl. Acad. Sci. U. S. A.
           issn: 0027-8424
@@ -2922,6 +2980,7 @@ rawData:
           lastYear: 2018
           journalId: 15868
           subdisciplineId: -2
+          globalStats: *ref_0
         - name: SCIENCE
           label: Science
           issn: 0036-8075
@@ -2932,6 +2991,7 @@ rawData:
           lastYear: 2018
           journalId: 17311
           subdisciplineId: -2
+          globalStats: *ref_0
         - name: SCIENTOMETRICS
           label: Scientometrics
           issn: 0138-9130
@@ -2942,6 +3002,7 @@ rawData:
           lastYear: 2018
           journalId: 17373
           subdisciplineId: 403
+          globalStats: *ref_0
         - name: MENOPAUSE
           label: Menopause-J. N. Am. Menopause Soc.
           issn: 1072-3714
@@ -2952,6 +3013,7 @@ rawData:
           lastYear: 2017
           journalId: 12902
           subdisciplineId: 490
+          globalStats: *ref_0
         - name: J ASSOC INF SCI TECH
           issn: 2330-1635
           eissn: 2330-1643
@@ -2960,6 +3022,7 @@ rawData:
           firstYear: 2017
           lastYear: 2017
           subdisciplineId: -1
+          globalStats: *ref_0
         - name: INFORM VISUAL
           label: Inf. Vis.
           issn: 1473-8716
@@ -2970,6 +3033,7 @@ rawData:
           lastYear: 2016
           journalId: 8105
           subdisciplineId: 188
+          globalStats: *ref_0
         - name: ISSUES SCI TECHNOL
           label: Issues Sci. Technol.
           issn: 0748-5492
@@ -2980,6 +3044,7 @@ rawData:
           lastYear: 2016
           journalId: 9091
           subdisciplineId: 409
+          globalStats: *ref_0
         - name: TRENDS COGN SCI
           label: TRENDS COGN. SCI.
           issn: 1364-6613
@@ -2989,6 +3054,7 @@ rawData:
           lastYear: 2015
           journalId: 18875
           subdisciplineId: 144
+          globalStats: *ref_0
         - name: COMPUT GRAPH FORUM
           label: Comput. Graph. Forum
           issn: 0167-7055
@@ -2999,6 +3065,7 @@ rawData:
           lastYear: 2015
           journalId: 4200
           subdisciplineId: 188
+          globalStats: *ref_0
         - name: IEEE T VIS COMPUT GR
           label: IEEE Trans. Vis. Comput. Graph.
           issn: 1077-2626
@@ -3009,6 +3076,7 @@ rawData:
           lastYear: 2014
           journalId: 7790
           subdisciplineId: 188
+          globalStats: *ref_0
         - name: EMBO REP
           label: EMBO Rep.
           issn: 1469-221X
@@ -3019,6 +3087,7 @@ rawData:
           lastYear: 2014
           journalId: 5441
           subdisciplineId: 1
+          globalStats: *ref_0
         - name: SCI REP-UK
           label: Sci Rep
           issn: 2045-2322
@@ -3027,6 +3096,7 @@ rawData:
           firstYear: 2013
           lastYear: 2013
           subdisciplineId: -1
+          globalStats: *ref_0
         - name: EUR PHYS J-SPEC TOP
           label: Eur. Phys. J.-Spec. Top.
           issn: 1951-6355
@@ -3036,6 +3106,7 @@ rawData:
           lastYear: 2012
           journalId: 6024
           subdisciplineId: 376
+          globalStats: *ref_0
         - name: NATURE
           label: Nature
           issn: 0028-0836
@@ -3045,6 +3116,7 @@ rawData:
           lastYear: 2012
           journalId: 13439
           subdisciplineId: -2
+          globalStats: *ref_0
         - name: COMMUN ACM
           label: Commun. ACM
           issn: 0001-0782
@@ -3055,6 +3127,7 @@ rawData:
           lastYear: 2011
           journalId: 4075
           subdisciplineId: 57
+          globalStats: *ref_0
         - name: J INFORMETR
           label: J. Informetr.
           issn: 1751-1577
@@ -3064,6 +3137,7 @@ rawData:
           lastYear: 2011
           journalId: 10572
           subdisciplineId: 105
+          globalStats: *ref_0
         - name: CTS-CLIN TRANSL SCI
           label: CTS-Clin. Transl. Sci.
           issn: 1752-8054
@@ -3073,6 +3147,7 @@ rawData:
           lastYear: 2010
           journalId: 4561
           subdisciplineId: 479
+          globalStats: *ref_0
         - name: SCI TRANSL MED
           label: Sci. Transl. Med.
           issn: 1946-6234
@@ -3082,6 +3157,7 @@ rawData:
           lastYear: 2010
           journalId: 17348
           subdisciplineId: 394
+          globalStats: *ref_0
         - name: IEEE INTELL SYST
           label: IEEE Intell. Syst.
           issn: 1541-1672
@@ -3091,6 +3167,7 @@ rawData:
           lastYear: 2009
           journalId: 7633
           subdisciplineId: 446
+          globalStats: *ref_0
         - name: GENOME BIOL
           label: Genome Biol.
           issn: 1474-760X
@@ -3099,6 +3176,7 @@ rawData:
           firstYear: 2008
           lastYear: 2008
           subdisciplineId: -1
+          globalStats: *ref_0
         - name: ENVIRON PLANN B
           label: Environ. Plan. B-Plan. Des.
           issn: 0265-8135
@@ -3108,6 +3186,7 @@ rawData:
           lastYear: 2007
           journalId: 5606
           subdisciplineId: 529
+          globalStats: *ref_0
         - name: ANNU REV INFORM SCI
           label: Annu. Rev. Inform. Sci. Technol.
           issn: 0066-4200
@@ -3118,6 +3197,7 @@ rawData:
           lastYear: 2007
           journalId: 1535
           subdisciplineId: 276
+          globalStats: *ref_0
         - name: COMPLEXITY
           label: Complexity
           issn: 1076-2787
@@ -3127,6 +3207,7 @@ rawData:
           lastYear: 2007
           journalId: 4128
           subdisciplineId: 108
+          globalStats: *ref_0
         - name: GLOBAL ENVIRON CHANG
           label: Glob. Environ. Change-Human Policy Dimens.
           issn: 0959-3780
@@ -3136,6 +3217,7 @@ rawData:
           lastYear: 2006
           journalId: 6895
           subdisciplineId: 434
+          globalStats: *ref_0
         - name: BLOOD
           label: Blood
           issn: 0006-4971
@@ -3145,6 +3227,7 @@ rawData:
           lastYear: 2005
           journalId: 2646
           subdisciplineId: 19
+          globalStats: *ref_0
         - name: ANIM BEHAV
           label: Anim. Behav.
           issn: 0003-3472
@@ -3155,6 +3238,7 @@ rawData:
           lastYear: 2005
           journalId: 1304
           subdisciplineId: 401
+          globalStats: *ref_0
         - name: PRESENCE-TELEOP VIRT
           label: Presence-Teleoper. Virtual Env.
           issn: 1054-7460
@@ -3165,6 +3249,7 @@ rawData:
           lastYear: 2005
           journalId: 15143
           subdisciplineId: 474
+          globalStats: *ref_0
         - name: J AM SOC INF SCI TEC
           label: J. Am. Soc. Inf. Sci. Technol.
           issn: 1532-2882
@@ -3174,6 +3259,7 @@ rawData:
           lastYear: 2003
           journalId: 11582
           subdisciplineId: 276
+          globalStats: *ref_0
         - name: ARTIF INTELL REV
           label: Artif. Intell. Rev.
           issn: 0269-2821
@@ -3183,6 +3269,7 @@ rawData:
           lastYear: 2001
           journalId: 1960
           subdisciplineId: 160
+          globalStats: *ref_0
   - id: isiFile
     template: string
     data: >-

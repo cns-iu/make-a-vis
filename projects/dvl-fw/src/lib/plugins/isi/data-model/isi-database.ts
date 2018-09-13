@@ -1,16 +1,23 @@
-import { ISIRecord, parseISIFile } from './isi-records';
-import { Journal, extractJournals } from './isi-journals';
+import { ISIRecord, parseISIFile } from './isi-record';
+import { extractJournals } from './isi-extract-journals';
+import { Journal } from './isi-journal';
 
-
-export interface ISIDatabase {
+// @dynamic
+export class ISIDatabase {
   publications: ISIRecord[];
   journals: Journal[];
-}
 
-export function createISIDatabase(isiFileContents: string): ISIDatabase {
-  const publications = parseISIFile(isiFileContents);
-  return {
-    publications,
-    journals: extractJournals(publications)
-  };
+  static fromISIFile(isiFileContents: string): ISIDatabase {
+    const publications = parseISIFile(isiFileContents);
+    return {
+      journals: extractJournals(publications),
+      publications
+    };
+  }
+  static fromJSON(data: any): ISIDatabase {
+    return {
+      journals: (data.journals || []).map(j => new Journal(j)),
+      publications: (data.publications || [])
+    };
+  }
 }

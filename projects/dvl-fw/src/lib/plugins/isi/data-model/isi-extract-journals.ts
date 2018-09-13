@@ -1,22 +1,6 @@
-import { ISIRecord } from './isi-records';
 import { issnLookup, journalNameLookup, journalIdSubdLookup } from '@ngx-dino/science-map';
-
-
-export interface Journal {
-  name: string;
-  label: string;
-  issn: string;
-  eissn: string;
-
-  numPapers: number;
-  numCites: number;
-
-  firstYear: number;
-  lastYear: number;
-
-  journalId: number;
-  subdisciplineId: number;
-}
+import { ISIRecord } from './isi-record';
+import { Journal, JournalStats } from './isi-journal';
 
 export function scienceLocatePublication(pub: ISIRecord): {journalId: number, subdisciplineId: number} {
   const tries = [
@@ -38,10 +22,11 @@ export function scienceLocatePublication(pub: ISIRecord): {journalId: number, su
 
 export function extractJournals(publications: ISIRecord[]): Journal[] {
   const journals: any = {}, journalList: Journal[] = [];
+  const globalStats = new JournalStats();
   for (const pub of publications.filter(p => p.publicationType === 'J')) {
     let journal: Journal = journals[pub.journalName];
     if (!journal) {
-      journal = journals[pub.journalName] = <Journal>{
+      journal = journals[pub.journalName] = new Journal({
         name: pub.journalName,
         label: pub.journalFullname,
         issn: pub.issn,
@@ -51,9 +36,10 @@ export function extractJournals(publications: ISIRecord[]): Journal[] {
         firstYear: pub.publicationYear,
         lastYear: pub.publicationYear,
         journalId: undefined,
-        subdisciplineId: -1
-      };
-      journalList.push(<Journal>journal);
+        subdisciplineId: -1,
+        globalStats
+      });
+      journalList.push(journal);
     }
 
     journal.numPapers++;
@@ -68,5 +54,6 @@ export function extractJournals(publications: ISIRecord[]): Journal[] {
       Object.assign(journal, scienceLocatePublication(pub));
     }
   }
+  journalList.forEach((j) => globalStats.count(j));
   return journalList;
 }

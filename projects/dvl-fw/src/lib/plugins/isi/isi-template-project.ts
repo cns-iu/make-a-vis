@@ -93,20 +93,37 @@ export class ISITemplateProject extends DefaultProject {
                 {selector: 'id'}
               ]
             },
-            publicationYear: {
+            title: {
+              identifier: [
+                {selector: 'id'}
+              ],
               axis: [
-                {selector: 'publicationYear'}
+                {selector: 'title'}
               ],
               text: [
-                {selector: 'publicationYear'}
+                {selector: 'title'}
+              ]
+            },
+            publicationYear: {
+              axis: [
+                {selector: 'publicationYearLabel'}
+              ],
+              text: [
+                {selector: 'publicationYearLabel'}
+              ],
+              areaSize: [
+                {selector: 'publicationYearAreaSize'}
+              ],
+              fontSize: [
+                {selector: 'publicationYearFontSize'}
               ],
               color: [
-                {selector: 'publicationYear'}
+                {selector: 'publicationYearColor'}
               ],
-              size: [
-                {selector: 'publicationYear'}
-              ],
-            }
+              strokeColor: [
+                {selector: 'publicationYearStrokeColor'}
+              ]
+            },
           }
         }
       },
@@ -127,58 +144,82 @@ export class ISITemplateProject extends DefaultProject {
             },
             numCites: {
               axis: [
-                {selector: 'numCites'}
+                {selector: 'numCitesLabel'}
               ],
               text: [
-                {selector: 'numCites'}
+                {selector: 'numCitesLabel'}
               ],
-              size: [
-                {selector: 'numCites'}
+              areaSize: [
+                {selector: 'numCitesAreaSize'}
               ],
               fontSize: [
-                {selector: 'numCites'}
+                {selector: 'numCitesFontSize'}
+              ],
+              color: [
+                {selector: 'numCitesColor'}
+              ],
+              strokeColor: [
+                {selector: 'numCitesStrokeColor'}
               ]
             },
             numPapers: {
               axis: [
-                {selector: 'numPapers'}
+                {selector: 'numPapersLabel'}
               ],
               text: [
-                {selector: 'numPapers'}
+                {selector: 'numPapersLabel'}
               ],
-              size: [
-                {selector: 'numPapers'}
+              areaSize: [
+                {selector: 'numPapersAreaSize'}
               ],
               fontSize: [
-                {selector: 'numPapers'}
+                {selector: 'numPapersFontSize'}
+              ],
+              color: [
+                {selector: 'numPapersColor'}
+              ],
+              strokeColor: [
+                {selector: 'numPapersStrokeColor'}
               ]
             },
             firstYear: {
               axis: [
-                {selector: 'firstYear'}
+                {selector: 'firstYearLabel'}
               ],
               text: [
-                {selector: 'firstYear'}
+                {selector: 'firstYearLabel'}
               ],
-              size: [
-                {selector: 'firstYear'}
+              areaSize: [
+                {selector: 'firstYearAreaSize'}
               ],
               fontSize: [
-                {selector: 'firstYear'}
+                {selector: 'firstYearFontSize'}
+              ],
+              color: [
+                {selector: 'firstYearColor'}
+              ],
+              strokeColor: [
+                {selector: 'firstYearStrokeColor'}
               ]
             },
             lastYear: {
               axis: [
-                {selector: 'lastYear'}
+                {selector: 'lastYearLabel'}
               ],
               text: [
-                {selector: 'lastYear'}
+                {selector: 'lastYearLabel'}
               ],
-              size: [
-                {selector: 'lastYear'}
+              areaSize: [
+                {selector: 'lastYearAreaSize'}
               ],
               fontSize: [
-                {selector: 'lastYear'}
+                {selector: 'lastYearFontSize'}
+              ],
+              color: [
+                {selector: 'lastYearColor'}
+              ],
+              strokeColor: [
+                {selector: 'lastYearStrokeColor'}
               ]
             }
           }

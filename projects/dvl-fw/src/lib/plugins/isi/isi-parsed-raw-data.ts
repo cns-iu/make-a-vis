@@ -1,17 +1,22 @@
 import { RawData } from '../../shared/raw-data';
-import { createISIDatabase, ISIDatabase } from './data-model/isi-database';
+import { ISIDatabase } from './data-model/isi-database';
 
 
 export class ISIParsedRawData implements RawData {
   template = 'json';
-  data: any;
+  data: ISIDatabase;
+  private __reconstituted_data__ = false;
 
   constructor(public id: string, private isiData: RawData) { }
 
   async getData(): Promise<any> {
     if (!this.data) {
       const isiFileContents = await this.isiData.getData();
-      this.data = createISIDatabase(isiFileContents);
+      this.data = ISIDatabase.fromISIFile(isiFileContents);
+      this.__reconstituted_data__ = true;
+    } else if (!this.__reconstituted_data__) {
+      this.data = ISIDatabase.fromJSON(this.data);
+      this.__reconstituted_data__ = true;
     }
     return this.data;
   }
