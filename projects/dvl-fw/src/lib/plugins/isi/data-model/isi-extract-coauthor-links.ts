@@ -7,7 +7,7 @@ export function extractCoAuthorLinks(publications: Publication[]): CoAuthorLink[
   const globalStats = new CoAuthorLinkStats();
   for (const pub of publications) {
     const authors = pub.Authors.concat();
-    authors.sort((a,b) => a.name < b.name ? -1 : 1);
+    authors.sort((a, b) => a.name < b.name ? -1 : 1);
     authors.forEach((author1, index) => {
       for (const author2 of authors.slice(index + 1)) {
         const id = `${author1.name}<->${author2.name}`;

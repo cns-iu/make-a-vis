@@ -49,7 +49,7 @@ export class Publication {
   Authors: Author[];
   @Transient
   Journal: Journal;
-  
+
   // #Cites Encodings
   @Operand<number>(norm0to100('numCites', 'globalStats.numCitesMax'))
   numCitesNorm: number;
