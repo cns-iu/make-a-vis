@@ -27,7 +27,11 @@ export class ISIDataSource implements DataSource {
       parsedData = new ISIParsedRawData(this.properties.parsedData, rawData);
       if (this.properties.saveParsedData) {
         this.project.rawData.push(parsedData);
+        parsedData.getData();
       }
+    }
+    if (!this.properties.saveParsedData) {
+      this.project.rawData = this.project.rawData.filter(d => d.id !== this.properties.parsedData);
     }
     this.recordStreams = data.recordStreams.map((rs) => new DefaultRecordStream({id: rs.id, label: rs.label || rs.id}, parsedData));
   }

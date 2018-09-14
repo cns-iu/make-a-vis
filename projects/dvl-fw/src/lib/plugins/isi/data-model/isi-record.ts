@@ -16,11 +16,12 @@ export interface ISIRecord {
   numCites: number;
 }
 
+// See https://images.webofknowledge.com/images/help/WOK/hs_wos_fieldtags.html for a list of tags
 export const ISI_TAGS: TagMapping = {
   'FN': { ignored: true },
   'VR': { ignored: true },
   'ER': { endrecord: true },
-  'default': { ignored: true },
+  'default': { list: true },
 
   'UT': { string: true, separator: ' ', remap: 'id'},
   'TI': { string: true, separator: ' ', remap: 'title' },
@@ -34,7 +35,7 @@ export const ISI_TAGS: TagMapping = {
 
   'AB': { string: true, separator: ' ', remap: 'abstract' },
   'PT': { string: true, separator: ' ', remap: 'publicationType' },
-  'IS': { number: true, remap: 'issue' },
+  // 'IS': { number: true, remap: 'issue' },
 
   'TC': { number: true, remap: 'numCites' }
 };

@@ -4,17 +4,23 @@ import {
   norm0to100, formatNumber, formatYear
 } from '../../../encoding';
 
+
 export class JournalStats {
   numPapersMax = 0;
   numCitesMax = 0;
   yearMax = 0;
   yearMin = 9999;
 
-  count(journal: Journal) {
-    this.numPapersMax = Math.max(this.numPapersMax, journal.numPapers);
-    this.numCitesMax = Math.max(this.numCitesMax, journal.numCites);
-    this.yearMax = Math.max(this.yearMax, journal.firstYear, journal.lastYear);
-    this.yearMin = Math.min(this.yearMin, journal.firstYear, journal.lastYear);
+  count(item: Journal) {
+    this.numPapersMax = Math.max(this.numPapersMax, item.numPapers);
+    this.numCitesMax = Math.max(this.numCitesMax, item.numCites);
+    this.yearMax = Math.max(this.yearMax, item.firstYear, item.lastYear);
+    if (item.firstYear > 0) {
+      this.yearMin = Math.min(this.yearMin, item.firstYear);
+    }
+    if (item.lastYear > 0) {
+      this.yearMin = Math.min(this.yearMin, item.lastYear);
+    }
   }
 }
 

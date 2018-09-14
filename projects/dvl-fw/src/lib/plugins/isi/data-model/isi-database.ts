@@ -1,4 +1,4 @@
-import { ISIRecord, parseISIFile } from './isi-record';
+import { parseISIFile } from './isi-record';
 import { Author } from './isi-author';
 import { CoAuthorLink } from './isi-coauthor-link';
 import { Journal } from './isi-journal';
@@ -17,12 +17,12 @@ export class ISIDatabase {
 
   static fromISIFile(isiFileContents: string): ISIDatabase {
     const records = parseISIFile(isiFileContents);
-    return {
-      journals: extractJournals(records),
-      authors: extractAuthors(records),
-      coAuthorLinks: extractCoAuthorLinks(records),
-      publications: extractPublications(records)
-    };
+    const publications = extractPublications(records);
+    const journals = extractJournals(publications);
+    const authors = extractAuthors(publications);
+    const coAuthorLinks = extractCoAuthorLinks(publications);
+
+    return { journals, authors, coAuthorLinks, publications };
   }
   static fromJSON(data: any): ISIDatabase {
     return {

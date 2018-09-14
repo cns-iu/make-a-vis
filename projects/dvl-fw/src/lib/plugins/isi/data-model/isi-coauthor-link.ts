@@ -3,6 +3,9 @@ import {
   areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, greyScaleNormQuantitative, greyScaleNormQuantitativeStroke,
   norm0to100, formatNumber, formatYear
 } from '../../../encoding';
+import { Transient } from '../../../shared/transient';
+
+import { Author } from './isi-author';
 
 export class CoAuthorLinkStats {
   numPapersMax = 0;
@@ -10,11 +13,16 @@ export class CoAuthorLinkStats {
   yearMax = 0;
   yearMin = 9999;
 
-  count(coAuthorLink: CoAuthorLink) {
-    this.numPapersMax = Math.max(this.numPapersMax, coAuthorLink.numPapers);
-    this.numCitesMax = Math.max(this.numCitesMax, coAuthorLink.numCites);
-    this.yearMax = Math.max(this.yearMax, coAuthorLink.firstYear, coAuthorLink.lastYear);
-    this.yearMin = Math.min(this.yearMin, coAuthorLink.firstYear, coAuthorLink.lastYear);
+  count(item: CoAuthorLink) {
+    this.numPapersMax = Math.max(this.numPapersMax, item.numPapers);
+    this.numCitesMax = Math.max(this.numCitesMax, item.numCites);
+    this.yearMax = Math.max(this.yearMax, item.firstYear, item.lastYear);
+    if (item.firstYear > 0) {
+      this.yearMin = Math.min(this.yearMin, item.firstYear);
+    }
+    if (item.lastYear > 0) {
+      this.yearMin = Math.min(this.yearMin, item.lastYear);
+    }
   }
 }
 
@@ -31,6 +39,11 @@ export class CoAuthorLink {
   constructor(data: any) {
     Object.assign(this, data);
   }
+
+  @Transient
+  Author1: Author;
+  @Transient
+  Author2: Author;
 
   // #Papers Encodings
   @Operand<number>(norm0to100('numPapers', 'globalStats.numPapersMax'))

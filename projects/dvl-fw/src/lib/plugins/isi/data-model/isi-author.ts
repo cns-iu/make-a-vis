@@ -10,11 +10,16 @@ export class AuthorStats {
   yearMax = 0;
   yearMin = 9999;
 
-  count(author: Author) {
-    this.numPapersMax = Math.max(this.numPapersMax, author.numPapers);
-    this.numCitesMax = Math.max(this.numCitesMax, author.numCites);
-    this.yearMax = Math.max(this.yearMax, author.firstYear, author.lastYear);
-    this.yearMin = Math.min(this.yearMin, author.firstYear, author.lastYear);
+  count(item: Author) {
+    this.numPapersMax = Math.max(this.numPapersMax, item.numPapers);
+    this.numCitesMax = Math.max(this.numCitesMax, item.numCites);
+    this.yearMax = Math.max(this.yearMax, item.firstYear, item.lastYear);
+    if (item.firstYear > 0) {
+      this.yearMin = Math.min(this.yearMin, item.firstYear);
+    }
+    if (item.lastYear > 0) {
+      this.yearMin = Math.min(this.yearMin, item.lastYear);
+    }
   }
 }
 

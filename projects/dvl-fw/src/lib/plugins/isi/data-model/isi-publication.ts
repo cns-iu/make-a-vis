@@ -3,6 +3,10 @@ import {
   areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, greyScaleNormQuantitative, greyScaleNormQuantitativeStroke,
   norm0to100, formatNumber, formatYear
 } from '../../../encoding';
+import { Transient } from '../../../shared/transient';
+
+import { Author } from './isi-author';
+import { Journal } from './isi-journal';
 
 export class PublicationStats {
   numCitesMax = 0;
@@ -41,6 +45,11 @@ export class Publication {
     Object.assign(this, data);
   }
 
+  @Transient
+  Authors: Author[];
+  @Transient
+  Journal: Journal;
+  
   // #Cites Encodings
   @Operand<number>(norm0to100('numCites', 'globalStats.numCitesMax'))
   numCitesNorm: number;
