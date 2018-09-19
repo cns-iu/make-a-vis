@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:cli": "webpack --config projects/dvl-fw/src/lib/cli/webpack.config.js",
+    "build:pdfkit": "browserify -s pdfkit node_modules/pdfkit/js/document.js -o dist/pdfkit.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -40,6 +41,7 @@
     "material-design-icons": "^3.0.1",
     "pako": "^1.0.6",
     "papaparse": "^4.6.0",
+    "pdfkit": "^0.8.3",
     "rxjs": "^6.0.0",
     "typescript-logging": "^0.6.2",
     "zone.js": "^0.8.26"
@@ -56,6 +58,8 @@
     "@types/node": "~8.9.4",
     "@types/pako": "^1.0.0",
     "@types/papaparse": "^4.5.2",
+    "@types/pdfkit": "^0.7.36",
+    "browserify": "^16.2.2",
     "codelyzer": "~4.2.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
