@@ -1,5 +1,6 @@
 import { LegendViewModule } from './legend-view.module';
 
+describe('legend-view', () => {
 describe('LegendViewModule', () => {
   let legendViewModule: LegendViewModule;
 
@@ -10,4 +11,5 @@ describe('LegendViewModule', () => {
   it('should create an instance', () => {
     expect(legendViewModule).toBeTruthy();
   });
+});
 });

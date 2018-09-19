@@ -9,6 +9,7 @@ import { NetworkIconComponent } from '../icons/network/network-icon.component';
 import { ScatterGraphIconComponent } from '../icons/scatter-graph/scatter-graph-icon.component';
 
 
+describe('visualization-view', () => {
 describe('MenuComponent', () => {
   let component: MenuComponent;
   let fixture: ComponentFixture<MenuComponent>;
@@ -37,4 +38,5 @@ describe('MenuComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+});
 });
