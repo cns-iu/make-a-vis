@@ -1,7 +1,3 @@
 .cancel-icon {
   cursor: pointer;
 }
-
-.cancel-icon :active {
-  opacity: 1;
-}

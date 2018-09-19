@@ -2,8 +2,6 @@ import {
   Component,
   OnInit,
   Input,
-  OnChanges,
-  SimpleChanges,
   ViewChild
 } from '@angular/core';
 import { MatAccordion } from '@angular/material';

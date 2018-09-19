@@ -19,13 +19,21 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTabsModule } from '@angular/material/tabs';
 
+// Store
+import { StoreModule } from '@ngrx/store';
+
+// Reducers
+import { visualizationStateReducer } from './shared/store/reducer';
+
 @NgModule({
   imports: [
     CommonModule,
 
     MatChipsModule,
     MatMenuModule,
-    MatTabsModule
+    MatTabsModule,
+
+    StoreModule.forFeature('visualization', visualizationStateReducer)
   ],
   declarations: [
     MenuComponent,

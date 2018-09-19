@@ -21,7 +21,7 @@ export interface ExportProjectEvent {
 
 export interface ShareProjectEvent {
   type: 'share';
-  // TODO : created or received link?
+  link: string; // received link
 }
 
 export interface ToggleLoggingEvent {
@@ -29,6 +29,6 @@ export interface ToggleLoggingEvent {
   enabled: boolean;
 }
 
-export type SidenavEvent =
+export type Sidenav =
   SaveProjectEvent | LoadProjectEvent | NewProjectEvent |
   ExportProjectEvent | ShareProjectEvent | ToggleLoggingEvent;
