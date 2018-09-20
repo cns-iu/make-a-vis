@@ -1,0 +1,831 @@
+# Example Project
+apiVersion: 1
+
+metadata:
+  dateCreated: 2018-09-01
+  dateSaved: 2018-09-01
+
+dataSources:
+  - id: myJSONDataSource1
+    properties:
+      rawData: testData1
+    recordStreams:
+      - id: testStream1
+        label: A test stream populated by an external JSON link
+
+  - id: myJSONDataSource2
+    properties:
+      rawData: testData2
+    recordStreams:
+      - id: testStream2
+        label: A test stream populated by attached JSON data
+
+  - id: myJSONDataSource3
+    properties:
+      rawData: testData3
+    recordStreams:
+      - id: testStream3
+        label: A test stream populated by attached YML data
+
+  - id: myActivityDataSource
+    template: activityLog
+    properties:
+      keepPreviousActivity: true
+      freezeLogs: false
+      rawData: activityLog
+    recordStreams:
+      - id: activityLogs
+        label: A stream of my activity as I'm using MaV
+
+  - id: isiDataSource
+    template: isi
+    properties: 
+      rawData: isiFile
+    recordStreams:
+      - id: publications
+      - id: authors
+      - id: coAuthorLinks
+      - id: scienceMapSubdisciplines
+
+recordSets:
+  - id: author
+    label: Author
+    labelPlural: Authors
+    dataVariables:
+      - id: name
+        label: Name
+        dataType: text
+        scaleType: nominal
+      - id: paperCount
+        label: \#Papers
+        dataType: integer
+        scaleType: ratio
+      - id: coauthorCount
+        label: \#Co-Authors
+        dataType: integer
+        scaleType: ratio
+      - id: numCites
+        label: \#Citations
+        dataType: integer
+        scaleType: ratio
+
+  - id: publication
+    label: Publication
+    labelPlural: Publications
+    dataVariables:
+      - id: id
+        label: WoS ID
+        dataType: text
+        scaleType: nominal
+      - id: title
+        label: Title
+        dataType: text
+        scaleType: nominal
+      - id: authors
+        label: Authors
+        dataType: text
+        scaleType: nominal
+      - id: journalName
+        label: Journal Name
+        dataType: text
+        scaleType: nominal
+      - id: year
+        label: Year Published
+        dataType: integer
+        scaleType: interval
+
+  - id: coAuthorLink
+    label: Co-Author
+    labelPlural: Co-Authors
+    dataVariables:
+      - id: author1
+        label: Author 1
+        dataType: text
+        scaleType: nominal
+      - id: author2
+        label: Author 2
+        dataType: text
+        scaleType: nominal
+      - id: numCoauths
+        label: Times Co-authored
+        description: Number of Co-Authorships
+        dataType: integer
+        scaleType: interval
+
+  - id: activityLog
+    label: Activity Log
+    labelPlural: Activity Logs
+    dataVariables:
+      - id: timestamp
+        label: Timestamp
+        dataType: date
+        scaleType: interval
+      - id: eventType
+        label: Event Type
+        dataType: text
+        scaleType: nominal
+      - id: message
+        label: Message
+        dataType: string
+        scaleType: nominal
+
+graphicVariableMappings:
+  - recordStream: authors
+    mappings:
+      author:
+        name:
+          axis:
+            - selector: name
+          text:
+            - selector: name
+          identifier:
+            - selector: name
+          shape:
+            - selector: name
+        paperCount:
+          axis:
+            - selector: paperCount
+          text:
+            - selector: paperCount
+          color:
+            - selector: paperCountColor
+          size:
+            - selector: paperCountSize
+        coauthorCount:
+          axis:
+            - selector: coauthorCount
+          text:
+            - selector: coauthorCount
+          color:
+            - selector: coauthorCountColor
+          size:
+            - selector: coauthorCountSize
+        numCites:
+          axis:
+            - selector: numCites
+          text:
+            - selector: numCites
+          color:
+            - selector: numCitesColor
+          size:
+            - selector: numCitesSize
+
+  - recordStream: publications
+    mappings: 
+      author:
+        name:
+          identifier:
+            - selector: firstAuthor.name
+          axis:
+            - id: firstAuthor.name
+              label: First Author
+              selector: firstAuthor.name
+          text:
+            - id: firstAuthor.name
+              label: First Author
+              selector: firstAuthor.name
+            - id: authorsJoined
+              label: All Authors
+              selector: authorsJoined
+          shape:
+            - id: publication.shape
+              selector: firstAuthor.name
+        paperCount:
+          axis:
+            - id: authorAgg.paperCount
+              label: Aggregate \#Papers
+              selector: authorAgg.paperCount
+            - id: firstAuthor.paperCount
+              label: First Author \#Papers
+              selector: firstAuthor.paperCount
+          text:
+            - id: authorAgg.paperCount
+              label: Aggregate \#Papers
+              selector: authorAgg.paperCount
+            - id: firstAuthor.paperCount
+              label: First Author \#Papers
+              selector: firstAuthor.paperCount
+          color:
+            - id: authorAgg.paperCountColor
+              label: Aggregate \#Papers
+              selector: authorAgg.paperCountColor
+            - id: firstAuthor.paperCountColor
+              label: First Author \#Papers
+              selector: firstAuthor.paperCountColor
+          size:
+            - id: authorAgg.paperCountSize
+              label: Aggregate \#Papers
+              selector: authorAgg.paperCountSize
+            - id: firstAuthor.paperCountSize
+              label: First Author \#Papers
+              selector: firstAuthor.paperCountSize
+        # repeat for coauthorCount and numCites
+
+      publication:
+        year:
+          axis:
+            - selector: year
+          text:
+            - selector: year
+          color:
+            - selector: yearColor
+          size:
+            - selector: yearSize
+
+  - recordStream: coAuthorLinks
+    mappings:
+      author:
+        name:
+          axis:
+            - id: axis
+              selector: name
+          identifier:
+            - id: identifier
+              selector: name
+          text:
+            - id: label
+              selector: name
+          color:
+            - id: color
+              selector: color
+          shape:
+            - id: shape
+              selector: shape
+          size:
+            - id: size
+              selector: size
+      coAuthorLink:
+        author1:
+          text:
+            - id: label
+              selector: author1Name
+          identifier:
+            - id: identifier
+              selector: author1Name
+        author2:
+          text:
+            - id: label
+              selector: author2Name
+          identifier:
+            - id: identifier
+              selector: author2Name
+        numCoauths:
+          size:
+            - id: size
+              selector: numCoauthsSize
+
+  - recordStream: scienceMapSubdisciplines
+    mappings:
+      publication:
+        journalName:
+          journalId:
+            - selector: journalId
+
+graphicSymbolMappings:
+  - id: authorPoints
+    type: area
+    recordStream: authors
+    graphicVariables:
+      x:
+        recordSet: author
+        dataVariable: paperCount
+        graphicVariableType: axis
+        graphicVariableId: axis
+      y:
+        recordSet: author
+        dataVariable: numCites
+        graphicVariableType: axis
+        graphicVariableId: axis
+
+  - id: authorNodes
+    type: area
+    recordStream: authors
+    graphicVariables:
+      identifier:
+        recordSet: author
+        dataVariable: name
+        graphicVariableType: identifier
+        graphicVariableId: identifier
+      shape:
+        recordSet: author
+        dataVariable: name
+        graphicVariableType: shape
+        graphicVariableId: shape
+      color:
+        recordSet: author
+        dataVariable: paperCount
+        graphicVariableType: color
+        graphicVariableId: color
+
+  - id: coAuthorLinks
+    type: line
+    recordStream: coAuthorLinks
+    graphicVariables:
+      source:
+        recordSet: coAuthorLink
+        dataVariable: author1
+        graphicVariableType: identifier
+        graphicVariableId: identifier
+      target:
+        recordSet: coAuthorLink
+        dataVariable: author2
+        graphicVariableType: identifier
+        graphicVariableId: identifier
+      color:
+        recordSet: author
+        dataVariable: name
+        graphicVariableType: color
+        graphicVariableId: color
+
+  - id: publicationPoints
+    type: area
+    recordStream: publications
+    graphicVariables:
+      identifier:
+        recordSet: author
+        dataVariable: name
+        graphicVariableType: identifier
+        graphicVariableId: identifier
+      shape:
+        recordSet: author
+        dataVariable: name
+        graphicVariableType: shape
+        graphicVariableId: publication.shape
+      color:
+        recordSet: author
+        dataVariable: paperCount
+        graphicVariableType: color
+        graphicVariableId: firstAuthor.paperCountColor
+
+  # - id: ucsdMapPoints
+  #   type: area
+  #   recordStream: scienceMapSubdisciplines
+  #   graphicVariables:
+  #     identifier:
+  #       recordSet: scienceMapSubdiscipline
+  #       dataVariable: name
+  #       graphicVariableType: identifier
+  #       graphicVariableId: identifier
+
+visualizations:
+  - id: scatterplot1
+    template: scatterplot
+    properties:
+      drawGridLines: true    
+    graphicSymbols:
+      points: authorPoints
+
+  - id: scatterplot2
+    template: scatterplot
+    properties:
+      drawGridLines: true    
+    graphicSymbols:
+      points: publicationPoints
+
+  - id: coauthorNetwork1
+    template: network
+    properties:
+      drawGridLines: true
+    graphicSymbols:
+      nodes: authorNodes
+      edges: coAuthorLinks
+
+  # - id: ucsdMap
+  #   template: ucsdMap
+  #   properties:
+  #     showMultidisciplinary: false
+  #   graphicSymbols:
+  #     nodes: ucsdMapPoints
+
+  - id: usMap
+    template: geographicMap
+    properties:
+      scope: us
+    graphicSymbols:
+      points: publicationPoints
+      states: publicationPoints
+
+  - id: horizontalBarGraph
+    template: horizontalBarGraph
+    properties:
+      drawGridLines: true    
+    graphicSymbols:
+      points: authorPoints
+
+rawData: 
+  - id: testData1
+    template: json
+    url: http://example.com/example.json
+  - id: testData2
+    template: json
+    data: {"testStream2": [{"var1":133,"var2":232},{"var1":1,"var2":2},{"var1":5656,"var2":656565}]}
+  - id: testData3
+    template: json
+    data:
+      testStream3:
+        - var1: 1
+          var2: abc
+        - var1: 2
+          var2: def
+        - var1: 3
+          var2: ghi
+  - id: isiFile
+    template: string
+    data: |
+      FN Clarivate Analytics Web of Science
+      VR 1.0
+      PT J
+      AU Staudt, J
+        Yu, HF
+        Light, RP
+        Marschke, G
+        Borner, K
+        Weinberg, BA
+      AF Staudt, Joseph
+        Yu, Huifeng
+        Light, Robert P.
+        Marschke, Gerald
+        Borner, Katy
+        Weinberg, Bruce A.
+      TI High-impact and transformative science (HITS) metrics: Definition,
+        exemplification, and comparison
+      SO PLOS ONE
+      LA English
+      DT Article
+      ID SCIENTIFIC IMPACT; MICE
+      AB Countries, research institutions, and scholars are interested in identifying and promoting high-impact and transformative scientific research. This paper presents a novel set of text-and citation-based metrics that can be used to identify high-impact and transformative works. The 11 metrics can be grouped into seven types: Radical-Generative, Radical-Destructive, Risky, Multidisciplinary, Wide Impact, Growing Impact, and Impact (overall). The metrics are exemplified, validated, and compared using a set of 10,778,696 MEDLINE articles matched to the Science Citation Index Expanded (TM). Articles are grouped into six 5-year periods (spanning 1983-2012) using publication year and into 6,159 fields constructed using comparable MeSH terms, with which each article is tagged. The analysis is conducted at the level of a field-period pair, of which 15,051 have articles and are used in this study. A factor analysis shows that transformativeness and impact are positively related (rho = .402), but represent distinct phenomena. Looking at the subcomponents of transformativeness, there is no evidence that transformative work is adopted slowly or that the generation of important new concepts coincides with the obsolescence of existing concepts. We also find that the generation of important new concepts and highly cited work is more risky. Finally, supporting the validity of our metrics, we show that work that draws on a wider range of research fields is used more widely.
+      C1 [Staudt, Joseph; Weinberg, Bruce A.] Ohio State Univ, Columbus, OH 43210 USA.
+        [Yu, Huifeng; Marschke, Gerald] SUNY Albany, Albany, NY 12222 USA.
+        [Light, Robert P.; Borner, Katy] Indiana Univ, Sch Informat Comp &engn, CNS, Bloomington, IN USA.
+        [Marschke, Gerald; Weinberg, Bruce A.] Natl Bur Econ Res, Cambridge, MA 02138 USA.
+        [Borner, Katy] Indiana Univ, Indiana Network Sci Inst, Bloomington, IN USA.
+      RP Marschke, G (reprint author), SUNY Albany, Albany, NY 12222 USA.; Marschke, G (reprint author), Natl Bur Econ Res, Cambridge, MA 02138 USA.
+      EM marschke@albany.edu
+      FU NIA [P01 AG039347]; OBSSR; NSF's SciSIP program; NSF [SciSIP1064220,
+        DGE1348691, DGE1535399, DGE1760544, DGE 1661278]; Ewing Marion Kauffman
+        Foundation; Alfred P. Sloan Foundation; NBER [P01 AG039347]; NBER;
+        National Science Foundation [EAGER 1566393, AISL 1713567]; NCN CP
+        Supplement [1553044]; National Institutes of Health [U01CA198934]; IU's
+        Precision Health Initiative; NSF
+      FX All authors gratefully acknowledge support from P01 AG039347 supported
+        by NIA, OBSSR, and NSF's SciSIP program. Weinberg thanks NSF
+        SciSIP1064220, DGE1348691, DGE1535399, DGE1760544 and the Ewing Marion
+        Kauffman and Alfred P. Sloan Foundations. Weinberg was supported on P01
+        AG039347 by the NBER directly and on a subaward from NBER to Ohio State.
+        Borner and Light are partially supported by the National Science
+        Foundation under award EAGER 1566393 and NCN CP Supplement 1553044 and
+        National Science Foundation award AISL 1713567, the National Institutes
+        of Health under award U01CA198934, and IU's Precision Health Initiative.
+        Marschke thanks NSF DGE 1661278 for support. The funders had no role in
+        study design, data collection and analysis, decision to publish, or
+        preparation of the manuscript.
+      CR Acemoglu D, 2014, YOUNG RESTLESS CREAT
+        Bettencourt LMA, 2009, J INFORMETR, V3, P210, DOI 10.1016/j.joi.2009.03.001
+        Bollen J, 2009, PLOS ONE, V4, DOI 10.1371/journal.pone.0006022
+        Borner K, 2018, SCIENTOMETRICS, V114, P409, DOI 10.1007/s11192-017-2596-3
+        Chen C J, 1993, INTRO SCANNING TUNNE
+        Cronin B, 2015, SCHOLARLY METRICS MI
+        Cronin B, 2014, BEYOND BIBLIOMETRICS: HARNESSING MULTIDIMENSIONAL INDICATORS OF SCHOLARLY IMPACT, P3
+        Funk RJ, 2017, MANAGE SCI, V63, P791, DOI 10.1287/mnsc.2015.2366
+        Gao X, 2007, PHYSIOLOGY, V22, P161, DOI 10.1152/physio.00002.2007
+        Guo HN, 2011, SCIENTOMETRICS, V89, P421, DOI 10.1007/s11192-011-0433-7
+        Hsiao K, 1996, SCIENCE, V274, P99, DOI 10.1126/science.274.5284.99
+        Hutchins BI, 2016, PLOS BIOL, V14, DOI 10.1371/journal.pbio.1002541
+        James Evans, 2016, WORKING PAPER
+        Jones BF, 2011, P NATL ACAD SCI USA, V108, P18910, DOI 10.1073/pnas.1102895108
+        Kuhn TS, 1947, STRUCTURE SCI REVOLU
+        Marx J, 1996, SCIENCE, V274, P177, DOI 10.1126/science.274.5285.177
+        National Institutes of Health, 2016, STEM CELL INFORM
+        National Institutes of Health, 2015, TRANSF RES AW PROGR
+        National Library of Medicine, 2016, MEDL R PUBM R XML EL
+        National Science Board (NSB), 2007, ENH SUPP TRANSF RES
+        National Science Foundation, 2015, DEF TRANSF RES
+        Perkel JM, 2012, SCIENTIST
+        Stokes DE, 1997, PASTEURS QUADRANT BA
+        Wang DS, 2013, SCIENCE, V342, P127, DOI 10.1126/science.1237825
+        Wang J, 2017, RES POLICY, DOI [10.1016/j.respol.2017.01.002, DOI 10.1016/J.RESPOL.2017.01.002]
+      NR 25
+      TC 0
+      Z9 0
+      U1 1
+      U2 1
+      PU PUBLIC LIBRARY SCIENCE
+      PI SAN FRANCISCO
+      PA 1160 BATTERY STREET, STE 100, SAN FRANCISCO, CA 94111 USA
+      SN 1932-6203
+      J9 PLOS ONE
+      JI PLoS One
+      PD JUL 19
+      PY 2018
+      VL 13
+      IS 7
+      AR e0200597
+      DI 10.1371/journal.pone.0200597
+      PG 23
+      WC Multidisciplinary Sciences
+      SC Science & Technology - Other Topics
+      GA GN5RC
+      UT WOS:000439120000035
+      PM 30024893
+      OA gold
+      DA 2018-08-27
+      ER
+
+      PT J
+      AU Shiffrin, RM
+        Borner, K
+        Stigler, SM
+      AF Shiffrin, Richard M.
+        Borner, Katy
+        Stigler, Stephen M.
+      TI Scientific progress despite irreproducibility: A seeming paradox
+      SO PROCEEDINGS OF THE NATIONAL ACADEMY OF SCIENCES OF THE UNITED STATES OF
+        AMERICA
+      LA English
+      DT Article
+      DE scientometrics; science history; scientific progress; reproducibility;
+        science communication
+      ID SCIENCE
+      AB It appears paradoxical that science is producing outstanding new results and theories at a rapid rate at the same time that researchers are identifying serious problems in the practice of science that cause many reports to be irreproducible and invalid. Certainly, the practice of science needs to be improved, and scientists are now pursuing this goal. However, in this perspective, we argue that this seeming paradox is not new, has always been part of the way science works, and likely will remain so. We first introduce the paradox. We then review a wide range of challenges that appear to make scientific success difficult. Next, we describe the factors that make science work-in the past, present, and presumably also in the future. We then suggest that remedies for the present practice of science need to be applied selectively so as not to slow progress and illustrate with a few examples. We conclude with arguments that communication of science needs to emphasize not just problems but the enormous successes and benefits that science has brought and is now bringing to all elements of modern society.
+      C1 [Shiffrin, Richard M.] Indiana Univ, Dept Psychol & Brain Sci, Bloomington, IN 47405 USA.
+        [Borner, Katy] Indiana Univ, Department Intelligent Syst Engn, Bloomington, IN 47405 USA.
+        [Stigler, Stephen M.] Univ Chicago, Dept Stat, Chicago, IL 60637 USA.
+      RP Shiffrin, RM (reprint author), Indiana Univ, Dept Psychol & Brain Sci, Bloomington, IN 47405 USA.
+      EM shiffrin@indiana.edu
+      OI Borner, Katy/0000-0002-3321-6137
+      FU NIH [P01AG039347, U01CA198934]
+      FX This work uses Web of Science data by Clarivate Analytics provided by
+        the Indiana University Network Science Institute. This work was
+        partially funded by NIH Grants P01AG039347 and U01CA198934.
+      CR Allison DB, 2018, P NATL ACAD SCI USA, V115, P2561, DOI 10.1073/pnas.1802324115
+        Bacon F., 1620, NEW ORGANON
+        BEDNORZ JG, 1986, Z PHYS B CON MAT, V64, P189, DOI 10.1007/BF01303701
+        Blau DM, 2017, P NATL ACAD SCI USA, V114, P3879, DOI 10.1073/pnas.1611748114
+        Borner K, 2010, ATLAS SCI VISUALIZIN
+        Clauset A, 2009, SIAM REV, V51, P661, DOI 10.1137/070710111
+        Fisher R. A., 1926, J MINISTRY AGR GREAT, V33, P503
+        FLEISCHMANN M, 1989, J ELECTROANAL CHEM, V261, P301, DOI 10.1016/0022-0728(89)80006-3
+        IUNI, 2016, WEB SCI DAT
+        Jamieson KH, 2018, P NATL ACAD SCI USA, V115, P2620, DOI 10.1073/pnas.1708276114
+        National Institutes of Health, 2012, BIOM RES WORKF WORK
+        NIH, 2017, RES PORTF ONL REP TO
+        Nosek BA, 2018, P NATL ACAD SCI USA, V115, P2600, DOI 10.1073/pnas.1708274114
+        Pasteur L, 1939, O DEPASTEUR, V7, P131
+        Sci2 Team, 2009, SCI SCI SCI2 TOOL
+        Stanley H M, 1892, Science, V20, P235
+        Stigler S. M., 1986, HIST STAT
+        STIGLER SM, 1973, SCIENCE, V181, P799
+        Stigler SM, 2016, 7 PILLARS STAT WISDO, P202
+        Stigler SM, 1999, STAT TABLE, P13
+        Stigler SM, 1999, STAT TABLE, P207
+        The Editors of TIME, 2017, TIME 100 NEW SCI DIS
+        Van Noorden R., 2014, NATURE NEWS
+        van Raan AFJ, 2004, SCIENTOMETRICS, V59, P467, DOI 10.1023/B:SCIE.0000018543.82441.f1
+        WEBER J, 1969, PHYS REV LETT, V22, P1320, DOI 10.1103/PhysRevLett.22.1320
+        Whitehead AN, 1917, ORG THOUGHT, P127
+        Wuchty S, 2007, SCIENCE, V316, P1036, DOI 10.1126/science.1136099
+        Yeung AWK, 2017, FRONT NEUROSCI-SWITZ, V11, DOI 10.3389/fnins.2017.00120
+      NR 28
+      TC 1
+      Z9 1
+      U1 10
+      U2 10
+      PU NATL ACAD SCIENCES
+      PI WASHINGTON
+      PA 2101 CONSTITUTION AVE NW, WASHINGTON, DC 20418 USA
+      SN 0027-8424
+      J9 P NATL ACAD SCI USA
+      JI Proc. Natl. Acad. Sci. U. S. A.
+      PD MAR 13
+      PY 2018
+      VL 115
+      IS 11
+      BP 2632
+      EP 2639
+      DI 10.1073/pnas.1711786114
+      PG 8
+      WC Multidisciplinary Sciences
+      SC Science & Technology - Other Topics
+      GA FZ0GH
+      UT WOS:000427245400044
+      PM 29531095
+      OA gold_or_bronze
+      DA 2018-08-27
+      ER
+
+      PT J
+      AU Fortunato, S
+        Bergstrom, CT
+        Borner, K
+        Evans, JA
+        Helbing, D
+        Milojevic, S
+        Petersen, AM
+        Radicchi, F
+        Sinatra, R
+        Uzzi, B
+        Vespignani, A
+        Waltman, L
+        Wang, DS
+        Barabasi, AL
+      AF Fortunato, Santo
+        Bergstrom, Carl T.
+        Boerner, Katy
+        Evans, James A.
+        Helbing, Dirk
+        Milojevic, Stasa
+        Petersen, Alexander M.
+        Radicchi, Filippo
+        Sinatra, Roberta
+        Uzzi, Brian
+        Vespignani, Alessandro
+        Waltman, Ludo
+        Wang, Dashun
+        Barabasi, Albert-Laszlo
+      TI Science of science
+      SO SCIENCE
+      LA English
+      DT Review
+      ID SCIENTIFIC IMPACT; CITATION DISTRIBUTIONS; GRANT APPLICATIONS; SLEEPING
+        BEAUTIES; INDICATORS; KNOWLEDGE; CAREERS; UNIVERSALITY; ALLOCATION;
+        INNOVATION
+      AB Identifying fundamental drivers of science and developing predictive models to capture its evolution are instrumental for the design of policies that can improve the scientific enterprise-for example, through enhanced career paths for scientists, better performance evaluation for organizations hosting research, discovery of novel effective funding vehicles, and even identification of promising regions along the scientific frontier. The science of science uses large-scale data on the production of science to search for universal and domain-specific patterns. Here, we review recent developments in this transdisciplinary field.
+      C1 [Fortunato, Santo; Milojevic, Stasa; Radicchi, Filippo] Indiana Univ, Sch Informat Comp & Engn, Ctr Complex Networks & Syst Res, Bloomington, IN 47408 USA.
+        [Fortunato, Santo; Boerner, Katy] Indiana Univ, Network Sci Inst, Bloomington, IN 47408 USA.
+        [Bergstrom, Carl T.] Univ Washington, Dept Biol, Seattle, WA 98195 USA.
+        [Boerner, Katy] Indiana Univ, Sch Informat Comp & Engn, Cyberinfrastruct Network Sci Ctr, Bloomington, IN 47408 USA.
+        [Evans, James A.] Univ Chicago, Dept Sociol, Chicago, IL 60637 USA.
+        [Helbing, Dirk] Swiss Fed Inst Technol, Computat Social Sci, Zurich, Switzerland.
+        [Petersen, Alexander M.] Univ Calif Merced, Sch Engn, Ernest & Julio Gallo Management Program, Merced, CA 95343 USA.
+        [Sinatra, Roberta; Barabasi, Albert-Laszlo] Cent European Univ, Ctr Network Sci, H-1052 Budapest, Hungary.
+        [Sinatra, Roberta] Cent European Univ, Dept Math, H-1051 Budapest, Hungary.
+        [Sinatra, Roberta; Vespignani, Alessandro; Barabasi, Albert-Laszlo] Northeastern Univ, Inst Network Sci, Boston, MA 02115 USA.
+        [Uzzi, Brian; Wang, Dashun] Northeastern Univ, Kellogg Sch Management, Evanston, IL 60208 USA.
+        [Uzzi, Brian; Wang, Dashun] Northeastern Univ, Northwestern Inst Complex Syst, Evanston, IL 60208 USA.
+        [Vespignani, Alessandro] Northeastern Univ, Lab Modeling Biol & Sociotech Syst, Boston, MA 02115 USA.
+        [Vespignani, Alessandro] ISI Fdn, I-10133 Turin, Italy.
+        [Waltman, Ludo] Leiden Univ, Ctr Sci & Technol Studies, Leiden, Netherlands.
+        [Barabasi, Albert-Laszlo] Dana Farber Canc Inst, Ctr Canc Syst Biol, Boston, MA 02115 USA.
+      RP Fortunato, S (reprint author), Indiana Univ, Sch Informat Comp & Engn, Ctr Complex Networks & Syst Res, Bloomington, IN 47408 USA.; Fortunato, S (reprint author), Indiana Univ, Network Sci Inst, Bloomington, IN 47408 USA.; Barabasi, AL (reprint author), Cent European Univ, Ctr Network Sci, H-1052 Budapest, Hungary.; Barabasi, AL (reprint author), Northeastern Univ, Inst Network Sci, Boston, MA 02115 USA.; Barabasi, AL (reprint author), Dana Farber Canc Inst, Ctr Canc Syst Biol, Boston, MA 02115 USA.
+      EM santo@indiana.edu; barabasi@gmail.com
+      OI Borner, Katy/0000-0002-3321-6137; Bergstrom, Carl/0000-0002-2070-385X;
+        Sinatra, Roberta/0000-0002-7558-1028; Petersen,
+        Alexander/0000-0002-0955-3483; Evans, James/0000-0001-9838-0707
+      FU Air Force Office of Scientific Research grants [FA9550-15-1-0077,
+        FA9550-15-1-0364, FA9550-15-1-0162, FA9550-17-1-0089]; National Science
+        Foundation [NCSE 1538763, EAGER 1566393]; National Institutes of Health
+        [P01 AG039347, U01CA198934, IIS-0910664]; Army Research Office
+        [W911NF-15-1-0577]; Northwestern University Institute on Complex
+        Systems; DARPA (Defense Advanced Research Projects Agency) Big Mechanism
+        program grant [14145043]; John Templeton Foundation's grant;
+        Intellectual Themes Initiative "Just Data" project; European Commission
+        H2020 FETPROACT-GSS CIMPLEX grant [641191]; National Science Foundation
+        grant NCN CP supplement [1553044, SBE1158803]
+      FX This work was supported by Air Force Office of Scientific Research
+        grants FA9550-15-1-0077 (A.-L.B., R.S., and A.V.), FA9550-15-1-0364
+        (A.-L.B. and R.S.), FA9550-15-1-0162 (J.A.E. and D.W.), and
+        FA9550-17-1-0089 (D.W.); National Science Foundation grants NCSE
+        1538763, EAGER 1566393, and NCN CP supplement 1553044 (K.B.) and
+        SBE1158803 (J.A.E.); National Institutes of Health awards P01 AG039347
+        and U01CA198934 (K.B.) and IIS-0910664 (B.U.); Army Research Office
+        grant W911NF-15-1-0577 and Northwestern University Institute on Complex
+        Systems (B.U.); DARPA (Defense Advanced Research Projects Agency) Big
+        Mechanism program grant 14145043 and the John Templeton Foundation's
+        grant to the Metaknowledge Network (J.A.E.); Intellectual Themes
+        Initiative "Just Data" project (R.S.); and European Commission H2020
+        FETPROACT-GSS CIMPLEX grant 641191 (R.S. and A.-L.B.). Any opinions,
+        findings, and conclusions or recommendations expressed in this material
+        are those of the authors and do not necessarily reflect the views of our
+        funders.
+      CR Acuna DE, 2012, NATURE, V489, P201, DOI 10.1038/489201a
+        Allen L, 2014, NATURE, V508, P312, DOI 10.1038/508312a
+        Arrieta OAD, 2017, SCI ADV, V3, DOI 10.1126/sciadv.1602232
+        Azoulay P, 2012, NATURE, V484, P31, DOI 10.1038/484031a
+        Azoulay P, 2011, RAND J ECON, V42, P527, DOI 10.1111/j.1756-2171.2011.00140.x
+        Azoulay P, 2010, Q J ECON, V125, P549, DOI 10.1162/qjec.2010.125.2.549
+        Barabasi AL, 1999, SCIENCE, V286, P509, DOI 10.1126/science.286.5439.509
+        Bettencourt LMA, 2009, J INFORMETR, V3, P210, DOI 10.1016/j.joi.2009.03.001
+        Bollen J, 2017, SCIENTOMETRICS, V110, P521, DOI 10.1007/s11192-016-2110-3
+        Borjas GJ, 2015, REV ECON STAT, V97, P1104, DOI 10.1162/REST_a_00472
+        Bornmann L, 2013, J AM SOC INF SCI TEC, V64, P217, DOI 10.1002/asi.22803
+        Boudreau KJ, 2016, MANAGE SCI, V62, P2765, DOI 10.1287/mnsc.2015.2285
+        BOURDIEU P, 1975, SOC SCI INFORM, V14, P19, DOI 10.1177/053901847501400602
+        Bromham L, 2016, NATURE, V534, P684, DOI 10.1038/nature18315
+        Bruggeman J, 2012, AM SOCIOL REV, V77, P1050, DOI 10.1177/0003122412463574
+        Clauset A, 2017, SCIENCE, V355, P477, DOI 10.1126/science.aal4217
+        Clauset A, 2015, SCI ADV, V1, DOI 10.1126/sciadv.1400005
+        Cole J. R., 1975, IDEA SOCIAL STRUCTUR, P139
+        Cooke NJ, 2015, ENHANCING EFFECTIVEN
+        Costas R, 2015, J ASSOC INF SCI TECH, V66, P2003, DOI 10.1002/asi.23309
+        de Solla Price DJ, 1963, LITTLE SCI BIG SCI
+        Deville P, 2014, SCI REP-UK, V4, DOI 10.1038/srep04770
+        Duch J, 2012, PLOS ONE, V7, DOI 10.1371/journal.pone.0051332
+        Eom YH, 2011, PLOS ONE, V6, DOI 10.1371/journal.pone.0024926
+        Erin Leahey, 2014, SOCIAL CURRENTS, V1, P228, DOI DOI 10.1177/
+        Evans JA, 2011, SCIENCE, V331, P721, DOI 10.1126/science.1201765
+        Foster JG, 2015, AM SOCIOL REV, V80, P875, DOI 10.1177/0003122415601618
+        Franzoni C, 2014, ECON LETT, V122, P89, DOI 10.1016/j.econlet.2013.10.040
+        Freeman R, 2001, SCIENCE, V294, P2293, DOI 10.1126/science.1067477
+        GARFIELD E, 1955, SCIENCE, V122, P108, DOI 10.1126/science.122.3159.108
+        GARFIELD E, 1972, SCIENCE, V178, P471, DOI 10.1126/science.178.4060.471
+        Geard N., 2010, 3 WORLD C SOC SIM KA
+        Golosovsky M, 2012, EUR PHYS J-SPEC TOP, V205, P303, DOI 10.1140/epjst/e2012-01576-4
+        Golosovsky M, 2012, PHYS REV LETT, V109, DOI 10.1103/PhysRevLett.109.098701
+        Haeussler C, 2014, RES POLICY, V43, P465, DOI 10.1016/j.respol.2013.08.017
+        Hirsch JE, 2007, P NATL ACAD SCI USA, V104, P19193, DOI 10.1073/pnas.0707962104
+        Hirsch JE, 2005, P NATL ACAD SCI USA, V102, P16569, DOI 10.1073/pnas.0507655102
+        Jia T, 2017, NAT HUM BEHAV, V1, DOI 10.1038/s41562-017-0078
+        Jones BF, 2009, REV ECON STUD, V76, P283, DOI 10.1111/j.1467-937X.2008.00531.x
+        Ke Q, 2015, P NATL ACAD SCI USA, V112, P7426, DOI 10.1073/pnas.1424329112
+        Kim D, 2016, EPJ DATA SCI, V5, DOI 10.1140/epjds/s13688-016-0069-1
+        Klavans R, 2017, J ASSOC INF SCI TECH, V68, P984, DOI 10.1002/asi.23734
+        Kleinberg J., 2017, HUMAN DECISIONS MACH
+        Kohn M S, 2014, Yearb Med Inform, V9, P154, DOI 10.15265/IY-2014-0002
+        Kuhn Thomas, 1977, ESSENTIAL TENSION SE
+        Kuhn T, 2014, PHYS REV X, V4, DOI 10.1103/PhysRevX.4.041036
+        Lariviere V, 2015, J ASSOC INF SCI TECH, V66, P1323, DOI 10.1002/asi.23266
+        Lariviere V, 2015, PLOS ONE, V10, DOI 10.1371/journal.pone.0122565
+        Ley TJ, 2008, SCIENCE, V322, P1472, DOI 10.1126/science.1165878
+        Liu B, 2016, PLOS ONE, V11, DOI 10.1371/journal.pone.0144945
+        Lubchenco J, 2010, NATURE, V468, P1002
+        MERTON RK, 1968, SCIENCE, V159, P56, DOI 10.1126/science.159.3810.56
+        Milojevic S, 2015, J INFORMETR, V9, P962, DOI 10.1016/j.joi.2015.10.005
+        Milojevic S, 2014, P NATL ACAD SCI USA, V111, P3984, DOI 10.1073/pnas.1309723111
+        Moed H. F., 2010, CITATION ANAL RES EV
+        Moss-Racusin CA, 2012, P NATL ACAD SCI USA, V109, P16474, DOI 10.1073/pnas.1211286109
+        Nissen SB, 2016, ELIFE, V5, DOI 10.7554/eLife.21451
+        Oettl A, 2012, NATURE, V489, P496, DOI 10.1038/489496a
+        Palla G, 2007, NATURE, V446, P664, DOI 10.1038/nature05670
+        Parolo PD, 2015, J INFORMETR, V9, P734, DOI 10.1016/j.joi.2015.07.006
+        Penner O, 2013, SCI REP-UK, V3, DOI 10.1038/srep03052
+        Petersen AM, 2012, P NATL ACAD SCI USA, V109, P5213, DOI 10.1073/pnas.1121429109
+        Petersen AM, 2015, P NATL ACAD SCI USA, V112, pE4671, DOI 10.1073/pnas.1501444112
+        Petersen AM, 2014, P NATL ACAD SCI USA, V111, P15316, DOI 10.1073/pnas.1323111111
+        PRICE DJD, 1976, J AM SOC INFORM SCI, V27, P292, DOI 10.1002/asi.4630270505
+        PRICE DJD, 1965, SCIENCE, V149, P510
+        Radicchi F, 2008, P NATL ACAD SCI USA, V105, P17268, DOI 10.1073/pnas.0806977105
+        Ravindran S., 2016, SCIENCE
+        ROSENTHAL R, 1979, PSYCHOL BULL, V86, P638, DOI 10.1037//0033-2909.86.3.638
+        ROY R, 1985, SCI TECHNOL HUM VAL, P73
+        Rzhetsky A, 2015, P NATL ACAD SCI USA, V112, P14569, DOI 10.1073/pnas.1509757112
+        Shen HW, 2014, P NATL ACAD SCI USA, V111, P12325, DOI 10.1073/pnas.1401992111
+        Shi F, 2015, SOC NETWORKS, V43, P73, DOI 10.1016/j.socnet.2015.02.006
+        Shwed U, 2010, AM SOCIOL REV, V75, P817, DOI 10.1177/0003122410388488
+        Simonton DK, 1997, PSYCHOL REV, V104, P66, DOI 10.1037/0033-295X.104.1.66
+        Sinatra R, 2016, SCIENCE, V354, DOI 10.1126/science.aaf5239
+        Stegehuis C, 2015, J INFORMETR, V9, P642, DOI 10.1016/j.joi.2015.06.005
+        Stephan P. E., 2012, EC SHAPES SCI
+        Sugimoto CR, 2017, NATURE, V550, P29, DOI 10.1038/550029a
+        Sugimoto CR, 2013, NATURE, V504, P211
+        Sun XL, 2013, SCI REP-UK, V3, DOI 10.1038/srep01069
+        Tahamtan I, 2016, SCIENTOMETRICS, V107, P1195, DOI 10.1007/s11192-016-1889-2
+        Thelwall M, 2016, J INFORMETR, V10, P336, DOI 10.1016/j.joi.2015.12.007
+        Thelwall M, 2015, PROF INFORM, V24, P587, DOI 10.3145/epi.2015.sep.08
+        Thelwall M, 2015, PROF INFORM, V24, P607, DOI 10.3145/epi.2015.sep.09
+        Uzzi B, 2013, SCIENCE, V342, P468, DOI 10.1126/science.1240474
+        Van Noorden R, 2012, NATURE, V490, P326, DOI 10.1038/490326a
+        van Raan AFJ, 2004, SCIENTOMETRICS, V59, P467, DOI 10.1023/B:SCIE.0000018543.82441.f1
+        Wagner CS, 2011, J INFORMETR, V5, P14, DOI 10.1016/j.joi.2010.06.004
+        Walsh JP, 2015, RES POLICY, V44, P1584, DOI 10.1016/j.respol.2015.04.010
+        Waltman L, 2016, J INFORMETR, V10, P365, DOI 10.1016/j.joi.2016.02.007
+        Waltman L, 2012, J AM SOC INF SCI TEC, V63, P72, DOI 10.1002/asi.21671
+        Wang DS, 2013, SCIENCE, V342, P127, DOI 10.1126/science.1237825
+        Wang J., 2016, 22180 NBER
+        Way S. F., 2016, P 25 INT C WORLD WID, P1169
+        Wessely S, 1998, LANCET, V352, P301, DOI 10.1016/S0140-6736(97)11129-1
+        West JD, 2013, PLOS ONE, V8, DOI 10.1371/journal.pone.0066212
+        Wu L., 2017, ARXIV170902445PHYSS0
+        Wuchty S, 2007, SCIENCE, V316, P1036, DOI 10.1126/science.1136099
+        Yao LX, 2015, NAT BIOTECHNOL, V33, P807, DOI 10.1038/nbt.3276
+        Yegros-Yegros A, 2015, PLOS ONE, V10, DOI 10.1371/journal.pone.0135095
+        Zeng XHT, 2016, PLOS BIOL, V14, DOI 10.1371/journal.pbio.1002573
+        Zhang Q, 2013, SCI REP-UK, V3, DOI 10.1038/srep01640
+      NR 103
+      TC 3
+      Z9 3
+      U1 25
+      U2 25
+      PU AMER ASSOC ADVANCEMENT SCIENCE
+      PI WASHINGTON
+      PA 1200 NEW YORK AVE, NW, WASHINGTON, DC 20005 USA
+      SN 0036-8075
+      EI 1095-9203
+      J9 SCIENCE
+      JI Science
+      PD MAR 2
+      PY 2018
+      VL 359
+      IS 6379
+      AR eaao0185
+      DI 10.1126/science.aao0185
+      PG 7
+      WC Multidisciplinary Sciences
+      SC Science & Technology - Other Topics
+      GA GJ3MY
+      UT WOS:000435200900001
+      PM 29496846
+      OA green_accepted
+      DA 2018-08-27
+      ER
+
+      EF

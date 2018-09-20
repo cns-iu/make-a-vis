@@ -9,7 +9,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -32,6 +32,12 @@ import { MainComponent } from './main/main.component';
 import { SidenavContentComponent } from './sidenav-content/sidenav-content.component';
 import { ToolbarContentComponent } from './toolbar-content/toolbar-content.component';
 
+// Store
+import { StoreModule } from '@ngrx/store';
+
+// Reducers
+import { sidenavStateReducer } from './shared/store/reducer';
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -47,7 +53,9 @@ import { ToolbarContentComponent } from './toolbar-content/toolbar-content.compo
     MatSelectModule,
     MatSidenavModule,
     MatSlideToggleModule,
-    MatToolbarModule
+    MatToolbarModule,
+
+    StoreModule.forFeature('sidenav', sidenavStateReducer)
   ],
   declarations: [
     CnsLogoIconComponent,
@@ -59,7 +67,6 @@ import { ToolbarContentComponent } from './toolbar-content/toolbar-content.compo
     NewProjectIconComponent,
     SaveIconComponent,
     ShareIconComponent,
-
 
     MainComponent,
     SidenavContentComponent,

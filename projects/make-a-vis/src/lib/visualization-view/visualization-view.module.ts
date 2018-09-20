@@ -22,6 +22,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ScatterplotComponent } from './scatterplot/scatterplot.component';
 
+// Store
+import { StoreModule } from '@ngrx/store';
+
+// Reducers
+import { visualizationStateReducer } from './shared/store/reducer';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -30,7 +36,9 @@ import { ScatterplotComponent } from './scatterplot/scatterplot.component';
 
     MatChipsModule,
     MatMenuModule,
-    MatTabsModule
+    MatTabsModule,
+
+    StoreModule.forFeature('visualization', visualizationStateReducer)
   ],
   declarations: [
     MenuComponent,

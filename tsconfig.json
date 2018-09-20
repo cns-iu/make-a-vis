@@ -23,6 +23,15 @@
       ],
       "make-a-vis/*": [
         "dist/make-a-vis/*"
+      ],
+      "dvl-fw": [
+        "dist/dvl-fw"
+      ],
+      "dvl-fw/*": [
+        "dist/dvl-fw/*"
+      ],
+      "pdfkit": [
+        "dist/pdfkit.js"
       ]
     }
   }
