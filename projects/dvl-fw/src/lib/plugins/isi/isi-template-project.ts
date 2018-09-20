@@ -1,10 +1,10 @@
+import { ScatterplotVisualization } from './../ngx-dino/scatterplot-visualization';
 import { DataSource } from '../../shared/data-source';
 import { Project } from '../../shared/project';
 import { RawData } from '../../shared/raw-data';
 import { RecordSet } from '../../shared/record-set';
 import { DefaultGraphicVariableMapping } from '../default/default-graphic-variable';
 import { DefaultProject } from '../default/default-project';
-import { DefaultVisualization } from '../default/default-visualization';
 import { GraphicSymbol } from './../../shared/graphic-symbol';
 import { GraphicVariable } from './../../shared/graphic-variable';
 import { Visualization } from './../../shared/visualization';
@@ -559,7 +559,7 @@ export class ISITemplateProject extends DefaultProject {
 
   getVisualizations(): Visualization[] {
     return [
-      new DefaultVisualization({
+      new ScatterplotVisualization({
         id: 'SG01',
         template: 'scattergraph',
         properties: {
@@ -569,7 +569,7 @@ export class ISITemplateProject extends DefaultProject {
           points: 'journalPoints'
         }
       }, this),
-      new DefaultVisualization({
+      new ScatterplotVisualization({
         id: 'SG02',
         template: 'scattergraph',
         properties: {

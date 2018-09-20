@@ -14,6 +14,7 @@ export * from './lib/shared/project';
 export * from './lib/shared/raw-data';
 export * from './lib/shared/record-set';
 export * from './lib/shared/record-stream';
+export * from './lib/shared/visualization-component';
 export * from './lib/shared/visualization';
 
 // Default Implementations
