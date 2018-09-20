@@ -58,6 +58,7 @@ export class ISITemplateProject extends DefaultProject {
         id: 'publication',
         label: 'Publication',
         labelPlural: 'Publications',
+        defaultRecordStream: 'publications',
         dataVariables: [
           {id: 'id', label: 'WoS ID', dataType: 'text', scaleType: 'nominal'},
           {id: 'title', label: 'Title', dataType: 'text', scaleType: 'nominal'},
@@ -66,11 +67,12 @@ export class ISITemplateProject extends DefaultProject {
           {id: 'publicationYear', label: 'Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'numCites', label: '#Cites', dataType: 'integer', scaleType: 'ratio'}
         ]
-      }),
+      }, this),
       new DefaultRecordSet({
         id: 'journal',
         label: 'Journal',
         labelPlural: 'Journals',
+        defaultRecordStream: 'journals',
         dataVariables: [
           {id: 'name', label: 'Name', dataType: 'text', scaleType: 'nominal'},
           {id: 'numPapers', label: '#Papers', dataType: 'integer', scaleType: 'ratio'},
@@ -78,11 +80,12 @@ export class ISITemplateProject extends DefaultProject {
           {id: 'firstYear', label: 'First Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'},
         ]
-      }),
+      }, this),
       new DefaultRecordSet({
         id: 'author',
         label: 'Author',
         labelPlural: 'Authors',
+        defaultRecordStream: 'authors',
         dataVariables: [
           {id: 'name', label: 'Name', dataType: 'text', scaleType: 'nominal'},
           {id: 'fullname', label: 'Full Name', dataType: 'text', scaleType: 'nominal'},
@@ -91,11 +94,12 @@ export class ISITemplateProject extends DefaultProject {
           {id: 'firstYear', label: 'First Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'},
         ]
-      }),
+      }, this),
       new DefaultRecordSet({
         id: 'coAuthorLink',
         label: 'Co-Author Link',
         labelPlural: 'Co-Author Links',
+        defaultRecordStream: 'coAuthorLinks',
         dataVariables: [
           {id: 'author1', label: 'Author 1', dataType: 'text', scaleType: 'nominal'},
           {id: 'author2', label: 'Author 2', dataType: 'text', scaleType: 'nominal'},
@@ -104,7 +108,7 @@ export class ISITemplateProject extends DefaultProject {
           {id: 'firstYear', label: 'First Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'},
         ]
-      })
+      }, this)
     ];
   }
 
