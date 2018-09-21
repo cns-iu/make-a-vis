@@ -1,0 +1,21 @@
+@import '~@angular/material/theming';
+/* TODO : Including .css files with @import is non-standard behaviour 
+which will be removed in future versions ofLibSass */
+@import url('https://fonts.googleapis.com/css?family=Lato');
+$lato: 'Lato', sans-serif;
+
+$headline: mat-typography-level(32px, 48px, 700);
+$body-1: mat-typography-level(16px, 24px, 500);
+
+$general-typography : mat-typography-config($font-family: 'Lato');
+
+// Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).
+@include mat-base-typography($general-typography);
+
+// Override typography for a specific Angular Material components.
+@include mat-checkbox-typography($general-typography);
+
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($general-typography);
+
+@include mat-core($general-typography);
