@@ -36,7 +36,8 @@ export class SidenavContentComponent implements OnInit {
         this.exportService.exportToPng();
     }  else if (this.exportSnapshotType === 'svg') {
         this.exportService.exportToSvg();
-
+    } else if (this.exportSnapshotType === 'pdf') {
+        this.exportService.exportToPdf();
 
     }
   }
