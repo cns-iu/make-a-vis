@@ -17,7 +17,7 @@ export class MainComponent implements OnInit {
 
   @ViewChild('visualization') visualization: ElementRef;
 
-    checkVisualizationState: Observable<VisualizationState>;
+  checkVisualizationState: Observable<VisualizationState>;
   tabs = [];
   menuOptions = [
     { label: 'Scatter Graph', icon: 'scatterGraph' },
@@ -33,19 +33,18 @@ export class MainComponent implements OnInit {
     this.checkVisualizationState.subscribe((k) => {
       console.log('viz. state output --- ', k); // for example
     });
-   }
+  }
 
   ngOnInit() {
   }
 
   selected(target: number) {
     this.selectedTab = this.exportService.selectedTab = target;
-    this.exportService.visualizationElement  = this.visualization;
-
+    this.exportService.visualizationElement = this.visualization;
   }
 
   addTab(label: string) {
-    this.exportService.visualizationElement  = this.visualization;
+    this.exportService.visualizationElement = this.visualization;
     this.tabs.push(label);
     this.selected(this.tabs.length - 1);
     this.store.dispatch({ type: VisualizationActionTypes.NewVisualization }); // for example
@@ -55,9 +54,6 @@ export class MainComponent implements OnInit {
     this.tabs.splice(index, 1);
     if (this.tabs && this.tabs.length === 0) {
       this.exportService.visualizationElement = null;
-
     }
   }
-
-
 }

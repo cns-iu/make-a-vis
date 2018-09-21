@@ -6,7 +6,6 @@ import { saveSvgAsPng, SourceElement } from 'save-svg-as-png';
 })
 export class ExportToPngService {
 
-
   constructor() { }
 
   // TODO: This will work in IE only if we send the third parameter canvg.
@@ -14,7 +13,5 @@ export class ExportToPngService {
   // https://github.com/canvg/canvg
   getSnapShot(element: SourceElement, fileName: string) {
     saveSvgAsPng(element, fileName);
-
-
   }
 }

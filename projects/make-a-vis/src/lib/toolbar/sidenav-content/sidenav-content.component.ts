@@ -7,7 +7,6 @@ import {
 import { MatAccordion } from '@angular/material';
 import { ExportService } from '../../shared/services/export/export.service';
 
-
 @Component({
   selector: 'mav-sidenav-content',
   templateUrl: './sidenav-content.component.html',
@@ -25,20 +24,18 @@ export class SidenavContentComponent implements OnInit {
   panelOpenState = true;
 
   constructor(public exportService: ExportService) {
-
-   }
+  }
 
   ngOnInit() {
   }
 
   exportSnapshot() {
     if (this.exportSnapshotType === 'png') {
-        this.exportService.exportToPng();
-    }  else if (this.exportSnapshotType === 'svg') {
-        this.exportService.exportToSvg();
+      this.exportService.exportToPng();
+    } else if (this.exportSnapshotType === 'svg') {
+      this.exportService.exportToSvg();
     } else if (this.exportSnapshotType === 'pdf') {
-        this.exportService.exportToPdf();
-
+      this.exportService.exportToPdf();
     }
   }
 }

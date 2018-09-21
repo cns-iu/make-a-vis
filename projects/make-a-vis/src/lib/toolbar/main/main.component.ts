@@ -13,7 +13,6 @@ import { SidenavActionTypes } from '../shared/store/actions';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
   isSidenavOpen = false;
   checkSidenavState: Observable<SidenavState>;
 
@@ -32,4 +31,3 @@ export class MainComponent implements OnInit {
     this.store.dispatch({ type: SidenavActionTypes.SaveProject }); // for example
   }
 }
-

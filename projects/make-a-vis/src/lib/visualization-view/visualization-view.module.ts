@@ -51,6 +51,7 @@ import { visualizationStateReducer } from './shared/store/reducer';
     MapOfScienceIconComponent,
     NetworkIconComponent,
     ScatterGraphIconComponent,
+
     ScatterplotComponent
   ],
   exports: [MainComponent]
