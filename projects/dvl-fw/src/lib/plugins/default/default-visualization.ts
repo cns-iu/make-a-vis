@@ -41,7 +41,10 @@ export class DefaultVisualizationFactory implements ObjectFactory<Visualization,
   id = 'default';
   type = 'visualization';
 
-  fromJSON(data: any, context: Project, registry: ObjectFactoryRegistry): Visualization {
+  async fromJSON(data: any, context: Project, registry: ObjectFactoryRegistry): Promise<Visualization> {
+    if (registry.hasObjectFactory('visualization', data.template)) {
+      return await registry.fromJSON<Visualization>('visualization', data.template, data, context);
+    }
     return new DefaultVisualization(data, context);
   }
   toJSON(instance: Visualization, context: Project, registry: ObjectFactoryRegistry) {
