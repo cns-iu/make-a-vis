@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { ExportService } from '../../shared/services/export/export.service';
 
 @Component({
   selector: 'mav-visualization-view',

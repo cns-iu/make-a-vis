@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, OnChanges, SimpleChanges, DoCheck } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { BoundField, RawChangeSet } from '@ngx-dino/core';
 
 import { Observable } from 'rxjs';
@@ -24,7 +24,7 @@ import { ScatterplotDataService } from '../shared/scatterplot/scatterplot-data.s
   styleUrls: ['./scatterplot.component.sass'],
   providers: [ScatterplotDataService]
 })
-export class ScatterplotComponent implements OnInit, DoCheck {
+export class ScatterplotComponent implements OnInit {
   @Input() height = 70 / 100 * window.innerHeight;
   @Input() width = 65 / 100 * window.innerWidth;
   @ViewChild('scatterplot') scatterplot: any;
@@ -65,13 +65,4 @@ export class ScatterplotComponent implements OnInit, DoCheck {
 
     this.tooltipText = tooltipTextField.getBoundField();
   }
-
-  ngDoCheck() {
-
-    this.scatterplot.resizeSelf();
-  }
-
-  // activate(): void {
-  //   this.scatterplot.resizeSelf();
-  // }
 }

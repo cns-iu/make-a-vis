@@ -33,7 +33,7 @@ export class SidenavContentComponent implements OnInit {
 
   constructor(
     private loadProjectService: LoadProjectService,
-    public exportService: ExportService
+    public exportService: ExportService,
     private store: Store<SidenavState>
   ) { }
 
@@ -49,7 +49,7 @@ export class SidenavContentComponent implements OnInit {
           this.exportService.exportToPdf();
         }
   }
-   
+
   setFileType(event: MatButtonToggleGroup) {
     this.newProjectFileExtension = event.value;
   }
