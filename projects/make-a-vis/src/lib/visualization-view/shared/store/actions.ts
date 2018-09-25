@@ -3,27 +3,40 @@ import { Action } from '@ngrx/store';
 // import { DataSource, Visualization, RecordStream } from 'dvl-fw';
 
 export enum VisualizationActionTypes {
-  NewVisualization = '[Visualization] New Visualization',
-  NewDatasource = '[Visualization] New Datasource',
-  NewRecordStream = '[Visualization] New Record Stream'
+  SetActiveVisualization = '[VIS] Set Active Visualization',
+  AddNewVisualization = '[VIS] Add New Visualization',
+  SetGraphicSymbolRecordSet = '[VIS] Set Graphic Symbol Record Set',
+
+  SetActiveDataVariable = '[VIS] Set Active Data Variable',
+  SetGraphicVariable = '[VIS] Set Graphic Variable',
 }
 
-export class NewVisualizationAction implements Action {
-  readonly type = VisualizationActionTypes.NewVisualization;
-  constructor(/*public payload?: Visualization*/) {
+export class SetActiveVisualization implements Action {
+  readonly type = VisualizationActionTypes.SetActiveVisualization;
+  constructor(public payload = {}) {
   }
 }
 
-export class NewDatasourceAction implements Action {
-  readonly type = VisualizationActionTypes.NewDatasource;
-  constructor(/*public payload?: DataSource*/) {
+export class AddNewVisualization implements Action {
+  readonly type = VisualizationActionTypes.AddNewVisualization;
+  constructor(public payload = {}) {
   }
 }
 
-export class NewRecordStreamAction implements Action {
-  readonly type = VisualizationActionTypes.NewRecordStream;
-  constructor(/*public payload?: RecordStream*/) {
+export class SetGraphicSymbolRecordSet implements Action {
+  readonly type = VisualizationActionTypes.SetGraphicSymbolRecordSet;
+  constructor(public payload = {}) {
   }
 }
 
+export class SetActiveDataVariable implements Action {
+  readonly type = VisualizationActionTypes.SetActiveDataVariable;
+  constructor(public payload = {}) {
+  }
+}
 
+export class SetGraphicVariable implements Action {
+  readonly type = VisualizationActionTypes.SetGraphicVariable;
+  constructor(public payload = {}) {
+  }
+}

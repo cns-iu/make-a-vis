@@ -14,6 +14,11 @@ import { MapOfScienceIconComponent } from '../icons/map-of-science/map-of-scienc
 import { NetworkIconComponent } from '../icons/network/network-icon.component';
 import { ScatterGraphIconComponent } from '../icons/scatter-graph/scatter-graph-icon.component';
 
+import { Store, select } from '@ngrx/store';
+import { ApplicationState } from '../../shared/store/state';
+
+import { StoreModule } from '@ngrx/store';
+import { visualizationStateReducer } from '../shared/store/reducer';
 
 import { MainComponent } from './main.component';
 import { MenuComponent } from '../menu/menu.component';
@@ -30,7 +35,10 @@ describe('MainComponent', () => {
 
         MatChipsModule,
         MatMenuModule,
-        MatTabsModule
+        MatTabsModule,
+
+        StoreModule.forRoot({}),
+        StoreModule.forFeature('visualization', visualizationStateReducer)
       ],
       declarations: [
         AddIconComponent,

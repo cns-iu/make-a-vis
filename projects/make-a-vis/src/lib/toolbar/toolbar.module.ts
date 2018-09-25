@@ -54,7 +54,7 @@ import { sidenavStateReducer } from './shared/store/reducer';
     MatSlideToggleModule,
     MatToolbarModule,
 
-    StoreModule.forFeature('sidenav', sidenavStateReducer)
+    StoreModule.forFeature('ui', sidenavStateReducer)
   ],
   declarations: [
     CnsLogoIconComponent,

@@ -1,28 +1,52 @@
+import { Project } from 'dvl-fw';
+
 export interface SidenavState {
-  projectSaved: boolean;
-  projectLoaded: boolean;
+  savingProject: boolean;
+  outgoingProjectFile: string;
 
-  newProjectName: string;
-  newProjectFileType: string;
+  loadingProject: boolean;
+  incomingDataFile: string;
+  incomingDataFileType: string; // isi | nsf | dvl-yml
 
-  exportProjectFileType: string;
+  exportingSnapshot: boolean;
+  snapshotFile: string;
+  snapshotFileType: string; // svg | png | pdf
 
+  loadingShareUrl: boolean;
+  creatingShareUrl: boolean;
   shareUrl: string;
 
-  isLoggingEnabled: boolean;
+  loggingEnabled: boolean;
+
+  errorOccurred: boolean;
+  errorTitle: string;
+  errorMessage: string;
+
+  project: Project;
 }
 
 
 export const INITIAL_SIDENAV_STATE: SidenavState = {
-  projectSaved: false,
-  projectLoaded: false,
+  savingProject: false,
+  outgoingProjectFile: '',
 
-  newProjectName: 'new-project',
-  newProjectFileType: '',
+  loadingProject: false,
+  incomingDataFile: '',
+  incomingDataFileType: '',
 
-  exportProjectFileType: '',
+  exportingSnapshot: false,
+  snapshotFile: '',
+  snapshotFileType: '',
 
+  loadingShareUrl: false,
+  creatingShareUrl: false,
   shareUrl: '',
 
-  isLoggingEnabled: false
+  loggingEnabled: false,
+
+  errorOccurred: false,
+  errorTitle: '',
+  errorMessage: '',
+
+  project: null
 };

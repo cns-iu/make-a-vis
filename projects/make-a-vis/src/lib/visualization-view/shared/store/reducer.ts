@@ -7,19 +7,29 @@ export function visualizationStateReducer (
   action: any
 ) {
 
-    let newState: VisualizationState = null;
+    const newState: VisualizationState = Object.assign({}, state);
 
     switch (action) {
-      case VisualizationActionTypes.NewVisualization:
-        newState = Object.assign({cows: 'view-moo'}, state);
+      case VisualizationActionTypes.SetActiveVisualization:
+        newState.activeVisualization = action.payload;
         return newState;
 
-      case VisualizationActionTypes.NewDatasource:
-        newState = Object.assign({}, state);
+      case VisualizationActionTypes.AddNewVisualization:
+        newState.activeVisualization = action.payload;
         return newState;
 
-      case VisualizationActionTypes.NewRecordStream:
-        newState = Object.assign({}, state);
+      case VisualizationActionTypes.SetGraphicSymbolRecordSet:
         return newState;
+
+      case VisualizationActionTypes.SetActiveDataVariable:
+        newState.activeDataVariable = action.payload;
+        return newState;
+
+      case VisualizationActionTypes.SetGraphicVariable:
+        //
+        return newState;
+
+      default:
+        return state;
     }
 }

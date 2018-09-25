@@ -10,6 +10,7 @@ import { VisualizationViewModule } from './visualization-view/visualization-view
 import { LightThemeComponent } from './light-theme/light-theme.component';
 
 import { MakeAVisComponent } from './make-a-vis.component';
+import { StoreModule } from '@ngrx/store';
 
 describe('MakeAVisComponent', () => {
   let component: MakeAVisComponent;
@@ -17,7 +18,14 @@ describe('MakeAVisComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [DataViewModule, LegendViewModule, ToolbarModule, VisualizationViewModule],
+      imports: [
+        DataViewModule,
+        LegendViewModule,
+        ToolbarModule,
+        VisualizationViewModule,
+
+        StoreModule.forRoot({})
+      ],
       declarations: [LightThemeComponent, MakeAVisComponent]
     })
     .compileComponents();

@@ -14,7 +14,7 @@ import { SidenavState } from './toolbar/shared/store';
 export class MakeAVisComponent implements OnInit {
   @Input() theme = 'light-theme';
   checkUiState: Observable<SidenavState>; // for demo purpose
-  checkSaveProject: Observable<boolean>;
+  checkSaveProject: Observable<string>;
 
   constructor(private store: Store<ApplicationState>) {
 

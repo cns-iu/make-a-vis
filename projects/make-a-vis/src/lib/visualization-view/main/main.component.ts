@@ -41,7 +41,7 @@ export class MainComponent implements OnInit {
 
   addTab(label: string) {
     this.tabs.push(label);
-    this.store.dispatch({ type: VisualizationActionTypes.NewVisualization }); // for example
+    this.store.dispatch({ type: VisualizationActionTypes.AddNewVisualization }); // for example
   }
 
   removeTab(index: number) {

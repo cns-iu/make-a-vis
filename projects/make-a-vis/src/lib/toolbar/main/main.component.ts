@@ -17,7 +17,7 @@ export class MainComponent implements OnInit {
   checkSidenavState: Observable<SidenavState>;
 
   constructor(private store: Store<ApplicationState>) {
-    this.checkSidenavState = store.pipe(select('sidenav'));
+    this.checkSidenavState = store.pipe(select('ui'));
     this.checkSidenavState.subscribe((k) => {
       console.log('state output --- ', k); // for example
     });
@@ -28,6 +28,6 @@ export class MainComponent implements OnInit {
 
   setSidenavState(event: boolean) {
     this.isSidenavOpen = event;
-    this.store.dispatch({ type: SidenavActionTypes.SaveProject }); // for example
+    this.store.dispatch({ type: SidenavActionTypes.SaveProjectCompleted }); // for example
   }
 }
