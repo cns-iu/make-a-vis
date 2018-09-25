@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+  @ViewChild('visualization') visualization: ElementRef;
+
   tabs = [];
   menuOptions = [
     { label: 'Scatter Graph', icon: 'scatterGraph' },
@@ -16,20 +18,26 @@ export class MainComponent implements OnInit {
   ];
   selectedTab = 0;
 
-  constructor() { }
+  constructor(private exportService: ExportService) { }
 
   ngOnInit() {
   }
 
   selected(target: number) {
-    this.selectedTab = target;
+    this.selectedTab = this.exportService.selectedTab = target;
+    this.exportService.visualizationElement = this.visualization;
   }
 
   addTab(label: string) {
+    this.exportService.visualizationElement = this.visualization;
     this.tabs.push(label);
+    this.selected(this.tabs.length - 1);
   }
 
   removeTab(index: number) {
     this.tabs.splice(index, 1);
+    if (this.tabs && this.tabs.length === 0) {
+      this.exportService.visualizationElement = null;
+    }
   }
 }

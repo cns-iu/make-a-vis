@@ -1,4 +1,5 @@
-<mat-tab-group [color]="'#ffffff'" [disableRipple]="true" [(selectedIndex)]="selectedTab" class="tab-group">
+<mat-tab-group [color]="'#ffffff'" [disableRipple]="true" [(selectedIndex)]="selectedTab" class="tab-group" #visualization >
+  
   <mat-tab *ngFor="let label of tabs; let index=index" [disabled]="false">
     
     <ng-template mat-tab-label>
@@ -8,12 +9,17 @@
           <mav-cancel-icon (click)="removeTab(index)"></mav-cancel-icon>
         </mat-chip>
       </mat-chip-list>
+     
     </ng-template>
-    
-    <ng-template matTabContent>
-      {{label}} Loaded!
-    </ng-template>
+   
+      <ng-template matTabContent>
+        <div class="tab-content">
+          <mav-app-scatterplot [ngClass]="{'active' : index===selectedTab}"></mav-app-scatterplot>
+        </div>
+      </ng-template>
+   
   </mat-tab>
+
 </mat-tab-group>
 
 <div class="add-visualization">

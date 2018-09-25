@@ -29,6 +29,15 @@
       ],
       "dvl-fw/*": [
         "dist/dvl-fw/*"
+      ],
+      "pdfkit": [
+        "dist/pdfkit.js"
+      ],
+      "svg-to-pdfkit":[
+        "node_modules/svg-to-pdfkit/source.js"
+      ],
+      "blob-stream":[
+        "dist/blobstream.js"
       ]
     }
   }
