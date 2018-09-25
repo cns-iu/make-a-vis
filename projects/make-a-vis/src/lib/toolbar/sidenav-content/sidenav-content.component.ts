@@ -6,9 +6,7 @@ import {
 } from '@angular/core';
 import { MatAccordion, MatButtonToggleGroup } from '@angular/material';
 
-import { NewProjectService } from '../shared/services/new-project.service';
-import { Store } from '@ngrx/store';
-import { SidenavState, SidenavActionTypes } from '../shared/store';
+import { LoadProjectService } from '../shared/services/load-project.service';
 
 @Component({
   selector: 'mav-sidenav-content',
@@ -26,10 +24,7 @@ export class SidenavContentComponent implements OnInit {
   panelOpenState = true;
   newProjectFileExtension: 'isi' | 'nsf' | 'csv' | 'json';
 
-  constructor(
-    private newProjectService: NewProjectService,
-    private store: Store<SidenavState> // TODO
-  ) { }
+  constructor(private loadProjectService: LoadProjectService) { }
 
   ngOnInit() {
   }
@@ -40,18 +35,13 @@ export class SidenavContentComponent implements OnInit {
 
   readNewFile(event: any) { // TODO WIP
     const filename = event.srcElement.files[0].name;
-    const fileExtension = filename.split('.')[1];
+    const fileExtension = filename.split('.').slice(-1).toString();
 
     if (fileExtension.toString() === this.newProjectFileExtension) {
-      this.store.dispatch({ type: SidenavActionTypes.LoadProjectStarted }); // TODO WIP
-      this.newProjectService.readFile(this.newProjectFileExtension, event.srcElement.files[0]);
-      this.store.dispatch({type: SidenavActionTypes.LoadProjectCompleted}); // TODO WIP
+      const projectObservable = this.loadProjectService.loadFile(this.newProjectFileExtension, event.srcElement.files[0]);
+      // TODO update store
     } else if (fileExtension.toString() !== this.newProjectFileExtension) {
-        this.openSnackbar('File chosen has wrong extension'); // TODO temporary
+        console.log('File chosen has wrong extension'); // TODO temporary
     }
-  }
-
-  openSnackbar(message: string) { // TODO temporary
-    console.log(message);
   }
 }
