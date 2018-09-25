@@ -1,4 +1,5 @@
 import { Action } from '@ngrx/store';
+import { Project } from 'dvl-fw';
 
 // event types can be used as payload types
 // import {
@@ -9,6 +10,17 @@ import { Action } from '@ngrx/store';
 //   ShareProjectEvent,
 //   ToggleLoggingEvent
 //  } from '../events';
+
+
+export interface LoadProjectStartedPayload {
+  filename: string;
+  fileExtension: 'isi' | 'nsf' | 'csv' | 'json' | 'yml';
+}
+
+export interface LoadProjectCompletedPayload {
+  project: Project;
+}
+
 
 export enum SidenavActionTypes {
   SaveProjectStarted = '[UI] Save Project',
@@ -55,13 +67,13 @@ export class SaveProjectCompleted implements Action {
 
 export class LoadProjectStarted implements Action {
   readonly type = SidenavActionTypes.LoadProjectStarted;
-  constructor(public payload = {}) {
+  constructor(public payload: LoadProjectStartedPayload) {
   }
 }
 
 export class LoadProjectCompleted implements Action {
   readonly type = SidenavActionTypes.LoadProjectCompleted;
-  constructor(public payload = {}) {
+  constructor(public payload: LoadProjectCompleted) {
   }
 }
 

@@ -1,11 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-
-import { Observable } from 'rxjs';
-
-import { Store, select } from '@ngrx/store';
-import { ApplicationState } from '../../shared/store/state';
-import { VisualizationState } from '../shared/store/state';
-import { VisualizationActionTypes } from '../shared/store/actions';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'mav-visualization-view',
@@ -13,8 +6,6 @@ import { VisualizationActionTypes } from '../shared/store/actions';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  checkVisualizationState: Observable<VisualizationState>;
-
   tabs = [];
   menuOptions = [
     { label: 'Scatter Graph', icon: 'scatterGraph' },
@@ -25,12 +16,7 @@ export class MainComponent implements OnInit {
   ];
   selectedTab = 0;
 
-  constructor(private store: Store<ApplicationState>) {
-    this.checkVisualizationState = store.pipe(select('visualization'));
-    this.checkVisualizationState.subscribe((k) => {
-      console.log('viz. state output --- ', k); // for example
-    });
-   }
+  constructor() { }
 
   ngOnInit() {
   }
@@ -41,7 +27,6 @@ export class MainComponent implements OnInit {
 
   addTab(label: string) {
     this.tabs.push(label);
-    this.store.dispatch({ type: VisualizationActionTypes.AddNewVisualization }); // for example
   }
 
   removeTab(index: number) {

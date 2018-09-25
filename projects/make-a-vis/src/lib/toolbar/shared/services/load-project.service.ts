@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 import { ProjectSerializerService, Project } from 'dvl-fw';
 
@@ -15,19 +15,21 @@ export class LoadProjectService {
   loadFile(
     fileExtension: 'isi' | 'nsf' | 'csv' | 'json' | 'yml',
     file: Blob
-  ): Observable<Project> {
+  ) {
     const reader = new FileReader();
-    let projectObservable = new Observable<Project>(null);
+    const projectSubject = new BehaviorSubject<Project>(null);
     reader.onload = (event: any) => {
       if (event.target.result !==  null) {
         if (fileExtension !== 'yml') {
-          projectObservable = this.serializer.createProject(<any>fileExtension, event.target.result);
+          this.serializer.createProject(<any>fileExtension, event.target.result)
+            .subscribe((project: Project) => projectSubject.next(project));
         } else {
-          projectObservable = this.serializer.fromYAML(event.target.result);
+          this.serializer.fromYAML(event.target.result)
+            .subscribe((project: Project) => projectSubject.next(project));
         }
       }
     };
     reader.readAsText(file);
-    return projectObservable;
+    return projectSubject;
   }
 }

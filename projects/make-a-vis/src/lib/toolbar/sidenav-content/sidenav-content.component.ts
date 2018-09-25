@@ -6,7 +6,11 @@ import {
 } from '@angular/core';
 import { MatAccordion, MatButtonToggleGroup } from '@angular/material';
 
+import { Store, select } from '@ngrx/store';
+
 import { LoadProjectService } from '../shared/services/load-project.service';
+
+import { SidenavState, SidenavActionTypes, getLoadedProject } from '../shared/store';
 
 @Component({
   selector: 'mav-sidenav-content',
@@ -24,7 +28,10 @@ export class SidenavContentComponent implements OnInit {
   panelOpenState = true;
   newProjectFileExtension: 'isi' | 'nsf' | 'csv' | 'json';
 
-  constructor(private loadProjectService: LoadProjectService) { }
+  constructor(
+    private loadProjectService: LoadProjectService,
+    private store: Store<SidenavState>
+  ) { }
 
   ngOnInit() {
   }
@@ -33,13 +40,30 @@ export class SidenavContentComponent implements OnInit {
     this.newProjectFileExtension = event.value;
   }
 
-  readNewFile(event: any) { // TODO WIP
+  readNewFile(event: any) {
     const filename = event.srcElement.files[0].name;
     const fileExtension = filename.split('.').slice(-1).toString();
 
     if (fileExtension.toString() === this.newProjectFileExtension) {
-      const projectObservable = this.loadProjectService.loadFile(this.newProjectFileExtension, event.srcElement.files[0]);
-      // TODO update store
+      this.store.dispatch({
+        type: SidenavActionTypes.LoadProjectStarted,
+        payload: { filename: filename, fileExtension: fileExtension }
+      });
+
+      this.loadProjectService.loadFile(this.newProjectFileExtension, event.srcElement.files[0])
+        .subscribe((project) => {
+        if (project) { // success
+          this.store.dispatch({
+            type: SidenavActionTypes.LoadProjectCompleted,
+            payload: { project: project }
+          });
+        } else { // failure
+          this.store.dispatch({
+            type: SidenavActionTypes.LoadProjectError,
+            payload: { errorOccurred: true, errorTitle: 'Load Error', errorMessage: 'Failed to load new project' }
+          });
+        }
+      });
     } else if (fileExtension.toString() !== this.newProjectFileExtension) {
         console.log('File chosen has wrong extension'); // TODO temporary
     }
