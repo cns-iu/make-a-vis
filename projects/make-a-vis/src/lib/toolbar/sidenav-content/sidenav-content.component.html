@@ -27,12 +27,14 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
       <p class="expansion-content">
-        <mat-button-toggle-group name="newProject" aria-label="New Project" class="button-toggle-group">
+        <mat-button-toggle-group name="newProject" aria-label="New Project" class="button-toggle-group" (change)="setFileType($event)">
           <mat-button-toggle value="nsf" class="button-toggle">NSF</mat-button-toggle>
           <mat-button-toggle value="isi" class="button-toggle">ISI</mat-button-toggle>
         </mat-button-toggle-group>
         <br>
-        <button mat-stroked-button isRoundButton class="button">Get Data</button>
+        <label for="file-upload" class="custom-file-upload button" mat-stroked-button isRoundButton>Get Data</label>
+        <input id="file-upload" type="file" class="get-data" (change)="readNewFile($event)" />
+        <!-- <button mat-stroked-button isRoundButton class="button" >Get Data</button> -->
       </p>
     </mat-expansion-panel>
     <mat-divider></mat-divider>

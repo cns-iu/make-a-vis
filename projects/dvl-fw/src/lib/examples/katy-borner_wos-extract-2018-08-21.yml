@@ -1,7 +1,7 @@
 apiVersion: 1
 metadata:
-  dateCreated: 2018-09-14T20:21:37.229Z
-  dateSaved: 2018-09-14T20:21:37.256Z
+  dateCreated: 2018-09-20T17:49:20.274Z
+  dateSaved: 2018-09-20T17:49:20.300Z
 dataSources:
   - id: isiDataSource
     template: isi
@@ -22,6 +22,7 @@ recordSets:
   - id: publication
     label: Publication
     labelPlural: Publications
+    defaultRecordStream: publications
     dataVariables:
       - id: id
         label: WoS ID
@@ -50,6 +51,7 @@ recordSets:
   - id: journal
     label: Journal
     labelPlural: Journals
+    defaultRecordStream: journals
     dataVariables:
       - id: name
         label: Name
@@ -74,6 +76,7 @@ recordSets:
   - id: author
     label: Author
     labelPlural: Authors
+    defaultRecordStream: authors
     dataVariables:
       - id: name
         label: Name
@@ -102,6 +105,7 @@ recordSets:
   - id: coAuthorLink
     label: Co-Author Link
     labelPlural: Co-Author Links
+    defaultRecordStream: coAuthorLinks
     dataVariables:
       - id: author1
         label: Author 1

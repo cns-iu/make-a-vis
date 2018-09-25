@@ -5,9 +5,11 @@ import { ObjectFactoryRegistry, ObjectFactoryPlugin } from './object-factory';
 
 import { DefaultPlugin } from '../plugins/default/default-plugin';
 import { ISIPlugin } from '../plugins/isi/isi-plugin';
+import { NgxDinoPlugin } from './../plugins/ngx-dino/ngx-dino-plugin';
+
 
 export class ProjectSerializer {
-  static defaultPlugins: ObjectFactoryPlugin[] = [ new DefaultPlugin(), new ISIPlugin() ];
+  static defaultPlugins: ObjectFactoryPlugin[] = [ new DefaultPlugin(), new ISIPlugin(), new NgxDinoPlugin() ];
 
   static defaultRegistry = new ObjectFactoryRegistry(ProjectSerializer.defaultPlugins);
   static async toJSON(project: Project, registry: ObjectFactoryRegistry = ProjectSerializer.defaultRegistry): Promise<any> {

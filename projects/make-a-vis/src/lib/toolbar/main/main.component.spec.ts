@@ -5,6 +5,8 @@ import 'hammerjs';
 
 import { createStubComponent } from '../../../testing/utility';
 import { MainComponent } from './main.component';
+import { StoreModule } from '@ngrx/store';
+import { sidenavStateReducer } from '../shared/store';
 
 describe('toolbar', () => {
 describe('MainComponent', () => {
@@ -15,7 +17,10 @@ describe('MainComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         BrowserAnimationsModule,
-        MatSidenavModule
+        MatSidenavModule,
+
+        StoreModule.forRoot({}),
+        StoreModule.forFeature('ui', sidenavStateReducer)
       ],
       declarations: [
         createStubComponent('mav-toolbar-content', { outputs: ['toggleSidenav'] }),
