@@ -7,8 +7,11 @@ import {
 import { MatAccordion, MatButtonToggleGroup } from '@angular/material';
 
 import { NewProjectService } from '../shared/services/new-project.service';
+import {SaveProjectService } from '../shared/services/save-project/save-project.service';
 import { Store } from '@ngrx/store';
 import { SidenavState, SidenavActionTypes } from '../shared/store';
+import { ProjectSerializerService } from 'dvl-fw';
+
 
 @Component({
   selector: 'mav-sidenav-content',
@@ -27,7 +30,8 @@ export class SidenavContentComponent implements OnInit {
   newProjectFileExtension: 'isi' | 'nsf' | 'csv' | 'json';
 
   constructor(
-    private newProjectService: NewProjectService,
+    private newProjectService: NewProjectService, private projectSerializerService: ProjectSerializerService,
+    private saveProjectService: SaveProjectService,
     private store: Store<SidenavState> // TODO
   ) { }
 
@@ -53,5 +57,12 @@ export class SidenavContentComponent implements OnInit {
 
   openSnackbar(message: string) { // TODO temporary
     console.log(message);
+  }
+
+  saveProject() {
+    const p = this.newProjectService.project;
+    this.saveProjectService.save(p).subscribe((k) => {
+      console.log(k);
+    });
   }
 }

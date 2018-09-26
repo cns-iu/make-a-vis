@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class NewProjectService {
 
+  project: Project; // NOT TO COMMIT
   constructor(private serializer: ProjectSerializerService) { }
 
   readFile( // TODO WIP
@@ -23,6 +24,7 @@ export class NewProjectService {
         projectObservable = this.serializer.createProject(fileExtension, event.target.result);
         projectObservable.subscribe((p) => {
           if (p) {
+            this.project = p;
             project = p;
           }
         });
