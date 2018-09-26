@@ -1,11 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-
-import { Observable } from 'rxjs';
-
-import { Store, select } from '@ngrx/store';
-import { ApplicationState } from '../../shared/store/state';
-import { VisualizationState } from '../shared/store/state';
-import { VisualizationActionTypes } from '../shared/store/actions';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { ExportService } from '../../shared/services/export/export.service';
 
 @Component({
   selector: 'mav-visualization-view',
@@ -13,7 +7,7 @@ import { VisualizationActionTypes } from '../shared/store/actions';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  checkVisualizationState: Observable<VisualizationState>;
+  @ViewChild('visualization') visualization: ElementRef;
 
   tabs = [];
   menuOptions = [
@@ -25,26 +19,26 @@ export class MainComponent implements OnInit {
   ];
   selectedTab = 0;
 
-  constructor(private store: Store<ApplicationState>) {
-    this.checkVisualizationState = store.pipe(select('visualization'));
-    this.checkVisualizationState.subscribe((k) => {
-      console.log('viz. state output --- ', k); // for example
-    });
-   }
+  constructor(private exportService: ExportService) { }
 
   ngOnInit() {
   }
 
   selected(target: number) {
-    this.selectedTab = target;
+    this.selectedTab = this.exportService.selectedTab = target;
+    this.exportService.visualizationElement = this.visualization;
   }
 
   addTab(label: string) {
+    this.exportService.visualizationElement = this.visualization;
     this.tabs.push(label);
-    this.store.dispatch({ type: VisualizationActionTypes.AddNewVisualization }); // for example
+    this.selected(this.tabs.length - 1);
   }
 
   removeTab(index: number) {
     this.tabs.splice(index, 1);
+    if (this.tabs && this.tabs.length === 0) {
+      this.exportService.visualizationElement = null;
+    }
   }
 }

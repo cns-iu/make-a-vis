@@ -1,5 +1,6 @@
 import { SidenavState, INITIAL_SIDENAV_STATE } from './state';
 import { SidenavActionTypes } from './actions';
+import { Project } from 'dvl-fw';
 
 export function sidenavStateReducer (
   state: SidenavState = INITIAL_SIDENAV_STATE,
@@ -24,12 +25,14 @@ export function sidenavStateReducer (
 
     case SidenavActionTypes.LoadProjectStarted:
       newState.loadingProject = true;
-      newState.incomingDataFile = 'incoming-file.yml';
-      newState.incomingDataFileType = 'yml';
+      newState.incomingDataFile = action.payload.filename;
+      newState.incomingDataFileType = action.payload.fileExtension;
       return newState;
 
     case SidenavActionTypes.LoadProjectCompleted:
       newState.loadingProject = false;
+      newState.incomingDataFile = '';
+      newState.incomingDataFileType = '';
       newState.project = action.payload;
       return newState;
 
@@ -101,6 +104,8 @@ export function sidenavStateReducer (
 export const getSaveProjectState = (state: SidenavState) => state.outgoingProjectFile;
 
 /* selectors */
+export const getLoadedProject = (state: SidenavState): Project => state.project;
+
 
 // export const getSaveProjectState = (state: SidenavState) => state.projectSaved;
 // export const getLoadProjectState = (state: SidenavState) => state.projectLoaded;

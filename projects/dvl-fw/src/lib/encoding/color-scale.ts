@@ -8,6 +8,11 @@ export interface RGB {
   b: number;
 }
 
+function byteToString(byte: number): string {
+  const value = byte.toString(16);
+  return '0'.repeat(2 - value.length) + value;
+}
+
 export class ColorScale {
   private startRGB: RGB;
   private endRGB: RGB;
@@ -78,10 +83,8 @@ export class ColorScale {
   }
 
   getHex(color: RGB): string {
-    return '#'
-      + Math.round(color.r).toString(16)
-      + Math.round(color.g).toString(16)
-      + Math.round(color.b).toString(16);
+    const { r, g, b } = color;
+    return `#${byteToString(r)}${byteToString(g)}${byteToString(b)}`;
   }
 
   getAddends(categoryCount): number[] {
@@ -92,4 +95,3 @@ export class ColorScale {
     ).map((a) => a / categoryCount);
   }
 }
-

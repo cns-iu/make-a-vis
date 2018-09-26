@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 // Material
 import { MatButtonModule } from '@angular/material/button';
@@ -41,7 +42,7 @@ import { sidenavStateReducer } from './shared/store/reducer';
   imports: [
     BrowserAnimationsModule,
     CommonModule,
-
+    FormsModule,
     MatButtonModule,
     MatButtonToggleModule,
     MatDividerModule,
