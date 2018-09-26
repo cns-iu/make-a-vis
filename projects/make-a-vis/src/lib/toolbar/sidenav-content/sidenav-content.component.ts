@@ -7,9 +7,9 @@ import {
 
 import { MatAccordion, MatButtonToggleGroup } from '@angular/material';
 
-import { Store, select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 
-import { SidenavState, SidenavActionTypes, getLoadedProject } from '../shared/store';
+import { SidenavState, SidenavActionTypes } from '../shared/store';
 
 import { LoadProjectService } from '../shared/services/load-project.service';
 import { ExportService } from '../../shared/services/export/export.service';

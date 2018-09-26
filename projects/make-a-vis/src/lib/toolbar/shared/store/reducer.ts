@@ -1,5 +1,12 @@
+import {
+  createSelector,
+  createFeatureSelector,
+  MemoizedSelector
+} from '@ngrx/store';
+
 import { SidenavState, INITIAL_SIDENAV_STATE } from './state';
 import { SidenavActionTypes } from './actions';
+
 import { Project } from 'dvl-fw';
 
 export function sidenavStateReducer (
@@ -101,15 +108,11 @@ export function sidenavStateReducer (
   }
 }
 
-export const getSaveProjectState = (state: SidenavState) => state.outgoingProjectFile;
+export const selectSelfFeature: MemoizedSelector<object, SidenavState> = createFeatureSelector<SidenavState>('ui');
 
 /* selectors */
 export const getLoadedProject = (state: SidenavState): Project => state.project;
-
-
-// export const getSaveProjectState = (state: SidenavState) => state.projectSaved;
-// export const getLoadProjectState = (state: SidenavState) => state.projectLoaded;
-// export const getNewProjectState = (state: SidenavState) => [state.newProjectName, state.newProjectFileType];
-// export const getExportProjectState = (state: SidenavState) => state.exportProjectFileType;
-// export const getSharedProjectState = (state: SidenavState) => state.shareUrl;
-// export const getLoggingState = (state: SidenavState) => state.isLoggingEnabled;
+export const getLoadedProjectSelector = createSelector<SidenavState, SidenavState, Project>(
+  selectSelfFeature,
+  getLoadedProject
+);
