@@ -11,6 +11,7 @@ import { Store , select } from '@ngrx/store';
 import { ProjectSerializerService, Project } from 'dvl-fw';
 import { SidenavState, SidenavActionTypes, getLoadedProjectSelector } from '../shared/store';
 import { LoadProjectService } from '../shared/services/load-project.service';
+import { LoggingControlService } from '../../shared/logging-control.service';
 import { ExportService } from '../../shared/services/export/export.service';
 
 @Component({
@@ -35,8 +36,11 @@ export class SidenavContentComponent implements OnInit {
     private saveProjectService: SaveProjectService,
     private store: Store<SidenavState>, // TODO
     private loadProjectService: LoadProjectService,
-    public exportService: ExportService
-  ) { }
+    public exportService: ExportService,
+    private loggingControlService: LoggingControlService
+  ) {
+    loggingControlService.disableLogging();
+  }
 
   ngOnInit() {
   }
@@ -91,5 +95,9 @@ export class SidenavContentComponent implements OnInit {
           this.saveProjectService.save(data.project);
         }
     });
+  }
+
+  toggleLogging() {
+    this.loggingControlService.toggleLogging();
   }
 }
