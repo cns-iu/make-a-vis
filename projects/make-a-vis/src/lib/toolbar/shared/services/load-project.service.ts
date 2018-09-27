@@ -15,7 +15,7 @@ export class LoadProjectService {
   loadFile(
     fileExtension: 'isi' | 'nsf' | 'csv' | 'json' | 'yml',
     file: Blob
-  ) {
+  ): BehaviorSubject<Project> {
     const reader = new FileReader();
     const projectSubject = new BehaviorSubject<Project>(null);
     reader.onload = (event: any) => {

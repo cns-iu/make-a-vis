@@ -1,3 +1,4 @@
+import * as store from '@ngrx/store';
 import { SidenavState, INITIAL_SIDENAV_STATE } from './state';
 import { SidenavActionTypes } from './actions';
 import { Project } from 'dvl-fw';
@@ -101,15 +102,16 @@ export function sidenavStateReducer (
   }
 }
 
-export const getSaveProjectState = (state: SidenavState) => state.outgoingProjectFile;
-
 /* selectors */
 export const getLoadedProject = (state: SidenavState): Project => state.project;
 
+// TODO temporary
+export const getUiState = store.createFeatureSelector<SidenavState>(
+  'ui'
+);
 
-// export const getSaveProjectState = (state: SidenavState) => state.projectSaved;
-// export const getLoadProjectState = (state: SidenavState) => state.projectLoaded;
-// export const getNewProjectState = (state: SidenavState) => [state.newProjectName, state.newProjectFileType];
-// export const getExportProjectState = (state: SidenavState) => state.exportProjectFileType;
-// export const getSharedProjectState = (state: SidenavState) => state.shareUrl;
-// export const getLoggingState = (state: SidenavState) => state.isLoggingEnabled;
+// TODO temporary
+export const getLoadedProjectSelector = store.createSelector<SidenavState, SidenavState, Project>(
+  getUiState,
+  getLoadedProject
+);

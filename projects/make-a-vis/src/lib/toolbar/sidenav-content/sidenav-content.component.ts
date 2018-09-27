@@ -6,17 +6,10 @@ import {
 } from '@angular/core';
 
 import { MatAccordion, MatButtonToggleGroup } from '@angular/material';
-
-import { NewProjectService } from '../shared/services/new-project.service';
 import {SaveProjectService } from '../shared/services/save-project/save-project.service';
-import { Store } from '@ngrx/store';
-import { SidenavState, SidenavActionTypes } from '../shared/store';
-import { ProjectSerializerService } from 'dvl-fw';
-
-import { Store, select } from '@ngrx/store';
-
-import { SidenavState, SidenavActionTypes, getLoadedProject } from '../shared/store';
-
+import { Store , select } from '@ngrx/store';
+import { ProjectSerializerService, Project } from 'dvl-fw';
+import { SidenavState, SidenavActionTypes, getLoadedProjectSelector } from '../shared/store';
 import { LoadProjectService } from '../shared/services/load-project.service';
 import { ExportService } from '../../shared/services/export/export.service';
 
@@ -35,15 +28,14 @@ export class SidenavContentComponent implements OnInit {
 
   exportSnapshotType = null;
   panelOpenState = true;
-  newProjectFileExtension: 'isi' | 'nsf' | 'csv' | 'json';
+  newProjectFileExtension: 'isi' | 'nsf' | 'csv' | 'json' | 'yml';
 
   constructor(
-    private newProjectService: NewProjectService, private projectSerializerService: ProjectSerializerService,
+    private projectSerializerService: ProjectSerializerService,
     private saveProjectService: SaveProjectService,
-    private store: Store<SidenavState> // TODO
+    private store: Store<SidenavState>, // TODO
     private loadProjectService: LoadProjectService,
-    public exportService: ExportService,
-    private store: Store<SidenavState>
+    public exportService: ExportService
   ) { }
 
   ngOnInit() {
@@ -93,9 +85,13 @@ export class SidenavContentComponent implements OnInit {
   }
 
   saveProject() {
-    const p = this.newProjectService.project;
-    this.saveProjectService.save(p).subscribe((k) => {
-      console.log(k);
+    console.log('save project');
+    this.store.pipe(select(getLoadedProjectSelector))
+      .subscribe((data: any) => {
+        console.log(data.project);
+        if (data && data.project) {
+          this.saveProjectService.save(data.project);
+        }
     });
   }
 }
