@@ -42,7 +42,6 @@ import { reducers } from './shared/store/reducer';
 })
 export class MakeAVisModule {
   constructor(loggingControl: LoggingControlService, logger: Logger) {
-    loggingControl.enableLogging();
     logger.setLevel(LogLevel.Error);
   }
 }

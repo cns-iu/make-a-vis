@@ -10,7 +10,7 @@ export class StoreLogger extends AbstractCategoryLogger {
 
   protected doLog(msg: CategoryLogMessage): void {
     if (this.controller.isLoggingEnabled()) {
-      // TODO: Log msg to store
+      // TODO: Send log message somewhere! :p
     }
   }
 }
