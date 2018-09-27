@@ -7,7 +7,7 @@ import { saveAs } from 'file-saver';
 })
 export class SaveProjectService {
 
-  constructor(private projectSerializerService: ProjectSerializerService) { }
+  constructor(private projectSerializerService: ProjectSerializerService)  { }
 
   save(project: Project) {
     this.projectSerializerService.toYAML(project).subscribe((yamlString) => {
