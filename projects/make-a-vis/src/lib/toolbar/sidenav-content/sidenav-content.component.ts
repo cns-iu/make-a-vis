@@ -28,7 +28,7 @@ export class SidenavContentComponent implements OnInit {
 
   exportSnapshotType = null;
   panelOpenState = true;
-  newProjectFileExtension: 'isi' | 'nsf' | 'csv' | 'json' | 'yml';
+  newProjectFileExtension: 'isi' | 'nsf' | 'csv' | 'json' | 'yml' = 'yml';
 
   constructor(
     private projectSerializerService: ProjectSerializerService,
@@ -72,7 +72,7 @@ export class SidenavContentComponent implements OnInit {
             type: SidenavActionTypes.LoadProjectCompleted,
             payload: { project: project }
           });
-        } else { // failure
+        } else { // failure'
             this.store.dispatch({
               type: SidenavActionTypes.LoadProjectError,
               payload: { errorOccurred: true, errorTitle: 'Load Error', errorMessage: 'Failed to load new project' }
@@ -85,10 +85,8 @@ export class SidenavContentComponent implements OnInit {
   }
 
   saveProject() {
-    console.log('save project');
     this.store.pipe(select(getLoadedProjectSelector))
       .subscribe((data: any) => {
-        console.log(data.project);
         if (data && data.project) {
           this.saveProjectService.save(data.project);
         }
