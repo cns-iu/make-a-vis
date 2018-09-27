@@ -10,7 +10,8 @@
   <div class="title">
     <div class="label">
       <mav-load-project-icon class="icon"></mav-load-project-icon>
-      <span>Load Project</span>
+      <label for="file-upload">Load Project</label>
+      <input id="file-upload" type="file" class="get-data" (change)="readNewFile($event)" />
     </div>
   </div>
   <mat-divider></mat-divider>
