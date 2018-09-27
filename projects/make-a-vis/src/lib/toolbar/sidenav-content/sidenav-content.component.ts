@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 
 import { MatAccordion, MatButtonToggleGroup } from '@angular/material';
-import {SaveProjectService } from '../shared/services/save-project/save-project.service';
+import { SaveProjectService } from '../shared/services/save-project/save-project.service';
 import { Store , select } from '@ngrx/store';
 import { ProjectSerializerService, Project } from 'dvl-fw';
 import { SidenavState, SidenavActionTypes, getLoadedProjectSelector } from '../shared/store';

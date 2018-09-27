@@ -1,6 +1,12 @@
-import * as store from '@ngrx/store';
+import {
+  createSelector,
+  createFeatureSelector,
+  MemoizedSelector
+} from '@ngrx/store';
+
 import { SidenavState, INITIAL_SIDENAV_STATE } from './state';
 import { SidenavActionTypes } from './actions';
+
 import { Project } from 'dvl-fw';
 
 export function sidenavStateReducer (
@@ -102,16 +108,11 @@ export function sidenavStateReducer (
   }
 }
 
+export const selectSelfFeature: MemoizedSelector<object, SidenavState> = createFeatureSelector<SidenavState>('ui');
+
 /* selectors */
 export const getLoadedProject = (state: SidenavState): Project => state.project;
-
-// TODO temporary
-export const getUiState = store.createFeatureSelector<SidenavState>(
-  'ui'
-);
-
-// TODO temporary
-export const getLoadedProjectSelector = store.createSelector<SidenavState, SidenavState, Project>(
-  getUiState,
+export const getLoadedProjectSelector = createSelector<SidenavState, SidenavState, Project>(
+  selectSelfFeature,
   getLoadedProject
 );
