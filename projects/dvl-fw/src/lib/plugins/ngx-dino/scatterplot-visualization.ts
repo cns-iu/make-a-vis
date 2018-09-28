@@ -7,7 +7,16 @@ import { ScatterplotComponent } from './components/scatterplot/scatterplot.compo
 
 
 export class ScatterplotVisualization extends DefaultVisualization {
-  component = ScatterplotComponent;
+  readonly component = ScatterplotComponent;
+  readonly graphicSymbolOptions = [{
+    id: 'points', label: 'Points', type: 'area',
+    graphicVariableOptions: [
+      { type: 'areaSize', label: 'Area Size' },
+      { type: 'shape', label: 'Shape' },
+      { type: 'color', label: 'Color' },
+      { type: 'strokeColor', label: 'strokeColor' }
+    ]
+  }];
 }
 
 export class ScatterplotVisualizationFactory implements ObjectFactory<Visualization, Project> {
