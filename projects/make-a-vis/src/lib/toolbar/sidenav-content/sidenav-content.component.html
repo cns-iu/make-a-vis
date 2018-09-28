@@ -1,8 +1,8 @@
 <div class="sidenav-content">
-  <div class="title">
+  <div class="title" (click)="saveProject()">
     <div class="label">
       <mav-save-icon class="icon"></mav-save-icon>
-      <span>Save Project</span>
+      <span >Save Project</span>
     </div>
   </div>
   <mat-divider></mat-divider>
@@ -10,7 +10,8 @@
   <div class="title">
     <div class="label">
       <mav-load-project-icon class="icon"></mav-load-project-icon>
-      <span>Load Project</span>
+      <label for="file-upload">Load Project</label>
+      <input id="file-upload" type="file" class="get-data" (change)="readNewFile($event)" />
     </div>
   </div>
   <mat-divider></mat-divider>
@@ -83,7 +84,7 @@
       <mav-logging-icon class="icon"></mav-logging-icon>
       <span>Logging</span>
     </div>
-    <mat-slide-toggle class="toggle"></mat-slide-toggle>
+    <mat-slide-toggle class="toggle" (change)="toggleLogging()"></mat-slide-toggle>
   </div>
   <mat-divider></mat-divider>
 </div>

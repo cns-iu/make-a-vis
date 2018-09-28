@@ -6,12 +6,12 @@ import {
 } from '@angular/core';
 
 import { MatAccordion, MatButtonToggleGroup } from '@angular/material';
-
-import { Store } from '@ngrx/store';
-
-import { SidenavState, SidenavActionTypes } from '../shared/store';
-
+import { SaveProjectService } from '../shared/services/save-project/save-project.service';
+import { Store , select } from '@ngrx/store';
+import { ProjectSerializerService, Project } from 'dvl-fw';
+import { SidenavState, SidenavActionTypes, getLoadedProjectSelector } from '../shared/store';
 import { LoadProjectService } from '../shared/services/load-project.service';
+import { LoggingControlService } from '../../shared/logging-control.service';
 import { ExportService } from '../../shared/services/export/export.service';
 
 @Component({
@@ -29,13 +29,18 @@ export class SidenavContentComponent implements OnInit {
 
   exportSnapshotType = null;
   panelOpenState = true;
-  newProjectFileExtension: 'isi' | 'nsf' | 'csv' | 'json';
+  newProjectFileExtension: 'isi' | 'nsf' | 'csv' | 'json' | 'yml' = 'yml';
 
   constructor(
+    private projectSerializerService: ProjectSerializerService,
+    private saveProjectService: SaveProjectService,
+    private store: Store<SidenavState>, // TODO
     private loadProjectService: LoadProjectService,
     public exportService: ExportService,
-    private store: Store<SidenavState>
-  ) { }
+    private loggingControlService: LoggingControlService
+  ) {
+    loggingControlService.disableLogging();
+  }
 
   ngOnInit() {
   }
@@ -71,7 +76,7 @@ export class SidenavContentComponent implements OnInit {
             type: SidenavActionTypes.LoadProjectCompleted,
             payload: { project: project }
           });
-        } else { // failure
+        } else { // failure'
             this.store.dispatch({
               type: SidenavActionTypes.LoadProjectError,
               payload: { errorOccurred: true, errorTitle: 'Load Error', errorMessage: 'Failed to load new project' }
@@ -81,5 +86,18 @@ export class SidenavContentComponent implements OnInit {
     } else if (fileExtension.toString() !== this.newProjectFileExtension) {
         console.log('File chosen has wrong extension'); // TODO temporary
       }
+  }
+
+  saveProject() {
+    this.store.pipe(select(getLoadedProjectSelector))
+      .subscribe((data: any) => {
+        if (data && data.project) {
+          this.saveProjectService.save(data.project);
+        }
+    });
+  }
+
+  toggleLogging() {
+    this.loggingControlService.toggleLogging();
   }
 }
