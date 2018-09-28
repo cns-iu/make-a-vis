@@ -29,7 +29,7 @@ export class Geocoder {
     while ((match = this.zipRegEx.exec(address)) !== null) {
       location = zipcodes.lookup(match[1]) || location;
     }
-    return location ? Object.assign({}, location) : undefined;
+    return location || undefined;
   }
   getUSLocationsByState(address: string): Location[] {
     let match = null, state = null;

@@ -17,6 +17,14 @@ export function norm0to100(field: string, maxField: string, minField?: string): 
   }
 }
 
+export function extractPoint<T>(...fields: string[]): Operator<any, T[]> {
+  return chain(
+    combine<string, T[]>(fields.map(f => access(f, undefined))),
+    // If any data wasn't mapped, return undefined
+    map<T[], T[]>(data => data.some(d => d === undefined) ? undefined : data)
+  );
+}
+
 export const formatNumber = map<number, string>(x => x.toLocaleString());
 export const formatYear = map<number, string>(x => '' + x);
 

@@ -1,6 +1,6 @@
 import { Publication } from './isi-publication';
 import { Author, AuthorStats } from './isi-author';
-import { Location, Geocoder } from '../../../encoding/geocoder';
+import { Geocoder } from '../../../encoding/geocoder';
 
 export function extractAuthors(publications: Publication[]): Author[] {
   const authors: any = {}, authorList: Author[] = [];
@@ -29,11 +29,14 @@ export function extractAuthors(publications: Publication[]): Author[] {
       }
 
       if (!author.location && address) {
-        author.location = geocoder.getUSLocation(address.split(/\,/).slice(-2).join(','));
+        author.location = geocoder.getUSLocation(address.split(/\,/).slice(-4).join(','));
         if (author.location) {
           // Replace address with the more 'accurate' version.
           author.address = address;
-          // author.location = Object.assign({}, author.location);
+
+          // Give each author a unique location object.
+          // Not totally necessary but makes debugging easier.
+          author.location = Object.assign({}, author.location);
         }
       }
 

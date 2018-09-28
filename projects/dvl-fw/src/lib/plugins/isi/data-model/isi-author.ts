@@ -1,7 +1,7 @@
-import { Operand, chain, access } from '@ngx-dino/core';
+import { Operand, access, chain, map } from '@ngx-dino/core';
 import {
   areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, greyScaleNormQuantitative, greyScaleNormQuantitativeStroke,
-  norm0to100, formatNumber, formatYear
+  norm0to100, formatNumber, formatYear, extractPoint
 } from '../../../encoding';
 import { Location } from '../../../encoding/geocoder';
 
@@ -40,6 +40,9 @@ export class Author {
   constructor(data: any) {
     Object.assign(this, data);
   }
+
+  @Operand<number[]>(extractPoint('location.latitude', 'location.longitude'))
+  latlng: [number, number];
 
   // #Papers Encodings
   @Operand<number>(norm0to100('numPapers', 'globalStats.numPapersMax'))
