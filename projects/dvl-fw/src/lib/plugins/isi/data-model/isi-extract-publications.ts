@@ -14,6 +14,7 @@ export function extractPublications(publications: ISIRecord[]): Publication[] {
       journalFullname: pub.journalFullname,
       authors: pub.authors,
       authorsFullname: pub.authorsFullname,
+      authorsAddress: pub.authorsAddress || pub.authors.map(s => ''),
       publicationYear: pub.publicationYear || 0,
       abstract: pub.abstract,
       publicationType: pub.publicationType,

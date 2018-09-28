@@ -3,6 +3,7 @@ import {
   areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, greyScaleNormQuantitative, greyScaleNormQuantitativeStroke,
   norm0to100, formatNumber, formatYear
 } from '../../../encoding';
+import { Location } from '../../../encoding/geocoder';
 
 export class AuthorStats {
   numPapersMax = 0;
@@ -27,6 +28,9 @@ export class AuthorStats {
 export class Author {
   name: string;
   fullname: string;
+  address: string;
+  location: Location;
+
   numPapers: number;
   numCites: number;
   firstYear: number;

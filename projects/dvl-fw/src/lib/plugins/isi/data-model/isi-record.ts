@@ -9,6 +9,7 @@ export interface ISIRecord {
   journalFullname: string;
   authors: string[];
   authorsFullname: string[];
+  authorsAddress: string[];
   publicationYear: number;
   abstract: string;
   publicationType: string;
@@ -31,6 +32,7 @@ export const ISI_TAGS: TagMapping = {
   'JI': { string: true, separator: ' ', remap: 'journalFullname' },
   'AU': { list: true, remap: 'authors' },
   'AF': { list: true, remap: 'authorsFullname' },
+  'C1': { list: true, remap: 'authorsAddress' },
   'PY': { number: true, remap: 'publicationYear' },
 
   'AB': { string: true, separator: ' ', remap: 'abstract' },

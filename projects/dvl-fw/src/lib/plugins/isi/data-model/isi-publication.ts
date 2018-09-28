@@ -34,6 +34,7 @@ export class Publication {
   journalFullname: string;
   authors: string[];
   authorsFullname: string[];
+  authorsAddress: string[];
   publicationYear: number;
   abstract: string;
   publicationType: string;
