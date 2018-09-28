@@ -8,6 +8,10 @@ $deep-purple: rgb(103,58,183);
 $white: rgb(255,255,255);
 
 // General Styles
+svg * {
+  font-family: $lato;
+}
+
 h2 {
   font-size: 20px;
 }
@@ -34,6 +38,7 @@ hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   border: 0;
   font-size: 100%;
   vertical-align: baseline;
+  font-family: $lato;
 }
 
 .toolbar {
