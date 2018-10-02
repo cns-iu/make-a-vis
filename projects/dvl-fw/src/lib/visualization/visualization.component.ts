@@ -1,21 +1,27 @@
-import { Component, ComponentFactoryResolver, ComponentRef, Input, OnInit, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import {
+  Component, ComponentFactoryResolver, ComponentRef,
+  Input, OnInit, OnChanges, SimpleChanges, ViewContainerRef
+} from '@angular/core';
+import { isFunction } from 'lodash';
 import { Visualization } from '../shared/visualization';
 import { VisualizationComponent } from '../shared/visualization-component';
-
-import { VisHostDirective } from './vis-host.directive';
+import { ClonedVisualization } from './utility';
 
 @Component({
   selector: 'dvl-visualization',
-  template: './visualization.component.html',
+  templateUrl: './visualization.component.html',
   styleUrls: ['./visualization.component.css']
 })
 export class DvlFwVisualizationComponent implements OnInit, OnChanges {
   @Input() data: Visualization;
 
-  @ViewChild(VisHostDirective) visHost: VisHostDirective;
-  componentRef: ComponentRef<VisualizationComponent>;
+  private componentRef: ComponentRef<VisualizationComponent>;
+  private currentData: Visualization;
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
+  constructor(
+    private viewContainerRef: ViewContainerRef,
+    private componentFactoryResolver: ComponentFactoryResolver
+  ) { }
 
   ngOnInit() {
     this.loadComponent();
@@ -27,18 +33,27 @@ export class DvlFwVisualizationComponent implements OnInit, OnChanges {
     }
   }
 
-  loadComponent() {
-    const viewContainerRef = this.visHost.viewContainerRef;
+  private loadComponent() {
+    const { componentFactoryResolver, data, viewContainerRef } = this;
     this.componentRef = null;
     viewContainerRef.clear();
 
-    if (this.data && this.data.component) {
-      const componentType = this.data.component; // || DefaultVisualizationComponent;
-      const componentFactory = this.componentFactoryResolver.resolveComponentFactory(componentType);
+    if (data && data.component) {
+      const componentType = data.component; // || DefaultVisualizationComponent;
+      const componentFactory = componentFactoryResolver.resolveComponentFactory(componentType);
       this.componentRef = viewContainerRef.createComponent(componentFactory);
-      this.componentRef.instance.data = this.data;
-    } else if (this.data) {
-      console.log(`Visualization Component is missing for type: ${this.data.template}`, this.data);
+      this.componentRef.instance.data = data;
+    } else if (data) {
+      console.log(`Visualization Component is missing for type: ${data.template}`, data);
+    }
+  }
+
+  private callDvlLifecycleHook(name: string, ...args: any[]): void {
+    const ref = this.componentRef;
+    const instance = ref && ref.instance;
+    const hook = instance && instance[name];
+    if (isFunction(hook)) {
+      hook.apply(instance, args);
     }
   }
 }
