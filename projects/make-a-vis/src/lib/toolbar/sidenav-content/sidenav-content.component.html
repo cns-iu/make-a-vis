@@ -1,8 +1,8 @@
 <div class="sidenav-content">
-  <div class="title" (click)="saveProject()">
+  <div class="title" >
     <div class="label">
       <mav-save-icon class="icon"></mav-save-icon>
-      <span >Save Project</span>
+      <span (click)="saveProject()">Save Project</span>
     </div>
   </div>
   <mat-divider></mat-divider>
@@ -10,8 +10,8 @@
   <div class="title">
     <div class="label">
       <mav-load-project-icon class="icon"></mav-load-project-icon>
-      <label for="file-upload">Load Project</label>
-      <input id="file-upload" type="file" class="get-data" (change)="readNewFile($event)" />
+      <label for="file-load-project">Load Project</label>
+      <input id="file-load-project" type="file" class="get-data" (change)="readNewFile($event, true)" />
     </div>
   </div>
   <mat-divider></mat-divider>
@@ -29,13 +29,13 @@
       </mat-expansion-panel-header>
       <p class="expansion-content">
         <mat-button-toggle-group name="newProject" aria-label="New Project" class="button-toggle-group" (change)="setFileType($event)">
-          <mat-button-toggle value="nsf" class="button-toggle">NSF</mat-button-toggle>
-          <mat-button-toggle value="isi" class="button-toggle">ISI</mat-button-toggle>
+          <mat-button-toggle *ngFor="let extension of newProjectExtensions" [value]="extension" class="button-toggle">
+            {{extension.toUpperCase()}}
+          </mat-button-toggle>
         </mat-button-toggle-group>
         <br>
-        <label for="file-upload" class="custom-file-upload button" mat-stroked-button isRoundButton>Get Data</label>
-        <input id="file-upload" type="file" class="get-data" (change)="readNewFile($event)" />
-        <!-- <button mat-stroked-button isRoundButton class="button" >Get Data</button> -->
+        <label for="file-new-project" class="custom-file-upload button" mat-stroked-button isRoundButton>Get Data</label>
+        <input id="file-new-project" type="file" class="get-data" (change)="readNewFile($event, false)" />
       </p>
     </mat-expansion-panel>
     <mat-divider></mat-divider>
