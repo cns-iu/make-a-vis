@@ -1,15 +1,13 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { get } from 'lodash';
-
 import { MatAccordion, MatButtonToggleGroup } from '@angular/material';
 
-import { SaveProjectService } from '../shared/services/save-project/save-project.service';
-
 import { Store , select } from '@ngrx/store';
+import { SidenavState, SidenavActionTypes, getLoadedProjectSelector } from '../shared/store';
 import { ProjectSerializerService, Project } from 'dvl-fw';
 
-import { SidenavState, SidenavActionTypes, getLoadedProjectSelector, getLoadedProject, selectSelfFeature } from '../shared/store';
+import { get } from 'lodash';
 
+import { SaveProjectService } from '../shared/services/save-project/save-project.service';
 import { LoadProjectService } from '../shared/services/load-project.service';
 import { LoggingControlService } from '../../shared/logging-control.service';
 import { ExportService } from '../../shared/services/export/export.service';
@@ -33,14 +31,11 @@ export class SidenavContentComponent implements OnInit {
   exportSnapshotType = null;
   panelOpenState = true;
   newProjectFileExtension: NewProjectExtensionType;
-
   newProjectExtensions: NewProjectExtensionType[] = ['nsf', 'isi'];
   loadProjectExtensions: LoadProjectExtensionType[] = ['yml'];
-
   project: Project = undefined;
 
   constructor(
-    private projectSerializerService: ProjectSerializerService,
     private saveProjectService: SaveProjectService,
     private store: Store<SidenavState>, // TODO
     private loadProjectService: LoadProjectService,
@@ -98,7 +93,6 @@ export class SidenavContentComponent implements OnInit {
   }
 
   readNewFile(event: any, isLoadProject: boolean) {
-
     const filename = get(event, 'srcElement.files[0].name');
     const fileExtension = filename && filename.split('.').slice(-1).toString();
 
@@ -111,7 +105,7 @@ export class SidenavContentComponent implements OnInit {
           && fileExtension === this.newProjectFileExtension
         ) {
             this.getProject(filename, fileExtension, event);
-          } else {
+        } else {
             console.log('File chosen has wrong extension'); // TODO temporary, use logs
           }
     }
