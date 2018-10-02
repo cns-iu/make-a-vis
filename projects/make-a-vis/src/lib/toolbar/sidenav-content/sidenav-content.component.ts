@@ -1,18 +1,19 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  ViewChild
-} from '@angular/core';
-
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { MatAccordion, MatButtonToggleGroup } from '@angular/material';
-import { SaveProjectService } from '../shared/services/save-project/save-project.service';
+
 import { Store , select } from '@ngrx/store';
-import { ProjectSerializerService, Project } from 'dvl-fw';
 import { SidenavState, SidenavActionTypes, getLoadedProjectSelector } from '../shared/store';
+import { ProjectSerializerService, Project } from 'dvl-fw';
+
+import { get } from 'lodash';
+
+import { SaveProjectService } from '../shared/services/save-project/save-project.service';
 import { LoadProjectService } from '../shared/services/load-project.service';
 import { LoggingControlService } from '../../shared/logging-control.service';
 import { ExportService } from '../../shared/services/export/export.service';
+
+export type NewProjectExtensionType = 'isi' | 'nsf' | 'csv' | 'json' | 'yml';
+export type LoadProjectExtensionType = 'yml';
 
 @Component({
   selector: 'mav-sidenav-content',
@@ -29,17 +30,26 @@ export class SidenavContentComponent implements OnInit {
 
   exportSnapshotType = null;
   panelOpenState = true;
-  newProjectFileExtension: 'isi' | 'nsf' | 'csv' | 'json' | 'yml' = 'yml';
+  newProjectFileExtension: NewProjectExtensionType;
+  newProjectExtensions: NewProjectExtensionType[] = ['nsf', 'isi'];
+  loadProjectExtensions: LoadProjectExtensionType[] = ['yml'];
+  project: Project = undefined;
 
   constructor(
-    private projectSerializerService: ProjectSerializerService,
     private saveProjectService: SaveProjectService,
     private store: Store<SidenavState>, // TODO
     private loadProjectService: LoadProjectService,
     public exportService: ExportService,
     private loggingControlService: LoggingControlService
   ) {
-    loggingControlService.disableLogging();
+      loggingControlService.disableLogging();
+
+      this.store.pipe(select(getLoadedProjectSelector))
+        .subscribe((data: any) => {
+          if (data) {
+            this.project = data.project;
+          }
+      });
   }
 
   ngOnInit() {
@@ -59,42 +69,52 @@ export class SidenavContentComponent implements OnInit {
     this.newProjectFileExtension = event.value;
   }
 
-  readNewFile(event: any) {
-    const filename = event.srcElement.files[0].name;
-    const fileExtension = filename.split('.').slice(-1).toString();
 
-    if (fileExtension.toString() === this.newProjectFileExtension) {
-      this.store.dispatch({
-        type: SidenavActionTypes.LoadProjectStarted,
-        payload: { filename: filename, fileExtension: fileExtension }
-      });
+  getProject(filename: string, fileExtension: NewProjectExtensionType | LoadProjectExtensionType, event: any ) {
+    this.store.dispatch({
+      type: SidenavActionTypes.LoadProjectStarted,
+      payload: { filename: filename, fileExtension: fileExtension }
+    });
 
-      this.loadProjectService.loadFile(this.newProjectFileExtension, event.srcElement.files[0])
-        .subscribe((project) => {
-        if (project) { // success
+    this.loadProjectService.loadFile(fileExtension, event.srcElement.files[0])
+      .subscribe((project) => {
+      if (project) { // success
+        this.store.dispatch({
+          type: SidenavActionTypes.LoadProjectCompleted,
+          payload: { project: project }
+        });
+      } else { // failure'
           this.store.dispatch({
-            type: SidenavActionTypes.LoadProjectCompleted,
-            payload: { project: project }
+            type: SidenavActionTypes.LoadProjectError,
+            payload: { errorOccurred: true, errorTitle: 'Load Error', errorMessage: 'Failed to load new project' }
           });
-        } else { // failure'
-            this.store.dispatch({
-              type: SidenavActionTypes.LoadProjectError,
-              payload: { errorOccurred: true, errorTitle: 'Load Error', errorMessage: 'Failed to load new project' }
-            });
+        }
+    });
+  }
+
+  readNewFile(event: any, isLoadProject: boolean) {
+    const filename = get(event, 'srcElement.files[0].name');
+    const fileExtension = filename && filename.split('.').slice(-1).toString();
+
+    if (filename && fileExtension) {
+      if (isLoadProject && this.loadProjectExtensions.indexOf(fileExtension) !== -1) {
+        this.getProject(filename, fileExtension, event);
+      } else if (
+          !isLoadProject
+          && this.newProjectExtensions.indexOf(this.newProjectFileExtension) !== -1
+          && fileExtension === this.newProjectFileExtension
+        ) {
+            this.getProject(filename, fileExtension, event);
+        } else {
+            console.log('File chosen has wrong extension'); // TODO temporary, use logs
           }
-      });
-    } else if (fileExtension.toString() !== this.newProjectFileExtension) {
-        console.log('File chosen has wrong extension'); // TODO temporary
-      }
+    }
   }
 
   saveProject() {
-    this.store.pipe(select(getLoadedProjectSelector))
-      .subscribe((data: any) => {
-        if (data && data.project) {
-          this.saveProjectService.save(data.project);
-        }
-    });
+    if (this.project) {
+      this.saveProjectService.save(this.project);
+    }
   }
 
   toggleLogging() {

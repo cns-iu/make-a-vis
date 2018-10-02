@@ -1,4 +1,6 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTabGroup } from '@angular/material';
+
 import { ExportService } from '../../shared/services/export/export.service';
 import * as Dvl from 'dvl-fw';
 
@@ -8,7 +10,7 @@ import * as Dvl from 'dvl-fw';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  @ViewChild('visualization') visualization: ElementRef;
+  @ViewChild('visualization') visualization: MatTabGroup;
 
   tabs = [];
   menuOptions = [
