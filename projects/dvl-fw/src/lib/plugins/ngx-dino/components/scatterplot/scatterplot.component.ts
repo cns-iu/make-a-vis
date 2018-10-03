@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 
-import { VisualizationComponent } from './../../../../shared/visualization-component';
+import { VisualizationComponent, OnPropertyChange, OnGraphicSymbolChange } from './../../../../shared/visualization-component';
 import { Visualization } from './../../../../shared/visualization';
 
 
@@ -9,10 +9,18 @@ import { Visualization } from './../../../../shared/visualization';
   templateUrl: './scatterplot.component.html',
   styleUrls: ['./scatterplot.component.css']
 })
-export class ScatterplotComponent implements VisualizationComponent, OnInit {
+export class ScatterplotComponent implements VisualizationComponent, OnInit, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
 
   constructor() { }
 
   ngOnInit() { }
+
+  dvlOnPropertyChange(changes: SimpleChanges): void {
+    // TODO
+  }
+
+  dvlOnGraphicSymbolChange(changes: SimpleChanges): void {
+    // TODO
+  }
 }

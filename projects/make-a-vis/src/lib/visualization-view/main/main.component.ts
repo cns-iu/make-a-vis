@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTabGroup } from '@angular/material';
 
 import { ExportService } from '../../shared/services/export/export.service';
+import * as Dvl from 'dvl-fw';
 
 @Component({
   selector: 'mav-visualization-view',
@@ -21,7 +22,11 @@ export class MainComponent implements OnInit {
   ];
   selectedTab = 0;
 
-  constructor(private exportService: ExportService) { }
+  fakeData = {};
+
+  constructor(private exportService: ExportService, a: Dvl.ProjectSerializerService) {
+    a.registry.fromJSON('visualization', 'scattergraph', { graphicSymbols: { } }, {}).then(d => this.fakeData = d); // TODO: Remove Me
+  }
 
   ngOnInit() {
   }
