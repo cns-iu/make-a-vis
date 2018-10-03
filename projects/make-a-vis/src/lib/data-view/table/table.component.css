@@ -5,6 +5,7 @@
   margin-right: 2vh;
   width: 90%;
   height: 38px;
+  font-size: 1.1em;
 }
 
 .datatable {
@@ -37,12 +38,15 @@
   padding-left: 28px;
   vertical-align: middle;
   font-weight: bold;
+  color: #000000;
+  font-size: 0.85em;
 }
 
 .datatable .table .cell {
   padding-left: 28px;
   vertical-align: middle;
   height: 36px; 
+  font-size: 0.75em;
 }
 
 .datatable .table .row {
