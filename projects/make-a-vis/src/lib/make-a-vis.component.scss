@@ -8,6 +8,7 @@
   .data-view {
     width: 35%;
     padding: 1vh .25vw 1vh 1vw;
+    overflow-y: auto; 
   }
 
   .visualization-and-legend-view {

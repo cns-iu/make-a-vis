@@ -1,0 +1,50 @@
+.header {
+  background: #757575;
+  color: #ffffff;
+  margin-left: 2vh;
+  margin-right: 2vh;
+  width: 90%;
+  height: 38px;
+}
+
+.datatable {
+  height: 30vh;
+  padding: 0vh 2vh 2vh 2vh;
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+}
+
+.datatable .wrapper {
+  overflow-y: auto;
+  width: 100%;
+}
+
+.datatable .table {
+  width: 100%;
+  overflow-y: auto;
+}
+
+.datatable .table tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+.datatable .table .header-row {
+  height: 36px;
+}
+
+.datatable .table .header-cell {
+  padding-left: 28px;
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+.datatable .table .cell {
+  padding-left: 28px;
+  vertical-align: middle;
+  height: 36px; 
+}
+
+.datatable .table .row {
+  height: 30px;
+}

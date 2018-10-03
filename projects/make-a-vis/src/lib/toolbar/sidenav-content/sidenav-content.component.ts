@@ -89,6 +89,7 @@ export class SidenavContentComponent implements OnInit {
             payload: { errorOccurred: true, errorTitle: 'Load Error', errorMessage: 'Failed to load new project' }
           });
         }
+        // close sidenav
     });
   }
 

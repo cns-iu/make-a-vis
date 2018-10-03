@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Store, select } from '@ngrx/store';
+import { getLoadingProjectCompletedSelector, SidenavState } from '../shared/store';
+
 @Component({
   selector: 'mav-toolbar',
   templateUrl: './main.component.html',
@@ -8,7 +11,13 @@ import { Component, OnInit } from '@angular/core';
 export class MainComponent implements OnInit {
   isSidenavOpen = false;
 
-  constructor() { }
+  constructor(private store: Store<SidenavState>) {
+    store.pipe(select(getLoadingProjectCompletedSelector)).subscribe((loaded) => {
+      if (!loaded) {
+        this.setSidenavState(loaded);
+      }
+    });
+  }
 
   ngOnInit() {
   }

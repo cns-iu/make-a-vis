@@ -10,7 +10,6 @@ export interface LoadProjectEvent {
 export interface NewProjectEvent {
   type: 'new';
   fileFormat: 'nsf' | 'isi';
-  recordSets: string[];
 }
 
 export interface ExportProjectEvent {

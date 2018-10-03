@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../shared/data.service';
 
 @Component({
   selector: 'mav-data-view',
@@ -6,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  constructor() { }
+  dataSources: any[];
+
+  constructor(private dataService: DataService) {
+    this.dataSources = [];
+    dataService.dataSourceSubject.subscribe((ds) => {
+      this.dataSources.push(ds);
+    });
+  }
 
   ngOnInit() {
   }

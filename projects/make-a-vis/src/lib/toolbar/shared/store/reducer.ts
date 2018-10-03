@@ -116,3 +116,9 @@ export const getLoadedProjectSelector = createSelector<SidenavState, SidenavStat
   selectSelfFeature,
   getLoadedProject
 );
+
+export const getLoadingProjectCompleted = (state: SidenavState): boolean => state.loadingProject;
+export const getLoadingProjectCompletedSelector = createSelector<SidenavState, SidenavState, boolean>(
+  selectSelfFeature,
+  getLoadingProjectCompleted
+);

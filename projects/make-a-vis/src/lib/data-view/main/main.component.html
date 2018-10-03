@@ -1,3 +1,7 @@
-<p>
-  datatable works!
-</p>
+<div class='data-view'>
+  <ng-container *ngIf="dataSources && dataSources.length" >
+    <ng-container *ngFor="let dataSource of dataSources">
+      <mav-table *ngIf="dataSource" [dataSource]="dataSource" [displayedColumns]="dataSource.columns"></mav-table>
+    </ng-container>
+  </ng-container>
+</div>
