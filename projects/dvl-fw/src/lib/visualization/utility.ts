@@ -1,5 +1,5 @@
 import { Type } from '@angular/core';
-import { clone, mapValues } from 'lodash';
+import { clone, forOwn, mapValues } from 'lodash';
 import { GraphicSymbol } from '../shared/graphic-symbol';
 import { GraphicVariable } from '../shared/graphic-variable';
 import { RecordStream } from '../shared/record-stream';
@@ -20,12 +20,18 @@ export class ClonedGraphicSymbol implements GraphicSymbol {
 export class ClonedVisualization implements Visualization {
   id: string = this.original.id;
   template: string = this.original.template;
-  properties: { [prop: string]: any } = clone(this.original.properties);
-  graphicSymbols: { [slot: string]: GraphicSymbol } = mapValues(this.original.graphicSymbols, sym => new ClonedGraphicSymbol(sym));
-  get component(): Type<VisualizationComponent> { return this.original.component; }
-  get graphicSymbolOptions(): GraphicSymbolOption[] { return this.original.graphicSymbolOptions; }
+  properties: { [prop: string]: any } = clone(this.original.properties) || {};
+  graphicSymbols: { [slot: string]: ClonedGraphicSymbol } = mapValues(
+    this.original.graphicSymbols, sym => new ClonedGraphicSymbol(sym)
+  ) || {};
+  component: Type<VisualizationComponent> = this.original.component;
+  graphicSymbolOptions: GraphicSymbolOption[] = this.original.graphicSymbolOptions;
 
   constructor(private readonly original: Visualization) { }
+
+  normalize(): void {
+    // TODO: Remove graphic symbols not satisfying options
+  }
 
   toJSON(): any { return this.original.toJSON(); }
 }
