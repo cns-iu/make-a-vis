@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { DvlFwVisualizationComponent } from './visualization/visualization.component';
-import { ScatterplotComponent } from './plugins/ngx-dino/components/scatterplot/scatterplot.component';
+import { NgxDinoModule } from './plugins/ngx-dino/ngx-dino.module';
 
 @NgModule({
-  imports: [],
-  declarations: [DvlFwVisualizationComponent, ScatterplotComponent],
-  exports: [DvlFwVisualizationComponent, ScatterplotComponent],
-  entryComponents: [ScatterplotComponent]
+  imports: [NgxDinoModule],
+  declarations: [DvlFwVisualizationComponent],
+  exports: [DvlFwVisualizationComponent]
 })
 export class DvlFwModule { }
