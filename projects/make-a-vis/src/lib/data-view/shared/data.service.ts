@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 
+import { RawChangeSet } from '@ngx-dino/core';
+
 import { Store, select } from '@ngrx/store';
 import { ApplicationState, getLoadedProject } from '../../shared/store';
 
-import { BehaviorSubject, from } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
-import { DataVariable } from 'dvl-fw';
+import { DataVariable, Project, RecordSet } from 'dvl-fw';
 
 export interface DataSource {
   id: string;
@@ -22,21 +24,21 @@ export class DataService {
 
   constructor(private store: Store<ApplicationState>) {
     store.pipe(select(getLoadedProject))
-      .subscribe((data: any) => {
-        if (data && data.project) {
-          const recordSets = data.project.recordSets;
+      .subscribe((data: Project) => {
+        if (data) {
+          const recordSets = data.recordSets;
 
           if (recordSets.length) {
-            recordSets.forEach((recordSet) => {
+            recordSets.forEach((recordSet: RecordSet) => {
               const dataSource: DataSource = {} as DataSource;
 
-              dataSource.id = recordSet.id ? recordSet.id : '';
-              dataSource.label = recordSet.label ? recordSet.label : '';
-              dataSource.columns = recordSet.dataVariables.length ? recordSet.dataVariables : [];
+              dataSource.id = recordSet.id || '';
+              dataSource.label = recordSet.label || '';
+              dataSource.columns = recordSet.dataVariables || [];
 
-              from(recordSet.defaultRecordStream.getData()).subscribe((records: any) => {
-                dataSource.data = records.length ? records : [];
-                if (records.length > 1) {
+              recordSet.defaultRecordStream.asObservable().subscribe((changeSet: RawChangeSet<any>) => {
+                dataSource.data = changeSet.insert || [];
+                if (changeSet.insert.length > 1) {
                   dataSource.label = recordSet.labelPlural;
                 }
                 this.dataSourceSubject.next(dataSource);

@@ -2,8 +2,9 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { MatAccordion, MatButtonToggleGroup } from '@angular/material';
 
 import { Store , select } from '@ngrx/store';
-import { SidenavState, SidenavActionTypes, getLoadedProjectSelector } from '../shared/store';
-import { ProjectSerializerService, Project } from 'dvl-fw';
+import * as sidenavStore from '../shared/store';
+
+import { Project } from 'dvl-fw';
 
 import { get } from 'lodash';
 
@@ -37,17 +38,17 @@ export class SidenavContentComponent implements OnInit {
 
   constructor(
     private saveProjectService: SaveProjectService,
-    private store: Store<SidenavState>, // TODO
+    private store: Store<sidenavStore.SidenavState>,
     private loadProjectService: LoadProjectService,
     public exportService: ExportService,
     private loggingControlService: LoggingControlService
   ) {
       loggingControlService.disableLogging();
 
-      this.store.pipe(select(getLoadedProjectSelector))
-        .subscribe((data: any) => {
-          if (data) {
-            this.project = data.project;
+      this.store.pipe(select(sidenavStore.getLoadedProjectSelector))
+        .subscribe((project: Project) => {
+          if (project) {
+            this.project = project;
           }
       });
   }
@@ -71,25 +72,19 @@ export class SidenavContentComponent implements OnInit {
 
 
   getProject(filename: string, fileExtension: NewProjectExtensionType | LoadProjectExtensionType, event: any ) {
-    this.store.dispatch({
-      type: SidenavActionTypes.LoadProjectStarted,
-      payload: { filename: filename, fileExtension: fileExtension }
-    });
+    this.store.dispatch(new sidenavStore.LoadProjectStarted({ loadingProject: true, filename: filename, fileExtension: fileExtension }));
 
     this.loadProjectService.loadFile(fileExtension, event.srcElement.files[0])
       .subscribe((project) => {
       if (project) { // success
-        this.store.dispatch({
-          type: SidenavActionTypes.LoadProjectCompleted,
-          payload: { project: project }
-        });
-      } else { // failure'
-          this.store.dispatch({
-            type: SidenavActionTypes.LoadProjectError,
-            payload: { errorOccurred: true, errorTitle: 'Load Error', errorMessage: 'Failed to load new project' }
-          });
+        this.store.dispatch(new sidenavStore.LoadProjectCompleted(
+          { loadingProject: false, incomingDataFile: filename, incomingDataFileType: fileExtension, project: project }
+        ));
+      } else { // failure
+          this.store.dispatch(new sidenavStore.LoadProjectError(
+            { errorOccurred: true, errorTitle: 'Load Error', errorMessage: 'Failed to load new project' }
+          ));
         }
-        // close sidenav
     });
   }
 
@@ -104,8 +99,7 @@ export class SidenavContentComponent implements OnInit {
           !isLoadProject
           && this.newProjectExtensions.indexOf(this.newProjectFileExtension) !== -1
           && fileExtension === this.newProjectFileExtension
-        ) {
-            this.getProject(filename, fileExtension, event);
+        ) { this.getProject(filename, fileExtension, event);
         } else {
             console.log('File chosen has wrong extension'); // TODO temporary, use logs
           }

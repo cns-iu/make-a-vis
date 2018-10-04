@@ -1,15 +1,16 @@
 import { VisualizationState, INITIAL_VISUALIZATION_STATE } from './state';
+import { VisualizationActionTypes, VisualizationActionsUnion } from './actions';
 
-import { VisualizationActionTypes } from './actions';
+import { assign, pick } from 'lodash';
 
 export function visualizationStateReducer (
   state: VisualizationState = INITIAL_VISUALIZATION_STATE,
-  action: any
+  action: VisualizationActionsUnion
 ) {
 
-    const newState: VisualizationState = Object.assign({}, state);
+    const newState: VisualizationState = assign({}, state);
 
-    switch (action) {
+    switch (action.type) {
       case VisualizationActionTypes.SetActiveVisualization:
         newState.activeVisualization = action.payload;
         return newState;
@@ -19,6 +20,7 @@ export function visualizationStateReducer (
         return newState;
 
       case VisualizationActionTypes.SetGraphicSymbolRecordSet:
+        assign(newState, pick(action.payload, ['graphicSymbol', 'recordSet']));
         return newState;
 
       case VisualizationActionTypes.SetActiveDataVariable:
@@ -26,7 +28,7 @@ export function visualizationStateReducer (
         return newState;
 
       case VisualizationActionTypes.SetGraphicVariable:
-        //
+        // TODO
         return newState;
 
       default:

@@ -1,26 +1,6 @@
 import { Action } from '@ngrx/store';
 import { Project } from 'dvl-fw';
-
-// event types can be used as payload types
-// import {
-//   SaveProjectEvent,
-//   LoadProjectEvent,
-//   NewProjectEvent,
-//   ExportProjectEvent,
-//   ShareProjectEvent,
-//   ToggleLoggingEvent
-//  } from '../events';
-
-
-export interface LoadProjectStartedPayload {
-  filename: string;
-  fileExtension: 'isi' | 'nsf' | 'csv' | 'json' | 'yml';
-}
-
-export interface LoadProjectCompletedPayload {
-  project: Project;
-}
-
+import * as payloadTypes from './payload-types';
 
 export enum SidenavActionTypes {
   SaveProjectStarted = '[UI] Save Project',
@@ -49,102 +29,110 @@ export enum SidenavActionTypes {
 
 export class SaveProjectStarted implements Action {
   readonly type = SidenavActionTypes.SaveProjectStarted;
-  constructor(public payload = {}) {
+  constructor(public payload: boolean) {
   }
 }
 
 export class SaveProjectFileCreated implements Action {
   readonly type = SidenavActionTypes.SaveProjectFileCreated;
-  constructor(public payload = {}) {
+  constructor(public payload: string) {
   }
 }
 
 export class SaveProjectCompleted implements Action {
   readonly type = SidenavActionTypes.SaveProjectCompleted;
-  constructor(public payload = {}) {
+  constructor(public payload: payloadTypes.SaveProjectCompletedPayload) {
   }
 }
 
 export class LoadProjectStarted implements Action {
   readonly type = SidenavActionTypes.LoadProjectStarted;
-  constructor(public payload: LoadProjectStartedPayload) {
+  constructor(public payload: payloadTypes.LoadProjectStartedPayload) {
   }
 }
 
 export class LoadProjectCompleted implements Action {
   readonly type = SidenavActionTypes.LoadProjectCompleted;
-  constructor(public payload: LoadProjectCompleted) {
+  constructor(public payload: payloadTypes.LoadProjectCompletedPayload) {
   }
 }
 
 export class LoadProjectError implements Action {
   readonly type = SidenavActionTypes.LoadProjectError;
-  constructor(public payload = {}) {
+  constructor(public payload: payloadTypes.ErrorPayload) {
   }
 }
 
 export class ExportSnapshotStarted implements Action {
   readonly type = SidenavActionTypes.ExportSnapshotStarted;
-  constructor(public payload = {}) {
+  constructor(public payload: boolean) {
   }
 }
 
 export class ExportSnapshotCreated implements Action {
   readonly type = SidenavActionTypes.ExportSnapshotCreated;
-  constructor(public payload = {}) {
+  constructor(public payload: payloadTypes.ExportSnapshotCreatedPayload) {
   }
 }
 
 export class ExportSnapshotCompleted implements Action {
   readonly type = SidenavActionTypes.ExportSnapshotCompleted;
-  constructor(public payload = {}) {
+  constructor(public payload: boolean) {
   }
 }
 
 export class ExportSnapshotError implements Action {
   readonly type = SidenavActionTypes.ExportSnapshotError;
-  constructor(public payload = {}) {
+  constructor(public payload: payloadTypes.ErrorPayload) {
   }
 }
 
 export class LoadShareUrlStarted implements Action {
   readonly type = SidenavActionTypes.LoadShareUrlStarted;
-  constructor(public payload = {}) {
+  constructor(public payload: boolean) {
   }
 }
 
 export class LoadShareUrlCompleted implements Action {
   readonly type = SidenavActionTypes.LoadShareUrlCompleted;
-  constructor(public payload = {}) {
+  constructor(public payload: payloadTypes.LoadShareUrlCompletedPayload) {
   }
 }
 
 export class LoadShareUrlError implements Action {
   readonly type = SidenavActionTypes.LoadShareUrlError;
-  constructor(public payload = {}) {
+  constructor(public payload: payloadTypes.ErrorPayload) {
   }
 }
 
 export class CreateShareUrlStarted implements Action {
   readonly type = SidenavActionTypes.CreateShareUrlStarted;
-  constructor(public payload = {}) {
+  constructor(public payload: boolean) {
   }
 }
 
 export class CreateShareUrlCompleted implements Action {
   readonly type = SidenavActionTypes.CreateShareUrlCompleted;
-  constructor(public payload = {}) {
+  constructor(public payload: Project) {
   }
 }
 
 export class CreateShareUrlError implements Action {
   readonly type = SidenavActionTypes.CreateShareUrlError;
-  constructor(public payload = {}) {
+  constructor(public payload: payloadTypes.ErrorPayload) {
   }
 }
 
 export class ToggleLogging implements Action {
   readonly type = SidenavActionTypes.ToggleLogging;
-  constructor(public payload = {}) {
+  constructor() {
   }
 }
+
+export type SidenavActionsUnion = SaveProjectStarted | SaveProjectFileCreated | SaveProjectCompleted |
+  LoadProjectStarted | LoadProjectCompleted | LoadProjectError |
+  ExportSnapshotStarted | ExportSnapshotCreated | ExportSnapshotCompleted | ExportSnapshotError |
+  LoadShareUrlStarted | LoadShareUrlCompleted | LoadShareUrlError |
+  CreateShareUrlStarted | CreateShareUrlCompleted | CreateShareUrlError |
+  ToggleLogging;
+
