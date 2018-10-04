@@ -23,8 +23,7 @@ const defaultFields = {
   'pointIdField': emptyField, 'strokeColorField': emptyField,
   'xField': emptyField, 'yField': emptyField, 'colorField': emptyField,
   'shapeField': emptyField, 'sizeField': emptyField, 'pulseField': emptyField,
-  'tooltipTextField': emptyField, 'identifier': emptyField, 'x': emptyField,
-  'y': emptyField
+  'tooltipTextField': emptyField
 };
 
 
