@@ -11,6 +11,8 @@ export class ScatterplotVisualization extends DefaultVisualization {
   readonly graphicSymbolOptions = [{
     id: 'points', label: 'Points', type: 'area',
     graphicVariableOptions: [
+      { type: 'identifier', label: 'Identifier' },
+      { type: 'axis', label: 'Axis' },
       { type: 'areaSize', label: 'Area Size' },
       { type: 'shape', label: 'Shape' },
       { type: 'color', label: 'Color' },
