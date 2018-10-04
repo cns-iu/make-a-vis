@@ -4,7 +4,7 @@ import { MatAccordion, MatButtonToggleGroup } from '@angular/material';
 import { Store , select } from '@ngrx/store';
 import * as sidenavStore from '../shared/store';
 
-import { Project } from 'dvl-fw';
+import { Project, ProjectSerializerService } from 'dvl-fw';
 
 import { get } from 'lodash';
 
@@ -41,7 +41,8 @@ export class SidenavContentComponent implements OnInit {
     private store: Store<sidenavStore.SidenavState>,
     private loadProjectService: LoadProjectService,
     public exportService: ExportService,
-    private loggingControlService: LoggingControlService
+    private loggingControlService: LoggingControlService,
+    private projectSerializer : ProjectSerializerService
   ) {
       loggingControlService.disableLogging();
 
@@ -106,6 +107,31 @@ export class SidenavContentComponent implements OnInit {
     }
   }
 
+  getUrlLink() : string {
+    this.store.dispatch(new sidenavStore.CreateShareUrlStarted(true));
+    this.store.pipe(select(sidenavStore.getLoadedProjectSelector))
+        .subscribe((prj: Project) => {
+          if (prj) {
+            this.store.dispatch(new sidenavStore.CreateShareUrlCompleted({
+              'shareUrl' : null,
+              'creatingShareUrl' : false,
+              'project' : prj
+            }));
+            this.projectSerializer.toJSON(prj).subscribe(
+              result => {console.log(result)},
+              err => {this.store.dispatch(new sidenavStore.CreateShareUrlError({
+                'errorOccurred' : true,
+                'errorTitle' : err.name,
+                'errorMessage' : err.message
+              }));})
+          }
+          else {
+            console.error("getUrlLink()","could not get Project state from store");
+          }
+          
+      });
+    return null
+  }
   saveProject() {
     if (this.project) {
       this.saveProjectService.save(this.project);
