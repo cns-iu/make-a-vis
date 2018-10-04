@@ -32,4 +32,11 @@ export class ProjectSerializerService {
   fromYAML(yaml: string): Observable<Project> {
     return defer<Project>(() => ProjectSerializer.fromYAML(yaml, this.registry));
   }
+
+  toJSON(project: Project): Observable<string> {
+    return defer<string>(() => ProjectSerializer.toJSON(project, this.registry));
+  }
+  fromJSON(yaml: string): Observable<Project> {
+    return defer<Project>(() => ProjectSerializer.fromJSON(yaml, this.registry));
+  }
 }
