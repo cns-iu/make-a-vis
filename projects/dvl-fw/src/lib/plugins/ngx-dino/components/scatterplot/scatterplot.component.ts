@@ -7,10 +7,12 @@ import { VisualizationComponent, OnPropertyChange, OnGraphicSymbolChange } from 
 import { GraphicSymbol } from './../../../../shared/graphic-symbol';
 import { Visualization } from './../../../../shared/visualization';
 
-const fieldNameMapping = {
-  'areaSize': 'sizeField', 'shape': 'shapeField', 'color': 'colorField',
-  'strokeColor': 'strokeColorField'
-};
+const fieldNameMapping = Object.assign({
+  'identifier': 'pointIdField', 'areaSize': 'sizeField'
+}, [
+  'shape', 'color', 'strokeColor', 'x', 'y'
+].reduce((acc, name) => (acc[name] = name + 'Field', acc), {}));
+
 const emptyField = simpleField({ id: 'empty', label: 'empty', operator: constant(undefined) }).getBoundField();
 const defaultProperties = {
   enableTooltip: false, xAxisArrow: true, yAxisArrow: true,

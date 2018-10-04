@@ -6,7 +6,7 @@ export interface GraphicSymbol {
   id: string;
   type: string;
   recordStream: RecordStream;
-  graphicVariables: { [type: string]: GraphicVariable };
+  graphicVariables: { [id: string]: GraphicVariable };
 
   toJSON(): any;
 }

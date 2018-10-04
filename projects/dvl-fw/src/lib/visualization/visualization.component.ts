@@ -34,8 +34,6 @@ export class DvlFwVisualizationComponent implements OnInit, OnChanges {
     if (this.data) {
       this.load();
     }
-
-    console.log(this); // FIXME: Remove
   }
 
   ngOnChanges(changes: SimpleChanges): void {
