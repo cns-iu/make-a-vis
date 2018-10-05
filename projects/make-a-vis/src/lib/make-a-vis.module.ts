@@ -12,7 +12,7 @@ import { ToolbarModule } from './toolbar/toolbar.module';
 import { VisualizationViewModule } from './visualization-view/visualization-view.module';
 
 // Services
-import { LoggingControlService } from './shared/logging-control.service';
+import { LoggingControlService } from './shared/logging/logging-control.service';
 
 // Themes
 import { LightThemeComponent } from './light-theme/light-theme.component';
@@ -22,12 +22,15 @@ import { MakeAVisComponent } from './make-a-vis.component';
 
 // Reducers
 import { reducers } from './shared/store/reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { LogActions } from './shared/logging/log';
 
 @NgModule({
   imports: [
     CommonModule,
     DataViewModule, LegendViewModule, ToolbarModule, VisualizationViewModule,
     StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([LogActions])
   ],
   declarations: [LightThemeComponent, MakeAVisComponent],
   exports: [MakeAVisComponent, ToolbarModule],

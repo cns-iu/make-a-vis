@@ -25,6 +25,7 @@
     "@angular/platform-browser": "^6.1.7",
     "@angular/platform-browser-dynamic": "^6.1.7",
     "@angular/router": "^6.1.7",
+    "@ngrx/effects": "^6.1.0",
     "@ngrx/store": "^6.1.0",
     "@ngx-dino/core": "^0.8.3",
     "@ngx-dino/scatterplot": "^0.6.1",

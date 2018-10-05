@@ -10,7 +10,7 @@ import { get } from 'lodash';
 
 import { SaveProjectService } from '../shared/services/save-project/save-project.service';
 import { LoadProjectService } from '../shared/services/load-project.service';
-import { LoggingControlService } from '../../shared/logging-control.service';
+import { LoggingControlService } from '../../shared/logging/logging-control.service';
 import { ExportService } from '../../shared/services/export/export.service';
 
 export type NewProjectExtensionType = 'isi' | 'nsf' | 'csv' | 'json' | 'yml';

@@ -7,6 +7,7 @@
         "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
         "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
         "@angular/material": "^6.4.5",
+        "@ngrx/effects": "^6.1.0",
         "@ngrx/store": "^6.1.0",
         "@ngx-dino/core": "^0.8.3",
         "@ngx-dino/scatterplot": "^0.6.1",

@@ -46,12 +46,8 @@ export function sidenavStateReducer (
         newState.exportingSnapshot = action.payload;
         return newState;
 
-      case SidenavActionTypes.ExportSnapshotCreated:
-        assign(newState, pick(action.payload, ['snapshotFile', 'snapshotFileType']));
-        return newState;
-
       case SidenavActionTypes.ExportSnapshotCompleted:
-        newState.exportingSnapshot = action.payload;
+        assign(newState, pick(action.payload, ['exportingSnapshot', 'snapshotFile', 'snapshotFileType']));
         return newState;
 
       case SidenavActionTypes.ExportSnapshotError:

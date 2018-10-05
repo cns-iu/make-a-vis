@@ -24,7 +24,8 @@ export interface SaveProjectCompletedPayload {
   project: Project;
 }
 
-export interface ExportSnapshotCreatedPayload {
+export interface ExportSnapshotCompletedPayload {
+  exportingSnapshot: boolean;
   snapshotFile: string;
   snapshotFileType: string;
 }

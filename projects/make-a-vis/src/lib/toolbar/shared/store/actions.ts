@@ -69,15 +69,9 @@ export class ExportSnapshotStarted implements Action {
   }
 }
 
-export class ExportSnapshotCreated implements Action {
-  readonly type = SidenavActionTypes.ExportSnapshotCreated;
-  constructor(public payload: payloadTypes.ExportSnapshotCreatedPayload) {
-  }
-}
-
 export class ExportSnapshotCompleted implements Action {
   readonly type = SidenavActionTypes.ExportSnapshotCompleted;
-  constructor(public payload: boolean) {
+  constructor(public payload: payloadTypes.ExportSnapshotCompletedPayload) {
   }
 }
 
@@ -131,7 +125,7 @@ export class ToggleLogging implements Action {
 
 export type SidenavActionsUnion = SaveProjectStarted | SaveProjectFileCreated | SaveProjectCompleted |
   LoadProjectStarted | LoadProjectCompleted | LoadProjectError |
-  ExportSnapshotStarted | ExportSnapshotCreated | ExportSnapshotCompleted | ExportSnapshotError |
+  ExportSnapshotStarted | ExportSnapshotCompleted | ExportSnapshotError |
   LoadShareUrlStarted | LoadShareUrlCompleted | LoadShareUrlError |
   CreateShareUrlStarted | CreateShareUrlCompleted | CreateShareUrlError |
   ToggleLogging;
