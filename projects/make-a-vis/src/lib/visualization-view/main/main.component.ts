@@ -19,7 +19,7 @@ export interface Vis {
 }
 
 export interface VisType {
-  type: string;
+  template: string;
   label: string;
   icon: string;
 }
@@ -33,11 +33,11 @@ export class MainComponent {
   @ViewChild('visualization') visualization: MatTabGroup;
 
   visTypes: VisType[] = [
-    { type: 'scattergraph', label: 'Scatter Graph', icon: 'scatterGraph' },
-    { type: 'geomap', label: 'Geomap', icon: 'geomap' },
-    { type: '', label: 'Map of Science', icon: 'mapOfScience' }, // FIXME: Correct type
-    { type: 'network', label: 'Network', icon: 'network' },
-    { type: '', label: 'Horizontal Bar Graph', icon: 'hbg' } // FIXME: Correct type
+    { template: 'scattergraph', label: 'Scatter Graph', icon: 'scatterGraph' },
+    { template: 'geomap', label: 'Geomap', icon: 'geomap' },
+    { template: 'science-map', label: 'Map of Science', icon: 'mapOfScience' },
+    { template: 'network', label: 'Network', icon: 'network' },
+    { template: 'temporal-bargraph', label: 'Temporal Bar Graph', icon: 'hbg' }
   ];
 
   visualizations: Vis[] = [];
@@ -61,14 +61,14 @@ export class MainComponent {
   addNewVisualization(type: VisType): void {
     const preData: Partial<Visualization> = {
       id: `visualization-${uniqueId()}`,
-      template: type.type,
+      template: type.template,
       properties: {},
       graphicSymbols: {}
     };
 
     this.uistore.pipe(
       select(getLoadedProjectSelector),
-      concatMap(project => this.serializer.createVisualization(type.type, preData, project)),
+      concatMap(project => this.serializer.createVisualization(type.template, preData, project)),
       onErrorResumeNext(of(preData as Visualization))
     ).subscribe(data => {
       const index = this.visualizations.push({ label: type.label, data }) - 1;
