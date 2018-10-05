@@ -1,9 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatTabGroup } from '@angular/material';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
+import { concatMap } from 'rxjs/operators';
+import { uniqueId } from 'lodash';
 
-import { Visualization } from 'dvl-fw';
+import { ProjectSerializerService, Visualization } from 'dvl-fw';
 import { ExportService } from '../../shared/services/export/export.service';
+import { SidenavState, getLoadedProjectSelector } from '../../toolbar/shared/store';
 import {
   VisualizationState,
   AddNewVisualization, RemoveVisualization, SetActiveVisualization
@@ -39,7 +42,12 @@ export class MainComponent {
   visualizations: Vis[] = [];
   selectedVis = -1;
 
-  constructor(private exportService: ExportService, private store: Store<VisualizationState>) { }
+  constructor(
+    private store: Store<VisualizationState>,
+    private uistore: Store<SidenavState>,
+    private serializer: ProjectSerializerService,
+    private exportService: ExportService
+  ) { }
 
   setSelectedVis(index: number, force = false): void {
     if (index !== this.selectedVis || force) {
@@ -50,11 +58,22 @@ export class MainComponent {
   }
 
   addNewVisualization(type: VisType): void {
-    // TODO: add visualization to state
-    const data = { } as Visualization; // TODO: create data
-    const index = this.visualizations.push({ label: type.label, data }) - 1;
-    this.store.dispatch(new AddNewVisualization(data));
-    this.setSelectedVis(index);
+    this.uistore.pipe(
+      select(getLoadedProjectSelector),
+      concatMap(project => this.serializer.createVisualization(type.type, {
+        id: `visualization-${uniqueId()}`,
+        template: type.type,
+        properties: {},
+        graphicSymbols: {}
+      }, project))
+    ).subscribe(data => {
+      const index = this.visualizations.push({ label: type.label, data }) - 1;
+      this.store.dispatch(new AddNewVisualization(data));
+      this.setSelectedVis(index);
+    }, error => {
+      // TODO: Handle missing visualization type
+      console.log(`No plugin registered for '${type.label} (${type.type})'`);
+    });
   }
 
   removeVisualization(index: number): void {
