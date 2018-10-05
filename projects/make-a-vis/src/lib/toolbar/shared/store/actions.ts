@@ -107,7 +107,7 @@ export class CreateShareUrlStarted implements Action {
 
 export class CreateShareUrlCompleted implements Action {
   readonly type = SidenavActionTypes.CreateShareUrlCompleted;
-  constructor(public payload: Project) {
+  constructor(public payload: payloadTypes.CreateShareUrlCompletedPayload) {
   }
 }
 
