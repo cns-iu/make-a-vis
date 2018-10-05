@@ -72,6 +72,12 @@ export class Award {
     Object.assign(this, data);
   }
 
+  @Operand<string[]>(map(s => [s.piName].concat(s.coPiNames)))
+  investigatorNames: string[];
+
+  @Operand<number[]>(extractPoint('location.latitude', 'location.longitude'))
+  latlng: [number, number];
+
   // Awarded Amount Encodings
   @Operand<number>(norm0to100('awardedAmountToDate', 'globalStats.awardedAmountMax'))
   awardedAmountNorm: number;

@@ -1,7 +1,7 @@
 apiVersion: 1
 metadata:
-  dateCreated: 2018-10-05T15:04:21.933Z
-  dateSaved: 2018-10-05T15:04:21.960Z
+  dateCreated: 2018-10-05T16:24:41.352Z
+  dateSaved: 2018-10-05T16:24:41.365Z
 dataSources:
   - id: nsfDataSource
     template: nsf
@@ -12,10 +12,223 @@ dataSources:
     recordStreams:
       - id: awards
         label: awards
-recordSets: []
-graphicVariableMappings: []
-graphicSymbolMappings: []
-visualizations: []
+recordSets:
+  - id: award
+    label: Award
+    labelPlural: Awards
+    defaultRecordStream: awards
+    dataVariables:
+      - id: id
+        label: ID
+        dataType: text
+        scaleType: nominal
+      - id: title
+        label: Title
+        dataType: text
+        scaleType: nominal
+      - id: investigators
+        label: Investigators
+        dataType: text
+        scaleType: nominal
+      - id: startYear
+        label: Start Year
+        dataType: integer
+        scaleType: interval
+      - id: endYear
+        label: End Year
+        dataType: integer
+        scaleType: interval
+      - id: awardedAmount
+        label: $Awarded
+        dataType: integer
+        scaleType: ratio
+      - id: organization
+        label: Organization
+        dataType: text
+        scaleType: nominal
+      - id: nsfOrganization
+        label: NSF Org.
+        dataType: text
+        scaleType: nominal
+      - id: nsfPrograms
+        label: NSF Program(s)
+        dataType: text
+        scaleType: nominal
+graphicVariableMappings:
+  - recordStream: awards
+    mappings:
+      award:
+        id:
+          identifier:
+            - id: identifier
+              label: identifier
+              selector: id
+        title:
+          identifier:
+            - id: identifier
+              label: identifier
+              selector: id
+          axis:
+            - id: axis
+              label: axis
+              selector: title
+          text:
+            - id: text
+              label: text
+              selector: title
+        investigators:
+          axis:
+            - id: axis
+              label: Primary Investigator
+              selector: 'investigatorNames[0]'
+          text:
+            - id: text
+              label: Primary Investigator
+              selector: 'investigatorNames[0]'
+        startYear:
+          axis:
+            - id: axis
+              label: axis
+              selector: startYearLabel
+          text:
+            - id: text
+              label: text
+              selector: startYearLabel
+          areaSize:
+            - id: areaSize
+              label: areaSize
+              selector: startYearAreaSize
+          fontSize:
+            - id: fontSize
+              label: fontSize
+              selector: startYearFontSize
+          color:
+            - id: color
+              label: color
+              selector: startYearColor
+          strokeColor:
+            - id: strokeColor
+              label: strokeColor
+              selector: startYearStrokeColor
+        endYear:
+          axis:
+            - id: axis
+              label: axis
+              selector: endYearLabel
+          text:
+            - id: text
+              label: text
+              selector: endYearLabel
+          areaSize:
+            - id: areaSize
+              label: areaSize
+              selector: endYearAreaSize
+          fontSize:
+            - id: fontSize
+              label: fontSize
+              selector: endYearFontSize
+          color:
+            - id: color
+              label: color
+              selector: endYearColor
+          strokeColor:
+            - id: strokeColor
+              label: strokeColor
+              selector: endYearStrokeColor
+        awardedAmount:
+          axis:
+            - id: axis
+              label: axis
+              selector: awardedAmountLabel
+          text:
+            - id: text
+              label: text
+              selector: awardedAmountLabel
+          areaSize:
+            - id: areaSize
+              label: areaSize
+              selector: awardedAmountAreaSize
+          fontSize:
+            - id: fontSize
+              label: fontSize
+              selector: awardedAmountFontSize
+          color:
+            - id: color
+              label: color
+              selector: awardedAmountColor
+          strokeColor:
+            - id: strokeColor
+              label: strokeColor
+              selector: awardedAmountStrokeColor
+        organization:
+          axis:
+            - id: axis
+              label: axis
+              selector: organization.name
+          text:
+            - id: text
+              label: text
+              selector: organization.name
+        nsfOrganization:
+          axis:
+            - id: axis
+              label: axis
+              selector: nsfOrganization
+          text:
+            - id: text
+              label: text
+              selector: nsfOrganization
+        nsfPrograms:
+          axis:
+            - id: axis
+              label: Primary NSF Program
+              selector: 'nsfPrograms[0]'
+          text:
+            - id: text
+              label: Primary NSF Program
+              selector: 'nsfPrograms[0]'
+graphicSymbolMappings:
+  - id: awardPoints
+    type: area
+    recordStream: awards
+    graphicVariables:
+      identifier:
+        recordSet: award
+        dataVariable: id
+        graphicVariableType: identifier
+        graphicVariableId: identifier
+      color:
+        recordSet: award
+        dataVariable: startYear
+        graphicVariableType: color
+        graphicVariableId: color
+      x:
+        recordSet: award
+        dataVariable: startYear
+        graphicVariableType: axis
+        graphicVariableId: axis
+      'y':
+        recordSet: award
+        dataVariable: awardedAmount
+        graphicVariableType: axis
+        graphicVariableId: axis
+      label:
+        recordSet: award
+        dataVariable: title
+        graphicVariableType: text
+        graphicVariableId: text
+      labelSize:
+        recordSet: award
+        dataVariable: awardedAmount
+        graphicVariableType: fontSize
+        graphicVariableId: fontSize
+visualizations:
+  - id: SG01
+    template: scattergraph
+    properties:
+      drawGridLines: true
+    graphicSymbols:
+      points: awardPoints
 rawData:
   - id: nsfRawData
     template: json
