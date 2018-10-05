@@ -1,7 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatTabGroup } from '@angular/material';
 import { Store, select } from '@ngrx/store';
-import { concatMap } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { concatMap, onErrorResumeNext } from 'rxjs/operators';
 import { uniqueId } from 'lodash';
 
 import { ProjectSerializerService, Visualization } from 'dvl-fw';
@@ -58,21 +59,21 @@ export class MainComponent {
   }
 
   addNewVisualization(type: VisType): void {
+    const preData: Partial<Visualization> = {
+      id: `visualization-${uniqueId()}`,
+      template: type.type,
+      properties: {},
+      graphicSymbols: {}
+    };
+
     this.uistore.pipe(
       select(getLoadedProjectSelector),
-      concatMap(project => this.serializer.createVisualization(type.type, {
-        id: `visualization-${uniqueId()}`,
-        template: type.type,
-        properties: {},
-        graphicSymbols: {}
-      }, project))
+      concatMap(project => this.serializer.createVisualization(type.type, preData, project)),
+      onErrorResumeNext(of(preData as Visualization))
     ).subscribe(data => {
       const index = this.visualizations.push({ label: type.label, data }) - 1;
       this.store.dispatch(new AddNewVisualization(data));
       this.setSelectedVis(index);
-    }, error => {
-      // TODO: Handle missing visualization type
-      console.log(`No plugin registered for '${type.label} (${type.type})'`);
     });
   }
 
