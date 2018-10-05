@@ -2,8 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { MatTabGroup } from '@angular/material';
 import { Store, select } from '@ngrx/store';
 import { of } from 'rxjs';
-import { concatMap, onErrorResumeNext } from 'rxjs/operators';
-import { uniqueId } from 'lodash';
+import { concatMap, map, onErrorResumeNext, take } from 'rxjs/operators';
+import { find, unary, uniqueId } from 'lodash';
 
 import { ProjectSerializerService, Visualization } from 'dvl-fw';
 import { ExportService } from '../../shared/services/export/export.service';
@@ -48,7 +48,20 @@ export class MainComponent {
     private uistore: Store<SidenavState>,
     private serializer: ProjectSerializerService,
     private exportService: ExportService
-  ) { }
+  ) {
+    this.uistore.pipe(
+      select(getLoadedProjectSelector),
+      map(project => project && project.visualizations || []),
+      map(visualizations => visualizations.map(vis => {
+        const type = find(this.visTypes, { template: vis.template });
+        const label = type && type.label || '';
+        return { label, data: vis } as Vis;
+      }))
+    ).subscribe(visualizations => {
+      this.visualizations = visualizations;
+      this.selectedVis = visualizations.length ? 0 : -1;
+    });
+  }
 
   setSelectedVis(index: number, force = false): void {
     if (index !== this.selectedVis || force) {
@@ -68,6 +81,7 @@ export class MainComponent {
 
     this.uistore.pipe(
       select(getLoadedProjectSelector),
+      take(1),
       concatMap(project => this.serializer.createVisualization(type.template, preData, project)),
       onErrorResumeNext(of(preData as Visualization))
     ).subscribe(data => {

@@ -540,6 +540,12 @@ export class ISITemplateProject extends DefaultProject {
             graphicVariableType: 'axis',
             graphicVariableId: 'axis'
           },
+          areaSize: {
+            recordSet: 'journal',
+            dataVariable: 'numCites',
+            graphicVariableType: 'areaSize',
+            graphicVariableId: 'areaSize'
+          },
           label: {
             recordSet: 'journal',
             dataVariable: 'name',
