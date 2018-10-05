@@ -1,4 +1,5 @@
-import { ISITemplateProject } from './../plugins/isi/isi-template-project';
+import { ISITemplateProject } from '../plugins/isi/isi-template-project';
+import { NSFTemplateProject } from '../plugins/nsf/nsf-template-project';
 import { ProjectSerializer } from './project-serializer';
 import { Injectable } from '@angular/core';
 import { ObjectFactoryRegistry } from './object-factory';
@@ -20,6 +21,8 @@ export class ProjectSerializerService {
       switch (template) {
         case 'isi':
           return await ISITemplateProject.create(fileContents);
+        case 'nsf':
+          return await NSFTemplateProject.create(fileContents);
         default:
           throw new Error(`Template: ${template} not supported.`);
       }
