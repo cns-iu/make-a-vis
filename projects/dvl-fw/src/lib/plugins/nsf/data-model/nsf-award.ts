@@ -72,6 +72,10 @@ export class Award {
     Object.assign(this, data);
   }
 
+  get investigatorNames(): string[] {
+    return [this.piName].concat(this.coPiNames);
+  }
+
   // Awarded Amount Encodings
   @Operand<number>(norm0to100('awardedAmountToDate', 'globalStats.awardedAmountMax'))
   awardedAmountNorm: number;
