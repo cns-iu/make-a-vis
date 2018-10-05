@@ -71,7 +71,7 @@
       </mat-expansion-panel-header>
       <p class="expansion-content">
         <mat-form-field [color]="'mav-primary'" appearance="outline" class="field">
-          <input matInput placeholder="" readonly class="input" disabled>
+          <input matInput placeholder="" readonly class="input" [disabled]="shareUrlFieldDisabled" [value]="shareUrl">
         </mat-form-field>
         <button mat-stroked-button class="button" (click)="getUrlLink()">Get Link</button>
       </p>
