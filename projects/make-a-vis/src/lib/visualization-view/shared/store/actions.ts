@@ -1,7 +1,10 @@
 import { Action } from '@ngrx/store';
-import { Visualization } from 'dvl-fw';
+import { Visualization, GraphicVariable, DataVariable, GraphicSymbol, RecordSet } from 'dvl-fw';
 
-// import { DataSource, Visualization, RecordStream } from 'dvl-fw';
+export interface SetGraphicSymbolRecordSetPayload {
+  graphicSymbol: GraphicSymbol;
+  recordSet: RecordSet;
+}
 
 export enum VisualizationActionTypes {
   SetActiveVisualization = '[VIS] Set Active Visualization',
@@ -30,17 +33,22 @@ export class RemoveVisualization implements Action {
 
 export class SetGraphicSymbolRecordSet implements Action {
   readonly type = VisualizationActionTypes.SetGraphicSymbolRecordSet;
-  constructor(public payload = {}) { }
+  constructor(public payload: SetGraphicSymbolRecordSetPayload) {
+  }
 }
 
 export class SetActiveDataVariable implements Action {
   readonly type = VisualizationActionTypes.SetActiveDataVariable;
-  constructor(public payload = {}) { }
+  constructor(public payload: DataVariable) {
+  }
 }
 
 export class SetGraphicVariable implements Action {
   readonly type = VisualizationActionTypes.SetGraphicVariable;
-  constructor(public payload = {}) { }
+  constructor(public payload: GraphicVariable) {
+  }
 }
 
-export type VisualizationAction = SetActiveVisualization | AddNewVisualization | RemoveVisualization;
+
+export type VisualizationActionsUnion = SetActiveVisualization | AddNewVisualization | RemoveVisualization |
+  SetGraphicSymbolRecordSet | SetActiveDataVariable | SetGraphicVariable;

@@ -1,0 +1,2329 @@
+apiVersion: 1
+metadata:
+  dateCreated: 2018-10-05T15:04:21.933Z
+  dateSaved: 2018-10-05T15:04:21.960Z
+dataSources:
+  - id: nsfDataSource
+    template: nsf
+    properties:
+      rawData: nsfFile
+      parsedData: nsfRawData
+      saveParsedData: true
+    recordStreams:
+      - id: awards
+        label: awards
+recordSets: []
+graphicVariableMappings: []
+graphicSymbolMappings: []
+visualizations: []
+rawData:
+  - id: nsfRawData
+    template: json
+    data:
+      awards:
+        - id: '1839167'
+          title: >-
+            TRIPODS+X:RES:Collaborative Research: Multi-Level Graph
+            Representation for Exploring Big Data
+          piName: Katy Borner
+          piEmailAddress: katy@indiana.edu
+          coPiNames: []
+          organization:
+            name: Indiana University
+            street: 509 E 3RD ST
+            city: Bloomington
+            state: IN
+            zip: '474013654'
+            zip5: '47401'
+            phone: '8128550516'
+          startDate: 2018-10-01T04:00:00.000Z
+          endDate: 2021-09-30T04:00:00.000Z
+          lastAmendmentDate: 2018-09-10T04:00:00.000Z
+          startYear: 2018
+          endYear: 2021
+          lastAmendmentYear: 2018
+          awardInstrument: Standard Grant
+          awardedAmountToDate: 300000
+          arraAmount: 0
+          nsfOrganization: DMS
+          nsfPrograms:
+            - TRIPODS Transdisciplinary Rese
+          nsfProgramManager: Tracy J. Kimbrel
+          nsfDirectorate: MPS
+          programElementCodes:
+            - 041Y
+          programReferenceCodes:
+            - 047Z
+            - 062Z
+          abstract: >-
+            Working with social, topical, financial, transportation, biological,
+            and other networks requires a better understanding of their
+            structure and properties. Standard network visualizations of such
+            large real-world networks often resemble hairballs that provide
+            little actionable insight. This project aims to design, implement,
+            and deploy efficient algorithms for multi-level network
+            representations that support interactive exploration by general
+            audiences. Using the familiar Google map metaphor, these algorithms
+            will make it easy to identify important nodes, major pathways, and
+            clusters across multiple levels. Unlike existing methods for
+            visualizing multi-level networks based on meta-nodes and meta-edges,
+            the new visualizations will provide real nodes (prototypes) and real
+            paths (backbones) for each level, similar to geographic maps that
+            show real cities and real roads at every level of
+            detail.<br/><br/>The proposed work contributes to graph algorithms
+            by designing and implementing novel and efficient algorithms for
+            interactive analysis and visualization of large, multi-level
+            networks, information visualization with new methods for multi-level
+            network visualization based on the familiar map metaphor, and
+            science mapping standards by providing effective means to explore
+            and use large-scale, multi-level science maps of our collective
+            scholarly knowledge as well as workforce needs. The first goal is to
+            design efficient algorithms for computing Multi-Level Graph Spanners
+            (MLGS) in support of visual analytics tasks for large network
+            exploration, navigation, and communication. The second goal is to
+            utilize the MLGS representation in the context of network analysis
+            and visualization by building a novel online visualization service
+            for interacting with large networks, which combines the MLGS
+            approach with clustering, layout and map-like visualization. The
+            third goal is to develop a new approach for science and workforce
+            classification, lookup, and topical mapping service by applying the
+            MLGS approach to the Web of Science publication data (64 million
+            publications and 1 billion citations) to compute a multi-level map
+            of scientific development. The fourth goal is to validate the new
+            algorithms and visualizations by evaluating both the algorithms and
+            the system using quantitative and qualitative metrics.<br/><br/>This
+            award reflects NSF's statutory mission and has been deemed worthy of
+            support through evaluation using the Foundation's intellectual merit
+            and broader impacts review criteria.
+          location:
+            zip: '47401'
+            latitude: 39.1401
+            longitude: -86.5083
+            city: Bloomington
+            state: IN
+            country: US
+          globalStats: &ref_0
+            awardedAmountMax: 536250
+            yearMax: 2022
+            yearMin: 2003
+        - id: '1735095'
+          title: 'NRT: Interdisciplinary Training in Complex Networks and Systems'
+          piName: Luis Rocha
+          piEmailAddress: rocha@indiana.edu
+          coPiNames:
+            - Bernice Pescosolido
+            - Katy Borner
+            - Olaf Sporns
+            - Armando Razo
+          organization:
+            name: Indiana University
+            street: 509 E 3RD ST
+            city: Bloomington
+            state: IN
+            zip: '474013654'
+            zip5: '47401'
+            phone: '8128550516'
+          startDate: 2017-09-01T04:00:00.000Z
+          endDate: 2022-08-31T04:00:00.000Z
+          lastAmendmentDate: 2017-07-06T04:00:00.000Z
+          startYear: 2017
+          endYear: 2022
+          lastAmendmentYear: 2017
+          awardInstrument: Standard Grant
+          awardedAmountToDate: 0
+          arraAmount: 0
+          nsfOrganization: DGE
+          nsfPrograms:
+            - NSF Research Traineeship (NRT)
+            - PROGRAM EVALUATION
+          nsfProgramManager: Laura Regassa
+          nsfDirectorate: EHR
+          programElementCodes:
+            - '1997'
+            - '7261'
+          programReferenceCodes:
+            - '1331'
+            - '1371'
+            - '7433'
+            - '9179'
+            - SMET
+          abstract: >-
+            Understanding complex networked systems is key to solving some of
+            the most vexing problems confronting humankind, from discovering how
+            dynamic brain connections give rise to thoughts and behaviors, to
+            detecting and preventing the spread of misinformation or unhealthy
+            behaviors across a population. Graduate training, however, typically
+            occurs in one of two dimensions: experimental and observational
+            methods in a specific area such as biology and sociology, or in
+            general methodologies such as machine learning and data science. 
+            With more and more students seeking to gain sufficient expertise in
+            mathematical and computational methods on top of domain-specific
+            laboratory and social analysis methodologies, a greater demand for
+            more efficient training is emerging. This National Science
+            Foundation Research Traineeship (NRT) award to Indiana University
+            will address this growing need with an integrated dual PhD program
+            that trains students to be "bidisciplinary" in Complex Networks and
+            Systems (CNS) and another discipline of their choosing from the
+            natural and social sciences. It will seamlessly integrate
+            traditional education with interdisciplinary hands-on research in a
+            culture of academic and human diversity. This program will provide
+            unique interdisciplinary training for thirty-four (34) PhD students,
+            including twenty-two (22) funded trainees. The program will provide
+            additional training experience to 40 summer affiliate students and a
+            population of more than 300 participants across the participating
+            PhD programs.<br/><br/>The training program capitalizes on the new
+            Indiana University Network Science Institute (IUNI). The Institute's
+            165+ faculty members will serve in interdisciplinary PhD program
+            committees to be co-chaired by research mentors from both CNS and
+            the target empirical domain. Project-driven, team-based research at
+            IUNI will seamlessly integrate academic education with
+            interdisciplinary hands-on scientific and industrial research.
+            Trainees will learn to connect the general-purpose, computational
+            expertise of CNS to the deep, domain-specific research methodologies
+            of the natural, behavioral, and social sciences thus bridging the
+            gap between distinct training cultures. They will be a new breed of
+            STEM scientists that escapes the silos of disciplinary training to
+            address the complex problems of the 21st century. Specifically, the
+            four goals of training activity are: 1) provide dual research
+            proficiency; 2) develop collaborative skills via early integration
+            into problem-driven, interdisciplinary research; 3) produce a
+            diverse workforce by recruiting student cohorts from a broad set of
+            disciplines and varied backgrounds to be trained within a team
+            culture; 4) establish a sustainable interdisciplinary training model
+            by enlarging the institutional channels created between informatics
+            and natural and social sciences to other Indiana University
+            departments and institutions. A science-of-science study conducted
+            throughout the NRT project will evaluate the efficacy of
+            interdisciplinary training of the students in this program. This
+            project will develop a flexible dual PhD program and best-practices
+            to allow additional departments at Indiana University to join the
+            program in the future, as well as other institutions to develop
+            similar programs.<br/><br/>The NSF Research Traineeship (NRT)
+            Program is designed to encourage the development and implementation
+            of bold, new potentially transformative models for STEM graduate
+            education training. The Traineeship Track is dedicated to effective
+            training of STEM graduate students in high priority
+            interdisciplinary research areas, through comprehensive traineeship
+            models that are innovative, evidence-based, and aligned with
+            changing workforce and research needs.
+          location:
+            zip: '47401'
+            latitude: 39.1401
+            longitude: -86.5083
+            city: Bloomington
+            state: IN
+            country: US
+          globalStats: *ref_0
+        - id: '1713567'
+          title: >-
+            Data Visualization Literacy: Research and Tools that Advance Public
+            Understanding of Scientific Data
+          piName: Katy Borner
+          piEmailAddress: katy@indiana.edu
+          coPiNames:
+            - Kylie Peppler
+            - Bryan Kennedy
+            - Stephen Uzzo
+            - Joe Heimlich
+          organization:
+            name: Indiana University
+            street: 509 E 3RD ST
+            city: Bloomington
+            state: IN
+            zip: '474013654'
+            zip5: '47401'
+            phone: '8128550516'
+          startDate: 2017-08-01T04:00:00.000Z
+          endDate: 2021-07-31T04:00:00.000Z
+          lastAmendmentDate: 2017-06-13T04:00:00.000Z
+          startYear: 2017
+          endYear: 2021
+          lastAmendmentYear: 2017
+          awardInstrument: Standard Grant
+          awardedAmountToDate: 0
+          arraAmount: 0
+          nsfOrganization: DRL
+          nsfPrograms:
+            - AISL
+          nsfProgramManager: Arlene M. de Strulle
+          nsfDirectorate: EHR
+          programElementCodes:
+            - '7259'
+          programReferenceCodes: []
+          abstract: >-
+            As the world is increasingly dependent upon computing and
+            computational processes associated with data analysis, it is
+            essential to gain a better understanding of the visualization
+            technologies that are used to make meaning of massive scientific
+            data. It is also essential that the infrastructure, the very means
+            by which technologies are developed for improving the public's
+            engagement in science itself, be better understood. Thus, this AISL
+            Innovations in Development project will address the critical need
+            for the public to learn how to interpret and understand highly
+            complex and visualized scientific data. The project will design,
+            develop and study a new technology platform, xMacroscope, as a
+            learning tool that will allow visitors at the Science Museum of
+            Minnesota and the Center of Science and Industry, to create, view,
+            understand, and interact with different data sets using diverse
+            visualization types. The xMacroscope will support rapid research
+            prototyping of public experiences at selected exhibits, such as
+            collecting data on a runner's speed and height and the visualized
+            representation of such data. The xMacroscope will provide research
+            opportunities for exhibit designers, education researchers, and
+            learning scientists to study diverse audiences at science centers in
+            order to understand how learning about data through the xMacroscope
+            tool may inform definitions of data literacy. The research will
+            advance the state of the art in visualization technology, which will
+            have broad implications for teaching and learning of scientific data
+            in both informal and formal learning environments. The project will
+            lead to better understanding by science centers on how to present
+            data to the public more effectively through visualizations that are
+            based upon massive amounts of data. Technology results and research
+            findings will be disseminated broadly through professional
+            publications and presentations at science, education, and technology
+            conferences. The project is funded by the Advancing Informal STEM
+            Learning (AISL) program, which seeks to advance new approaches to,
+            and evidence-based understanding of, the design and development of
+            STEM learning in informal environments. This includes providing
+            multiple pathways for broadening access to and engagement in STEM
+            learning experiences, advancing innovative research on and
+            assessment of STEM learning in informal environments, and developing
+            understandings of deeper learning by participants.<br/><br/>The
+            project is driven by the assumption that in the digital information
+            age, being able to create and interpret data visualizations is an
+            important literacy for the public. The research will seek to define,
+            measure, and advance data visualization literacy. The project will
+            engage the public in using the xMacrocope at the Science Museum of
+            Minnesota and at the Center of Science and Industry's (COSI) science
+            museum and research center in Columbus, Ohio. In both museum
+            settings the public will interact with different datasets and
+            diverse types of visualizations. Using the xMacroscope platform,
+            personal attributes and capabilities will be measured and
+            personalized data visualizations will be constructed. Existing
+            theories of learning (constructivist and constructionist) will be
+            extended to capture the learning and use of data visualization
+            literacy. In addition, the project team will conduct a meta-review
+            related to different types of literacy and will produce a definition
+            with performance measures to assess data visualization literacy -
+            currently broadly defined in the project as the ability to read,
+            understand, and create data visualizations. The research has
+            potential for significant impact in the field of science and
+            technology education and education research on visual learning. It
+            will further our understanding of the nature of data visualization
+            literacy learning and define opportunities for visualizing data in
+            ways that are both personally and culturally meaningful. The project
+            expects to advance the understanding of the role of personalization
+            in the learning process using iterative design-based research
+            methodologies to advance both theory and practice in informal
+            learning settings. An iterative design process will be applied for
+            addressing the research questions by correlating visualizations to
+            individual actions and contributions, exploring meaning-making
+            studies of visualization construction, and testing the xMacroscope
+            under various conditions of crowdedness and busyness in a museum
+            context. The evaluation plan is based upon a logic model and the
+            evaluation will iteratively inform the direction, process, and
+            productivity of the project.
+          location:
+            zip: '47401'
+            latitude: 39.1401
+            longitude: -86.5083
+            city: Bloomington
+            state: IN
+            country: US
+          globalStats: *ref_0
+        - id: '1566393'
+          title: 'EAGER: Open XD Metrics on Demand Value Analytics'
+          piName: Matthew Link
+          piEmailAddress: mrlink@iu.edu
+          coPiNames:
+            - Katy Borner
+            - Robert Henschel
+            - Steven Gallo
+            - Thomas Furlani
+          organization:
+            name: Indiana University
+            street: 509 E 3RD ST
+            city: Bloomington
+            state: IN
+            zip: '474013654'
+            zip5: '47401'
+            phone: '8128550516'
+          startDate: 2016-04-01T04:00:00.000Z
+          endDate: 2018-03-31T04:00:00.000Z
+          lastAmendmentDate: 2016-01-27T05:00:00.000Z
+          startYear: 2016
+          endYear: 2018
+          lastAmendmentYear: 2016
+          awardInstrument: Standard Grant
+          awardedAmountToDate: 296416
+          arraAmount: 0
+          nsfOrganization: OAC
+          nsfPrograms:
+            - ETF
+          nsfProgramManager: Edward Walker
+          nsfDirectorate: CSE
+          programElementCodes:
+            - '7476'
+          programReferenceCodes:
+            - '7916'
+          abstract: >-
+            Understanding the value of campus-based cyberinfrastructure (CI) to
+            the institutions that invest in such CI is intrinsically difficult. 
+            Given today's financial pressure, administrative support for
+            campus-based CI centers offering resources to local campus users is
+            under constant budgetary pressure.  This is partly due to the
+            difficulty in obtaining quantitative metrics that clearly
+            demonstrate the utility of investment in campus CI centers in
+            enhancing scientific research and the financial aspects of enhanced
+            competitive ability in seeking funding for research.  <br/><br/>This
+            proposal seeks to implement a set of highly experimental modules to
+            be added to the existing CI metrics tool eXtreme Data Metrics on
+            Demand (XDMoD).  These modules are intended to provide a means for
+            assessing campus-based CI investment in scientific terms, as
+            measured in publications, and in financial terms, as measured in
+            grant income from researchers who use CI as compared to those who do
+            not.  The modules, tentatively called Open XDMoD Value Analytics,
+            will present a view of financial, collaboration, and publication
+            data, showing "return-on-investment" metrics in relation to CI
+            usage.  The goal of the work is to generalize these modules to work
+            with a variety of funding and publication information sources, and
+            incorporate them into the open source distribution of Open XDMoD.
+          location:
+            zip: '47401'
+            latitude: 39.1401
+            longitude: -86.5083
+            city: Bloomington
+            state: IN
+            country: US
+          globalStats: *ref_0
+        - id: 0533892
+          title: >-
+            SCI:    Workshop:    The Role of Social Network Research in Enabling
+            Cyberinfrastructure and the Role of Cyberinfrastructure in Enabling
+            Social Network, Champaign-Urbana, IL
+          piName: Noshir Contractor
+          piEmailAddress: nosh@northwestern.edu
+          coPiNames:
+            - Katy Borner
+          organization:
+            name: University of Illinois at Urbana-Champaign
+            street: 1901 South First Street
+            city: Champaign
+            state: IL
+            zip: '618207406'
+            zip5: '61820'
+            phone: '2173332187'
+          startDate: 2005-08-15T05:00:00.000Z
+          endDate: 2006-07-31T04:00:00.000Z
+          lastAmendmentDate: 2006-03-16T05:00:00.000Z
+          startYear: 2005
+          endYear: 2006
+          lastAmendmentYear: 2006
+          awardInstrument: Standard Grant
+          awardedAmountToDate: 50000
+          arraAmount: 0
+          nsfOrganization: OAC
+          nsfPrograms:
+            - SPECIAL PROJECTS IN NET RESEAR
+          nsfProgramManager: Diana R. Rhoten
+          nsfDirectorate: CSE
+          programElementCodes:
+            - '4095'
+          programReferenceCodes:
+            - '9217'
+            - HPCC
+          abstract: >-
+            The International Workshop entitled "The Role of Social Network
+            Research in Enabling Cyberinfrastructure and the Role of
+            Cyberinfrastructure in Enabling Social Network Research" brings
+            together leading researchers and practitioners in social network
+            analysis with key scientists and engineers who are in the process of
+            developing cyberinfrastructure for their respective communities. The
+            Workshop will help acquaint the scientific and engineering community
+            with the potential of social networking tools to enhance the
+            communication and knowledge networks within the communities
+            supported by cyberinfrastructure. Traditionally, social network
+            analysis has focused on small and "single mode" or bimodal
+            affiliation networks. The workshop will help the social network
+            analysis community in identifying a research agenda for extending
+            existing theory, methodology, and computational tools to enable
+            large-scale and multidimensional networks. By bringing together
+            leading social network researchers and leading developers of
+            cyberinfrastructure in diverse science and engineering communities,
+            the Workshop will also promote: (i) the specification of new
+            mathematical and statistical models with broad application in the
+            social and behavioral sciences, (ii) the development and extension
+            of scalable algorithms to analyze and visualize the large scale and
+            multidimensional networks that exist within these cybercommunities,
+            and (iii) the development and extension of advanced user-driven
+            software and web services that implement these algorithms to help
+            members of a cybercommunity leverage their communication and
+            knowledge networks. <br/>Broader impacts: The Workshop will offer a
+            unique means for a symbiotic exchange of insights between the social
+            network analysis research community (which cuts across many
+            disciplines, but especially sociology, psychology, communication,
+            organizational science, information science and economic) and the
+            key developers of cyberinfrastructure (which cuts across many
+            disciplines including atmospheric sciences, geo sciences,
+            environmental engineering, ecological research, and public health).
+            The Workshop will help network scholars and students identify the
+            challenges as well as the opportunities of social networking to
+            enable research and education within a cyberinfrastructure. This
+            will result in a direct transfer of knowledge and results from the
+            fields of specialist social network research to wider scientific
+            communities exploring the development of cyberinfrastructure in
+            their fields. The workshop will also assess the viability and
+            contours of developing a Social Network Analysis Cyberinfrastructure
+            for advancing network analysis, modeling, visualization research and
+            education. The broad mix of researchers from these various
+            communities has the potential to unleash a new generation of theory,
+            education, and practice on the role of social networking and 21st
+            century cyberinfrastructure.<br/><br/>
+          location:
+            zip: '61820'
+            latitude: 40.111
+            longitude: -88.2407
+            city: Champaign
+            state: IL
+            country: US
+          globalStats: *ref_0
+        - id: '1223698'
+          title: 'Pathways: Sense-Making of Big Data'
+          piName: Katy Borner
+          piEmailAddress: katy@indiana.edu
+          coPiNames:
+            - Adam Maltese
+            - Joe Heimlich
+          organization:
+            name: Indiana University
+            street: 509 E 3RD ST
+            city: Bloomington
+            state: IN
+            zip: '474013654'
+            zip5: '47401'
+            phone: '8128550516'
+          startDate: 2012-07-15T04:00:00.000Z
+          endDate: 2015-06-30T04:00:00.000Z
+          lastAmendmentDate: 2012-07-10T04:00:00.000Z
+          startYear: 2012
+          endYear: 2015
+          lastAmendmentYear: 2012
+          awardInstrument: Standard Grant
+          awardedAmountToDate: 250000
+          arraAmount: 0
+          nsfOrganization: DRL
+          nsfPrograms:
+            - AISL
+          nsfProgramManager: William Neufeld
+          nsfDirectorate: EHR
+          programElementCodes:
+            - '7259'
+          programReferenceCodes:
+            - '9177'
+            - SMET
+          abstract: >-
+            This pathways project will study how audiences in public spaces, in
+            this case those in a museum setting, relate to and make sense of
+            large data displays. The project is preliminary to development of a
+            traveling, hands-on exhibition enabling users to create and utilize
+            representations of big data displays such as maps and charts.  As
+            the test case, the project will use science maps that provide an
+            overview of science generally and specific areas of STEM, charting
+            and exploring the history and future of science and technology. The
+            data collection portion of the project will take place at the New
+            York Hall of Science, the Marian Koshland Science Museum, COSI in
+            Columbus, Ohio, and WonderLab Museum in Bloomington, Indiana.
+            <br/><br/>The project will create a foundation for the design of
+            museum exhibits and educational programs that teach museum visitors
+            how to explore, engage and make better sense of big data. The
+            project is potentially transformative because big data is becoming
+            ubiquitous and making sense out of large data displays is necessary
+            in order to understand big data sets.
+          location:
+            zip: '47401'
+            latitude: 39.1401
+            longitude: -86.5083
+            city: Bloomington
+            state: IN
+            country: US
+          globalStats: *ref_0
+        - id: 0532387
+          title: May 2006 International Workshop and Conference on Network Science
+          piName: Stanley Wasserman
+          piEmailAddress: stanwass@indiana.edu
+          coPiNames:
+            - Noshir Contractor
+            - Katy Borner
+            - Albert-Laszlo Barabasi
+            - Alessandro Vespignani
+          organization:
+            name: Indiana University
+            street: 509 E 3RD ST
+            city: Bloomington
+            state: IN
+            zip: '474013654'
+            zip5: '47401'
+            phone: '8128550516'
+          startDate: 2005-10-01T05:00:00.000Z
+          endDate: 2007-03-31T04:00:00.000Z
+          lastAmendmentDate: 2005-08-26T05:00:00.000Z
+          startYear: 2005
+          endYear: 2007
+          lastAmendmentYear: 2005
+          awardInstrument: Standard Grant
+          awardedAmountToDate: 78481
+          arraAmount: 0
+          nsfOrganization: SES
+          nsfPrograms:
+            - MATHEMATICAL SOC & BEHAV SCI
+          nsfProgramManager: Cheryl L. Eavey
+          nsfDirectorate: SBE
+          programElementCodes:
+            - '7397'
+          programReferenceCodes:
+            - '0000'
+            - '7303'
+            - '7397'
+            - OTHR
+          abstract: >-
+            The award supports the "International Workshop and Conference on
+            Network Science," to be held at Indiana University, Bloomington,
+            Indiana, during May 2006.  The primary objective of these activities
+            is to facilitate interactions among social and behavioral scientists
+            and the many new disciplines interested in and utilizing network
+            science.  The Workshop and Conference will bring together leading
+            researchers and practitioners in network science --- analysts,
+            modeling experts, and visualization specialists --- with graduate
+            students from many different research areas for interdisciplinary
+            communication and collaboration.  The Workshop will feature
+            tutorials focusing on a variety of network science research areas. 
+            The Workshop will lead into the Conference, which will feature
+            intellectual discourses and conference presentations from the
+            invited graduate students.<br/><br/>For network research to achieve
+            its potential impact on scientific research, students and faculty
+            need to be broadly trained in this area, learning not only the basic
+            measurement and modeling tools but also their meaning and range of
+            applicability.  The Workshop will provide cross training in the
+            theory and methods of network science, incorporating the
+            perspectives of diverse disciplines such as sociology,
+            organizational science, information science, mathematics,
+            statistics, informatics, biology, and physics.  By bringing together
+            leading researchers and emerging network scholars, the Workshop and
+            the Conference will also promote the development of new mathematical
+            and statistical models with broad application in the social and
+            behavioral sciences.  Dissemination products include an easily
+            accessible website containing tutorials and invited and contributed
+            papers.  This award was supported as part of the fiscal year 2005
+            Mathematical Sciences priority area special competition on
+            Mathematical Social and Behavioral Sciences (MSBS). <br/>
+          location:
+            zip: '47401'
+            latitude: 39.1401
+            longitude: -86.5083
+            city: Bloomington
+            state: IN
+            country: US
+          globalStats: *ref_0
+        - id: 0724282
+          title: >-
+            III: "Visualizing Network Dynamics" --  Competition at the
+            International Conference on Network Science 2007
+          piName: Katy Borner
+          piEmailAddress: katy@indiana.edu
+          coPiNames:
+            - Stephen Uzzo
+          organization:
+            name: Indiana University
+            street: 509 E 3RD ST
+            city: Bloomington
+            state: IN
+            zip: '474013654'
+            zip5: '47401'
+            phone: '8128550516'
+          startDate: 2007-04-01T04:00:00.000Z
+          endDate: 2008-03-31T04:00:00.000Z
+          lastAmendmentDate: 2007-04-06T04:00:00.000Z
+          startYear: 2007
+          endYear: 2008
+          lastAmendmentYear: 2007
+          awardInstrument: Standard Grant
+          awardedAmountToDate: 11890
+          arraAmount: 0
+          nsfOrganization: IIS
+          nsfPrograms:
+            - INFO INTEGRATION & INFORMATICS
+          nsfProgramManager: Maria Zemankova
+          nsfDirectorate: CSE
+          programElementCodes:
+            - '7364'
+          programReferenceCodes:
+            - '7364'
+            - '9216'
+            - HPCC
+          abstract: >-
+            This award supports the "Visualizing Network Dynamics" Competition
+            intended to cull some of the world's best dynamic network
+            visualization results to be exhibited at the 2007 International
+            Workshop and Conference on Network Science (NetSci07), held in the
+            New York Hall of Science, May 20 - 25, 2007.<br/><br/>The
+            competition is designed to attract researchers, practitioners, and
+            educators from such diverse disciplines as anthropology, sociology,
+            history, social psychology, political science, human geography,
+            biology, economics, communications science but also art and design
+            to submit the best-of visualizations of evolving networks, activity
+            patterns over networks or combinations of the two. Competition
+            applications comprise of large resolution static images or video
+            footage together with a detailed explanation of datasets used,
+            analysis or modeling techniques applied, and the visualization
+            design. Applicants are also asked to list and explain major insights
+            gained and to discuss the value the visualization may have for
+            educational purposes.<br/><br/>The competition plans to feature the
+            winning entries that support insight and decision making network
+            dynamics visualizations (as opposed to purely artistically appealing
+            images or videos). In addition, it aims to raise the bar for the
+            documentation and communication of the process applied to generate
+            those visualizations, and to sensitize people to the importance of
+            visualization for education.<br/><br/>The winning entries will be
+            recognized and all valid entries will be made available online via
+            the NetSci07 Web site (http://www.nd.edu/%7Enetsci/) as a general,
+            free resource for anybody interested in the study or communication
+            of dynamic networks. Online dissemination is expected to improve
+            diverse network science related scientific, engineering and/or
+            educational activities. <br/>
+          location:
+            zip: '47401'
+            latitude: 39.1401
+            longitude: -86.5083
+            city: Bloomington
+            state: IN
+            country: US
+          globalStats: *ref_0
+        - id: '0333623'
+          title: >-
+            Project ENABLE: Learning through Associations in a Grid based
+            Bioinformatics Digital Library
+          piName: Javed Mostafa
+          piEmailAddress: jm@unc.edu
+          coPiNames:
+            - Mathew Palakal
+            - Snehasis Mukhopadhyay
+            - Donald Gilbert
+            - Katy Borner
+          organization:
+            name: Indiana University
+            street: 509 E 3RD ST
+            city: Bloomington
+            state: IN
+            zip: '474013654'
+            zip5: '47401'
+            phone: '8128550516'
+          startDate: 2003-09-01T05:00:00.000Z
+          endDate: 2007-08-31T04:00:00.000Z
+          lastAmendmentDate: 2006-09-13T04:00:00.000Z
+          startYear: 2003
+          endYear: 2007
+          lastAmendmentYear: 2006
+          awardInstrument: Standard Grant
+          awardedAmountToDate: 449563
+          arraAmount: 0
+          nsfOrganization: DUE
+          nsfPrograms:
+            - NATIONAL SMETE DIGITAL LIBRARY
+          nsfProgramManager: Curtis T. Sears
+          nsfDirectorate: EHR
+          programElementCodes:
+            - '7444'
+          programReferenceCodes:
+            - '9178'
+            - SMET
+          abstract: >-
+            This project is applying advances in digital library (DL)
+            technologies to the emerging domain of bioinformatics, and
+            developing interaction tools that support learning based on
+            identifying and visualizing associations among key dimensions of
+            bioinformatics resources. The project is making these current
+            resources, which are mainly utilized by expert biologists, available
+            to bioinformatics students. The project addresses issues regarding:
+            the use of a wide variety of formats and representations to store
+            bioinformatics information; the application of DL technologies
+            particularly in the realm of data description and exchange; mapping
+            of metadata associated with bioinformatics information to data
+            description standards compatible with DL technologies; and building
+            clients that take advantage of data dissemination protocols such as
+            the Open Archives Initiative in order to support novel browse,
+            search, and analysis functions based on visualizations. The project
+            team is also integrating DL and Grid computing technologies, and
+            utilizes bioinformatics resources of Indiana University such as the
+            Drosophila Genome Flybase, the IUBio Archive that contains euGenes
+            eukaryote genes data, and the Bionet news archive and related
+            software.
+          location:
+            zip: '47401'
+            latitude: 39.1401
+            longitude: -86.5083
+            city: Bloomington
+            state: IN
+            country: US
+          globalStats: *ref_0
+        - id: 0534909
+          title: >-
+            Collaborative Research: Social Networking Tools to Enable
+            Collaboration in the Tobacco Surveillance, Epidemiology, and
+            Evaluation Network (TSEEN)
+          piName: Katy Borner
+          piEmailAddress: katy@indiana.edu
+          coPiNames: []
+          organization:
+            name: Indiana University
+            street: 509 E 3RD ST
+            city: Bloomington
+            state: IN
+            zip: '474013654'
+            zip5: '47401'
+            phone: '8128550516'
+          startDate: 2006-03-15T05:00:00.000Z
+          endDate: 2011-02-28T05:00:00.000Z
+          lastAmendmentDate: 2008-03-24T04:00:00.000Z
+          startYear: 2006
+          endYear: 2011
+          lastAmendmentYear: 2008
+          awardInstrument: Continuing grant
+          awardedAmountToDate: 247580
+          arraAmount: 0
+          nsfOrganization: IIS
+          nsfPrograms:
+            - DIGITAL GOVERNMENT
+            - INFO INTEGRATION & INFORMATICS
+          nsfProgramManager: Vijayalakshmi Atluri
+          nsfDirectorate: CSE
+          programElementCodes:
+            - '1706'
+            - '7364'
+          programReferenceCodes:
+            - '1706'
+            - '7364'
+            - '9102'
+            - '9200'
+            - '9216'
+            - HPCC
+          abstract: >-
+            A highly publicized report by the American Cancer Society noted that
+            cancer has surpassed heart disease to become the number one killer
+            of adults under the age of 85 in the United States today. At the top
+            of the list was lung cancer, a disease that is eminently
+            preventable. Addressing public health threats like cancer are acute,
+            system-wide challenges that would benefit from network-centric
+            approaches. For example, when the tobacco research community
+            realized it had taken over a decade to discover that they had
+            already collected substantial empirical evidence, distributed across
+            its network of tobacco researchers, indicating that 'light'
+            (low-tar/low-nicotine brands) cigarettes reduced neither exposure to
+            nor risk of cancer, researchers began to understand the importance
+            of effectively sharing resources and information across the entire
+            community. In response, government agencies involved in public
+            health have made a substantial foundational investment in developing
+            a digital government cyberinfrastructure--Tobacco Systems
+            integration Grid (TobacSIG)--to enable collaboration within the
+            Tobacco Surveillance, Epidemiology, and Evaluation Network (TSEEN).
+            While such an underlying cyberinfrastructure is a prerequisite,
+            delays in discoveries (such as the carcinogenic effects of 'light'
+            cigarette mentioned above) have prompted the TSEEN community to
+            underscore the need for social network referral tools as a crucial
+            component of any effort to enhance the efficacy of their
+            collaboration system.<br/>
+          location:
+            zip: '47401'
+            latitude: 39.1401
+            longitude: -86.5083
+            city: Bloomington
+            state: IN
+            country: US
+          globalStats: *ref_0
+        - id: 0238261
+          title: 'CAREER: Visualizing Knowledge Domains'
+          piName: Katy Borner
+          piEmailAddress: katy@indiana.edu
+          coPiNames: []
+          organization:
+            name: Indiana University
+            street: 509 E 3RD ST
+            city: Bloomington
+            state: IN
+            zip: '474013654'
+            zip5: '47401'
+            phone: '8128550516'
+          startDate: 2003-09-01T05:00:00.000Z
+          endDate: 2008-08-31T04:00:00.000Z
+          lastAmendmentDate: 2007-06-27T04:00:00.000Z
+          startYear: 2003
+          endYear: 2008
+          lastAmendmentYear: 2007
+          awardInstrument: Continuing grant
+          awardedAmountToDate: 536250
+          arraAmount: 0
+          nsfOrganization: IIS
+          nsfPrograms:
+            - Hist & Philosophy of SET
+            - PROJECTS
+            - INFORMATION & KNOWLEDGE MANAGE
+            - INFO INTEGRATION & INFORMATICS
+          nsfProgramManager: Maria Zemankova
+          nsfDirectorate: CSE
+          programElementCodes:
+            - '1353'
+            - '1978'
+            - '6855'
+            - '7364'
+          programReferenceCodes:
+            - '1045'
+            - '1187'
+            - '9178'
+            - '9215'
+            - '9216'
+            - '9218'
+            - '9237'
+            - '9251'
+            - HPCC
+            - SMET
+          abstract: >-
+            Knowledge Domain Visualizations (KDVs) are a special kind of
+            Information Visualizations (IVs) that exploit powerful human vision
+            and spatial cognition to help humans mentally organize and
+            electronically access and manage large, complex information spaces.
+            Unlike scientific visualizations, KDVs are created from data that
+            have no spatial reference, such as publications, patents, or
+            grants.<br/>The research component of this project comprises the
+            setup of an advanced, open architecture, computing infrastructure
+            for KDV education and research as well as the development and
+            comprehensive evaluation of algorithms for incremental and scalable
+            data analysis, dimensionality reduction, and spatial layout.
+            Cartographic principles are employed to facilitate the use of skills
+            traditionally associated with geographic maps for the exploration of
+            KDVs. <br/>The education plan includes the development of an
+            Information Visualization Data and Software Repository that together
+            with associated Learning Modules provides public access to and
+            training for existing and newly developed IV and KDV software. The
+            value of KDVs for educational purposes, e.g., to equip students with
+            a "big picture" or global view of teaching material, is
+            explored.<br/>The project will make KDVs available as a new
+            information access and management tool that has the potential to
+            dramatically improve the communication of scientific results for
+            students, researchers, agencies, R&D managers, industry, data
+            providers, and society; (2) create an advanced computing
+            infrastructure for IV/KDV researchers to contribute, run, and
+            compare new and existing algorithms on diverse data sets; and (3)
+            improve IV/KDV teaching, training and learning by means of an online
+            IV/KDV repository, associated learning modules, as well as a
+            textbook. <br/><br/>Web page: http://vw.indiana.edu/kdv<br/><br/>
+          location:
+            zip: '47401'
+            latitude: 39.1401
+            longitude: -86.5083
+            city: Bloomington
+            state: IN
+            country: US
+          globalStats: *ref_0
+        - id: 0750993
+          title: >-
+            NSF Workshop on Knowledge Management and Visualization Tools in
+            Support of Discovery
+          piName: Katy Borner
+          piEmailAddress: katy@indiana.edu
+          coPiNames: []
+          organization:
+            name: Indiana University
+            street: 509 E 3RD ST
+            city: Bloomington
+            state: IN
+            zip: '474013654'
+            zip5: '47401'
+            phone: '8128550516'
+          startDate: 2008-01-01T05:00:00.000Z
+          endDate: 2009-12-31T05:00:00.000Z
+          lastAmendmentDate: 2007-09-07T04:00:00.000Z
+          startYear: 2008
+          endYear: 2009
+          lastAmendmentYear: 2007
+          awardInstrument: Standard Grant
+          awardedAmountToDate: 49461
+          arraAmount: 0
+          nsfOrganization: IIS
+          nsfPrograms:
+            - INFO INTEGRATION & INFORMATICS
+          nsfProgramManager: Maria Zemankova
+          nsfDirectorate: CSE
+          programElementCodes:
+            - '7364'
+          programReferenceCodes:
+            - '7364'
+            - '9218'
+            - HPCC
+            - '9102'
+          abstract: >-
+            Today, mankind's scholarly knowledge is stored in millions of papers
+            that are often not the best format to keep track of scientific
+            results, in 10,000s of databases that are rarely interlinked, 1,000s
+            of software repositories with no central search facility, and of
+            course in experts heads distributed around the globe and across the
+            landscape of science. Many scientific projects and experiments
+            require access not only to results published in papers but also to
+            the raw or processed data used, the services/algorithms/tools
+            applied, the people which performed the work as the paper might not
+            report results in a way that the experiment can be re-run, or new
+            data can be analyzed using the same tools, or all experts familiar
+            with a dataset/algorithm can be retrieved, etc. <br/><br/>The
+            proposed workshop aims to identify the general features of
+            cyber-enabled knowledge management tools in support of discovery.
+            Specifically, the focus is on two major challenges: <br/>* How to
+            better capture and interlink scientific data, algorithms,
+            publications, and expertise? <br/>* How to improve access,
+            navigation, understanding, and discovery by means of visual
+            interfaces to digital resources such as scientific data, algorithms,
+            publications, and expertise?<br/>The two challenges and potential
+            solutions will be discussed in detail using two application domains
+            of major economic and societal importance: science of science
+            studies and biomedical research. <br/><br/>The two-day workshop will
+            bring together about 20 leading US and international experts in
+            databases, digital libraries, cyberinfrastructure/e-Science design,
+            social science of cyberinfrastructure, as well as practitioners in
+            the areas of science of science studies and biology. The goal of the
+            workshop is to identify high impact research directions,
+            technological opportunities, synergistic collaborations across
+            disciplines and application domains towards more effective knowledge
+            management and visualization tools that will support discovery and
+            innovation. <br/><br/>Workshop Web site
+            (http://vw.indiana.edu/cdi2008) provides relevant material and will
+            be used for disseminating the resulting workshop report.
+          location:
+            zip: '47401'
+            latitude: 39.1401
+            longitude: -86.5083
+            city: Bloomington
+            state: IN
+            country: US
+          globalStats: *ref_0
+        - id: '0715303'
+          title: >-
+            Creative Metaphors to Stimulate New Approaches to Visualizing,
+            Understanding, and Rethinking Large Repositories of Scholarly Data
+          piName: Katy Borner
+          piEmailAddress: katy@indiana.edu
+          coPiNames: []
+          organization:
+            name: Indiana University
+            street: 509 E 3RD ST
+            city: Bloomington
+            state: IN
+            zip: '474013654'
+            zip5: '47401'
+            phone: '8128550516'
+          startDate: 2007-06-01T04:00:00.000Z
+          endDate: 2009-11-30T05:00:00.000Z
+          lastAmendmentDate: 2009-06-02T04:00:00.000Z
+          startYear: 2007
+          endYear: 2009
+          lastAmendmentYear: 2009
+          awardInstrument: Standard Grant
+          awardedAmountToDate: 198812
+          arraAmount: 0
+          nsfOrganization: IIS
+          nsfPrograms:
+            - ITR-CreativeIT
+          nsfProgramManager: Pamela L. Jennings
+          nsfDirectorate: CSE
+          programElementCodes:
+            - '7655'
+          programReferenceCodes:
+            - '0000'
+            - '9237'
+            - OTHR
+            - '9102'
+          abstract: >-
+            This project facilitates a unique collaboration among artists and
+            scientists with the goal to develop, implement, and validate novel
+            metaphors and approaches to access, manage, and communicate
+            scholarly datasets. The results are expected to have transformative
+            power in terms of the organization, analysis, and visualization of
+            large-scale scholarly datasets. A sequence of three artists will
+            work with scientists at the Information Visualization Laboratory and
+            the Cyberinfrastructure for Network Science Center at Indiana
+            University. <br/><br/>The artists will work with database experts on
+            parsing, structuring, and loading new datasets into a multi-terabyte
+            database of scholarly data. The artists will play with a multitude
+            of data analysis and visualization algorithms. They will participate
+            in brainstorming, technical, and design sessions. Most importantly,
+            the artists will be fully immersed as equal partners in different
+            projects. Ethnographic studies will be conducted to capture,
+            optimize, and communicate this unique collaboration. This is
+            exploratory work as we cannot predict what will happen when artists
+            are immersed in the Lab and are asked to rethink and reinvent the
+            way in which research is conducted, the tools being used and
+            designed by the researchers, and the means of communicating
+            results.<br/><br/>The broader impact of this research will be
+            facilitated by three workshops that bring together artists and
+            scientists with synergistic expertise in (2) the communication of
+            science dynamics, (2) novel devices and interactivity techniques,
+            and (3) dramatization of information. These workshops bring together
+            scholars and artist that normally do not meet in a scholarly
+            setting.
+          location:
+            zip: '47401'
+            latitude: 39.1401
+            longitude: -86.5083
+            city: Bloomington
+            state: IN
+            country: US
+          globalStats: *ref_0
+        - id: 0738111
+          title: 'TLS: Towards a Macroscope for Science Policy Decision Making'
+          piName: Katy Borner
+          piEmailAddress: katy@indiana.edu
+          coPiNames:
+            - Weixia Huang
+            - Kevin Boyack
+          organization:
+            name: Indiana University
+            street: 509 E 3RD ST
+            city: Bloomington
+            state: IN
+            zip: '474013654'
+            zip5: '47401'
+            phone: '8128550516'
+          startDate: 2008-01-01T05:00:00.000Z
+          endDate: 2011-12-31T05:00:00.000Z
+          lastAmendmentDate: 2010-08-26T04:00:00.000Z
+          startYear: 2008
+          endYear: 2011
+          lastAmendmentYear: 2010
+          awardInstrument: Standard Grant
+          awardedAmountToDate: 404870
+          arraAmount: 0
+          nsfOrganization: SBE
+          nsfPrograms:
+            - SCIENCE OF SCIENCE POLICY
+          nsfProgramManager: David C. Croson
+          nsfDirectorate: SBE
+          programElementCodes:
+            - '7626'
+          programReferenceCodes:
+            - '0000'
+            - OTHR
+          abstract: >-
+            Science policy and other decision makers need qualitatively novel
+            tools to help them identify the publications, patents, technology
+            claims, grant proposals, or other developments that are most
+            important or potentially profitable and deserve their full
+            attention. They also need a tool that lets them analyze and mine
+            terabytes of relevant data and presents aggregated results in an
+            easy to understand way, enabling them to increase the quality of
+            their decisions. However, more than just a tool is needed. The
+            design of tools that truly support science policy making requires a
+            detailed characterization and prioritization of the information
+            needs of science policy makers, along with a conceptual framework
+            that links the information needs of the policy maker to the
+            available data, analysis and indicator types. Once these are in
+            place, tool development that truly addresses the needs of today's
+            science policy makers given the constraints of existing datasets as
+            well as theoretical and algorithmic approaches can proceed.
+            <br/>This study addresses three challenges. First, a detailed
+            analysis is conducted of the information needs of a representative
+            set of science policy makers including existing data, approaches and
+            tools. Second, a theoretic conceptualization is developed of tasks
+            relevant to science policymaking that maps the needs of policy
+            makers to theoretically grounded and practically valuable processing
+            pipelines that transform data into actionable information. This
+            conceptualization is then made available online in a wiki-like
+            format for community review and consensus building. Third, a
+            prototypical tool--a macroscope--is designed to visualize structure,
+            patterns, trends, and outliers in science and technology data sets
+            that are too large and complex to be comprehensible to the
+            researchers through direct observation--just like microscopes and
+            telescopes make it possible to see things that are too small or too
+            far away. The prototypical macroscope supports a well defined set of
+            information needs, e.g., identification of emerging research
+            frontiers or correlation of funding with publications and patents in
+            an area of research and exploration of results using graphs and
+            geospatial and science maps. Macroscope tool development will
+            benefit from the NSF funded Scholarly Database (SDB)) that provides
+            access to more than 20 million scholarly records, and the
+            Cyberinfrastructure Shell (CIShell), which supports the easy plug
+            and play of datasets and algorithms and the design of stand-alone
+            tools. Usability studies are conducted to evaluate and optimize the
+            macroscope. The macroscope as well as its support of advanced
+            science mapping techniques will be introduced to a broader audience
+            by means of the Places and Spaces: Mapping Science exhibit.
+            Researchers and science policymakers in Japan will participate in
+            this project, generating a bi-directional flow of best theory and
+            practice.<br/>The scientific study and management of science and
+            technology requires a shared terminology and conceptualization of
+            how science works. It requires shared data repositories that can be
+            used to run benchmarks and comparisons of algorithms, to thoroughly
+            validate the combination of algorithms, indicators, and evaluation
+            procedures. The theoretical component of this study, as well as the
+            extension of the SDB and the prototypical design of a macroscope,
+            will create a basic shared understanding and a freely available
+            cyberinfrastructure and tool for the science of science (policy)
+            community. <br/>The same capabilities that could make the macroscope
+            a tool of choice for science policy makers could also make it
+            attractive to other potential users. For instance, students or
+            members of the public will be able to see the large scale structures
+            of science, and find potential areas of interest for further study;
+            researchers will be able to monitor and access research results,
+            relevant funding opportunities, or find potential collaborators
+            within and without their fields of inquiry. Program managers and
+            reviewers will use it to meet their individual needs.
+          location:
+            zip: '47401'
+            latitude: 39.1401
+            longitude: -86.5083
+            city: Bloomington
+            state: IN
+            country: US
+          globalStats: *ref_0
+        - id: 0723989
+          title: >-
+            Mapping Science Exhibit at the 233rd National Meeting & Exposition
+            of the American Chemical Society in Chicago, IL
+          piName: Katy Borner
+          piEmailAddress: katy@indiana.edu
+          coPiNames: []
+          organization:
+            name: Indiana University
+            street: 509 E 3RD ST
+            city: Bloomington
+            state: IN
+            zip: '474013654'
+            zip5: '47401'
+            phone: '8128550516'
+          startDate: 2007-03-15T04:00:00.000Z
+          endDate: 2008-02-29T05:00:00.000Z
+          lastAmendmentDate: 2007-03-09T05:00:00.000Z
+          startYear: 2007
+          endYear: 2008
+          lastAmendmentYear: 2007
+          awardInstrument: Standard Grant
+          awardedAmountToDate: 75708
+          arraAmount: 0
+          nsfOrganization: CHE
+          nsfPrograms:
+            - PROJECTS
+          nsfProgramManager: Kelsey D. Cook
+          nsfDirectorate: MPS
+          programElementCodes:
+            - '1978'
+          programReferenceCodes:
+            - '0000'
+            - '1978'
+            - OTHR
+          abstract: >-
+            With support from the Chemistry Division, Professor Katy Borner of
+            Indiana University will convert her unique "Places & Spaces: Mapping
+            Science" materials into a traveling exhibit in order to make these
+            materials more widely available. Building on the success of test
+            displays at the new New York City Public Library of Science,
+            Industry, and Business (April 3rd - August 31st, 2006) and at the
+            New York Hall of Science Children's Museum (on-going), this new
+            project will commence with a display at the 233rd National Meeting &
+            Exposition of the American Chemical Society in Chicago, IL (March
+            25-29, 2007). The exhibit has been very popular and has been widely
+            covered in the press (see listing at http://scimaps.org). This
+            program will enable this unique exhibit to travel widely and to help
+            people to see and understand "science from above."
+          location:
+            zip: '47401'
+            latitude: 39.1401
+            longitude: -86.5083
+            city: Bloomington
+            state: IN
+            country: US
+          globalStats: *ref_0
+        - id: '0513650'
+          title: >-
+            NetWorkBench: A Large-Scale Network Analysis, Modeling, and
+            Visualization Toolkit for Biomedical, Social Science, and Physics
+            Research
+          piName: Katy Borner
+          piEmailAddress: katy@indiana.edu
+          coPiNames:
+            - Stanley Wasserman
+            - Albert-Laszlo Barabasi
+            - Alessandro Vespignani
+            - Santiago Schnell
+          organization:
+            name: Indiana University
+            street: 509 E 3RD ST
+            city: Bloomington
+            state: IN
+            zip: '474013654'
+            zip5: '47401'
+            phone: '8128550516'
+          startDate: 2005-09-01T05:00:00.000Z
+          endDate: 2009-08-31T04:00:00.000Z
+          lastAmendmentDate: 2005-07-12T05:00:00.000Z
+          startYear: 2005
+          endYear: 2009
+          lastAmendmentYear: 2005
+          awardInstrument: Standard Grant
+          awardedAmountToDate: 0
+          arraAmount: 0
+          nsfOrganization: IIS
+          nsfPrograms:
+            - ITR-INFORMATION INTEGRATION
+          nsfProgramManager: Sylvia J. Spengler
+          nsfDirectorate: CSE
+          programElementCodes:
+            - '7373'
+          programReferenceCodes:
+            - '9216'
+            - HPCC
+          abstract: >-
+            This project will design, evaluate, and operate a unique
+            distributed, shared resources environment for large-scale network
+            analysis, modeling, and visualization, named NetWorkBench (NWB). The
+            envisioned data-code-computing resources environment will provide a
+            one-stop online portal for researchers, educators, and practitioners
+            interested in the study of biomedical, social and behavioral
+            science, physics, and other networks.<br/><br/>The NWB will support
+            network science research across scientific boundaries. Users of the
+            NWB will have online access to major network datasets or can upload
+            their own networks. They will be able to perform network analysis
+            with the most effective algorithms available. In addition, they will
+            be able to generate, run, and validate network models to advance
+            their understanding of the structure and dynamics of particular
+            networks. NWB will provide advanced visualization tools to
+            interactively explore and understand specific networks, as well as
+            their interaction with other types of networks. <br/><br/>A major
+            computer science challenge is the development of an algorithm
+            integration framework that supports the easy integration and
+            dissemination of existing and new algorithms and can deal with the
+            multitude of network data formats in existence today. Another
+            challenge is the design and implementation of an easy to use
+            menu-based, online portal interface for interactive algorithm
+            selection, data manipulation, user and session management. The NWB
+            will be evaluated in diverse research projects and educational
+            settings in biology, social and behavioral science, and physics
+            research. It will be well documented and available as open source
+            for easy duplication and usage at other sites. An annual summer
+            school and a series of workshops and tutorials are planned to
+            introduce the tool to diverse research communities. <br/><br/>The
+            NWB will provide members of the scientific research community at
+            large (biologists, physicists, computer scientists, social and
+            behavioral scientists, engineers, etc.) with the means to carry out
+            network analysis, modeling, and visualization projects in their own
+            fields. This will result in a direct transfer of knowledge and
+            results from the fields of specialist network research to a wider
+            scientific community. Researchers will have access to validated
+            algorithms that in the past have been obtained through
+            time-consuming personal developments of ad hoc computer programs.
+            The NWB is expected to enhance and encourage the empirical analysis
+            and model validation of networks, generating an eventual
+            acceleration in the development of network science research. Online
+            instructional material will support the use of the NWB in
+            educational settings. <br/><br/>The NWB will provide a unique tool
+            for network science researchers in many disciplines. In effect, NWB
+            can deploy the knowledge accumulated in network theory and practice
+            across sciences with just one web click to any interested
+            researcher, practitioner, or student. The NWB shared resources
+            environment will speed up and ease network science applications and
+            education in biology, social and behavioral science, and large
+            infrastructure analysis, thereby accelerating the rate of scientific
+            discovery.
+          location:
+            zip: '47401'
+            latitude: 39.1401
+            longitude: -86.5083
+            city: Bloomington
+            state: IN
+            country: US
+          globalStats: *ref_0
+        - id: '0524661'
+          title: Mapping Chemistry
+          piName: Katy Borner
+          piEmailAddress: katy@indiana.edu
+          coPiNames:
+            - Kevin Boyack
+          organization:
+            name: Indiana University
+            street: 509 E 3RD ST
+            city: Bloomington
+            state: IN
+            zip: '474013654'
+            zip5: '47401'
+            phone: '8128550516'
+          startDate: 2005-08-01T05:00:00.000Z
+          endDate: 2007-01-31T05:00:00.000Z
+          lastAmendmentDate: 2006-07-14T04:00:00.000Z
+          startYear: 2005
+          endYear: 2007
+          lastAmendmentYear: 2006
+          awardInstrument: Standard Grant
+          awardedAmountToDate: 204990
+          arraAmount: 0
+          nsfOrganization: CHE
+          nsfPrograms:
+            - PROJECTS
+          nsfProgramManager: Kelsey D. Cook
+          nsfDirectorate: MPS
+          programElementCodes:
+            - '1978'
+          programReferenceCodes:
+            - '0000'
+            - '9237'
+            - OTHR
+          abstract: >-
+            Professor Katy Boerner of the University of Indiana and Dr. Kevin
+            Boyack of Sandia National Laboratories are supported with a Small
+            Grant for Exploratory Research (SGER) from the Analytical and
+            Surface Chemistry Program to study the interconnections between
+            chemistry, biochemistry and the life sciences and their evolution in
+            time. The idea is to utilize advanced data mining and visualization
+            techniques to analyze citation links among papers in the
+            approximately 1300 journals related to chemistry, biochemistry and
+            the life sciences over the past 30 years. Knowledge domain maps will
+            be employed to communicate the growth of both fields of science over
+            time as well as their inter-citations patterns. The work plan
+            includes data cleaning and parsing, mapping and analyzing the
+            structure of the domains, identification of interdisciplinary
+            information producers and consumers, diffusion of information
+            studies, and validation in cooperation with domain experts in
+            chemistry and the life sciences.<br/><br/>This proof-of-concept
+            project will create baseline visualizations that show the potential
+            of knowledge domain mapping techniques to better inform decisions on
+            programs that require accurate knowledge of the current science and
+            technology infrastructure. New opportunities in the
+            interdisciplinary areas between chemistry and biology merit study in
+            order for the research community to evaluate the best next steps.
+            This project will support graduate students in a research
+            university/research lab collaboration. The activity is timely, as
+            the development and utilization of visualizations is facilitated by
+            the explosion of information available digitally, the decreasing
+            cost of storage and computing power, the development of fast
+            graphics processors, as well as expanding connectivity between
+            systems.
+          location:
+            zip: '47401'
+            latitude: 39.1401
+            longitude: -86.5083
+            city: Bloomington
+            state: IN
+            country: US
+          globalStats: *ref_0
+        - id: 0831636
+          title: >-
+            SGER: Collaborative Research: Mapping the Structure and Evolution of
+            Sustainability Science Research
+          piName: Katy Borner
+          piEmailAddress: katy@indiana.edu
+          coPiNames: []
+          organization:
+            name: Indiana University
+            street: 509 E 3RD ST
+            city: Bloomington
+            state: IN
+            zip: '474013654'
+            zip5: '47401'
+            phone: '8128550516'
+          startDate: 2008-08-01T04:00:00.000Z
+          endDate: 2011-01-31T05:00:00.000Z
+          lastAmendmentDate: 2008-07-28T04:00:00.000Z
+          startYear: 2008
+          endYear: 2011
+          lastAmendmentYear: 2008
+          awardInstrument: Standard Grant
+          awardedAmountToDate: 104197
+          arraAmount: 0
+          nsfOrganization: CBET
+          nsfPrograms:
+            - ECOSYSTEM STUDIES
+            - ERE General
+            - ENVIRONMENTAL SUSTAINABILITY
+            - ENERGY FOR SUSTAINABILITY
+          nsfProgramManager: Bruce K. Hamilton
+          nsfDirectorate: ENG
+          programElementCodes:
+            - '1181'
+            - '7304'
+            - '7643'
+            - '7644'
+          programReferenceCodes:
+            - '0000'
+            - 012E
+            - '9237'
+            - OTHR
+          abstract: >-
+            CBET-0831636<br/>K. Borner, Indiana University<br/><br/>A new field
+            of Sustainability Science and Engineering is emerging that seeks to
+            understand the fundamental character of interactions between nature
+            and human society and to help steer the impact of humanity's needs
+            on the planet's natural resources towards sustainable trajectories.
+            Sustainability Science and Engineering is unified in clear terms by
+            its ultimate goals but occupies an interdisciplinary position among
+            traditional research fields, spanning both science and engineering
+            and spreading across disciplines as diverse as agriculture, ecology,
+            oceanography, climate studies, economics, a diverse set of social
+            sciences, energy and materials and several additional aspects of
+            engineering, physics, biology, and chemistry. Although
+            Sustainability Science and engineering is by now widely discussed in
+            the scientific and engineering community, and is beginning to be
+            connected to the political agenda for economic and social
+            development, it remains unclear to what extent its many facets are
+            being integrated into a global perspective and whether researchers
+            are utilizing it as a nexus to collaborate across traditional
+            scientific and engineering fields. This project will address such
+            issues by delineating, analyzing, and mapping both basic research on
+            sustainability. Specifically, a comprehensive dataset of scholarly
+            publications, patents, research grants, policy documents and popular
+            science pieces that together define the integrated knowledge of the
+            field will be compiled. <br/><br/>Analysis results will be presented
+            as tables, graphs, and in form of geospatial and science maps.
+            Sustainability experts will be invited to interpret these results.
+            Findings will be presented, discussed, and disseminated via
+            scholarly publications, online, and at a workshop on the topic of
+            sustainability. Encouraging timely scientific and engineering
+            progress across a large set of traditional disciplines requires
+            generating a global perspective (a view 'from above') to determine
+            the most effective actions and incentives to be created by
+            governments, funding agencies, non-governmental organizations, the
+            scientific community, and the public at large. This work will map
+            the current state of sustainability science and engineering
+            worldwide and provide actionable insights into its future
+            development. The resulting maps will be useful for communicating the
+            state of the art as well as to point out challenges and
+            opportunities. They might be extended and adopted as a visual
+            interface into research and practice of Sustainability Science and
+            Engineering. Several graduate students will be involved and trained
+            in this project.
+          location:
+            zip: '47401'
+            latitude: 39.1401
+            longitude: -86.5083
+            city: Bloomington
+            state: IN
+            country: US
+          globalStats: *ref_0
+        - id: '1546824'
+          title: >-
+            Conference: SciSIP Conference on Modelling Science, Technology, and
+            Innovation, May 2016
+          piName: Katy Borner
+          piEmailAddress: katy@indiana.edu
+          coPiNames:
+            - Stasa Milojevic
+          organization:
+            name: Indiana University
+            street: 509 E 3RD ST
+            city: Bloomington
+            state: IN
+            zip: '474013654'
+            zip5: '47401'
+            phone: '8128550516'
+          startDate: 2015-09-01T04:00:00.000Z
+          endDate: 2016-08-31T04:00:00.000Z
+          lastAmendmentDate: 2016-04-27T04:00:00.000Z
+          startYear: 2015
+          endYear: 2016
+          lastAmendmentYear: 2016
+          awardInstrument: Standard Grant
+          awardedAmountToDate: 48750
+          arraAmount: 0
+          nsfOrganization: SMA
+          nsfPrograms:
+            - SCIENCE OF SCIENCE POLICY
+          nsfProgramManager: Maryann Feldman
+          nsfDirectorate: SBE
+          programElementCodes:
+            - '7626'
+          programReferenceCodes:
+            - '7556'
+            - '7626'
+            - '9179'
+          abstract: >-
+            Science policy is concerned with the need to allocate resources,
+            both monetary and human, in an effective way to foster innovation.
+            Advances in computational power combined with the availability of
+            big data on science and technology developments create ideal
+            conditions for the advancement of computational modeling approaches
+            that can be empirically validated and used to understand and predict
+            future developments in science, technology, and innovation. The
+            conference will apply a systems-science approach to review
+            mathematical, statistical, and computational models and discuss the
+            creation of an up-to-date inventory of methods and tools available
+            to model the future direction of STI.<br/><br/>This conference will
+            bring together leading experts from economics, social science,
+            scientometrics and bibliometrics, information science, physics, and
+            science policy that focus on developing mathematical, statistical,
+            and computational models of different types (stochastic,
+            agent-based, epidemics, game-theoretic, network. etc.) to increase
+            our understanding of the structure and dynamics of science,
+            technology, and innovation. The conference will invite participation
+            from federal funding, university administrators and other science
+            policy makers, to help identify potential grand challenges.
+          location:
+            zip: '47401'
+            latitude: 39.1401
+            longitude: -86.5083
+            city: Bloomington
+            state: IN
+            country: US
+          globalStats: *ref_0
+  - id: nsfFile
+    template: string
+    data: >-
+      "AwardNumber","Title","NSFOrganization","Program(s)","StartDate","LastAmendmentDate","PrincipalInvestigator","State","Organization","AwardInstrument","ProgramManager","EndDate","AwardedAmountToDate","Co-PIName(s)","PIEmailAddress","OrganizationStreet","OrganizationCity","OrganizationState","OrganizationZip","OrganizationPhone","NSFDirectorate","ProgramElementCode(s)","ProgramReferenceCode(s)","ARRAAmount","Abstract"
+
+      "1839167","TRIPODS+X:RES:Collaborative Research: Multi-Level Graph
+      Representation for Exploring Big Data","DMS","TRIPODS Transdisciplinary
+      Rese","10/01/2018","09/10/2018","Katy Borner","IN","Indiana
+      University","Standard Grant","Tracy J.
+      Kimbrel","09/30/2021","$300,000.00","","katy@indiana.edu","509 E 3RD
+      ST","Bloomington","IN","474013654","8128550516","MPS","041Y","047Z,
+      062Z","$0.00","Working with social, topical, financial, transportation,
+      biological, and other networks requires a better understanding of their
+      structure and properties. Standard network visualizations of such large
+      real-world networks often resemble hairballs that provide little
+      actionable insight. This project aims to design, implement, and deploy
+      efficient algorithms for multi-level network representations that support
+      interactive exploration by general audiences. Using the familiar Google
+      map metaphor, these algorithms will make it easy to identify important
+      nodes, major pathways, and clusters across multiple levels. Unlike
+      existing methods for visualizing multi-level networks based on meta-nodes
+      and meta-edges, the new visualizations will provide real nodes
+      (prototypes) and real paths (backbones) for each level, similar to
+      geographic maps that show real cities and real roads at every level of
+      detail.<br/><br/>The proposed work contributes to graph algorithms by
+      designing and implementing novel and efficient algorithms for interactive
+      analysis and visualization of large, multi-level networks, information
+      visualization with new methods for multi-level network visualization based
+      on the familiar map metaphor, and science mapping standards by providing
+      effective means to explore and use large-scale, multi-level science maps
+      of our collective scholarly knowledge as well as workforce needs. The
+      first goal is to design efficient algorithms for computing Multi-Level
+      Graph Spanners (MLGS) in support of visual analytics tasks for large
+      network exploration, navigation, and communication. The second goal is to
+      utilize the MLGS representation in the context of network analysis and
+      visualization by building a novel online visualization service for
+      interacting with large networks, which combines the MLGS approach with
+      clustering, layout and map-like visualization. The third goal is to
+      develop a new approach for science and workforce classification, lookup,
+      and topical mapping service by applying the MLGS approach to the Web of
+      Science publication data (64 million publications and 1 billion citations)
+      to compute a multi-level map of scientific development. The fourth goal is
+      to validate the new algorithms and visualizations by evaluating both the
+      algorithms and the system using quantitative and qualitative
+      metrics.<br/><br/>This award reflects NSF's statutory mission and has been
+      deemed worthy of support through evaluation using the Foundation's
+      intellectual merit and broader impacts review criteria."
+
+      "1735095","NRT: Interdisciplinary Training in Complex Networks and
+      Systems","DGE","NSF Research Traineeship (NRT), PROGRAM
+      EVALUATION","09/01/2017","07/06/2017","Luis Rocha","IN","Indiana
+      University","Standard Grant","Laura
+      Regassa","08/31/2022","$2,999,845.00","Bernice Pescosolido, Katy Borner,
+      Olaf Sporns, Armando Razo","rocha@indiana.edu","509 E 3RD
+      ST","Bloomington","IN","474013654","8128550516","EHR","1997, 7261","1331,
+      1371, 7433, 9179, SMET","$0.00","Understanding complex networked systems
+      is key to solving some of the most vexing problems confronting humankind,
+      from discovering how dynamic brain connections give rise to thoughts and
+      behaviors, to detecting and preventing the spread of misinformation or
+      unhealthy behaviors across a population. Graduate training, however,
+      typically occurs in one of two dimensions: experimental and observational
+      methods in a specific area such as biology and sociology, or in general
+      methodologies such as machine learning and data science.  With more and
+      more students seeking to gain sufficient expertise in mathematical and
+      computational methods on top of domain-specific laboratory and social
+      analysis methodologies, a greater demand for more efficient training is
+      emerging. This National Science Foundation Research Traineeship (NRT)
+      award to Indiana University will address this growing need with an
+      integrated dual PhD program that trains students to be ""bidisciplinary""
+      in Complex Networks and Systems (CNS) and another discipline of their
+      choosing from the natural and social sciences. It will seamlessly
+      integrate traditional education with interdisciplinary hands-on research
+      in a culture of academic and human diversity. This program will provide
+      unique interdisciplinary training for thirty-four (34) PhD students,
+      including twenty-two (22) funded trainees. The program will provide
+      additional training experience to 40 summer affiliate students and a
+      population of more than 300 participants across the participating PhD
+      programs.<br/><br/>The training program capitalizes on the new Indiana
+      University Network Science Institute (IUNI). The Institute's 165+ faculty
+      members will serve in interdisciplinary PhD program committees to be
+      co-chaired by research mentors from both CNS and the target empirical
+      domain. Project-driven, team-based research at IUNI will seamlessly
+      integrate academic education with interdisciplinary hands-on scientific
+      and industrial research. Trainees will learn to connect the
+      general-purpose, computational expertise of CNS to the deep,
+      domain-specific research methodologies of the natural, behavioral, and
+      social sciences thus bridging the gap between distinct training cultures.
+      They will be a new breed of STEM scientists that escapes the silos of
+      disciplinary training to address the complex problems of the 21st century.
+      Specifically, the four goals of training activity are: 1) provide dual
+      research proficiency; 2) develop collaborative skills via early
+      integration into problem-driven, interdisciplinary research; 3) produce a
+      diverse workforce by recruiting student cohorts from a broad set of
+      disciplines and varied backgrounds to be trained within a team culture; 4)
+      establish a sustainable interdisciplinary training model by enlarging the
+      institutional channels created between informatics and natural and social
+      sciences to other Indiana University departments and institutions. A
+      science-of-science study conducted throughout the NRT project will
+      evaluate the efficacy of interdisciplinary training of the students in
+      this program. This project will develop a flexible dual PhD program and
+      best-practices to allow additional departments at Indiana University to
+      join the program in the future, as well as other institutions to develop
+      similar programs.<br/><br/>The NSF Research Traineeship (NRT) Program is
+      designed to encourage the development and implementation of bold, new
+      potentially transformative models for STEM graduate education training.
+      The Traineeship Track is dedicated to effective training of STEM graduate
+      students in high priority interdisciplinary research areas, through
+      comprehensive traineeship models that are innovative, evidence-based, and
+      aligned with changing workforce and research needs."
+
+      "1713567","Data Visualization Literacy: Research and Tools that Advance
+      Public Understanding of Scientific
+      Data","DRL","AISL","08/01/2017","06/13/2017","Katy Borner","IN","Indiana
+      University","Standard Grant","Arlene M. de
+      Strulle","07/31/2021","$1,355,236.00","Kylie Peppler, Bryan Kennedy,
+      Stephen Uzzo, Joe Heimlich","katy@indiana.edu","509 E 3RD
+      ST","Bloomington","IN","474013654","8128550516","EHR","7259","","$0.00","As
+      the world is increasingly dependent upon computing and computational
+      processes associated with data analysis, it is essential to gain a better
+      understanding of the visualization technologies that are used to make
+      meaning of massive scientific data. It is also essential that the
+      infrastructure, the very means by which technologies are developed for
+      improving the public's engagement in science itself, be better understood.
+      Thus, this AISL Innovations in Development project will address the
+      critical need for the public to learn how to interpret and understand
+      highly complex and visualized scientific data. The project will design,
+      develop and study a new technology platform, xMacroscope, as a learning
+      tool that will allow visitors at the Science Museum of Minnesota and the
+      Center of Science and Industry, to create, view, understand, and interact
+      with different data sets using diverse visualization types. The
+      xMacroscope will support rapid research prototyping of public experiences
+      at selected exhibits, such as collecting data on a runner's speed and
+      height and the visualized representation of such data. The xMacroscope
+      will provide research opportunities for exhibit designers, education
+      researchers, and learning scientists to study diverse audiences at science
+      centers in order to understand how learning about data through the
+      xMacroscope tool may inform definitions of data literacy. The research
+      will advance the state of the art in visualization technology, which will
+      have broad implications for teaching and learning of scientific data in
+      both informal and formal learning environments. The project will lead to
+      better understanding by science centers on how to present data to the
+      public more effectively through visualizations that are based upon massive
+      amounts of data. Technology results and research findings will be
+      disseminated broadly through professional publications and presentations
+      at science, education, and technology conferences. The project is funded
+      by the Advancing Informal STEM Learning (AISL) program, which seeks to
+      advance new approaches to, and evidence-based understanding of, the design
+      and development of STEM learning in informal environments. This includes
+      providing multiple pathways for broadening access to and engagement in
+      STEM learning experiences, advancing innovative research on and assessment
+      of STEM learning in informal environments, and developing understandings
+      of deeper learning by participants.<br/><br/>The project is driven by the
+      assumption that in the digital information age, being able to create and
+      interpret data visualizations is an important literacy for the public. The
+      research will seek to define, measure, and advance data visualization
+      literacy. The project will engage the public in using the xMacrocope at
+      the Science Museum of Minnesota and at the Center of Science and
+      Industry's (COSI) science museum and research center in Columbus, Ohio. In
+      both museum settings the public will interact with different datasets and
+      diverse types of visualizations. Using the xMacroscope platform, personal
+      attributes and capabilities will be measured and personalized data
+      visualizations will be constructed. Existing theories of learning
+      (constructivist and constructionist) will be extended to capture the
+      learning and use of data visualization literacy. In addition, the project
+      team will conduct a meta-review related to different types of literacy and
+      will produce a definition with performance measures to assess data
+      visualization literacy - currently broadly defined in the project as the
+      ability to read, understand, and create data visualizations. The research
+      has potential for significant impact in the field of science and
+      technology education and education research on visual learning. It will
+      further our understanding of the nature of data visualization literacy
+      learning and define opportunities for visualizing data in ways that are
+      both personally and culturally meaningful. The project expects to advance
+      the understanding of the role of personalization in the learning process
+      using iterative design-based research methodologies to advance both theory
+      and practice in informal learning settings. An iterative design process
+      will be applied for addressing the research questions by correlating
+      visualizations to individual actions and contributions, exploring
+      meaning-making studies of visualization construction, and testing the
+      xMacroscope under various conditions of crowdedness and busyness in a
+      museum context. The evaluation plan is based upon a logic model and the
+      evaluation will iteratively inform the direction, process, and
+      productivity of the project."
+
+      "1566393","EAGER: Open XD Metrics on Demand Value
+      Analytics","OAC","ETF","04/01/2016","01/27/2016","Matthew
+      Link","IN","Indiana University","Standard Grant","Edward
+      Walker","03/31/2018","$296,416.00","Katy Borner, Robert Henschel, Steven
+      Gallo, Thomas Furlani","mrlink@iu.edu","509 E 3RD
+      ST","Bloomington","IN","474013654","8128550516","CSE","7476","7916","$0.00","Understanding
+      the value of campus-based cyberinfrastructure (CI) to the institutions
+      that invest in such CI is intrinsically difficult.  Given today's
+      financial pressure, administrative support for campus-based CI centers
+      offering resources to local campus users is under constant budgetary
+      pressure.  This is partly due to the difficulty in obtaining quantitative
+      metrics that clearly demonstrate the utility of investment in campus CI
+      centers in enhancing scientific research and the financial aspects of
+      enhanced competitive ability in seeking funding for research. 
+      <br/><br/>This proposal seeks to implement a set of highly experimental
+      modules to be added to the existing CI metrics tool eXtreme Data Metrics
+      on Demand (XDMoD).  These modules are intended to provide a means for
+      assessing campus-based CI investment in scientific terms, as measured in
+      publications, and in financial terms, as measured in grant income from
+      researchers who use CI as compared to those who do not.  The modules,
+      tentatively called Open XDMoD Value Analytics, will present a view of
+      financial, collaboration, and publication data, showing
+      ""return-on-investment"" metrics in relation to CI usage.  The goal of the
+      work is to generalize these modules to work with a variety of funding and
+      publication information sources, and incorporate them into the open source
+      distribution of Open XDMoD."
+
+      "0533892","SCI:    Workshop:    The Role of Social Network Research in
+      Enabling Cyberinfrastructure and the Role of Cyberinfrastructure in
+      Enabling Social Network, Champaign-Urbana, IL","OAC","SPECIAL PROJECTS IN
+      NET RESEAR","08/15/2005","03/16/2006","Noshir Contractor","IL","University
+      of Illinois at Urbana-Champaign","Standard Grant","Diana R.
+      Rhoten","07/31/2006","$50,000.00","Katy
+      Borner","nosh@northwestern.edu","1901 South First
+      Street","Champaign","IL","618207406","2173332187","CSE","4095","9217,
+      HPCC","$0.00","The International Workshop entitled ""The Role of Social
+      Network Research in Enabling Cyberinfrastructure and the Role of
+      Cyberinfrastructure in Enabling Social Network Research"" brings together
+      leading researchers and practitioners in social network analysis with key
+      scientists and engineers who are in the process of developing
+      cyberinfrastructure for their respective communities. The Workshop will
+      help acquaint the scientific and engineering community with the potential
+      of social networking tools to enhance the communication and knowledge
+      networks within the communities supported by cyberinfrastructure.
+      Traditionally, social network analysis has focused on small and ""single
+      mode"" or bimodal affiliation networks. The workshop will help the social
+      network analysis community in identifying a research agenda for extending
+      existing theory, methodology, and computational tools to enable
+      large-scale and multidimensional networks. By bringing together leading
+      social network researchers and leading developers of cyberinfrastructure
+      in diverse science and engineering communities, the Workshop will also
+      promote: (i) the specification of new mathematical and statistical models
+      with broad application in the social and behavioral sciences, (ii) the
+      development and extension of scalable algorithms to analyze and visualize
+      the large scale and multidimensional networks that exist within these
+      cybercommunities, and (iii) the development and extension of advanced
+      user-driven software and web services that implement these algorithms to
+      help members of a cybercommunity leverage their communication and
+      knowledge networks. <br/>Broader impacts: The Workshop will offer a unique
+      means for a symbiotic exchange of insights between the social network
+      analysis research community (which cuts across many disciplines, but
+      especially sociology, psychology, communication, organizational science,
+      information science and economic) and the key developers of
+      cyberinfrastructure (which cuts across many disciplines including
+      atmospheric sciences, geo sciences, environmental engineering, ecological
+      research, and public health). The Workshop will help network scholars and
+      students identify the challenges as well as the opportunities of social
+      networking to enable research and education within a cyberinfrastructure.
+      This will result in a direct transfer of knowledge and results from the
+      fields of specialist social network research to wider scientific
+      communities exploring the development of cyberinfrastructure in their
+      fields. The workshop will also assess the viability and contours of
+      developing a Social Network Analysis Cyberinfrastructure for advancing
+      network analysis, modeling, visualization research and education. The
+      broad mix of researchers from these various communities has the potential
+      to unleash a new generation of theory, education, and practice on the role
+      of social networking and 21st century cyberinfrastructure.<br/><br/>"
+
+      "1223698","Pathways: Sense-Making of Big
+      Data","DRL","AISL","07/15/2012","07/10/2012","Katy Borner","IN","Indiana
+      University","Standard Grant","William
+      Neufeld","06/30/2015","$250,000.00","Adam Maltese, Joe
+      Heimlich","katy@indiana.edu","509 E 3RD
+      ST","Bloomington","IN","474013654","8128550516","EHR","7259","9177,
+      SMET","$0.00","This pathways project will study how audiences in public
+      spaces, in this case those in a museum setting, relate to and make sense
+      of large data displays. The project is preliminary to development of a
+      traveling, hands-on exhibition enabling users to create and utilize
+      representations of big data displays such as maps and charts.  As the test
+      case, the project will use science maps that provide an overview of
+      science generally and specific areas of STEM, charting and exploring the
+      history and future of science and technology. The data collection portion
+      of the project will take place at the New York Hall of Science, the Marian
+      Koshland Science Museum, COSI in Columbus, Ohio, and WonderLab Museum in
+      Bloomington, Indiana. <br/><br/>The project will create a foundation for
+      the design of museum exhibits and educational programs that teach museum
+      visitors how to explore, engage and make better sense of big data. The
+      project is potentially transformative because big data is becoming
+      ubiquitous and making sense out of large data displays is necessary in
+      order to understand big data sets."
+
+      "0532387","May 2006 International Workshop and Conference on Network
+      Science","SES","MATHEMATICAL SOC & BEHAV
+      SCI","10/01/2005","08/26/2005","Stanley Wasserman","IN","Indiana
+      University","Standard Grant","Cheryl L.
+      Eavey","03/31/2007","$78,481.00","Noshir Contractor, Katy Borner,
+      Albert-Laszlo Barabasi, Alessandro Vespignani","stanwass@indiana.edu","509
+      E 3RD ST","Bloomington","IN","474013654","8128550516","SBE","7397","0000,
+      7303, 7397, OTHR","$0.00","The award supports the ""International Workshop
+      and Conference on Network Science,"" to be held at Indiana University,
+      Bloomington, Indiana, during May 2006.  The primary objective of these
+      activities is to facilitate interactions among social and behavioral
+      scientists and the many new disciplines interested in and utilizing
+      network science.  The Workshop and Conference will bring together leading
+      researchers and practitioners in network science --- analysts, modeling
+      experts, and visualization specialists --- with graduate students from
+      many different research areas for interdisciplinary communication and
+      collaboration.  The Workshop will feature tutorials focusing on a variety
+      of network science research areas.  The Workshop will lead into the
+      Conference, which will feature intellectual discourses and conference
+      presentations from the invited graduate students.<br/><br/>For network
+      research to achieve its potential impact on scientific research, students
+      and faculty need to be broadly trained in this area, learning not only the
+      basic measurement and modeling tools but also their meaning and range of
+      applicability.  The Workshop will provide cross training in the theory and
+      methods of network science, incorporating the perspectives of diverse
+      disciplines such as sociology, organizational science, information
+      science, mathematics, statistics, informatics, biology, and physics.  By
+      bringing together leading researchers and emerging network scholars, the
+      Workshop and the Conference will also promote the development of new
+      mathematical and statistical models with broad application in the social
+      and behavioral sciences.  Dissemination products include an easily
+      accessible website containing tutorials and invited and contributed
+      papers.  This award was supported as part of the fiscal year 2005
+      Mathematical Sciences priority area special competition on Mathematical
+      Social and Behavioral Sciences (MSBS). <br/>"
+
+      "0724282","III: ""Visualizing Network Dynamics"" --  Competition at the
+      International Conference on Network Science 2007","IIS","INFO INTEGRATION
+      & INFORMATICS","04/01/2007","04/06/2007","Katy Borner","IN","Indiana
+      University","Standard Grant","Maria
+      Zemankova","03/31/2008","$11,890.00","Stephen
+      Uzzo","katy@indiana.edu","509 E 3RD
+      ST","Bloomington","IN","474013654","8128550516","CSE","7364","7364, 9216,
+      HPCC","$0.00","This award supports the ""Visualizing Network Dynamics""
+      Competition intended to cull some of the world's best dynamic network
+      visualization results to be exhibited at the 2007 International Workshop
+      and Conference on Network Science (NetSci07), held in the New York Hall of
+      Science, May 20 - 25, 2007.<br/><br/>The competition is designed to
+      attract researchers, practitioners, and educators from such diverse
+      disciplines as anthropology, sociology, history, social psychology,
+      political science, human geography, biology, economics, communications
+      science but also art and design to submit the best-of visualizations of
+      evolving networks, activity patterns over networks or combinations of the
+      two. Competition applications comprise of large resolution static images
+      or video footage together with a detailed explanation of datasets used,
+      analysis or modeling techniques applied, and the visualization design.
+      Applicants are also asked to list and explain major insights gained and to
+      discuss the value the visualization may have for educational
+      purposes.<br/><br/>The competition plans to feature the winning entries
+      that support insight and decision making network dynamics visualizations
+      (as opposed to purely artistically appealing images or videos). In
+      addition, it aims to raise the bar for the documentation and communication
+      of the process applied to generate those visualizations, and to sensitize
+      people to the importance of visualization for education.<br/><br/>The
+      winning entries will be recognized and all valid entries will be made
+      available online via the NetSci07 Web site (http://www.nd.edu/%7Enetsci/)
+      as a general, free resource for anybody interested in the study or
+      communication of dynamic networks. Online dissemination is expected to
+      improve diverse network science related scientific, engineering and/or
+      educational activities. <br/>"
+
+      "0333623","Project ENABLE: Learning through Associations in a Grid based
+      Bioinformatics Digital Library","DUE","NATIONAL SMETE DIGITAL
+      LIBRARY","09/01/2003","09/13/2006","Javed Mostafa","IN","Indiana
+      University","Standard Grant","Curtis T.
+      Sears","08/31/2007","$449,563.00","Mathew Palakal, Snehasis Mukhopadhyay,
+      Donald Gilbert, Katy Borner","jm@unc.edu","509 E 3RD
+      ST","Bloomington","IN","474013654","8128550516","EHR","7444","9178,
+      SMET","$0.00","This project is applying advances in digital library (DL)
+      technologies to the emerging domain of bioinformatics, and developing
+      interaction tools that support learning based on identifying and
+      visualizing associations among key dimensions of bioinformatics resources.
+      The project is making these current resources, which are mainly utilized
+      by expert biologists, available to bioinformatics students. The project
+      addresses issues regarding: the use of a wide variety of formats and
+      representations to store bioinformatics information; the application of DL
+      technologies particularly in the realm of data description and exchange;
+      mapping of metadata associated with bioinformatics information to data
+      description standards compatible with DL technologies; and building
+      clients that take advantage of data dissemination protocols such as the
+      Open Archives Initiative in order to support novel browse, search, and
+      analysis functions based on visualizations. The project team is also
+      integrating DL and Grid computing technologies, and utilizes
+      bioinformatics resources of Indiana University such as the Drosophila
+      Genome Flybase, the IUBio Archive that contains euGenes eukaryote genes
+      data, and the Bionet news archive and related software."
+
+      "0534909","Collaborative Research: Social Networking Tools to Enable
+      Collaboration in the Tobacco Surveillance, Epidemiology, and Evaluation
+      Network (TSEEN)","IIS","DIGITAL GOVERNMENT, INFO INTEGRATION &
+      INFORMATICS","03/15/2006","03/24/2008","Katy Borner","IN","Indiana
+      University","Continuing grant","Vijayalakshmi
+      Atluri","02/28/2011","$247,580.00","","katy@indiana.edu","509 E 3RD
+      ST","Bloomington","IN","474013654","8128550516","CSE","1706, 7364","1706,
+      7364, 9102, 9200, 9216, HPCC","$0.00","A highly publicized report by the
+      American Cancer Society noted that cancer has surpassed heart disease to
+      become the number one killer of adults under the age of 85 in the United
+      States today. At the top of the list was lung cancer, a disease that is
+      eminently preventable. Addressing public health threats like cancer are
+      acute, system-wide challenges that would benefit from network-centric
+      approaches. For example, when the tobacco research community realized it
+      had taken over a decade to discover that they had already collected
+      substantial empirical evidence, distributed across its network of tobacco
+      researchers, indicating that 'light' (low-tar/low-nicotine brands)
+      cigarettes reduced neither exposure to nor risk of cancer, researchers
+      began to understand the importance of effectively sharing resources and
+      information across the entire community. In response, government agencies
+      involved in public health have made a substantial foundational investment
+      in developing a digital government cyberinfrastructure--Tobacco Systems
+      integration Grid (TobacSIG)--to enable collaboration within the Tobacco
+      Surveillance, Epidemiology, and Evaluation Network (TSEEN). While such an
+      underlying cyberinfrastructure is a prerequisite, delays in discoveries
+      (such as the carcinogenic effects of 'light' cigarette mentioned above)
+      have prompted the TSEEN community to underscore the need for social
+      network referral tools as a crucial component of any effort to enhance the
+      efficacy of their collaboration system.<br/>"
+
+      "0238261","CAREER: Visualizing Knowledge Domains","IIS","Hist & Philosophy
+      of SET, PROJECTS, INFORMATION & KNOWLEDGE MANAGE, INFO INTEGRATION &
+      INFORMATICS","09/01/2003","06/27/2007","Katy Borner","IN","Indiana
+      University","Continuing grant","Maria
+      Zemankova","08/31/2008","$536,250.00","","katy@indiana.edu","509 E 3RD
+      ST","Bloomington","IN","474013654","8128550516","CSE","1353, 1978, 6855,
+      7364","1045, 1187, 9178, 9215, 9216, 9218, 9237, 9251, HPCC,
+      SMET","$0.00","Knowledge Domain Visualizations (KDVs) are a special kind
+      of Information Visualizations (IVs) that exploit powerful human vision and
+      spatial cognition to help humans mentally organize and electronically
+      access and manage large, complex information spaces. Unlike scientific
+      visualizations, KDVs are created from data that have no spatial reference,
+      such as publications, patents, or grants.<br/>The research component of
+      this project comprises the setup of an advanced, open architecture,
+      computing infrastructure for KDV education and research as well as the
+      development and comprehensive evaluation of algorithms for incremental and
+      scalable data analysis, dimensionality reduction, and spatial layout.
+      Cartographic principles are employed to facilitate the use of skills
+      traditionally associated with geographic maps for the exploration of KDVs.
+      <br/>The education plan includes the development of an Information
+      Visualization Data and Software Repository that together with associated
+      Learning Modules provides public access to and training for existing and
+      newly developed IV and KDV software. The value of KDVs for educational
+      purposes, e.g., to equip students with a ""big picture"" or global view of
+      teaching material, is explored.<br/>The project will make KDVs available
+      as a new information access and management tool that has the potential to
+      dramatically improve the communication of scientific results for students,
+      researchers, agencies, R&D managers, industry, data providers, and
+      society; (2) create an advanced computing infrastructure for IV/KDV
+      researchers to contribute, run, and compare new and existing algorithms on
+      diverse data sets; and (3) improve IV/KDV teaching, training and learning
+      by means of an online IV/KDV repository, associated learning modules, as
+      well as a textbook. <br/><br/>Web page:
+      http://vw.indiana.edu/kdv<br/><br/>"
+
+      "0750993","NSF Workshop on Knowledge Management and Visualization Tools in
+      Support of Discovery","IIS","INFO INTEGRATION &
+      INFORMATICS","01/01/2008","09/07/2007","Katy Borner","IN","Indiana
+      University","Standard Grant","Maria
+      Zemankova","12/31/2009","$49,461.00","","katy@indiana.edu","509 E 3RD
+      ST","Bloomington","IN","474013654","8128550516","CSE","7364","7364, 9218,
+      HPCC, 9102","$0.00","Today, mankind's scholarly knowledge is stored in
+      millions of papers that are often not the best format to keep track of
+      scientific results, in 10,000s of databases that are rarely interlinked,
+      1,000s of software repositories with no central search facility, and of
+      course in experts heads distributed around the globe and across the
+      landscape of science. Many scientific projects and experiments require
+      access not only to results published in papers but also to the raw or
+      processed data used, the services/algorithms/tools applied, the people
+      which performed the work as the paper might not report results in a way
+      that the experiment can be re-run, or new data can be analyzed using the
+      same tools, or all experts familiar with a dataset/algorithm can be
+      retrieved, etc. <br/><br/>The proposed workshop aims to identify the
+      general features of cyber-enabled knowledge management tools in support of
+      discovery. Specifically, the focus is on two major challenges: <br/>* How
+      to better capture and interlink scientific data, algorithms, publications,
+      and expertise? <br/>* How to improve access, navigation, understanding,
+      and discovery by means of visual interfaces to digital resources such as
+      scientific data, algorithms, publications, and expertise?<br/>The two
+      challenges and potential solutions will be discussed in detail using two
+      application domains of major economic and societal importance: science of
+      science studies and biomedical research. <br/><br/>The two-day workshop
+      will bring together about 20 leading US and international experts in
+      databases, digital libraries, cyberinfrastructure/e-Science design, social
+      science of cyberinfrastructure, as well as practitioners in the areas of
+      science of science studies and biology. The goal of the workshop is to
+      identify high impact research directions, technological opportunities,
+      synergistic collaborations across disciplines and application domains
+      towards more effective knowledge management and visualization tools that
+      will support discovery and innovation. <br/><br/>Workshop Web site
+      (http://vw.indiana.edu/cdi2008) provides relevant material and will be
+      used for disseminating the resulting workshop report."
+
+      "0715303","Creative Metaphors to Stimulate New Approaches to Visualizing,
+      Understanding, and Rethinking Large Repositories of Scholarly
+      Data","IIS","ITR-CreativeIT","06/01/2007","06/02/2009","Katy
+      Borner","IN","Indiana University","Standard Grant","Pamela L.
+      Jennings","11/30/2009","$198,812.00","","katy@indiana.edu","509 E 3RD
+      ST","Bloomington","IN","474013654","8128550516","CSE","7655","0000, 9237,
+      OTHR, 9102","$0.00","This project facilitates a unique collaboration among
+      artists and scientists with the goal to develop, implement, and validate
+      novel metaphors and approaches to access, manage, and communicate
+      scholarly datasets. The results are expected to have transformative power
+      in terms of the organization, analysis, and visualization of large-scale
+      scholarly datasets. A sequence of three artists will work with scientists
+      at the Information Visualization Laboratory and the Cyberinfrastructure
+      for Network Science Center at Indiana University. <br/><br/>The artists
+      will work with database experts on parsing, structuring, and loading new
+      datasets into a multi-terabyte database of scholarly data. The artists
+      will play with a multitude of data analysis and visualization algorithms.
+      They will participate in brainstorming, technical, and design sessions.
+      Most importantly, the artists will be fully immersed as equal partners in
+      different projects. Ethnographic studies will be conducted to capture,
+      optimize, and communicate this unique collaboration. This is exploratory
+      work as we cannot predict what will happen when artists are immersed in
+      the Lab and are asked to rethink and reinvent the way in which research is
+      conducted, the tools being used and designed by the researchers, and the
+      means of communicating results.<br/><br/>The broader impact of this
+      research will be facilitated by three workshops that bring together
+      artists and scientists with synergistic expertise in (2) the communication
+      of science dynamics, (2) novel devices and interactivity techniques, and
+      (3) dramatization of information. These workshops bring together scholars
+      and artist that normally do not meet in a scholarly setting."
+
+      "0738111","TLS: Towards a Macroscope for Science Policy Decision
+      Making","SBE","SCIENCE OF SCIENCE POLICY","01/01/2008","08/26/2010","Katy
+      Borner","IN","Indiana University","Standard Grant","David C.
+      Croson","12/31/2011","$404,870.00","Weixia Huang, Kevin
+      Boyack","katy@indiana.edu","509 E 3RD
+      ST","Bloomington","IN","474013654","8128550516","SBE","7626","0000,
+      OTHR","$0.00","Science policy and other decision makers need qualitatively
+      novel tools to help them identify the publications, patents, technology
+      claims, grant proposals, or other developments that are most important or
+      potentially profitable and deserve their full attention. They also need a
+      tool that lets them analyze and mine terabytes of relevant data and
+      presents aggregated results in an easy to understand way, enabling them to
+      increase the quality of their decisions. However, more than just a tool is
+      needed. The design of tools that truly support science policy making
+      requires a detailed characterization and prioritization of the information
+      needs of science policy makers, along with a conceptual framework that
+      links the information needs of the policy maker to the available data,
+      analysis and indicator types. Once these are in place, tool development
+      that truly addresses the needs of today's science policy makers given the
+      constraints of existing datasets as well as theoretical and algorithmic
+      approaches can proceed. <br/>This study addresses three challenges. First,
+      a detailed analysis is conducted of the information needs of a
+      representative set of science policy makers including existing data,
+      approaches and tools. Second, a theoretic conceptualization is developed
+      of tasks relevant to science policymaking that maps the needs of policy
+      makers to theoretically grounded and practically valuable processing
+      pipelines that transform data into actionable information. This
+      conceptualization is then made available online in a wiki-like format for
+      community review and consensus building. Third, a prototypical tool--a
+      macroscope--is designed to visualize structure, patterns, trends, and
+      outliers in science and technology data sets that are too large and
+      complex to be comprehensible to the researchers through direct
+      observation--just like microscopes and telescopes make it possible to see
+      things that are too small or too far away. The prototypical macroscope
+      supports a well defined set of information needs, e.g., identification of
+      emerging research frontiers or correlation of funding with publications
+      and patents in an area of research and exploration of results using graphs
+      and geospatial and science maps. Macroscope tool development will benefit
+      from the NSF funded Scholarly Database (SDB)) that provides access to more
+      than 20 million scholarly records, and the Cyberinfrastructure Shell
+      (CIShell), which supports the easy plug and play of datasets and
+      algorithms and the design of stand-alone tools. Usability studies are
+      conducted to evaluate and optimize the macroscope. The macroscope as well
+      as its support of advanced science mapping techniques will be introduced
+      to a broader audience by means of the Places and Spaces: Mapping Science
+      exhibit. Researchers and science policymakers in Japan will participate in
+      this project, generating a bi-directional flow of best theory and
+      practice.<br/>The scientific study and management of science and
+      technology requires a shared terminology and conceptualization of how
+      science works. It requires shared data repositories that can be used to
+      run benchmarks and comparisons of algorithms, to thoroughly validate the
+      combination of algorithms, indicators, and evaluation procedures. The
+      theoretical component of this study, as well as the extension of the SDB
+      and the prototypical design of a macroscope, will create a basic shared
+      understanding and a freely available cyberinfrastructure and tool for the
+      science of science (policy) community. <br/>The same capabilities that
+      could make the macroscope a tool of choice for science policy makers could
+      also make it attractive to other potential users. For instance, students
+      or members of the public will be able to see the large scale structures of
+      science, and find potential areas of interest for further study;
+      researchers will be able to monitor and access research results, relevant
+      funding opportunities, or find potential collaborators within and without
+      their fields of inquiry. Program managers and reviewers will use it to
+      meet their individual needs."
+
+      "0723989","Mapping Science Exhibit at the 233rd National Meeting &
+      Exposition of the American Chemical Society in Chicago,
+      IL","CHE","PROJECTS","03/15/2007","03/09/2007","Katy Borner","IN","Indiana
+      University","Standard Grant","Kelsey D.
+      Cook","02/29/2008","$75,708.00","","katy@indiana.edu","509 E 3RD
+      ST","Bloomington","IN","474013654","8128550516","MPS","1978","0000, 1978,
+      OTHR","$0.00","With support from the Chemistry Division, Professor Katy
+      Borner of Indiana University will convert her unique ""Places & Spaces:
+      Mapping Science"" materials into a traveling exhibit in order to make
+      these materials more widely available. Building on the success of test
+      displays at the new New York City Public Library of Science, Industry, and
+      Business (April 3rd - August 31st, 2006) and at the New York Hall of
+      Science Children's Museum (on-going), this new project will commence with
+      a display at the 233rd National Meeting & Exposition of the American
+      Chemical Society in Chicago, IL (March 25-29, 2007). The exhibit has been
+      very popular and has been widely covered in the press (see listing at
+      http://scimaps.org). This program will enable this unique exhibit to
+      travel widely and to help people to see and understand ""science from
+      above."""
+
+      "0513650","NetWorkBench: A Large-Scale Network Analysis, Modeling, and
+      Visualization Toolkit for Biomedical, Social Science, and Physics
+      Research","IIS","ITR-INFORMATION
+      INTEGRATION","09/01/2005","07/12/2005","Katy Borner","IN","Indiana
+      University","Standard Grant","Sylvia J.
+      Spengler","08/31/2009","$1,120,926.00","Stanley Wasserman, Albert-Laszlo
+      Barabasi, Alessandro Vespignani, Santiago Schnell","katy@indiana.edu","509
+      E 3RD ST","Bloomington","IN","474013654","8128550516","CSE","7373","9216,
+      HPCC","$0.00","This project will design, evaluate, and operate a unique
+      distributed, shared resources environment for large-scale network
+      analysis, modeling, and visualization, named NetWorkBench (NWB). The
+      envisioned data-code-computing resources environment will provide a
+      one-stop online portal for researchers, educators, and practitioners
+      interested in the study of biomedical, social and behavioral science,
+      physics, and other networks.<br/><br/>The NWB will support network science
+      research across scientific boundaries. Users of the NWB will have online
+      access to major network datasets or can upload their own networks. They
+      will be able to perform network analysis with the most effective
+      algorithms available. In addition, they will be able to generate, run, and
+      validate network models to advance their understanding of the structure
+      and dynamics of particular networks. NWB will provide advanced
+      visualization tools to interactively explore and understand specific
+      networks, as well as their interaction with other types of networks.
+      <br/><br/>A major computer science challenge is the development of an
+      algorithm integration framework that supports the easy integration and
+      dissemination of existing and new algorithms and can deal with the
+      multitude of network data formats in existence today. Another challenge is
+      the design and implementation of an easy to use menu-based, online portal
+      interface for interactive algorithm selection, data manipulation, user and
+      session management. The NWB will be evaluated in diverse research projects
+      and educational settings in biology, social and behavioral science, and
+      physics research. It will be well documented and available as open source
+      for easy duplication and usage at other sites. An annual summer school and
+      a series of workshops and tutorials are planned to introduce the tool to
+      diverse research communities. <br/><br/>The NWB will provide members of
+      the scientific research community at large (biologists, physicists,
+      computer scientists, social and behavioral scientists, engineers, etc.)
+      with the means to carry out network analysis, modeling, and visualization
+      projects in their own fields. This will result in a direct transfer of
+      knowledge and results from the fields of specialist network research to a
+      wider scientific community. Researchers will have access to validated
+      algorithms that in the past have been obtained through time-consuming
+      personal developments of ad hoc computer programs. The NWB is expected to
+      enhance and encourage the empirical analysis and model validation of
+      networks, generating an eventual acceleration in the development of
+      network science research. Online instructional material will support the
+      use of the NWB in educational settings. <br/><br/>The NWB will provide a
+      unique tool for network science researchers in many disciplines. In
+      effect, NWB can deploy the knowledge accumulated in network theory and
+      practice across sciences with just one web click to any interested
+      researcher, practitioner, or student. The NWB shared resources environment
+      will speed up and ease network science applications and education in
+      biology, social and behavioral science, and large infrastructure analysis,
+      thereby accelerating the rate of scientific discovery."
+
+      "0524661","Mapping
+      Chemistry","CHE","PROJECTS","08/01/2005","07/14/2006","Katy
+      Borner","IN","Indiana University","Standard Grant","Kelsey D.
+      Cook","01/31/2007","$204,990.00","Kevin Boyack","katy@indiana.edu","509 E
+      3RD ST","Bloomington","IN","474013654","8128550516","MPS","1978","0000,
+      9237, OTHR","$0.00","Professor Katy Boerner of the University of Indiana
+      and Dr. Kevin Boyack of Sandia National Laboratories are supported with a
+      Small Grant for Exploratory Research (SGER) from the Analytical and
+      Surface Chemistry Program to study the interconnections between chemistry,
+      biochemistry and the life sciences and their evolution in time. The idea
+      is to utilize advanced data mining and visualization techniques to analyze
+      citation links among papers in the approximately 1300 journals related to
+      chemistry, biochemistry and the life sciences over the past 30 years.
+      Knowledge domain maps will be employed to communicate the growth of both
+      fields of science over time as well as their inter-citations patterns. The
+      work plan includes data cleaning and parsing, mapping and analyzing the
+      structure of the domains, identification of interdisciplinary information
+      producers and consumers, diffusion of information studies, and validation
+      in cooperation with domain experts in chemistry and the life
+      sciences.<br/><br/>This proof-of-concept project will create baseline
+      visualizations that show the potential of knowledge domain mapping
+      techniques to better inform decisions on programs that require accurate
+      knowledge of the current science and technology infrastructure. New
+      opportunities in the interdisciplinary areas between chemistry and biology
+      merit study in order for the research community to evaluate the best next
+      steps. This project will support graduate students in a research
+      university/research lab collaboration. The activity is timely, as the
+      development and utilization of visualizations is facilitated by the
+      explosion of information available digitally, the decreasing cost of
+      storage and computing power, the development of fast graphics processors,
+      as well as expanding connectivity between systems."
+
+      "0831636","SGER: Collaborative Research: Mapping the Structure and
+      Evolution of Sustainability Science Research","CBET","ECOSYSTEM STUDIES,
+      ERE General, ENVIRONMENTAL SUSTAINABILITY, ENERGY FOR
+      SUSTAINABILITY","08/01/2008","07/28/2008","Katy Borner","IN","Indiana
+      University","Standard Grant","Bruce K.
+      Hamilton","01/31/2011","$104,197.00","","katy@indiana.edu","509 E 3RD
+      ST","Bloomington","IN","474013654","8128550516","ENG","1181, 7304, 7643,
+      7644","0000, 012E, 9237, OTHR","$0.00","CBET-0831636<br/>K. Borner,
+      Indiana University<br/><br/>A new field of Sustainability Science and
+      Engineering is emerging that seeks to understand the fundamental character
+      of interactions between nature and human society and to help steer the
+      impact of humanity's needs on the planet's natural resources towards
+      sustainable trajectories. Sustainability Science and Engineering is
+      unified in clear terms by its ultimate goals but occupies an
+      interdisciplinary position among traditional research fields, spanning
+      both science and engineering and spreading across disciplines as diverse
+      as agriculture, ecology, oceanography, climate studies, economics, a
+      diverse set of social sciences, energy and materials and several
+      additional aspects of engineering, physics, biology, and chemistry.
+      Although Sustainability Science and engineering is by now widely discussed
+      in the scientific and engineering community, and is beginning to be
+      connected to the political agenda for economic and social development, it
+      remains unclear to what extent its many facets are being integrated into a
+      global perspective and whether researchers are utilizing it as a nexus to
+      collaborate across traditional scientific and engineering fields. This
+      project will address such issues by delineating, analyzing, and mapping
+      both basic research on sustainability. Specifically, a comprehensive
+      dataset of scholarly publications, patents, research grants, policy
+      documents and popular science pieces that together define the integrated
+      knowledge of the field will be compiled. <br/><br/>Analysis results will
+      be presented as tables, graphs, and in form of geospatial and science
+      maps. Sustainability experts will be invited to interpret these results.
+      Findings will be presented, discussed, and disseminated via scholarly
+      publications, online, and at a workshop on the topic of sustainability.
+      Encouraging timely scientific and engineering progress across a large set
+      of traditional disciplines requires generating a global perspective (a
+      view 'from above') to determine the most effective actions and incentives
+      to be created by governments, funding agencies, non-governmental
+      organizations, the scientific community, and the public at large. This
+      work will map the current state of sustainability science and engineering
+      worldwide and provide actionable insights into its future development. The
+      resulting maps will be useful for communicating the state of the art as
+      well as to point out challenges and opportunities. They might be extended
+      and adopted as a visual interface into research and practice of
+      Sustainability Science and Engineering. Several graduate students will be
+      involved and trained in this project."
+
+      "1546824","Conference: SciSIP Conference on Modelling Science, Technology,
+      and Innovation, May 2016","SMA","SCIENCE OF SCIENCE
+      POLICY","09/01/2015","04/27/2016","Katy Borner","IN","Indiana
+      University","Standard Grant","Maryann
+      Feldman","08/31/2016","$48,750.00","Stasa
+      Milojevic","katy@indiana.edu","509 E 3RD
+      ST","Bloomington","IN","474013654","8128550516","SBE","7626","7556, 7626,
+      9179","$0.00","Science policy is concerned with the need to allocate
+      resources, both monetary and human, in an effective way to foster
+      innovation. Advances in computational power combined with the availability
+      of big data on science and technology developments create ideal conditions
+      for the advancement of computational modeling approaches that can be
+      empirically validated and used to understand and predict future
+      developments in science, technology, and innovation. The conference will
+      apply a systems-science approach to review mathematical, statistical, and
+      computational models and discuss the creation of an up-to-date inventory
+      of methods and tools available to model the future direction of
+      STI.<br/><br/>This conference will bring together leading experts from
+      economics, social science, scientometrics and bibliometrics, information
+      science, physics, and science policy that focus on developing
+      mathematical, statistical, and computational models of different types
+      (stochastic, agent-based, epidemics, game-theoretic, network. etc.) to
+      increase our understanding of the structure and dynamics of science,
+      technology, and innovation. The conference will invite participation from
+      federal funding, university administrators and other science policy
+      makers, to help identify potential grand challenges."
