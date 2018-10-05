@@ -1,9 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatTabGroup } from '@angular/material';
+import { Store } from '@ngrx/store';
 
-import { ExportService } from '../../shared/services/export/export.service';
-import * as Dvl from 'dvl-fw';
 import { Visualization } from 'dvl-fw';
+import { ExportService } from '../../shared/services/export/export.service';
+import {
+  VisualizationState,
+  AddNewVisualization, RemoveVisualization, SetActiveVisualization
+} from '../shared/store';
 
 export interface Vis {
   label: string;
@@ -33,16 +37,15 @@ export class MainComponent {
   ];
 
   visualizations: Vis[] = [];
-  selectedVis = 0;
+  selectedVis = -1;
 
-  constructor(private exportService: ExportService, a: Dvl.ProjectSerializerService) { }
+  constructor(private exportService: ExportService, private store: Store<VisualizationState>) { }
 
   setSelectedVis(index: number, force = false): void {
     if (index !== this.selectedVis || force) {
       this.selectedVis = index;
-      if (this.exportService) {
-        this.exportService.visualizationElement = this.visualization;
-      }
+      this.exportService.visualizationElement = this.visualization;
+      this.store.dispatch(new SetActiveVisualization(index));
     }
   }
 
@@ -50,13 +53,14 @@ export class MainComponent {
     // TODO: add visualization to state
     const data = { } as Visualization; // TODO: create data
     const index = this.visualizations.push({ label: type.label, data }) - 1;
+    this.store.dispatch(new AddNewVisualization(data));
     this.setSelectedVis(index);
   }
 
   removeVisualization(index: number): void {
-    // TODO: remove visualization from state
     const lastIndex = this.visualizations.length - 1;
     this.visualizations.splice(index, 1);
+    this.store.dispatch(new RemoveVisualization(index));
     this.setSelectedVis(index === lastIndex ? index - 1 : index, true);
   }
 }

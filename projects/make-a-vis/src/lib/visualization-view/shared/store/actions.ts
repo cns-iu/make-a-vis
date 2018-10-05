@@ -18,17 +18,17 @@ export enum VisualizationActionTypes {
 
 export class SetActiveVisualization implements Action {
   readonly type = VisualizationActionTypes.SetActiveVisualization;
-  constructor(public index: number) { }
+  constructor(public payload: number) { }
 }
 
 export class AddNewVisualization implements Action {
   readonly type = VisualizationActionTypes.AddNewVisualization;
-  constructor(public visualization: Visualization) { }
+  constructor(public payload: Visualization) { }
 }
 
 export class RemoveVisualization implements Action {
   readonly type = VisualizationActionTypes.RemoveVisualization;
-  constructor(public index: number) { }
+  constructor(public payload: number) { }
 }
 
 export class SetGraphicSymbolRecordSet implements Action {

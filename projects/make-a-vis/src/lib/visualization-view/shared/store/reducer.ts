@@ -11,16 +11,16 @@ export function visualizationStateReducer (
 
     switch (action.type) {
       case VisualizationActionTypes.SetActiveVisualization:
-        newState.activeVisualization = action.index;
+        newState.activeVisualization = action.payload;
         return newState;
 
       case VisualizationActionTypes.AddNewVisualization:
-        newState.visualizations = state.visualizations.concat(action.visualization);
+        newState.visualizations = state.visualizations.concat(action.payload);
         return newState;
 
       case VisualizationActionTypes.RemoveVisualization:
         newState.visualizations = state.visualizations.slice();
-        newState.visualizations.splice(action.index, 1);
+        newState.visualizations.splice(action.payload, 1);
         return newState;
 
       case VisualizationActionTypes.SetGraphicSymbolRecordSet:

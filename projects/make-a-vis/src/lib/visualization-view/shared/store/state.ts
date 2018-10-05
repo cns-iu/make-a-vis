@@ -7,6 +7,6 @@ export interface VisualizationState {
 
 
 export const INITIAL_VISUALIZATION_STATE: VisualizationState = {
-  activeVisualization: 0,
+  activeVisualization: -1,
   visualizations: []
 };
