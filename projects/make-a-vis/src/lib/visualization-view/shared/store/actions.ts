@@ -9,22 +9,26 @@ export interface SetGraphicSymbolRecordSetPayload {
 export enum VisualizationActionTypes {
   SetActiveVisualization = '[VIS] Set Active Visualization',
   AddNewVisualization = '[VIS] Add New Visualization',
-  SetGraphicSymbolRecordSet = '[VIS] Set Graphic Symbol Record Set',
+  RemoveVisualization = '[VIS] Remove Visualization',
 
+  SetGraphicSymbolRecordSet = '[VIS] Set Graphic Symbol Record Set',
   SetActiveDataVariable = '[VIS] Set Active Data Variable',
   SetGraphicVariable = '[VIS] Set Graphic Variable',
 }
 
 export class SetActiveVisualization implements Action {
   readonly type = VisualizationActionTypes.SetActiveVisualization;
-  constructor(public payload: Visualization) {
-  }
+  constructor(public index: number) { }
 }
 
 export class AddNewVisualization implements Action {
   readonly type = VisualizationActionTypes.AddNewVisualization;
-  constructor(public payload: Visualization) {
-  }
+  constructor(public visualization: Visualization) { }
+}
+
+export class RemoveVisualization implements Action {
+  readonly type = VisualizationActionTypes.RemoveVisualization;
+  constructor(public index: number) { }
 }
 
 export class SetGraphicSymbolRecordSet implements Action {
@@ -46,5 +50,5 @@ export class SetGraphicVariable implements Action {
 }
 
 
-export type VisualizationActionsUnion = SetActiveVisualization | AddNewVisualization |
+export type VisualizationActionsUnion = SetActiveVisualization | AddNewVisualization | RemoveVisualization |
   SetGraphicSymbolRecordSet | SetActiveDataVariable | SetGraphicVariable;
