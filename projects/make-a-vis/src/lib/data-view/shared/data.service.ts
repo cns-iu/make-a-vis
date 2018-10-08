@@ -21,7 +21,8 @@ export interface DataSource {
   providedIn: 'root'
 })
 export class DataService {
-  dataSourceSubject = new BehaviorSubject<DataSource>(undefined);
+  private dataSourcesChange = new BehaviorSubject<DataSource[]>(undefined);
+  dataSourcesChanged = this.dataSourcesChange.asObservable();
 
   constructor(private store: Store<ApplicationState>) {
     store.pipe(select(getLoadedProject))
@@ -30,7 +31,7 @@ export class DataService {
           const recordSets = project.recordSets;
 
           if (recordSets.length) {
-            recordSets.forEach((recordSet: RecordSet) => {
+            const dataSources = recordSets.map((recordSet: RecordSet) => {
               const dataSource: DataSource = {} as DataSource;
 
               dataSource.id = recordSet.id || '';
@@ -44,9 +45,11 @@ export class DataService {
                 if (changeSet.insert.length > 1) {
                   dataSource.label = recordSet.labelPlural;
                 }
-                this.dataSourceSubject.next(dataSource);
               });
+
+              return dataSource;
             });
+            this.dataSourcesChange.next(dataSources);
           }
         }
       });
