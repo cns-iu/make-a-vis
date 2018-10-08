@@ -515,9 +515,27 @@ export class ISITemplateProject extends DefaultProject {
             graphicVariableType: 'identifier',
             graphicVariableId: 'identifier'
           },
-          color: {
+          x: {
             recordSet: 'publication',
             dataVariable: 'publicationYear',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          y: {
+            recordSet: 'publication',
+            dataVariable: 'publicationYear',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          areaSize: {
+            recordSet: 'publication',
+            dataVariable: 'numCites',
+            graphicVariableType: 'areaSize',
+            graphicVariableId: 'areaSize'
+          },
+          color: {
+            recordSet: 'publication',
+            dataVariable: 'numCites',
             graphicVariableType: 'color',
             graphicVariableId: 'color'
           }
@@ -551,6 +569,12 @@ export class ISITemplateProject extends DefaultProject {
             dataVariable: 'numCites',
             graphicVariableType: 'areaSize',
             graphicVariableId: 'areaSize'
+          },
+          color: {
+            recordSet: 'journal',
+            dataVariable: 'numCites',
+            graphicVariableType: 'color',
+            graphicVariableId: 'color'
           },
           label: {
             recordSet: 'journal',

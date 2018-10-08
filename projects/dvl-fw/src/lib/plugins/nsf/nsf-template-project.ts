@@ -231,6 +231,12 @@ export class NSFTemplateProject extends DefaultProject {
             graphicVariableType: 'axis',
             graphicVariableId: 'axis'
           },
+          areaSize: {
+            recordSet: 'award',
+            dataVariable: 'awardedAmount',
+            graphicVariableType: 'areaSize',
+            graphicVariableId: 'areaSize'
+          },
           label: {
             recordSet: 'award',
             dataVariable: 'title',
