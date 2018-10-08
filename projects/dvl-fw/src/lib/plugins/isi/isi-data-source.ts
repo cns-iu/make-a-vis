@@ -5,7 +5,6 @@ import { RecordStream } from './../../shared/record-stream';
 import { ISIRecord } from './data-model/isi-record';
 import { ObjectFactory, ObjectFactoryRegistry } from '../../shared/object-factory';
 import { DefaultRecordStream } from '../default/default-record-stream';
-import { DefaultRawData } from '../default/default-raw-data';
 
 
 export interface ISIDataSourceOptions extends DataSourceOptions {

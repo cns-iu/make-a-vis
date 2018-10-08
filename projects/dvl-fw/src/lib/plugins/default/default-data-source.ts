@@ -7,7 +7,7 @@ import { DefaultRecordStream } from './default-record-stream';
 
 export class DefaultDataSource<T = any> implements DataSource {
   id: string;
-  template: 'default';
+  template = 'default';
   properties: DataSourceOptions;
   recordStreams: RecordStream<T>[];
 

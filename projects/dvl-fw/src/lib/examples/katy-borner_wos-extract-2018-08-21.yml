@@ -1,7 +1,7 @@
 apiVersion: 1
 metadata:
-  dateCreated: 2018-09-28T17:17:56.908Z
-  dateSaved: 2018-09-28T17:17:57.211Z
+  dateCreated: 2018-10-08T15:05:41.625Z
+  dateSaved: 2018-10-08T15:05:41.944Z
 dataSources:
   - id: isiDataSource
     template: isi
@@ -18,6 +18,15 @@ dataSources:
         label: authors
       - id: coAuthorLinks
         label: coAuthorLinks
+  - id: activityLog
+    template: activityLog
+    properties:
+      rawData: activityLog
+      keepPreviousActivity: true
+      freezeLogs: false
+    recordStreams:
+      - id: activityLog
+        label: activityLog
 recordSets:
   - id: publication
     label: Publication
@@ -611,6 +620,11 @@ graphicSymbolMappings:
         dataVariable: numPapers
         graphicVariableType: axis
         graphicVariableId: axis
+      areaSize:
+        recordSet: journal
+        dataVariable: numCites
+        graphicVariableType: areaSize
+        graphicVariableId: areaSize
       label:
         recordSet: journal
         dataVariable: name
@@ -29158,3 +29172,7 @@ rawData:
 
 
       EF
+  - id: activityLog
+    template: json
+    data:
+      activityLog: []
