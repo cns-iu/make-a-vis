@@ -42,7 +42,7 @@ export class ScatterplotComponent extends BaseVisualizationComponent<Properties,
     ])
   };
 
-  fieldNameFor(key: string): string {
+  fieldNameFor(key: string, group: string): string {
     return fieldNameMapping[key];
   }
 }

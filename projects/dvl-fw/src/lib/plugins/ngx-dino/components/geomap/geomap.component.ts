@@ -25,6 +25,19 @@ export type FieldGroups = {
   points: PointFields
 };
 
+const statesFieldNameMapping = createFieldNameMapping([
+  'color'
+], {
+  'identifier': 'stateField'
+}, 'state');
+
+// TODO title, latlong, pulse
+const pointsFieldNameMapping = createFieldNameMapping([
+  'color', 'shape'
+], {
+  'identifier': 'pointIdField', 'areaSize': 'pointSizeField', 'strokeColor': 'strokeColorField'
+}, 'point');
+
 @Component({
   selector: 'dvl-vis-geomap',
   templateUrl: './geomap.component.html',
@@ -44,7 +57,8 @@ export class GeomapComponent extends BaseVisualizationComponent<Properties, Fiel
     ])
   };
 
-  fieldNameFor(key: string): string {
-    return ''; // TODO
+  fieldNameFor(key: string, group: string): string {
+    const mapping = group === 'states' ? statesFieldNameMapping : pointsFieldNameMapping;
+    return mapping[key];
   }
 }
