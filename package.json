@@ -52,6 +52,7 @@
     "save-svg-as-png": "^1.4.6",
     "svg-to-pdfkit": "^0.1.7",
     "typescript-logging": "^0.6.2",
+    "vega": "^4.2.0",
     "zipcodes": "^7.0.0",
     "zone.js": "^0.8.26"
   },
