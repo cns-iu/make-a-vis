@@ -13,6 +13,7 @@ import { DefaultRawData } from './../default/default-raw-data';
 import { DefaultRecordSet } from './../default/default-record-set';
 import { ISIDataSource } from './isi-data-source';
 import { ISIParsedRawData } from './isi-parsed-raw-data';
+import { ActivityLogDataSource } from '../activity-log/log-data-source';
 
 
 export class ISITemplateProject extends DefaultProject {
@@ -48,6 +49,11 @@ export class ISITemplateProject extends DefaultProject {
         id: 'isiDataSource',
         properties: { rawData: 'isiFile', parsedData: 'isiRawData', saveParsedData: true },
         recordStreams: [{id: 'publications'}, {id: 'journals'}, {id: 'authors'}, {id: 'coAuthorLinks'}]
+      }, this),
+      new ActivityLogDataSource({
+        id: 'activityLog',
+        properties: { rawData: 'activityLog', keepPreviousActivity: true, freezeLogs: false },
+        recordStreams: [{id: 'activityLog'}]
       }, this)
     ];
   }

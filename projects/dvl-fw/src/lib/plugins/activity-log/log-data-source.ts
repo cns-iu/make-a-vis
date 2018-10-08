@@ -23,7 +23,7 @@ export class ActivityLogDataSource implements DataSource {
     if (!rawData) {
       // TODO: hook up to real activity log data
       rawData = new DefaultRawData({
-        id: 'activityLog', template: 'json', data: []
+        id: 'activityLog', template: 'json', data: {activityLog: []}
       });
       this.project.rawData.push(rawData);
     }

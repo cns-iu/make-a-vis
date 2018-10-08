@@ -1,3 +1,4 @@
+import { ActivityLogDataSource } from './../activity-log/log-data-source';
 import { ScatterplotVisualization } from './../ngx-dino/scatterplot-visualization';
 import { DataSource } from '../../shared/data-source';
 import { Project } from '../../shared/project';
@@ -48,6 +49,11 @@ export class NSFTemplateProject extends DefaultProject {
         id: 'nsfDataSource',
         properties: { rawData: 'nsfFile', parsedData: 'nsfRawData', saveParsedData: true },
         recordStreams: [{id: 'awards'}]
+      }, this),
+      new ActivityLogDataSource({
+        id: 'activityLog',
+        properties: { rawData: 'activityLog', keepPreviousActivity: true, freezeLogs: false },
+        recordStreams: [{id: 'activityLog'}]
       }, this)
     ];
   }
