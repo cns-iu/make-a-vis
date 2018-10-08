@@ -4,8 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
     "build:cli": "webpack --config projects/dvl-fw/src/lib/cli/webpack.config.js",
+    "build:demo": "ng build --prod --output-hashing=none --base-href=./",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -43,7 +44,7 @@
     "lodash": "^4.17.10",
     "material-design-icons": "^3.0.1",
     "pako": "^1.0.6",
-    "papaparse": "^4.4.0",
+    "papaparse": "~4.4.0",
     "pdfkit-browserify": "^0.8.3-R2",
     "rxjs": "^6.0.0",
     "save-svg-as-png": "^1.4.6",

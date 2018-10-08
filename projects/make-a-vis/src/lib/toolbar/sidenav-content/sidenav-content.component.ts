@@ -90,19 +90,25 @@ export class SidenavContentComponent implements OnInit {
 
   readNewFile(event: any, isLoadProject: boolean) {
     const filename = get(event, 'srcElement.files[0].name');
-    const fileExtension = filename && filename.split('.').slice(-1).toString();
+    let fileExtension = filename && filename.split('.').slice(-1).toString();
+
+    // If they've selected NSF and uploaded a CSV, assume the CSV is an NSF-formatted CSV file.
+    if (!isLoadProject && fileExtension === 'csv' && this.newProjectFileExtension === 'nsf') {
+      fileExtension = 'nsf';
+    }
 
     if (filename && fileExtension) {
       if (isLoadProject && this.loadProjectExtensions.indexOf(fileExtension) !== -1) {
         this.getProject(filename, fileExtension, event);
-      } else if (
-          !isLoadProject
+      } else if (!isLoadProject
           && this.newProjectExtensions.indexOf(this.newProjectFileExtension) !== -1
-          && fileExtension === this.newProjectFileExtension
-        ) { this.getProject(filename, fileExtension, event);
-        } else {
-            console.log('File chosen has wrong extension'); // TODO temporary, use logs
-          }
+          && fileExtension === this.newProjectFileExtension) {
+        this.getProject(filename, fileExtension, event);
+      } else {
+        // TODO temporary, use logs
+        alert(`${filename} has the wrong extension.`);
+        console.log(`${filename} has the wrong extension.`);
+      }
     }
   }
 
