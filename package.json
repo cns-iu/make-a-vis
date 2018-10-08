@@ -26,6 +26,7 @@
     "@angular/router": "^6.1.7",
     "@ngrx/store": "^6.1.0",
     "@ngx-dino/core": "^0.8.3",
+    "@ngx-dino/geomap": "^0.6.1",
     "@ngx-dino/scatterplot": "^0.6.1",
     "@ngx-dino/science-map": "^0.6.3",
     "@types/blob-stream": "^0.1.29",
