@@ -62,7 +62,7 @@ export class DataService {
         }
       });
       if (filter.length) {
-        mapping[dv.id] = map(filter[0].asBoundField().getter);
+        mapping[dv.id] = filter[0].asBoundField().operator;
       } else {
         mapping[dv.id] = access<any>(dv.id, '');
       }
