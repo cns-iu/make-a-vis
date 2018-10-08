@@ -4,8 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
     "build:cli": "webpack --config projects/dvl-fw/src/lib/cli/webpack.config.js",
+    "build:demo": "ng build --prod --output-hashing=none --base-href=./",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
