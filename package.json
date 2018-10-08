@@ -43,7 +43,7 @@
     "lodash": "^4.17.10",
     "material-design-icons": "^3.0.1",
     "pako": "^1.0.6",
-    "papaparse": "^4.4.0",
+    "papaparse": "~4.4.0",
     "pdfkit-browserify": "^0.8.3-R2",
     "rxjs": "^6.0.0",
     "save-svg-as-png": "^1.4.6",

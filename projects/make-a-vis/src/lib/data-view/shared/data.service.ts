@@ -56,7 +56,8 @@ export class DataService {
     const mapping = {};
     dataVariables.forEach((dv: DataVariable) => {
       const filter = graphicVariables.filter((gv: GraphicVariable) => {
-        if ((gv.dataVariable.id === dv.id) && (gv.recordSet.id === recordSetId)) {
+        if ((gv.dataVariable.id === dv.id) && (gv.recordSet.id === recordSetId)
+          && (gv.type === 'text' || gv.type === 'label') ) {
           return gv;
         }
       });
