@@ -5,7 +5,7 @@ import { access, RawChangeSet, Operator, map, combine } from '@ngx-dino/core';
 import { Store, select } from '@ngrx/store';
 import { ApplicationState, getLoadedProject } from '../../shared/store';
 
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 import { DataVariable, GraphicVariable, Project, RecordSet } from 'dvl-fw';
 
@@ -22,7 +22,7 @@ export interface DataSource {
 })
 export class DataService {
   private dataSourcesChange = new BehaviorSubject<DataSource[]>(undefined);
-  dataSourcesChanged = this.dataSourcesChange.asObservable();
+  dataSourcesChanged: Observable<DataSource[]> = this.dataSourcesChange.asObservable();
 
   constructor(private store: Store<ApplicationState>) {
     store.pipe(select(getLoadedProject))
