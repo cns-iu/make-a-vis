@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { MatTabGroup } from '@angular/material';
 import { Store, select } from '@ngrx/store';
 import { of } from 'rxjs';
-import { concatMap, map, onErrorResumeNext, take } from 'rxjs/operators';
+import { catchError, concatMap, map, take } from 'rxjs/operators';
 import { find, unary, uniqueId } from 'lodash';
 
 import { ProjectSerializerService, Visualization } from 'dvl-fw';
@@ -83,7 +83,7 @@ export class MainComponent {
       select(getLoadedProjectSelector),
       take(1),
       concatMap(project => this.serializer.createVisualization(type.template, preData, project)),
-      onErrorResumeNext(of(preData as Visualization))
+      catchError(() => of(preData as Visualization))
     ).subscribe(data => {
       const index = this.visualizations.push({ label: type.label, data }) - 1;
       this.store.dispatch(new AddNewVisualization(data));
