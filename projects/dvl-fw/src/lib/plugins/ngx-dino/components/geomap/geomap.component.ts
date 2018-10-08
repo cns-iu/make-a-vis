@@ -19,7 +19,24 @@ export type PointFields = Pick<
   'pointShapeField' | 'strokeColorField' | 'pointTitleField' | 'pointPulseField'
 >;
 
-export type FieldGroups = {  }; // tslint:disable-line:interface-over-type-literal
+// tslint:disable-next-line:interface-over-type-literal
+export type FieldGroups = {
+  states: StateFields,
+  points: PointFields
+};
+
+const statesFieldNameMapping = createFieldNameMapping([
+  'color'
+], {
+  'identifier': 'stateField'
+}, 'state');
+
+// TODO title, latlong, pulse
+const pointsFieldNameMapping = createFieldNameMapping([
+  'color', 'shape'
+], {
+  'identifier': 'pointIdField', 'areaSize': 'pointSizeField', 'strokeColor': 'strokeColorField'
+}, 'point');
 
 @Component({
   selector: 'dvl-vis-geomap',
@@ -33,10 +50,15 @@ export class GeomapComponent extends BaseVisualizationComponent<Properties, Fiel
   };
 
   defaultFieldGroups: FieldGroups = {
-    // TODO
+    states: createDefaultFieldGroup(['stateField', 'stateColorField']),
+    points: createDefaultFieldGroup([
+      'pointIdField', 'pointLatLongField', 'pointSizeField', 'pointColorField',
+      'pointShapeField', 'strokeColorField', 'pointTitleField', 'pointPulseField'
+    ])
   };
 
-  fieldNameFor(key: string): string {
-    return ''; // TODO
+  fieldNameFor(key: string, group: string): string {
+    const mapping = group === 'states' ? statesFieldNameMapping : pointsFieldNameMapping;
+    return mapping[key];
   }
 }

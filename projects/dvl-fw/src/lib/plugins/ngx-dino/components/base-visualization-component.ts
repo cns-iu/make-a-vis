@@ -37,7 +37,7 @@ implements VisualizationComponent, OnInit, OnChanges, OnPropertyChange, OnGraphi
 
   abstract defaultProperties: P;
   abstract defaultFieldGroups: F;
-  abstract fieldNameFor(key: string): string;
+  abstract fieldNameFor(key: string, group: string): string;
 
   ngOnInit(): void {
     this.reset(Object.keys(this.defaultFieldGroups));
@@ -93,7 +93,7 @@ implements VisualizationComponent, OnInit, OnChanges, OnPropertyChange, OnGraphi
 
         fieldsChanged = fieldsChanged || this.applyChanges<GraphicVariable, BoundField<any>>(
           graphicVariables, newFields[key], this.defaultFieldGroups[key],
-          k => this.fieldNameFor(k), v => v.asBoundField(), (v1, v2) => v1.equals(v2)
+          k => this.fieldNameFor(k, key), v => v.asBoundField(), (v1, v2) => v1.equals(v2)
         );
       }
     });

@@ -1,3 +1,4 @@
+import { capitalize, identity } from 'lodash';
 import { BoundField, constant, simpleField } from '@ngx-dino/core';
 
 export const emptyField = simpleField({
@@ -8,9 +9,10 @@ export const emptyField = simpleField({
 
 
 export function createFieldNameMapping<S extends string, C extends { [key: string]: string }>(
-  simple: S[] = [], complex: C = {} as any
+  simple: S[] = [], complex: C = {} as any, prefix: string = ''
 ): C & { [K in S]: string } {
-  const simpleObj = simple.reduce((obj, key) => (obj[key] = `${key}Field`, obj), {} as any);
+  const transform = prefix ? capitalize : identity;
+  const simpleObj = simple.reduce((obj, key) => (obj[key] = `${prefix}${transform(key)}Field`, obj), {} as any);
   return Object.assign(simpleObj, complex);
 }
 
