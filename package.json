@@ -29,6 +29,7 @@
     "@ngx-dino/geomap": "^0.6.1",
     "@ngx-dino/scatterplot": "^0.6.1",
     "@ngx-dino/science-map": "^0.6.3",
+    "@ngx-dino/vega-util": "^0.6.0",
     "@types/blob-stream": "^0.1.29",
     "@types/lodash": "^4.14.116",
     "blob-stream-browserify": "^0.1.3",
