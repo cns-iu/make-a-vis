@@ -1,0 +1,72 @@
+language: node_js
+
+node_js:
+  - "10"
+
+sudo: required
+
+addons:
+  chrome: stable
+
+cache:
+  directories:
+    - "node_modules"
+
+branches:
+  only:
+    - master
+    - develop
+    - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
+
+script: skip
+
+jobs:
+  include:
+    - stage: test
+      name: "Run Tests"
+      script:
+        - npm run lint
+        - npm run build dvl-fw
+        - npm run build make-a-vis
+        - npm run build:cli
+        # - npm test
+    - stage: deploy
+      name: "Deploy demo to GitHub Pages"
+      if: branch = master
+      script:
+        - npm run build dvl-fw
+        - npm run build make-a-vis
+        - npm run build:demo
+      deploy:
+        provider: pages
+        skip-cleanup: true
+        github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+        keep-history: false
+        local-dir: dist/make-a-vis-demo
+        on:
+          branch: master
+    - &npm-publish
+      stage: deploy
+      name: "Build and publish make-a-vis"
+      if: tag IS present
+      script:
+        - npm run build make-a-vis
+      before_deploy:
+        - cd dist/make-a-vis
+      after_deploy:
+        - cd ../../
+      deploy: &npm
+        provider: npm
+        skip-cleanup: true
+        email: $NPM_EMAIL
+        api_key: $NPM_TOKEN
+        on:
+          tags: true
+          repo: cns-iu/make-a-vis
+    - <<: *npm-publish
+      name: "Build and publish dvl-fw"
+      script:
+        - npm run build dvl-fw
+        - npm run build:cli
+      before_deploy:
+        - cd dist/dvl-fw

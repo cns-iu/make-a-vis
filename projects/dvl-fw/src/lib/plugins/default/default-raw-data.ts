@@ -14,6 +14,12 @@ export class DefaultRawData implements RawData {
     Object.assign(this, data);
   }
 
+  setData(data: any) {
+    this.data = data;
+    this.url = undefined;
+    this._url_data_ = undefined;
+  }
+
   async getData(): Promise<any> {
     if (this.data) {
       return this.data;

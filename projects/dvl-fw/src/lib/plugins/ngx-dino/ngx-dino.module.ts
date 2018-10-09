@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScatterplotModule } from './components/scatterplot/scatterplot.module';
-import { GeomapComponent } from './components/geomap/geomap.component';
+import { GeomapModule } from './components/geomap/geomap.module';
 
 @NgModule({
-  imports: [CommonModule, ScatterplotModule],
-  declarations: [GeomapComponent]
+  imports: [CommonModule, ScatterplotModule, GeomapModule]
 })
 export class NgxDinoModule { }

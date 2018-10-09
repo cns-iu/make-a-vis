@@ -1,7 +1,7 @@
 apiVersion: 1
 metadata:
-  dateCreated: 2018-10-05T16:24:41.352Z
-  dateSaved: 2018-10-05T16:24:41.365Z
+  dateCreated: 2018-10-09T12:56:00.282Z
+  dateSaved: 2018-10-09T12:56:00.301Z
 dataSources:
   - id: nsfDataSource
     template: nsf
@@ -12,6 +12,15 @@ dataSources:
     recordStreams:
       - id: awards
         label: awards
+  - id: activityLog
+    template: activityLog
+    properties:
+      rawData: activityLog
+      keepPreviousActivity: true
+      freezeLogs: false
+    recordStreams:
+      - id: activityLog
+        label: activityLog
 recordSets:
   - id: award
     label: Award
@@ -212,6 +221,11 @@ graphicSymbolMappings:
         dataVariable: awardedAmount
         graphicVariableType: axis
         graphicVariableId: axis
+      areaSize:
+        recordSet: award
+        dataVariable: awardedAmount
+        graphicVariableType: areaSize
+        graphicVariableId: areaSize
       label:
         recordSet: award
         dataVariable: title
@@ -231,7 +245,7 @@ visualizations:
       points: awardPoints
 rawData:
   - id: nsfRawData
-    template: json
+    template: nsfParsedData
     data:
       awards:
         - id: '1839167'
@@ -2540,3 +2554,7 @@ rawData:
       technology, and innovation. The conference will invite participation from
       federal funding, university administrators and other science policy
       makers, to help identify potential grand challenges."
+  - id: activityLog
+    template: json
+    data:
+      activityLog: []

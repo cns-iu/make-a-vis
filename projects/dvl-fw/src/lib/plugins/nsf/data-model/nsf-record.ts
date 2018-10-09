@@ -10,7 +10,7 @@ const csvfields = [
 ];
 
 function splitTrim(field: string, separator = ','): Operator<any, string[]> {
-  return chain(access(field), map<string, string[]>(s => s.split(separator).map(t => t.trim()).filter(u => !!u)));
+  return chain(access(field), map<string, string[]>(s => (s || '').split(separator).map(t => t.trim()).filter(u => !!u)));
 }
 function date(field: string): Operator<any, Date> {
   return chain(access(field), map<string, Date>(s => String(new Date(s || undefined)) === 'Invalid Date' ? undefined : new Date(s)));
@@ -19,7 +19,7 @@ function year(field: string): Operator<any, number> {
   return chain(date(field), map<Date, number>(s => s ? s.getFullYear() : undefined));
 }
 function usDollars(field: string): Operator<any, number> {
-  return chain(access(field), map<string, number>(s => Number(s.replace('$', '').replace(',', '')) || 0));
+  return chain(access(field), map<string, number>(s => Number((s || '').replace('$', '').replace(',', '')) || 0));
 }
 
 function padLeft(nr, n, str = '0') {

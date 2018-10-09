@@ -13,7 +13,8 @@
         </ng-template>
 
         <ng-template matTabContent>
-            <div class="tab-content">
+            <!-- active class is used by export to select the element -->
+            <div class="tab-content" [ngClass]="{ active: index === selectedVis }">
                 <dvl-visualization [data]="vis.data"></dvl-visualization>
             </div>
         </ng-template>
