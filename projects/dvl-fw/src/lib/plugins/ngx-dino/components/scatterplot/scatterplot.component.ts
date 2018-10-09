@@ -29,13 +29,13 @@ const fieldNameMapping = createFieldNameMapping([
   styleUrls: ['./scatterplot.component.css']
 })
 export class ScatterplotComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
-  defaultProperties: Properties = {
+  readonly defaultProperties: Properties = {
     enableTooltip: false, xAxisArrow: true, yAxisArrow: true,
     gridlines: false, gridlinesColor: 'lightgrey', gridlinesOpacity: 0.7,
     tickLabelColor: 'lightblack', showAxisIndicators: false, showAxisLabels: false,
   };
 
-  defaultFieldGroups: FieldGroups = {
+  readonly defaultFieldGroups: FieldGroups = {
     points: createDefaultFieldGroup([
       'pointIdField', 'strokeColorField', 'xField', 'yField', 'colorField',
       'shapeField', 'sizeField', 'pulseField', 'tooltipTextField'

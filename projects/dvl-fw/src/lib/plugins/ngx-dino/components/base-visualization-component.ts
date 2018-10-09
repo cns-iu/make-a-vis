@@ -35,8 +35,8 @@ implements VisualizationComponent, OnInit, OnChanges, OnPropertyChange, OnGraphi
   properties: P = {} as any;
   fieldGroups: F = {} as any;
 
-  abstract defaultProperties: P;
-  abstract defaultFieldGroups: F;
+  abstract readonly defaultProperties: P;
+  abstract readonly defaultFieldGroups: F;
   abstract fieldNameFor(key: string, group: string): string;
 
   ngOnInit(): void {
