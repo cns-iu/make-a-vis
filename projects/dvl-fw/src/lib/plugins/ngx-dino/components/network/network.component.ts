@@ -25,16 +25,18 @@ export type FieldGroups = {
   edges: EdgeFields
 };
 
+// TODO: position, strokeWidth, tooltip, label, labelPosition
 const nodesFieldNameMapping = createFieldNameMapping([
-  // TODO
+  'color'
 ], {
-  // TODO
+  'identifier': 'nodeIdField', 'areaSize': 'nodeSizeField', 'shape': 'nodeSymbolField',
+  'strokeColor': 'nodeStrokeField'
 }, 'node');
 
+// TODO: sourcePosition, targetPosition, strokeWidth
 const edgesFieldNameMapping = createFieldNameMapping([
-  // TODO
 ], {
-  // TODO
+  'identifier': 'edgeIdField', 'strokeColor': 'edgeStrokeField'
 }, 'edge');
 
 @Component({
