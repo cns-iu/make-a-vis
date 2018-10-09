@@ -1,3 +1,4 @@
+import { ActivityLogRawData } from './log-raw-data';
 import { Project } from './../../shared/project';
 import { DataSource, DataSourceOptions } from './../../shared/data-source';
 import { RecordStream } from './../../shared/record-stream';
@@ -21,10 +22,7 @@ export class ActivityLogDataSource implements DataSource {
     Object.assign(this, data);
     let rawData = this.project.rawData.find(d => d.id === this.properties.rawData);
     if (!rawData) {
-      // TODO: hook up to real activity log data
-      rawData = new DefaultRawData({
-        id: 'activityLog', template: 'json', data: {activityLog: []}
-      });
+      rawData = new ActivityLogRawData('activityLog');
       this.project.rawData.push(rawData);
     }
     this.recordStreams = data.recordStreams.map((rs) => new DefaultRecordStream({id: rs.id, label: rs.label || rs.id}, rawData));

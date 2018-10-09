@@ -1,7 +1,7 @@
 apiVersion: 1
 metadata:
-  dateCreated: 2018-10-09T12:55:55.059Z
-  dateSaved: 2018-10-09T12:55:55.413Z
+  dateCreated: 2018-10-09T14:49:34.249Z
+  dateSaved: 2018-10-09T14:49:34.593Z
 dataSources:
   - id: isiDataSource
     template: isi
@@ -29193,6 +29193,6 @@ rawData:
 
       EF
   - id: activityLog
-    template: json
+    template: activityLog
     data:
       activityLog: []
