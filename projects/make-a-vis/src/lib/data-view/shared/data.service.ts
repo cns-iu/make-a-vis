@@ -29,30 +29,27 @@ export class DataService {
   constructor(private store: Store<ApplicationState>) {
     store.pipe(select(getLoadedProject))
       .subscribe((project: Project) => {
-        if (project) {
-          const recordSets = project.recordSets;
+        if (project && project.recordSets) {
+          const dataSources = project.recordSets.map((recordSet: RecordSet) => {
+            const dataSource: DataSource = {} as DataSource;
 
-          if (recordSets.length) {
-            const dataSources = recordSets.map((recordSet: RecordSet) => {
-              const dataSource: DataSource = {} as DataSource;
+            dataSource.id = recordSet.id || '';
+            dataSource.label = recordSet.label || '';
+            dataSource.columns = recordSet.dataVariables;
 
-              dataSource.id = recordSet.id || '';
-              dataSource.label = recordSet.label || '';
-              dataSource.columns = recordSet.dataVariables;
+            const operator = this.getDataMappingOperator(recordSet.dataVariables, project.graphicVariables, recordSet.id);
 
-              const operator = this.getDataMappingOperator(recordSet.dataVariables, project.graphicVariables, recordSet.id);
-
-              recordSet.defaultRecordStream.asObservable().subscribe((changeSet: RawChangeSet<any>) => {
-                dataSource.data = (changeSet.insert || []).slice(0, this.maxRecords).map(operator.getter);
-                if (changeSet.insert.length > 1) {
-                  dataSource.label = recordSet.labelPlural;
-                }
-              });
-
-              return dataSource;
+            recordSet.defaultRecordStream.asObservable().subscribe((changeSet: RawChangeSet<any>) => {
+              dataSource.data = (changeSet.insert || []).slice(0, this.maxRecords).map(operator.getter);
+              if (changeSet.insert.length > 1) {
+                dataSource.label = recordSet.labelPlural;
+              }
             });
-            this.dataSourcesChange.next(dataSources);
-          }
+            return dataSource;
+          });
+          this.dataSourcesChange.next(dataSources);
+        } else {
+          this.dataSourcesChange.next([]);
         }
       });
   }
