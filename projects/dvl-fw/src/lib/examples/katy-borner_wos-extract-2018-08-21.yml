@@ -1,7 +1,7 @@
 apiVersion: 1
 metadata:
-  dateCreated: 2018-10-08T16:13:31.317Z
-  dateSaved: 2018-10-08T16:13:31.654Z
+  dateCreated: 2018-10-09T12:55:55.059Z
+  dateSaved: 2018-10-09T12:55:55.413Z
 dataSources:
   - id: isiDataSource
     template: isi
@@ -670,7 +670,7 @@ visualizations:
       points: publicationPoints
 rawData:
   - id: isiRawData
-    template: json
+    template: isiParsedData
     data:
       journals:
         - name: PLOS ONE

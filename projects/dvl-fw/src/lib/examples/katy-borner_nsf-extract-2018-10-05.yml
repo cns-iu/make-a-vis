@@ -1,7 +1,7 @@
 apiVersion: 1
 metadata:
-  dateCreated: 2018-10-08T16:13:44.607Z
-  dateSaved: 2018-10-08T16:13:44.620Z
+  dateCreated: 2018-10-09T12:56:00.282Z
+  dateSaved: 2018-10-09T12:56:00.301Z
 dataSources:
   - id: nsfDataSource
     template: nsf
@@ -245,7 +245,7 @@ visualizations:
       points: awardPoints
 rawData:
   - id: nsfRawData
-    template: json
+    template: nsfParsedData
     data:
       awards:
         - id: '1839167'
