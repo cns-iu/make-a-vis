@@ -1,7 +1,7 @@
 apiVersion: 1
 metadata:
-  dateCreated: 2018-10-09T12:56:00.282Z
-  dateSaved: 2018-10-09T12:56:00.301Z
+  dateCreated: 2018-10-09T14:49:38.257Z
+  dateSaved: 2018-10-09T14:49:38.284Z
 dataSources:
   - id: nsfDataSource
     template: nsf
@@ -2555,6 +2555,6 @@ rawData:
       federal funding, university administrators and other science policy
       makers, to help identify potential grand challenges."
   - id: activityLog
-    template: json
+    template: activityLog
     data:
       activityLog: []

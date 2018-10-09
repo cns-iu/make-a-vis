@@ -21,6 +21,8 @@ export interface DataSource {
   providedIn: 'root'
 })
 export class DataService {
+  maxRecords = 50;
+
   private dataSourcesChange = new BehaviorSubject<DataSource[]>(undefined);
   dataSourcesChanged: Observable<DataSource[]> = this.dataSourcesChange.asObservable();
 
@@ -41,7 +43,7 @@ export class DataService {
               const operator = this.getDataMappingOperator(recordSet.dataVariables, project.graphicVariables, recordSet.id);
 
               recordSet.defaultRecordStream.asObservable().subscribe((changeSet: RawChangeSet<any>) => {
-                dataSource.data = (changeSet.insert || []).map(operator.getter);
+                dataSource.data = (changeSet.insert || []).slice(0, this.maxRecords).map(operator.getter);
                 if (changeSet.insert.length > 1) {
                   dataSource.label = recordSet.labelPlural;
                 }
