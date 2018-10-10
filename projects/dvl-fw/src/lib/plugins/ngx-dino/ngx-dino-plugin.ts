@@ -1,9 +1,9 @@
 import { ObjectFactoryPlugin, ObjectFactoryRegistry } from '../../shared/object-factory';
-import { ScatterplotVisualizationFactory } from './components/scatterplot/scatterplot-visualization';
-import { GeomapVisualizationFactory } from './components/geomap/geomap-visualization';
-import { NetworkVisualizationFactory } from './components/network/network-visualization';
-import { SciencemapVisualizationFactory } from './components/sciencemap/sciencemap-visualization';
-import { TemporalBargraphVisualizationFactory } from './components/temporal-bargraph/temporal-bargraph-visualization';
+import { ScatterplotVisualizationFactory } from './visualizations/scatterplot-visualization';
+import { GeomapVisualizationFactory } from './visualizations/geomap-visualization';
+import { NetworkVisualizationFactory } from './visualizations/network-visualization';
+import { SciencemapVisualizationFactory } from './visualizations/sciencemap-visualization';
+import { TemporalBargraphVisualizationFactory } from './visualizations/temporal-bargraph-visualization';
 
 
 export class NgxDinoPlugin implements ObjectFactoryPlugin {

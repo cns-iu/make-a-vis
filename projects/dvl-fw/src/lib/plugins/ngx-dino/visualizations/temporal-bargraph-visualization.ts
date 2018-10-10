@@ -1,8 +1,8 @@
-import { Visualization } from '../../../../shared/visualization';
-import { Project } from '../../../../shared/project';
-import { ObjectFactory, ObjectFactoryRegistry } from '../../../../shared/object-factory';
-import { DefaultVisualization } from '../../../default/default-visualization';
-import { TemporalBargraphComponent } from './temporal-bargraph.component';
+import { Visualization } from '../../../shared/visualization';
+import { Project } from '../../../shared/project';
+import { ObjectFactory, ObjectFactoryRegistry } from '../../../shared/object-factory';
+import { DefaultVisualization } from '../../default/default-visualization';
+import { TemporalBargraphComponent } from './../components/temporal-bargraph/temporal-bargraph.component';
 
 export class TemporalBargraphVisualization extends DefaultVisualization {
   readonly component = TemporalBargraphComponent;
@@ -12,7 +12,7 @@ export class TemporalBargraphVisualization extends DefaultVisualization {
 }
 
 export class TemporalBargraphVisualizationFactory implements ObjectFactory<Visualization, Project> {
-  readonly id = 'science-map';
+  readonly id = 'temporal-bargraph';
   readonly type = 'visualization';
 
   async fromJSON(data: any, context: Project, registry: ObjectFactoryRegistry): Promise<Visualization> {

@@ -1,8 +1,8 @@
-import { Visualization } from '../../../../shared/visualization';
-import { Project } from '../../../../shared/project';
-import { ObjectFactory, ObjectFactoryRegistry } from '../../../../shared/object-factory';
-import { DefaultVisualization } from '../../../default/default-visualization';
-import { GeomapComponent } from './geomap.component';
+import { Visualization } from '../../../shared/visualization';
+import { Project } from '../../../shared/project';
+import { ObjectFactory, ObjectFactoryRegistry } from '../../../shared/object-factory';
+import { DefaultVisualization } from '../../default/default-visualization';
+import { GeomapComponent } from './../components/geomap/geomap.component';
 
 export class GeomapVisualization extends DefaultVisualization {
   readonly component = GeomapComponent;

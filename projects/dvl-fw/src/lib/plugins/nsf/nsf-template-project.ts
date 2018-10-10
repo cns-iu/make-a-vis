@@ -1,5 +1,5 @@
 import { ActivityLogDataSource } from './../activity-log/log-data-source';
-import { ScatterplotVisualization } from './../ngx-dino/components/scatterplot/scatterplot-visualization';
+import { ScatterplotVisualization } from './../ngx-dino/visualizations/scatterplot-visualization';
 import { DataSource } from '../../shared/data-source';
 import { Project } from '../../shared/project';
 import { RawData } from '../../shared/raw-data';
