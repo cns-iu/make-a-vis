@@ -3,6 +3,7 @@ import { ScatterplotVisualizationFactory } from './components/scatterplot/scatte
 import { GeomapVisualizationFactory } from './components/geomap/geomap-visualization';
 import { NetworkVisualizationFactory } from './components/network/network-visualization';
 import { SciencemapVisualizationFactory } from './components/sciencemap/sciencemap-visualization';
+import { TemporalBargraphVisualizationFactory } from './components/temporal-bargraph/temporal-bargraph-visualization';
 
 
 export class NgxDinoPlugin implements ObjectFactoryPlugin {
@@ -11,5 +12,6 @@ export class NgxDinoPlugin implements ObjectFactoryPlugin {
     registry.registerObjectFactory(new GeomapVisualizationFactory());
     registry.registerObjectFactory(new NetworkVisualizationFactory());
     registry.registerObjectFactory(new SciencemapVisualizationFactory());
+    registry.registerObjectFactory(new TemporalBargraphVisualizationFactory());
   }
 }
