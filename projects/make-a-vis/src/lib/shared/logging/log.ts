@@ -1,4 +1,4 @@
-import { Logger, MessageType } from '@ngx-dino/core';
+import { Logger, MessageType, LogData } from '@ngx-dino/core';
 import { Actions, Effect , ofType } from '@ngrx/effects';
 import { SidenavActionTypes, LoadProjectCompleted } from '../../toolbar/shared/store';
 import { catchError, map , exhaustMap, tap } from 'rxjs/operators';
@@ -11,6 +11,7 @@ import { Injectable } from '@angular/core';
 export class LogActions {
 
 messageType: MessageType;
+logData: LogData;
 startingActions: any = values(pick(SidenavActionTypes, [
   'SaveProjectStarted',
   'LoadProjectStarted',
@@ -26,8 +27,14 @@ constructor(private actions$: Actions, private logger: Logger) {
   startActions: Observable<Action> = this.actions$.pipe(
     ofType(...this.startingActions),
     tap(payloadAndType => {
-      this.messageType = JSON.stringify(payloadAndType);
-      this.logger.info(this.messageType);
+      console.log('in effects');
+      this.logData = {
+        msg : 'saving log activity',
+        data: payloadAndType
+      };
+      console.log('called logger');
+      console.log(this.logData);
+      this.logger.info(this.logData);
     })
   );
 }
