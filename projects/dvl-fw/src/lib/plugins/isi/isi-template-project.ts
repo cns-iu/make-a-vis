@@ -1,4 +1,3 @@
-import { ScatterplotVisualization } from './../ngx-dino/visualizations/scatterplot-visualization';
 import { DataSource } from '../../shared/data-source';
 import { Project } from '../../shared/project';
 import { RawData } from '../../shared/raw-data';
@@ -14,6 +13,10 @@ import { DefaultRecordSet } from './../default/default-record-set';
 import { ISIDataSource } from './isi-data-source';
 import { ISIParsedRawData } from './isi-parsed-raw-data';
 import { ActivityLogDataSource } from '../activity-log/log-data-source';
+import {
+  GeomapVisualization, NetworkVisualization, ScatterplotVisualization,
+  SciencemapVisualization, TemporalBargraphVisualization
+} from './../ngx-dino/visualizations';
 
 
 export class ISITemplateProject extends DefaultProject {
@@ -99,6 +102,7 @@ export class ISITemplateProject extends DefaultProject {
           {id: 'numCites', label: '#Cites', dataType: 'integer', scaleType: 'ratio'},
           {id: 'firstYear', label: 'First Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'},
+          {id: 'latlng', label: 'Latitude/Longitude', dataType: '???', scaleType: '???'} // TODO: Fix types
         ]
       }, this),
       new DefaultRecordSet({
@@ -386,6 +390,11 @@ export class ISITemplateProject extends DefaultProject {
               strokeColor: [
                 {selector: 'lastYearStrokeColor'}
               ]
+            },
+            latlng: {
+              axis: [
+                {selector: 'latlng'}
+              ]
             }
           }
         }
@@ -587,7 +596,38 @@ export class ISITemplateProject extends DefaultProject {
             dataVariable: 'numCites',
             graphicVariableType: 'fontSize',
             graphicVariableId: 'fontSize'
+          }
+        }
+      }, this),
+      new DefaultGraphicSymbol({
+        id: 'authorPoints',
+        type: 'area',
+        recordStream: 'authors',
+        graphicVariables: {
+          identifier: {
+            recordSet: 'author',
+            dataVariable: 'name',
+            graphicVariableType: 'identifier',
+            graphicVariableId: 'identifier'
           },
+          latlng: {
+            recordSet: 'author',
+            dataVariable: 'latlng',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          areaSize: {
+            recordSet: 'author',
+            dataVariable: 'numCites',
+            graphicVariableType: 'areaSize',
+            graphicVariableId: 'areaSize'
+          },
+          color: {
+            recordSet: 'author',
+            dataVariable: 'numCites',
+            graphicVariableType: 'color',
+            graphicVariableId: 'color'
+          }
         }
       }, this)
     ];
@@ -613,6 +653,15 @@ export class ISITemplateProject extends DefaultProject {
         },
         graphicSymbols: {
           points: 'publicationPoints'
+        }
+      }, this),
+      new GeomapVisualization({
+        id: 'GM01',
+        template: 'geomap',
+        properties: {},
+        graphicSymbols: {
+          points: 'authorPoints'
+          //
         }
       }, this)
     ];
