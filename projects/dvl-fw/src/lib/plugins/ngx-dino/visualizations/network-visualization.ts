@@ -7,6 +7,12 @@ import { NetworkComponent } from './../components/network/network.component';
 export class NetworkVisualization extends DefaultVisualization {
   readonly component = NetworkComponent;
   readonly graphicSymbolOptions = [
+    {
+      id: 'nodes', label: 'Nodes', type: 'area',
+      graphicVariableOptions: [
+        // TODO
+      ]
+    }
     // TODO: Specify valid options
   ];
 }

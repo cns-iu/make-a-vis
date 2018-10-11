@@ -102,7 +102,9 @@ export class ISITemplateProject extends DefaultProject {
           {id: 'numCites', label: '#Cites', dataType: 'integer', scaleType: 'ratio'},
           {id: 'firstYear', label: 'First Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'},
-          {id: 'latlng', label: 'Latitude/Longitude', dataType: '???', scaleType: '???'} // TODO: Fix types
+          {id: 'latlng', label: 'Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
+          {id: 'position', label: 'Position', dataType: '???', scaleType: '???'}, // TODO: Fix types
+          {id: 'shape', label: 'Shape', dataType: 'text', scaleType: 'nominal'},
         ]
       }, this),
       new DefaultRecordSet({
@@ -300,6 +302,21 @@ export class ISITemplateProject extends DefaultProject {
                 {selector: 'name'}
               ]
             },
+            latlng: {
+              axis: [
+                {selector: 'latlng'}
+              ]
+            },
+            position: {
+              axis: [
+                {selector: 'position'}
+              ]
+            },
+            shape: {
+              identifier: [
+                {selector: 'shape'}
+              ]
+            },
             fullname: {
               identifier: [
                 {selector: 'fullname'}
@@ -389,11 +406,6 @@ export class ISITemplateProject extends DefaultProject {
               ],
               strokeColor: [
                 {selector: 'lastYearStrokeColor'}
-              ]
-            },
-            latlng: {
-              axis: [
-                {selector: 'latlng'}
               ]
             }
           }
@@ -610,11 +622,23 @@ export class ISITemplateProject extends DefaultProject {
             graphicVariableType: 'identifier',
             graphicVariableId: 'identifier'
           },
+          position: {
+            recordSet: 'author',
+            dataVariable: 'position',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
           latlng: {
             recordSet: 'author',
             dataVariable: 'latlng',
             graphicVariableType: 'axis',
             graphicVariableId: 'axis'
+          },
+          shape: {
+            recordSet: 'author',
+            dataVariable: 'shape',
+            graphicVariableType: 'identifier',
+            graphicVariableId: 'identifier'
           },
           areaSize: {
             recordSet: 'author',
@@ -661,7 +685,16 @@ export class ISITemplateProject extends DefaultProject {
         properties: {},
         graphicSymbols: {
           points: 'authorPoints'
-          //
+          // TODO: Add states
+        }
+      }, this),
+      new NetworkVisualization({
+        id: 'NW01',
+        template: 'network',
+        properties: {},
+        graphicSymbols: {
+          nodes: 'authorPoints'
+          // TODO: Add edges
         }
       }, this)
     ];
