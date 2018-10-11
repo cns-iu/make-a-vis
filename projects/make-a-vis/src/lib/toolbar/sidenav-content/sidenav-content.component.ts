@@ -1,9 +1,11 @@
-import { Component, OnInit, Input, ViewChild, Inject  } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Inject, ElementRef  } from '@angular/core';
 import { MatAccordion, MatButtonToggleGroup } from '@angular/material';
 import { Store , select } from '@ngrx/store';
 import * as sidenavStore from '../shared/store';
 import { DOCUMENT } from '@angular/platform-browser';
 import { Project, ProjectSerializerService } from 'dvl-fw';
+import { Router, ActivationEnd } from '@angular/router'; 
+ 
 
 import { get } from 'lodash';
 
@@ -23,11 +25,13 @@ export type LoadProjectExtensionType = 'yml';
 })
 export class SidenavContentComponent implements OnInit {
   @ViewChild(MatAccordion) accordion: MatAccordion;
+  @ViewChild('clipboardTarget') clipboardTargetEl : ElementRef;
   @Input() set panelsOpenState(sidenavOpenState: boolean) {
     if (!sidenavOpenState) {
       this.accordion.closeAll();
     }
   }
+
 
   exportSnapshotType = null;
   panelOpenState = true;
@@ -36,8 +40,10 @@ export class SidenavContentComponent implements OnInit {
   loadProjectExtensions: LoadProjectExtensionType[] = ['yml'];
   project: Project = undefined;
   shareUrlFieldDisabled : boolean;
+  copyToClipboardDisabled : boolean;
   private baseUrl : string;
-  shareUrl : string = "";
+  shareUrl : string = '';
+  private document : any;
 
   constructor(
     private saveProjectService: SaveProjectService,
@@ -47,18 +53,34 @@ export class SidenavContentComponent implements OnInit {
     private loggingControlService: LoggingControlService,
     private projectSerializer : ProjectSerializerService,
     private getLinkService : GetLinkService,
-    @Inject(DOCUMENT) document: any
+    @Inject(DOCUMENT) document: any,
+    private router: Router
   ) {
+      this.document = document;
       this.baseUrl = document.location.origin;
       loggingControlService.disableLogging();
-      this.shareUrlFieldDisabled = false;
-      this.baseUrl= document.location.origin;
+      this.shareUrlFieldDisabled = true;
+      this.copyToClipboardDisabled = true;
+      this.baseUrl= document.location.href;
       this.store.pipe(select(sidenavStore.getLoadedProjectSelector))
         .subscribe((project: Project) => {
           if (project) {
             this.project = project;
           }
       });
+
+      /* based on router state event, calculate the query param.
+      * Call the getProjectFromUrl() if shared id is found in the URL.
+      */
+      let routerStateWatcher = this.router.events.subscribe(routerstate => {
+        if (routerstate instanceof ActivationEnd ) {
+          let projObjId = routerstate.snapshot.queryParams.share;
+          if(projObjId)
+            this.getProjectFromUrl(projObjId);
+          routerStateWatcher.unsubscribe();
+        }
+      });
+      
   }
 
   ngOnInit() {
@@ -96,6 +118,39 @@ export class SidenavContentComponent implements OnInit {
     });
   }
 
+  /*
+  * given a project object id from the url, this funtion renders it.
+  * used getProject()'s stuff to write this function, probably need a new action.
+  */ 
+  getProjectFromUrl(id:string) {
+    this.store.dispatch(new sidenavStore.LoadShareUrlStarted(true));
+    let jsonFromIdWatcher = this.getLinkService.getJSONfromId(id).subscribe((json:any) => {
+      if(json) {
+        this.loadProjectService.loadFromProjectJson(json).subscribe((project)=> {
+          this.removeShareUrlFromAddress();
+          this.store.dispatch(new sidenavStore.LoadShareUrlCompleted(
+            { loadingShareUrl: false, project: project }
+          ));
+        },err => {
+          this.store.dispatch(new sidenavStore.LoadShareUrlError(
+            { errorOccurred: true, errorTitle: err.name, errorMessage: 'Failed to load new project from URL :'+err.message }
+          ));
+        });
+      } else {
+        this.store.dispatch(new sidenavStore.LoadShareUrlError(
+          { errorOccurred: true, errorTitle: 'Load Error', errorMessage: 'Failed to load new project from URL' }
+        ));
+      }
+      jsonFromIdWatcher.unsubscribe();
+    }, err => {
+      this.store.dispatch(new sidenavStore.LoadShareUrlError(
+        { errorOccurred: true, errorTitle: err.name, errorMessage: 'Failed to load new project from URL :'+err.message }
+      ));
+    });
+    
+    
+
+  }
   readNewFile(event: any, isLoadProject: boolean) {
     const filename = get(event, 'srcElement.files[0].name');
     const fileExtension = filename && filename.split('.').slice(-1).toString();
@@ -128,6 +183,7 @@ export class SidenavContentComponent implements OnInit {
   */
   getUrlLink()  {
     this.shareUrlFieldDisabled = true;
+    this.copyToClipboardDisabled= true;
     /* dispatch an action stating create url has started */
     this.store.dispatch(new sidenavStore.CreateShareUrlStarted(true));
     /* get project state from the reducer*/
@@ -139,10 +195,9 @@ export class SidenavContentComponent implements OnInit {
                 this.getLinkService.getJSONobjId(prj_json).subscribe(
                   object_id => {
                     /* {'id' : 'someid'} */
-                    console.log("here");
-                    console.log(object_id);
-                    this.shareUrl =  this.baseUrl + '/make-a-vis?share='+object_id['id'];
+                    this.shareUrl =  this.baseUrl + '?share=' + object_id['id'];
                     this.shareUrlFieldDisabled = false;
+                    this.copyToClipboardDisabled= false;
                     /* dispatch an action stating create url has completed */
                     this.store.dispatch(new sidenavStore.CreateShareUrlCompleted({
                       'shareUrl' : null,
@@ -150,7 +205,9 @@ export class SidenavContentComponent implements OnInit {
                       'project' : prj
                     }));
                   }, err => {
-                    this.shareUrlFieldDisabled = false;
+                    this.shareUrl =  "";
+                    this.copyToClipboardDisabled= true;
+                    this.shareUrlFieldDisabled = true;
                     this.store.dispatch(new sidenavStore.CreateShareUrlError({
                       'errorOccurred' : true,
                       'errorTitle' : err.name,
@@ -160,7 +217,9 @@ export class SidenavContentComponent implements OnInit {
 
               },
               /* dispatch an action stating create url has thrown an error */
-              err => {this.shareUrlFieldDisabled = false;
+              err => {this.shareUrlFieldDisabled = true;
+                this.shareUrl =  "";
+                this.copyToClipboardDisabled= true;
                 this.store.dispatch(new sidenavStore.CreateShareUrlError({
                 'errorOccurred' : true,
                 'errorTitle' : err.name,
@@ -168,7 +227,9 @@ export class SidenavContentComponent implements OnInit {
               }));})
           }
           else {
-            this.shareUrlFieldDisabled = false;
+            this.shareUrlFieldDisabled = true;
+            this.shareUrl =  "";
+            this.copyToClipboardDisabled= true;
             this.store.dispatch(new sidenavStore.CreateShareUrlError({
               'errorOccurred' : true,
               'errorTitle' : 'Project state not found',
@@ -181,6 +242,7 @@ export class SidenavContentComponent implements OnInit {
       /* unsubscribed because get link would trigger on every project load */
       stateObs.unsubscribe();
   }
+
   saveProject() {
     if (this.project) {
       this.saveProjectService.save(this.project);
@@ -190,4 +252,34 @@ export class SidenavContentComponent implements OnInit {
   toggleLogging() {
     this.loggingControlService.toggleLogging();
   }
+
+
+/* below are non angular ways of some features */
+copyToClipboard() {
+
+    let nativeEle = this.clipboardTargetEl.nativeElement;
+    if(!nativeEle)
+      return;
+    if(this.selectTextFromElement(nativeEle))
+      document.execCommand('copy');
+  }
+
+selectTextFromElement(ele : any) : boolean {
+  try {
+  ele.select();
+  }
+  catch (err) {
+    console.log("select share url failed - clipboard");
+    return false;
+  }
+  return true;
+}
+
+removeShareUrlFromAddress() {
+  if(window.history && window.history.pushState) {
+    window.history.pushState("mav", "mav", "/");
+    return true;
+  }
+  return false;
+}
 }
