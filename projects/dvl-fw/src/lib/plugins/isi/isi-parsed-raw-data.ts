@@ -1,13 +1,14 @@
 import { RawData } from '../../shared/raw-data';
 import { ISIDatabase } from './data-model/isi-database';
+import { ObjectFactory, ObjectFactoryRegistry } from '../../shared/object-factory';
+import { Project } from '../../shared/project';
 
 
 export class ISIParsedRawData implements RawData {
-  template = 'json';
-  data: ISIDatabase;
+  template = 'isiParsedData';
   private __reconstituted_data__ = false;
 
-  constructor(public id: string, private isiData: RawData) { }
+  constructor(public id: string, private isiData: RawData, public data: ISIDatabase = null) { }
 
   async getData(): Promise<any> {
     if (!this.data) {
@@ -22,5 +23,17 @@ export class ISIParsedRawData implements RawData {
   }
   toJSON() {
     return Object.assign({id: this.id, template: this.template, data: this.data});
+  }
+}
+
+export class ISIParsedRawDataFactory implements ObjectFactory<RawData, Project> {
+  id = 'isiParsedData';
+  type = 'rawData';
+
+  fromJSON(data: any, context: Project, registry: ObjectFactoryRegistry): RawData | Promise<RawData> {
+    return new ISIParsedRawData(data.id, null, data.data);
+  }
+  toJSON(instance: RawData, context: Project, registry: ObjectFactoryRegistry) {
+    return instance.toJSON();
   }
 }

@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { ObjectFactoryRegistry } from './object-factory';
 import { Project } from './project';
 import { Observable, defer } from 'rxjs';
+import { Visualization } from './visualization';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,12 @@ export class ProjectSerializerService {
         default:
           throw new Error(`Template: ${template} not supported.`);
       }
+    });
+  }
+
+  createVisualization(template: string, data: Partial<Visualization>, project: Project): Observable<Visualization> {
+    return defer(async () => {
+      return await this.registry.fromJSON<Visualization, Project>('visualization', template, data, project);
     });
   }
 

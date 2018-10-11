@@ -7,7 +7,6 @@ export function visualizationStateReducer (
   state: VisualizationState = INITIAL_VISUALIZATION_STATE,
   action: VisualizationActionsUnion
 ) {
-
     const newState: VisualizationState = assign({}, state);
 
     switch (action.type) {
@@ -16,16 +15,20 @@ export function visualizationStateReducer (
         return newState;
 
       case VisualizationActionTypes.AddNewVisualization:
-        newState.activeVisualization = action.payload;
+        newState.visualizations = state.visualizations.concat(action.payload);
+        return newState;
+
+      case VisualizationActionTypes.RemoveVisualization:
+        newState.visualizations = state.visualizations.slice();
+        newState.visualizations.splice(action.payload, 1);
         return newState;
 
       case VisualizationActionTypes.SetGraphicSymbolRecordSet:
         assign(newState, pick(action.payload, ['graphicSymbol', 'recordSet']));
         return newState;
 
-      case VisualizationActionTypes.SetActiveDataVariable:
-        newState.activeDataVariable = action.payload;
-        return newState;
+      // case VisualizationActionTypes.SetGraphicSymbolRecordSet:
+      //   return newState;
 
       case VisualizationActionTypes.SetGraphicVariable:
         // TODO

@@ -1,20 +1,21 @@
-<mat-tab-group [color]="'#ffffff'" [disableRipple]="true" [(selectedIndex)]="selectedTab" class="tab-group" #visualization>
+<mat-tab-group [color]="'#ffffff'" [disableRipple]="true" [(selectedIndex)]="selectedVis" class="tab-group" #visualization>
 
-    <mat-tab *ngFor="let label of tabs; let index=index" [disabled]="false">
+    <mat-tab *ngFor="let vis of visualizations; let index = index" [disabled]="false">
 
         <ng-template mat-tab-label>
             <mat-chip-list [selectable]="true">
-                <mat-chip [selected]="index===selectedTab" (click)="selected(index)" class="tab-label">
-                    <div class="text">{{label}}</div>
-                    <mav-cancel-icon (click)="removeTab(index)"></mav-cancel-icon>
+                <mat-chip [selected]="index === selectedVis" (click)="setSelectedVis(index)" class="tab-label">
+                    <div class="text"> {{ vis.label }} </div>
+                    <mav-cancel-icon (click)="removeVisualization(index)"></mav-cancel-icon>
                 </mat-chip>
             </mat-chip-list>
 
         </ng-template>
 
         <ng-template matTabContent>
-            <div class="tab-content">
-                <dvl-visualization [data]="fakeData"></dvl-visualization>
+            <!-- active class is used by export to select the element -->
+            <div class="tab-content" [ngClass]="{ active: index === selectedVis }">
+                <dvl-visualization [data]="vis.data"></dvl-visualization>
             </div>
         </ng-template>
 
@@ -22,14 +23,14 @@
 
 </mat-tab-group>
 
-<div class=" add-visualization ">
-    <mav-add-icon [matMenuTriggerFor]="menu "></mav-add-icon>
+<div class="add-visualization">
+    <mav-add-icon [matMenuTriggerFor]="menu"></mav-add-icon>
     Add New
 </div>
 
 <mat-menu #menu>
-    <button (click)="addTab(option.label) " *ngFor="let option of menuOptions; " mat-menu-item>
-    <mav-visualization-menu [label]="option.label " [icon]="option.icon " class="menu ">
+    <button *ngFor="let type of visTypes" (click)="addNewVisualization(type)" mat-menu-item>
+    <mav-visualization-menu [label]="type.label" [icon]="type.icon" class="menu">
     </mav-visualization-menu>
   </button>
 </mat-menu>

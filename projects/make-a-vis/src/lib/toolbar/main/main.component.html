@@ -1,9 +1,9 @@
-<mav-toolbar-content (toggleSidenav)="setSidenavState($event)">
+<mav-toolbar-content #mavToolbarContent>
 </mav-toolbar-content>
 
 <mat-sidenav-container>
-    <mat-sidenav #sidenav class="sidenav" mode="over" [(opened)]="isSidenavOpen">
-        <mav-sidenav-content [panelsOpenState]="isSidenavOpen"></mav-sidenav-content>
+    <mat-sidenav #sidenav class="sidenav" mode="over" [(opened)]="mavToolbarContent.isSidenavOpen">
+        <mav-sidenav-content [panelsOpenState]="mavToolbarContent.isSidenavOpen"></mav-sidenav-content>
     </mat-sidenav>
 
     <mat-sidenav-content class="main-content" #sidenavC>
