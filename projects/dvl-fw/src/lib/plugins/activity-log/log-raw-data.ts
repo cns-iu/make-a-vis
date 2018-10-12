@@ -5,17 +5,15 @@ import { nSQL } from 'nano-sql';
 
 import { CategoryLogMessage } from 'typescript-logging';
 import {  get } from 'lodash';
-import { async } from 'q';
 
 
 export class ActivityLogRawData implements RawData {
   template = 'activityLog';
-  public saveActivityLog = false;
+  public saveActivityLog = true; // Not sure if we need this
   private db: any /* nSQL */;
 
   constructor(public id: string, data = null) {
     this.setupDB(data);
-    console.log('raw');
   }
 
   // TODO
@@ -29,38 +27,21 @@ export class ActivityLogRawData implements RawData {
       {key: 'fileextension', type: 'string'},
       {key: 'date', type: 'string'}
     ]).actions([{
-          name: 'add_new_log',
+          name: ' add_new_log',
           args: ['activitylog:map'],
           call: function(args, db) {
-            console.log('inserting data');
-            console.log(args);
             return db.query('upsert', args.activitylog).exec();
           }
       }
-    ]).connect()
-    .then(() => {
-      console.log('data connection successful');
+    ]).connect();
 
-    });
-
-    console.log('data is ');
-    console.log(data);
     if (data && data.activityLog) {
-
-      nSQL().loadJS('activitylog', data.activityLog).then(() => {
-        console.log('inserted activity log from new loaded file to nano table');
-      });
-
-      console.log('the log data is');
-      console.log(data.activityLog);
-      // insert data from activityLog
+      nSQL().loadJS('activitylog', data.activityLog);
     }
   }
 
-  // TODO
+
   public async logActivity(msg: CategoryLogMessage): Promise<any> {
-    console.log('log activity');
-    console.log(msg.logData);
 
       nSQL('activitylog').doAction('add_new_log', {
         activitylog: {
@@ -68,28 +49,21 @@ export class ActivityLogRawData implements RawData {
         actionname: get(msg, 'logData.data.type'),
         filename: get(msg, 'logData.data.payload.filename'),
         fileextension: get(msg, 'logData.data.payload.fileExtension'),
-        date : new Date().toLocaleDateString()
+        date : new Date().toLocaleString()
         }
-      }).then((result) => {
-        console.log('log activity successful');
-        console.log(result);
       });
-
   }
 
   async getData(): Promise<any> {
-    console.log('save data called');
     if (this.saveActivityLog) {
       return {activityLog: []};
     } else {
      return nSQL('activitylog').query('select').exec().then((rows) => {
-        console.log(rows);
         return {activityLog: rows};
       });
     }
   }
   async toJSON(): Promise<any> {
-    // return Object.assign({id: this.id, template: this.template, data: 'Jassi'});
     const logData = await this.getData();
     return Object.assign({id: this.id, template: this.template, data: logData});
   }

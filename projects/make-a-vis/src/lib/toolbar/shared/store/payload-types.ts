@@ -26,8 +26,8 @@ export interface SaveProjectCompletedPayload {
 
 export interface ExportSnapshotCompletedPayload {
   exportingSnapshot: boolean;
-  snapshotFile: string;
-  snapshotFileType: string;
+  filename: string;
+  fileExtension: string;
 }
 
 export interface LoadShareUrlCompletedPayload {

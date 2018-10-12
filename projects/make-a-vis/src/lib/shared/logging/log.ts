@@ -1,4 +1,4 @@
-import { Logger, MessageType, LogData } from '@ngx-dino/core';
+import { Logger, MessageType, LogData, ErrorType } from '@ngx-dino/core';
 import { Actions, Effect , ofType } from '@ngrx/effects';
 import { SidenavActionTypes, LoadProjectCompleted } from '../../toolbar/shared/store';
 import { catchError, map , exhaustMap, tap } from 'rxjs/operators';
@@ -12,28 +12,51 @@ export class LogActions {
 
 messageType: MessageType;
 logData: LogData;
+errorType: ErrorType;
 startingActions: any = values(pick(SidenavActionTypes, [
   'SaveProjectStarted',
+  'SaveProjectCompleted',
+
   'LoadProjectStarted',
+  'LoadProjectCompleted',
+
   'ExportSnapshotStarted',
-  'LoadShareUrlStarted',
-  'CreateShareUrlStarted'
+  'ExportSnapshotCompleted',
+
+  'LoadShareUrlStarted'
 ]));
 
+
+errorActions: any = values(pick(SidenavActionTypes, [
+  'LoadProjectError',
+  'ExportSnapshotError',
+  'LoadShareUrlError',
+  'CreateShareUrlError',
+]));
 constructor(private actions$: Actions, private logger: Logger) {
  }
 
 @Effect({ dispatch: false })
-  startActions: Observable<Action> = this.actions$.pipe(
+  startActionsEffects: Observable<Action> = this.actions$.pipe(
     ofType(...this.startingActions),
     tap(payloadAndType => {
-      console.log('in effects');
       this.logData = {
-        msg : 'saving log activity',
+        msg : 'action successful',
         data: payloadAndType
       };
-      console.log('called logger');
-      console.log(this.logData);
+      if (this.logger && this.logger.info) {
+        this.logger.info(this.logData);
+      }
+    })
+  );
+
+  errorActionsEfects: Observable<Action> = this.actions$.pipe(
+    ofType(...this.errorActions),
+    tap(errorPayload => {
+      this.logData = {
+        msg : 'action failed',
+        data: errorPayload
+      };
       this.logger.info(this.logData);
     })
   );

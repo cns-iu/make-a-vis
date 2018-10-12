@@ -25,7 +25,9 @@ export class StoreLogger extends AbstractCategoryLogger {
           const activityLogRawData = project.rawData.find(obj => obj instanceof ActivityLogRawData) as ActivityLogRawData;
           console.log('msg is ');
           console.log(msg);
+          if (activityLogRawData) {
           activityLogRawData.logActivity(msg);
+          }
         }
       });
     }

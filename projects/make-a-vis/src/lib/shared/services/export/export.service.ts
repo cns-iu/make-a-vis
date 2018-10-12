@@ -37,8 +37,8 @@ export class ExportService {
     );
     this.store.dispatch(new ExportSnapshotCompleted({
       exportingSnapshot: false,
-      snapshotFile: 'visualisation.png',
-      snapshotFileType: 'png'
+      filename: 'visualisation.png',
+      fileExtension: 'png'
     }));
   }
 
@@ -49,8 +49,8 @@ export class ExportService {
       'visualisation.svg');
       this.store.dispatch(new ExportSnapshotCompleted({
         exportingSnapshot: false,
-        snapshotFile: 'visualisation.svg',
-        snapshotFileType: 'svg'
+        filename: 'visualisation.svg',
+        fileExtension: 'svg'
       }));
   }
 
@@ -66,8 +66,8 @@ export class ExportService {
     );
     this.store.dispatch(new ExportSnapshotCompleted({
       exportingSnapshot: false,
-      snapshotFile: 'visualisation.pdf',
-      snapshotFileType: 'pdf'
+      filename: 'visualisation.pdf',
+      fileExtension: 'pdf'
     }));
   }
 }
