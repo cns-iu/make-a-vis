@@ -5,6 +5,10 @@ import { extractAwards } from './nsf-extract-awards';
 // @dynamic
 export class NSFDatabase {
   awards: Award[];
+  // TODO:
+  // organizations: Organization[];
+  // investigators: Investigator[];
+  // coInvestigatorLinks: CoInvestigatorLink[];
 
   static fromNSFFile(nsfFileContents: string): NSFDatabase {
     const records = parseNSFFile(nsfFileContents);

@@ -1,7 +1,7 @@
 apiVersion: 1
 metadata:
-  dateCreated: 2018-09-28T17:17:56.908Z
-  dateSaved: 2018-09-28T17:17:57.211Z
+  dateCreated: 2018-10-09T14:49:34.249Z
+  dateSaved: 2018-10-09T14:49:34.593Z
 dataSources:
   - id: isiDataSource
     template: isi
@@ -18,6 +18,15 @@ dataSources:
         label: authors
       - id: coAuthorLinks
         label: coAuthorLinks
+  - id: activityLog
+    template: activityLog
+    properties:
+      rawData: activityLog
+      keepPreviousActivity: true
+      freezeLogs: false
+    recordStreams:
+      - id: activityLog
+        label: activityLog
 recordSets:
   - id: publication
     label: Publication
@@ -587,9 +596,24 @@ graphicSymbolMappings:
         dataVariable: id
         graphicVariableType: identifier
         graphicVariableId: identifier
-      color:
+      x:
         recordSet: publication
         dataVariable: publicationYear
+        graphicVariableType: axis
+        graphicVariableId: axis
+      'y':
+        recordSet: publication
+        dataVariable: publicationYear
+        graphicVariableType: axis
+        graphicVariableId: axis
+      areaSize:
+        recordSet: publication
+        dataVariable: numCites
+        graphicVariableType: areaSize
+        graphicVariableId: areaSize
+      color:
+        recordSet: publication
+        dataVariable: numCites
         graphicVariableType: color
         graphicVariableId: color
   - id: journalPoints
@@ -611,6 +635,16 @@ graphicSymbolMappings:
         dataVariable: numPapers
         graphicVariableType: axis
         graphicVariableId: axis
+      areaSize:
+        recordSet: journal
+        dataVariable: numCites
+        graphicVariableType: areaSize
+        graphicVariableId: areaSize
+      color:
+        recordSet: journal
+        dataVariable: numCites
+        graphicVariableType: color
+        graphicVariableId: color
       label:
         recordSet: journal
         dataVariable: name
@@ -636,7 +670,7 @@ visualizations:
       points: publicationPoints
 rawData:
   - id: isiRawData
-    template: json
+    template: isiParsedData
     data:
       journals:
         - name: PLOS ONE
@@ -29158,3 +29192,7 @@ rawData:
 
 
       EF
+  - id: activityLog
+    template: activityLog
+    data:
+      activityLog: []

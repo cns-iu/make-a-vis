@@ -10,7 +10,7 @@ const csvfields = [
 ];
 
 function splitTrim(field: string, separator = ','): Operator<any, string[]> {
-  return chain(access(field), map<string, string[]>(s => s.split(separator).map(t => t.trim()).filter(u => !!u)));
+  return chain(access(field), map<string, string[]>(s => (s || '').split(separator).map(t => t.trim()).filter(u => !!u)));
 }
 function date(field: string): Operator<any, Date> {
   return chain(access(field), map<string, Date>(s => String(new Date(s || undefined)) === 'Invalid Date' ? undefined : new Date(s)));
@@ -19,8 +19,23 @@ function year(field: string): Operator<any, number> {
   return chain(date(field), map<Date, number>(s => s ? s.getFullYear() : undefined));
 }
 function usDollars(field: string): Operator<any, number> {
-  return chain(access(field), map<string, number>(s => Number(s.replace('$', '').replace(',', ''))));
+  return chain(access(field), map<string, number>(s => Number((s || '').replace('$', '').replace(',', '')) || 0));
 }
+
+function padLeft(nr, n, str = '0') {
+  return Array(Math.max(0, n - String(nr).length + 1)).join(str) + nr;
+}
+
+const zip5: Operator<string, string> = map(s => {
+  s = (s || '').trim().replace(/[^\d]/g, '');
+  if (s.length === 5) {
+    return s;
+  } else if (s.length === 0) {
+    return undefined;
+  } else {
+    return padLeft(Number(s), 9).slice(0, 5);
+  }
+});
 
 export interface NSFRecord {
   id: string;
@@ -35,6 +50,8 @@ export interface NSFRecord {
     street: string;
     city: string;
     state: string;
+    zip: string;
+    zip5: string;
     phone: string;
   };
 
@@ -74,6 +91,7 @@ const nsfParseOp: Operator<any, NSFRecord> = combine({
     'city': access('OrganizationCity'),
     'state': access('OrganizationState'),
     'zip': access('OrganizationZip'),
+    'zip5': chain(access('OrganizationZip'), zip5),
     'phone': access('OrganizationPhone'),
   },
 

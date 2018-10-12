@@ -75,6 +75,7 @@ export class DvlFwVisualizationComponent implements OnInit, OnChanges {
       const component = viewContainerRef.createComponent(factory);
       return component;
     } catch (error) {
+      console.log(`Failed to create visualization component`, error);
       // TODO: Log error
       // TODO: Create default component?
       return undefined;

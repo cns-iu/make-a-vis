@@ -1,12 +1,12 @@
-import { DataVariable, Project, Visualization } from 'dvl-fw';
+import { Visualization } from 'dvl-fw';
 
 export interface VisualizationState {
-  activeVisualization: Visualization;
-  activeDataVariable: DataVariable;
+  activeVisualization: number;
+  visualizations: Visualization[];
 }
 
 
 export const INITIAL_VISUALIZATION_STATE: VisualizationState = {
-  activeVisualization: null,
-  activeDataVariable: null,
+  activeVisualization: -1,
+  visualizations: []
 };
