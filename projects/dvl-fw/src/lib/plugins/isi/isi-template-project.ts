@@ -115,10 +115,13 @@ export class ISITemplateProject extends DefaultProject {
         dataVariables: [
           {id: 'author1', label: 'Author 1', dataType: 'text', scaleType: 'nominal'},
           {id: 'author2', label: 'Author 2', dataType: 'text', scaleType: 'nominal'},
+          {id: 'identifier', label: 'Identifier', dataType: 'text', scaleType: 'nominal'},
+          {id: 'source', label: 'Source Position', dataType: '???', scaleType: '???'}, // TODO: Fix types
+          {id: 'target', label: 'Target Position', dataType: '???', scaleType: '???'}, // TODO: Fix types
           {id: 'numPapers', label: '#Papers', dataType: 'integer', scaleType: 'ratio'},
           {id: 'numCites', label: '#Cites', dataType: 'integer', scaleType: 'ratio'},
           {id: 'firstYear', label: 'First Year', dataType: 'integer', scaleType: 'interval'},
-          {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'},
+          {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'}
         ]
       }, this)
     ];
@@ -437,6 +440,21 @@ export class ISITemplateProject extends DefaultProject {
                 {selector: 'author2'}
               ]
             },
+            identifier: {
+              identifier: [
+                {selector: 'identifier'}
+              ]
+            },
+            source: {
+              axis: [
+                {selector: 'source'}
+              ]
+            },
+            target: {
+              axis: [
+                {selector: 'target'}
+              ]
+            },
             numCites: {
               axis: [
                 {selector: 'numCitesLabel'}
@@ -653,6 +671,31 @@ export class ISITemplateProject extends DefaultProject {
             graphicVariableId: 'color'
           }
         }
+      }, this),
+      new DefaultGraphicSymbol({
+        id: 'authorLinks',
+        type: '???', // TODO: Fix type
+        recordStream: 'coAuthorLinks',
+        graphicVariables: {
+          identifier: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'identifier',
+            graphicVariableType: 'identifier',
+            graphicVariableId: 'identifier'
+          },
+          source: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'source',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          target: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'target',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          }
+        }
       }, this)
     ];
   }
@@ -693,9 +736,23 @@ export class ISITemplateProject extends DefaultProject {
         template: 'network',
         properties: {},
         graphicSymbols: {
-          nodes: 'authorPoints'
-          // TODO: Add edges
+          nodes: 'authorPoints',
+          edges: 'authorLinks'
         }
+      }, this),
+      new SciencemapVisualization({
+        id: 'SM01',
+        template: 'science-map',
+        properties: {},
+        graphicSymbols: {
+          // TODO
+        }
+      }, this),
+      new TemporalBargraphVisualization({
+        id: 'TBG01',
+        template: 'temporal-bargraph',
+        properties: {},
+        graphicSymbols: {}
       }, this)
     ];
   }

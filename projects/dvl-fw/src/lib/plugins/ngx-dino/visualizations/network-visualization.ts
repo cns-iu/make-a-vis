@@ -10,10 +10,22 @@ export class NetworkVisualization extends DefaultVisualization {
     {
       id: 'nodes', label: 'Nodes', type: 'area',
       graphicVariableOptions: [
-        // TODO
+        { type: 'identifier', label: 'Identifier' },
+        { type: 'position', label: 'Position' },
+        { type: 'areaSize', label: 'Area Size' },
+        { type: 'shape', label: 'Shape' },
+        { type: 'color', label: 'Color' },
+        { type: 'strokeColor', label: 'strokeColor' }
+      ]
+    }, {
+      id: 'edges', label: 'Edges', type: '???', // TODO: Fix type
+      graphicVariableOptions: [
+        { type: 'identifier', label: 'Identifier' },
+        { type: 'source', label: 'Source Position' },
+        { type: 'target', label: 'Target Position' },
+        { type: 'strokeWidth', label: 'StrokeWidth' }
       ]
     }
-    // TODO: Specify valid options
   ];
 }
 

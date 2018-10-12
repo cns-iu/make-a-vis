@@ -33,8 +33,8 @@ const nodesFieldNameMapping = createFieldNameMapping([
   'strokeColor': 'nodeStrokeField'
 }, 'node');
 
-// TODO: sourcePosition, targetPosition, strokeWidth
 const edgesFieldNameMapping = createFieldNameMapping([
+  'source', 'target', 'strokeWidth'
 ], {
   'identifier': 'edgeIdField', 'strokeColor': 'edgeStrokeField'
 }, 'edge');
