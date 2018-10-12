@@ -127,6 +127,16 @@ hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   padding-right: 7rem;
 }
 
+.mat-form-field-infix {
+  margin: 0;
+  padding: 0 !important;
+  border-top: 0; 
+}
+
+.mat-form-field-wrapper {
+  padding: 0;
+}
+
 @media (min-width: 576px) {
   html, span, label, .mat-button-toggle-label-content, .menu {
     font-size: calc(16px + (32 - 16) * ((100vw - 300px) / (3840 - 300))) !important;
