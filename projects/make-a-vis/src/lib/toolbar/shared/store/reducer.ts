@@ -86,6 +86,29 @@ export function sidenavStateReducer (
         newState.loggingEnabled = !state.loggingEnabled;
         return newState;
 
+      case SidenavActionTypes.SetActiveVisualization:
+        newState.activeVisualization = action.payload;
+        return newState;
+
+      case SidenavActionTypes.AddNewVisualization:
+        newState.project.visualizations = state.project.visualizations.concat(action.payload);
+        return newState;
+
+      case SidenavActionTypes.RemoveVisualization:
+        newState.project.visualizations = state.project.visualizations.slice();
+        newState.project.visualizations.splice(action.payload, 1);
+        return newState;
+
+      case SidenavActionTypes.SetGraphicSymbolRecordSet:
+        assign(newState, pick(action.payload, ['graphicSymbol', 'recordSet']));
+        return newState;
+
+      // case SidenavActionTypes.SetGraphicSymbolRecordSet:
+      //   return newState;
+
+      // case SidenavActionTypes.SetGraphicVariable:
+      //   return newState;
+
       default:
         return state;
     }

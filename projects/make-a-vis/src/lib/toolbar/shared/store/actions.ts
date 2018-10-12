@@ -1,6 +1,12 @@
 import { Action } from '@ngrx/store';
-import { Project } from 'dvl-fw';
+import { Visualization, GraphicVariable, DataVariable, GraphicSymbol, RecordSet } from 'dvl-fw';
 import * as payloadTypes from './payload-types';
+
+export interface SetGraphicSymbolRecordSetPayload {
+  graphicSymbol: GraphicSymbol;
+  recordSet: RecordSet;
+}
+
 
 export enum SidenavActionTypes {
   SaveProjectStarted = '[UI] Save Project',
@@ -25,6 +31,14 @@ export enum SidenavActionTypes {
   CreateShareUrlError = '[UI] Create Share URL Error',
 
   ToggleLogging = '[UI] Toggle Logging',
+
+  SetActiveVisualization = '[UI] Set Active Visualization',
+  AddNewVisualization = '[UI] Add New Visualization',
+  RemoveVisualization = '[UI] Remove Visualization',
+
+  SetGraphicSymbolRecordSet = '[UI] Set Graphic Symbol Record Set',
+  SetActiveDataVariable = '[UI] Set Active Data Variable',
+  SetGraphicVariable = '[UI] Set Graphic Variable',
 }
 
 export class SaveProjectStarted implements Action {
@@ -129,10 +143,43 @@ export class ToggleLogging implements Action {
   }
 }
 
+export class SetActiveVisualization implements Action {
+  readonly type = SidenavActionTypes.SetActiveVisualization;
+  constructor(public payload: number) { }
+}
+
+export class AddNewVisualization implements Action {
+  readonly type = SidenavActionTypes.AddNewVisualization;
+  constructor(public payload: Visualization) { }
+}
+
+export class RemoveVisualization implements Action {
+  readonly type = SidenavActionTypes.RemoveVisualization;
+  constructor(public payload: number) { }
+}
+
+export class SetGraphicSymbolRecordSet implements Action {
+  readonly type = SidenavActionTypes.SetGraphicSymbolRecordSet;
+  constructor(public payload: SetGraphicSymbolRecordSetPayload) {
+  }
+}
+
+export class SetActiveDataVariable implements Action {
+  readonly type = SidenavActionTypes.SetActiveDataVariable;
+  constructor(public payload: DataVariable) {
+  }
+}
+
+export class SetGraphicVariable implements Action {
+  readonly type = SidenavActionTypes.SetGraphicVariable;
+  constructor(public payload: GraphicVariable) {
+  }
+}
+
 export type SidenavActionsUnion = SaveProjectStarted | SaveProjectFileCreated | SaveProjectCompleted |
   LoadProjectStarted | LoadProjectCompleted | LoadProjectError |
   ExportSnapshotStarted | ExportSnapshotCreated | ExportSnapshotCompleted | ExportSnapshotError |
   LoadShareUrlStarted | LoadShareUrlCompleted | LoadShareUrlError |
   CreateShareUrlStarted | CreateShareUrlCompleted | CreateShareUrlError |
-  ToggleLogging;
-
+  ToggleLogging | SetActiveVisualization | AddNewVisualization | RemoveVisualization |
+  SetGraphicSymbolRecordSet | SetActiveDataVariable | SetGraphicVariable;

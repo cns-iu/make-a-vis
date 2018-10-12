@@ -7,13 +7,13 @@ export interface SetGraphicSymbolRecordSetPayload {
 }
 
 export enum VisualizationActionTypes {
-  SetActiveVisualization = '[VIS] Set Active Visualization',
-  AddNewVisualization = '[VIS] Add New Visualization',
-  RemoveVisualization = '[VIS] Remove Visualization',
+  SetActiveVisualization = '[UI] Set Active Visualization',
+  AddNewVisualization = '[UI] Add New Visualization',
+  RemoveVisualization = '[UI] Remove Visualization',
 
-  SetGraphicSymbolRecordSet = '[VIS] Set Graphic Symbol Record Set',
-  SetActiveDataVariable = '[VIS] Set Active Data Variable',
-  SetGraphicVariable = '[VIS] Set Graphic Variable',
+  SetGraphicSymbolRecordSet = '[UI] Set Graphic Symbol Record Set',
+  SetActiveDataVariable = '[UI] Set Active Data Variable',
+  SetGraphicVariable = '[UI] Set Graphic Variable',
 }
 
 export class SetActiveVisualization implements Action {

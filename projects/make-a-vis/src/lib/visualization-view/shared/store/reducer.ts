@@ -30,9 +30,8 @@ export function visualizationStateReducer (
       // case VisualizationActionTypes.SetGraphicSymbolRecordSet:
       //   return newState;
 
-      case VisualizationActionTypes.SetGraphicVariable:
-        // TODO
-        return newState;
+      // case VisualizationActionTypes.SetGraphicVariable:
+      //   return newState;
 
       default:
         return state;
