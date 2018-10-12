@@ -1,4 +1,4 @@
-import { DataVariable, Project, Visualization } from 'dvl-fw';
+import { Visualization } from 'dvl-fw';
 
 export interface VisualizationState {
   activeVisualization: number;
