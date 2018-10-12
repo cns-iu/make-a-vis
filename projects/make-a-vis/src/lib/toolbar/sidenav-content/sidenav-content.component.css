@@ -26,32 +26,33 @@
 }
 
 .sidenav-content .title .icon {
-  padding: 0 1vw;
+  padding: 0 0.5rem;
 }
 
 .sidenav-content .title .toggle {
-  padding: 1vw;
+  padding: 0.5rem;
 }
 
 .expansion-title .icon {
-  padding-right: 1vw;
+  padding-right: 0.5rem;
 }
 
 .expansion-content {
-  padding-left: 2vw;
+  padding-left: 1rem;
+  padding-right: 2rem;
 }
 
 .expansion-content .field{
-  width: 14vw;
+  width: 10rem;
 }
 
 .expansion-content .button-toggle {
-  width: 5vw;
+  width: 3.5rem;
   text-align: center;
 }
 
 .expansion-content .button {
-  margin-top: 1vw;
+  margin-top: 0.5rem;
   border-radius: 16px;
   cursor: pointer;
 }
@@ -59,9 +60,9 @@
 .custom-file-upload {
   border: 1px solid currentColor;
   display: inline-block;
-  padding: 8px 18px;
+  padding: 0.5rem 1.1rem;
   cursor: pointer;
-  margin-top: 1vw;
+  margin-top: 0.5rem;
   border-radius: 16px;
 }
 

@@ -7,7 +7,23 @@ import { GeomapComponent } from './../components/geomap/geomap.component';
 export class GeomapVisualization extends DefaultVisualization {
   readonly component = GeomapComponent;
   readonly graphicSymbolOptions = [
-    // TODO: Specify valid options
+    {
+      id: 'states', label: 'States', type: 'area',
+      graphicVariableOptions: [
+        { type: 'identifier', label: 'Identifier' },
+        { type: 'color', label: 'Color' }
+      ]
+    }, {
+      id: 'points', label: 'Points', type: 'area',
+      graphicVariableOptions: [
+        { type: 'identifier', label: 'Identifier' },
+        { type: 'latlng', label: 'Latitude/Longitude' },
+        { type: 'areaSize', label: 'Area Size' },
+        { type: 'shape', label: 'Shape' },
+        { type: 'color', label: 'Color' },
+        { type: 'strokeColor', label: 'strokeColor' }
+      ]
+    }
   ];
 }
 

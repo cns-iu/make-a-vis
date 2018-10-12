@@ -1,3 +1,9 @@
-<p>
-  legend works!
-</p>
+<div class="legend-types-container">
+  <div class="legend-type" *ngFor="let type of legendTypes">
+    <div class="header-bar">
+      <span class="title">
+        {{type}}
+      </span>
+    </div>
+  </div>
+</div>

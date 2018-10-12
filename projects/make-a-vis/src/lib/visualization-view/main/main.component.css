@@ -17,6 +17,7 @@
     display: flex;
     align-items: center;
     margin-left: 85%;
+    padding: 0.5rem;
 }
 
 .menu {

@@ -7,7 +7,25 @@ import { NetworkComponent } from './../components/network/network.component';
 export class NetworkVisualization extends DefaultVisualization {
   readonly component = NetworkComponent;
   readonly graphicSymbolOptions = [
-    // TODO: Specify valid options
+    {
+      id: 'nodes', label: 'Nodes', type: 'area',
+      graphicVariableOptions: [
+        { type: 'identifier', label: 'Identifier' },
+        { type: 'position', label: 'Position' },
+        { type: 'areaSize', label: 'Area Size' },
+        { type: 'shape', label: 'Shape' },
+        { type: 'color', label: 'Color' },
+        { type: 'strokeColor', label: 'strokeColor' }
+      ]
+    }, {
+      id: 'edges', label: 'Edges', type: '???', // TODO: Fix type
+      graphicVariableOptions: [
+        { type: 'identifier', label: 'Identifier' },
+        { type: 'source', label: 'Source Position' },
+        { type: 'target', label: 'Target Position' },
+        { type: 'strokeWidth', label: 'StrokeWidth' }
+      ]
+    }
   ];
 }
 
