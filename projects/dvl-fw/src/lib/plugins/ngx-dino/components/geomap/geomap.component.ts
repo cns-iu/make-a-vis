@@ -44,12 +44,12 @@ const pointsFieldNameMapping = createFieldNameMapping([
   styleUrls: ['./geomap.component.css']
 })
 export class GeomapComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
-  defaultProperties: Properties = {
+  readonly defaultProperties: Properties = {
     showCounties: false, mapDisplayLevel: 'us',
     stateDefaultColor: '#bebebe', stateDefaultStrokeColor: 'white'
   };
 
-  defaultFieldGroups: FieldGroups = {
+  readonly defaultFieldGroups: FieldGroups = {
     states: createDefaultFieldGroup(['stateField', 'stateColorField']),
     points: createDefaultFieldGroup([
       'pointIdField', 'pointLatLongField', 'pointSizeField', 'pointColorField',

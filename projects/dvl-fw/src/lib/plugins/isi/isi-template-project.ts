@@ -1,4 +1,4 @@
-import { ScatterplotVisualization } from './../ngx-dino/scatterplot-visualization';
+import { ScatterplotVisualization } from './../ngx-dino/visualizations/scatterplot-visualization';
 import { DataSource } from '../../shared/data-source';
 import { Project } from '../../shared/project';
 import { RawData } from '../../shared/raw-data';
