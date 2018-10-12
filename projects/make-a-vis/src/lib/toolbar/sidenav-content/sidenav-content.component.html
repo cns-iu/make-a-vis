@@ -70,10 +70,13 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
       <p class="expansion-content">
-        <mat-form-field [color]="'mav-primary'" appearance="outline" class="field">
-          <input matInput placeholder="" readonly class="input">
+        <mat-form-field [color]="'mav-primary'" appearance="outline" class="field"> 
+          <input matInput placeholder="" readonly class="input" [disabled]="shareUrlFieldDisabled" (click) = "selectTextFromElement($event.target)" [value]="shareUrl" #clipboardTarget >
+         
         </mat-form-field>
-        <button mat-stroked-button class="button">Get Link</button>
+        <button mat-stroked-button class="button" (click)="getUrlLink()" >Get Link</button>
+        <button  class="button" mat-stroked-button  [disabled]="copyToClipboardDisabled" (click)="copyToClipboard()" >Clipboard</button>
+        
       </p>
     </mat-expansion-panel>
   </mat-accordion>

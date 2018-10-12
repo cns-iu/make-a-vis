@@ -32,4 +32,13 @@ export class LoadProjectService {
     reader.readAsText(file);
     return projectSubject;
   }
+
+  /* loads project from json given as an argument
+  */
+  loadFromProjectJson(json: string) {
+    const projectSubject = new BehaviorSubject<Project>(null);
+    this.serializer.fromJSON(json)
+      .subscribe((project: Project) => projectSubject.next(project));
+    return projectSubject;
+  }
 }

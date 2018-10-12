@@ -1,4 +1,4 @@
-<div class='data-view'>
+<div class='data-view-inner-container'>
   <ng-container *ngFor="let dataSource of dataSources | async">
     <mav-table [dataSource]="dataSource" [displayedColumns]="dataSource.columns"></mav-table>
   </ng-container>
