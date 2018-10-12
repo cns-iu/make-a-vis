@@ -4,12 +4,10 @@ import * as fromUi from '../../toolbar/shared/store/';
 import { ApplicationState } from './state';
 
 import { sidenavStateReducer } from '../../toolbar/shared/store/reducer';
-import { visualizationStateReducer } from '../../visualization-view/shared/store/reducer';
 import { Project } from 'dvl-fw';
 
 export const reducers: store.ActionReducerMap<ApplicationState> = {
-  ui: sidenavStateReducer,
-  visualization: visualizationStateReducer
+  ui: sidenavStateReducer
 };
 
 // get feature state from Application State

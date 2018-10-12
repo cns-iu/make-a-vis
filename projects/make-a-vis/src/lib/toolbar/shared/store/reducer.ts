@@ -91,12 +91,16 @@ export function sidenavStateReducer (
         return newState;
 
       case SidenavActionTypes.AddNewVisualization:
-        newState.project.visualizations = state.project.visualizations.concat(action.payload);
+        if (state.project) {
+          newState.project.visualizations = state.project.visualizations.concat(action.payload);
+        }
         return newState;
 
       case SidenavActionTypes.RemoveVisualization:
-        newState.project.visualizations = state.project.visualizations.slice();
-        newState.project.visualizations.splice(action.payload, 1);
+        if (state.project) {
+          newState.project.visualizations = state.project.visualizations.slice();
+          newState.project.visualizations.splice(action.payload, 1);
+        }
         return newState;
 
       case SidenavActionTypes.SetGraphicSymbolRecordSet:
