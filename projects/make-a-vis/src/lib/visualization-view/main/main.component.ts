@@ -57,7 +57,7 @@ export class MainComponent {
       }))
     ).subscribe(visualizations => {
       this.visualizations = visualizations;
-      this.selectedVis = visualizations.length ? 0 : -1;
+      this.setSelectedVis(visualizations.length ? 0 : -1, true);
     });
   }
 
