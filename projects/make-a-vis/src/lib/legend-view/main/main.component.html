@@ -1,18 +1,18 @@
 <div class="legend-types-container">
-  <div class="legend-type" *ngFor="let type of legendTypes">
-    <div class="header-bar">
-      <div class="title">
-        <span>
-          {{type}}:
+    <div class="legend-type" *ngFor="let symbolOption of options">
+        <div class="header-bar">
+            <div class="title">
+                <span>
+          {{symbolOption.label}}:
         </span>
-        <mat-form-field class="record-stream-selector">
-          <mat-select>
-            <mat-option *ngFor="let recordStream of recordStreams" [value]="recordStream.value">
-              {{recordStream.viewValue}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
+                <mat-form-field class="record-stream-selector">
+                    <mat-select>
+                        <mat-option *ngFor="let recordStream of recordStreams" [value]="recordStream.value">
+                            {{recordStream.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
