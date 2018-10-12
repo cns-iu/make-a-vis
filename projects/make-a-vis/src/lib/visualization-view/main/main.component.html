@@ -6,7 +6,7 @@
             <mat-chip-list [selectable]="true">
                 <mat-chip [selected]="index === selectedVis" (click)="setSelectedVis(index)" class="tab-label">
                     <div class="text"> {{ vis.label }} </div>
-                    <mav-cancel-icon (click)="removeVisualization(index)"></mav-cancel-icon>
+                    <mav-cancel-icon (click)="removeVisualization(index)" class="mav-cancel-icon"></mav-cancel-icon>
                 </mat-chip>
             </mat-chip-list>
 
@@ -24,8 +24,8 @@
 </mat-tab-group>
 
 <div class="add-visualization">
-    <mav-add-icon [matMenuTriggerFor]="menu"></mav-add-icon>
-    Add New
+    <mav-add-icon [matMenuTriggerFor]="menu" class="mav-add-icon"></mav-add-icon>
+    New
 </div>
 
 <mat-menu #menu>
