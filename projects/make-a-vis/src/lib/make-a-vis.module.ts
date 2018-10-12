@@ -24,7 +24,6 @@ import { MakeAVisComponent } from './make-a-vis.component';
 import { reducers } from './shared/store/reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { LogActions } from './shared/logging/log';
-import { SaveLogsComponent } from './shared/logging/save-logs/save-logs.component';
 
 @NgModule({
   imports: [
@@ -33,7 +32,7 @@ import { SaveLogsComponent } from './shared/logging/save-logs/save-logs.componen
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([LogActions])
   ],
-  declarations: [LightThemeComponent, MakeAVisComponent, SaveLogsComponent],
+  declarations: [LightThemeComponent, MakeAVisComponent],
   exports: [MakeAVisComponent, ToolbarModule],
   providers: [
     { provide: LoggerFactory, useExisting: TypescriptLoggerFactory },

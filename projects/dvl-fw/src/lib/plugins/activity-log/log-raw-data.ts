@@ -27,7 +27,7 @@ export class ActivityLogRawData implements RawData {
       {key: 'fileextension', type: 'string'},
       {key: 'date', type: 'string'}
     ]).actions([{
-          name: ' add_new_log',
+          name: 'add_new_log',
           args: ['activitylog:map'],
           call: function(args, db) {
             return db.query('upsert', args.activitylog).exec();
@@ -56,11 +56,11 @@ export class ActivityLogRawData implements RawData {
 
   async getData(): Promise<any> {
     if (this.saveActivityLog) {
-      return {activityLog: []};
-    } else {
-     return nSQL('activitylog').query('select').exec().then((rows) => {
+      return nSQL('activitylog').query('select').exec().then((rows) => {
         return {activityLog: rows};
       });
+    } else {
+      return {activityLog: []};
     }
   }
   async toJSON(): Promise<any> {
