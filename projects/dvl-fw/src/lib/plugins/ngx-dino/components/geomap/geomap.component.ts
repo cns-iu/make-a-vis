@@ -31,11 +31,12 @@ const statesFieldNameMapping = createFieldNameMapping([
   'identifier': 'stateField'
 }, 'state');
 
-// TODO title, latlong, pulse
+// TODO title, pulse
 const pointsFieldNameMapping = createFieldNameMapping([
   'color', 'shape'
 ], {
-  'identifier': 'pointIdField', 'areaSize': 'pointSizeField', 'strokeColor': 'strokeColorField'
+  'identifier': 'pointIdField', 'areaSize': 'pointSizeField', 'strokeColor': 'strokeColorField',
+  'latlng': 'pointLatLongField'
 }, 'point');
 
 @Component({

@@ -1,4 +1,3 @@
-import { ScatterplotVisualization } from './../ngx-dino/visualizations/scatterplot-visualization';
 import { DataSource } from '../../shared/data-source';
 import { Project } from '../../shared/project';
 import { RawData } from '../../shared/raw-data';
@@ -14,6 +13,10 @@ import { DefaultRecordSet } from './../default/default-record-set';
 import { ISIDataSource } from './isi-data-source';
 import { ISIParsedRawData } from './isi-parsed-raw-data';
 import { ActivityLogDataSource } from '../activity-log/log-data-source';
+import {
+  GeomapVisualization, NetworkVisualization, ScatterplotVisualization,
+  SciencemapVisualization, TemporalBargraphVisualization
+} from './../ngx-dino/visualizations';
 
 
 export class ISITemplateProject extends DefaultProject {
@@ -99,6 +102,9 @@ export class ISITemplateProject extends DefaultProject {
           {id: 'numCites', label: '#Cites', dataType: 'integer', scaleType: 'ratio'},
           {id: 'firstYear', label: 'First Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'},
+          {id: 'latlng', label: 'Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
+          {id: 'position', label: 'Position', dataType: '???', scaleType: '???'}, // TODO: Fix types
+          {id: 'shape', label: 'Shape', dataType: 'text', scaleType: 'nominal'},
         ]
       }, this),
       new DefaultRecordSet({
@@ -109,10 +115,13 @@ export class ISITemplateProject extends DefaultProject {
         dataVariables: [
           {id: 'author1', label: 'Author 1', dataType: 'text', scaleType: 'nominal'},
           {id: 'author2', label: 'Author 2', dataType: 'text', scaleType: 'nominal'},
+          {id: 'identifier', label: 'Identifier', dataType: 'text', scaleType: 'nominal'},
+          {id: 'source', label: 'Source Position', dataType: '???', scaleType: '???'}, // TODO: Fix types
+          {id: 'target', label: 'Target Position', dataType: '???', scaleType: '???'}, // TODO: Fix types
           {id: 'numPapers', label: '#Papers', dataType: 'integer', scaleType: 'ratio'},
           {id: 'numCites', label: '#Cites', dataType: 'integer', scaleType: 'ratio'},
           {id: 'firstYear', label: 'First Year', dataType: 'integer', scaleType: 'interval'},
-          {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'},
+          {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'}
         ]
       }, this)
     ];
@@ -296,6 +305,21 @@ export class ISITemplateProject extends DefaultProject {
                 {selector: 'name'}
               ]
             },
+            latlng: {
+              axis: [
+                {selector: 'latlng'}
+              ]
+            },
+            position: {
+              axis: [
+                {selector: 'position'}
+              ]
+            },
+            shape: {
+              identifier: [
+                {selector: 'shape'}
+              ]
+            },
             fullname: {
               identifier: [
                 {selector: 'fullname'}
@@ -414,6 +438,21 @@ export class ISITemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'author2'}
+              ]
+            },
+            identifier: {
+              identifier: [
+                {selector: 'identifier'}
+              ]
+            },
+            source: {
+              axis: [
+                {selector: 'source'}
+              ]
+            },
+            target: {
+              axis: [
+                {selector: 'target'}
               ]
             },
             numCites: {
@@ -587,7 +626,75 @@ export class ISITemplateProject extends DefaultProject {
             dataVariable: 'numCites',
             graphicVariableType: 'fontSize',
             graphicVariableId: 'fontSize'
+          }
+        }
+      }, this),
+      new DefaultGraphicSymbol({
+        id: 'authorPoints',
+        type: 'area',
+        recordStream: 'authors',
+        graphicVariables: {
+          identifier: {
+            recordSet: 'author',
+            dataVariable: 'name',
+            graphicVariableType: 'identifier',
+            graphicVariableId: 'identifier'
           },
+          position: {
+            recordSet: 'author',
+            dataVariable: 'position',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          latlng: {
+            recordSet: 'author',
+            dataVariable: 'latlng',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          shape: {
+            recordSet: 'author',
+            dataVariable: 'shape',
+            graphicVariableType: 'identifier',
+            graphicVariableId: 'identifier'
+          },
+          areaSize: {
+            recordSet: 'author',
+            dataVariable: 'numCites',
+            graphicVariableType: 'areaSize',
+            graphicVariableId: 'areaSize'
+          },
+          color: {
+            recordSet: 'author',
+            dataVariable: 'numCites',
+            graphicVariableType: 'color',
+            graphicVariableId: 'color'
+          }
+        }
+      }, this),
+      new DefaultGraphicSymbol({
+        id: 'authorLinks',
+        type: '???', // TODO: Fix type
+        recordStream: 'coAuthorLinks',
+        graphicVariables: {
+          identifier: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'identifier',
+            graphicVariableType: 'identifier',
+            graphicVariableId: 'identifier'
+          },
+          source: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'source',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          target: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'target',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          }
         }
       }, this)
     ];
@@ -614,6 +721,38 @@ export class ISITemplateProject extends DefaultProject {
         graphicSymbols: {
           points: 'publicationPoints'
         }
+      }, this),
+      new GeomapVisualization({
+        id: 'GM01',
+        template: 'geomap',
+        properties: {},
+        graphicSymbols: {
+          points: 'authorPoints'
+          // TODO: Add states
+        }
+      }, this),
+      new NetworkVisualization({
+        id: 'NW01',
+        template: 'network',
+        properties: {},
+        graphicSymbols: {
+          nodes: 'authorPoints',
+          edges: 'authorLinks'
+        }
+      }, this),
+      new SciencemapVisualization({
+        id: 'SM01',
+        template: 'science-map',
+        properties: {},
+        graphicSymbols: {
+          // TODO
+        }
+      }, this),
+      new TemporalBargraphVisualization({
+        id: 'TBG01',
+        template: 'temporal-bargraph',
+        properties: {},
+        graphicSymbols: {}
       }, this)
     ];
   }
