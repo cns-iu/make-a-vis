@@ -1,0 +1,13 @@
+<mav-toolbar-content #mavToolbarContent>
+</mav-toolbar-content>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav class="sidenav" mode="over" [(opened)]="mavToolbarContent.isSidenavOpen">
+        <mav-sidenav-content [panelsOpenState]="mavToolbarContent.isSidenavOpen"></mav-sidenav-content>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="main-content" #sidenavC>
+        <ng-content></ng-content>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

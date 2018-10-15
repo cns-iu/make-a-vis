@@ -1,0 +1,148 @@
+// import custom themes
+@import './material-theme.scss';
+@import '../shared/typography.scss';
+@include angular-material-theme($mav-theme-light);
+
+$spring-green: rgb(0,230,118);
+$deep-purple: rgb(103,58,183);
+$white: rgb(255,255,255);
+
+// General Styles
+svg * {
+  font-family: $lato;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  font-family: $lato;
+  font-weight: 400;
+}
+
+body {
+  font-family: $lato;
+}
+
+// Eric Meyer CSS Reset
+html,body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del,
+dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup,
+tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form,
+label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, figure, figcaption, footer, header,
+hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-family: $lato;
+}
+
+.toolbar {
+  font-family: $lato;
+  color: $white;
+  background-color: #3D3D3D;
+}
+
+.z-depth-1-half {
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+
+// We may not need this card style soon
+.card {
+  cursor: grab;
+}
+
+.mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header {
+  &:not([aria-disabled='true']) {
+    &.cdk-keyboard-focused,
+    &.cdk-program-focused {
+      background: none;
+    }
+  }
+}
+
+.mat-expansion-panel-header {
+  padding: 0 0.5rem;
+}
+
+.mat-tab-header {
+  border-bottom: none;
+}
+
+.mat-tab-label, .mat-tab-link {
+  opacity: 1;
+}
+
+.mat-tab-label {
+  height: auto;
+  padding: .25rem;
+}
+
+.mat-chip.mat-standard-chip {
+  padding: .5rem .5rem .5rem .75rem;
+}
+
+.mat-chip {
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+.mat-drawer-container {
+  background: none;
+}
+
+.tab-label[_ngcontent-c6] .text[_ngcontent-c6] {
+  padding-right: 0.5rem;
+}
+
+.mat-standard-chip.mat-chip-selected .text {
+  color: #ffffff;
+}
+
+.mat-standard-chip.mat-chip-selected svg {
+  fill: #ffffff;
+}
+
+.mat-tab-label-container {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.mat-toolbar,
+.mat-toolbar h1,
+.mat-toolbar h2,
+.mat-toolbar h3,
+.mat-toolbar h4,
+.mat-toolbar h5,
+.mat-toolbar h6 {
+  font: 500 20px/32px Lato;
+  margin: 0
+}
+
+.mat-tab-header-pagination-after {
+  padding-right: 7rem;
+}
+
+.mat-form-field-infix {
+  margin: 0;
+  padding: 0 !important;
+  border-top: 0; 
+}
+
+.mat-form-field-wrapper {
+  padding: 0;
+}
+
+@media (min-width: 576px) {
+  html, span, label, .mat-button-toggle-label-content, .menu {
+    font-size: calc(16px + (32 - 16) * ((100vw - 300px) / (3840 - 300))) !important;
+  }
+
+  .mat-chip.mat-standard-chip {
+    padding: 0.25rem .25rem 0.25rem .75rem;
+  }
+}
