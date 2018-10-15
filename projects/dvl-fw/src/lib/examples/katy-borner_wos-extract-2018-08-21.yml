@@ -1,7 +1,7 @@
 apiVersion: 1
 metadata:
-  dateCreated: 2018-10-09T14:49:34.249Z
-  dateSaved: 2018-10-09T14:49:34.593Z
+  dateCreated: 2018-10-15T16:59:48.097Z
+  dateSaved: 2018-10-15T16:59:48.422Z
 dataSources:
   - id: isiDataSource
     template: isi
@@ -111,6 +111,18 @@ recordSets:
         label: Last Year
         dataType: integer
         scaleType: interval
+      - id: latlng
+        label: Latitude/Longitude
+        dataType: '???'
+        scaleType: '???'
+      - id: position
+        label: Position
+        dataType: '???'
+        scaleType: '???'
+      - id: shape
+        label: Shape
+        dataType: text
+        scaleType: nominal
   - id: coAuthorLink
     label: Co-Author Link
     labelPlural: Co-Author Links
@@ -124,6 +136,18 @@ recordSets:
         label: Author 2
         dataType: text
         scaleType: nominal
+      - id: identifier
+        label: Identifier
+        dataType: text
+        scaleType: nominal
+      - id: source
+        label: Source Position
+        dataType: '???'
+        scaleType: '???'
+      - id: target
+        label: Target Position
+        dataType: '???'
+        scaleType: '???'
       - id: numPapers
         label: '#Papers'
         dataType: integer
@@ -344,6 +368,21 @@ graphicVariableMappings:
             - id: text
               label: text
               selector: name
+        latlng:
+          axis:
+            - id: axis
+              label: axis
+              selector: latlng
+        position:
+          axis:
+            - id: axis
+              label: axis
+              selector: position
+        shape:
+          identifier:
+            - id: identifier
+              label: identifier
+              selector: shape
         fullname:
           identifier:
             - id: identifier
@@ -486,6 +525,21 @@ graphicVariableMappings:
             - id: text
               label: text
               selector: author2
+        identifier:
+          identifier:
+            - id: identifier
+              label: identifier
+              selector: identifier
+        source:
+          axis:
+            - id: axis
+              label: axis
+              selector: source
+        target:
+          axis:
+            - id: axis
+              label: axis
+              selector: target
         numCites:
           axis:
             - id: axis
@@ -655,19 +709,97 @@ graphicSymbolMappings:
         dataVariable: numCites
         graphicVariableType: fontSize
         graphicVariableId: fontSize
+  - id: authorPoints
+    type: area
+    recordStream: authors
+    graphicVariables:
+      identifier:
+        recordSet: author
+        dataVariable: name
+        graphicVariableType: identifier
+        graphicVariableId: identifier
+      position:
+        recordSet: author
+        dataVariable: position
+        graphicVariableType: axis
+        graphicVariableId: axis
+      latlng:
+        recordSet: author
+        dataVariable: latlng
+        graphicVariableType: axis
+        graphicVariableId: axis
+      shape:
+        recordSet: author
+        dataVariable: shape
+        graphicVariableType: identifier
+        graphicVariableId: identifier
+      areaSize:
+        recordSet: author
+        dataVariable: numCites
+        graphicVariableType: areaSize
+        graphicVariableId: areaSize
+      color:
+        recordSet: author
+        dataVariable: numCites
+        graphicVariableType: color
+        graphicVariableId: color
+  - id: authorLinks
+    type: '???'
+    recordStream: coAuthorLinks
+    graphicVariables:
+      identifier:
+        recordSet: coAuthorLink
+        dataVariable: identifier
+        graphicVariableType: identifier
+        graphicVariableId: identifier
+      source:
+        recordSet: coAuthorLink
+        dataVariable: source
+        graphicVariableType: axis
+        graphicVariableId: axis
+      target:
+        recordSet: coAuthorLink
+        dataVariable: target
+        graphicVariableType: axis
+        graphicVariableId: axis
 visualizations:
   - id: SG01
     template: scattergraph
     properties:
-      drawGridLines: true
+      gridlines: true
+      showAxisLabels: false
+      showAxisIndicators: false
     graphicSymbols:
       points: journalPoints
   - id: SG02
     template: scattergraph
     properties:
-      drawGridLines: true
+      gridlines: true
+      showAxisLabels: false
+      showAxisIndicators: false
     graphicSymbols:
       points: publicationPoints
+  - id: GM01
+    template: geomap
+    properties:
+      stateDefaultColor: white
+      stateDefaultStrokeColor: '#bebebe'
+    graphicSymbols:
+      points: authorPoints
+  - id: NW01
+    template: network
+    properties: {}
+    graphicSymbols:
+      nodes: authorPoints
+      edges: authorLinks
+  - id: SM01
+    template: science-map
+    properties: {}
+    graphicSymbols: {}
+  - id: TBG01
+    template: temporal-bargraph
+    properties: {}
+    graphicSymbols: {}
 rawData:
   - id: isiRawData
     template: isiParsedData

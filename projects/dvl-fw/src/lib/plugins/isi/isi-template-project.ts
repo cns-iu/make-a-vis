@@ -706,7 +706,9 @@ export class ISITemplateProject extends DefaultProject {
         id: 'SG01',
         template: 'scattergraph',
         properties: {
-          drawGridLines: true
+          gridlines: true,
+          showAxisLabels: false,
+          showAxisIndicators: false
         },
         graphicSymbols: {
           points: 'journalPoints'
@@ -716,7 +718,9 @@ export class ISITemplateProject extends DefaultProject {
         id: 'SG02',
         template: 'scattergraph',
         properties: {
-          drawGridLines: true
+          gridlines: true,
+          showAxisLabels: false,
+          showAxisIndicators: false
         },
         graphicSymbols: {
           points: 'publicationPoints'
@@ -725,7 +729,10 @@ export class ISITemplateProject extends DefaultProject {
       new GeomapVisualization({
         id: 'GM01',
         template: 'geomap',
-        properties: {},
+        properties: {
+          stateDefaultColor: 'white',
+          stateDefaultStrokeColor: '#bebebe'
+        },
         graphicSymbols: {
           points: 'authorPoints'
           // TODO: Add states
