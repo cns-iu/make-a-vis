@@ -91,6 +91,10 @@ hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   line-height: 1rem;
 }
 
+.mat-drawer-container {
+  background: none;
+}
+
 .tab-label[_ngcontent-c6] .text[_ngcontent-c6] {
   padding-right: 0.5rem;
 }
@@ -119,12 +123,26 @@ hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0
 }
 
+.mat-tab-header-pagination-after {
+  padding-right: 7rem;
+}
+
+.mat-form-field-infix {
+  margin: 0;
+  padding: 0 !important;
+  border-top: 0; 
+}
+
+.mat-form-field-wrapper {
+  padding: 0;
+}
+
 @media (min-width: 576px) {
   html, span, label, .mat-button-toggle-label-content, .menu {
     font-size: calc(16px + (32 - 16) * ((100vw - 300px) / (3840 - 300))) !important;
   }
 
   .mat-chip.mat-standard-chip {
-    padding: .25rem .25rem .25rem .75rem;
+    padding: 0.25rem .25rem 0.25rem .75rem;
   }
 }

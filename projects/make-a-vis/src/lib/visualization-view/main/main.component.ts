@@ -3,15 +3,14 @@ import { MatTabGroup } from '@angular/material';
 import { Store, select } from '@ngrx/store';
 import { of } from 'rxjs';
 import { catchError, concatMap, map, take } from 'rxjs/operators';
-import { find, unary, uniqueId } from 'lodash';
+import { find, uniqueId } from 'lodash';
 
 import { ProjectSerializerService, Visualization } from 'dvl-fw';
 import { ExportService } from '../../shared/services/export/export.service';
-import { SidenavState, getLoadedProjectSelector } from '../../toolbar/shared/store';
 import {
-  VisualizationState,
-  AddNewVisualization, RemoveVisualization, SetActiveVisualization
-} from '../shared/store';
+  SidenavState, AddNewVisualization, RemoveVisualization, SetActiveVisualization,
+  getLoadedProjectSelector
+} from '../../toolbar/shared/store';
 
 export interface Vis {
   label: string;
@@ -44,12 +43,11 @@ export class MainComponent {
   selectedVis = -1;
 
   constructor(
-    private store: Store<VisualizationState>,
-    private uistore: Store<SidenavState>,
+    private store: Store<SidenavState>,
     private serializer: ProjectSerializerService,
     private exportService: ExportService
   ) {
-    this.uistore.pipe(
+    this.store.pipe(
       select(getLoadedProjectSelector),
       map(project => project && project.visualizations || []),
       map(visualizations => visualizations.map(vis => {
@@ -59,7 +57,7 @@ export class MainComponent {
       }))
     ).subscribe(visualizations => {
       this.visualizations = visualizations;
-      this.selectedVis = visualizations.length ? 0 : -1;
+      this.setSelectedVis(visualizations.length ? 0 : -1, true);
     });
   }
 
@@ -79,7 +77,7 @@ export class MainComponent {
       graphicSymbols: {}
     };
 
-    this.uistore.pipe(
+    this.store.pipe(
       select(getLoadedProjectSelector),
       take(1),
       concatMap(project => this.serializer.createVisualization(type.template, preData, project)),

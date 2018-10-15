@@ -9,6 +9,7 @@
   display: inline-block;
   width: 400px; /* temporary */
   max-height: 12.5rem;
+  min-width: 12.5rem;
 }
 
 .legend-type .header-bar {
@@ -21,6 +22,10 @@
 .legend-type .title {
   background: #ffffff;
   padding: 0 1rem 0.75rem 1rem;
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: bold;
+}
+
+.record-stream-selector {
+  padding-left: 0.5rem;
 }
