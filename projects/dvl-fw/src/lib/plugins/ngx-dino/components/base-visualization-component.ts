@@ -63,7 +63,8 @@ implements VisualizationComponent, OnInit, OnChanges, OnPropertyChange, OnGraphi
 
   dvlOnPropertyChange(changes: SimpleChanges): void {
     const newProperties = clone(this.properties);
-    const changed = this.applyChanges(changes, newProperties, this.defaultProperties);
+    const changedValues = mapValues(changes, 'currentValue');
+    const changed = this.applyChanges(changedValues, newProperties, this.defaultProperties);
     if (changed) {
       this.properties = newProperties;
     }
