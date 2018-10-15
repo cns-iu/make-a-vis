@@ -69,12 +69,12 @@ export class ISITemplateProject extends DefaultProject {
         labelPlural: 'Publications',
         defaultRecordStream: 'publications',
         dataVariables: [
-          {id: 'id', label: 'WoS ID', dataType: 'text', scaleType: 'nominal'},
           {id: 'title', label: 'Title', dataType: 'text', scaleType: 'nominal'},
           {id: 'authors', label: 'Authors', dataType: 'text', scaleType: 'nominal'},
           {id: 'journalName', label: 'Journal', dataType: 'text', scaleType: 'nominal'},
           {id: 'publicationYear', label: 'Year', dataType: 'integer', scaleType: 'interval'},
-          {id: 'numCites', label: '#Cites', dataType: 'integer', scaleType: 'ratio'}
+          {id: 'numCites', label: '#Cites', dataType: 'integer', scaleType: 'ratio'},
+          {id: 'id', label: 'WoS ID', dataType: 'text', scaleType: 'nominal'}
         ]
       }, this),
       new DefaultRecordSet({
