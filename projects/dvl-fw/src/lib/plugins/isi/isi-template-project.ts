@@ -446,12 +446,12 @@ export class ISITemplateProject extends DefaultProject {
               ]
             },
             source: {
-              axis: [
+              source: [
                 {selector: 'source'}
               ]
             },
             target: {
-              axis: [
+              target: [
                 {selector: 'target'}
               ]
             },
@@ -464,6 +464,9 @@ export class ISITemplateProject extends DefaultProject {
               ],
               areaSize: [
                 {selector: 'numCitesAreaSize'}
+              ],
+              strokeWidth: [
+                {selector: 'numCitesStrokeWidth'}
               ],
               fontSize: [
                 {selector: 'numCitesFontSize'}
@@ -485,6 +488,9 @@ export class ISITemplateProject extends DefaultProject {
               areaSize: [
                 {selector: 'numPapersAreaSize'}
               ],
+              strokeWidth: [
+                {selector: 'numPapersStrokeWidth'}
+              ],
               fontSize: [
                 {selector: 'numPapersFontSize'}
               ],
@@ -505,6 +511,9 @@ export class ISITemplateProject extends DefaultProject {
               areaSize: [
                 {selector: 'firstYearAreaSize'}
               ],
+              strokeWidth: [
+                {selector: 'firstYearStrokeWidth'}
+              ],
               fontSize: [
                 {selector: 'firstYearFontSize'}
               ],
@@ -524,6 +533,9 @@ export class ISITemplateProject extends DefaultProject {
               ],
               areaSize: [
                 {selector: 'lastYearAreaSize'}
+              ],
+              strokeWidth: [
+                {selector: 'lastYearStrokeWidth'}
               ],
               fontSize: [
                 {selector: 'lastYearFontSize'}
@@ -673,8 +685,8 @@ export class ISITemplateProject extends DefaultProject {
         }
       }, this),
       new DefaultGraphicSymbol({
-        id: 'authorLinks',
-        type: '???', // TODO: Fix type
+        id: 'coAuthorLinks',
+        type: 'line',
         recordStream: 'coAuthorLinks',
         graphicVariables: {
           identifier: {
@@ -686,14 +698,26 @@ export class ISITemplateProject extends DefaultProject {
           source: {
             recordSet: 'coAuthorLink',
             dataVariable: 'source',
-            graphicVariableType: 'axis',
-            graphicVariableId: 'axis'
+            graphicVariableType: 'source',
+            graphicVariableId: 'source'
           },
           target: {
             recordSet: 'coAuthorLink',
             dataVariable: 'target',
-            graphicVariableType: 'axis',
-            graphicVariableId: 'axis'
+            graphicVariableType: 'target',
+            graphicVariableId: 'target'
+          },
+          strokeWidth: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'numPapers',
+            graphicVariableType: 'strokeWidth',
+            graphicVariableId: 'strokeWidth'
+          },
+          strokeColor: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'numCites',
+            graphicVariableType: 'strokeColor',
+            graphicVariableId: 'strokeColor'
           }
         }
       }, this)
@@ -744,7 +768,7 @@ export class ISITemplateProject extends DefaultProject {
         properties: {},
         graphicSymbols: {
           nodes: 'authorPoints',
-          edges: 'authorLinks'
+          edges: 'coAuthorLinks'
         }
       }, this),
       new SciencemapVisualization({
