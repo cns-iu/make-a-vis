@@ -27,6 +27,8 @@ import { NewProjectIconComponent } from './icons/new-project/new-project-icon.co
 import { SaveIconComponent } from './icons/save/save-icon.component';
 import { ShareIconComponent } from './icons/share/share-icon.component';
 
+import { ClipboardModule } from 'ngx-clipboard';
+
 // Components
 import { MainComponent } from './main/main.component';
 import { SidenavContentComponent } from './sidenav-content/sidenav-content.component';
@@ -54,6 +56,7 @@ import { sidenavStateReducer } from './shared/store/reducer';
     MatSidenavModule,
     MatSlideToggleModule,
     MatToolbarModule,
+    ClipboardModule,
 
     StoreModule.forFeature('ui', sidenavStateReducer)
   ],
