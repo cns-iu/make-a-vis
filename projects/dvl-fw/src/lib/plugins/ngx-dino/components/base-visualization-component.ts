@@ -92,10 +92,10 @@ implements VisualizationComponent, OnInit, OnChanges, OnPropertyChange, OnGraphi
           streamsChanged = true;
         }
 
-        fieldsChanged = fieldsChanged || this.applyChanges<GraphicVariable, BoundField<any>>(
+        fieldsChanged = this.applyChanges<GraphicVariable, BoundField<any>>(
           graphicVariables, newFields[key], this.defaultFieldGroups[key],
           k => this.fieldNameFor(k, key), v => v.asBoundField(), (v1, v2) => v1.equals(v2)
-        );
+        ) || fieldsChanged;
       }
     });
 
