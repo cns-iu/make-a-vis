@@ -39,6 +39,7 @@ import { StoreModule } from '@ngrx/store';
 
 // Reducers
 import { sidenavStateReducer } from './shared/store/reducer';
+import { ClipbrdLogoComponent } from './icons/clipboard/clipbrd-logo/clipbrd-logo.component';
 
 @NgModule({
   imports: [
@@ -73,7 +74,8 @@ import { sidenavStateReducer } from './shared/store/reducer';
 
     MainComponent,
     SidenavContentComponent,
-    ToolbarContentComponent
+    ToolbarContentComponent,
+    ClipbrdLogoComponent
   ],
   exports: [MainComponent]
 })
