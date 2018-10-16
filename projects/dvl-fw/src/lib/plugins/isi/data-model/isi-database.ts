@@ -7,6 +7,7 @@ import { extractAuthors } from './isi-extract-authors';
 import { extractCoAuthorLinks } from './isi-extract-coauthor-links';
 import { extractJournals } from './isi-extract-journals';
 import { extractPublications } from './isi-extract-publications';
+import { layoutCoAuthorNetwork } from './isi-layout-coauthor-network';
 
 // @dynamic
 export class ISIDatabase {
@@ -21,6 +22,7 @@ export class ISIDatabase {
     const journals = extractJournals(publications);
     const authors = extractAuthors(publications);
     const coAuthorLinks = extractCoAuthorLinks(publications);
+    layoutCoAuthorNetwork(authors, coAuthorLinks);
 
     return { journals, authors, coAuthorLinks, publications };
   }
