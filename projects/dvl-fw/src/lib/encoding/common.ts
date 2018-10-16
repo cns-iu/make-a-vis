@@ -40,6 +40,6 @@ export const fontSizeRange = [6, 20];
 export const fontSizeScale = new SizeScale(fontSizeRange[0], fontSizeRange[1], 5, 'linear'); // TBD TODO
 export const fontSizeScaleNormQuantitative = fontSizeScale.quantitative([0, 100]);
 
-export const strokeWidthRange = [1, 15];
+export const strokeWidthRange = [0.5, 10];
 export const strokeWidthScale = new SizeScale(strokeWidthRange[0], strokeWidthRange[1], 5, 'linear'); // TBD TODO
 export const strokeWidthScaleNormQuantitative = strokeWidthScale.quantitative([0, 100]);

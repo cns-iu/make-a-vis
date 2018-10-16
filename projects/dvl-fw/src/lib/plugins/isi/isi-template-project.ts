@@ -767,8 +767,8 @@ export class ISITemplateProject extends DefaultProject {
         template: 'network',
         properties: {},
         graphicSymbols: {
-          nodes: 'authorPoints',
-          edges: 'coAuthorLinks'
+          edges: 'coAuthorLinks',
+          nodes: 'authorPoints'
         }
       }, this),
       new SciencemapVisualization({

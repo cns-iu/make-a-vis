@@ -10,11 +10,11 @@ export function layoutCoAuthorNetwork(authors: Author[], links: CoAuthorLink[]) 
     graph.addNode(author.name, {
       x: Math.random(),
       y: Math.random(),
-      size: author.numCites
+      size: author.numCitesAreaSize
     });
   }
   for (const link of links) {
-    graph.addUndirectedEdgeWithKey(link.identifier, link.Author1.name, link.Author2.name, {weight: link.numPapers});
+    graph.addUndirectedEdgeWithKey(link.identifier, link.Author1.name, link.Author2.name, {weight: link.numPapersStrokeWidth});
   }
 
   const settings = forceAtlas2.inferSettings(graph);
