@@ -9,7 +9,7 @@ import {  get } from 'lodash';
 
 export class ActivityLogRawData implements RawData {
   template = 'activityLog';
-  public saveActivityLog = true; // Not sure if we need this
+  public saveActivityLog = true;
   private db: any /* nSQL */;
 
   constructor(public id: string, data = null) {
@@ -22,9 +22,9 @@ export class ActivityLogRawData implements RawData {
     nSQL('activitylog')
     .model([
       {key: 'logid', type: 'int', props: ['pk', 'ai']}, // pk == primary key, ai == auto incriment
-      {key: 'actionname', type: 'string'},
-      {key: 'filename', type: 'string'},
-      {key: 'fileextension', type: 'string'},
+      {key: 'actionName', type: 'string'},
+      {key: 'fileName', type: 'string'},
+      {key: 'fileExtension', type: 'string'},
       {key: 'date', type: 'string'}
     ]).actions([{
           name: 'add_new_log',
@@ -33,7 +33,9 @@ export class ActivityLogRawData implements RawData {
             return db.query('upsert', args.activitylog).exec();
           }
       }
-    ]).connect();
+    ]).config({
+      mode: 'TEMP'
+  }).connect();
 
     if (data && data.activityLog) {
       nSQL().loadJS('activitylog', data.activityLog);
@@ -46,15 +48,17 @@ export class ActivityLogRawData implements RawData {
       nSQL('activitylog').doAction('add_new_log', {
         activitylog: {
         id: null,
-        actionname: get(msg, 'logData.data.type'),
-        filename: get(msg, 'logData.data.payload.filename'),
-        fileextension: get(msg, 'logData.data.payload.fileExtension'),
+        actionName: get(msg, 'logData.data.type'),
+        fileName: get(msg, 'logData.data.payload.fileName'),
+        fileExtension: get(msg, 'logData.data.payload.fileExtension'),
         date : new Date().toLocaleString()
         }
       });
   }
 
   async getData(): Promise<any> {
+    console.log('save activity log');
+    console.log(this.saveActivityLog);
     if (this.saveActivityLog) {
       return nSQL('activitylog').query('select').exec().then((rows) => {
         return {activityLog: rows};

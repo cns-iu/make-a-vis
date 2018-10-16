@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { ApplicationState, getLoadedProject } from '../../shared/store';
+import { ApplicationState } from '../../shared/store';
+import * as fromUi from '../../toolbar/shared/store';
 import { StoreLogger } from './store-logger';
 import { Store, select } from '@ngrx/store';
 
+import { ToggleLogging } from '../../toolbar/shared/store';
 import { LoggerType } from 'typescript-logging';
 import { TypescriptLoggerFactory } from '@ngx-dino/core';
 
@@ -12,9 +14,9 @@ import { TypescriptLoggerFactory } from '@ngx-dino/core';
 export class LoggingControlService {
   private _enabled = true;
 
-  constructor(factory: TypescriptLoggerFactory, private store: Store<ApplicationState>) {
+  constructor(factory: TypescriptLoggerFactory, private store: Store<ApplicationState>, private sidenavStore: Store<fromUi.SidenavState>) {
     factory.configure(LoggerType.Custom, undefined, (root, setting) => {
-      return new StoreLogger(root, setting, this, this.store);
+      return new StoreLogger(root, setting, this, this.store, this.sidenavStore);
     });
   }
 
@@ -31,6 +33,8 @@ export class LoggingControlService {
   }
 
   toggleLogging(): void {
+
     this._enabled = !this._enabled;
+    this.sidenavStore.dispatch(new ToggleLogging(this._enabled));
   }
 }

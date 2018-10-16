@@ -37,7 +37,7 @@ export class ExportService {
     );
     this.store.dispatch(new ExportSnapshotCompleted({
       exportingSnapshot: false,
-      filename: 'visualisation.png',
+      fileName: 'visualisation.png',
       fileExtension: 'png'
     }));
   }
@@ -49,7 +49,7 @@ export class ExportService {
       'visualisation.svg');
       this.store.dispatch(new ExportSnapshotCompleted({
         exportingSnapshot: false,
-        filename: 'visualisation.svg',
+        fileName: 'visualisation.svg',
         fileExtension: 'svg'
       }));
   }
@@ -66,7 +66,7 @@ export class ExportService {
     );
     this.store.dispatch(new ExportSnapshotCompleted({
       exportingSnapshot: false,
-      filename: 'visualisation.pdf',
+      fileName: 'visualisation.pdf',
       fileExtension: 'pdf'
     }));
   }

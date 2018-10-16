@@ -119,7 +119,7 @@ export class CreateShareUrlError implements Action {
 
 export class ToggleLogging implements Action {
   readonly type = SidenavActionTypes.ToggleLogging;
-  constructor() {
+  constructor(public payload: boolean) {
   }
 }
 

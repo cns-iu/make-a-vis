@@ -71,14 +71,14 @@ export class SidenavContentComponent implements OnInit {
   }
 
 
-  getProject(filename: string, fileExtension: NewProjectExtensionType | LoadProjectExtensionType, event: any ) {
-    this.store.dispatch(new sidenavStore.LoadProjectStarted({ loadingProject: true, filename: filename, fileExtension: fileExtension }));
+  getProject(fileName: string, fileExtension: NewProjectExtensionType | LoadProjectExtensionType, event: any ) {
+    this.store.dispatch(new sidenavStore.LoadProjectStarted({ loadingProject: true, fileName: fileName, fileExtension: fileExtension }));
 
     this.loadProjectService.loadFile(fileExtension, event.srcElement.files[0])
       .subscribe((project) => {
       if (project) { // success
         this.store.dispatch(new sidenavStore.LoadProjectCompleted(
-          { loadingProject: false, incomingDataFile: filename, incomingDataFileType: fileExtension, project: project }
+          { loadingProject: false, incomingDataFile: fileName, incomingDataFileType: fileExtension, project: project }
         ));
       } else { // failure
           this.store.dispatch(new sidenavStore.LoadProjectError(

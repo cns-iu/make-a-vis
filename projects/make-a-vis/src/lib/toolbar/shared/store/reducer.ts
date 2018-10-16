@@ -79,7 +79,8 @@ export function sidenavStateReducer (
         return newState;
 
       case SidenavActionTypes.ToggleLogging:
-        newState.loggingEnabled = !state.loggingEnabled;
+        console.log(action.payload);
+        newState.loggingEnabled = action.payload;
         return newState;
 
       default:
@@ -100,4 +101,11 @@ export const getLoadingProjectCompleted = (state: SidenavState): boolean => stat
 export const getLoadingProjectCompletedSelector = createSelector<SidenavState, SidenavState, boolean>(
   selectSelfFeature,
   getLoadingProjectCompleted
+);
+
+
+export const getLoggingToggleState = (state: SidenavState): boolean => state.loggingEnabled;
+export const getLoggingToggleSelector = createSelector<SidenavState, SidenavState, boolean>(
+  selectSelfFeature,
+  getLoggingToggleState
 );

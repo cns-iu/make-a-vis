@@ -2,7 +2,7 @@ import { Project } from 'dvl-fw';
 
 export interface LoadProjectStartedPayload {
   loadingProject: boolean;
-  filename: string;
+  fileName: string;
   fileExtension: 'isi' | 'nsf' | 'csv' | 'json' | 'yml';
 }
 
@@ -26,7 +26,7 @@ export interface SaveProjectCompletedPayload {
 
 export interface ExportSnapshotCompletedPayload {
   exportingSnapshot: boolean;
-  filename: string;
+  fileName: string;
   fileExtension: string;
 }
 
