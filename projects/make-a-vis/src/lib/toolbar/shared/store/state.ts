@@ -43,7 +43,7 @@ export const INITIAL_SIDENAV_STATE: SidenavState = {
   creatingShareUrl: false,
   shareUrl: '',
 
-  loggingEnabled: false,
+  loggingEnabled: true,
 
   errorOccurred: false,
   errorTitle: '',

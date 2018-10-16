@@ -18,12 +18,13 @@ export class NetworkVisualization extends DefaultVisualization {
         { type: 'strokeColor', label: 'strokeColor' }
       ]
     }, {
-      id: 'edges', label: 'Edges', type: '???', // TODO: Fix type
+      id: 'edges', label: 'Edges', type: 'line',
       graphicVariableOptions: [
         { type: 'identifier', label: 'Identifier' },
         { type: 'source', label: 'Source Position' },
         { type: 'target', label: 'Target Position' },
-        { type: 'strokeWidth', label: 'StrokeWidth' }
+        { type: 'strokeColor', label: 'Stroke Color' },
+        { type: 'strokeWidth', label: 'Stroke Width' }
       ]
     }
   ];

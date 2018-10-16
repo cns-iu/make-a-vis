@@ -35,6 +35,7 @@ export class Author {
   numCites: number;
   firstYear: number;
   lastYear: number;
+  position: [number, number];
   globalStats: AuthorStats;
 
   constructor(data: any) {
@@ -44,8 +45,6 @@ export class Author {
   // Positions
   @Operand<number[]>(extractPoint('location.latitude', 'location.longitude'))
   latlng: [number, number];
-  @Operand<[number, number]>(map((): [number, number] => [Math.random(), Math.random()]))
-  position: [number, number];
 
   @Operand<string>(constant('circle'))
   shape: string;

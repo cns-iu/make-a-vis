@@ -5,6 +5,7 @@ import * as sidenavStore from '../shared/store';
 import { DOCUMENT } from '@angular/platform-browser';
 import { Project, ProjectSerializerService } from 'dvl-fw';
 import { Router, ActivationEnd } from '@angular/router'; 
+import { ClipboardService } from 'ngx-clipboard'
  
 
 import { get } from 'lodash';
@@ -54,7 +55,8 @@ export class SidenavContentComponent implements OnInit {
     private projectSerializer : ProjectSerializerService,
     private getLinkService : GetLinkService,
     @Inject(DOCUMENT) document: any,
-    private router: Router
+    private router: Router,
+    private clipboardService :ClipboardService
   ) {
       this.document = document;
       this.baseUrl = document.location.origin;
@@ -260,16 +262,11 @@ export class SidenavContentComponent implements OnInit {
   }
 
 
-/* below are non angular ways of some features */
-copyToClipboard() {
-
-    let nativeEle = this.clipboardTargetEl.nativeElement;
-    if(!nativeEle)
-      return;
-    if(this.selectTextFromElement(nativeEle))
-      document.execCommand('copy');
+copyToClipboard(text) {
+    this.clipboardService.copyFromContent(text);
   }
-
+  
+/* below are non angular ways of some features */
 selectTextFromElement(ele : any) : boolean {
   try {
   ele.select();

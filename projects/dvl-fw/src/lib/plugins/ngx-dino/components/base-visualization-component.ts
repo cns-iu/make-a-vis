@@ -63,7 +63,8 @@ implements VisualizationComponent, OnInit, OnChanges, OnPropertyChange, OnGraphi
 
   dvlOnPropertyChange(changes: SimpleChanges): void {
     const newProperties = clone(this.properties);
-    const changed = this.applyChanges(changes, newProperties, this.defaultProperties);
+    const changedValues = mapValues(changes, 'currentValue');
+    const changed = this.applyChanges(changedValues, newProperties, this.defaultProperties);
     if (changed) {
       this.properties = newProperties;
     }
@@ -91,10 +92,10 @@ implements VisualizationComponent, OnInit, OnChanges, OnPropertyChange, OnGraphi
           streamsChanged = true;
         }
 
-        fieldsChanged = fieldsChanged || this.applyChanges<GraphicVariable, BoundField<any>>(
+        fieldsChanged = this.applyChanges<GraphicVariable, BoundField<any>>(
           graphicVariables, newFields[key], this.defaultFieldGroups[key],
           k => this.fieldNameFor(k, key), v => v.asBoundField(), (v1, v2) => v1.equals(v2)
-        );
+        ) || fieldsChanged;
       }
     });
 
