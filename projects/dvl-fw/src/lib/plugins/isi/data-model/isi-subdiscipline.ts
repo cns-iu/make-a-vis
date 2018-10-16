@@ -3,17 +3,15 @@ import {
   areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, greyScaleNormQuantitative, greyScaleNormQuantitativeStroke,
   norm0to100, formatNumber, formatYear
 } from '../../../encoding';
-import { Transient } from '../../../shared/transient';
-import { Subdiscipline } from './isi-subdiscipline';
 
 
-export class JournalStats {
+export class SubdisciplineStats {
   numPapersMax = 0;
   numCitesMax = 0;
   yearMax = 0;
   yearMin = 9999;
 
-  count(item: Journal) {
+  count(item: Subdiscipline) {
     this.numPapersMax = Math.max(this.numPapersMax, item.numPapers);
     this.numCitesMax = Math.max(this.numCitesMax, item.numCites);
     this.yearMax = Math.max(this.yearMax, item.firstYear, item.lastYear);
@@ -27,38 +25,18 @@ export class JournalStats {
 }
 
 // @dynamic
-export class Journal {
-  // Data Variables
+export class Subdiscipline {
+  id: number;
   name: string;
-  label: string;
-  issn: string;
-  eissn: string;
   numPapers: number;
   numCites: number;
   firstYear: number;
   lastYear: number;
-  journalId: number;
-  subdisciplineId: number;
-  globalStats: JournalStats;
+  globalStats: SubdisciplineStats;
 
-  constructor(data: {
-    name: string;
-    label: string;
-    issn: string;
-    eissn: string;
-    numPapers: number;
-    numCites: number;
-    firstYear: number;
-    lastYear: number;
-    journalId: number;
-    subdisciplineId: number;
-    globalStats: JournalStats;
-  }) {
+  constructor(data: any) {
     Object.assign(this, data);
   }
-
-  @Transient
-  Subdiscipline: Subdiscipline;
 
   // #Papers Encodings
   @Operand<number>(norm0to100('numPapers', 'globalStats.numPapersMax'))

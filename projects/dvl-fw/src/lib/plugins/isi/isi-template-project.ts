@@ -51,7 +51,7 @@ export class ISITemplateProject extends DefaultProject {
       new ISIDataSource({
         id: 'isiDataSource',
         properties: { rawData: 'isiFile', parsedData: 'isiRawData', saveParsedData: true },
-        recordStreams: [{id: 'publications'}, {id: 'journals'}, {id: 'authors'}, {id: 'coAuthorLinks'}]
+        recordStreams: [{id: 'publications'}, {id: 'journals'}, {id: 'authors'}, {id: 'coAuthorLinks'}, {id: 'subdisciplines'}]
       }, this),
       new ActivityLogDataSource({
         id: 'activityLog',
@@ -122,6 +122,20 @@ export class ISITemplateProject extends DefaultProject {
           {id: 'numCites', label: '#Cites', dataType: 'integer', scaleType: 'ratio'},
           {id: 'firstYear', label: 'First Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'}
+        ]
+      }, this),
+      new DefaultRecordSet({
+        id: 'subdiscipline',
+        label: 'Subdiscipline',
+        labelPlural: 'Subdisciplines',
+        defaultRecordStream: 'subdisciplines',
+        dataVariables: [
+          {id: 'name', label: 'Name', dataType: 'text', scaleType: 'nominal'},
+          {id: 'numPapers', label: '#Papers', dataType: 'integer', scaleType: 'ratio'},
+          {id: 'numCites', label: '#Cites', dataType: 'integer', scaleType: 'ratio'},
+          {id: 'firstYear', label: 'First Year', dataType: 'integer', scaleType: 'interval'},
+          {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'},
+          {id: 'id', label: 'ID', dataType: 'text', scaleType: 'nominal'},
         ]
       }, this)
     ];
@@ -196,6 +210,115 @@ export class ISITemplateProject extends DefaultProject {
         recordStream: 'journals',
         mappings: {
           journal: {
+            name: {
+              identifier: [
+                {selector: 'name'}
+              ],
+              axis: [
+                {selector: 'name'}
+              ],
+              text: [
+                {selector: 'name'}
+              ]
+            },
+            numCites: {
+              axis: [
+                {selector: 'numCitesLabel'}
+              ],
+              text: [
+                {selector: 'numCitesLabel'}
+              ],
+              areaSize: [
+                {selector: 'numCitesAreaSize'}
+              ],
+              fontSize: [
+                {selector: 'numCitesFontSize'}
+              ],
+              color: [
+                {selector: 'numCitesColor'}
+              ],
+              strokeColor: [
+                {selector: 'numCitesStrokeColor'}
+              ]
+            },
+            numPapers: {
+              axis: [
+                {selector: 'numPapersLabel'}
+              ],
+              text: [
+                {selector: 'numPapersLabel'}
+              ],
+              areaSize: [
+                {selector: 'numPapersAreaSize'}
+              ],
+              fontSize: [
+                {selector: 'numPapersFontSize'}
+              ],
+              color: [
+                {selector: 'numPapersColor'}
+              ],
+              strokeColor: [
+                {selector: 'numPapersStrokeColor'}
+              ]
+            },
+            firstYear: {
+              axis: [
+                {selector: 'firstYearLabel'}
+              ],
+              text: [
+                {selector: 'firstYearLabel'}
+              ],
+              areaSize: [
+                {selector: 'firstYearAreaSize'}
+              ],
+              fontSize: [
+                {selector: 'firstYearFontSize'}
+              ],
+              color: [
+                {selector: 'firstYearColor'}
+              ],
+              strokeColor: [
+                {selector: 'firstYearStrokeColor'}
+              ]
+            },
+            lastYear: {
+              axis: [
+                {selector: 'lastYearLabel'}
+              ],
+              text: [
+                {selector: 'lastYearLabel'}
+              ],
+              areaSize: [
+                {selector: 'lastYearAreaSize'}
+              ],
+              fontSize: [
+                {selector: 'lastYearFontSize'}
+              ],
+              color: [
+                {selector: 'lastYearColor'}
+              ],
+              strokeColor: [
+                {selector: 'lastYearStrokeColor'}
+              ]
+            }
+          }
+        }
+      },
+      {
+        recordStream: 'subdisciplines',
+        mappings: {
+          subdiscipline: {
+            id: {
+              identifier: [
+                {selector: 'id'}
+              ],
+              axis: [
+                {selector: 'id'}
+              ],
+              text: [
+                {selector: 'id'}
+              ]
+            },
             name: {
               identifier: [
                 {selector: 'name'}
@@ -642,6 +765,55 @@ export class ISITemplateProject extends DefaultProject {
         }
       }, this),
       new DefaultGraphicSymbol({
+        id: 'subdisciplinePoints',
+        type: 'area',
+        recordStream: 'subdisciplines',
+        graphicVariables: {
+          identifier: {
+            recordSet: 'subdiscipline',
+            dataVariable: 'id',
+            graphicVariableType: 'identifier',
+            graphicVariableId: 'identifier'
+          },
+          x: {
+            recordSet: 'subdiscipline',
+            dataVariable: 'firstYear',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          y: {
+            recordSet: 'subdiscipline',
+            dataVariable: 'numPapers',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          areaSize: {
+            recordSet: 'subdiscipline',
+            dataVariable: 'numCites',
+            graphicVariableType: 'areaSize',
+            graphicVariableId: 'areaSize'
+          },
+          color: {
+            recordSet: 'subdiscipline',
+            dataVariable: 'numCites',
+            graphicVariableType: 'color',
+            graphicVariableId: 'color'
+          },
+          label: {
+            recordSet: 'subdiscipline',
+            dataVariable: 'name',
+            graphicVariableType: 'text',
+            graphicVariableId: 'text'
+          },
+          labelSize: {
+            recordSet: 'subdiscipline',
+            dataVariable: 'numCites',
+            graphicVariableType: 'fontSize',
+            graphicVariableId: 'fontSize'
+          }
+        }
+      }, this),
+      new DefaultGraphicSymbol({
         id: 'authorPoints',
         type: 'area',
         recordStream: 'authors',
@@ -776,7 +948,7 @@ export class ISITemplateProject extends DefaultProject {
         template: 'science-map',
         properties: {},
         graphicSymbols: {
-          // TODO
+          subdisciplinePoints: 'subdisciplinePoints'
         }
       }, this),
       new TemporalBargraphVisualization({

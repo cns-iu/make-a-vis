@@ -19,7 +19,8 @@ export type FieldGroups = {
 // TODO: size, tooltip
 const fieldNameMapping = createFieldNameMapping([
 ], {
-  'identifier': 'subdisciplineIdField'
+  'identifier': 'subdisciplineIdField',
+  'areaSize': 'subdisciplineSizeField'
 }, 'subdiscipline');
 
 @Component({
@@ -29,7 +30,7 @@ const fieldNameMapping = createFieldNameMapping([
 })
 export class SciencemapComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
   readonly defaultProperties: Properties = {
-    enableTooltip: false, nodeSizeRange: [2, 18], minPositionX: 0, minPositionY: -20
+    enableTooltip: true, nodeSizeRange: [2, 18], minPositionX: 0, minPositionY: -20
   };
 
   readonly defaultFieldGroups: FieldGroups = {
