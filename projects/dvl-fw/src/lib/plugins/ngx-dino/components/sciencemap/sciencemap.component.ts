@@ -20,7 +20,8 @@ export type FieldGroups = {
 const fieldNameMapping = createFieldNameMapping([
 ], {
   'identifier': 'subdisciplineIdField',
-  'areaSize': 'subdisciplineSizeField'
+  'areaSize': 'subdisciplineSizeField',
+  'label': 'tooltipTextField'
 }, 'subdiscipline');
 
 @Component({

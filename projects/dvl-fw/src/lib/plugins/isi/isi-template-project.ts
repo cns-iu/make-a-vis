@@ -801,7 +801,7 @@ export class ISITemplateProject extends DefaultProject {
           },
           label: {
             recordSet: 'subdiscipline',
-            dataVariable: 'name',
+            dataVariable: 'id', // FIXME: should be name, but @ngx-din/science-map's "label" has to be id
             graphicVariableType: 'text',
             graphicVariableId: 'text'
           },

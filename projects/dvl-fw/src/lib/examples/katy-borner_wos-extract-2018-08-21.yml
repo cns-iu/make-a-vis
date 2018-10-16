@@ -1,7 +1,7 @@
 apiVersion: 1
 metadata:
-  dateCreated: 2018-10-16T15:41:22.553Z
-  dateSaved: 2018-10-16T15:41:24.428Z
+  dateCreated: 2018-10-16T15:57:32.238Z
+  dateSaved: 2018-10-16T15:57:32.666Z
 dataSources:
   - id: isiDataSource
     template: isi
@@ -916,7 +916,7 @@ graphicSymbolMappings:
         graphicVariableId: color
       label:
         recordSet: subdiscipline
-        dataVariable: name
+        dataVariable: id
         graphicVariableType: text
         graphicVariableId: text
       labelSize:
@@ -1365,8 +1365,8 @@ rawData:
             yearMax: 2018
             yearMin: 2000
           position:
-            - 128.59742736816406
-            - -235.9252471923828
+            - -186.24203491210938
+            - 124.8668212890625
         - name: 'Yu, HF'
           fullname: 'Yu, Huifeng'
           numPapers: 1
@@ -1383,8 +1383,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 126.2727279663086
-            - -249.2385711669922
+            - -194.15821838378906
+            - 114.69308471679688
         - name: 'Light, RP'
           fullname: 'Light, Robert P.'
           numPapers: 8
@@ -1401,8 +1401,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 90.284423828125
-            - -225.3759002685547
+            - -171.5282440185547
+            - 150.1459503173828
         - name: 'Marschke, G'
           fullname: 'Marschke, Gerald'
           numPapers: 1
@@ -1419,8 +1419,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 141.26007080078125
-            - -235.4676513671875
+            - -195.78114318847656
+            - 135.9254150390625
         - name: 'Borner, K'
           fullname: 'Borner, Katy'
           numPapers: 101
@@ -1437,8 +1437,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 50.66279220581055
-            - -52.06208801269531
+            - -39.166507720947266
+            - 22.459096908569336
         - name: 'Weinberg, BA'
           fullname: 'Weinberg, Bruce A.'
           numPapers: 1
@@ -1447,8 +1447,8 @@ rawData:
           lastYear: 2018
           globalStats: *ref_1
           position:
-            - 139.2462615966797
-            - -248.7303924560547
+            - -202.36959838867188
+            - 124.63240051269531
         - name: 'Shiffrin, RM'
           fullname: 'Shiffrin, Richard M.'
           numPapers: 2
@@ -1465,8 +1465,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 143.03102111816406
-            - -40.24392318725586
+            - -123.59600067138672
+            - -1.2522023916244507
         - name: 'Stigler, SM'
           fullname: 'Stigler, Stephen M.'
           numPapers: 1
@@ -1483,8 +1483,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 149.4122314453125
-            - -44.1241340637207
+            - -121.68443298339844
+            - -9.492555618286133
         - name: 'Fortunato, S'
           fullname: 'Fortunato, Santo'
           numPapers: 1
@@ -1503,8 +1503,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 15.834349632263184
-            - 183.4419403076172
+            - 183.81903076171875
+            - 196.8861541748047
         - name: 'Bergstrom, CT'
           fullname: 'Bergstrom, Carl T.'
           numPapers: 1
@@ -1521,8 +1521,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -11.479876518249512
-            - 209.9797821044922
+            - 167.12147521972656
+            - 145.83843994140625
         - name: 'Evans, JA'
           fullname: 'Evans, James A.'
           numPapers: 1
@@ -1541,8 +1541,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -2.360982894897461
-            - 188.98324584960938
+            - 174.78529357910156
+            - 174.06895446777344
         - name: 'Helbing, D'
           fullname: 'Helbing, Dirk'
           numPapers: 3
@@ -1559,8 +1559,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 43.67787170410156
-            - 137.95506286621094
+            - 191.74859619140625
+            - 51.79757308959961
         - name: 'Milojevic, S'
           fullname: 'Milojevic, Stasa'
           numPapers: 4
@@ -1577,8 +1577,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 140.2442169189453
-            - 206.31875610351562
+            - 126.85755157470703
+            - 259.00213623046875
         - name: 'Petersen, AM'
           fullname: 'Petersen, Alexander M.'
           numPapers: 1
@@ -1597,8 +1597,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 10.600844383239746
-            - 164.0527801513672
+            - 185.71026611328125
+            - 147.8187255859375
         - name: 'Radicchi, F'
           fullname: 'Radicchi, Filippo'
           numPapers: 1
@@ -1608,8 +1608,8 @@ rawData:
           address: 'Cent European Univ, Ctr Network Sci, H-1052 Budapest, Hungary.'
           globalStats: *ref_1
           position:
-            - -21.882808685302734
-            - 192.37229919433594
+            - 195.5538787841797
+            - 182.8892364501953
         - name: 'Sinatra, R'
           fullname: 'Sinatra, Roberta'
           numPapers: 1
@@ -1619,8 +1619,8 @@ rawData:
           address: 'Cent European Univ, Dept Math, H-1051 Budapest, Hungary.'
           globalStats: *ref_1
           position:
-            - -7.364607810974121
-            - 161.88079833984375
+            - 164.85977172851562
+            - 195.97317504882812
         - name: 'Uzzi, B'
           fullname: 'Uzzi, Brian'
           numPapers: 3
@@ -1637,8 +1637,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -60.716514587402344
-            - 91.29242706298828
+            - 81.75166320800781
+            - 224.38648986816406
         - name: 'Vespignani, A'
           fullname: 'Vespignani, Alessandro'
           numPapers: 3
@@ -1655,8 +1655,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -8.628885269165039
-            - 129.46653747558594
+            - 128.1054229736328
+            - 157.23297119140625
         - name: 'Waltman, L'
           fullname: 'Waltman, Ludo'
           numPapers: 1
@@ -1675,8 +1675,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -22.11296272277832
-            - 172.35986328125
+            - 152.99461364746094
+            - 181.1647186279297
         - name: 'Wang, DS'
           fullname: 'Wang, Dashun'
           numPapers: 1
@@ -1695,8 +1695,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 16.50480079650879
-            - 204.65890502929688
+            - 195.8714141845703
+            - 163.41860961914062
         - name: 'Barabasi, AL'
           fullname: 'Barabasi, Albert-Laszlo'
           numPapers: 1
@@ -1706,8 +1706,8 @@ rawData:
           address: 'ISI Fdn, I-10133 Turin, Italy.'
           globalStats: *ref_1
           position:
-            - 5.844120025634766
-            - 219.82012939453125
+            - 157.1811065673828
+            - 162.15936279296875
         - name: 'Simpson, AH'
           fullname: 'Simpson, Adam H.'
           numPapers: 1
@@ -1724,8 +1724,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 166.43212890625
-            - -109.27494812011719
+            - -84.71666717529297
+            - 120.22309875488281
         - name: 'Bueckle, A'
           fullname: 'Bueckle, Andreas'
           numPapers: 1
@@ -1742,8 +1742,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 175.0098876953125
-            - -105.6816177368164
+            - -94.78292846679688
+            - 117.35953521728516
         - name: 'Goldstone, RL'
           fullname: 'Goldstone, Robert L.'
           numPapers: 3
@@ -1760,8 +1760,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 170.2877960205078
-            - -123.0548095703125
+            - -90.08950805664062
+            - 131.03225708007812
         - name: 'Yao, XH'
           fullname: 'Yao, Xiaohui'
           numPapers: 1
@@ -1778,8 +1778,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 274.4730529785156
-            - -128.72402954101562
+            - -164.0016326904297
+            - -136.61338806152344
         - name: 'Yan, JW'
           fullname: 'Yan, Jingwen'
           numPapers: 1
@@ -1796,8 +1796,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 264.1383056640625
-            - -114.88613891601562
+            - -169.17510986328125
+            - -125.00698852539062
         - name: 'Ginda, M'
           fullname: 'Ginda, Michael'
           numPapers: 1
@@ -1814,8 +1814,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 281.8841247558594
-            - -118.16976928710938
+            - -176.7483367919922
+            - -138.47824096679688
         - name: 'Saykin, AJ'
           fullname: 'Saykin, Andrew J.'
           numPapers: 1
@@ -1824,8 +1824,8 @@ rawData:
           lastYear: 2017
           globalStats: *ref_1
           position:
-            - 262.1244812011719
-            - -128.0247039794922
+            - -182.35406494140625
+            - -120.85398864746094
         - name: 'Shen, L'
           fullname: 'Shen, Li'
           numPapers: 1
@@ -1834,8 +1834,8 @@ rawData:
           lastYear: 2017
           globalStats: *ref_1
           position:
-            - 275.1607666015625
-            - -106.79450988769531
+            - -188.29832458496094
+            - -130.97679138183594
         - name: 'Carpenter, JS'
           fullname: 'Carpenter, Janet S.'
           numPapers: 1
@@ -1854,8 +1854,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 337.4715576171875
-            - -37.63789367675781
+            - 48.09347152709961
+            - 139.6527862548828
         - name: 'Laine, T'
           fullname: 'Laine, Tei'
           numPapers: 1
@@ -1874,8 +1874,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 323.7332458496094
-            - -18.21932601928711
+            - 20.100994110107422
+            - 141.08460998535156
         - name: 'Harrison, B'
           fullname: 'Harrison, Blake'
           numPapers: 1
@@ -1894,8 +1894,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 317.3448791503906
-            - -29.77208137512207
+            - 37.603477478027344
+            - 153.44546508789062
         - name: 'LePage, M'
           fullname: 'LePage, Meghan'
           numPapers: 1
@@ -1912,8 +1912,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 318.3039245605469
-            - -42.60112762451172
+            - 23.163305282592773
+            - 154.93838500976562
         - name: 'Pierce, T'
           fullname: 'Pierce, Taran'
           numPapers: 1
@@ -1922,8 +1922,8 @@ rawData:
           lastYear: 2017
           globalStats: *ref_1
           position:
-            - 335.70184326171875
-            - -24.715103149414062
+            - 40.42049789428711
+            - 128.17526245117188
         - name: 'Hoteling, N'
           fullname: 'Hoteling, Nathan'
           numPapers: 1
@@ -1932,8 +1932,8 @@ rawData:
           lastYear: 2017
           globalStats: *ref_1
           position:
-            - 330.1661376953125
-            - -48.56013488769531
+            - 32.31514358520508
+            - 140.06858825683594
         - name: 'Emmons, SR'
           fullname: 'Emmons, Scott R.'
           numPapers: 1
@@ -1950,8 +1950,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 85.68266296386719
-            - -166.25106811523438
+            - -133.56527709960938
+            - 95.2669906616211
         - name: 'Murdock, J'
           fullname: 'Murdock, Jaimie'
           numPapers: 1
@@ -1968,8 +1968,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 295.0950622558594
-            - -286.89794921875
+            - -250.7536163330078
+            - -245.32684326171875
         - name: 'Allen, C'
           fullname: 'Allen, Colin'
           numPapers: 1
@@ -1986,8 +1986,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 317.22930908203125
-            - -242.25881958007812
+            - -280.35150146484375
+            - -250.7907257080078
         - name: 'Light, R'
           fullname: 'Light, Robert'
           numPapers: 1
@@ -2006,8 +2006,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 344.84552001953125
-            - -259.8922424316406
+            - -230.2623291015625
+            - -239.77769470214844
         - name: 'McAlister, S'
           fullname: 'McAlister, Simon'
           numPapers: 1
@@ -2024,8 +2024,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 339.9002685546875
-            - -277.2838134765625
+            - -255.53384399414062
+            - -217.2413330078125
         - name: 'Ravenscroft, A'
           fullname: 'Ravenscroft, Andrew'
           numPapers: 1
@@ -2037,8 +2037,8 @@ rawData:
             Social Media, Duisburg, Germany.
           globalStats: *ref_1
           position:
-            - 313.0071105957031
-            - -275.546630859375
+            - -273.06658935546875
+            - -217.8175811767578
         - name: 'Rose, R'
           fullname: 'Rose, Robert'
           numPapers: 1
@@ -2050,8 +2050,8 @@ rawData:
             ICPuP, London, England.
           globalStats: *ref_1
           position:
-            - 335.5787048339844
-            - -243.84890747070312
+            - -250.36204528808594
+            - -266.96893310546875
         - name: 'Rose, D'
           fullname: 'Rose, Doori'
           numPapers: 1
@@ -2068,8 +2068,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 328.4070129394531
-            - -290.25469970703125
+            - -233.45887756347656
+            - -258.555908203125
         - name: 'Otsuka, J'
           fullname: 'Otsuka, Jun'
           numPapers: 1
@@ -2079,8 +2079,8 @@ rawData:
           address: 'Kyoto Univ, Dept Philosophy, Kyoto, Japan.'
           globalStats: *ref_1
           position:
-            - 324.3567810058594
-            - -261.9530944824219
+            - -264.30657958984375
+            - -237.51893615722656
         - name: 'Bourget, D'
           fullname: 'Bourget, David'
           numPapers: 1
@@ -2090,8 +2090,8 @@ rawData:
           address: 'Univ Western Ontario, Dept Philosophy, London, ON, Canada.'
           globalStats: *ref_1
           position:
-            - 303.21661376953125
-            - -253.2567901611328
+            - -240.54307556152344
+            - -225.5801544189453
         - name: 'Lawrence, J'
           fullname: 'Lawrence, John'
           numPapers: 1
@@ -2101,8 +2101,8 @@ rawData:
           address: 'Univ Dundee, Ctr Argument Technol, Dundee, Scotland.'
           globalStats: *ref_1
           position:
-            - 311.00244140625
-            - -296.2911682128906
+            - -284.41412353515625
+            - -232.55752563476562
         - name: 'Reed, C'
           fullname: 'Reed, Chris'
           numPapers: 1
@@ -2111,8 +2111,8 @@ rawData:
           lastYear: 2017
           globalStats: *ref_1
           position:
-            - 293.3851623535156
-            - -268.4106140136719
+            - -267.3042907714844
+            - -261.643310546875
         - name: 'Osili, UO'
           fullname: 'Osili, Una O.'
           numPapers: 1
@@ -2131,8 +2131,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 77.02201843261719
-            - -197.1128387451172
+            - -168.94448852539062
+            - 96.9128189086914
         - name: 'Ackerman, J'
           fullname: 'Ackerman, Jacqueline'
           numPapers: 1
@@ -2151,8 +2151,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 92.13494110107422
-            - -193.76544189453125
+            - -157.39454650878906
+            - 96.48377227783203
         - name: 'Kong, CH'
           fullname: 'Kong, Chin Hua'
           numPapers: 1
@@ -2169,8 +2169,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 82.82173156738281
-            - -187.86489868164062
+            - -166.15252685546875
+            - 86.56514739990234
         - name: 'Edmonds, B'
           fullname: 'Edmonds, Bruce'
           numPapers: 1
@@ -2180,8 +2180,8 @@ rawData:
           address: 'KNAW, Royal Netherlands Acad Arts & Sci, Amsterdam, Netherlands.'
           globalStats: *ref_1
           position:
-            - 160.83082580566406
-            - 100.9609603881836
+            - 93.1049575805664
+            - 101.90949249267578
         - name: 'Scharnhorst, A'
           fullname: 'Scharnhorst, Andrea'
           numPapers: 7
@@ -2200,8 +2200,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 188.34490966796875
-            - 94.67068481445312
+            - 119.71183013916016
+            - 17.87797737121582
         - name: 'Bollen, J'
           fullname: 'Bollen, Johan'
           numPapers: 3
@@ -2218,8 +2218,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 231.2108917236328
-            - 115.95113372802734
+            - 11.488659858703613
+            - 231.13336181640625
         - name: 'Crandall, D'
           fullname: 'Crandall, David'
           numPapers: 3
@@ -2236,8 +2236,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 241.26051330566406
-            - 121.72467803955078
+            - 17.769916534423828
+            - 221.6397705078125
         - name: 'Junk, D'
           fullname: 'Junk, Damion'
           numPapers: 3
@@ -2254,8 +2254,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 242.58316040039062
-            - 111.17133331298828
+            - 23.191497802734375
+            - 232.80905151367188
         - name: 'Ding, Y'
           fullname: 'Ding, Ying'
           numPapers: 4
@@ -2274,8 +2274,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 255.8881072998047
-            - 214.32815551757812
+            - 71.30591583251953
+            - 323.44049072265625
         - name: 'Emmons, S'
           fullname: 'Emmons, Scott'
           numPapers: 1
@@ -2292,8 +2292,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 192.6254119873047
-            - -43.8138542175293
+            - -105.0583724975586
+            - -106.15190124511719
         - name: 'Kobourov, S'
           fullname: 'Kobourov, Stephen'
           numPapers: 2
@@ -2310,8 +2310,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 216.2891387939453
-            - -28.534080505371094
+            - -100.15814208984375
+            - -128.32293701171875
         - name: 'Gallant, M'
           fullname: 'Gallant, Mike'
           numPapers: 1
@@ -2328,8 +2328,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 192.74859619140625
-            - -35.11949920654297
+            - -95.79183197021484
+            - -103.63270568847656
         - name: 'Maltese, A'
           fullname: 'Maltese, Adam'
           numPapers: 1
@@ -2346,8 +2346,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 162.70921325683594
-            - -10.480598449707031
+            - -108.25465393066406
+            - -71.3720932006836
         - name: 'Balliet, RN'
           fullname: 'Balliet, Russell Nelson'
           numPapers: 1
@@ -2356,8 +2356,8 @@ rawData:
           lastYear: 2016
           globalStats: *ref_1
           position:
-            - 167.4010467529297
-            - -1.0251747369766235
+            - -117.73026275634766
+            - -63.47259521484375
         - name: 'Heimlich, J'
           fullname: 'Heimlich, Joe'
           numPapers: 1
@@ -2366,8 +2366,8 @@ rawData:
           lastYear: 2016
           globalStats: *ref_1
           position:
-            - 158.3117218017578
-            - 1.4752204418182373
+            - -118.18156433105469
+            - -73.90841674804688
         - name: 'Knepper, R'
           fullname: 'Knepper, Richard'
           numPapers: 1
@@ -2384,8 +2384,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 38.27390670776367
-            - -118.82947540283203
+            - -13.521709442138672
+            - -44.76258087158203
         - name: 'Pestilli, F'
           fullname: 'Pestilli, Franco'
           numPapers: 1
@@ -2404,8 +2404,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 144.33460998535156
-            - -121.4068603515625
+            - -86.32969665527344
+            - 99.39873504638672
         - name: 'Saket, B'
           fullname: 'Saket, Bahador'
           numPapers: 2
@@ -2422,8 +2422,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 219.24623107910156
-            - -4.176044940948486
+            - -78.69200897216797
+            - -134.3625946044922
         - name: 'Scheidegger, C'
           fullname: 'Scheidegger, Carlos'
           numPapers: 1
@@ -2440,8 +2440,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 194.23123168945312
-            - -4.838936805725098
+            - -59.95924377441406
+            - -119.5356674194336
         - name: 'Kobourov, SG'
           fullname: 'Kobourov, Stephen G.'
           numPapers: 1
@@ -2450,8 +2450,8 @@ rawData:
           lastYear: 2015
           globalStats: *ref_1
           position:
-            - 199.00828552246094
-            - 3.2044789791107178
+            - -66.116943359375
+            - -112.51962280273438
         - name: 'Lariviere, V'
           fullname: 'Lariviere, Vincent'
           numPapers: 2
@@ -2463,8 +2463,8 @@ rawData:
             Canada.
           globalStats: *ref_1
           position:
-            - 47.64107131958008
-            - -276.4813232421875
+            - -240.57373046875
+            - 168.98780822753906
         - name: 'Haustein, S'
           fullname: 'Haustein, Stefanie'
           numPapers: 1
@@ -2476,8 +2476,8 @@ rawData:
             Montreal, PQ H3C 3P8, Canada.
           globalStats: *ref_1
           position:
-            - 46.77655792236328
-            - -200.47157287597656
+            - -164.1822052001953
+            - 118.4000473022461
         - name: 'Patel, K'
           fullname: 'Patel, Kishor'
           numPapers: 1
@@ -2496,8 +2496,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 116.44925689697266
-            - -186.392822265625
+            - -138.36668395996094
+            - 126.98735809326172
         - name: 'Govoni, S'
           fullname: 'Govoni, Sergio'
           numPapers: 1
@@ -2514,8 +2514,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 117.4728012084961
-            - -198.99639892578125
+            - -138.67962646484375
+            - 137.42044067382812
         - name: 'Athavale, A'
           fullname: 'Athavale, Ashwini'
           numPapers: 1
@@ -2524,8 +2524,8 @@ rawData:
           lastYear: 2015
           globalStats: *ref_1
           position:
-            - 126.9608383178711
-            - -192.83575439453125
+            - -130.5203857421875
+            - 143.0334014892578
         - name: 'Jibu, M'
           fullname: 'Jibu, Mari'
           numPapers: 1
@@ -2535,8 +2535,8 @@ rawData:
           address: 'OECD, Paris, France.'
           globalStats: *ref_1
           position:
-            - 142.95306396484375
-            - -82.97134399414062
+            - -109.96855163574219
+            - -32.44926071166992
         - name: 'Osabe, Y'
           fullname: 'Osabe, Yoshiyuki'
           numPapers: 1
@@ -2546,8 +2546,8 @@ rawData:
           address: 'Japan Sci & Technol Agcy, Tokyo, Japan.'
           globalStats: *ref_1
           position:
-            - 135.61106872558594
-            - -85.51435852050781
+            - -104.1269760131836
+            - -38.68827438354492
         - name: 'Simonetto, P'
           fullname: 'Simonetto, Paolo'
           numPapers: 1
@@ -2564,8 +2564,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 204.67263793945312
-            - -19.00229263305664
+            - -85.4060287475586
+            - -118.61136627197266
         - name: 'Reijnhoudt, L'
           fullname: 'Reijnhoudt, Linda'
           numPapers: 2
@@ -2577,8 +2577,8 @@ rawData:
             Netherlands.
           globalStats: *ref_1
           position:
-            - 213.8291778564453
-            - 54.277320861816406
+            - 87.76305389404297
+            - -26.18478775024414
         - name: 'Costas, R'
           fullname: 'Costas, Rodrigo'
           numPapers: 2
@@ -2588,8 +2588,8 @@ rawData:
           address: 'Leiden Univ, Ctr Sci & Technol Studies CWTS, Leiden, Netherlands.'
           globalStats: *ref_1
           position:
-            - 206.015625
-            - 46.48103332519531
+            - 79.03411102294922
+            - -18.697193145751953
         - name: 'Noyons, E'
           fullname: 'Noyons, Ed'
           numPapers: 2
@@ -2608,8 +2608,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 200.91810607910156
-            - 55.91960144042969
+            - 76.65564727783203
+            - -30.796104431152344
         - name: 'Polley, DE'
           fullname: 'Polley, David E.'
           numPapers: 2
@@ -2618,8 +2618,8 @@ rawData:
           lastYear: 2014
           globalStats: *ref_1
           position:
-            - 73.30365753173828
-            - -168.02639770507812
+            - -127.69524383544922
+            - 105.3651123046875
         - name: 'Schreiber, F'
           fullname: 'Schreiber, Falk'
           numPapers: 1
@@ -2629,8 +2629,8 @@ rawData:
           address: 'Univ Halle Wittenberg, Inst Comp Sci, Halle, Germany.'
           globalStats: *ref_1
           position:
-            - 172.64898681640625
-            - -196.6959228515625
+            - -212.97657775878906
+            - -10.511798858642578
         - name: 'Kerren, A'
           fullname: 'Kerren, Andreas'
           numPapers: 1
@@ -2640,8 +2640,8 @@ rawData:
           address: 'Linnaeus Univ, Fac Technol, Dept Comp Sci, S-35195 Vaxjo, Sweden.'
           globalStats: *ref_1
           position:
-            - 184.38836669921875
-            - -198.1584930419922
+            - -207.42510986328125
+            - 5.7989044189453125
         - name: 'Hagen, H'
           fullname: 'Hagen, Hans'
           numPapers: 1
@@ -2651,8 +2651,8 @@ rawData:
           address: 'Univ Kaiserslautern, Dept Comp Sci, D-67663 Kaiserslautern, Germany.'
           globalStats: *ref_1
           position:
-            - 172.0492706298828
-            - -185.12208557128906
+            - -201.99098205566406
+            - -2.933558940887451
         - name: 'Zeckzer, D'
           fullname: 'Zeckzer, Dirk'
           numPapers: 1
@@ -2662,8 +2662,8 @@ rawData:
           address: 'Univ Leipzig, Inst Comp Sci, D-04109 Leipzig, Germany.'
           globalStats: *ref_1
           position:
-            - 184.41610717773438
-            - -186.21426391601562
+            - -216.89031982421875
+            - -3.5485148429870605
         - name: 'Chen, YW'
           fullname: 'Chen, Yunwei'
           numPapers: 1
@@ -2673,8 +2673,8 @@ rawData:
           address: 'Chinese Acad Sci, Chengdu Lib, Chengdu 610041, Peoples R China.'
           globalStats: *ref_1
           position:
-            - 103.85958862304688
-            - -127.75108337402344
+            - -78.22758483886719
+            - -61.988101959228516
         - name: 'Fang, S'
           fullname: 'Fang, Shu'
           numPapers: 1
@@ -2691,8 +2691,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 95.71560668945312
-            - -130.06005859375
+            - -71.07205200195312
+            - -66.64043426513672
         - name: 'Skupin, A'
           fullname: 'Skupin, Andre'
           numPapers: 3
@@ -2709,8 +2709,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 26.971412658691406
-            - -351.4528503417969
+            - -284.1582336425781
+            - 216.480224609375
         - name: 'Biberstine, JR'
           fullname: 'Biberstine, Joseph R.'
           numPapers: 3
@@ -2729,8 +2729,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 29.994516372680664
-            - -313.2574462890625
+            - -297.1010437011719
+            - 179.7171630859375
         - name: 'Mazloumian, A'
           fullname: 'Mazloumian, Amin'
           numPapers: 1
@@ -2742,8 +2742,8 @@ rawData:
             Switzerland.
           globalStats: *ref_1
           position:
-            - 110.9671401977539
-            - -19.89664649963379
+            - 29.58542823791504
+            - 80.35113525390625
         - name: 'Lozano, S'
           fullname: 'Lozano, Sergi'
           numPapers: 1
@@ -2762,8 +2762,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 115.8387680053711
-            - -31.603906631469727
+            - 21.827423095703125
+            - 88.46946716308594
         - name: 'van Harmelen, F'
           fullname: 'van Harmelen, F.'
           numPapers: 1
@@ -2775,8 +2775,8 @@ rawData:
             HV Amsterdam, Netherlands.
           globalStats: *ref_1
           position:
-            - 94.70269775390625
-            - 183.49424743652344
+            - 240.9534912109375
+            - -77.62174987792969
         - name: 'Kampis, G'
           fullname: 'Kampis, G.'
           numPapers: 1
@@ -2788,8 +2788,8 @@ rawData:
             Germany.
           globalStats: *ref_1
           position:
-            - 61.074893951416016
-            - 172.7715606689453
+            - 253.3052215576172
+            - -57.090187072753906
         - name: 'van den Besselaar, P'
           fullname: 'van den Besselaar, P.'
           numPapers: 4
@@ -2808,8 +2808,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 108.11046600341797
-            - 154.1571502685547
+            - 203.3893280029297
+            - -56.234683990478516
         - name: 'Schultes, E'
           fullname: 'Schultes, E.'
           numPapers: 1
@@ -2821,8 +2821,8 @@ rawData:
             Netherlands.
           globalStats: *ref_1
           position:
-            - 75.28672790527344
-            - 217.68463134765625
+            - 209.5963592529297
+            - -82.2758560180664
         - name: 'Goble, C'
           fullname: 'Goble, C.'
           numPapers: 1
@@ -2834,8 +2834,8 @@ rawData:
             Netherlands.
           globalStats: *ref_1
           position:
-            - 84.0637435913086
-            - 169.75564575195312
+            - 262.48388671875
+            - -73.49369812011719
         - name: 'Groth, P'
           fullname: 'Groth, P.'
           numPapers: 1
@@ -2845,8 +2845,8 @@ rawData:
           address: 'Concept Web Alliance, Nijmegen, Netherlands.'
           globalStats: *ref_1
           position:
-            - 73.08969116210938
-            - 158.49545288085938
+            - 238.53768920898438
+            - -99.40764617919922
         - name: 'Mons, B'
           fullname: 'Mons, B.'
           numPapers: 2
@@ -2856,8 +2856,8 @@ rawData:
           address: 'Univ Manchester, Dept Comp Sci, Manchester M13 9PL, Lancs, England.'
           globalStats: *ref_1
           position:
-            - -145.43820190429688
-            - 207.96646118164062
+            - 183.6121826171875
+            - -223.314453125
         - name: 'Anderson, S'
           fullname: 'Anderson, S.'
           numPapers: 1
@@ -2870,8 +2870,8 @@ rawData:
             Netherlands.
           globalStats: *ref_1
           position:
-            - 72.70072174072266
-            - 190.2382049560547
+            - 220.73611450195312
+            - -95.53227233886719
         - name: 'Decker, S'
           fullname: 'Decker, S.'
           numPapers: 1
@@ -2881,8 +2881,8 @@ rawData:
           address: 'Netherlands Bioinformat Ctr, Nijmegen, Netherlands.'
           globalStats: *ref_1
           position:
-            - 58.02153396606445
-            - 216.47515869140625
+            - 256.3496398925781
+            - -92.371337890625
         - name: 'Hayes, C'
           fullname: 'Hayes, C.'
           numPapers: 1
@@ -2892,8 +2892,8 @@ rawData:
           address: 'Erasmus MC, Dept Med Informat, Rotterdam, Netherlands.'
           globalStats: *ref_1
           position:
-            - 85.99864196777344
-            - 204.08953857421875
+            - 235.14561462402344
+            - -53.10792922973633
         - name: 'Buecheler, T'
           fullname: 'Buecheler, T.'
           numPapers: 1
@@ -2905,8 +2905,8 @@ rawData:
             Scotland.
           globalStats: *ref_1
           position:
-            - 55.89992904663086
-            - 194.34555053710938
+            - 224.65878295898438
+            - -69.46862030029297
         - name: 'Klavans, R'
           fullname: 'Klavans, Richard'
           numPapers: 5
@@ -2923,8 +2923,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 48.995094299316406
-            - -314.8123474121094
+            - -273.1010437011719
+            - 196.2097625732422
         - name: 'Patek, M'
           fullname: 'Patek, Michael'
           numPapers: 2
@@ -2941,8 +2941,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 58.44050598144531
-            - -330.54345703125
+            - -279.0624694824219
+            - 178.0575714111328
         - name: 'Zoss, AM'
           fullname: 'Zoss, Angela M.'
           numPapers: 6
@@ -2961,8 +2961,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -16.403030395507812
-            - -320.46722412109375
+            - -304.31182861328125
+            - 121.04324340820312
         - name: 'Boyack, KW'
           fullname: 'Boyack, Kevin W.'
           numPapers: 9
@@ -2979,8 +2979,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -2.1291842460632324
-            - -242.62322998046875
+            - -218.24508666992188
+            - 233.4257049560547
         - name: 'Morris, S'
           fullname: 'Morris, Steven'
           numPapers: 1
@@ -2989,8 +2989,8 @@ rawData:
           lastYear: 2012
           globalStats: *ref_1
           position:
-            - 77.12715148925781
-            - 11.28290843963623
+            - -53.80813980102539
+            - 201.97947692871094
         - name: 'Glanzel, W'
           fullname: 'Glanzel, Wolfgang'
           numPapers: 1
@@ -3007,8 +3007,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 148.40309143066406
-            - 77.70642852783203
+            - 122.32681274414062
+            - -24.967674255371094
         - name: 'Guo, HN'
           fullname: 'Guo, Hanning'
           numPapers: 3
@@ -3018,8 +3018,8 @@ rawData:
           address: 'Dalian Univ Technol, WISE Lab, Dalian, Peoples R China.'
           globalStats: *ref_1
           position:
-            - -86.93509674072266
-            - -329.66943359375
+            - -347.1568603515625
+            - 45.32356262207031
         - name: 'Weingart, S'
           fullname: 'Weingart, Scott'
           numPapers: 1
@@ -3038,8 +3038,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -41.59504318237305
-            - -228.34274291992188
+            - -247.25279235839844
+            - 18.343891143798828
         - name: 'Newman, D'
           fullname: 'Newman, David'
           numPapers: 1
@@ -3056,8 +3056,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 37.72418975830078
-            - -336.8117370605469
+            - -313.1221618652344
+            - 199.8112335205078
         - name: 'Duhon, RJ'
           fullname: 'Duhon, Russell J.'
           numPapers: 5
@@ -3074,8 +3074,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -32.35219955444336
-            - -351.62701416015625
+            - -336.0862121582031
+            - 124.92650604248047
         - name: 'Schijvenaars, B'
           fullname: 'Schijvenaars, Bob'
           numPapers: 1
@@ -3092,8 +3092,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 47.91655349731445
-            - -350.702880859375
+            - -296.7467041015625
+            - 201.88328552246094
         - name: 'Ma, NAL'
           fullname: 'Ma, Nianli'
           numPapers: 1
@@ -3102,8 +3102,8 @@ rawData:
           lastYear: 2011
           globalStats: *ref_1
           position:
-            - 20.03652572631836
-            - -333.2536926269531
+            - -301.83837890625
+            - 217.70358276367188
         - name: 'Wagner, CS'
           fullname: 'Wagner, Caroline S.'
           numPapers: 1
@@ -3120,8 +3120,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -111.58732604980469
-            - -186.45579528808594
+            - -174.9596405029297
+            - 268.2878112792969
         - name: 'Roessner, JD'
           fullname: 'Roessner, J. David'
           numPapers: 1
@@ -3138,8 +3138,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -104.89835357666016
-            - -199.52256774902344
+            - -152.7342529296875
+            - 261.13653564453125
         - name: 'Bobb, K'
           fullname: 'Bobb, Kamau'
           numPapers: 1
@@ -3156,8 +3156,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -87.01229095458984
-            - -183.28370666503906
+            - -169.30819702148438
+            - 281.5503845214844
         - name: 'Klein, JT'
           fullname: 'Klein, Julie Thompson'
           numPapers: 1
@@ -3174,8 +3174,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -100.93128967285156
-            - -176.87762451171875
+            - -155.82090759277344
+            - 275.9385681152344
         - name: 'Keyton, J'
           fullname: 'Keyton, Joann'
           numPapers: 3
@@ -3192,8 +3192,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -131.22384643554688
-            - -101.27368927001953
+            - -102.63814544677734
+            - 288.97772216796875
         - name: 'Rafols, I'
           fullname: 'Rafols, Ismael'
           numPapers: 1
@@ -3202,8 +3202,8 @@ rawData:
           lastYear: 2011
           globalStats: *ref_1
           position:
-            - -90.85562896728516
-            - -197.34413146972656
+            - -166.08453369140625
+            - 256.0924072265625
         - name: 'Falk-Krzesinski, HJ'
           fullname: 'Falk-Krzesinski, Holly J.'
           numPapers: 2
@@ -3222,8 +3222,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -153.08050537109375
-            - -18.296857833862305
+            - -41.472381591796875
+            - 279.72314453125
         - name: 'Contractor, N'
           fullname: 'Contractor, Noshir'
           numPapers: 2
@@ -3242,8 +3242,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -135.44696044921875
-            - -10.709076881408691
+            - -35.26225280761719
+            - 297.2331237792969
         - name: 'Fiore, SM'
           fullname: 'Fiore, Stephen M.'
           numPapers: 2
@@ -3260,8 +3260,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -158.3995361328125
-            - -35.925193786621094
+            - -58.64002990722656
+            - 277.4776306152344
         - name: 'Hall, KL'
           fullname: 'Hall, Kara L.'
           numPapers: 2
@@ -3278,8 +3278,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -144.7748260498047
-            - -46.63983154296875
+            - -48.751094818115234
+            - 261.9391784667969
         - name: 'Spring, B'
           fullname: 'Spring, Bonnie'
           numPapers: 2
@@ -3296,8 +3296,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -126.8628921508789
-            - -39.799381256103516
+            - -24.364273071289062
+            - 281.5487060546875
         - name: 'Stokols, D'
           fullname: 'Stokols, Daniel'
           numPapers: 2
@@ -3314,8 +3314,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -140.00010681152344
-            - -28.952444076538086
+            - -53.147254943847656
+            - 296.047607421875
         - name: 'Trochim, W'
           fullname: 'Trochim, William'
           numPapers: 2
@@ -3332,8 +3332,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -122.12457275390625
-            - -21.758264541625977
+            - -31.1331729888916
+            - 264.36322021484375
         - name: 'Huang, WX'
           fullname: 'Huang, Weixia'
           numPapers: 2
@@ -3342,8 +3342,8 @@ rawData:
           lastYear: 2010
           globalStats: *ref_1
           position:
-            - -66.76695251464844
-            - -312.9808654785156
+            - -316.1682434082031
+            - 71.30914306640625
         - name: 'Linnemeier, M'
           fullname: 'Linnemeier, Micah'
           numPapers: 2
@@ -3352,8 +3352,8 @@ rawData:
           lastYear: 2010
           globalStats: *ref_1
           position:
-            - -71.70340728759766
-            - -369.7400817871094
+            - -364.6986389160156
+            - 70.26423645019531
         - name: 'Phillips, P'
           fullname: 'Phillips, Patrick'
           numPapers: 2
@@ -3362,8 +3362,8 @@ rawData:
           lastYear: 2010
           globalStats: *ref_1
           position:
-            - -90.40123748779297
-            - -369.6149597167969
+            - -370.1935119628906
+            - 53.66117858886719
         - name: 'Ma, NL'
           fullname: 'Ma, Nianli'
           numPapers: 2
@@ -3382,8 +3382,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -59.99775314331055
-            - -338.9778747558594
+            - -341.5474548339844
+            - 82.28234100341797
         - name: 'Price, MA'
           fullname: 'Price, Mark A.'
           numPapers: 2
@@ -3392,8 +3392,8 @@ rawData:
           lastYear: 2010
           globalStats: *ref_1
           position:
-            - -81.20609283447266
-            - -352.3797302246094
+            - -343.32843017578125
+            - 61.11469268798828
         - name: 'Sun, YY'
           fullname: 'Sun, Yuyin'
           numPapers: 1
@@ -3410,8 +3410,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 229.11399841308594
-            - 272.0006408691406
+            - 116.7933578491211
+            - 380.27349853515625
         - name: 'Chen, B'
           fullname: 'Chen, Bin'
           numPapers: 1
@@ -3430,8 +3430,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 232.86585998535156
-            - 238.2320556640625
+            - 104.07295989990234
+            - 332.69384765625
         - name: 'Ding, L'
           fullname: 'Ding, Li'
           numPapers: 1
@@ -3440,8 +3440,8 @@ rawData:
           lastYear: 2010
           globalStats: *ref_1
           position:
-            - 210.26095581054688
-            - 264.1156311035156
+            - 138.7020263671875
+            - 348.6941223144531
         - name: 'Wild, D'
           fullname: 'Wild, David'
           numPapers: 1
@@ -3450,8 +3450,8 @@ rawData:
           lastYear: 2010
           globalStats: *ref_1
           position:
-            - 229.48052978515625
-            - 294.4398193359375
+            - 77.16387176513672
+            - 373.44287109375
         - name: 'Wu, M'
           fullname: 'Wu, Melanie'
           numPapers: 1
@@ -3460,8 +3460,8 @@ rawData:
           lastYear: 2010
           globalStats: *ref_1
           position:
-            - 248.7613525390625
-            - 287.5821533203125
+            - 73.88819885253906
+            - 355.207763671875
         - name: 'DiFranzo, D'
           fullname: 'DiFranzo, Dominic'
           numPapers: 1
@@ -3470,8 +3470,8 @@ rawData:
           lastYear: 2010
           globalStats: *ref_1
           position:
-            - 211.04823303222656
-            - 286.1379699707031
+            - 100.6863021850586
+            - 364.6617431640625
         - name: 'Fuenzalida, AG'
           fullname: 'Fuenzalida, Alvaro Graves'
           numPapers: 1
@@ -3480,8 +3480,8 @@ rawData:
           lastYear: 2010
           globalStats: *ref_1
           position:
-            - 245.11802673339844
-            - 263.59356689453125
+            - 124.57107543945312
+            - 333.8282775878906
         - name: 'Li, DF'
           fullname: 'Li, Daifeng'
           numPapers: 1
@@ -3490,8 +3490,8 @@ rawData:
           lastYear: 2010
           globalStats: *ref_1
           position:
-            - 251.75364685058594
-            - 243.86094665527344
+            - 91.74503326416016
+            - 346.8273010253906
         - name: 'Chen, SS'
           fullname: 'Chen, ShanShan'
           numPapers: 1
@@ -3500,8 +3500,8 @@ rawData:
           lastYear: 2010
           globalStats: *ref_1
           position:
-            - 264.1296691894531
-            - 274.27813720703125
+            - 95.35179901123047
+            - 384.217041015625
         - name: 'Sankaranarayanan, M'
           fullname: 'Sankaranarayanan, Madhuvanthi'
           numPapers: 1
@@ -3510,8 +3510,8 @@ rawData:
           lastYear: 2010
           globalStats: *ref_1
           position:
-            - 267.8060302734375
-            - 254.2959442138672
+            - 133.02125549316406
+            - 368.345458984375
         - name: 'Toma, I'
           fullname: 'Toma, Ioan'
           numPapers: 1
@@ -3520,8 +3520,8 @@ rawData:
           lastYear: 2010
           globalStats: *ref_1
           position:
-            - 219.8588104248047
-            - 249.8855438232422
+            - 116.66883087158203
+            - 353.4557800292969
         - name: 'Conover, M'
           fullname: 'Conover, Michael'
           numPapers: 1
@@ -3538,8 +3538,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 18.013668060302734
-            - -218.80856323242188
+            - -218.28311157226562
+            - 59.57404327392578
         - name: 'LaRowe, G'
           fullname: 'LaRowe, Gavin'
           numPapers: 2
@@ -3556,8 +3556,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 216.44630432128906
-            - -93.48662567138672
+            - -217.66891479492188
+            - -72.06787109375
         - name: 'Ambre, S'
           fullname: 'Ambre, Sumeet'
           numPapers: 2
@@ -3574,8 +3574,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 217.46865844726562
-            - -81.26673889160156
+            - -218.76010131835938
+            - -60.049827575683594
         - name: 'Burgoon, J'
           fullname: 'Burgoon, John'
           numPapers: 2
@@ -3584,8 +3584,8 @@ rawData:
           lastYear: 2009
           globalStats: *ref_1
           position:
-            - 227.9820556640625
-            - -92.34801483154297
+            - -229.16989135742188
+            - -71.60311126708984
         - name: 'Ke, W'
           fullname: 'Ke, Weimao'
           numPapers: 2
@@ -3594,8 +3594,8 @@ rawData:
           lastYear: 2009
           globalStats: *ref_1
           position:
-            - 229.40560913085938
-            - -80.1689224243164
+            - -230.22784423828125
+            - -59.563804626464844
         - name: 'Huang, BN'
           fullname: 'Huang, Bonnie (Weixia)'
           numPapers: 1
@@ -3604,8 +3604,8 @@ rawData:
           lastYear: 2009
           globalStats: *ref_1
           position:
-            - -101.712646484375
-            - -346.7613220214844
+            - -350.04425048828125
+            - 21.336429595947266
         - name: 'Ma, NNL'
           fullname: 'Ma, Ninali'
           numPapers: 1
@@ -3614,8 +3614,8 @@ rawData:
           lastYear: 2009
           globalStats: *ref_1
           position:
-            - -111.93795013427734
-            - -336.6938171386719
+            - -337.02117919921875
+            - 30.031827926635742
         - name: 'Zoss, A'
           fullname: 'Zoss, Angela'
           numPapers: 1
@@ -3624,8 +3624,8 @@ rawData:
           lastYear: 2009
           globalStats: *ref_1
           position:
-            - -110.14598083496094
-            - -358.8837585449219
+            - -363.7934265136719
+            - 30.0936279296875
         - name: 'Ashburner, M'
           fullname: 'Ashburner, Michael'
           numPapers: 1
@@ -3637,8 +3637,8 @@ rawData:
             ZC Leiden, Netherlands.
           globalStats: *ref_1
           position:
-            - -253.9561309814453
-            - 256.60235595703125
+            - 100.25736999511719
+            - -283.5174560546875
         - name: 'Chichester, C'
           fullname: 'Chichester, Christine'
           numPapers: 1
@@ -3655,8 +3655,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -303.103271484375
-            - 249.3097381591797
+            - 160.39031982421875
+            - -369.3199768066406
         - name: 'van Mulligen, E'
           fullname: 'van Mulligen, Erik'
           numPapers: 1
@@ -3666,8 +3666,8 @@ rawData:
           address: 'Open Progress Educ, NL-1315 BH AlmereAlmere, Netherlands.'
           globalStats: *ref_1
           position:
-            - -264.7423095703125
-            - 177.61859130859375
+            - 100.30757141113281
+            - -312.0570983886719
         - name: 'Weeber, M'
           fullname: 'Weeber, Marc'
           numPapers: 1
@@ -3679,8 +3679,8 @@ rawData:
             England.
           globalStats: *ref_1
           position:
-            - -233.01828002929688
-            - 239.6321258544922
+            - 91.94155883789062
+            - -336.2469787597656
         - name: 'den Dunnen, J'
           fullname: 'den Dunnen, Johan'
           numPapers: 1
@@ -3690,8 +3690,8 @@ rawData:
           address: 'Univ Cambridge, Dept Genet, Hinxton CB10 1SD, England.'
           globalStats: *ref_1
           position:
-            - -295.3639831542969
-            - 143.539306640625
+            - 110.08087158203125
+            - -381.88079833984375
         - name: 'van Ommen, GJ'
           fullname: 'van Ommen, Gert-Jan'
           numPapers: 1
@@ -3710,8 +3710,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -256.3243713378906
-            - 227.3688201904297
+            - 126.22252655029297
+            - -277.8013916015625
         - name: 'Musen, M'
           fullname: 'Musen, Mark'
           numPapers: 1
@@ -3723,8 +3723,8 @@ rawData:
             4, Switzerland.
           globalStats: *ref_1
           position:
-            - -269.283447265625
-            - 146.66610717773438
+            - 183.22332763671875
+            - -324.2476806640625
         - name: 'Cockerill, M'
           fullname: 'Cockerill, Matthew'
           numPapers: 1
@@ -3736,8 +3736,8 @@ rawData:
             Switzerland.
           globalStats: *ref_1
           position:
-            - -322.4664306640625
-            - 231.08016967773438
+            - 69.10257720947266
+            - -350.3233337402344
         - name: 'Hermjakob, H'
           fullname: 'Hermjakob, Henning'
           numPapers: 1
@@ -3754,8 +3754,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -280.65118408203125
-            - 232.49993896484375
+            - 77.53187561035156
+            - -299.0004577636719
         - name: 'Mons, A'
           fullname: 'Mons, Albert'
           numPapers: 1
@@ -3765,8 +3765,8 @@ rawData:
           address: 'BioMed Cent, London W1T 4LB, England.'
           globalStats: *ref_1
           position:
-            - -301.50421142578125
-            - 215.87847900390625
+            - 174.24620056152344
+            - -300.8152160644531
         - name: 'Packer, A'
           fullname: 'Packer, Abel'
           numPapers: 1
@@ -3776,8 +3776,8 @@ rawData:
           address: 'BIREME PAHO WHO, SciELO, BR-04023901 Sao Paulo, Brazil.'
           globalStats: *ref_1
           position:
-            - -305.1205139160156
-            - 189.3661346435547
+            - 150.03404235839844
+            - -314.2191162109375
         - name: 'Pacheco, R'
           fullname: 'Pacheco, Roberto'
           numPapers: 1
@@ -3787,8 +3787,8 @@ rawData:
           address: 'Ist Stela, BR-88034050 Florianopolis, SC, Brazil.'
           globalStats: *ref_1
           position:
-            - -278.8387451171875
-            - 202.07810974121094
+            - 67.30492401123047
+            - -323.6197814941406
         - name: 'Lewis, S'
           fullname: 'Lewis, Suzanna'
           numPapers: 1
@@ -3805,8 +3805,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -252.17344665527344
-            - 201.5214080810547
+            - 85.53556823730469
+            - -370.5688781738281
         - name: 'Berkeley, A'
           fullname: 'Berkeley, Alfred'
           numPapers: 1
@@ -3823,8 +3823,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -317.3970031738281
-            - 157.79110717773438
+            - 179.0522918701172
+            - -349.89898681640625
         - name: 'Melton, W'
           fullname: 'Melton, William'
           numPapers: 1
@@ -3833,8 +3833,8 @@ rawData:
           lastYear: 2008
           globalStats: *ref_1
           position:
-            - -246.02957153320312
-            - 160.02679443359375
+            - 123.32268524169922
+            - -330.1747131347656
         - name: 'Barris, N'
           fullname: 'Barris, Nickolas'
           numPapers: 1
@@ -3843,8 +3843,8 @@ rawData:
           lastYear: 2008
           globalStats: *ref_1
           position:
-            - -278.8550720214844
-            - 259.9217529296875
+            - 136.552978515625
+            - -381.2700500488281
         - name: 'Wales, J'
           fullname: 'Wales, Jimmy'
           numPapers: 1
@@ -3853,8 +3853,8 @@ rawData:
           lastYear: 2008
           globalStats: *ref_1
           position:
-            - -330.6707763671875
-            - 179.61077880859375
+            - 108.81085968017578
+            - -355.0666198730469
         - name: 'Meijssen, G'
           fullname: 'Meijssen, Gerard'
           numPapers: 1
@@ -3863,8 +3863,8 @@ rawData:
           lastYear: 2008
           globalStats: *ref_1
           position:
-            - -330.4248352050781
-            - 205.82028198242188
+            - 135.47900390625
+            - -354.82977294921875
         - name: 'Moeller, E'
           fullname: 'Moeller, Erik'
           numPapers: 1
@@ -3873,8 +3873,8 @@ rawData:
           lastYear: 2008
           globalStats: *ref_1
           position:
-            - -227.82272338867188
-            - 212.55030822753906
+            - 155.176513671875
+            - -338.11151123046875
         - name: 'Roes, PJ'
           fullname: 'Roes, Peter Jan'
           numPapers: 1
@@ -3883,8 +3883,8 @@ rawData:
           lastYear: 2008
           globalStats: *ref_1
           position:
-            - -232.1959228515625
-            - 183.709228515625
+            - 125.46440887451172
+            - -303.5745544433594
         - name: 'Bairoch, A'
           fullname: 'Bairoch, Amos'
           numPapers: 1
@@ -3893,8 +3893,8 @@ rawData:
           lastYear: 2008
           globalStats: *ref_1
           position:
-            - -289.4249572753906
-            - 169.8065185546875
+            - 151.84913635253906
+            - -286.25067138671875
         - name: 'Herr, BW'
           fullname: 'Herr, Bruce W., II'
           numPapers: 2
@@ -3913,8 +3913,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -50.60584259033203
-            - -265.6354064941406
+            - -267.0514221191406
+            - 70.98118591308594
         - name: 'Hardy, EF'
           fullname: 'Hardy, Elisha F.'
           numPapers: 1
@@ -3923,8 +3923,8 @@ rawData:
           lastYear: 2008
           globalStats: *ref_1
           position:
-            - -40.24174118041992
-            - -250.08547973632812
+            - -249.54161071777344
+            - 74.40534973144531
         - name: 'Penumarthy, S'
           fullname: 'Penumarthy, Shashikant'
           numPapers: 6
@@ -3941,8 +3941,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -50.14986038208008
-            - -211.71263122558594
+            - -217.25245666503906
+            - 72.84221649169922
         - name: 'Hardy, E'
           fullname: 'Hardy, Elisha'
           numPapers: 1
@@ -3959,8 +3959,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 253.8050537109375
-            - -15.922876358032227
+            - -182.91656494140625
+            - -26.04958724975586
         - name: 'Herr, B'
           fullname: 'Herr, Bruce'
           numPapers: 1
@@ -3969,8 +3969,8 @@ rawData:
           lastYear: 2007
           globalStats: *ref_1
           position:
-            - 257.78826904296875
-            - -28.648773193359375
+            - -171.5314178466797
+            - -26.73330307006836
         - name: 'Holloway, T'
           fullname: 'Holloway, Todd'
           numPapers: 2
@@ -3987,8 +3987,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 247.00140380859375
-            - -39.402198791503906
+            - -171.52548217773438
+            - -40.34905242919922
         - name: 'Paley, WB'
           fullname: 'Paley, W. Bradford'
           numPapers: 1
@@ -3997,8 +3997,8 @@ rawData:
           lastYear: 2007
           globalStats: *ref_1
           position:
-            - 245.85484313964844
-            - -24.21895408630371
+            - -186.06756591796875
+            - -37.53521728515625
         - name: 'Neirynck, T'
           fullname: 'Neirynck, Thomas'
           numPapers: 1
@@ -4017,8 +4017,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 97.10916137695312
-            - -100.88858795166016
+            - -74.2499771118164
+            - 72.11572265625
         - name: 'Sanyal, S'
           fullname: 'Sanyal, Soma'
           numPapers: 1
@@ -4027,8 +4027,8 @@ rawData:
           lastYear: 2007
           globalStats: *ref_1
           position:
-            - 14.606216430664062
-            - 53.78675079345703
+            - 73.14327239990234
+            - 89.44098663330078
         - name: 'Mane, KK'
           fullname: 'Mane, Ketan K.'
           numPapers: 4
@@ -4045,8 +4045,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -23.157705307006836
-            - -144.6462860107422
+            - 91.84127044677734
+            - 8.719037055969238
         - name: 'Bozicevic, M'
           fullname: 'Bozicevic, Miran'
           numPapers: 1
@@ -4063,8 +4063,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 198.67218017578125
-            - -54.706119537353516
+            - -142.22776794433594
+            - -26.298473358154297
         - name: 'Meiss, M'
           fullname: 'Meiss, Mark'
           numPapers: 1
@@ -4073,8 +4073,8 @@ rawData:
           lastYear: 2006
           globalStats: *ref_1
           position:
-            - -45.10258102416992
-            - -118.24613952636719
+            - -118.73646545410156
+            - 91.13261413574219
         - name: 'Ke, WM'
           fullname: 'Ke, Weimao'
           numPapers: 4
@@ -4093,8 +4093,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -54.111446380615234
-            - -42.17523956298828
+            - -45.26704025268555
+            - 136.86744689941406
         - name: 'Janssen, MA'
           fullname: 'Janssen, Marco A.'
           numPapers: 1
@@ -4113,8 +4113,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -39.34431838989258
-            - -27.532398223876953
+            - -54.69044494628906
+            - 125.20539093017578
         - name: 'Schoon, ML'
           fullname: 'Schoon, Michael L.'
           numPapers: 1
@@ -4131,8 +4131,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -47.94977951049805
-            - -26.526601791381836
+            - -59.656654357910156
+            - 135.749267578125
         - name: 'Murray, C'
           fullname: 'Murray, Colin'
           numPapers: 1
@@ -4142,8 +4142,8 @@ rawData:
           address: 'Univ Sydney, Sydney, NSW 2006, Australia.'
           globalStats: *ref_1
           position:
-            - -34.71027374267578
-            - -50.516849517822266
+            - -43.32063293457031
+            - 110.92938995361328
         - name: 'Ragg, S'
           fullname: 'Ragg, S'
           numPapers: 1
@@ -4160,8 +4160,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -249.64170837402344
-            - -217.84849548339844
+            - 300.719482421875
+            - 177.71255493164062
         - name: 'Rosenman, MB'
           fullname: 'Rosenman, MB'
           numPapers: 1
@@ -4178,8 +4178,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -233.53607177734375
-            - -224.4001922607422
+            - 284.3540954589844
+            - 173.95286560058594
         - name: 'Doucette, EM'
           fullname: 'Doucette, EM'
           numPapers: 1
@@ -4188,8 +4188,8 @@ rawData:
           lastYear: 2005
           globalStats: *ref_1
           position:
-            - -226.14402770996094
-            - -195.4724884033203
+            - 296.43597412109375
+            - 162.3128662109375
         - name: 'Yan, Z'
           fullname: 'Yan, Z'
           numPapers: 1
@@ -4198,8 +4198,8 @@ rawData:
           lastYear: 2005
           globalStats: *ref_1
           position:
-            - -239.7943115234375
-            - -203.38214111328125
+            - 315.1635437011719
+            - 155.74765014648438
         - name: 'Haydon, JC'
           fullname: 'Haydon, JC'
           numPapers: 1
@@ -4208,8 +4208,8 @@ rawData:
           lastYear: 2005
           globalStats: *ref_1
           position:
-            - -221.47793579101562
-            - -213.86170959472656
+            - 305.4431457519531
+            - 133.03131103515625
         - name: 'Paine, JH'
           fullname: 'Paine, JH'
           numPapers: 1
@@ -4218,8 +4218,8 @@ rawData:
           lastYear: 2005
           globalStats: *ref_1
           position:
-            - -257.10888671875
-            - -200.7657928466797
+            - 290.0225830078125
+            - 145.5741729736328
         - name: 'Lee, ND'
           fullname: 'Lee, ND'
           numPapers: 1
@@ -4228,8 +4228,8 @@ rawData:
           lastYear: 2005
           globalStats: *ref_1
           position:
-            - -235.34292602539062
-            - -180.7347869873047
+            - 313.38897705078125
+            - 150.89385986328125
         - name: 'Vik, T'
           fullname: 'Vik, T'
           numPapers: 1
@@ -4238,8 +4238,8 @@ rawData:
           lastYear: 2005
           globalStats: *ref_1
           position:
-            - -250.9642791748047
-            - -184.97915649414062
+            - 280.1486511230469
+            - 158.93115234375
         - name: 'Mane, K'
           fullname: 'Mane, K'
           numPapers: 2
@@ -4248,8 +4248,8 @@ rawData:
           lastYear: 2005
           globalStats: *ref_1
           position:
-            - -201.86769104003906
-            - -189.3455352783203
+            - 266.2202453613281
+            - 121.76031494140625
         - name: 'Ord, TJ'
           fullname: 'Ord, TJ'
           numPapers: 1
@@ -4266,8 +4266,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -29.472427368164062
-            - -152.24537658691406
+            - 85.2703628540039
+            - 19.745262145996094
         - name: 'Martins, EP'
           fullname: 'Martins, EP'
           numPapers: 1
@@ -4284,8 +4284,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -36.71345520019531
-            - -140.34400939941406
+            - 95.76705169677734
+            - 20.76395606994629
         - name: 'Thakur, S'
           fullname: 'Thakur, S'
           numPapers: 2
@@ -4302,8 +4302,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -92.02159118652344
-            - -150.98670959472656
+            - 138.7003936767578
+            - 41.911861419677734
         - name: 'Dall''Asta, L'
           fullname: 'Dall''Asta, L'
           numPapers: 1
@@ -4313,8 +4313,8 @@ rawData:
           address: 'Univ Paris 11, Phys Theor Lab, F-91405 Orsay, France.'
           globalStats: *ref_1
           position:
-            - -23.89874267578125
-            - 26.15137481689453
+            - 30.787504196166992
+            - 112.79721069335938
         - name: 'Navarro-Prieto, R'
           fullname: 'Navarro-Prieto, R'
           numPapers: 1
@@ -4324,8 +4324,8 @@ rawData:
           address: 'Univ Oberta Catalunya, Barcelona, Spain.'
           globalStats: *ref_1
           position:
-            - 114.9792709350586
-            - -72.4237289428711
+            - -80.73854064941406
+            - -31.869354248046875
         - name: 'Chen, CM'
           fullname: 'Chen, CM'
           numPapers: 4
@@ -4344,8 +4344,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 19.48461151123047
-            - -180.96871948242188
+            - -145.20628356933594
+            - 174.4669952392578
         - name: 'Fletcher, GHL'
           fullname: 'Fletcher, GHL'
           numPapers: 1
@@ -4362,8 +4362,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 127.38705444335938
-            - 2.114114284515381
+            - -25.49323272705078
+            - -73.97407531738281
         - name: 'Sheth, HA'
           fullname: 'Sheth, HA'
           numPapers: 1
@@ -4380,8 +4380,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 131.9656524658203
-            - -5.44712495803833
+            - -27.786128997802734
+            - -81.31060791015625
         - name: 'Mahoui, M'
           fullname: 'Mahoui, M'
           numPapers: 1
@@ -4398,8 +4398,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 200.34426879882812
-            - -141.11740112304688
+            - -158.21548461914062
+            - -82.70664978027344
         - name: 'Kulkarni, H'
           fullname: 'Kulkarni, H'
           numPapers: 1
@@ -4416,8 +4416,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 190.55108642578125
-            - -148.2947540283203
+            - -175.08584594726562
+            - -74.35273742675781
         - name: 'Li, NH'
           fullname: 'Li, NH'
           numPapers: 1
@@ -4434,8 +4434,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 198.3219757080078
-            - -157.22152709960938
+            - -162.0528564453125
+            - -71.97142028808594
         - name: 'Ben-Miled, Z'
           fullname: 'Ben-Miled, Z'
           numPapers: 1
@@ -4444,8 +4444,8 @@ rawData:
           lastYear: 2005
           globalStats: *ref_1
           position:
-            - 207.64759826660156
-            - -150.32264709472656
+            - -170.2504119873047
+            - -84.40609741210938
         - name: 'DeVarco, BJ'
           fullname: 'DeVarco, BJ'
           numPapers: 1
@@ -4462,8 +4462,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -19.619741439819336
-            - -181.39671325683594
+            - -179.31985473632812
+            - 36.824317932128906
         - name: 'Kerney, C'
           fullname: 'Kerney, C'
           numPapers: 1
@@ -4472,8 +4472,8 @@ rawData:
           lastYear: 2005
           globalStats: *ref_1
           position:
-            - -21.585195541381836
-            - -173.5426025390625
+            - -171.9362030029297
+            - 40.50306701660156
         - name: 'Maru, JT'
           fullname: 'Maru, JT'
           numPapers: 1
@@ -4490,8 +4490,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 148.41184997558594
-            - -110.06135559082031
+            - -76.24646759033203
+            - 105.68940734863281
         - name: 'Lee, GJ'
           fullname: 'Lee, GJ'
           numPapers: 1
@@ -4500,8 +4500,8 @@ rawData:
           lastYear: 2004
           globalStats: *ref_1
           position:
-            - -38.86674880981445
-            - -165.8443145751953
+            - -165.1051483154297
+            - 50.09290313720703
         - name: 'Jones, RJ'
           fullname: 'Jones, RJ'
           numPapers: 1
@@ -4510,8 +4510,8 @@ rawData:
           lastYear: 2004
           globalStats: *ref_1
           position:
-            - -40.75374984741211
-            - -156.56967163085938
+            - -163.4521484375
+            - 53.96750259399414
         - name: 'Martins, E'
           fullname: 'Martins, E'
           numPapers: 1
@@ -4520,8 +4520,8 @@ rawData:
           lastYear: 2004
           globalStats: *ref_1
           position:
-            - -124.42920684814453
-            - -147.54843139648438
+            - 151.410400390625
+            - 67.41447448730469
         - name: 'Ord, T'
           fullname: 'Ord, T'
           numPapers: 1
@@ -4530,8 +4530,8 @@ rawData:
           lastYear: 2004
           globalStats: *ref_1
           position:
-            - -134.80410766601562
-            - -151.87136840820312
+            - 159.8502960205078
+            - 62.50810241699219
         - name: 'Mostafa, J'
           fullname: 'Mostafa, J'
           numPapers: 1
@@ -4548,8 +4548,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -1.3314156532287598
-            - -90.55892181396484
+            - -31.008544921875
+            - -47.97996139526367
         - name: 'Rasmussen, E'
           fullname: 'Rasmussen, E'
           numPapers: 1
@@ -4566,8 +4566,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -39.2684440612793
-            - -93.06546783447266
+            - -4.268791675567627
+            - 96.15706634521484
         - name: 'Atkins, HB'
           fullname: 'Atkins, HB'
           numPapers: 1
@@ -4584,8 +4584,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -46.13225555419922
-            - -83.76038360595703
+            - -15.407183647155762
+            - 98.01829528808594
         - name: 'McCain, KW'
           fullname: 'McCain, KW'
           numPapers: 1
@@ -4604,8 +4604,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - -50.226707458496094
-            - -92.8944091796875
+            - -12.445061683654785
+            - 106.55278015136719
         - name: 'Hazlewood, WR'
           fullname: 'Hazlewood, WR'
           numPapers: 1
@@ -4614,8 +4614,8 @@ rawData:
           lastYear: 2002
           globalStats: *ref_1
           position:
-            - 119.69325256347656
-            - -113.73135375976562
+            - -46.336849212646484
+            - -76.48859405517578
         - name: 'Lin, SM'
           fullname: 'Lin, SM'
           numPapers: 1
@@ -4624,8 +4624,8 @@ rawData:
           lastYear: 2002
           globalStats: *ref_1
           position:
-            - 123.95899963378906
-            - -106.74568939208984
+            - -53.36494827270508
+            - -73.28548431396484
         - name: 'Feng, Y'
           fullname: 'Feng, Y'
           numPapers: 1
@@ -4642,8 +4642,8 @@ rawData:
             country: US
           globalStats: *ref_1
           position:
-            - 81.62611389160156
-            - -112.14430236816406
+            - -65.21992492675781
+            - -41.474708557128906
         - name: 'Lin, YC'
           fullname: 'Lin, YC'
           numPapers: 1
@@ -4652,8 +4652,8 @@ rawData:
           lastYear: 2001
           globalStats: *ref_1
           position:
-            - 107.88309478759766
-            - -87.42520904541016
+            - -47.808563232421875
+            - -47.01676940917969
         - name: 'Zhou, YZ'
           fullname: 'Zhou, YZ'
           numPapers: 1
@@ -4662,8 +4662,8 @@ rawData:
           lastYear: 2001
           globalStats: *ref_1
           position:
-            - 118.49453735351562
-            - -57.46697998046875
+            - -99.44792175292969
+            - -6.487873554229736
         - name: 'Dillon, A'
           fullname: 'Dillon, A'
           numPapers: 1
@@ -4672,8 +4672,8 @@ rawData:
           lastYear: 2000
           globalStats: *ref_1
           position:
-            - 151.9342803955078
-            - -66.5172348022461
+            - -1.6596382856369019
+            - -68.08496856689453
         - name: 'Dolinsky, M'
           fullname: 'Dolinsky, M'
           numPapers: 1
@@ -4682,8 +4682,8 @@ rawData:
           lastYear: 2000
           globalStats: *ref_1
           position:
-            - 145.1386260986328
-            - -62.96448516845703
+            - -8.309221267700195
+            - -72.85543823242188
       subdisciplines:
         - id: 523
           name: Molecular Biology Methods
