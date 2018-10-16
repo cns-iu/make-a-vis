@@ -1,41 +1,63 @@
-import { Component, OnInit } from '@angular/core';
-import { of } from 'rxjs';
-import { concatMap, distinctUntilChanged, pluck } from 'rxjs/operators';
+import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { GraphicSymbolOption, Project } from 'dvl-fw';
+import { GraphicSymbolOption, Project, RecordStream, Visualization } from 'dvl-fw';
 import { ApplicationState, getUiFeature } from '../../shared/store';
+
+export interface Group {
+  option: GraphicSymbolOption;
+  index: number;
+}
 
 @Component({
   selector: 'mav-legend-view',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit {
-  recordStreams: any[] = [ // TODO
-    {value: 'recordStream1', viewValue: 'Record Stream 1'},
-    {value: 'recordStream2', viewValue: 'Record Stream 2'},
-    {value: 'recordStream3', viewValue: 'Record Stream 3'}
-  ];
-  options: GraphicSymbolOption[] = [];
-  legendTypes = ['Nodes', 'Edges', 'States'];
+export class MainComponent {
+  streams: RecordStream[];
+  groups: Group[] = [];
 
-  constructor(public store: Store<ApplicationState>) {
-    const emptyArray = [];
-
-    store.pipe(
-      select(getUiFeature),
-      concatMap(({ activeVisualization: index, project}) => {
-        const hasVis = project && index >= 0;
-        return hasVis ? of(project).pipe(
-          pluck<Project, GraphicSymbolOption[]>('visualizations', String(index), 'graphicSymbolOptions')
-        ) : of<GraphicSymbolOption[]>(emptyArray);
-      }),
-      distinctUntilChanged()
-    ).subscribe(options => {
-      this.options = options;
+  constructor(private store: Store<ApplicationState>) {
+    store.pipe(select(getUiFeature)).subscribe(({ activeVisualization, project }) => {
+      this.setState(project, activeVisualization);
     });
   }
 
-  ngOnInit() {
+  onStreamChange(group: Group, index: number) {
+    // TODO
+  }
+
+  private setState(project: Project, index: number): void {
+    const visualization = project && index >= 0 && project.visualizations[index];
+    if (project) {
+      this.setStreams(project);
+      if (visualization) {
+        this.setGroups(visualization);
+      } else {
+        this.groups = [];
+      }
+    } else {
+      this.streams = [];
+      this.groups = [];
+    }
+  }
+
+  private setStreams(project: Project): void {
+    this.streams = project.dataSources
+      .map(source => source.recordStreams)
+      .reduce((acc, s) => acc.concat(s), [] as RecordStream[]);
+  }
+
+  private setGroups(visualization: Visualization): void {
+    const { graphicSymbolOptions: options, graphicSymbols } = visualization;
+    this.groups = [];
+
+    if (options) {
+      options.forEach(option => {
+        const symbol = graphicSymbols[option.id];
+        const index = symbol ? this.streams.indexOf(symbol.recordStream) : -1;
+        this.groups.push({ option, index });
+      });
+    }
   }
 }
