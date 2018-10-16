@@ -66,7 +66,6 @@ export class NSFTemplateProject extends DefaultProject {
         labelPlural: 'Awards',
         defaultRecordStream: 'awards',
         dataVariables: [
-          {id: 'id', label: 'ID', dataType: 'text', scaleType: 'nominal'},
           {id: 'title', label: 'Title', dataType: 'text', scaleType: 'nominal'},
           {id: 'investigators', label: 'Investigators', dataType: 'text', scaleType: 'nominal'},
           {id: 'startYear', label: 'Start Year', dataType: 'integer', scaleType: 'interval'},
@@ -75,6 +74,7 @@ export class NSFTemplateProject extends DefaultProject {
           {id: 'organization', label: 'Organization', dataType: 'text', scaleType: 'nominal'},
           {id: 'nsfOrganization', label: 'NSF Org.', dataType: 'text', scaleType: 'nominal'},
           {id: 'nsfPrograms', label: 'NSF Program(s)', dataType: 'text', scaleType: 'nominal'},
+          {id: 'id', label: 'ID', dataType: 'text', scaleType: 'nominal'}
         ]
       }, this)
     ];

@@ -1,17 +1,17 @@
-import { Operand, access, chain, constant, map } from '@ngx-dino/core';
+import { Operand, chain, access } from '@ngx-dino/core';
 import {
   areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, greyScaleNormQuantitative, greyScaleNormQuantitativeStroke,
-  norm0to100, formatNumber, formatYear, extractPoint
+  norm0to100, formatNumber, formatYear
 } from '../../../encoding';
-import { Location } from '../../../encoding/geocoder';
 
-export class AuthorStats {
+
+export class SubdisciplineStats {
   numPapersMax = 0;
   numCitesMax = 0;
   yearMax = 0;
   yearMin = 9999;
 
-  count(item: Author) {
+  count(item: Subdiscipline) {
     this.numPapersMax = Math.max(this.numPapersMax, item.numPapers);
     this.numCitesMax = Math.max(this.numCitesMax, item.numCites);
     this.yearMax = Math.max(this.yearMax, item.firstYear, item.lastYear);
@@ -25,29 +25,18 @@ export class AuthorStats {
 }
 
 // @dynamic
-export class Author {
+export class Subdiscipline {
+  id: number;
   name: string;
-  fullname: string;
-  address: string;
-  location: Location;
-
   numPapers: number;
   numCites: number;
   firstYear: number;
   lastYear: number;
-  position: [number, number];
-  globalStats: AuthorStats;
+  globalStats: SubdisciplineStats;
 
   constructor(data: any) {
     Object.assign(this, data);
   }
-
-  // Positions
-  @Operand<number[]>(extractPoint('location.latitude', 'location.longitude'))
-  latlng: [number, number];
-
-  @Operand<string>(constant('circle'))
-  shape: string;
 
   // #Papers Encodings
   @Operand<number>(norm0to100('numPapers', 'globalStats.numPapersMax'))

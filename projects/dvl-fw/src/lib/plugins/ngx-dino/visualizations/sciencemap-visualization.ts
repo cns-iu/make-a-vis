@@ -6,9 +6,13 @@ import { SciencemapComponent } from './../components/sciencemap/sciencemap.compo
 
 export class SciencemapVisualization extends DefaultVisualization {
   readonly component = SciencemapComponent;
-  readonly graphicSymbolOptions = [
-    // TODO: Specify valid options
-  ];
+  readonly graphicSymbolOptions = [{
+    id: 'subdisciplinePoints', label: 'Subdiscipline Points', type: 'area',
+    graphicVariableOptions: [
+      { type: 'identifier', label: 'Identifier' },
+      { type: 'areaSize', label: 'Area Size' }
+    ]
+  }];
 }
 
 export class SciencemapVisualizationFactory implements ObjectFactory<Visualization, Project> {

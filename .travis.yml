@@ -30,6 +30,9 @@ jobs:
         - npm run build make-a-vis
         - npm run build:cli
         # - npm test
+
+      notifications:
+        slack: blue-dino:YnDJE8Oi7AuukzLvS2Qqf8CX
     - stage: deploy
       name: "Deploy demo to GitHub Pages"
       if: branch = master

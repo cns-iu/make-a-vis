@@ -71,6 +71,7 @@ hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 
 .mat-tab-header {
   border-bottom: none;
+  padding-right: 4rem;
 }
 
 .mat-tab-label, .mat-tab-link {
@@ -124,7 +125,8 @@ hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 }
 
 .mat-tab-header-pagination-after {
-  padding-right: 7rem;
+  padding-right: 4rem;
+  box-shadow: none !important;
 }
 
 .mat-form-field-infix {

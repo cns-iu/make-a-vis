@@ -16,11 +16,11 @@
 .add-visualization {
     display: flex;
     align-items: center;
-    padding: 0.5rem;
+    padding-right: 1.875rem;
     position: absolute;
-    top: .5rem;
-    right: 2rem;
-    line-height: 1rem;
+    top: .85rem;
+    right: 0rem;
+    line-height: 0rem;
 }
 
 .menu {
