@@ -2,11 +2,9 @@ import { Component, OnInit, Input, ViewChild, Inject, ElementRef  } from '@angul
 import { MatAccordion, MatButtonToggleGroup } from '@angular/material';
 import { Store , select } from '@ngrx/store';
 import * as sidenavStore from '../shared/store';
-import { DOCUMENT } from '@angular/platform-browser';
 import { Project, ProjectSerializerService } from 'dvl-fw';
-import { Router, ActivationEnd } from '@angular/router'; 
-import { ClipboardService } from 'ngx-clipboard'
- 
+import { Router, ActivationEnd } from '@angular/router';
+import { ClipboardService } from 'ngx-clipboard';
 
 import { get } from 'lodash';
 
@@ -26,7 +24,7 @@ export type LoadProjectExtensionType = 'yml';
 })
 export class SidenavContentComponent implements OnInit {
   @ViewChild(MatAccordion) accordion: MatAccordion;
-  @ViewChild('clipboardTarget') clipboardTargetEl : ElementRef;
+  @ViewChild('clipboardTarget') clipboardTargetEl: ElementRef;
   @Input() set panelsOpenState(sidenavOpenState: boolean) {
     if (!sidenavOpenState) {
       this.accordion.closeAll();
@@ -40,11 +38,10 @@ export class SidenavContentComponent implements OnInit {
   newProjectExtensions: NewProjectExtensionType[] = ['nsf', 'isi'];
   loadProjectExtensions: LoadProjectExtensionType[] = ['yml'];
   project: Project = undefined;
-  shareUrlFieldDisabled : boolean;
-  copyToClipboardDisabled : boolean;
-  private baseUrl : string;
-  shareUrl : string = '';
-  private document : any;
+  shareUrlFieldDisabled: boolean;
+  copyToClipboardDisabled: boolean;
+  private baseUrl: string;
+  shareUrl = '';
 
   constructor(
     private saveProjectService: SaveProjectService,
@@ -52,37 +49,35 @@ export class SidenavContentComponent implements OnInit {
     private loadProjectService: LoadProjectService,
     public exportService: ExportService,
     private loggingControlService: LoggingControlService,
-    private projectSerializer : ProjectSerializerService,
-    private getLinkService : GetLinkService,
-    @Inject(DOCUMENT) document: any,
+    private projectSerializer: ProjectSerializerService,
+    private getLinkService: GetLinkService,
     private router: Router,
-    private clipboardService :ClipboardService
+    private clipboardService: ClipboardService
   ) {
-      this.document = document;
-      this.baseUrl = document.location.origin;
       loggingControlService.disableLogging();
       this.shareUrlFieldDisabled = true;
       this.copyToClipboardDisabled = true;
-      this.baseUrl= document.location.href;
       this.store.pipe(select(sidenavStore.getLoadedProjectSelector))
         .subscribe((project: Project) => {
           if (project) {
             this.project = project;
           }
       });
-
+      this.baseUrl = window.document.location.origin;
+      this.baseUrl += window.location.pathname || '/';
       /* based on router state event, calculate the query param.
       * Call the getProjectFromUrl() if shared id is found in the URL.
       */
-      let routerStateWatcher = this.router.events.subscribe(routerstate => {
+      const routerStateWatcher = this.router.events.subscribe(routerstate => {
         if (routerstate instanceof ActivationEnd ) {
-          let projObjId = routerstate.snapshot.queryParams.share;
-          if(projObjId)
+          const projObjId = routerstate.snapshot.queryParams.share;
+          if (projObjId) {
             this.getProjectFromUrl(projObjId);
+          }
           routerStateWatcher.unsubscribe();
         }
       });
-      
+
   }
 
   ngOnInit() {
@@ -123,19 +118,19 @@ export class SidenavContentComponent implements OnInit {
   /*
   * given a project object id from the url, this funtion renders it.
   * used getProject()'s stuff to write this function, probably need a new action.
-  */ 
-  getProjectFromUrl(id:string) {
+  */
+  getProjectFromUrl(id: string) {
     this.store.dispatch(new sidenavStore.LoadShareUrlStarted(true));
-    let jsonFromIdWatcher = this.getLinkService.getJSONfromId(id).subscribe((json:any) => {
-      if(json) {
-        this.loadProjectService.loadFromProjectJson(json).subscribe((project)=> {
+    const jsonFromIdWatcher = this.getLinkService.getJSONfromId(id).subscribe((json: any) => {
+      if (json) {
+        this.loadProjectService.loadFromProjectJson(json).subscribe((project) => {
           this.removeShareUrlFromAddress();
           this.store.dispatch(new sidenavStore.LoadShareUrlCompleted(
             { loadingShareUrl: false, project: project }
           ));
-        },err => {
+        }, err => {
           this.store.dispatch(new sidenavStore.LoadShareUrlError(
-            { errorOccurred: true, errorTitle: err.name, errorMessage: 'Failed to load new project from URL :'+err.message }
+            { errorOccurred: true, errorTitle: err.name, errorMessage: 'Failed to load new project from URL:' + err.message }
           ));
         });
       } else {
@@ -146,11 +141,11 @@ export class SidenavContentComponent implements OnInit {
       jsonFromIdWatcher.unsubscribe();
     }, err => {
       this.store.dispatch(new sidenavStore.LoadShareUrlError(
-        { errorOccurred: true, errorTitle: err.name, errorMessage: 'Failed to load new project from URL :'+err.message }
+        { errorOccurred: true, errorTitle: err.name, errorMessage: 'Failed to load new project from URL:' + err.message }
       ));
     });
-    
-    
+
+
 
   }
   readNewFile(event: any, isLoadProject: boolean) {
@@ -177,75 +172,75 @@ export class SidenavContentComponent implements OnInit {
     }
   }
 
-  /* 
+  /*
   * This function get Project state from a store/reducer,
   * then sends that state to a service that does an http post
   * request to an endpoint.
   * The response of that endpoint is an object id.
-  * uses document to get  url and append the id to form 
+  * uses document to get  url and append the id to form
   * a share url.
   * disables the textfield if it is waiting for response, and
   * enables it after getting the response.
-  * unsubscribe after all of the above occurs, and subscribe again 
+  * unsubscribe after all of the above occurs, and subscribe again
   * if clicked again.
   */
   getUrlLink()  {
     this.shareUrlFieldDisabled = true;
-    this.copyToClipboardDisabled= true;
+    this.copyToClipboardDisabled = true;
     /* dispatch an action stating create url has started */
     this.store.dispatch(new sidenavStore.CreateShareUrlStarted(true));
     /* get project state from the reducer*/
-    let stateObs = this.store.pipe(select(sidenavStore.getLoadedProjectSelector))
+    const stateObs = this.store.pipe(select(sidenavStore.getLoadedProjectSelector))
         .subscribe((prj: Project) => {
           if (prj) {
             this.projectSerializer.toJSON(prj).subscribe(
               prj_json => {
                 this.getLinkService.getJSONobjId(prj_json).subscribe(
                   object_id => {
-                    /* {'id' : 'someid'} */
+                    /* {'id': 'someid'} */
                     this.shareUrl =  this.baseUrl + '?share=' + object_id['id'];
+                    console.log(this.clipboardService.copyFromContent(this.shareUrl));
                     this.shareUrlFieldDisabled = false;
-                    this.copyToClipboardDisabled= false;
+                    this.copyToClipboardDisabled = false;
                     /* dispatch an action stating create url has completed */
                     this.store.dispatch(new sidenavStore.CreateShareUrlCompleted({
-                      'shareUrl' : null,
-                      'creatingShareUrl' : false,
-                      'project' : prj
+                      'shareUrl': null,
+                      'creatingShareUrl': false,
+                      'project': prj
                     }));
                   }, err => {
-                    this.shareUrl =  "";
-                    this.copyToClipboardDisabled= true;
+                    this.shareUrl =  '';
+                    this.copyToClipboardDisabled = true;
                     this.shareUrlFieldDisabled = true;
                     this.store.dispatch(new sidenavStore.CreateShareUrlError({
-                      'errorOccurred' : true,
-                      'errorTitle' : err.name,
-                      'errorMessage' : err.message
+                      'errorOccurred': true,
+                      'errorTitle': err.name,
+                      'errorMessage': err.message
                     }));
                   });
 
               },
               /* dispatch an action stating create url has thrown an error */
               err => {this.shareUrlFieldDisabled = true;
-                this.shareUrl =  "";
-                this.copyToClipboardDisabled= true;
+                this.shareUrl =  '';
+                this.copyToClipboardDisabled = true;
                 this.store.dispatch(new sidenavStore.CreateShareUrlError({
-                'errorOccurred' : true,
-                'errorTitle' : err.name,
-                'errorMessage' : err.message
-              }));})
-          }
-          else {
+                'errorOccurred': true,
+                'errorTitle': err.name,
+                'errorMessage': err.message
+              })); } );
+          } else {
             this.shareUrlFieldDisabled = true;
-            this.shareUrl =  "";
-            this.copyToClipboardDisabled= true;
+            this.shareUrl =  '';
+            this.copyToClipboardDisabled = true;
             this.store.dispatch(new sidenavStore.CreateShareUrlError({
-              'errorOccurred' : true,
-              'errorTitle' : 'Project state not found',
-              'errorMessage' : 'Looks like you have no active projects openened'
+              'errorOccurred': true,
+              'errorTitle': 'Project state not found',
+              'errorMessage': 'Looks like you have no active projects openened'
             }));
-            console.error("getUrlLink()","could not get Project state from store");
+            console.error('getUrlLink()' , 'could not get Project state from store');
           }
-          
+
       });
       /* unsubscribed because get link would trigger on every project load */
       stateObs.unsubscribe();
@@ -263,24 +258,24 @@ export class SidenavContentComponent implements OnInit {
 
 
 copyToClipboard(text) {
-    this.clipboardService.copyFromContent(text);
+    return this.clipboardService.copyFromContent(text);
+
   }
-  
+
 /* below are non angular ways of some features */
-selectTextFromElement(ele : any) : boolean {
+selectTextFromElement(ele: any): boolean {
   try {
   ele.select();
-  }
-  catch (err) {
-    console.log("select share url failed - clipboard");
+  } catch (err) {
+    console.log('select share url failed - clipboard');
     return false;
   }
   return true;
 }
 
 removeShareUrlFromAddress() {
-  if(window.history && window.history.pushState) {
-    window.history.pushState("mav", "mav", "/");
+  if (window.history && window.history.pushState) {
+    window.history.pushState('mav', 'mav', '/');
     return true;
   }
   return false;
