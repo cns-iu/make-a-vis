@@ -39,7 +39,6 @@ export class SidenavContentComponent implements OnInit {
   loadProjectExtensions: LoadProjectExtensionType[] = ['yml'];
   project: Project = undefined;
   shareUrlFieldDisabled: boolean;
-  copyToClipboardDisabled: boolean;
   private baseUrl: string;
   shareUrl = '';
 
@@ -56,7 +55,6 @@ export class SidenavContentComponent implements OnInit {
   ) {
       loggingControlService.disableLogging();
       this.shareUrlFieldDisabled = true;
-      this.copyToClipboardDisabled = true;
       this.store.pipe(select(sidenavStore.getLoadedProjectSelector))
         .subscribe((project: Project) => {
           if (project) {
@@ -186,7 +184,6 @@ export class SidenavContentComponent implements OnInit {
   */
   getUrlLink()  {
     this.shareUrlFieldDisabled = true;
-    this.copyToClipboardDisabled = true;
     /* dispatch an action stating create url has started */
     this.store.dispatch(new sidenavStore.CreateShareUrlStarted(true));
     /* get project state from the reducer*/
@@ -201,7 +198,6 @@ export class SidenavContentComponent implements OnInit {
                     this.shareUrl =  this.baseUrl + '?share=' + object_id['id'];
                     console.log(this.clipboardService.copyFromContent(this.shareUrl));
                     this.shareUrlFieldDisabled = false;
-                    this.copyToClipboardDisabled = false;
                     /* dispatch an action stating create url has completed */
                     this.store.dispatch(new sidenavStore.CreateShareUrlCompleted({
                       'shareUrl': null,
@@ -210,7 +206,6 @@ export class SidenavContentComponent implements OnInit {
                     }));
                   }, err => {
                     this.shareUrl =  '';
-                    this.copyToClipboardDisabled = true;
                     this.shareUrlFieldDisabled = true;
                     this.store.dispatch(new sidenavStore.CreateShareUrlError({
                       'errorOccurred': true,
@@ -223,7 +218,6 @@ export class SidenavContentComponent implements OnInit {
               /* dispatch an action stating create url has thrown an error */
               err => {this.shareUrlFieldDisabled = true;
                 this.shareUrl =  '';
-                this.copyToClipboardDisabled = true;
                 this.store.dispatch(new sidenavStore.CreateShareUrlError({
                 'errorOccurred': true,
                 'errorTitle': err.name,
@@ -232,7 +226,6 @@ export class SidenavContentComponent implements OnInit {
           } else {
             this.shareUrlFieldDisabled = true;
             this.shareUrl =  '';
-            this.copyToClipboardDisabled = true;
             this.store.dispatch(new sidenavStore.CreateShareUrlError({
               'errorOccurred': true,
               'errorTitle': 'Project state not found',
