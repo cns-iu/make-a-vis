@@ -144,9 +144,11 @@ implements VisualizationComponent, OnInit, OnChanges, OnPropertyChange, OnGraphi
     keyFn: (key: string) => string = identity, projFn: (value: T1) => T2 = identity,
     eqFn: (v1: T2, v2: T2) => boolean = (v1, v2) => v1 === v2
   ): boolean {
+    const visited = {};
     let changed = false;
     forOwn(changes, (rawValue, rawKey) => {
       const key = keyFn(rawKey);
+      visited[key] = true;
       if (hasOwnProperty.call(obj, key)) {
         const oldValue = obj[key];
         const newValue = rawValue !== undefined ? projFn(rawValue) : defaults[key];
@@ -154,6 +156,13 @@ implements VisualizationComponent, OnInit, OnChanges, OnPropertyChange, OnGraphi
           obj[key] = newValue;
           changed = true;
         }
+      }
+    });
+
+    forOwn(defaults, (defaultValue, key) => {
+      if (!visited[key] && !eqFn(obj[key], defaultValue)) {
+        obj[key] = defaultValue;
+        changed = true;
       }
     });
 
