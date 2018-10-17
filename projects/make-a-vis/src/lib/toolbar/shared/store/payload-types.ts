@@ -39,3 +39,14 @@ export interface CreateShareUrlCompletedPayload {
   creatingShareUrl: boolean;
   project: Project;
 }
+
+export interface CopyToClipboardSuccessPayload {
+  content: String;
+}
+
+export interface CopyToClipboardErrorPayload {
+  errorOccurred: boolean;
+  content: string;
+  errorTitle: string;
+  errorMessage: string;
+}
