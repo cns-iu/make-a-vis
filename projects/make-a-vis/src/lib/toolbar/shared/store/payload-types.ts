@@ -45,3 +45,14 @@ export interface SetRecordStreamPayload {
   slot: string;
   symbol?: GraphicSymbol;
 }
+
+export interface CopyToClipboardSuccessPayload {
+  content: String;
+}
+
+export interface CopyToClipboardErrorPayload {
+  errorOccurred: boolean;
+  content: string;
+  errorTitle: string;
+  errorMessage: string;
+}

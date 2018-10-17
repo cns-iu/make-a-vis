@@ -131,7 +131,10 @@ hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 
 .mat-form-field-infix {
   margin: 0;
-  padding: 0 !important;
+  /* Commenting the padding because this collapses the share url text box,
+  *  I hope it doesn't break anything else.
+  */
+  /* padding: 0 !important;*/
   border-top: 0; 
 }
 

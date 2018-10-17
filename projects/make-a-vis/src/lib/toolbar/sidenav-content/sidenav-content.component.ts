@@ -196,21 +196,20 @@ export class SidenavContentComponent implements OnInit {
                   object_id => {
                     /* {'id': 'someid'} */
                     this.shareUrl =  this.baseUrl + '?share=' + object_id['id'];
-                    console.log(this.clipboardService.copyFromContent(this.shareUrl));
                     this.shareUrlFieldDisabled = false;
                     /* dispatch an action stating create url has completed */
                     this.store.dispatch(new sidenavStore.CreateShareUrlCompleted({
-                      'shareUrl': null,
-                      'creatingShareUrl': false,
-                      'project': prj
+                      shareUrl: null,
+                      creatingShareUrl: false,
+                      project: prj
                     }));
                   }, err => {
                     this.shareUrl =  '';
                     this.shareUrlFieldDisabled = true;
                     this.store.dispatch(new sidenavStore.CreateShareUrlError({
-                      'errorOccurred': true,
-                      'errorTitle': err.name,
-                      'errorMessage': err.message
+                      errorOccurred: true,
+                      errorTitle: err.name,
+                      errorMessage: err.message
                     }));
                   });
 
@@ -219,17 +218,17 @@ export class SidenavContentComponent implements OnInit {
               err => {this.shareUrlFieldDisabled = true;
                 this.shareUrl =  '';
                 this.store.dispatch(new sidenavStore.CreateShareUrlError({
-                'errorOccurred': true,
-                'errorTitle': err.name,
-                'errorMessage': err.message
+                errorOccurred: true,
+                errorTitle: err.name,
+                errorMessage: err.message
               })); } );
           } else {
             this.shareUrlFieldDisabled = true;
             this.shareUrl =  '';
             this.store.dispatch(new sidenavStore.CreateShareUrlError({
-              'errorOccurred': true,
-              'errorTitle': 'Project state not found',
-              'errorMessage': 'Looks like you have no active projects openened'
+              errorOccurred: true,
+              errorTitle: 'Project state not found',
+              errorMessage: 'Looks like you have no active projects openened'
             }));
             console.error('getUrlLink()' , 'could not get Project state from store');
           }
@@ -250,9 +249,28 @@ export class SidenavContentComponent implements OnInit {
   }
 
 
-copyToClipboard(text) {
-    return this.clipboardService.copyFromContent(text);
-
+copyToClipboard(text: string) {
+    let isCopySuccessfull = false;
+    let errorObj = {name: 'Copy to clipboard failed.',
+                    message: 'Copy to clipboard failed.'};
+    try {
+      isCopySuccessfull = this.clipboardService.copyFromContent(text);
+    } catch (error) {
+      isCopySuccessfull = false;
+      errorObj = error;
+    }
+    if (isCopySuccessfull) {
+      this.store.dispatch(new sidenavStore.CopyToClipboardSuccess({
+        content: text
+      }) );
+    } else {
+      this.store.dispatch(new sidenavStore.CopyToClipboardError({
+        errorOccurred: true,
+        content: text,
+        errorTitle: errorObj.name,
+        errorMessage: errorObj.message
+      }) );
+    }
   }
 
 /* below are non angular ways of some features */
