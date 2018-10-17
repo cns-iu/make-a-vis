@@ -1,12 +1,13 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { MatTabGroup } from '@angular/material';
 import { Store, select } from '@ngrx/store';
 import { of } from 'rxjs';
 import { catchError, concatMap, map, take } from 'rxjs/operators';
 import { find, uniqueId } from 'lodash';
 
-import { ProjectSerializerService, Visualization } from 'dvl-fw';
+import { ProjectSerializerService, Visualization, VisualizationComponent } from 'dvl-fw';
 import { ExportService } from '../../shared/services/export/export.service';
+import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import {
   SidenavState, AddNewVisualization, RemoveVisualization, SetActiveVisualization,
   getLoadedProjectSelector
@@ -29,7 +30,8 @@ export interface VisType {
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
-  @ViewChild('visualization') visualization: MatTabGroup;
+  @ViewChild('visGroup') visGroup: MatTabGroup;
+  @ViewChildren('visualizations') visualizationComponents: QueryList<VisualizationComponent>;
 
   visTypes: VisType[] = [
     { template: 'scattergraph', label: 'Scatter Graph', icon: 'scatterGraph' },
@@ -45,7 +47,8 @@ export class MainComponent {
   constructor(
     private store: Store<SidenavState>,
     private serializer: ProjectSerializerService,
-    private exportService: ExportService
+    private exportService: ExportService,
+    updateService: UpdateVisService
   ) {
     this.store.pipe(
       select(getLoadedProjectSelector),
@@ -59,12 +62,16 @@ export class MainComponent {
       this.visualizations = visualizations;
       this.setSelectedVis(visualizations.length ? 0 : -1, true);
     });
+
+    updateService.update.pipe(
+      map(visualization => this.visualizationComponents.find(comp => comp.data === visualization))
+    ).subscribe(component => (component as any).runDataChangeDetection());
   }
 
   setSelectedVis(index: number, force = false): void {
     if (index !== this.selectedVis || force) {
       this.selectedVis = index;
-      this.exportService.visualizationElement = this.visualization;
+      this.exportService.visualizationElement = this.visGroup;
       this.store.dispatch(new SetActiveVisualization(index));
     }
   }

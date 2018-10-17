@@ -2,9 +2,7 @@
     <div class="legend-type" *ngFor="let group of groups">
         <div class="header-bar">
             <div class="title">
-                <span>
-          {{ group.option.label }}:
-        </span>
+                <span>{{ group.option.label }}:</span>
                 <mat-form-field class="record-stream-selector">
                     <mat-select [(value)]="group.index" (selectionChange)="onStreamChange(group, $event.value)">
                         <mat-option [value]="-1"></mat-option>

@@ -1,4 +1,4 @@
-<mat-tab-group [color]="'#ffffff'" [disableRipple]="true" [(selectedIndex)]="selectedVis" class="tab-group" #visualization>
+<mat-tab-group [color]="'#ffffff'" [disableRipple]="true" [(selectedIndex)]="selectedVis" class="tab-group" #visGroup>
 
     <mat-tab *ngFor="let vis of visualizations; let index = index" [disabled]="false">
 
@@ -15,7 +15,7 @@
         <ng-template matTabContent>
             <!-- active class is used by export to select the element -->
             <div class="tab-content" [ngClass]="{ active: index === selectedVis }">
-                <dvl-visualization [data]="vis.data"></dvl-visualization>
+                <dvl-visualization #visualizations [data]="vis.data"></dvl-visualization>
             </div>
         </ng-template>
 

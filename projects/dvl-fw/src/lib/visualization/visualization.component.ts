@@ -166,6 +166,10 @@ export class DvlFwVisualizationComponent implements OnInit, OnChanges {
   }
 
   private graphicSymbolEquals(sym1: GraphicSymbol, sym2: GraphicSymbol): boolean {
+    if (sym1 === undefined || sym2 === undefined) {
+      return sym1 === sym2;
+    }
+
     const { id: id1, type: type1, recordStream: rs1, graphicVariables: gv1 } = sym1;
     const { id: id2, type: type2, recordStream: rs2, graphicVariables: gv2 } = sym2;
     if (id1 !== id2 || type1 !== type2 || rs1 !== rs2) {
