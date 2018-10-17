@@ -48,12 +48,12 @@ export class NSFTemplateProject extends DefaultProject {
       new NSFDataSource({
         id: 'nsfDataSource',
         properties: { rawData: 'nsfFile', parsedData: 'nsfRawData', saveParsedData: true },
-        recordStreams: [{id: 'awards'}]
+        recordStreams: [{id: 'awards', label: 'Awards'}]
       }, this),
       new ActivityLogDataSource({
         id: 'activityLog',
         properties: { rawData: 'activityLog', keepPreviousActivity: true, freezeLogs: false },
-        recordStreams: [{id: 'activityLog'}]
+        recordStreams: [{id: 'activityLog', label: 'Activity Log'}]
       }, this)
     ];
   }

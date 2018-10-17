@@ -51,12 +51,18 @@ export class ISITemplateProject extends DefaultProject {
       new ISIDataSource({
         id: 'isiDataSource',
         properties: { rawData: 'isiFile', parsedData: 'isiRawData', saveParsedData: true },
-        recordStreams: [{id: 'publications'}, {id: 'journals'}, {id: 'authors'}, {id: 'coAuthorLinks'}, {id: 'subdisciplines'}]
+        recordStreams: [
+          {id: 'publications', label: 'Publications'},
+          {id: 'journals', label: 'Journals'},
+          {id: 'authors', label: 'Authors'},
+          {id: 'coAuthorLinks', label: 'Co-Author Links'},
+          {id: 'subdisciplines', label: 'Subdisciplines'}
+        ]
       }, this),
       new ActivityLogDataSource({
         id: 'activityLog',
         properties: { rawData: 'activityLog', keepPreviousActivity: true, freezeLogs: false },
-        recordStreams: [{id: 'activityLog'}]
+        recordStreams: [{id: 'activityLog', label: 'Activity Log'}]
       }, this)
     ];
   }
@@ -697,7 +703,7 @@ export class ISITemplateProject extends DefaultProject {
           },
           y: {
             recordSet: 'publication',
-            dataVariable: 'publicationYear',
+            dataVariable: 'numCites',
             graphicVariableType: 'axis',
             graphicVariableId: 'axis'
           },
@@ -907,7 +913,7 @@ export class ISITemplateProject extends DefaultProject {
           showAxisIndicators: false
         },
         graphicSymbols: {
-          points: 'journalPoints'
+          points: 'publicationPoints'
         }
       }, this),
       new ScatterplotVisualization({
@@ -919,7 +925,7 @@ export class ISITemplateProject extends DefaultProject {
           showAxisIndicators: false
         },
         graphicSymbols: {
-          points: 'publicationPoints'
+          points: 'journalPoints'
         }
       }, this),
       new GeomapVisualization({
