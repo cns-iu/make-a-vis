@@ -36,6 +36,8 @@ export enum SidenavActionTypes {
   AddNewVisualization = '[UI] Add New Visualization',
   RemoveVisualization = '[UI] Remove Visualization',
 
+  SetRecordStream = '[UI] Set Record Stream',
+
   SetGraphicSymbolRecordSet = '[UI] Set Graphic Symbol Record Set',
   SetActiveDataVariable = '[UI] Set Active Data Variable',
   SetGraphicVariable = '[UI] Set Graphic Variable',
@@ -158,6 +160,11 @@ export class RemoveVisualization implements Action {
   constructor(public payload: number) { }
 }
 
+export class SetRecordStream implements Action {
+  readonly type = SidenavActionTypes.SetRecordStream;
+  constructor(public payload: payloadTypes.SetRecordStreamPayload) { }
+}
+
 export class SetGraphicSymbolRecordSet implements Action {
   readonly type = SidenavActionTypes.SetGraphicSymbolRecordSet;
   constructor(public payload: SetGraphicSymbolRecordSetPayload) {
@@ -181,5 +188,5 @@ export type SidenavActionsUnion = SaveProjectStarted | SaveProjectFileCreated | 
   ExportSnapshotStarted | ExportSnapshotCreated | ExportSnapshotCompleted | ExportSnapshotError |
   LoadShareUrlStarted | LoadShareUrlCompleted | LoadShareUrlError |
   CreateShareUrlStarted | CreateShareUrlCompleted | CreateShareUrlError |
-  ToggleLogging | SetActiveVisualization | AddNewVisualization | RemoveVisualization |
+  ToggleLogging | SetActiveVisualization | AddNewVisualization | RemoveVisualization | SetRecordStream |
   SetGraphicSymbolRecordSet | SetActiveDataVariable | SetGraphicVariable;
