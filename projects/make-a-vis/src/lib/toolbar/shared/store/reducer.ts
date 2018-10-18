@@ -79,7 +79,6 @@ export function sidenavStateReducer (
         return newState;
 
       case SidenavActionTypes.ToggleLogging:
-        console.log(action.payload);
         newState.loggingEnabled = action.payload;
         return newState;
 
