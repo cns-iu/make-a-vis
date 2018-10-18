@@ -4,7 +4,7 @@
         <div class="wrapper">
             <table mat-table [dataSource]="dataSource.data" class="mat-elevation-z8 table">
                 <ng-container [matColumnDef]="col.label" *ngFor="let col of displayedColumns">
-                    <th mat-header-cell *matHeaderCellDef [mavDraggable]="undefined" class="header-cell" nowrap>{{col.label}}</th>
+                    <th mat-header-cell *matHeaderCellDef [mavDraggable]="col" class="header-cell" nowrap>{{col.label}}</th>
                     <td mat-cell *matCellDef="let element" class="cell">{{element[col.id]}}</td>
                 </ng-container>
                 <tr mat-header-row *matHeaderRowDef="displayedColumnNames; sticky: true;" class="header-row"></tr>
