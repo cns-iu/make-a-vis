@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { GraphicSymbolOption, Project, RecordStream, Visualization } from 'dvl-fw';
 import { ApplicationState, getUiFeature } from '../../shared/store';
+import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 
 export interface Group {
   option: GraphicSymbolOption;
@@ -17,18 +18,32 @@ export class MainComponent {
   streams: RecordStream[];
   groups: Group[] = [];
 
-  constructor(private store: Store<ApplicationState>) {
+  private visualization: Visualization;
+
+  private lastActiveVisualization: number;
+  private lastProject: Project;
+
+  constructor(private store: Store<ApplicationState>, private updateService: UpdateVisService) {
     store.pipe(select(getUiFeature)).subscribe(({ activeVisualization, project }) => {
-      this.setState(project, activeVisualization);
+      const changed = activeVisualization !== this.lastActiveVisualization || project !== this.lastProject;
+      this.lastActiveVisualization = activeVisualization;
+      this.lastProject = project;
+      if (changed) {
+        this.setState(project, activeVisualization);
+      }
     });
   }
 
   onStreamChange(group: Group, index: number) {
-    // TODO
+    const { streams, updateService, visualization } = this;
+    const { id, type } = group.option;
+    if (visualization) {
+      updateService.updateGraphicSymbol(visualization, id, type, streams[index]);
+    }
   }
 
   private setState(project: Project, index: number): void {
-    const visualization = project && index >= 0 && project.visualizations[index];
+    const visualization = this.visualization = project && index >= 0 && project.visualizations[index];
     if (project) {
       this.setStreams(project);
       if (visualization) {

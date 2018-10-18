@@ -30,6 +30,10 @@
   padding-left: 0.5rem;
 }
 
+.record-stream-selector ::ng-deep .mat-form-field-infix {
+  padding: 0 !important;
+}
+
 .legend-type-body {
   display: flex;
   border: 1px dotted;

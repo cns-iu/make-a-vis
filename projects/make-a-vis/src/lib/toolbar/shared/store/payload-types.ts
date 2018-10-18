@@ -1,4 +1,4 @@
-import { Project } from 'dvl-fw';
+import { GraphicSymbol, Project, Visualization } from 'dvl-fw';
 
 export interface LoadProjectStartedPayload {
   loadingProject: boolean;
@@ -38,4 +38,21 @@ export interface CreateShareUrlCompletedPayload {
   shareUrl: string;
   creatingShareUrl: boolean;
   project: Project;
+}
+
+export interface SetRecordStreamPayload {
+  visualization: Visualization;
+  slot: string;
+  symbol?: GraphicSymbol;
+}
+
+export interface CopyToClipboardSuccessPayload {
+  content: String;
+}
+
+export interface CopyToClipboardErrorPayload {
+  errorOccurred: boolean;
+  content: string;
+  errorTitle: string;
+  errorMessage: string;
 }
