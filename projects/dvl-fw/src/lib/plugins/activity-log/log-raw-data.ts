@@ -1,66 +1,82 @@
 import { RawData } from '../../shared/raw-data';
 import { ObjectFactory, ObjectFactoryRegistry } from '../../shared/object-factory';
 import { Project } from '../../shared/project';
-import { nSQL } from 'nano-sql';
+import { nSQL, NanoSQLInstance } from 'nano-sql';
 
 import { CategoryLogMessage } from 'typescript-logging';
 import {  get } from 'lodash';
 
 
 export class ActivityLogRawData implements RawData {
+  private static db: NanoSQLInstance | Promise<NanoSQLInstance> = null;
   template = 'activityLog';
-  public saveActivityLog = true;
-  private db: any /* nSQL */;
+  saveActivityLog = true;
 
-  constructor(public id: string, data = null) {
-    this.setupDB(data);
+  constructor(public id: string, data: any) {
+    ActivityLogRawData.db = this.setupDB(data.data);
   }
 
-  // TODO
-  private setupDB(data: any) {
+  async setupDB(data: any): Promise<NanoSQLInstance> {
     // clear old data/indexeddb
-    nSQL('activitylog')
-    .model([
-      {key: 'logid', type: 'int', props: ['pk', 'ai']}, // pk == primary key, ai == auto incriment
-      {key: 'actionName', type: 'string'},
-      {key: 'fileName', type: 'string'},
-      {key: 'fileExtension', type: 'string'},
-      {key: 'date', type: 'string'}
-    ]).actions([{
+    console.log('setup db called');
+    // try {
+    // nSQL('activitylog').query('drop').exec().then(() => { }, (error) => { console.log(error); });
+    // } catch (e) {
+    //   console.log(e);
+    // }
+    let db: NanoSQLInstance = null;
+    if (ActivityLogRawData.db) {
+      db = (await ActivityLogRawData.db);
+      await db.query('drop').exec();
+      console.log('activity log cleared');
+    }
+
+    await nSQL('activitylog')
+      .model([
+        {key: 'logid', type: 'int', props: ['pk', 'ai']}, // pk == primary key, ai == auto incriment
+        {key: 'actionName', type: 'string'},
+        {key: 'fileName', type: 'string'},
+        {key: 'fileExtension', type: 'string'},
+        {key: 'date', type: 'string'}
+      ]).actions([{
           name: 'add_new_log',
           args: ['activitylog:map'],
-          call: function(args, db) {
-            return db.query('upsert', args.activitylog).exec();
+          call: function(args, database) {
+            return database.query('upsert', args.activitylog).exec();
           }
-      }
-    ]).config({
-      mode: 'TEMP'
-  }).connect();
+        }
+      ]).config({
+        mode: 'TEMP'
+      }).connect();
 
     if (data && data.activityLog) {
-      nSQL().loadJS('activitylog', data.activityLog);
+      await nSQL('activitylog').loadJS('activitylog', data.activityLog);
     }
+    ActivityLogRawData.db = nSQL('activitylog');
+
+    return db;
   }
 
-
-  public async logActivity(msg: CategoryLogMessage): Promise<any> {
-
-      nSQL('activitylog').doAction('add_new_log', {
-        activitylog: {
-        id: null,
-        actionName: get(msg, 'logData.data.type'),
-        fileName: get(msg, 'logData.data.payload.fileName'),
-        fileExtension: get(msg, 'logData.data.payload.fileExtension'),
-        date : new Date().toLocaleString()
-        }
-      });
+  public async logActivity(msg: CategoryLogMessage): Promise<void> {
+    console.log('log activity called');
+    console.log(msg);
+    console.log((await ActivityLogRawData.db));
+    (await ActivityLogRawData.db).doAction('add_new_log', {
+      activitylog: {
+      id: null,
+      actionName: get(msg, 'logData.data.type'),
+      fileName: get(msg, 'logData.data.payload.fileName'),
+      fileExtension: get(msg, 'logData.data.payload.fileExtension'),
+      date : new Date().toLocaleString()
+      }
+    });
   }
 
   async getData(): Promise<any> {
     console.log('save activity log');
     console.log(this.saveActivityLog);
     if (this.saveActivityLog) {
-      return nSQL('activitylog').query('select').exec().then((rows) => {
+      return (await ActivityLogRawData.db).query('select').exec().then((rows) => {
         return {activityLog: rows};
       });
     } else {
@@ -77,8 +93,8 @@ export class ActivityLogRawDataFactory implements ObjectFactory<RawData, Project
   id = 'activityLog';
   type = 'rawData';
 
-  fromJSON(data: any, context: Project, registry: ObjectFactoryRegistry): RawData | Promise<RawData> {
-    return new ActivityLogRawData(data.id, data.data);
+  async fromJSON(data: any, context: Project, registry: ObjectFactoryRegistry): Promise<RawData> {
+    return new ActivityLogRawData(data.id, data);
   }
   async toJSON(instance: RawData, context: Project, registry: ObjectFactoryRegistry): Promise<any> {
     return instance.toJSON();

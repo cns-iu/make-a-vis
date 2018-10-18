@@ -8,8 +8,8 @@ export interface LoadProjectStartedPayload {
 
 export interface LoadProjectCompletedPayload {
   loadingProject: boolean;
-  incomingDataFile: string;
-  incomingDataFileType: string;
+  fileName: string;
+  fileExtension: string;
   project: Project;
 }
 

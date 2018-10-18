@@ -23,9 +23,6 @@ export class StoreLogger extends AbstractCategoryLogger {
 
     this.sidenavStore.pipe(select(fromUi.getLoggingToggleSelector))
       .subscribe((toggleLogging: boolean) => {
-        console.log('inside store logger');
-        console.log('toggle value');
-        console.log(toggleLogging);
         if (this.project && this.project.rawData) {
         const activityLogRawData = this.project.rawData.find(obj => obj instanceof ActivityLogRawData) as ActivityLogRawData;
         activityLogRawData.saveActivityLog = toggleLogging;
@@ -36,12 +33,12 @@ export class StoreLogger extends AbstractCategoryLogger {
 
   protected doLog(msg: CategoryLogMessage): void {
     if (this.controller.isLoggingEnabled()) {
+      if (this.project && this.project.rawData) {
         const activityLogRawData = this.project.rawData.find(obj => obj instanceof ActivityLogRawData) as ActivityLogRawData;
-        console.log('msg is ');
-        console.log(msg);
         if (activityLogRawData) {
         activityLogRawData.logActivity(msg);
         }
+      }
     }
   }
 }
