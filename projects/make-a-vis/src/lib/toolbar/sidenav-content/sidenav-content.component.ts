@@ -35,6 +35,7 @@ export class SidenavContentComponent implements OnInit {
   newProjectExtensions: NewProjectExtensionType[] = ['nsf', 'isi'];
   loadProjectExtensions: LoadProjectExtensionType[] = ['yml'];
   project: Project = undefined;
+  isLoggingEnabled = true;
 
   constructor(
     private saveProjectService: SaveProjectService,
@@ -43,8 +44,10 @@ export class SidenavContentComponent implements OnInit {
     public exportService: ExportService,
     private loggingControlService: LoggingControlService
   ) {
-      loggingControlService.disableLogging();
-
+      loggingControlService.enableLogging();
+      this.isLoggingEnabled = loggingControlService.isLoggingEnabled();
+      console.log('in constructor');
+      console.log(this.isLoggingEnabled);
       this.store.pipe(select(sidenavStore.getLoadedProjectSelector))
         .subscribe((project: Project) => {
           if (project) {
@@ -78,7 +81,7 @@ export class SidenavContentComponent implements OnInit {
       .subscribe((project) => {
       if (project) { // success
         this.store.dispatch(new sidenavStore.LoadProjectCompleted(
-          { loadingProject: false, incomingDataFile: fileName, incomingDataFileType: fileExtension, project: project }
+          { loadingProject: false, fileName: fileName, fileExtension: fileExtension, project: project }
         ));
       } else { // failure
           this.store.dispatch(new sidenavStore.LoadProjectError(
@@ -119,6 +122,10 @@ export class SidenavContentComponent implements OnInit {
   }
 
   toggleLogging() {
+    console.log('logging toggle called');
     this.loggingControlService.toggleLogging();
+    this.isLoggingEnabled = this.loggingControlService.isLoggingEnabled();
+    console.log(this.isLoggingEnabled);
+
   }
 }
