@@ -2,14 +2,14 @@ import { GraphicSymbol, Project, Visualization } from 'dvl-fw';
 
 export interface LoadProjectStartedPayload {
   loadingProject: boolean;
-  filename: string;
+  fileName: string;
   fileExtension: 'isi' | 'nsf' | 'csv' | 'json' | 'yml';
 }
 
 export interface LoadProjectCompletedPayload {
   loadingProject: boolean;
-  incomingDataFile: string;
-  incomingDataFileType: string;
+  fileName: string;
+  fileExtension: string;
   project: Project;
 }
 
@@ -24,9 +24,10 @@ export interface SaveProjectCompletedPayload {
   project: Project;
 }
 
-export interface ExportSnapshotCreatedPayload {
-  snapshotFile: string;
-  snapshotFileType: string;
+export interface ExportSnapshotCompletedPayload {
+  exportingSnapshot: boolean;
+  fileName: string;
+  fileExtension: string;
 }
 
 export interface LoadShareUrlCompletedPayload {
