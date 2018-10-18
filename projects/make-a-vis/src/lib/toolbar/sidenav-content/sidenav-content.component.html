@@ -72,7 +72,7 @@
       <div class="expansion-content">
         <div class="shareFormContent">
         <mat-form-field  [color]="'mav-primary'" appearance="outline" class="field"> 
-          <input matInput placeholder="" readonly class="input" [disabled]="shareUrlFieldDisabled" (click) = "selectTextFromElement($event.target)" [value]="shareUrl" #clipboardTarget >
+          <input matInput placeholder="" readonly class="input" [disabled]="shareUrlFieldDisabled" (click) = "selectTextFromElement($event.target);copyToClipboard(shareUrl)" [value]="shareUrl" #clipboardTarget >
          
         </mat-form-field>
         <button  class = "clpbrdBtn"  (click)="copyToClipboard(shareUrl)" ><mav-clipbrd-logo></mav-clipbrd-logo></button>
