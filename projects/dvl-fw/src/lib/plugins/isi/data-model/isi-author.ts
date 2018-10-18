@@ -1,4 +1,4 @@
-import { Operand, access, chain, map } from '@ngx-dino/core';
+import { Operand, access, chain, constant, map } from '@ngx-dino/core';
 import {
   areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, greyScaleNormQuantitative, greyScaleNormQuantitativeStroke,
   norm0to100, formatNumber, formatYear, extractPoint
@@ -35,14 +35,19 @@ export class Author {
   numCites: number;
   firstYear: number;
   lastYear: number;
+  position: [number, number];
   globalStats: AuthorStats;
 
   constructor(data: any) {
     Object.assign(this, data);
   }
 
+  // Positions
   @Operand<number[]>(extractPoint('location.latitude', 'location.longitude'))
   latlng: [number, number];
+
+  @Operand<string>(constant('circle'))
+  shape: string;
 
   // #Papers Encodings
   @Operand<number>(norm0to100('numPapers', 'globalStats.numPapersMax'))

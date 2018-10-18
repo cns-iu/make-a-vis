@@ -31,11 +31,12 @@ const statesFieldNameMapping = createFieldNameMapping([
   'identifier': 'stateField'
 }, 'state');
 
-// TODO title, latlong, pulse
+// TODO title, pulse
 const pointsFieldNameMapping = createFieldNameMapping([
   'color', 'shape'
 ], {
-  'identifier': 'pointIdField', 'areaSize': 'pointSizeField', 'strokeColor': 'strokeColorField'
+  'identifier': 'pointIdField', 'areaSize': 'pointSizeField', 'strokeColor': 'strokeColorField',
+  'latlng': 'pointLatLongField'
 }, 'point');
 
 @Component({
@@ -44,12 +45,12 @@ const pointsFieldNameMapping = createFieldNameMapping([
   styleUrls: ['./geomap.component.css']
 })
 export class GeomapComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
-  defaultProperties: Properties = {
+  readonly defaultProperties: Properties = {
     showCounties: false, mapDisplayLevel: 'us',
     stateDefaultColor: '#bebebe', stateDefaultStrokeColor: 'white'
   };
 
-  defaultFieldGroups: FieldGroups = {
+  readonly defaultFieldGroups: FieldGroups = {
     states: createDefaultFieldGroup(['stateField', 'stateColorField']),
     points: createDefaultFieldGroup([
       'pointIdField', 'pointLatLongField', 'pointSizeField', 'pointColorField',

@@ -1,3 +1,17 @@
-<p>
-  legend works!
-</p>
+<div class="legend-types-container">
+    <div class="legend-type" *ngFor="let group of groups">
+        <div class="header-bar">
+            <div class="title">
+                <span>{{ group.option.label }}:</span>
+                <mat-form-field class="record-stream-selector">
+                    <mat-select [(value)]="group.index" (selectionChange)="onStreamChange(group, $event.value)">
+                        <mat-option [value]="-1"></mat-option>
+                        <mat-option *ngFor="let stream of streams; let index = index;" [value]="index">
+                            {{ stream.label }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+</div>

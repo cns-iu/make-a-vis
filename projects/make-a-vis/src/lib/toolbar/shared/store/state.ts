@@ -23,6 +23,7 @@ export interface SidenavState {
   errorMessage: string;
 
   project: Project;
+  activeVisualization: number;
 }
 
 
@@ -42,11 +43,12 @@ export const INITIAL_SIDENAV_STATE: SidenavState = {
   creatingShareUrl: false,
   shareUrl: '',
 
-  loggingEnabled: false,
+  loggingEnabled: true,
 
   errorOccurred: false,
   errorTitle: '',
   errorMessage: '',
 
-  project: null
+  project: null,
+  activeVisualization: -1
 };

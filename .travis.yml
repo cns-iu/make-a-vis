@@ -1,72 +1,69 @@
 language: node_js
-
 node_js:
-  - "10"
-
+- '10'
 sudo: required
-
 addons:
   chrome: stable
-
 cache:
   directories:
-    - "node_modules"
-
+  - node_modules
 branches:
   only:
-    - master
-    - develop
-    - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
-
+  - master
+  - develop
+  - "/^v\\d+\\.\\d+(\\.\\d+)?(-\\S*)?$/"
 script: skip
-
 jobs:
   include:
-    - stage: test
-      name: "Run Tests"
-      script:
-        - npm run lint
-        - npm run build dvl-fw
-        - npm run build make-a-vis
-        - npm run build:cli
-        # - npm test
-    - stage: deploy
-      name: "Deploy demo to GitHub Pages"
-      if: branch = master
-      script:
-        - npm run build dvl-fw
-        - npm run build make-a-vis
-        - npm run build:demo
-      deploy:
-        provider: pages
-        skip-cleanup: true
-        github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-        keep-history: false
-        local-dir: dist/make-a-vis-demo
-        on:
-          branch: master
-    - &npm-publish
-      stage: deploy
-      name: "Build and publish make-a-vis"
-      if: tag IS present
-      script:
-        - npm run build make-a-vis
-      before_deploy:
-        - cd dist/make-a-vis
-      after_deploy:
-        - cd ../../
-      deploy: &npm
-        provider: npm
-        skip-cleanup: true
-        email: $NPM_EMAIL
-        api_key: $NPM_TOKEN
-        on:
-          tags: true
-          repo: cns-iu/make-a-vis
-    - <<: *npm-publish
-      name: "Build and publish dvl-fw"
-      script:
-        - npm run build dvl-fw
-        - npm run build:cli
-      before_deploy:
-        - cd dist/dvl-fw
+  - stage: test
+    name: Run Tests
+    script:
+    - npm run lint
+    - npm run build dvl-fw
+    - npm run build make-a-vis
+    - npm run build:cli
+  - stage: deploy
+    name: Deploy demo to GitHub Pages
+    if: branch = master
+    script:
+    - npm run build dvl-fw
+    - npm run build make-a-vis
+    - npm run build:demo
+    deploy:
+      provider: pages
+      skip-cleanup: true
+      github-token: "$GITHUB_TOKEN"
+      keep-history: false
+      local-dir: dist/make-a-vis-demo
+      on:
+        branch: master
+  - stage: deploy
+    name: Build and publish make-a-vis
+    if: tag IS present
+    script:
+    - npm run build make-a-vis
+    before_deploy:
+    - cd dist/make-a-vis
+    after_deploy: &1
+    - cd ../../
+    deploy: &2
+      provider: npm
+      skip-cleanup: true
+      email: "$NPM_EMAIL"
+      api_key: "$NPM_TOKEN"
+      on:
+        tags: true
+        repo: cns-iu/make-a-vis
+  - stage: deploy
+    name: Build and publish dvl-fw
+    if: tag IS present
+    script:
+    - npm run build dvl-fw
+    - npm run build:cli
+    before_deploy:
+    - cd dist/dvl-fw
+    after_deploy: *1
+    deploy: *2
+notifications:
+  slack:
+    secure: kmHjR6duu+E+c+JEBLjECE5mSboVOrz599dOubVU7eqwVNUGvbe3YDGIKAc0S6akqsW0q9bVUWM2Zi+J4ROHrlMi1A+VQRJAW+2DG+6wu8fmdZiA0u/fK2w9IMRPFDDk80mMZN7TzSPMu5nRv6UGbVqpNeqRWotd2XtyLOu3+KRYKggUjKKz5D3oiYYGaHZWj6foDG7u42q33RQ55LlWff0GmAUuYVSfOUlxAYevOTuV9QF8NfFRnlQAfIYucM9177dd9cfWUdRgWPL7VGDUrANF2NtrfTUcWMM/zl6Vk7KMTxcCr1Oy0osxPE4DlpD8Mdz+i54tqKtcopJirBUnogZx+6MoMqMpTu7mU9pmB1H5rhAqlddYUMxiiyUvAvsScm3G5tY7azvqB0i6qalveTXuZWTa3CZUKHHTkDaDd0tnCvnLqWUaxZ2TeS//67q4EvreTfIdD4hD4phXjqfS+x0Ha8w7MpjwNln651svxsnpv+Ak6ET8N/NVRY61LhzAocMHitqMZMycTgyf8l5rciUtWE2cIuDiH86SBF+KeDYnoCCBwN8qXUTktVie37PeBX2drO84wNc8tmzjpIguXyCQUCBN/t0BodC4BIH+/oasfsYtKpXj6LQaV4/brf+t+hZX2FYssS44UZAKn3CQ92Mp7YurngUMHBqaMC6wPu4=

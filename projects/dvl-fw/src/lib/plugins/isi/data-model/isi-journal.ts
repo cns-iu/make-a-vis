@@ -3,6 +3,8 @@ import {
   areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, greyScaleNormQuantitative, greyScaleNormQuantitativeStroke,
   norm0to100, formatNumber, formatYear
 } from '../../../encoding';
+import { Transient } from '../../../shared/transient';
+import { Subdiscipline } from './isi-subdiscipline';
 
 
 export class JournalStats {
@@ -54,6 +56,9 @@ export class Journal {
   }) {
     Object.assign(this, data);
   }
+
+  @Transient
+  Subdiscipline: Subdiscipline;
 
   // #Papers Encodings
   @Operand<number>(norm0to100('numPapers', 'globalStats.numPapersMax'))

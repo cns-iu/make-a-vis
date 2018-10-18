@@ -66,13 +66,88 @@ hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 }
 
 .mat-expansion-panel-header {
-  padding: 0 1vw;
+  padding: 0 0.5rem;
 }
 
 .mat-tab-header {
   border-bottom: none;
+  padding-right: 4rem;
 }
 
 .mat-tab-label, .mat-tab-link {
   opacity: 1;
+}
+
+.mat-tab-label {
+  height: auto;
+  padding: .25rem;
+}
+
+.mat-chip.mat-standard-chip {
+  padding: .5rem .5rem .5rem .75rem;
+}
+
+.mat-chip {
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+.mat-drawer-container {
+  background: none;
+}
+
+.tab-label[_ngcontent-c6] .text[_ngcontent-c6] {
+  padding-right: 0.5rem;
+}
+
+.mat-standard-chip.mat-chip-selected .text {
+  color: #ffffff;
+}
+
+.mat-standard-chip.mat-chip-selected svg {
+  fill: #ffffff;
+}
+
+.mat-tab-label-container {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.mat-toolbar,
+.mat-toolbar h1,
+.mat-toolbar h2,
+.mat-toolbar h3,
+.mat-toolbar h4,
+.mat-toolbar h5,
+.mat-toolbar h6 {
+  font: 500 20px/32px Lato;
+  margin: 0
+}
+
+.mat-tab-header-pagination-after {
+  padding-right: 4rem;
+  box-shadow: none !important;
+}
+
+.mat-form-field-infix {
+  margin: 0;
+  /* Commenting the padding because this collapses the share url text box,
+  *  I hope it doesn't break anything else.
+  */
+  /* padding: 0 !important;*/
+  border-top: 0; 
+}
+
+.mat-form-field-wrapper {
+  padding: 0;
+}
+
+@media (min-width: 576px) {
+  html, span, label, .mat-button-toggle-label-content, .menu {
+    font-size: calc(16px + (32 - 16) * ((100vw - 300px) / (3840 - 300))) !important;
+  }
+
+  .mat-chip.mat-standard-chip {
+    padding: 0.25rem .25rem 0.25rem .75rem;
+  }
 }

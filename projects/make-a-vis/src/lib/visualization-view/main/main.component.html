@@ -1,4 +1,4 @@
-<mat-tab-group [color]="'#ffffff'" [disableRipple]="true" [(selectedIndex)]="selectedVis" class="tab-group" #visualization>
+<mat-tab-group [color]="'#ffffff'" [disableRipple]="true" [(selectedIndex)]="selectedVis" class="tab-group" #visGroup>
 
     <mat-tab *ngFor="let vis of visualizations; let index = index" [disabled]="false">
 
@@ -6,7 +6,7 @@
             <mat-chip-list [selectable]="true">
                 <mat-chip [selected]="index === selectedVis" (click)="setSelectedVis(index)" class="tab-label">
                     <div class="text"> {{ vis.label }} </div>
-                    <mav-cancel-icon (click)="removeVisualization(index)"></mav-cancel-icon>
+                    <mav-cancel-icon (click)="removeVisualization(index)" class="mav-cancel-icon"></mav-cancel-icon>
                 </mat-chip>
             </mat-chip-list>
 
@@ -15,7 +15,7 @@
         <ng-template matTabContent>
             <!-- active class is used by export to select the element -->
             <div class="tab-content" [ngClass]="{ active: index === selectedVis }">
-                <dvl-visualization [data]="vis.data"></dvl-visualization>
+                <dvl-visualization #visualizations [data]="vis.data"></dvl-visualization>
             </div>
         </ng-template>
 
@@ -24,8 +24,7 @@
 </mat-tab-group>
 
 <div class="add-visualization">
-    <mav-add-icon [matMenuTriggerFor]="menu"></mav-add-icon>
-    Add New
+    <mav-add-icon [matMenuTriggerFor]="menu" class="mav-add-icon"></mav-add-icon>
 </div>
 
 <mat-menu #menu>

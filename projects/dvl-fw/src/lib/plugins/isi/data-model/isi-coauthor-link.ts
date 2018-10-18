@@ -1,6 +1,7 @@
-import { Operand, chain, access } from '@ngx-dino/core';
+import { Operand, access, chain, combine, map } from '@ngx-dino/core';
 import {
-  areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, greyScaleNormQuantitative, greyScaleNormQuantitativeStroke,
+  areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, strokeWidthScaleNormQuantitative,
+  greyScaleNormQuantitative, greyScaleNormQuantitativeStroke,
   norm0to100, formatNumber, formatYear
 } from '../../../encoding';
 import { Transient } from '../../../shared/transient';
@@ -45,6 +46,15 @@ export class CoAuthorLink {
   @Transient
   Author2: Author;
 
+  @Operand<string>(chain(combine([access('author1'), access('author2')]), map(([a1, a2]) => a1 + a2)))
+  identifier: string;
+
+  // Positions
+  @Operand<[number, number]>(access('Author1.position'))
+  source: [number, number];
+  @Operand<[number, number]>(access('Author2.position'))
+  target: [number, number];
+
   // #Papers Encodings
   @Operand<number>(norm0to100('numPapers', 'globalStats.numPapersMax'))
   numPapersNorm: number;
@@ -52,6 +62,8 @@ export class CoAuthorLink {
   numPapersLabel: string;
   @Operand<number>(chain(access('numPapersNorm'), areaSizeScaleNormQuantitative))
   numPapersAreaSize: number;
+  @Operand<number>(chain(access('numPapersNorm'), strokeWidthScaleNormQuantitative))
+  numPapersStrokeWidth: number;
   @Operand<number>(chain(access('numPapersNorm'), fontSizeScaleNormQuantitative))
   numPapersFontSize: number;
   @Operand<string>(chain(access('numPapersNorm'), greyScaleNormQuantitative))
@@ -66,6 +78,8 @@ export class CoAuthorLink {
   numCitesLabel: string;
   @Operand<number>(chain(access('numCitesNorm'), areaSizeScaleNormQuantitative))
   numCitesAreaSize: number;
+  @Operand<number>(chain(access('numCitesNorm'), strokeWidthScaleNormQuantitative))
+  numCitesStrokeWidth: number;
   @Operand<number>(chain(access('numCitesNorm'), fontSizeScaleNormQuantitative))
   numCitesFontSize: number;
   @Operand<string>(chain(access('numCitesNorm'), greyScaleNormQuantitative))
@@ -80,6 +94,8 @@ export class CoAuthorLink {
   firstYearLabel: string;
   @Operand<number>(chain(access('firstYearNorm'), areaSizeScaleNormQuantitative))
   firstYearAreaSize: number;
+  @Operand<number>(chain(access('firstYearNorm'), strokeWidthScaleNormQuantitative))
+  firstYearStrokeWidth: number;
   @Operand<number>(chain(access('firstYearNorm'), fontSizeScaleNormQuantitative))
   firstYearFontSize: number;
   @Operand<string>(chain(access('firstYearNorm'), greyScaleNormQuantitative))
@@ -94,6 +110,8 @@ export class CoAuthorLink {
   lastYearLabel: string;
   @Operand<number>(chain(access('lastYearNorm'), areaSizeScaleNormQuantitative))
   lastYearAreaSize: number;
+  @Operand<number>(chain(access('lastYearNorm'), strokeWidthScaleNormQuantitative))
+  lastYearStrokeWidth: number;
   @Operand<number>(chain(access('lastYearNorm'), fontSizeScaleNormQuantitative))
   lastYearFontSize: number;
   @Operand<string>(chain(access('lastYearNorm'), greyScaleNormQuantitative))

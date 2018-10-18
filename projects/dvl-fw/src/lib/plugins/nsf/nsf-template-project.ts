@@ -1,5 +1,5 @@
 import { ActivityLogDataSource } from './../activity-log/log-data-source';
-import { ScatterplotVisualization } from './../ngx-dino/scatterplot-visualization';
+import { ScatterplotVisualization } from './../ngx-dino/visualizations/scatterplot-visualization';
 import { DataSource } from '../../shared/data-source';
 import { Project } from '../../shared/project';
 import { RawData } from '../../shared/raw-data';
@@ -48,12 +48,12 @@ export class NSFTemplateProject extends DefaultProject {
       new NSFDataSource({
         id: 'nsfDataSource',
         properties: { rawData: 'nsfFile', parsedData: 'nsfRawData', saveParsedData: true },
-        recordStreams: [{id: 'awards'}]
+        recordStreams: [{id: 'awards', label: 'Awards'}]
       }, this),
       new ActivityLogDataSource({
         id: 'activityLog',
         properties: { rawData: 'activityLog', keepPreviousActivity: true, freezeLogs: false },
-        recordStreams: [{id: 'activityLog'}]
+        recordStreams: [{id: 'activityLog', label: 'Activity Log'}]
       }, this)
     ];
   }
@@ -66,7 +66,6 @@ export class NSFTemplateProject extends DefaultProject {
         labelPlural: 'Awards',
         defaultRecordStream: 'awards',
         dataVariables: [
-          {id: 'id', label: 'ID', dataType: 'text', scaleType: 'nominal'},
           {id: 'title', label: 'Title', dataType: 'text', scaleType: 'nominal'},
           {id: 'investigators', label: 'Investigators', dataType: 'text', scaleType: 'nominal'},
           {id: 'startYear', label: 'Start Year', dataType: 'integer', scaleType: 'interval'},
@@ -75,6 +74,7 @@ export class NSFTemplateProject extends DefaultProject {
           {id: 'organization', label: 'Organization', dataType: 'text', scaleType: 'nominal'},
           {id: 'nsfOrganization', label: 'NSF Org.', dataType: 'text', scaleType: 'nominal'},
           {id: 'nsfPrograms', label: 'NSF Program(s)', dataType: 'text', scaleType: 'nominal'},
+          {id: 'id', label: 'ID', dataType: 'text', scaleType: 'nominal'}
         ]
       }, this)
     ];

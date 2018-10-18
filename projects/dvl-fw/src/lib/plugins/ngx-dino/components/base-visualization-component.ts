@@ -35,8 +35,8 @@ implements VisualizationComponent, OnInit, OnChanges, OnPropertyChange, OnGraphi
   properties: P = {} as any;
   fieldGroups: F = {} as any;
 
-  abstract defaultProperties: P;
-  abstract defaultFieldGroups: F;
+  abstract readonly defaultProperties: P;
+  abstract readonly defaultFieldGroups: F;
   abstract fieldNameFor(key: string, group: string): string;
 
   ngOnInit(): void {
@@ -63,7 +63,8 @@ implements VisualizationComponent, OnInit, OnChanges, OnPropertyChange, OnGraphi
 
   dvlOnPropertyChange(changes: SimpleChanges): void {
     const newProperties = clone(this.properties);
-    const changed = this.applyChanges(changes, newProperties, this.defaultProperties);
+    const changedValues = mapValues(changes, 'currentValue');
+    const changed = this.applyChanges(changedValues, newProperties, this.defaultProperties);
     if (changed) {
       this.properties = newProperties;
     }
@@ -91,10 +92,10 @@ implements VisualizationComponent, OnInit, OnChanges, OnPropertyChange, OnGraphi
           streamsChanged = true;
         }
 
-        fieldsChanged = fieldsChanged || this.applyChanges<GraphicVariable, BoundField<any>>(
+        fieldsChanged = this.applyChanges<GraphicVariable, BoundField<any>>(
           graphicVariables, newFields[key], this.defaultFieldGroups[key],
           k => this.fieldNameFor(k, key), v => v.asBoundField(), (v1, v2) => v1.equals(v2)
-        );
+        ) || fieldsChanged;
       }
     });
 
@@ -143,9 +144,11 @@ implements VisualizationComponent, OnInit, OnChanges, OnPropertyChange, OnGraphi
     keyFn: (key: string) => string = identity, projFn: (value: T1) => T2 = identity,
     eqFn: (v1: T2, v2: T2) => boolean = (v1, v2) => v1 === v2
   ): boolean {
+    const visited = {};
     let changed = false;
     forOwn(changes, (rawValue, rawKey) => {
       const key = keyFn(rawKey);
+      visited[key] = true;
       if (hasOwnProperty.call(obj, key)) {
         const oldValue = obj[key];
         const newValue = rawValue !== undefined ? projFn(rawValue) : defaults[key];
@@ -153,6 +156,13 @@ implements VisualizationComponent, OnInit, OnChanges, OnPropertyChange, OnGraphi
           obj[key] = newValue;
           changed = true;
         }
+      }
+    });
+
+    forOwn(defaults, (defaultValue, key) => {
+      if (!visited[key] && !eqFn(obj[key], defaultValue)) {
+        obj[key] = defaultValue;
+        changed = true;
       }
     });
 
