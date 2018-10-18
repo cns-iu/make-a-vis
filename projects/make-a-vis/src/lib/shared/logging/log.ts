@@ -23,7 +23,10 @@ startingActions: any = values(pick(SidenavActionTypes, [
   'ExportSnapshotStarted',
   'ExportSnapshotCompleted',
 
-  'LoadShareUrlStarted'
+  'LoadShareUrlStarted',
+
+  'CreateShareUrlCompleted',
+  'CopyToClipboardSuccess'
 ]));
 
 

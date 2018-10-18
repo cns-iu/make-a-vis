@@ -17,18 +17,10 @@ export class ActivityLogRawData implements RawData {
   }
 
   async setupDB(data: any): Promise<NanoSQLInstance> {
-    // clear old data/indexeddb
-    console.log('setup db called');
-    // try {
-    // nSQL('activitylog').query('drop').exec().then(() => { }, (error) => { console.log(error); });
-    // } catch (e) {
-    //   console.log(e);
-    // }
     let db: NanoSQLInstance = null;
     if (ActivityLogRawData.db) {
       db = (await ActivityLogRawData.db);
       await db.query('drop').exec();
-      console.log('activity log cleared');
     }
 
     await nSQL('activitylog')
@@ -37,6 +29,8 @@ export class ActivityLogRawData implements RawData {
         {key: 'actionName', type: 'string'},
         {key: 'fileName', type: 'string'},
         {key: 'fileExtension', type: 'string'},
+        {key: 'createdUrl', type: 'string'},
+        {key: 'copiedUrl', type: 'string'},
         {key: 'date', type: 'string'}
       ]).actions([{
           name: 'add_new_log',
@@ -53,28 +47,27 @@ export class ActivityLogRawData implements RawData {
       await nSQL('activitylog').loadJS('activitylog', data.activityLog);
     }
     ActivityLogRawData.db = nSQL('activitylog');
-
     return db;
   }
 
   public async logActivity(msg: CategoryLogMessage): Promise<void> {
-    console.log('log activity called');
-    console.log(msg);
-    console.log((await ActivityLogRawData.db));
+    console.log('log activity');
+    console.log(msg.logData);
     (await ActivityLogRawData.db).doAction('add_new_log', {
       activitylog: {
       id: null,
       actionName: get(msg, 'logData.data.type'),
       fileName: get(msg, 'logData.data.payload.fileName'),
       fileExtension: get(msg, 'logData.data.payload.fileExtension'),
+      createdUrl: get(msg, 'logData.data.payload.shareUrl'),
+      copiedUrl: get(msg, 'logData.data.payload.content'),
       date : new Date().toLocaleString()
       }
     });
   }
 
   async getData(): Promise<any> {
-    console.log('save activity log');
-    console.log(this.saveActivityLog);
+
     if (this.saveActivityLog) {
       return (await ActivityLogRawData.db).query('select').exec().then((rows) => {
         return {activityLog: rows};

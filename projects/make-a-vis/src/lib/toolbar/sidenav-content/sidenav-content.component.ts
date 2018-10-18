@@ -41,6 +41,7 @@ export class SidenavContentComponent implements OnInit {
   shareUrlFieldDisabled: boolean;
   private baseUrl: string;
   shareUrl = '';
+  isLoggingEnabled =  true;
 
   constructor(
     private saveProjectService: SaveProjectService,
@@ -54,9 +55,8 @@ export class SidenavContentComponent implements OnInit {
     private clipboardService: ClipboardService
   ) {
       loggingControlService.enableLogging();
+      this.isLoggingEnabled = loggingControlService.isLoggingEnabled();
       this.shareUrlFieldDisabled = true;
-      console.log('in constructor');
-      console.log(this.isLoggingEnabled);
       this.store.pipe(select(sidenavStore.getLoadedProjectSelector))
         .subscribe((project: Project) => {
           if (project) {
@@ -201,7 +201,7 @@ export class SidenavContentComponent implements OnInit {
                     this.shareUrlFieldDisabled = false;
                     /* dispatch an action stating create url has completed */
                     this.store.dispatch(new sidenavStore.CreateShareUrlCompleted({
-                      shareUrl: null,
+                      shareUrl: this.shareUrl,
                       creatingShareUrl: false,
                       project: prj
                     }));
@@ -247,11 +247,8 @@ export class SidenavContentComponent implements OnInit {
   }
 
   toggleLogging() {
-    console.log('logging toggle called');
     this.loggingControlService.toggleLogging();
     this.isLoggingEnabled = this.loggingControlService.isLoggingEnabled();
-    console.log(this.isLoggingEnabled);
-
   }
 
 
