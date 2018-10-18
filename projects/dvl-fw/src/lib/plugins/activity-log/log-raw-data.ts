@@ -1,11 +1,10 @@
 import { RawData } from '../../shared/raw-data';
 import { ObjectFactory, ObjectFactoryRegistry } from '../../shared/object-factory';
 import { Project } from '../../shared/project';
-import { nSQL, NanoSQLInstance } from 'nano-sql';
 
+import { nSQL, NanoSQLInstance } from 'nano-sql';
 import { CategoryLogMessage } from 'typescript-logging';
 import {  get } from 'lodash';
-
 
 export class ActivityLogRawData implements RawData {
   private static db: NanoSQLInstance | Promise<NanoSQLInstance> = null;
@@ -51,8 +50,6 @@ export class ActivityLogRawData implements RawData {
   }
 
   public async logActivity(msg: CategoryLogMessage): Promise<void> {
-    console.log('log activity');
-    console.log(msg.logData);
     (await ActivityLogRawData.db).doAction('add_new_log', {
       activitylog: {
       id: null,

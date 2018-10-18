@@ -4,8 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 
 import { ProjectSerializerService, Project, ActivityLogRawData } from 'dvl-fw';
 
- import { LoggingControlService } from '../../../shared/logging/logging-control.service';
-// import { LoggingControlService } from 'make-a-vis/lib/shared/logging/logging-control.service';
+import { LoggingControlService } from '../../../shared/logging/logging-control.service';
 
 
 @Injectable({
@@ -31,13 +30,11 @@ export class LoadProjectService {
         if (fileExtension !== 'yml') {
           this.serializer.createProject(<any>fileExtension, event.target.result)
             .subscribe((project: Project) => {
-              console.log('load project called');
               projectSubject.next(this.setSaveActivityLog(project));
             });
         } else {
           this.serializer.fromYAML(event.target.result)
             .subscribe((project: Project) => {
-              console.log('load project called');
               projectSubject.next(this.setSaveActivityLog(project));
             });
         }
