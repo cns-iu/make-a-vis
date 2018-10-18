@@ -7,6 +7,7 @@ import { StoreModule } from '@ngrx/store';
 
 // Submodules
 import { DataViewModule } from './data-view/data-view.module';
+import { DragDropModule } from './drag-drop/drag-drop.module';
 import { LegendViewModule } from './legend-view/legend-view.module';
 import { ToolbarModule } from './toolbar/toolbar.module';
 import { VisualizationViewModule } from './visualization-view/visualization-view.module';
@@ -26,7 +27,7 @@ import { reducers } from './shared/store/reducer';
 @NgModule({
   imports: [
     CommonModule,
-    DataViewModule, LegendViewModule, ToolbarModule, VisualizationViewModule,
+    DataViewModule, DragDropModule, LegendViewModule, ToolbarModule, VisualizationViewModule,
     StoreModule.forRoot(reducers),
   ],
   declarations: [LightThemeComponent, MakeAVisComponent],

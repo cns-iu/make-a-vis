@@ -7,7 +7,6 @@
 .legend-types-container .legend-type {
   border-right: 1.25rem solid transparent;
   display: inline-block;
-  width: 400px; /* temporary */
   max-height: 12.5rem;
   min-width: 12.5rem;
 }
@@ -17,6 +16,7 @@
   display: flex;
   justify-content: center;
   height: 1.5rem;
+  width: 500px;
 }
 
 .legend-type .title {
@@ -28,4 +28,10 @@
 
 .record-stream-selector {
   padding-left: 0.5rem;
+}
+
+.legend-type-body {
+  display: flex;
+  border: 1px dotted;
+  height: 6rem;
 }
