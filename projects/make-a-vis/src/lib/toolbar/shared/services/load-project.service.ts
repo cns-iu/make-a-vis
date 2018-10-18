@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-import { ProjectSerializerService, Project } from 'dvl-fw';
+import { ProjectSerializerService, Project, ActivityLogRawData } from 'dvl-fw';
+
+import { LoggingControlService } from '../../../shared/logging/logging-control.service';
 
 
 @Injectable({
@@ -10,8 +12,13 @@ import { ProjectSerializerService, Project } from 'dvl-fw';
 })
 export class LoadProjectService {
 
-  constructor(private serializer: ProjectSerializerService) { }
+  constructor(private serializer: ProjectSerializerService, private loggingControlService: LoggingControlService ) { }
 
+  setSaveActivityLog(project) {
+    const activityLogRawData = project.rawData.find(obj => obj instanceof ActivityLogRawData) as ActivityLogRawData;
+    activityLogRawData.saveActivityLog = this.loggingControlService.isLoggingEnabled();
+    return project;
+  }
   loadFile(
     fileExtension: 'isi' | 'nsf' | 'csv' | 'json' | 'yml',
     file: Blob
@@ -22,10 +29,14 @@ export class LoadProjectService {
       if (event.target.result !==  null) {
         if (fileExtension !== 'yml') {
           this.serializer.createProject(<any>fileExtension, event.target.result)
-            .subscribe((project: Project) => projectSubject.next(project));
+            .subscribe((project: Project) => {
+              projectSubject.next(this.setSaveActivityLog(project));
+            });
         } else {
           this.serializer.fromYAML(event.target.result)
-            .subscribe((project: Project) => projectSubject.next(project));
+            .subscribe((project: Project) => {
+              projectSubject.next(this.setSaveActivityLog(project));
+            });
         }
       }
     };

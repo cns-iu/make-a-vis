@@ -89,7 +89,7 @@
       <mav-logging-icon class="icon"></mav-logging-icon>
       <span>Logging</span>
     </div>
-    <mat-slide-toggle class="toggle" (change)="toggleLogging()"></mat-slide-toggle>
+    <mat-slide-toggle class="toggle" [checked]="isLoggingEnabled" (change)="toggleLogging()"></mat-slide-toggle>
   </div>
   <mat-divider></mat-divider>
 </div>

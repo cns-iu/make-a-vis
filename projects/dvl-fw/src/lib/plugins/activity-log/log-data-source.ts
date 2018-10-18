@@ -22,7 +22,7 @@ export class ActivityLogDataSource implements DataSource {
     Object.assign(this, data);
     let rawData = this.project.rawData.find(d => d.id === this.properties.rawData);
     if (!rawData) {
-      rawData = new ActivityLogRawData('activityLog');
+      rawData = new ActivityLogRawData('activityLog', data);
       this.project.rawData.push(rawData);
     }
     this.recordStreams = data.recordStreams.map((rs) => new DefaultRecordStream({id: rs.id, label: rs.label || rs.id}, rawData));

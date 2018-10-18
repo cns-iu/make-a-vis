@@ -1,8 +1,12 @@
 import { Injectable, Inject } from '@angular/core';
+
+import { Store } from '@ngrx/store';
+
 import { ExportToPngService } from '../export-to-png/export-to-png.service';
 import { ExportToSvgService } from '../export-to-svg/export-to-svg.service';
 import { ExportToPdfService } from '../export-to-pdf/export-to-pdf.service';
 import { PdfOptions, pdfOptionsToken } from './exportToPdfOptions.type';
+import { SidenavState, ExportSnapshotStarted, ExportSnapshotCompleted } from '../../../toolbar/shared/store';
 
 
 @Injectable({
@@ -17,6 +21,7 @@ export class ExportService {
     private exportToSvgService: ExportToSvgService,
     private exportToPngService: ExportToPngService,
     private exportToPdfService: ExportToPdfService,
+    private store: Store<SidenavState>,
     @Inject(pdfOptionsToken) private pdfOptions: PdfOptions
   ) { }
 
@@ -25,19 +30,32 @@ export class ExportService {
   }
 
   exportToPng() {
+    this.store.dispatch(new ExportSnapshotStarted(true));
     this.exportToPngService.getSnapShot(
       this.getVisualizationElement(),
       'visualisation.png'
     );
+    this.store.dispatch(new ExportSnapshotCompleted({
+      exportingSnapshot: false,
+      fileName: 'visualisation.png',
+      fileExtension: 'png'
+    }));
   }
 
   exportToSvg() {
+    this.store.dispatch(new ExportSnapshotStarted(true));
     this.exportToSvgService.getSnapShot(
       this.getVisualizationElement(),
       'visualisation.svg');
+      this.store.dispatch(new ExportSnapshotCompleted({
+        exportingSnapshot: false,
+        fileName: 'visualisation.svg',
+        fileExtension: 'svg'
+      }));
   }
 
   exportToPdf() {
+    this.store.dispatch(new ExportSnapshotStarted(true));
     this.pdfOptions.useCSS = true;
     this.exportToPdfService.getSnapShot(
       this.getVisualizationElement(),
@@ -46,5 +64,10 @@ export class ExportService {
       0,
       0
     );
+    this.store.dispatch(new ExportSnapshotCompleted({
+      exportingSnapshot: false,
+      fileName: 'visualisation.pdf',
+      fileExtension: 'pdf'
+    }));
   }
 }
