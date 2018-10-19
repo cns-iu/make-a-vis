@@ -15,6 +15,7 @@ export interface SidenavState {
   loadingShareUrl: boolean;
   creatingShareUrl: boolean;
   shareUrl: string;
+  loadingComplete: boolean;
 
   loggingEnabled: boolean;
 
@@ -39,9 +40,10 @@ export const INITIAL_SIDENAV_STATE: SidenavState = {
   snapshotFile: '',
   snapshotFileType: '',
 
-  loadingShareUrl: true,
+  loadingShareUrl: false,
   creatingShareUrl: false,
   shareUrl: '',
+  loadingComplete: false,
 
   loggingEnabled: true,
 

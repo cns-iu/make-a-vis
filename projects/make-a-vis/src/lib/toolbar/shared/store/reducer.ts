@@ -59,7 +59,7 @@ export function sidenavStateReducer (
         return newState;
 
       case SidenavActionTypes.LoadShareUrlCompleted:
-        assign(newState, pick(action.payload, ['loadingShareUrl', 'project']));
+        assign(newState, pick(action.payload, ['loadingShareUrl', 'project', 'loadingComplete']));
         return newState;
 
       case SidenavActionTypes.LoadShareUrlError:
@@ -140,7 +140,7 @@ export const getLoadingProjectCompletedSelector = createSelector<SidenavState, S
   getLoadingProjectCompleted
 );
 
-export const getLoadingShareUrlCompleted = (state: SidenavState): boolean => state.loadingShareUrl;
+export const getLoadingShareUrlCompleted = (state: SidenavState): boolean => state.loadingComplete;
 export const getLoadingShareUrlCompletedSelector = createSelector<SidenavState, SidenavState, boolean>(
   selectSelfFeature,
   getLoadingShareUrlCompleted
