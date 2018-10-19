@@ -4,7 +4,7 @@ import { Project } from '../../shared/project';
 
 import { nSQL, NanoSQLInstance } from 'nano-sql';
 import { CategoryLogMessage } from 'typescript-logging';
-import {  get } from 'lodash';
+import {  get, isNumber } from 'lodash';
 
 export class ActivityLogRawData implements RawData {
   private static db: NanoSQLInstance | Promise<NanoSQLInstance> = null;
@@ -33,7 +33,7 @@ export class ActivityLogRawData implements RawData {
         {key: 'visualizationId', type: 'string'},
         {key: 'slot', type: 'string'},
         {key: 'graphicSymbolId', type: 'string'},
-        {key: 'visualizationNumber', type: 'string'},
+        {key: 'visualizationNumber', type: 'number'},
         {key: 'date', type: 'string'}
       ]).actions([{
           name: 'add_new_log',
@@ -64,8 +64,8 @@ export class ActivityLogRawData implements RawData {
       copiedUrl: get(msg, 'ng logData.data.payload.content'),
       visualizationId: get(msg, 'logData.data.payload.id'),
       graphicSymbolId: get(msg, 'logData.data.payload.symbol.recordStream.id'),
-      slot: get(msg, 'logData.data.payload.slot'),
-      visualizationNumber: get(msg, 'logData.data.payload'),
+      slot: get(msg, 'logData.data.slot'),
+      visualizationNumber: Number(get(msg, 'logData.data.payload')),
       date : new Date().toLocaleString()
       }
     });
