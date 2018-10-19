@@ -20,12 +20,12 @@
 
     .visualization {
       margin-bottom: 1vh;
-      height: 67vh;
+      height: calc(100vh - 200px);
     }
 
     .legend {
       display: block;
-      height: 23vh;
+      height: 200px;
       overflow-x: scroll;
       width: 62vw;
     }

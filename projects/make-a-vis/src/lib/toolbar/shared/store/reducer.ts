@@ -46,12 +46,8 @@ export function sidenavStateReducer (
         newState.exportingSnapshot = action.payload;
         return newState;
 
-      case SidenavActionTypes.ExportSnapshotCreated:
-        assign(newState, pick(action.payload, ['snapshotFile', 'snapshotFileType']));
-        return newState;
-
       case SidenavActionTypes.ExportSnapshotCompleted:
-        newState.exportingSnapshot = action.payload;
+        assign(newState, pick(action.payload, ['exportingSnapshot', 'snapshotFile', 'snapshotFileType']));
         return newState;
 
       case SidenavActionTypes.ExportSnapshotError:
@@ -63,7 +59,7 @@ export function sidenavStateReducer (
         return newState;
 
       case SidenavActionTypes.LoadShareUrlCompleted:
-        assign(newState, pick(action.payload, ['loadingShareUrl', 'project']));
+        assign(newState, pick(action.payload, ['loadingShareUrl', 'project', 'loadingComplete']));
         return newState;
 
       case SidenavActionTypes.LoadShareUrlError:
@@ -83,7 +79,7 @@ export function sidenavStateReducer (
         return newState;
 
       case SidenavActionTypes.ToggleLogging:
-        newState.loggingEnabled = !state.loggingEnabled;
+        newState.loggingEnabled = action.payload;
         return newState;
 
       case SidenavActionTypes.SetActiveVisualization:
@@ -142,4 +138,17 @@ export const getLoadingProjectCompleted = (state: SidenavState): boolean => stat
 export const getLoadingProjectCompletedSelector = createSelector<SidenavState, SidenavState, boolean>(
   selectSelfFeature,
   getLoadingProjectCompleted
+);
+
+export const getLoadingShareUrlCompleted = (state: SidenavState): boolean => state.loadingComplete;
+export const getLoadingShareUrlCompletedSelector = createSelector<SidenavState, SidenavState, boolean>(
+  selectSelfFeature,
+  getLoadingShareUrlCompleted
+);
+
+
+export const getLoggingToggleState = (state: SidenavState): boolean => state.loggingEnabled;
+export const getLoggingToggleSelector = createSelector<SidenavState, SidenavState, boolean>(
+  selectSelfFeature,
+  getLoggingToggleState
 );

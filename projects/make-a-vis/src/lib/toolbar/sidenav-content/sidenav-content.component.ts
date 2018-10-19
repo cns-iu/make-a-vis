@@ -10,7 +10,7 @@ import { get } from 'lodash';
 
 import { SaveProjectService } from '../shared/services/save-project/save-project.service';
 import { LoadProjectService } from '../shared/services/load-project.service';
-import { LoggingControlService } from '../../shared/logging-control.service';
+import { LoggingControlService } from '../../shared/logging/logging-control.service';
 import { ExportService } from '../../shared/services/export/export.service';
 import {  GetLinkService } from '../../shared/services/get-link/get-link.service';
 
@@ -41,6 +41,9 @@ export class SidenavContentComponent implements OnInit {
   shareUrlFieldDisabled: boolean;
   private baseUrl: string;
   shareUrl = '';
+  isLoggingEnabled =  true;
+  clipboardMsg = 'Copy to clipboard failed!';
+  tooltipOptions = {'showDelay' : 1000, 'hideDelay': 1000};
 
   constructor(
     private saveProjectService: SaveProjectService,
@@ -53,7 +56,8 @@ export class SidenavContentComponent implements OnInit {
     private router: Router,
     private clipboardService: ClipboardService
   ) {
-      loggingControlService.disableLogging();
+      loggingControlService.enableLogging();
+      this.isLoggingEnabled = loggingControlService.isLoggingEnabled();
       this.shareUrlFieldDisabled = true;
       this.store.pipe(select(sidenavStore.getLoadedProjectSelector))
         .subscribe((project: Project) => {
@@ -96,14 +100,14 @@ export class SidenavContentComponent implements OnInit {
   }
 
 
-  getProject(filename: string, fileExtension: NewProjectExtensionType | LoadProjectExtensionType, event: any ) {
-    this.store.dispatch(new sidenavStore.LoadProjectStarted({ loadingProject: true, filename: filename, fileExtension: fileExtension }));
+  getProject(fileName: string, fileExtension: NewProjectExtensionType | LoadProjectExtensionType, event: any ) {
+    this.store.dispatch(new sidenavStore.LoadProjectStarted({ loadingProject: true, fileName: fileName, fileExtension: fileExtension }));
 
     this.loadProjectService.loadFile(fileExtension, event.srcElement.files[0])
       .subscribe((project) => {
       if (project) { // success
         this.store.dispatch(new sidenavStore.LoadProjectCompleted(
-          { loadingProject: false, incomingDataFile: filename, incomingDataFileType: fileExtension, project: project }
+          { loadingProject: false, fileName: fileName, fileExtension: fileExtension, project: project }
         ));
       } else { // failure
           this.store.dispatch(new sidenavStore.LoadProjectError(
@@ -124,7 +128,7 @@ export class SidenavContentComponent implements OnInit {
         this.loadProjectService.loadFromProjectJson(json).subscribe((project) => {
           this.removeShareUrlFromAddress();
           this.store.dispatch(new sidenavStore.LoadShareUrlCompleted(
-            { loadingShareUrl: false, project: project }
+            { loadingShareUrl: false, project: project, shareUrl: this.baseUrl + '?share=' + id, loadingComplete: true }
           ));
         }, err => {
           this.store.dispatch(new sidenavStore.LoadShareUrlError(
@@ -199,7 +203,7 @@ export class SidenavContentComponent implements OnInit {
                     this.shareUrlFieldDisabled = false;
                     /* dispatch an action stating create url has completed */
                     this.store.dispatch(new sidenavStore.CreateShareUrlCompleted({
-                      shareUrl: null,
+                      shareUrl: this.shareUrl,
                       creatingShareUrl: false,
                       project: prj
                     }));
@@ -246,6 +250,7 @@ export class SidenavContentComponent implements OnInit {
 
   toggleLogging() {
     this.loggingControlService.toggleLogging();
+    this.isLoggingEnabled = this.loggingControlService.isLoggingEnabled();
   }
 
 
@@ -260,10 +265,12 @@ copyToClipboard(text: string) {
       errorObj = error;
     }
     if (isCopySuccessfull) {
+      this.clipboardMsg = 'Copied to clipboard!';
       this.store.dispatch(new sidenavStore.CopyToClipboardSuccess({
         content: text
       }) );
     } else {
+      this.clipboardMsg = 'Copy to clipboard failed!';
       this.store.dispatch(new sidenavStore.CopyToClipboardError({
         errorOccurred: true,
         content: text,
