@@ -39,7 +39,7 @@ export const INITIAL_SIDENAV_STATE: SidenavState = {
   snapshotFile: '',
   snapshotFileType: '',
 
-  loadingShareUrl: false,
+  loadingShareUrl: true,
   creatingShareUrl: false,
   shareUrl: '',
 

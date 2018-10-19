@@ -33,6 +33,7 @@ export interface ExportSnapshotCompletedPayload {
 export interface LoadShareUrlCompletedPayload {
   loadingShareUrl: boolean;
   project: Project;
+  shareUrl: string;
 }
 
 export interface CreateShareUrlCompletedPayload {
