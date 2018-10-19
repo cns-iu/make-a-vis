@@ -57,6 +57,7 @@ export class ExportService {
   exportToPdf() {
     this.store.dispatch(new ExportSnapshotStarted(true));
     this.pdfOptions.useCSS = true;
+    this.pdfOptions.preserveAspectRatio = 'xMinYMin';
     this.exportToPdfService.getSnapShot(
       this.getVisualizationElement(),
       'visualisation.pdf',
