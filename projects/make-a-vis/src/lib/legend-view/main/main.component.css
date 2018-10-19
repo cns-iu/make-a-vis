@@ -16,7 +16,6 @@
   display: flex;
   justify-content: center;
   height: 1.5rem;
-  width: 500px;
 }
 
 .legend-type .title {
@@ -36,6 +35,5 @@
 
 .legend-type-body {
   display: flex;
-  border: 1px dotted;
-  height: 6rem;
+  height: 11rem;
 }

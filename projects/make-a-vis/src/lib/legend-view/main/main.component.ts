@@ -18,7 +18,7 @@ export class MainComponent {
   streams: RecordStream[];
   groups: Group[] = [];
 
-  private visualization: Visualization;
+  visualization: Visualization;
 
   private lastActiveVisualization: number;
   private lastProject: Project;

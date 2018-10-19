@@ -11,6 +11,7 @@ import { DragDropModule } from '../drag-drop/drag-drop.module';
 // Components
 import { MainComponent } from './main/main.component';
 import { DataVariableDropzoneComponent } from './data-variable-dropzone/data-variable-dropzone.component';
+import { GraphicVariableLegendComponent } from './graphic-variable-legend/graphic-variable-legend.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,7 @@ import { DataVariableDropzoneComponent } from './data-variable-dropzone/data-var
     MatFormFieldModule,
     MatSelectModule
   ],
-  declarations: [MainComponent, DataVariableDropzoneComponent],
+  declarations: [MainComponent, DataVariableDropzoneComponent, GraphicVariableLegendComponent],
   exports: [MainComponent, DataVariableDropzoneComponent]
 })
 export class LegendViewModule { }
