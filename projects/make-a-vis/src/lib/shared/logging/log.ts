@@ -26,7 +26,12 @@ startingActions: any = values(pick(SidenavActionTypes, [
   'LoadShareUrlStarted',
 
   'CreateShareUrlCompleted',
-  'CopyToClipboardSuccess'
+  'CopyToClipboardSuccess',
+
+  'SetRecordStream',
+  'AddNewVisualization',
+  'RemoveVisualization',
+  'SetActiveVisualization'
 ]));
 
 
