@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { GraphicVariableOption, Visualization, GraphicSymbolOption, ProjectSerializerService, DvlFwVisualizationComponent, GraphicVariable } from 'dvl-fw';
+import { GraphicVariableOption, Visualization, GraphicSymbolOption,
+  ProjectSerializerService, DvlFwVisualizationComponent, GraphicVariable } from 'dvl-fw';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import { uniqueId } from 'lodash';
 import { SidenavState, getLoadedProjectSelector } from '../../toolbar/shared/store';
@@ -17,6 +18,7 @@ export class GraphicVariableLegendComponent implements OnInit, OnChanges {
   @Input() visualization: Visualization;
 
   graphicVariable: GraphicVariable;
+  legendVisualizationTypes = []; // ['color', 'edge-size', 'node-size'];
 
   @ViewChild('visualization') legendComponent: DvlFwVisualizationComponent;
 
@@ -41,19 +43,27 @@ export class GraphicVariableLegendComponent implements OnInit, OnChanges {
     const graphicVariable = graphicSymbol.graphicVariables[this.graphicVariableOption.id || this.graphicVariableOption.type];
     this.graphicVariable = graphicVariable;
 
-    const preData: Partial<Visualization> = {
-      id: `visualization-${uniqueId()}`,
-      template: this.graphicVariableOption.visualization,
-      properties: {},
-      graphicSymbols: {}
-    };
-    // this.store.pipe(
-    //   select(getLoadedProjectSelector),
-    //   mergeMap(project => this.serializer.createVisualization(
-    //     this.graphicVariableOption.visualization, preData, project))
-    // ).subscribe(legend => {
-    //   this.legendComponent.data = legend;
-    //   this.legendComponent.runDataChangeDetection();
-    // });
+    const template = this.graphicVariableOption.visualization;
+    if (this.legendVisualizationTypes.indexOf(template) !== -1) {
+      const preData: any = {
+        id: `legend-visualization-${uniqueId()}`,
+        template,
+        properties: {},
+        graphicSymbols: {
+          items: graphicSymbol.id
+        }
+      };
+      this.store.pipe(
+        select(getLoadedProjectSelector),
+        mergeMap(project => this.serializer.createVisualization(
+          this.graphicVariableOption.visualization, preData, project))
+      ).subscribe(legend => {
+        this.legendComponent.data = legend;
+        this.legendComponent.runDataChangeDetection();
+      });
+    } else if (this.legendComponent) {
+      this.legendComponent.data = null;
+      this.legendComponent.runDataChangeDetection();
+    }
   }
 }

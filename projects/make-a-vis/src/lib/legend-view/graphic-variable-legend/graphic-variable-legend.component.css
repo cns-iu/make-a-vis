@@ -1,7 +1,7 @@
 .graphic-variable-legend {
   padding: 0 2.5rem 0 2.5rem;
   min-width: 9rem;
-  height: 100%;
+  min-height: 6rem;
 
   border-left: 1px solid #f5f5f5;
   border-right: 1px solid #f5f5f5;
