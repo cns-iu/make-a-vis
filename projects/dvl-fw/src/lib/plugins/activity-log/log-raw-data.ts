@@ -30,6 +30,10 @@ export class ActivityLogRawData implements RawData {
         {key: 'fileExtension', type: 'string'},
         {key: 'createdUrl', type: 'string'},
         {key: 'copiedUrl', type: 'string'},
+        {key: 'visualizationId', type: 'string'},
+        {key: 'slot', type: 'string'},
+        {key: 'graphicSymbolId', type: 'string'},
+        {key: 'visualizationNumber', type: 'string'},
         {key: 'date', type: 'string'}
       ]).actions([{
           name: 'add_new_log',
@@ -57,7 +61,11 @@ export class ActivityLogRawData implements RawData {
       fileName: get(msg, 'logData.data.payload.fileName'),
       fileExtension: get(msg, 'logData.data.payload.fileExtension'),
       createdUrl: get(msg, 'logData.data.payload.shareUrl'),
-      copiedUrl: get(msg, 'logData.data.payload.content'),
+      copiedUrl: get(msg, 'ng logData.data.payload.content'),
+      visualizationId: get(msg, 'logData.data.payload.id'),
+      graphicSymbolId: get(msg, 'logData.data.payload.symbol.recordStream.id'),
+      slot: get(msg, 'logData.data.payload.slot'),
+      visualizationNumber: get(msg, 'logData.data.payload'),
       date : new Date().toLocaleString()
       }
     });
