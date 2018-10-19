@@ -4,7 +4,7 @@ import { Project } from '../../shared/project';
 
 import { nSQL, NanoSQLInstance } from 'nano-sql';
 import { CategoryLogMessage } from 'typescript-logging';
-import {  get, isNumber } from 'lodash';
+import {  get } from 'lodash';
 
 export class ActivityLogRawData implements RawData {
   private static db: NanoSQLInstance | Promise<NanoSQLInstance> = null;
@@ -16,9 +16,8 @@ export class ActivityLogRawData implements RawData {
   }
 
   async setupDB(data: any): Promise<NanoSQLInstance> {
-    let db: NanoSQLInstance = null;
     if (ActivityLogRawData.db) {
-      db = (await ActivityLogRawData.db);
+      const db = (await ActivityLogRawData.db);
       await db.query('drop').exec();
     }
 
@@ -49,11 +48,11 @@ export class ActivityLogRawData implements RawData {
     if (data && data.activityLog) {
       await nSQL('activitylog').loadJS('activitylog', data.activityLog);
     }
-    ActivityLogRawData.db = nSQL('activitylog');
-    return db;
+    return ActivityLogRawData.db = nSQL('activitylog');
   }
 
   public async logActivity(msg: CategoryLogMessage): Promise<void> {
+    console.log(msg);
     (await ActivityLogRawData.db).doAction('add_new_log', {
       activitylog: {
       id: null,
