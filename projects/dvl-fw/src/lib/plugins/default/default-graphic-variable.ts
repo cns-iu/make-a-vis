@@ -53,7 +53,7 @@ export class DefaultGraphicVariableMapping {
                 gvData.id = type;
               }
               variables.push(new DefaultGraphicVariable({
-                id: gvData.id, label: gvData.label || gvData.id, type, selector: gvData.selector,
+                id: gvData.id, label: gvData.label || dataVariable.label || gvData.id, type, selector: gvData.selector,
                 recordStream, recordSet, dataVariable
               }));
             }

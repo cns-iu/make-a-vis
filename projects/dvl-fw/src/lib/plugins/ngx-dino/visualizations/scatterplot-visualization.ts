@@ -12,8 +12,8 @@ export class ScatterplotVisualization extends DefaultVisualization {
     id: 'points', label: 'Points', type: 'area',
     graphicVariableOptions: [
       { type: 'identifier', label: 'Identifier', visualization: 'none' },
-      { type: 'axis', label: 'Axis', visualization: 'none', id: 'x' },
-      { type: 'axis', label: 'Axis', visualization: 'none', id: 'y' },
+      { type: 'axis', label: 'X-Axis', visualization: 'none', id: 'x' },
+      { type: 'axis', label: 'Y-Axis', visualization: 'none', id: 'y' },
       { type: 'areaSize', label: 'Area Size', visualization: 'nodeSize' },
       { type: 'shape', label: 'Shape' , visualization: 'nodeSize' },
       { type: 'color', label: 'Color', visualization: 'color' },

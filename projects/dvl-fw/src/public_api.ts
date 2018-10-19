@@ -28,3 +28,6 @@ export * from './lib/plugins/default/default-record-set';
 export * from './lib/plugins/default/default-record-stream';
 export * from './lib/plugins/default/default-visualization';
 export * from './lib/plugins/activity-log/log-raw-data';
+
+// Components
+export * from './lib/visualization/visualization.component';
