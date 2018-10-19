@@ -1,46 +1,45 @@
-import {
-  Component,
-  OnInit,
-  Input, Output,
-  HostListener,
-  EventEmitter
-} from '@angular/core';
-
+import { Component, EventEmitter, HostListener, Input, Output} from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { DataVariable, GraphicVariableOption, GraphicVariable, RecordStream } from 'dvl-fw';
+import { ApplicationState, getLoadedProject } from '../../shared/store';
+import { DragDropEvent } from '../../drag-drop';
 import { DataVariableHoverService } from '../../shared/services/hover/data-variable-hover.service';
-
-import { DataVariable, GraphicSymbolOption, RecordStream, Project, GraphicVariable } from 'dvl-fw';
 
 @Component({
   selector: 'mav-data-variable-dropzone',
   templateUrl: './data-variable-dropzone.component.html',
   styleUrls: ['./data-variable-dropzone.component.css']
 })
-export class DataVariableDropzoneComponent implements OnInit {
+export class DataVariableDropzoneComponent {
+  @Input() recordStream: RecordStream;
+  @Input() graphicVariableOption: GraphicVariableOption;
+  @Output() graphicVariableChange: Observable<GraphicVariable>;
+
   selectionClass = '';
 
-  @Input() graphicSymbolOption: GraphicSymbolOption;
-  @Input() availableGraphicVariables: GraphicVariable[];
+  private availableGraphicVariables: GraphicVariable[] = [];
+  private _graphicVariableChange = new EventEmitter<GraphicVariable>();
 
-  @Input() recordStream: RecordStream;
-  @Input() selectedDataVariable: DataVariable;
-  @Output() selectedDataVariableChange = new EventEmitter<DataVariable>();
+  constructor(
+    store: Store<ApplicationState>,
+    private hoverService: DataVariableHoverService
+  ) {
+    this.graphicVariableChange = this._graphicVariableChange.asObservable();
 
-  @Input() graphicVariable: GraphicVariable;
-  @Output() graphicVariableChange = new EventEmitter<GraphicVariable>();
-
-  constructor(private hoverService: DataVariableHoverService) { }
-
-  ngOnInit() { }
-
-  dataVariableDropped(selectedDataVariable: DataVariable) {
-    this.selectedDataVariable = selectedDataVariable;
-    this.selectedDataVariableChange.emit(this.selectedDataVariable);
-
-    this.graphicVariable = this.mappableGraphicVariables(selectedDataVariable)[0];
-    this.graphicVariableChange.emit(this.graphicVariable);
+    store.pipe(
+      select(getLoadedProject),
+      map(project => project && project.graphicVariables || [])
+    ).subscribe(gvs => this.availableGraphicVariables = gvs);
   }
 
-  onDragDropEvent(event: any) {
+  dataVariableDropped(selectedDataVariable: DataVariable) {
+    const gvs = this.mappableGraphicVariables(selectedDataVariable);
+    this._graphicVariableChange.emit(gvs[0]);
+  }
+
+  onDragDropEvent(event: DragDropEvent) {
     if (event.type === 'drag-start') {
       this.selectionClass = event.accepted ? 'selectable' : 'unselectable'; // 'rgba(0,255,0,0.1)' : 'rgba(255,0,0,0.1)';
     } else if (event.type === 'drag-end') {
@@ -50,7 +49,7 @@ export class DataVariableDropzoneComponent implements OnInit {
 
   @HostListener('mouseover', [])
   onMouseOver() {
-    this.hoverService.startHover([this.graphicSymbolOption.type]);
+    this.hoverService.startHover([this.graphicVariableOption.type]);
   }
 
   @HostListener('mouseout', [])
@@ -62,7 +61,7 @@ export class DataVariableDropzoneComponent implements OnInit {
     return this.availableGraphicVariables.filter(gv =>
       gv.recordStream === this.recordStream
       && gv.dataVariable === dataVariable
-      && gv.type === this.graphicSymbolOption.type
+      && gv.type === this.graphicVariableOption.type
     );
   }
 
