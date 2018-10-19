@@ -34,6 +34,7 @@ export interface LoadShareUrlCompletedPayload {
   loadingShareUrl: boolean;
   project: Project;
   shareUrl: string;
+  loadingComplete: boolean;
 }
 
 export interface CreateShareUrlCompletedPayload {

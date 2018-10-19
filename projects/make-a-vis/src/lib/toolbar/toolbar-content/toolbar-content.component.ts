@@ -16,7 +16,7 @@ export class ToolbarContentComponent implements OnInit {
     * a share URL.
     */
     store.pipe(select(getLoadingShareUrlCompletedSelector)).subscribe((loaded) => {
-      if (!loaded) {
+      if (loaded) {
         this.isSidenavOpen = false;
         }
     });
