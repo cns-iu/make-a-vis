@@ -29,10 +29,10 @@ const nodesFieldNameMapping = createFieldNameMapping([], {
   styleUrls: ['./node-size.component.css']
 })
 export class NodeSizeComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
-  readonly defaultProperties = {
+  readonly defaultProperties: Properties = {
     title: '', encoding: '', nodeSizeRange: [5, 15], margin: ''
   };
-  readonly defaultFieldGroups = {
+  readonly defaultFieldGroups: FieldGroups = {
     items: createDefaultFieldGroup(['nodeIdField', 'nodeSizeField'])
   };
   fieldNameFor(key: string, group: string): string {

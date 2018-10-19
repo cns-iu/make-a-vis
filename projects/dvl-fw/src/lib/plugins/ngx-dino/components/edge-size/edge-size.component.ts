@@ -29,10 +29,10 @@ const edgesFieldNameMapping = createFieldNameMapping([], {
   styleUrls: ['./edge-size.component.css']
 })
 export class EdgeSizeComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
-  readonly defaultProperties = {
+  readonly defaultProperties: Properties = {
     title: '', encoding: '', edgeSizeRange: [5, 15], margin: ''
   };
-  readonly defaultFieldGroups = {
+  readonly defaultFieldGroups: FieldGroups = {
     items: createDefaultFieldGroup(['edgeIdField', 'edgeSizeField'])
   };
   fieldNameFor(key: string, group: string): string {
