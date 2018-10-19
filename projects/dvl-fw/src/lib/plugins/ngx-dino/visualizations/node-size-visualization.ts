@@ -8,16 +8,13 @@ export class NodeSizeVisualization extends DefaultVisualization {
   readonly component = NodeSizeComponent;
   readonly graphicSymbolOptions = [
     {
-      id: 'nodes', label: 'Nodes', type: 'area',
+      id: 'items', label: 'Items', type: 'area',
       graphicVariableOptions: [
         { type: 'identifier', label: 'Identifier', visualization: 'none' },
-        { type: 'position', label: 'Position', visualization: 'none' },
-        { type: 'areaSize', label: 'Area Size', visualization: 'node-size'},
-        { type: 'shape', label: 'Shape', visualization: 'node-size' },
+        { type: 'areaSize', label: 'Area Size', visualization: 'node-size'}
       ]
     }
   ];
-
 }
 
 export class NodeSizeVisualizationFactory implements ObjectFactory<Visualization, Project> {

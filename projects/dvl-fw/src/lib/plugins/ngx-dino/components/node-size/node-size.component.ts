@@ -15,7 +15,7 @@ export type NodeSizeFields = Pick<
 
 // tslint:disable-next-line:interface-over-type-literal
 export type FieldGroups = {
-  nodes: NodeSizeFields
+  items: NodeSizeFields
 };
 
 const nodesFieldNameMapping = createFieldNameMapping([], {
@@ -29,11 +29,11 @@ const nodesFieldNameMapping = createFieldNameMapping([], {
   styleUrls: ['./node-size.component.css']
 })
 export class NodeSizeComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
-  readonly defaultProperties: Properties = {
-    title: 'Node Size', encoding: 'Encoding', nodeSizeRange: [5, 15], margin: ''
+  readonly defaultProperties = {
+    title: '', encoding: '', nodeSizeRange: [5, 15], margin: ''
   };
-  readonly defaultFieldGroups: FieldGroups = {
-    nodes: createDefaultFieldGroup(['nodeIdField', 'nodeSizeField'])
+  readonly defaultFieldGroups = {
+    items: createDefaultFieldGroup(['nodeIdField', 'nodeSizeField'])
   };
   fieldNameFor(key: string, group: string): string {
     return nodesFieldNameMapping[key];

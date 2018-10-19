@@ -55,7 +55,7 @@ export class MainComponent {
       map(project => project && project.visualizations || []),
       map(visualizations => visualizations.map(vis => {
         const type = find(this.visTypes, { template: vis.template });
-        const label = type && type.label || '';
+        const label = type && type.label || vis.id || '';
         return { label, data: vis } as Vis;
       }))
     ).subscribe(visualizations => {
