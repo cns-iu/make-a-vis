@@ -176,7 +176,7 @@ export class SetActiveDataVariable implements Action {
 
 export class SetGraphicVariable implements Action {
   readonly type = SidenavActionTypes.SetGraphicVariable;
-  constructor(public payload: GraphicVariable) {
+  constructor(public payload: payloadTypes.SetGraphicVariablePayload) {
   }
 }
 

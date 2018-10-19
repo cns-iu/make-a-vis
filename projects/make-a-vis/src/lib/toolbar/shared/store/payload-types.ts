@@ -1,4 +1,4 @@
-import { GraphicSymbol, Project, Visualization } from 'dvl-fw';
+import { GraphicSymbol, GraphicVariable, Project, Visualization } from 'dvl-fw';
 
 export interface LoadProjectStartedPayload {
   loadingProject: boolean;
@@ -47,6 +47,13 @@ export interface SetRecordStreamPayload {
   visualization: Visualization;
   slot: string;
   symbol?: GraphicSymbol;
+}
+
+export interface SetGraphicVariablePayload {
+  visualization: Visualization;
+  slot: string;
+  id: string;
+  variable: GraphicVariable;
 }
 
 export interface CopyToClipboardSuccessPayload {
