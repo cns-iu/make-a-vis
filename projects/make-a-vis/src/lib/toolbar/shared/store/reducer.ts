@@ -140,6 +140,12 @@ export const getLoadingProjectCompletedSelector = createSelector<SidenavState, S
   getLoadingProjectCompleted
 );
 
+export const getLoadingShareUrlCompleted = (state: SidenavState): boolean => state.loadingShareUrl;
+export const getLoadingShareUrlCompletedSelector = createSelector<SidenavState, SidenavState, boolean>(
+  selectSelfFeature,
+  getLoadingShareUrlCompleted
+);
+
 
 export const getLoggingToggleState = (state: SidenavState): boolean => state.loggingEnabled;
 export const getLoggingToggleSelector = createSelector<SidenavState, SidenavState, boolean>(

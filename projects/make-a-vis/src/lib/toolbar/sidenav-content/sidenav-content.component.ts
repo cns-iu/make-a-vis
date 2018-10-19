@@ -128,7 +128,7 @@ export class SidenavContentComponent implements OnInit {
         this.loadProjectService.loadFromProjectJson(json).subscribe((project) => {
           this.removeShareUrlFromAddress();
           this.store.dispatch(new sidenavStore.LoadShareUrlCompleted(
-            { loadingShareUrl: false, project: project }
+            { loadingShareUrl: false, project: project, shareUrl : this.baseUrl + '?share=' + id }
           ));
         }, err => {
           this.store.dispatch(new sidenavStore.LoadShareUrlError(
