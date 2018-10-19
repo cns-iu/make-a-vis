@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { GraphicSymbolOption, Project, RecordStream, Visualization } from 'dvl-fw';
+import { GraphicSymbolOption, GraphicVariable, GraphicVariableOption, Project, RecordStream, Visualization } from 'dvl-fw';
 import { ApplicationState, getUiFeature } from '../../shared/store';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 
@@ -39,6 +39,14 @@ export class MainComponent {
     const { id, type } = group.option;
     if (visualization) {
       updateService.updateGraphicSymbol(visualization, id, type, streams[index]);
+    }
+  }
+
+  onGraphicVariableChange(group: Group, option: GraphicVariableOption, gv: GraphicVariable): void {
+    const  { updateService, visualization } = this;
+    const id = option.id || option.type;
+    if (visualization) {
+      updateService.updateGraphicVariable(visualization, group.option.id, id, gv);
     }
   }
 

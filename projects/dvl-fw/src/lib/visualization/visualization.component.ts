@@ -2,7 +2,7 @@ import {
   Component, ComponentFactoryResolver, ComponentRef,
   Input, OnInit, OnChanges, SimpleChange, SimpleChanges, Type, ViewContainerRef
 } from '@angular/core';
-import { forOwn, isFunction, some, stubTrue } from 'lodash';
+import { forOwn, isEmpty, isFunction } from 'lodash';
 import { GraphicSymbol } from '../shared/graphic-symbol';
 import { Visualization } from '../shared/visualization';
 import { VisualizationComponent } from '../shared/visualization-component';
@@ -128,10 +128,10 @@ export class DvlFwVisualizationComponent implements OnInit, OnChanges {
     this.applyDiff(currentData.properties, propDiff);
     this.applyDiff(currentData.graphicSymbols, symDiff);
 
-    if (some(propDiff, stubTrue)) {
+    if (!isEmpty(propDiff)) {
       this.callDvlLifecycleHook('dvlOnPropertyChange', propDiff);
     }
-    if (some(symDiff, stubTrue)) {
+    if (!isEmpty(symDiff)) {
       this.callDvlLifecycleHook('dvlOnGraphicSymbolChange', symDiff);
     }
   }
@@ -174,11 +174,9 @@ export class DvlFwVisualizationComponent implements OnInit, OnChanges {
     const { id: id2, type: type2, recordStream: rs2, graphicVariables: gv2 } = sym2;
     if (id1 !== id2 || type1 !== type2 || rs1 !== rs2) {
       return false;
-    } else if (gv1 === gv2) {
-      return true;
     } else {
       const diff = this.diff(gv1, gv2, (v1, v2) => v1 === v2);
-      return !some(diff, stubTrue);
+      return isEmpty(diff);
     }
   }
 

@@ -14,8 +14,8 @@
             </div>
         </div>
         <div class="legend-type-body">
-            <mav-data-variable-dropzone *ngFor="let gvOption of group.option.graphicVariableOptions" [graphicVariableOption]="gvOption" [recordStream]="streams[group.index]">
-                123
+            <mav-data-variable-dropzone *ngFor="let gvOption of group.option.graphicVariableOptions" [graphicVariableOption]="gvOption" [recordStream]="streams[group.index]" (graphicVariableChange)="onGraphicVariableChange(group, gvOption, $event)">
+                &nbsp;&nbsp;&nbsp;&nbsp;{{ gvOption.id || gvOption.type }}&nbsp;&nbsp;&nbsp;&nbsp;
             </mav-data-variable-dropzone>
         </div>
     </div>

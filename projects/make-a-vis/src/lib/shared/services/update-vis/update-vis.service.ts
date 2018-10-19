@@ -4,7 +4,7 @@ import { Observable, Subject } from 'rxjs';
 import { mapValues } from 'lodash';
 import { GraphicSymbol, GraphicVariable, RecordStream, Visualization } from 'dvl-fw';
 import { ApplicationState } from '../../store';
-import { SetRecordStream } from '../../../toolbar/shared/store';
+import { SetGraphicVariable, SetRecordStream } from '../../../toolbar/shared/store';
 
 class SimpleGraphicSymbol implements GraphicSymbol {
   constructor(
@@ -43,6 +43,11 @@ export class UpdateVisService {
   updateGraphicSymbol(visualization: Visualization, slot: string, type: string, stream?: RecordStream): void {
     const symbol = stream ? new SimpleGraphicSymbol(slot, type, stream) : undefined;
     this.store.dispatch(new SetRecordStream({ slot, symbol, visualization }));
+    this._update.next(visualization);
+  }
+
+  updateGraphicVariable(visualization: Visualization, slot: string, id: string, variable: GraphicVariable): void {
+    this.store.dispatch(new SetGraphicVariable({ id, slot, variable, visualization }));
     this._update.next(visualization);
   }
 }

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { BaseVisualizationComponent } from '../base-visualization-component';
-import { createDefaultFieldGroup, createFieldNameMapping } from '../utility';
 
 export type Properties = any;
 

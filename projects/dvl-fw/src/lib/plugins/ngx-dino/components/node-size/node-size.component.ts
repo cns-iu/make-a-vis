@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NodeSizeLegendComponent as NgxNodeSizeComponent } from '@ngx-dino/legend';
 import { BaseVisualizationComponent } from '../base-visualization-component';
 import { createDefaultFieldGroup, createFieldNameMapping } from '../utility';
-import { BoundField } from '@ngx-dino/core';
 
 export type Properties = Pick<
   NgxNodeSizeComponent,
@@ -30,10 +29,10 @@ const nodesFieldNameMapping = createFieldNameMapping([], {
   styleUrls: ['./node-size.component.css']
 })
 export class NodeSizeComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
-  readonly defaultProperties = {
+  readonly defaultProperties: Properties = {
     title: 'Node Size', encoding: 'Encoding', nodeSizeRange: [5, 15], margin: ''
   };
-  readonly defaultFieldGroups = {
+  readonly defaultFieldGroups: FieldGroups = {
     nodes: createDefaultFieldGroup(['nodeIdField', 'nodeSizeField'])
   };
   fieldNameFor(key: string, group: string): string {
