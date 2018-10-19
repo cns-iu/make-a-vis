@@ -43,7 +43,8 @@ export class SidenavContentComponent implements OnInit {
   shareUrl = '';
   isLoggingEnabled =  true;
   clipboardMsg = 'Copy to clipboard failed!';
-  tooltipOptions = {'showDelay' : 1000, 'hideDelay': 1000};
+  tooltipOptions = {'showDelay' : 100, 'hideDelay': 1000};
+  tooltipDisabled = false;
 
   constructor(
     private saveProjectService: SaveProjectService,
