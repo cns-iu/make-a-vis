@@ -52,7 +52,6 @@ export class ActivityLogRawData implements RawData {
   }
 
   public async logActivity(msg: CategoryLogMessage): Promise<void> {
-    console.log(msg);
     (await ActivityLogRawData.db).doAction('add_new_log', {
       activitylog: {
       id: null,
