@@ -4,7 +4,9 @@ import { GeomapVisualizationFactory } from './visualizations/geomap-visualizatio
 import { NetworkVisualizationFactory } from './visualizations/network-visualization';
 import { SciencemapVisualizationFactory } from './visualizations/sciencemap-visualization';
 import { TemporalBargraphVisualizationFactory } from './visualizations/temporal-bargraph-visualization';
-
+import { NodeSizeVisualizationFactory } from './visualizations/node-size-visualization';
+import { EdgeSizeVisualizationFactory } from './visualizations/edge-size-visualization';
+import { ColorVisualizationFactory } from './visualizations/color-visualization';
 
 export class NgxDinoPlugin implements ObjectFactoryPlugin {
   register(registry: ObjectFactoryRegistry) {
@@ -13,5 +15,8 @@ export class NgxDinoPlugin implements ObjectFactoryPlugin {
     registry.registerObjectFactory(new NetworkVisualizationFactory());
     registry.registerObjectFactory(new SciencemapVisualizationFactory());
     registry.registerObjectFactory(new TemporalBargraphVisualizationFactory());
+    registry.registerObjectFactory(new NodeSizeVisualizationFactory());
+    registry.registerObjectFactory(new EdgeSizeVisualizationFactory());
+    registry.registerObjectFactory(new ColorVisualizationFactory());
   }
 }
