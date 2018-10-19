@@ -42,6 +42,8 @@ export class SidenavContentComponent implements OnInit {
   private baseUrl: string;
   shareUrl = '';
   isLoggingEnabled =  true;
+  clipboardMsg = 'Copy to clipboard failed!';
+  tooltipOptions = {'showDelay' : 1000, 'hideDelay': 1000};
 
   constructor(
     private saveProjectService: SaveProjectService,
@@ -126,7 +128,7 @@ export class SidenavContentComponent implements OnInit {
         this.loadProjectService.loadFromProjectJson(json).subscribe((project) => {
           this.removeShareUrlFromAddress();
           this.store.dispatch(new sidenavStore.LoadShareUrlCompleted(
-            { loadingShareUrl: false, project: project }
+            { loadingShareUrl: false, project: project, shareUrl: this.baseUrl + '?share=' + id, loadingComplete: true }
           ));
         }, err => {
           this.store.dispatch(new sidenavStore.LoadShareUrlError(
@@ -263,10 +265,12 @@ copyToClipboard(text: string) {
       errorObj = error;
     }
     if (isCopySuccessfull) {
+      this.clipboardMsg = 'Copied to clipboard!';
       this.store.dispatch(new sidenavStore.CopyToClipboardSuccess({
         content: text
       }) );
     } else {
+      this.clipboardMsg = 'Copy to clipboard failed!';
       this.store.dispatch(new sidenavStore.CopyToClipboardError({
         errorOccurred: true,
         content: text,

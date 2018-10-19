@@ -11,12 +11,12 @@ export class ScatterplotVisualization extends DefaultVisualization {
   readonly graphicSymbolOptions = [{
     id: 'points', label: 'Points', type: 'area',
     graphicVariableOptions: [
-      { type: 'identifier', label: 'Identifier' },
-      { type: 'axis', label: 'Axis' },
-      { type: 'areaSize', label: 'Area Size' },
-      { type: 'shape', label: 'Shape' },
-      { type: 'color', label: 'Color' },
-      { type: 'strokeColor', label: 'strokeColor' }
+      { type: 'identifier', label: 'Identifier', visualization: 'none' },
+      { type: 'axis', label: 'Axis', visualization: 'none' },
+      { type: 'areaSize', label: 'Area Size', visualization: 'nodeSize' },
+      { type: 'shape', label: 'Shape' , visualization: 'nodeSize' },
+      { type: 'color', label: 'Color', visualization: 'color' },
+      { type: 'strokeColor', label: 'strokeColor', visualization: 'color' }
     ]
   }];
 }

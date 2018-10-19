@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
 // Material
@@ -15,6 +15,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 // Icons
 import { CnsLogoIconComponent } from './icons/cns-logo/cns-logo-icon.component';
@@ -44,6 +45,7 @@ import { ClipbrdLogoComponent } from './icons/clipboard/clipbrd-logo/clipbrd-log
 @NgModule({
   imports: [
     BrowserAnimationsModule,
+    NoopAnimationsModule,
     CommonModule,
     FormsModule,
     MatButtonModule,
@@ -58,7 +60,7 @@ import { ClipbrdLogoComponent } from './icons/clipboard/clipbrd-logo/clipbrd-log
     MatSlideToggleModule,
     MatToolbarModule,
     ClipboardModule,
-
+    MatTooltipModule,
     StoreModule.forFeature('ui', sidenavStateReducer)
   ],
   declarations: [

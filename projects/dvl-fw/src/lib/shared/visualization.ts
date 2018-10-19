@@ -3,8 +3,10 @@ import { VisualizationComponent } from './visualization-component';
 import { Type } from '@angular/core';
 
 export interface GraphicVariableOption {
+  id?: string;
   type: string;
   label: string;
+  visualization?: string; // TODO
 }
 
 export interface GraphicSymbolOption {

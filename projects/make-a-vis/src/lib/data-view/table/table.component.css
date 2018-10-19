@@ -1,70 +1,67 @@
 .header {
-  /* background: #757575;
-  color: #ffffff;
-  margin-left: 0;
-  margin-right: 0;
-  width: 100%;
-  height: 38px;
-  font-size: 1.15rem; */
-
-  background: #757575;
-  color: #fff;
-  margin-left: 0;
-  margin-right: 0;
-  width: 100%;
-  height: auto;
-  padding-left: 0.875rem;
-  padding-top: 0.625rem;
-  padding-right: 0.875rem;
-  padding-bottom: 0.625rem;
-  font-size: 1.15rem;
+    background-color: #546e7a;
+    color: #fff;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    height: auto;
+    padding-left: 0.875rem;
+    padding-top: 0.625rem;
+    padding-right: 0.875rem;
+    padding-bottom: 0.625rem;
+    font-size: 1.15rem;
 }
 
 .datatable {
-  height: 30vh;
-  padding: 0 0 2vh 0;
-  display: flex;
-  width: 100%;
+    height: 30vh;
+    padding: 0 0 2vh 0;
+    display: flex;
+    width: 100%;
 }
 
 .datatable .wrapper {
-  overflow-y: auto;
-  width: 100%;
+    overflow-y: auto;
+    width: 100%;
 }
 
 .datatable .table {
-  width: 100%;
-  overflow-y: auto;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.datatable ::ng-deep thead {
+    background-color: #cfd8dc;
 }
 
 .datatable .table tr:nth-child(even) {
-  background-color: #f5f5f5;
+    background-color: #eceff1;
 }
 
 .datatable .table .header-row {
-  height: 36px;
+    height: 36px;
 }
 
 .datatable .table .header-cell {
-  padding-left: 0.875rem;
-  padding-top: 0.625rem;
-  padding-right: 0.875rem;
-  padding-bottom: 0.625rem;
-  font-size: 1.15rem;
-  color: #000000;
-  font-weight: 700;
+    padding-left: 0.875rem;
+    padding-top: 0.625rem;
+    padding-right: 0.875rem;
+    padding-bottom: 0.625rem;
+    font-size: 1.15rem;
+    color: #000000;
+    font-weight: 700;
+    cursor: pointer;
 }
 
 .datatable .table .cell {
-  padding-left: 0.875rem;
-  padding-top: 0.625rem;
-  padding-right: 0.875rem;
-  padding-bottom: 0.625rem;
-  vertical-align: middle;
-  height: auto;
-  font-size: 1rem;
+    padding-left: 0.875rem;
+    padding-top: 0.625rem;
+    padding-right: 0.875rem;
+    padding-bottom: 0.625rem;
+    vertical-align: middle;
+    height: auto;
+    font-size: 1rem;
 }
 
 .datatable .table .row {
-  height: 30px;
+    height: 30px;
 }

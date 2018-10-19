@@ -55,6 +55,7 @@
           <mat-button-toggle value="svg" class="button-toggle">SVG</mat-button-toggle>
           <mat-button-toggle value="pdf" class="button-toggle">PDF</mat-button-toggle>
         </mat-button-toggle-group>
+        <br>
         <button [disabled]="!exportService.visualizationElement" mat-stroked-button isRoundButton (click)="exportSnapshot()" class="button">Export</button>
       </p>
     </mat-expansion-panel>
@@ -72,10 +73,10 @@
       <div class="expansion-content">
         <div class="shareFormContent">
         <mat-form-field  [color]="'mav-primary'" appearance="outline" class="field"> 
-          <input matInput placeholder="" readonly class="input" [disabled]="shareUrlFieldDisabled" (click) = "selectTextFromElement($event.target)" [value]="shareUrl" #clipboardTarget >
+          <input matInput placeholder="" [matTooltipDisabled]= "" [matTooltipShowDelay]="tooltipOptions.showDelay" [matTooltipHideDelay]="tooltipOptions.hideDelay" [matTooltip]="clipboardMsg" readonly class="input" [disabled]="shareUrlFieldDisabled" (click) = "selectTextFromElement($event.target);copyToClipboard(shareUrl)" [value]="shareUrl" #clipboardTarget="matTooltip" >
          
         </mat-form-field>
-        <button  class = "clpbrdBtn"  (click)="copyToClipboard(shareUrl)" ><mav-clipbrd-logo></mav-clipbrd-logo></button>
+        <button  class="clpbrdBtn" (click)="copyToClipboard(shareUrl);clipboardTarget.show()" ><mav-clipbrd-logo ></mav-clipbrd-logo></button>
         </div>
         <button mat-stroked-button class="button" (click)="getUrlLink()" >Get Link</button>
         
