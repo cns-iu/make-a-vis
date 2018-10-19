@@ -87,15 +87,19 @@ implements VisualizationComponent, OnInit, OnChanges, OnPropertyChange, OnGraphi
 
         if (!currentValue) {
           this.reset([key], Selector.Stream | Selector.Fields); // tslint:disable-line:no-bitwise
-        } else if (!previousValue || currentStream !== previousStream) {
+        }
+
+        const changed = this.applyChanges<GraphicVariable, BoundField<any>>(
+          graphicVariables, newFields[key], this.defaultFieldGroups[key],
+          k => this.fieldNameFor(k, key), v => v.asBoundField(), (v1, v2) => v1.equals(v2)
+        );
+
+        if (currentValue && (!previousValue || currentStream !== previousStream || changed)) {
           newStreams[key] = currentStream ? currentStream.asObservable() : emptyStream;
           streamsChanged = true;
         }
 
-        fieldsChanged = this.applyChanges<GraphicVariable, BoundField<any>>(
-          graphicVariables, newFields[key], this.defaultFieldGroups[key],
-          k => this.fieldNameFor(k, key), v => v.asBoundField(), (v1, v2) => v1.equals(v2)
-        ) || fieldsChanged;
+        fieldsChanged = fieldsChanged || changed;
       }
     });
 
