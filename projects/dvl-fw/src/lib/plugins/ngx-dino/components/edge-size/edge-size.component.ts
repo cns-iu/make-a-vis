@@ -16,11 +16,11 @@ export type EdgeSizeFields = Pick<
 
 // tslint:disable-next-line:interface-over-type-literal
 export type FieldGroups = {
-  edges: EdgeSizeFields
+  items: EdgeSizeFields
 };
 
 const edgesFieldNameMapping = createFieldNameMapping([], {
-  'identifier': 'edgeIdField', 'areaSize': 'edgeSizeField'
+  'identifier': 'edgeIdField', 'strokeWidth': 'edgeSizeField'
 });
 
 
@@ -31,10 +31,10 @@ const edgesFieldNameMapping = createFieldNameMapping([], {
 })
 export class EdgeSizeComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
   readonly defaultProperties = {
-    title: 'Edge Size', encoding: 'Encoding', edgeSizeRange: [5, 15], margin: ''
+    title: '', encoding: '', edgeSizeRange: [5, 15], margin: ''
   };
   readonly defaultFieldGroups = {
-    edges: createDefaultFieldGroup(['edgeIdField', 'edgeSizeField'])
+    items: createDefaultFieldGroup(['edgeIdField', 'edgeSizeField'])
   };
   fieldNameFor(key: string, group: string): string {
     return edgesFieldNameMapping[key];

@@ -1,10 +1,20 @@
-<!-- <node-size-legend 
-  [dataStream]="streams.nodes" 
-  [nodeIdField]="fieldGroups.nodes.nodeIdField"
-  [nodeSizeField]="fieldGroups.nodes.nodeSizeField"
+<dino-color-legend 
+  [dataStream]="streams.items" 
+  [colorField]="fieldGroups.items.colorField"
+  [categoryField]="fieldGroups.items.categoryField"
+  [idField]="fieldGroups.items.idField"
+  [legendType]="'qualitative'"
+  [title]="properties.title"
+  [encoding]="properties.encoding">
+</dino-color-legend>
+
+<!-- <dino-edge-size-legend 
+  [dataStream]="streams.edges" 
+  [edgeIdField]="fieldGroups.edges.edgeIdField"
+  [edgeSizeField]="fieldGroups.edges.edgeSizeField"
 
   [title]="properties.title"
   [encoding]="properties.encoding"
-  [nodeSizeRange]="properties.nodeSizeRange"
+  [edgeSizeRange]="properties.edgeSizeRange"
   [margin]="properties.margin">
-</node-size-legend> -->
+</dino-edge-size-legend> -->

@@ -23,7 +23,7 @@ const colorFieldNameMapping = createFieldNameMapping([
   'color'
 ], {
   'identifier': 'idField',
-  'text': 'categoryField'
+  'label': 'categoryField'
 });
 
 
@@ -34,7 +34,7 @@ const colorFieldNameMapping = createFieldNameMapping([
 })
 export class ColorComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
   readonly defaultProperties = {
-    colorMapping: [], legendType: '', title: 'Color', encoding: 'Encoding', colorRange: '', margin: ''
+    colorMapping: [], legendType: '', title: '', encoding: '', colorRange: '', margin: ''
   };
   readonly defaultFieldGroups = {
     items: createDefaultFieldGroup(['colorField', 'idField', 'categoryField'])
