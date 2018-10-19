@@ -13,7 +13,7 @@ import { DataVariable, GraphicSymbolOption, RecordStream, Project, GraphicVariab
 @Component({
   selector: 'mav-data-variable-dropzone',
   templateUrl: './data-variable-dropzone.component.html',
-  styleUrls: ['./data-variable-dropzone.component.sass']
+  styleUrls: ['./data-variable-dropzone.component.css']
 })
 export class DataVariableDropzoneComponent implements OnInit {
   selectionClass = '';

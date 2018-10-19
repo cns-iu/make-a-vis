@@ -55,6 +55,7 @@
           <mat-button-toggle value="svg" class="button-toggle">SVG</mat-button-toggle>
           <mat-button-toggle value="pdf" class="button-toggle">PDF</mat-button-toggle>
         </mat-button-toggle-group>
+        <br>
         <button [disabled]="!exportService.visualizationElement" mat-stroked-button isRoundButton (click)="exportSnapshot()" class="button">Export</button>
       </p>
     </mat-expansion-panel>
@@ -89,7 +90,7 @@
       <mav-logging-icon class="icon"></mav-logging-icon>
       <span>Logging</span>
     </div>
-    <mat-slide-toggle class="toggle" (change)="toggleLogging()"></mat-slide-toggle>
+    <mat-slide-toggle class="toggle" [checked]="isLoggingEnabled" (change)="toggleLogging()"></mat-slide-toggle>
   </div>
   <mat-divider></mat-divider>
 </div>
