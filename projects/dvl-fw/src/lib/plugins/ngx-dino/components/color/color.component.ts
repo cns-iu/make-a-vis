@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ColorLegendComponent as NgxColorComponent } from '@ngx-dino/legend';
 import { BaseVisualizationComponent } from '../base-visualization-component';
 import { createDefaultFieldGroup, createFieldNameMapping } from '../utility';
-import { BoundField } from '@ngx-dino/core';
 
 export type Properties = Pick<
   NgxColorComponent,
@@ -23,7 +22,7 @@ const colorFieldNameMapping = createFieldNameMapping([
   'color'
 ], {
   'identifier': 'idField',
-  'text': 'categoryField'
+  'label': 'categoryField'
 });
 
 
@@ -33,10 +32,10 @@ const colorFieldNameMapping = createFieldNameMapping([
   styleUrls: ['./color.component.css']
 })
 export class ColorComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
-  readonly defaultProperties = {
-    colorMapping: [], legendType: '', title: 'Color', encoding: 'Encoding', colorRange: '', margin: ''
+  readonly defaultProperties: Properties = {
+    colorMapping: [], legendType: '', title: '', encoding: '', colorRange: '', margin: ''
   };
-  readonly defaultFieldGroups = {
+  readonly defaultFieldGroups: FieldGroups = {
     items: createDefaultFieldGroup(['colorField', 'idField', 'categoryField'])
   };
   fieldNameFor(key: string, group: string): string {

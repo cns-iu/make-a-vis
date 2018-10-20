@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { EdgeSizeLegendComponent as NgxEdgeSizeComponent } from '@ngx-dino/legend';
 import { BaseVisualizationComponent } from '../base-visualization-component';
 import { createDefaultFieldGroup, createFieldNameMapping } from '../utility';
-import { BoundField } from '@ngx-dino/core';
 
 export type Properties = Pick<
   NgxEdgeSizeComponent,
@@ -16,11 +15,11 @@ export type EdgeSizeFields = Pick<
 
 // tslint:disable-next-line:interface-over-type-literal
 export type FieldGroups = {
-  edges: EdgeSizeFields
+  items: EdgeSizeFields
 };
 
 const edgesFieldNameMapping = createFieldNameMapping([], {
-  'identifier': 'edgeIdField', 'areaSize': 'edgeSizeField'
+  'identifier': 'edgeIdField', 'strokeWidth': 'edgeSizeField'
 });
 
 
@@ -30,11 +29,11 @@ const edgesFieldNameMapping = createFieldNameMapping([], {
   styleUrls: ['./edge-size.component.css']
 })
 export class EdgeSizeComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
-  readonly defaultProperties = {
-    title: 'Edge Size', encoding: 'Encoding', edgeSizeRange: [5, 15], margin: ''
+  readonly defaultProperties: Properties = {
+    title: '', encoding: '', edgeSizeRange: [5, 15], margin: ''
   };
-  readonly defaultFieldGroups = {
-    edges: createDefaultFieldGroup(['edgeIdField', 'edgeSizeField'])
+  readonly defaultFieldGroups: FieldGroups = {
+    items: createDefaultFieldGroup(['edgeIdField', 'edgeSizeField'])
   };
   fieldNameFor(key: string, group: string): string {
     return edgesFieldNameMapping[key];

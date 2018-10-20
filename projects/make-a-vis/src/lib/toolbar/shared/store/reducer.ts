@@ -117,8 +117,12 @@ export function sidenavStateReducer (
       // case SidenavActionTypes.SetGraphicSymbolRecordSet:
       //   return newState;
 
-      // case SidenavActionTypes.SetGraphicVariable:
-      //   return newState;
+      case SidenavActionTypes.SetGraphicVariable:
+        if (state.project) {
+          const { id, slot, variable, visualization } = action.payload;
+          visualization.graphicSymbols[slot].graphicVariables[id] = variable;
+        }
+        return newState;
 
       default:
         return state;

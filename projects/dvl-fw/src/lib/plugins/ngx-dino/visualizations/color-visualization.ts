@@ -8,11 +8,10 @@ export class ColorVisualization extends DefaultVisualization {
   readonly component = ColorComponent;
   readonly graphicSymbolOptions = [
     {
-      id: 'nodes', label: 'Nodes', type: 'area',
+      id: 'items', label: 'Items', type: 'area',
       graphicVariableOptions: [
-        { type: 'identifier', label: 'Identifier', visualization: 'none' },
-        { type: 'position', label: 'Position', visualization: 'none' },
-        { type: 'areaSize', label: 'Area Size', visualization: 'color'},
+        { type: 'identifier', label: 'Identifier' },
+        { type: 'label', label: 'Label' },
         { type: 'color', label: 'Color', visualization: 'color' }
       ]
     }

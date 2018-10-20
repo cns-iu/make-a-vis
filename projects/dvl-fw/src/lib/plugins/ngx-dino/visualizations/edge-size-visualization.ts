@@ -8,10 +8,9 @@ export class EdgeSizeVisualization extends DefaultVisualization {
   readonly component = EdgeSizeComponent;
   readonly graphicSymbolOptions = [
     {
-      id: 'edges', label: 'Edges', type: 'line',
+      id: 'items', label: 'Items', type: 'line',
       graphicVariableOptions: [
-        { type: 'identifier', label: 'Identifier', visualization: 'none' },
-        { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
+        { type: 'identifier', label: 'Identifier' },
         { type: 'strokeWidth', label: 'Stroke Width', visualization: 'edge-size' }
       ]
     }

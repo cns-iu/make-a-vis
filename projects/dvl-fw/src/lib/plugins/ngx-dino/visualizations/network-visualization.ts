@@ -10,21 +10,21 @@ export class NetworkVisualization extends DefaultVisualization {
     {
       id: 'nodes', label: 'Nodes', type: 'area',
       graphicVariableOptions: [
-        { type: 'identifier', label: 'Identifier', visualization: 'none' },
-        { type: 'position', label: 'Position', visualization: 'none' },
-        { type: 'areaSize', label: 'Area Size', visualization: 'nodeSize'},
-        { type: 'shape', label: 'Shape', visualization: 'nodeSize' },
+        { type: 'identifier', label: 'Identifier' },
+        { type: 'position', label: 'Position' },
+        { type: 'areaSize', label: 'Area Size', visualization: 'node-size'},
+        { type: 'shape', label: 'Shape', visualization: 'node-size' },
         { type: 'color', label: 'Color', visualization: 'color' },
         { type: 'strokeColor', label: 'strokeColor', visualization: 'color' }
       ]
     }, {
       id: 'edges', label: 'Edges', type: 'line',
       graphicVariableOptions: [
-        { type: 'identifier', label: 'Identifier', visualization: 'none' },
-        { type: 'source', label: 'Source Position', visualization: 'none' },
-        { type: 'target', label: 'Target Position', visualization: 'none' },
+        { type: 'identifier', label: 'Identifier' },
+        { type: 'source', label: 'Source Position' },
+        { type: 'target', label: 'Target Position' },
         { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
-        { type: 'strokeWidth', label: 'Stroke Width', visualization: 'edgeSize' }
+        { type: 'strokeWidth', label: 'Stroke Width', visualization: 'edge-size' }
       ]
     }
   ];
