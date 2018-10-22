@@ -74,15 +74,15 @@
   display: none;
 }
 
-
-.clpbrdBtn {
-  margin-top: 4%;
-  margin-left: 4%;
+.clipboard-button {
+  line-height: 0;
   border: 0;
-  width: 10%;
-  padding: 0;
   background: none;
   cursor: pointer;
+}
+
+.expansion-content .share-url {
+  width: 16rem;
 }
 
 .shareFormContent {
