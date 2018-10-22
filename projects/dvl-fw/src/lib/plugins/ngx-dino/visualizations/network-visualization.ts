@@ -10,21 +10,21 @@ export class NetworkVisualization extends DefaultVisualization {
     {
       id: 'nodes', label: 'Nodes', type: 'area',
       graphicVariableOptions: [
+        { type: 'color', label: 'Color', visualization: 'color' },
+        { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
+        { type: 'areaSize', label: 'Area Size', visualization: 'node-size'},
         { type: 'identifier', label: 'Identifier' },
         { type: 'position', label: 'Position' },
-        { type: 'areaSize', label: 'Area Size', visualization: 'node-size'},
-        { type: 'shape', label: 'Shape' },
-        { type: 'color', label: 'Color', visualization: 'color' },
-        { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' }
+        { type: 'shape', label: 'Shape' }
       ]
     }, {
       id: 'edges', label: 'Edges', type: 'line',
       graphicVariableOptions: [
+        { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
+        { type: 'strokeWidth', label: 'Stroke Width', visualization: 'edge-size' },
         { type: 'identifier', label: 'Identifier' },
         { type: 'source', label: 'Source Position' },
-        { type: 'target', label: 'Target Position' },
-        { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
-        { type: 'strokeWidth', label: 'Stroke Width', visualization: 'edge-size' }
+        { type: 'target', label: 'Target Position' }
       ]
     }
   ];

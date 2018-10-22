@@ -10,19 +10,19 @@ export class GeomapVisualization extends DefaultVisualization {
   {
       id: 'points', label: 'Points', type: 'area',
       graphicVariableOptions: [
+        { type: 'color', label: 'Color', visualization: 'color' },
+        { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
+        { type: 'areaSize', label: 'Area Size', visualization: 'node-size' },
         { type: 'identifier', label: 'Identifier' },
         { type: 'latlng', label: 'Latitude/Longitude' },
-        { type: 'areaSize', label: 'Area Size', visualization: 'node-size' },
-        { type: 'shape', label: 'Shape' },
-        { type: 'color', label: 'Color', visualization: 'color' },
-        { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' }
+        { type: 'shape', label: 'Shape' }
       ]
     },
     {
       id: 'states', label: 'States', type: 'area',
       graphicVariableOptions: [
-        { type: 'identifier', label: 'Identifier' },
-        { type: 'color', label: 'Color', visualization: 'color' }
+        { type: 'color', label: 'Color', visualization: 'color' },
+        { type: 'identifier', label: 'Identifier' }
       ]
     }
   ];

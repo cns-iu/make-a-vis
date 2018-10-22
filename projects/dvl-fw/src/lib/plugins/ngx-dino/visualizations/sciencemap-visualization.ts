@@ -9,8 +9,8 @@ export class SciencemapVisualization extends DefaultVisualization {
   readonly graphicSymbolOptions = [{
     id: 'subdisciplinePoints', label: 'Subdiscipline Points', type: 'area',
     graphicVariableOptions: [
-      { type: 'identifier', label: 'Identifier' },
-      { type: 'areaSize', label: 'Area Size', visualization: 'node-size' }
+      { type: 'areaSize', label: 'Area Size', visualization: 'node-size' },
+      { type: 'identifier', label: 'Identifier' }
     ]
   }];
 }

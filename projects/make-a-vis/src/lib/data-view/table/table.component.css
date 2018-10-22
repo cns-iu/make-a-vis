@@ -52,6 +52,10 @@
     cursor: pointer;
 }
 
+.datatable .table .header-cell:hover {
+    color: #ffffff;
+}
+
 .datatable .table .cell {
     padding-left: 0.875rem;
     padding-top: 0.625rem;
