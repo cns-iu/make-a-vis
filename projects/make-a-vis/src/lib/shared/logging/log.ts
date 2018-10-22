@@ -1,4 +1,4 @@
-import { Logger, MessageType, LogData, ErrorType } from '@ngx-dino/core';
+import { Logger, MessageType, LogData, ErrorType, TypescriptLoggerFactory, LogLevel } from '@ngx-dino/core';
 import { Actions, Effect , ofType } from '@ngrx/effects';
 import { SidenavActionTypes, LoadProjectCompleted } from '../../toolbar/shared/store';
 import { catchError, map , exhaustMap, tap } from 'rxjs/operators';
@@ -9,43 +9,47 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class LogActions {
+  private logger: Logger;
 
-messageType: MessageType;
-logData: LogData;
-errorType: ErrorType;
-startingActions: any = values(pick(SidenavActionTypes, [
-  'SaveProjectStarted',
-  'SaveProjectCompleted',
+  messageType: MessageType;
+  logData: LogData;
+  errorType: ErrorType;
+  startingActions: any = values(pick(SidenavActionTypes, [
+    'SaveProjectStarted',
+    'SaveProjectCompleted',
 
-  'LoadProjectStarted',
-  'LoadProjectCompleted',
+    'LoadProjectStarted',
+    'LoadProjectCompleted',
 
-  'ExportSnapshotStarted',
-  'ExportSnapshotCompleted',
+    'ExportSnapshotStarted',
+    'ExportSnapshotCompleted',
 
-  'LoadShareUrlStarted',
+    'LoadShareUrlStarted',
 
-  'CreateShareUrlCompleted',
-  'CopyToClipboardSuccess',
-  'LoadShareUrlCompletedPayload',
+    'CreateShareUrlCompleted',
+    'CopyToClipboardSuccess',
+    'LoadShareUrlCompletedPayload',
 
-  'SetRecordStream',
-  'AddNewVisualization',
-  'RemoveVisualization',
-  'SetActiveVisualization'
-]));
+    'SetRecordStream',
+    'AddNewVisualization',
+    'RemoveVisualization',
+    'SetActiveVisualization'
+  ]));
 
 
-errorActions: any = values(pick(SidenavActionTypes, [
-  'LoadProjectError',
-  'ExportSnapshotError',
-  'LoadShareUrlError',
-  'CreateShareUrlError',
-]));
-constructor(private actions$: Actions, private logger: Logger) {
- }
+  errorActions: any = values(pick(SidenavActionTypes, [
+    'LoadProjectError',
+    'ExportSnapshotError',
+    'LoadShareUrlError',
+    'CreateShareUrlError',
+  ]));
 
-@Effect({ dispatch: false })
+  constructor(private actions$: Actions, loggerFactory: TypescriptLoggerFactory) {
+    this.logger = loggerFactory.createLogger(undefined, { name: 'make-a-vis' }); // Workaround for #94
+    this.logger.setLevel(LogLevel.Trace);
+  }
+
+  @Effect({ dispatch: false })
   startActionsEffects: Observable<Action> = this.actions$.pipe(
     ofType(...this.startingActions),
     tap(payloadAndType => {
