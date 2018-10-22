@@ -53,7 +53,7 @@ export class GraphicVariableLegendComponent implements OnInit, OnChanges {
 
     const template = this.graphicVariableOption.visualization;
     this.legendVisualizationType = template;
-    if (this.legendVisualizationTypes.indexOf(template) !== -1) {
+    if (this.legendVisualizationTypes.indexOf(template) !== -1 && graphicVariable) {
       const preData: any = {
         id: `legend-visualization-${uniqueId()}`,
         template,
