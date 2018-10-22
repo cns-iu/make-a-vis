@@ -30,7 +30,7 @@
 }
 
 .tab-content {
-    height: 60vh;
+    height: calc(93vh - 1vh - 270px ); /* .main-view is 93vh with 1vh bottom padding in .visualization-view  and .legend is 200px at top-level, 70px - assumed padding(TODO - FIX needed) */
     width: 100%;
 }
 

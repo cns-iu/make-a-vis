@@ -1,11 +1,17 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { GraphicVariableOption, Visualization, GraphicSymbolOption,
-  ProjectSerializerService, DvlFwVisualizationComponent, GraphicVariable } from 'dvl-fw';
-import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
+
+import {
+  GraphicVariableOption, Visualization, GraphicSymbolOption,
+  ProjectSerializerService, DvlFwVisualizationComponent, GraphicVariable
+} from 'dvl-fw';
+
 import { uniqueId } from 'lodash';
+import { mergeMap} from 'rxjs/operators';
+
 import { SidenavState, getLoadedProjectSelector } from '../../toolbar/shared/store';
 import { Store, select } from '@ngrx/store';
-import { map, mergeMap } from 'rxjs/operators';
+
+import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 
 @Component({
   selector: 'mav-graphic-variable-legend',
@@ -16,9 +22,11 @@ export class GraphicVariableLegendComponent implements OnInit, OnChanges {
   @Input() graphicSymbolOption: GraphicSymbolOption;
   @Input() graphicVariableOption: GraphicVariableOption;
   @Input() visualization: Visualization;
+  legend: Visualization;
 
   graphicVariable: GraphicVariable;
-  legendVisualizationTypes = []; // ['color', 'edge-size', 'node-size'];
+  legendVisualizationTypes = ['color', 'edge-size', 'node-size'];
+  legendVisualizationType: string;
 
   @ViewChild('visualization') legendComponent: DvlFwVisualizationComponent;
 
@@ -44,6 +52,7 @@ export class GraphicVariableLegendComponent implements OnInit, OnChanges {
     this.graphicVariable = graphicVariable;
 
     const template = this.graphicVariableOption.visualization;
+    this.legendVisualizationType = template;
     if (this.legendVisualizationTypes.indexOf(template) !== -1) {
       const preData: any = {
         id: `legend-visualization-${uniqueId()}`,
@@ -58,11 +67,13 @@ export class GraphicVariableLegendComponent implements OnInit, OnChanges {
         mergeMap(project => this.serializer.createVisualization(
           this.graphicVariableOption.visualization, preData, project))
       ).subscribe(legend => {
+        this.legend = legend;
         this.legendComponent.data = legend;
         this.legendComponent.runDataChangeDetection();
       });
     } else if (this.legendComponent) {
-      this.legendComponent.data = null;
+      this.legend = undefined; // TODO
+      this.legendComponent.data = undefined; // TODO
       this.legendComponent.runDataChangeDetection();
     }
   }
