@@ -36,3 +36,7 @@
 .legend-type-body {
   display: flex;
 }
+
+.selectable {
+  background-color: rgba(235,237,79,0.5);
+}

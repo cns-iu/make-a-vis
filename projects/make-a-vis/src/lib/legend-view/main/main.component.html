@@ -16,10 +16,12 @@
         <div class="legend-type-body">
             <ng-container *ngFor="let gvOption of group.option.graphicVariableOptions">
                 <mav-data-variable-dropzone *ngIf="gvOption.visualization" [graphicVariableOption]="gvOption" [recordStream]="streams[group.index]"
-                    (graphicVariableChange)="onGraphicVariableChange(group, gvOption, $event)">
-                    <mav-graphic-variable-legend [graphicSymbolOption]="group.option" [graphicVariableOption]="gvOption"
-                        [visualization]="visualization"></mav-graphic-variable-legend>
-                </mav-data-variable-dropzone>
+                    (graphicVariableChange)="onGraphicVariableChange(group, gvOption, $event)" #dropZone>
+                    <div class="{{ dropZone.selectionClass }}">
+                        <mav-graphic-variable-legend [graphicSymbolOption]="group.option" [graphicVariableOption]="gvOption"
+                            [visualization]="visualization"></mav-graphic-variable-legend>
+                    </div>
+                </mav-data-variable-dropzone>    
             </ng-container>
         </div>
     </div>

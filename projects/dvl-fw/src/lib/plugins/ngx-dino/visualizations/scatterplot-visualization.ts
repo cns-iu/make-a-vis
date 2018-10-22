@@ -17,7 +17,7 @@ export class ScatterplotVisualization extends DefaultVisualization {
       { type: 'areaSize', label: 'Area Size', visualization: 'node-size' },
       { type: 'shape', label: 'Shape' },
       { type: 'color', label: 'Color', visualization: 'color' },
-      { type: 'strokeColor', label: 'strokeColor', visualization: 'color' }
+      { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' }
     ]
   }];
 }

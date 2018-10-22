@@ -72,14 +72,12 @@
       </mat-expansion-panel-header>
       <div class="expansion-content">
         <div class="shareFormContent">
-        <mat-form-field  [color]="'mav-primary'" appearance="outline" class="field"> 
-          <input matInput placeholder=""  (mouseenter)="tooltipDisabled=true" (mouseleave)="tooltipDisabled=false" [matTooltipDisabled]="tooltipDisabled" [matTooltipShowDelay]="tooltipOptions.showDelay" [matTooltipHideDelay]="tooltipOptions.hideDelay" [matTooltip]="clipboardMsg" readonly class="input" [disabled]="shareUrlFieldDisabled" (click) = "selectTextFromElement($event.target);tooltipDisabled=false;copyToClipboard(shareUrl);clipboardTarget.show()" [value]="shareUrl" #clipboardTarget="matTooltip" >
-         
-        </mat-form-field>
-        <button  class="clpbrdBtn"  (mouseleave)="clipboardTarget.hide()" (click)="copyToClipboard(shareUrl);clipboardTarget.show()" ><mav-clipbrd-logo ></mav-clipbrd-logo></button>
+          <mat-form-field  color="mav-primary" appearance="outline" class="share-url"> 
+            <input matInput placeholder="" (mouseenter)="tooltipDisabled=true" (mouseleave)="tooltipDisabled=false" [matTooltipDisabled]="tooltipDisabled" [matTooltipShowDelay]="tooltipOptions.showDelay" [matTooltipHideDelay]="tooltipOptions.hideDelay" [matTooltip]="clipboardMsg" readonly class="input" [disabled]="shareUrlFieldDisabled" (click)="selectTextFromElement($event.target);tooltipDisabled=false;copyToClipboard(shareUrl);clipboardTarget.show()" [value]="shareUrl" #clipboardTarget="matTooltip">
+          </mat-form-field>
+          <button class="clipboard-button" (mouseleave)="clipboardTarget.hide()" (click)="copyToClipboard(shareUrl);clipboardTarget.show()"><mav-clipbrd-logo></mav-clipbrd-logo></button>
         </div>
-        <button mat-stroked-button class="button" (click)="getUrlLink()" >Get Link</button>
-        
+        <button mat-stroked-button class="button" (click)="getUrlLink()">Get Link</button>
       </div>
     </mat-expansion-panel>
   </mat-accordion>
