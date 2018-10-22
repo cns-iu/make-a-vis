@@ -46,6 +46,7 @@ import { LogActions } from './shared/logging/log';
 })
 export class MakeAVisModule {
   constructor(loggingControl: LoggingControlService, logger: Logger) {
-    logger.setLevel(LogLevel.Trace);
+    // TODO: Figure out where to put this. Its getting called too early when building with --prod.
+    // logger.setLevel(LogLevel.Trace);
   }
 }
