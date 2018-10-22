@@ -46,7 +46,7 @@ import { LogActions } from './shared/logging/log';
 })
 export class MakeAVisModule {
   constructor(loggingControl: LoggingControlService, logger: Logger) {
-    // TODO: Figure out where to put this. Its getting called too early when building with --prod.
+    // For unknown reasons logger is undefined in --prod mode! A temporary workaround has been implemented in log.ts
     // logger.setLevel(LogLevel.Trace);
   }
 }

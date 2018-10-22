@@ -1,8 +1,8 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
 import {
-  GraphicVariableOption, Visualization, GraphicSymbolOption,
-  ProjectSerializerService, DvlFwVisualizationComponent, GraphicVariable
+  GraphicVariableOption, Visualization, GraphicSymbolOption, GraphicSymbol,
+  ProjectSerializerService, DvlFwVisualizationComponent, GraphicVariable, DefaultGraphicSymbol, Project
 } from 'dvl-fw';
 
 import { uniqueId } from 'lodash';
@@ -58,23 +58,46 @@ export class GraphicVariableLegendComponent implements OnInit, OnChanges {
         id: `legend-visualization-${uniqueId()}`,
         template,
         properties: {},
-        graphicSymbols: {
-          items: graphicSymbol.id
-        }
+        graphicSymbols: {}
       };
       this.store.pipe(
-        select(getLoadedProjectSelector),
-        mergeMap(project => this.serializer.createVisualization(
-          this.graphicVariableOption.visualization, preData, project))
-      ).subscribe(legend => {
-        this.legend = legend;
-        this.legendComponent.data = legend;
-        this.legendComponent.runDataChangeDetection();
+        select(getLoadedProjectSelector)
+      ).subscribe(project => {
+        this.serializer.createVisualization(
+          this.graphicVariableOption.visualization, preData, project
+        ).subscribe((legend) => {
+          legend.graphicSymbols.items = this.generateLegendGraphicSymbol(template, graphicVariable, graphicSymbol, project);
+          this.legend = legend;
+          this.legendComponent.data = legend;
+          this.legendComponent.runDataChangeDetection();
+        });
       });
     } else if (this.legendComponent) {
       this.legend = undefined; // TODO
       this.legendComponent.data = undefined; // TODO
       this.legendComponent.runDataChangeDetection();
     }
+  }
+
+  /* Create a graphic symbol that encodes everything by a given graphicVariable's source data variable */
+  private generateLegendGraphicSymbol(template: string, graphicVariable: GraphicVariable,
+      sourceGraphicSymbol: GraphicSymbol, project: Project): GraphicSymbol {
+    const graphicSymbol: GraphicSymbol = new DefaultGraphicSymbol({
+      id: 'items', type: sourceGraphicSymbol.type, recordStream: sourceGraphicSymbol.recordStream.id,
+      graphicVariables: {}
+    }, project);
+
+    const gvars = graphicSymbol.graphicVariables;
+    gvars[graphicVariable.type] = graphicVariable;
+    if (template === 'color') {
+      gvars.color = graphicVariable;
+    }
+    gvars.identifier = sourceGraphicSymbol.graphicVariables.identifier;
+    for (const gv of project.graphicVariables) {
+      if (gv.dataVariable === graphicVariable.dataVariable && !gvars[gv.type]) {
+        gvars[gv.type] = gv;
+      }
+    }
+    return graphicSymbol;
   }
 }
