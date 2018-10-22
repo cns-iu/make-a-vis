@@ -73,7 +73,10 @@
       <div class="expansion-content">
         <div class="shareFormContent">
           <mat-form-field  color="mav-primary" appearance="outline" class="share-url"> 
-            <input matInput placeholder="" (mouseenter)="tooltipDisabled=true" (mouseleave)="tooltipDisabled=false" [matTooltipDisabled]="tooltipDisabled" [matTooltipShowDelay]="tooltipOptions.showDelay" [matTooltipHideDelay]="tooltipOptions.hideDelay" [matTooltip]="clipboardMsg" readonly class="input" [disabled]="shareUrlFieldDisabled" (click)="selectTextFromElement($event.target);tooltipDisabled=false;copyToClipboard(shareUrl);clipboardTarget.show()" [value]="shareUrl" #clipboardTarget="matTooltip">
+            <input matInput placeholder="" (mouseenter)="$event.stopImmediatePropagation()" (mouseleave)="clipboardTarget.hide()" 
+             [matTooltipShowDelay]="100" [matTooltipHideDelay]="1500"
+              [matTooltip]="clipboardMsg" readonly class="input" [disabled]="shareUrlFieldDisabled" (click)="selectTextFromElement($event.target);clipboardTarget.show()"
+               [value]="shareUrl" #clipboardTarget="matTooltip">
           </mat-form-field>
           <button class="clipboard-button" (mouseleave)="clipboardTarget.hide()" (click)="copyToClipboard(shareUrl);clipboardTarget.show()"><mav-clipbrd-logo></mav-clipbrd-logo></button>
         </div>

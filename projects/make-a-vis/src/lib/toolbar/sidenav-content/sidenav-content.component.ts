@@ -43,8 +43,7 @@ export class SidenavContentComponent implements OnInit {
   shareUrl = '';
   isLoggingEnabled =  true;
   clipboardMsg = 'Copy to clipboard failed!';
-  tooltipOptions = {'showDelay' : 100, 'hideDelay': 1000};
-  tooltipDisabled = false;
+
 
   constructor(
     private saveProjectService: SaveProjectService,
@@ -283,6 +282,8 @@ copyToClipboard(text: string) {
 
 /* below are non angular ways of some features */
 selectTextFromElement(ele: any): boolean {
+  // copies to clipboard as well
+  this.copyToClipboard(this.shareUrl);
   try {
   ele.select();
   } catch (err) {
