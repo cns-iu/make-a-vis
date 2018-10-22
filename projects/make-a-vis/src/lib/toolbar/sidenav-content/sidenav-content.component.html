@@ -78,7 +78,7 @@
               [matTooltip]="clipboardMsg" readonly class="input" [disabled]="shareUrlFieldDisabled" (click)="selectTextFromElement($event.target);clipboardTarget.show()"
                [value]="shareUrl" #clipboardTarget="matTooltip">
           </mat-form-field>
-          <button class="clipboard-button" (mouseleave)="clipboardTarget.hide()" (click)="copyToClipboard(shareUrl);clipboardTarget.show()"><mav-clipbrd-logo></mav-clipbrd-logo></button>
+          <button class="clipboard-button" (mouseleave)="clipboardTarget.hide()" (click)="copyToClipboard(shareUrl);clipboardTarget.show()"><mav-clipboard-logo></mav-clipboard-logo></button>
         </div>
         <button mat-stroked-button class="button" (click)="getUrlLink()">Get Link</button>
       </div>
