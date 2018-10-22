@@ -1,12 +1,12 @@
 .graphic-variable-legend {
   padding: 0 2.5rem 0 2.5rem;
-  min-width: 9rem;
-  min-height: 6rem;
-
+  min-width: 11rem;
+  height: 154px; /* calculated by subtracting header height and legend-title height from legend total height of 200px */
+  overflow-y: auto;
   border-left: 1px solid #f5f5f5;
   border-right: 1px solid #f5f5f5;
 }
 
-.graphic-variable-legend .title {
+.title {
   text-align: center;
 }

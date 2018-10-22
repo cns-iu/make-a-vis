@@ -1,4 +1,4 @@
+<div class="title">{{ graphicVariableOption?.label }}: {{ graphicVariable?.label }}</div>
 <div class="graphic-variable-legend">
-  <div class="title">{{ graphicVariableOption?.label }}: {{ graphicVariable?.label }}</div>
-  <dvl-visualization #visualization></dvl-visualization>
+  <dvl-visualization #visualization [data]="legend"></dvl-visualization>
 </div>
