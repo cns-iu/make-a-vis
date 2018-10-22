@@ -22,7 +22,7 @@ const colorFieldNameMapping = createFieldNameMapping([
   'color'
 ], {
   'identifier': 'idField',
-  'label': 'categoryField'
+  'text': 'categoryField'
 });
 
 

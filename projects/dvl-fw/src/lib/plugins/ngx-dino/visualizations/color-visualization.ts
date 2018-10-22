@@ -11,7 +11,7 @@ export class ColorVisualization extends DefaultVisualization {
       id: 'items', label: 'Items', type: 'area',
       graphicVariableOptions: [
         { type: 'identifier', label: 'Identifier' },
-        { type: 'label', label: 'Label' },
+        { type: 'text', label: 'Label' },
         { type: 'color', label: 'Color', visualization: 'color' }
       ]
     }
