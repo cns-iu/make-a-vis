@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ClipbrdLogoComponent } from './clipbrd-logo.component';
+import { ClipboardLogoComponent } from './clipboard-logo.component';
 
-describe('ClipbrdLogoComponent', () => {
-  let component: ClipbrdLogoComponent;
-  let fixture: ComponentFixture<ClipbrdLogoComponent>;
+describe('ClipboardLogoComponent', () => {
+  let component: ClipboardLogoComponent;
+  let fixture: ComponentFixture<ClipboardLogoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ClipbrdLogoComponent ]
+      declarations: [ ClipboardLogoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ClipbrdLogoComponent);
+    fixture = TestBed.createComponent(ClipboardLogoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
