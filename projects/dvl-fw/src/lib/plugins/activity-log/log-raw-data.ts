@@ -4,7 +4,7 @@ import { Project } from '../../shared/project';
 
 import { nSQL, NanoSQLInstance } from 'nano-sql';
 import { CategoryLogMessage } from 'typescript-logging';
-import {  get } from 'lodash';
+import { get } from 'lodash';
 
 export class ActivityLogRawData implements RawData {
   private static db: NanoSQLInstance | Promise<NanoSQLInstance> = null;
