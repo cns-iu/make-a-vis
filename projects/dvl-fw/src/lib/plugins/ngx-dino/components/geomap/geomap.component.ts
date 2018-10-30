@@ -1,5 +1,7 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Component } from '@angular/core';
 import { GeomapComponent as NgxGeomapComponent } from '@ngx-dino/geomap';
+
 import { BaseVisualizationComponent } from '../base-visualization-component';
 import { createDefaultFieldGroup, createFieldNameMapping } from '../utility';
 

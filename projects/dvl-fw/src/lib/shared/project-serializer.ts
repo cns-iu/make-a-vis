@@ -1,13 +1,14 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { safeDump, safeLoad } from 'js-yaml';
 
-import { Project } from './project';
-import { ObjectFactoryRegistry, ObjectFactoryPlugin } from './object-factory';
-
+import { ActivityLogPlugin } from '../plugins/activity-log/log-plugin';
 import { DefaultPlugin } from '../plugins/default/default-plugin';
 import { ISIPlugin } from '../plugins/isi/isi-plugin';
-import { NSFPlugin } from '../plugins/nsf/nsf-plugin';
 import { NgxDinoPlugin } from '../plugins/ngx-dino/ngx-dino-plugin';
-import { ActivityLogPlugin } from '../plugins/activity-log/log-plugin';
+import { NSFPlugin } from '../plugins/nsf/nsf-plugin';
+import { ObjectFactoryRegistry, ObjectFactoryPlugin } from './object-factory';
+import { Project } from './project';
+
 
 export class ProjectSerializer {
   static defaultPlugins: ObjectFactoryPlugin[] = [

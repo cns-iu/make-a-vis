@@ -1,10 +1,12 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Input, OnInit, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
-import { Observable, EMPTY as emptyStream } from 'rxjs';
-import { at, clone, forOwn, identity, mapValues, pick } from 'lodash';
 import { BoundField, RawChangeSet } from '@ngx-dino/core';
+import { at, clone, forOwn, identity, mapValues, pick } from 'lodash';
+import { EMPTY as emptyStream , Observable } from 'rxjs';
+
 import { GraphicVariable } from '../../../shared/graphic-variable';
 import { Visualization } from '../../../shared/visualization';
-import { VisualizationComponent, OnPropertyChange, OnGraphicSymbolChange } from '../../../shared/visualization-component';
+import { OnPropertyChange, OnGraphicSymbolChange, VisualizationComponent } from '../../../shared/visualization-component';
 
 export interface SimpleProperties {
   [prop: string]: any;

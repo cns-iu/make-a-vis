@@ -1,5 +1,5 @@
 {
-  "name": "dvl-fw",
+  "name": "@dvl-fw/core",
   "version": "0.5.0",
   "bin": {
     "dvl-fw-import": "./dvl-fw-import",

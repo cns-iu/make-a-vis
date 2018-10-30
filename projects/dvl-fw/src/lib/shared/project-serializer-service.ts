@@ -1,10 +1,12 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
+import { Injectable } from '@angular/core';
+import { defer, Observable } from 'rxjs';
+
 import { ISITemplateProject } from '../plugins/isi/isi-template-project';
 import { NSFTemplateProject } from '../plugins/nsf/nsf-template-project';
-import { ProjectSerializer } from './project-serializer';
-import { Injectable } from '@angular/core';
 import { ObjectFactoryRegistry } from './object-factory';
 import { Project } from './project';
-import { Observable, defer } from 'rxjs';
+import { ProjectSerializer } from './project-serializer';
 import { Visualization } from './visualization';
 
 @Injectable({

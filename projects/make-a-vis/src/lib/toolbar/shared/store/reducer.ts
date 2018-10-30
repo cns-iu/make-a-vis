@@ -1,15 +1,14 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import {
   createSelector,
   createFeatureSelector,
   MemoizedSelector
 } from '@ngrx/store';
-
 import { assign, pick } from 'lodash';
 
-import { SidenavState, INITIAL_SIDENAV_STATE } from './state';
+import { Project } from '@dvl-fw/core';
+import { INITIAL_SIDENAV_STATE, SidenavState } from './state';
 import { SidenavActionTypes, SidenavActionsUnion } from './actions';
-
-import { Project } from 'dvl-fw';
 
 export function sidenavStateReducer (
   state: SidenavState = INITIAL_SIDENAV_STATE,

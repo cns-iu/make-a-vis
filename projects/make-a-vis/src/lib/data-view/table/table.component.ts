@@ -1,5 +1,7 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { DataVariable } from 'dvl-fw';
+
+import { DataVariable } from '@dvl-fw/core';
 
 @Component({
   selector: 'mav-table',

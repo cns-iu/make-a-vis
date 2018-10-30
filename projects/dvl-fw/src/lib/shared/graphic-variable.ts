@@ -1,7 +1,9 @@
-import { RecordStream } from './record-stream';
-import { RecordSet } from './record-set';
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { BoundField } from '@ngx-dino/core';
+
 import { DataVariable } from './data-variable';
+import { RecordSet } from './record-set';
+import { RecordStream } from './record-stream';
 
 export interface GraphicVariable {
   id: string;

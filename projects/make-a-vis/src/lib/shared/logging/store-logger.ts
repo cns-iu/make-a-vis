@@ -1,10 +1,10 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
+import { select, Store } from '@ngrx/store';
 import { AbstractCategoryLogger, Category, CategoryLogMessage, RuntimeSettings } from 'typescript-logging';
 
-import { Store, select } from '@ngrx/store';
+import { ActivityLogRawData, Project  } from '@dvl-fw/core';
 import { ApplicationState, getLoadedProject } from '../../shared/store';
 import * as fromUi from '../../toolbar/shared/store';
-
-import { ActivityLogRawData, Project  } from 'dvl-fw';
 
 export class StoreLogger extends AbstractCategoryLogger {
 

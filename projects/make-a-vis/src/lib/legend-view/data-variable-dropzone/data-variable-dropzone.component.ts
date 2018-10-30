@@ -1,10 +1,12 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Component, EventEmitter, HostListener, Input, Output} from '@angular/core';
-import { Store, select } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { DataVariable, GraphicVariableOption, GraphicVariable, RecordStream } from 'dvl-fw';
-import { ApplicationState, getLoadedProject } from '../../shared/store';
+
+import { DataVariable,  GraphicVariable, GraphicVariableOption, RecordStream } from '@dvl-fw/core';
 import { DragDropEvent } from '../../drag-drop';
+import { ApplicationState, getLoadedProject } from '../../shared/store';
 import { DataVariableHoverService } from '../../shared/services/hover/data-variable-hover.service';
 
 @Component({

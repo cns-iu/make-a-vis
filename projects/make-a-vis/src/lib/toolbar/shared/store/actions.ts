@@ -1,5 +1,7 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Action } from '@ngrx/store';
-import { Visualization, GraphicVariable, DataVariable, GraphicSymbol, RecordSet } from 'dvl-fw';
+
+import { DataVariable, GraphicSymbol, RecordSet, Visualization } from '@dvl-fw/core';
 import * as payloadTypes from './payload-types';
 
 export interface SetGraphicSymbolRecordSetPayload {

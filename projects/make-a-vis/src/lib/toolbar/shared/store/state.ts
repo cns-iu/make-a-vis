@@ -1,4 +1,5 @@
-import { Project } from 'dvl-fw';
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
+import { Project } from '@dvl-fw/core';
 
 export interface SidenavState {
   savingProject: boolean;

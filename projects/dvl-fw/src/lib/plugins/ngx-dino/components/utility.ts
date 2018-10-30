@@ -1,5 +1,7 @@
-import { capitalize, identity } from 'lodash';
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { BoundField, constant, simpleField } from '@ngx-dino/core';
+import { capitalize, identity } from 'lodash';
+
 
 export const emptyField = simpleField({
   id: 'empty',

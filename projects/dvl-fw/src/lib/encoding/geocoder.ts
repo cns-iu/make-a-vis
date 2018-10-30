@@ -1,5 +1,6 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
+import { map, Operator } from '@ngx-dino/core';
 import zipcodes from 'zipcodes';
-import { Operator, map } from '@ngx-dino/core';
 
 export interface Location {
   city: string;

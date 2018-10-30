@@ -1,6 +1,7 @@
-import { Publication } from './isi-publication';
-import { Author, AuthorStats } from './isi-author';
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Geocoder } from '../../../encoding/geocoder';
+import { Author, AuthorStats } from './isi-author';
+import { Publication } from './isi-publication';
 
 export function extractAuthors(publications: Publication[]): Author[] {
   const authors: any = {}, authorList: Author[] = [];

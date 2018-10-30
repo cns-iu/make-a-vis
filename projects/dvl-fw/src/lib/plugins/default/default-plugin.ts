@@ -1,12 +1,13 @@
-import { DefaultRawDataFactory } from './default-raw-data';
-import { DefaultVisualizationFactory } from './default-visualization';
-import { DefaultGraphicSymbolFactory } from './default-graphic-symbol';
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { ObjectFactoryPlugin, ObjectFactoryRegistry } from './../../shared/object-factory';
+import { DefaultRawDataFactory } from './default-raw-data';
+import { DefaultGraphicSymbolFactory } from './default-graphic-symbol';
+import { DefaultVisualizationFactory } from './default-visualization';
 
-import { DefaultProjectFactory } from './default-project';
 import { DefaultDataSourceFactory } from './default-data-source';
-import { DefaultRecordSetFactory } from './default-record-set';
 import { DefaultGraphicVariableMappingFactory } from './default-graphic-variable';
+import { DefaultProjectFactory } from './default-project';
+import { DefaultRecordSetFactory } from './default-record-set';
 
 
 export class DefaultPlugin implements ObjectFactoryPlugin {

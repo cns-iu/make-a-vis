@@ -1,5 +1,5 @@
-import { NumberSymbol } from '@angular/common';
-import { Operator, map, lookup } from '@ngx-dino/core';
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
+import { lookup, map, Operator } from '@ngx-dino/core';
 import { scaleLinear, scaleLog } from 'd3-scale';
 
 

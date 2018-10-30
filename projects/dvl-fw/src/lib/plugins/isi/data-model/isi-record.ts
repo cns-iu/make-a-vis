@@ -1,3 +1,4 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { parseRISRecords, TagMapping } from './ris-reader';
 
 export interface ISIRecord {

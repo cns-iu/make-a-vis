@@ -1,9 +1,10 @@
-import { Project } from './../../shared/project';
-import { DataVariable } from './../../shared/data-variable';
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
+import { DataVariable } from '../../shared/data-variable';
 import { ObjectFactory, ObjectFactoryRegistry } from '../../shared/object-factory';
+import { Project } from '../../shared/project';
 import { RecordSet } from '../../shared/record-set';
-import { DefaultDataVariable } from './default-data-variable';
 import { RecordStream } from '../../shared/record-stream';
+import { DefaultDataVariable } from './default-data-variable';
 
 
 export class DefaultRecordSet implements RecordSet {

@@ -1,3 +1,4 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { DataVariable } from '../../shared/data-variable';
 
 export class DefaultDataVariable implements DataVariable {

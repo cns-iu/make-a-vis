@@ -1,10 +1,11 @@
-import { RawData } from '../../shared/raw-data';
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
+import { get } from 'lodash';
+import { NanoSQLInstance, nSQL } from 'nano-sql';
+import { CategoryLogMessage } from 'typescript-logging';
+
 import { ObjectFactory, ObjectFactoryRegistry } from '../../shared/object-factory';
 import { Project } from '../../shared/project';
-
-import { nSQL, NanoSQLInstance } from 'nano-sql';
-import { CategoryLogMessage } from 'typescript-logging';
-import { get } from 'lodash';
+import { RawData } from '../../shared/raw-data';
 
 export class ActivityLogRawData implements RawData {
   private static db: NanoSQLInstance | Promise<NanoSQLInstance> = null;

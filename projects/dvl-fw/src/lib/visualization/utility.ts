@@ -1,5 +1,7 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Type } from '@angular/core';
 import { clone, forOwn, mapValues } from 'lodash';
+
 import { GraphicSymbol } from '../shared/graphic-symbol';
 import { GraphicVariable } from '../shared/graphic-variable';
 import { RecordStream } from '../shared/record-stream';

@@ -1,7 +1,8 @@
-import { Subdiscipline, SubdisciplineStats } from './isi-subdiscipline';
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Journal } from './isi-journal';
-
+import { Subdiscipline, SubdisciplineStats } from './isi-subdiscipline';
 import underlyingScimapData from './underlyingScimapData.data';
+
 // TODO: @ngx-dino/science-map needs to be redone
 const subdIdToName = underlyingScimapData.nodes.reduce((map, n) => {
   map[n.subd_id] = n.subd_name;

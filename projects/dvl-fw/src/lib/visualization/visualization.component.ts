@@ -1,8 +1,10 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import {
   Component, ComponentFactoryResolver, ComponentRef,
   Input, OnInit, OnChanges, SimpleChange, SimpleChanges, Type, ViewContainerRef
 } from '@angular/core';
 import { forOwn, isEmpty, isFunction } from 'lodash';
+
 import { GraphicSymbol } from '../shared/graphic-symbol';
 import { Visualization } from '../shared/visualization';
 import { VisualizationComponent } from '../shared/visualization-component';

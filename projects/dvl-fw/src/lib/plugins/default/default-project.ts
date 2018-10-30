@@ -1,12 +1,13 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { DataSource } from '../../shared/data-source';
 import { GraphicSymbol } from '../../shared/graphic-symbol';
+import { GraphicVariable } from '../../shared/graphic-variable';
 import { ObjectFactory, ObjectFactoryRegistry } from '../../shared/object-factory';
 import { Project } from '../../shared/project';
+import { RawData } from '../../shared/raw-data';
 import { RecordSet } from '../../shared/record-set';
 import { RecordStream } from '../../shared/record-stream';
 import { Visualization } from '../../shared/visualization';
-import { GraphicVariable } from './../../shared/graphic-variable';
-import { RawData } from './../../shared/raw-data';
 
 
 export class DefaultProject implements Project {
