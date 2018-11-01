@@ -1,7 +1,9 @@
-import { Operand, access, chain, constant, map } from '@ngx-dino/core';
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
+import { access, chain, constant, Operand } from '@ngx-dino/core';
+
 import {
-  areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, greyScaleNormQuantitative, greyScaleNormQuantitativeStroke,
-  norm0to100, formatNumber, formatYear, extractPoint
+  areaSizeScaleNormQuantitative, extractPoint, fontSizeScaleNormQuantitative, formatNumber, formatYear,
+  greyScaleNormQuantitative, greyScaleNormQuantitativeStroke, norm0to100
 } from '../../../encoding';
 import { Location } from '../../../encoding/geocoder';
 

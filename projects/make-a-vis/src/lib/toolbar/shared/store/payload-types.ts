@@ -1,4 +1,5 @@
-import { GraphicSymbol, GraphicVariable, Project, Visualization } from 'dvl-fw';
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
+import { GraphicSymbol, GraphicVariable, Project, Visualization } from '@dvl-fw/core';
 
 export interface LoadProjectStartedPayload {
   loadingProject: boolean;

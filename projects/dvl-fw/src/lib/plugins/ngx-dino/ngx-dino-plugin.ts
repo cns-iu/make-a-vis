@@ -1,12 +1,14 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { ObjectFactoryPlugin, ObjectFactoryRegistry } from '../../shared/object-factory';
-import { ScatterplotVisualizationFactory } from './visualizations/scatterplot-visualization';
+import { ColorVisualizationFactory } from './visualizations/color-visualization';
+import { EdgeSizeVisualizationFactory } from './visualizations/edge-size-visualization';
 import { GeomapVisualizationFactory } from './visualizations/geomap-visualization';
 import { NetworkVisualizationFactory } from './visualizations/network-visualization';
+import { NodeSizeVisualizationFactory } from './visualizations/node-size-visualization';
+import { ScatterplotVisualizationFactory } from './visualizations/scatterplot-visualization';
 import { SciencemapVisualizationFactory } from './visualizations/sciencemap-visualization';
 import { TemporalBargraphVisualizationFactory } from './visualizations/temporal-bargraph-visualization';
-import { NodeSizeVisualizationFactory } from './visualizations/node-size-visualization';
-import { EdgeSizeVisualizationFactory } from './visualizations/edge-size-visualization';
-import { ColorVisualizationFactory } from './visualizations/color-visualization';
+
 
 export class NgxDinoPlugin implements ObjectFactoryPlugin {
   register(registry: ObjectFactoryRegistry) {

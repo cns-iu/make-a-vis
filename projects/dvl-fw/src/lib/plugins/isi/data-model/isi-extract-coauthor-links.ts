@@ -1,5 +1,6 @@
-import { Publication } from './isi-publication';
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { CoAuthorLink, CoAuthorLinkStats } from './isi-coauthor-link';
+import { Publication } from './isi-publication';
 
 // Assumes this was run after extractAuthors
 export function extractCoAuthorLinks(publications: Publication[]): CoAuthorLink[] {

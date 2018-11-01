@@ -1,8 +1,10 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { GraphicSymbolOption, GraphicVariable, GraphicVariableOption, Project, RecordStream, Visualization } from 'dvl-fw';
-import { ApplicationState, getUiFeature } from '../../shared/store';
+
+import { GraphicSymbolOption, GraphicVariable, GraphicVariableOption, Project, RecordStream, Visualization } from '@dvl-fw/core';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
+import { ApplicationState, getUiFeature } from '../../shared/store';
 
 export interface Group {
   option: GraphicSymbolOption;

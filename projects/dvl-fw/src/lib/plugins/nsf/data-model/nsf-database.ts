@@ -1,6 +1,7 @@
-import { parseNSFFile } from './nsf-record';
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Award } from './nsf-award';
 import { extractAwards } from './nsf-extract-awards';
+import { parseNSFFile } from './nsf-record';
 
 // @dynamic
 export class NSFDatabase {

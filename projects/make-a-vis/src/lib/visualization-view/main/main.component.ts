@@ -1,16 +1,17 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { MatTabGroup } from '@angular/material';
-import { Store, select } from '@ngrx/store';
+import { find, uniqueId } from 'lodash';
+import { select, Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { catchError, concatMap, map, take } from 'rxjs/operators';
-import { find, uniqueId } from 'lodash';
 
-import { ProjectSerializerService, Visualization, VisualizationComponent } from 'dvl-fw';
+import { ProjectSerializerService, Visualization, VisualizationComponent } from '@dvl-fw/core';
 import { ExportService } from '../../shared/services/export/export.service';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import {
-  SidenavState, AddNewVisualization, RemoveVisualization, SetActiveVisualization,
-  getLoadedProjectSelector
+  AddNewVisualization, getLoadedProjectSelector, RemoveVisualization,
+  SidenavState, SetActiveVisualization
 } from '../../toolbar/shared/store';
 
 export interface Vis {

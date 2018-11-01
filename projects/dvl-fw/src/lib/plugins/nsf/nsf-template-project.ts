@@ -1,17 +1,18 @@
-import { ActivityLogDataSource } from './../activity-log/log-data-source';
-import { ScatterplotVisualization } from './../ngx-dino/visualizations/scatterplot-visualization';
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { DataSource } from '../../shared/data-source';
+import { GraphicSymbol } from '../../shared/graphic-symbol';
+import { GraphicVariable } from '../../shared/graphic-variable';
 import { Project } from '../../shared/project';
 import { RawData } from '../../shared/raw-data';
 import { RecordSet } from '../../shared/record-set';
+import { Visualization } from '../../shared/visualization';
+import { ActivityLogDataSource } from '../activity-log/log-data-source';
+import { ScatterplotVisualization } from '../ngx-dino/visualizations/scatterplot-visualization';
+import { DefaultGraphicSymbol } from '../default/default-graphic-symbol';
 import { DefaultGraphicVariableMapping } from '../default/default-graphic-variable';
 import { DefaultProject } from '../default/default-project';
-import { GraphicSymbol } from './../../shared/graphic-symbol';
-import { GraphicVariable } from './../../shared/graphic-variable';
-import { Visualization } from './../../shared/visualization';
-import { DefaultGraphicSymbol } from './../default/default-graphic-symbol';
-import { DefaultRawData } from './../default/default-raw-data';
-import { DefaultRecordSet } from './../default/default-record-set';
+import { DefaultRawData } from '../default/default-raw-data';
+import { DefaultRecordSet } from '../default/default-record-set';
 import { NSFDataSource } from './nsf-data-source';
 import { NSFParsedRawData } from './nsf-parsed-raw-data';
 

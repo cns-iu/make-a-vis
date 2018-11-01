@@ -1,4 +1,6 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Component } from '@angular/core';
+
 import { BaseVisualizationComponent } from '../base-visualization-component';
 
 export type Properties = any;

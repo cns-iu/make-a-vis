@@ -1,14 +1,11 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Injectable } from '@angular/core';
-
-import { access, RawChangeSet, Operator, map, combine } from '@ngx-dino/core';
-
-import { Store, select } from '@ngrx/store';
-import { ApplicationState, getLoadedProject } from '../../shared/store';
-
+import { select, Store} from '@ngrx/store';
+import { access, combine, Operator, RawChangeSet} from '@ngx-dino/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-import { DataVariable, GraphicVariable, Project, RecordSet } from 'dvl-fw';
-
+import { DataVariable, GraphicVariable, Project, RecordSet } from '@dvl-fw/core';
+import { ApplicationState, getLoadedProject } from '../../shared/store';
 
 export interface DataSource {
   id: string;

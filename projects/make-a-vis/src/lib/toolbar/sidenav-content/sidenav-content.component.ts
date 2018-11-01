@@ -1,18 +1,18 @@
-import { Component, OnInit, Input, ViewChild, Inject, ElementRef  } from '@angular/core';
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { MatAccordion, MatButtonToggleGroup } from '@angular/material';
-import { Store , select } from '@ngrx/store';
-import * as sidenavStore from '../shared/store';
-import { Project, ProjectSerializerService } from 'dvl-fw';
-import { Router, ActivationEnd } from '@angular/router';
+import { ActivationEnd, Router } from '@angular/router';
+import { get } from 'lodash';
+import { select, Store } from '@ngrx/store';
 import { ClipboardService } from 'ngx-clipboard';
 
-import { get } from 'lodash';
-
+import { Project, ProjectSerializerService } from '@dvl-fw/core';
 import { SaveProjectService } from '../shared/services/save-project/save-project.service';
 import { LoadProjectService } from '../shared/services/load-project.service';
+import * as sidenavStore from '../shared/store';
 import { LoggingControlService } from '../../shared/logging/logging-control.service';
 import { ExportService } from '../../shared/services/export/export.service';
-import {  GetLinkService } from '../../shared/services/get-link/get-link.service';
+import { GetLinkService } from '../../shared/services/get-link/get-link.service';
 
 export type NewProjectExtensionType = 'isi' | 'nsf' | 'csv' | 'json' | 'yml';
 export type LoadProjectExtensionType = 'yml';

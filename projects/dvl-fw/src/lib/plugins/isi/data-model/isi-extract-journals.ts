@@ -1,6 +1,8 @@
-import { issnLookup, journalNameLookup, journalIdSubdLookup } from '@ngx-dino/science-map';
-import { Publication } from './isi-publication';
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
+import { issnLookup, journalIdSubdLookup, journalNameLookup } from '@ngx-dino/science-map';
+
 import { Journal, JournalStats } from './isi-journal';
+import { Publication } from './isi-publication';
 
 export function scienceLocatePublication(pub: Publication): {journalId: number, subdisciplineId: number} {
   const tries = [

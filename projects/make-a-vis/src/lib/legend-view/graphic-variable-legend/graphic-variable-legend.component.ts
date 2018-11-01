@@ -1,17 +1,14 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { uniqueId } from 'lodash';
+import { select, Store } from '@ngrx/store';
 
 import {
-  GraphicVariableOption, Visualization, GraphicSymbolOption, GraphicSymbol,
-  ProjectSerializerService, DvlFwVisualizationComponent, GraphicVariable, DefaultGraphicSymbol, Project
-} from 'dvl-fw';
-
-import { uniqueId } from 'lodash';
-import { mergeMap} from 'rxjs/operators';
-
-import { SidenavState, getLoadedProjectSelector } from '../../toolbar/shared/store';
-import { Store, select } from '@ngrx/store';
-
+  DefaultGraphicSymbol, DvlFwVisualizationComponent, GraphicSymbol, GraphicSymbolOption,
+  GraphicVariable, GraphicVariableOption, Project, ProjectSerializerService, Visualization
+} from '@dvl-fw/core';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
+import { getLoadedProjectSelector, SidenavState } from '../../toolbar/shared/store';
 
 @Component({
   selector: 'mav-graphic-variable-legend',

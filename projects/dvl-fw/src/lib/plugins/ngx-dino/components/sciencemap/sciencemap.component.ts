@@ -1,5 +1,7 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Component } from '@angular/core';
 import { ScienceMapComponent as NgxSciencemapComponent } from '@ngx-dino/science-map';
+
 import { BaseVisualizationComponent } from '../base-visualization-component';
 import { createDefaultFieldGroup, createFieldNameMapping } from '../utility';
 

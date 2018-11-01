@@ -1,5 +1,6 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
+import { access, chain, combine, map, Operator } from '@ngx-dino/core';
 import { parse } from 'papaparse';
-import { Operator, access, chain, combine, map } from '@ngx-dino/core';
 
 const csvfields = [
   'AwardNumber', 'Title', 'NSFOrganization', 'Program(s)', 'StartDate', 'LastAmendmentDate',

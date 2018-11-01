@@ -1,11 +1,11 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Component, Input } from '@angular/core';
+import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { Store, select } from '@ngrx/store';
+import { Project } from '@dvl-fw/core';
 import { ApplicationState, getLoadedProject } from './shared/store';
-
 import { SidenavState } from './toolbar/shared/store';
-import { Project } from 'dvl-fw';
 
 @Component({
   selector: 'mav-main',

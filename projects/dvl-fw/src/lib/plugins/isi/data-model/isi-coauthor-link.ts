@@ -1,4 +1,6 @@
-import { Operand, access, chain, combine, map } from '@ngx-dino/core';
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
+import { access, chain, combine, map, Operand } from '@ngx-dino/core';
+
 import {
   areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, strokeWidthScaleNormQuantitative,
   greyScaleNormQuantitative, greyScaleNormQuantitativeStroke,

@@ -1,7 +1,8 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { GraphicSymbol } from '../../shared/graphic-symbol';
-import { Visualization } from '../../shared/visualization';
-import { Project } from '../../shared/project';
 import { ObjectFactory, ObjectFactoryRegistry } from '../../shared/object-factory';
+import { Project } from '../../shared/project';
+import { Visualization } from '../../shared/visualization';
 
 export class DefaultVisualization implements Visualization {
   id: string;

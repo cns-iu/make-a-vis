@@ -1,6 +1,7 @@
-import { NSFRecord } from './nsf-record';
-import { Award, AwardStats } from './nsf-award';
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Geocoder } from '../../../encoding/geocoder';
+import { Award, AwardStats } from './nsf-award';
+import { NSFRecord } from './nsf-record';
 
 export function extractAwards(records: NSFRecord[]): Award[] {
   const awardList: Award[] = [];

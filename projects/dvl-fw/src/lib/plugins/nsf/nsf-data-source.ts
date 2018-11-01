@@ -1,11 +1,11 @@
-import { NSFParsedRawData } from './nsf-parsed-raw-data';
-import { Project } from './../../shared/project';
-import { DataSource, DataSourceOptions } from './../../shared/data-source';
-import { RecordStream } from './../../shared/record-stream';
-import { NSFRecord } from './data-model/nsf-record';
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
+import { DataSource, DataSourceOptions } from '../../shared/data-source';
 import { ObjectFactory, ObjectFactoryRegistry } from '../../shared/object-factory';
+import { Project } from '../../shared/project';
+import { RecordStream } from '../../shared/record-stream';
 import { DefaultRecordStream } from '../default/default-record-stream';
-
+import { NSFRecord } from './data-model/nsf-record';
+import { NSFParsedRawData } from './nsf-parsed-raw-data';
 
 export interface NSFDataSourceOptions extends DataSourceOptions {
   parsedData?: string;

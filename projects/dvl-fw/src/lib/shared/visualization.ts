@@ -1,6 +1,9 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
+import { Type } from '@angular/core';
+
 import { GraphicSymbol } from './graphic-symbol';
 import { VisualizationComponent } from './visualization-component';
-import { Type } from '@angular/core';
+
 
 export interface GraphicVariableOption {
   id?: string;

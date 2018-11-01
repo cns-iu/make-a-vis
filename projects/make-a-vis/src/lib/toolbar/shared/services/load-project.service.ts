@@ -1,11 +1,9 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Injectable } from '@angular/core';
-
 import { BehaviorSubject } from 'rxjs';
 
-import { ProjectSerializerService, Project, ActivityLogRawData } from 'dvl-fw';
-
+import { ActivityLogRawData, Project, ProjectSerializerService } from '@dvl-fw/core';
 import { LoggingControlService } from '../../../shared/logging/logging-control.service';
-
 
 @Injectable({
   providedIn: 'root'

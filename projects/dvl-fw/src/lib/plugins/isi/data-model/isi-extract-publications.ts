@@ -1,5 +1,6 @@
-import { ISIRecord } from './isi-record';
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Publication, PublicationStats } from './isi-publication';
+import { ISIRecord } from './isi-record';
 
 export function extractPublications(publications: ISIRecord[]): Publication[] {
   const publicationList: Publication[] = [];

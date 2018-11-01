@@ -1,4 +1,6 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { deflate, inflate } from 'pako';
+
 import { RecordStream } from './record-stream';
 
 

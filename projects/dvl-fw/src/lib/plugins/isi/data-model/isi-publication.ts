@@ -1,10 +1,11 @@
-import { Operand, chain, access } from '@ngx-dino/core';
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
+import { access, chain, Operand } from '@ngx-dino/core';
+
 import {
-  areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, greyScaleNormQuantitative, greyScaleNormQuantitativeStroke,
-  norm0to100, formatNumber, formatYear
+  areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, formatNumber, formatYear,
+  greyScaleNormQuantitative, greyScaleNormQuantitativeStroke, norm0to100
 } from '../../../encoding';
 import { Transient } from '../../../shared/transient';
-
 import { Author } from './isi-author';
 import { Journal } from './isi-journal';
 

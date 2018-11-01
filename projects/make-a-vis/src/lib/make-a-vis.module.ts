@@ -35,14 +35,14 @@ import { LogActions } from './shared/logging/log';
   ],
   declarations: [LightThemeComponent, MakeAVisComponent],
   exports: [MakeAVisComponent, ToolbarModule],
-  providers: [
-    { provide: LoggerFactory, useExisting: TypescriptLoggerFactory },
-    { provide: LoggerConfig, useValue: { name: 'make-a-vis' } },
-    {
-      provide: Logger, useFactory(factory, parent, config) { return factory.createLogger(parent, config); },
-      deps: [LoggerFactory, [new Optional(), new SkipSelf(), Logger], [new Self(), LoggerConfig]]
-    }
-  ]
+  // providers: [
+  //   { provide: LoggerFactory, useExisting: TypescriptLoggerFactory },
+  //   { provide: LoggerConfig, useValue: { name: 'make-a-vis' } },
+  //   {
+  //     provide: Logger, useFactory(factory, parent, config) { return factory.createLogger(parent, config); },
+  //     deps: [LoggerFactory, [new Optional(), new SkipSelf(), Logger], [new Self(), LoggerConfig]]
+  //   }
+  // ]
 })
 export class MakeAVisModule {
   constructor(loggingControl: LoggingControlService, logger: Logger) {

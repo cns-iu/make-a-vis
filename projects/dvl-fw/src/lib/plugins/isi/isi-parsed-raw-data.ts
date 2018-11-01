@@ -1,8 +1,8 @@
-import { RawData } from '../../shared/raw-data';
-import { ISIDatabase } from './data-model/isi-database';
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { ObjectFactory, ObjectFactoryRegistry } from '../../shared/object-factory';
 import { Project } from '../../shared/project';
-
+import { RawData } from '../../shared/raw-data';
+import { ISIDatabase } from './data-model/isi-database';
 
 export class ISIParsedRawData implements RawData {
   template = 'isiParsedData';

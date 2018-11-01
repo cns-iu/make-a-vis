@@ -1,8 +1,10 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
 import { mapValues } from 'lodash';
-import { GraphicSymbol, GraphicVariable, RecordStream, Visualization } from 'dvl-fw';
+
+import { GraphicSymbol, GraphicVariable, RecordStream, Visualization } from '@dvl-fw/core';
 import { ApplicationState } from '../../store';
 import { SetGraphicVariable, SetRecordStream } from '../../../toolbar/shared/store';
 

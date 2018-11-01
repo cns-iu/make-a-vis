@@ -1,7 +1,9 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Project } from 'dvl-fw/dvl-fw';
 import { Observable } from 'rxjs';
+
+import { Project } from '@dvl-fw/core';
 
 @Injectable({
   providedIn: 'root'

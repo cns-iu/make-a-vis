@@ -1,10 +1,11 @@
+// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
+import { DataSource } from './data-source';
 import { GraphicVariable } from './graphic-variable';
 import { GraphicSymbol } from './graphic-symbol';
-import { DataSource } from './data-source';
-import { RecordStream } from './record-stream';
-import { RecordSet } from './record-set';
-import { Visualization } from './visualization';
 import { RawData } from './raw-data';
+import { RecordSet } from './record-set';
+import { RecordStream } from './record-stream';
+import { Visualization } from './visualization';
 
 
 export interface Project {
