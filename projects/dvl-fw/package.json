@@ -5,6 +5,9 @@
     "dvl-fw-import": "./dvl-fw-import",
     "dvl-fw-validate": "./dvl-fw-validate"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0",
