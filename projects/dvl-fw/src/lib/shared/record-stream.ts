@@ -9,5 +9,5 @@ export interface RecordStream<T = any> {
   label: string;
 
   asObservable(): Observable<RawChangeSet<T>>;
-  toJSON(): T[];
+  toJSON(): any;
 }

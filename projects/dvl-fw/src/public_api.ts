@@ -41,3 +41,6 @@ export * from './lib/plugins/ngx-dino/ngx-dino-plugin';
 
 // Components
 export * from './lib/visualization/visualization.component';
+
+// Encodings
+export * from './lib/encoding';
