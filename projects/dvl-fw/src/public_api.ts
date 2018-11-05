@@ -31,3 +31,6 @@ export * from './lib/plugins/activity-log/log-raw-data';
 
 // Components
 export * from './lib/visualization/visualization.component';
+
+// Encodings
+export * from './lib/encoding';
