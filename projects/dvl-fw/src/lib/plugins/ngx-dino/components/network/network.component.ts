@@ -13,12 +13,14 @@ export type Properties = Pick<
 export type NodeFields = Pick<
   NgxNetworkComponent,
   'nodeIdField' | 'nodePositionField' | 'nodeSizeField' | 'nodeSymbolField' | 'nodeColorField' |
-  'nodeStrokeField' | 'nodeStrokeWidthField' | 'nodeTooltipField' | 'nodeLabelField' | 'nodeLabelPositionField'
+  'nodeStrokeField' | 'nodeStrokeWidthField' | 'nodeTooltipField' | 'nodeLabelField' |
+  'nodeLabelPositionField' | 'nodeTransparencyField' | 'strokeTransparencyField'
 >;
 
 export type EdgeFields = Pick<
   NgxNetworkComponent,
-  'edgeIdField' | 'edgeSourceField' | 'edgeTargetField' | 'edgeStrokeField' | 'edgeStrokeWidthField'
+  'edgeIdField' | 'edgeSourceField' | 'edgeTargetField' | 'edgeStrokeField' | 'edgeStrokeWidthField' |
+  'edgeTransparencyField'
 >;
 
 // tslint:disable-next-line:interface-over-type-literal
@@ -29,14 +31,14 @@ export type FieldGroups = {
 
 // TODO: strokeWidth, tooltip, label, labelPosition
 const nodesFieldNameMapping = createFieldNameMapping([
-  'color', 'position'
+  'color', 'transparency', 'strokeTransparency', 'position'
 ], {
   'identifier': 'nodeIdField', 'areaSize': 'nodeSizeField', 'shape': 'nodeSymbolField',
   'strokeColor': 'nodeStrokeField'
 }, 'node');
 
 const edgesFieldNameMapping = createFieldNameMapping([
-  'source', 'target', 'strokeWidth'
+  'source', 'target', 'strokeWidth', 'transparency', 'strokeTransparency'
 ], {
   'identifier': 'edgeIdField', 'strokeColor': 'edgeStrokeField'
 }, 'edge');
@@ -54,12 +56,18 @@ export class NetworkComponent extends BaseVisualizationComponent<Properties, Fie
   readonly defaultFieldGroups: FieldGroups = {
     nodes: createDefaultFieldGroup([
       'nodeIdField', 'nodePositionField', 'nodeSizeField', 'nodeSymbolField', 'nodeColorField',
-      'nodeStrokeField', 'nodeStrokeWidthField', 'nodeTooltipField', 'nodeLabelField', 'nodeLabelPositionField'
+      'nodeStrokeField', 'nodeStrokeWidthField', 'nodeTooltipField', 'nodeLabelField', 'nodeLabelPositionField',
+      'nodeTransparencyField', 'strokeTransparencyField'
     ]),
     edges: createDefaultFieldGroup([
-      'edgeIdField', 'edgeSourceField', 'edgeTargetField', 'edgeStrokeField', 'edgeStrokeWidthField'
+      'edgeIdField', 'edgeSourceField', 'edgeTargetField', 'edgeStrokeField', 'edgeStrokeWidthField', 'edgeTransparencyField'
     ])
   };
+
+  constructor() {
+    super();
+    console.log(this);
+  }
 
   fieldNameFor(key: string, group: string): string {
     const mapping = group === 'nodes' ? nodesFieldNameMapping : edgesFieldNameMapping;

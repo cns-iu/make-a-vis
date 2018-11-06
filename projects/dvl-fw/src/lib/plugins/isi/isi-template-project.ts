@@ -500,6 +500,12 @@ export class ISITemplateProject extends DefaultProject {
               ],
               strokeColor: [
                 {selector: 'numPapersStrokeColor'}
+              ],
+              transparency: [
+                {selector: 'numPapersTransparency'}
+              ],
+              strokeTransparency: [
+                {selector: 'numPapersTransparency'}
               ]
             },
             firstYear: {
@@ -867,6 +873,12 @@ export class ISITemplateProject extends DefaultProject {
             dataVariable: 'numCites',
             graphicVariableType: 'color',
             graphicVariableId: 'color'
+          },
+          transparency: {
+            recordSet: 'author',
+            dataVariable: 'numPapers',
+            graphicVariableType: 'transparency',
+            graphicVariableId: 'transparency'
           },
           label: {
             recordSet: 'author',

@@ -43,3 +43,5 @@ export const fontSizeScaleNormQuantitative = fontSizeScale.quantitative([0, 100]
 export const strokeWidthRange = [0.5, 10];
 export const strokeWidthScale = new SizeScale(strokeWidthRange[0], strokeWidthRange[1], 5, 'linear'); // TBD TODO
 export const strokeWidthScaleNormQuantitative = strokeWidthScale.quantitative([0, 100]);
+
+export const quantitativeTransparency = map<number, number>(n => 100 - (n / 100) * 0.9);

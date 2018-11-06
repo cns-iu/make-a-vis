@@ -16,7 +16,9 @@ export class NetworkVisualization extends DefaultVisualization {
         { type: 'areaSize', label: 'Area Size', visualization: 'node-size'},
         { type: 'identifier', label: 'Identifier' },
         { type: 'position', label: 'Position' },
-        { type: 'shape', label: 'Shape' }
+        { type: 'shape', label: 'Shape' },
+        { type: 'transparency', label: 'Transparency' }
+        // ask
       ]
     }, {
       id: 'edges', label: 'Edges', type: 'line',
