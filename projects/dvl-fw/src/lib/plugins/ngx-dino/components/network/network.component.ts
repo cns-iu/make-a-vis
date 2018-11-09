@@ -19,8 +19,7 @@ export type NodeFields = Pick<
 
 export type EdgeFields = Pick<
   NgxNetworkComponent,
-  'edgeIdField' | 'edgeSourceField' | 'edgeTargetField' | 'edgeStrokeField' | 'edgeStrokeWidthField' |
-  'edgeTransparencyField'
+  'edgeIdField' | 'edgeSourceField' | 'edgeTargetField' | 'edgeStrokeField' | 'edgeStrokeWidthField' | 'edgeTransparencyField'
 >;
 
 // tslint:disable-next-line:interface-over-type-literal
@@ -31,14 +30,14 @@ export type FieldGroups = {
 
 // TODO: strokeWidth, tooltip, label, labelPosition
 const nodesFieldNameMapping = createFieldNameMapping([
-  'color', 'transparency', 'strokeTransparency', 'position'
+  'color', 'transparency', 'position'
 ], {
   'identifier': 'nodeIdField', 'areaSize': 'nodeSizeField', 'shape': 'nodeSymbolField',
   'strokeColor': 'nodeStrokeField'
 }, 'node');
 
 const edgesFieldNameMapping = createFieldNameMapping([
-  'source', 'target', 'strokeWidth', 'transparency', 'strokeTransparency'
+  'source', 'target', 'strokeWidth', 'transparency'
 ], {
   'identifier': 'edgeIdField', 'strokeColor': 'edgeStrokeField'
 }, 'edge');

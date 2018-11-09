@@ -17,8 +17,8 @@ export class NetworkVisualization extends DefaultVisualization {
         { type: 'identifier', label: 'Identifier' },
         { type: 'position', label: 'Position' },
         { type: 'shape', label: 'Shape' },
-        { type: 'transparency', label: 'Transparency' }
-        // ask
+        { type: 'transparency', label: 'Transparency'},
+        { type: 'strokeTransparency', label: 'Stroke Transparency'}
       ]
     }, {
       id: 'edges', label: 'Edges', type: 'line',

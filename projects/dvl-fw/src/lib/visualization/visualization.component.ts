@@ -45,9 +45,7 @@ export class DvlFwVisualizationComponent implements OnInit, OnChanges {
   }
 
   runDataChangeDetection(): void {
-    if (this.componentRef) {
-      this.update();
-    }
+    this.onDataChange(new SimpleChange(this.currentData, this.data, false));
   }
 
   private onDataChange(change: SimpleChange): void {

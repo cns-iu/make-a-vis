@@ -189,7 +189,13 @@ export class ISITemplateProject extends DefaultProject {
               ],
               strokeColor: [
                 {selector: 'numCitesStrokeColor'}
-              ]
+              ],
+              transparency: [
+                {selector: 'numCitesTransparency'}
+              ],
+              strokeTransparency: [
+                {selector: 'numCitesTransparency'}
+              ],
             },
             publicationYear: {
               axis: [
@@ -264,6 +270,12 @@ export class ISITemplateProject extends DefaultProject {
               ],
               color: [
                 {selector: 'numPapersColor'}
+              ],
+              transparency: [
+                {selector: 'numPapersTransparency'}
+              ],
+              strokeTransparency: [
+                {selector: 'numPapersTransparency'}
               ],
               strokeColor: [
                 {selector: 'numPapersStrokeColor'}
@@ -373,6 +385,12 @@ export class ISITemplateProject extends DefaultProject {
               ],
               color: [
                 {selector: 'numPapersColor'}
+              ],
+              transparency: [
+                {selector: 'numPapersTransparency'}
+              ],
+              strokeTransparency: [
+                {selector: 'numPapersTransparency'}
               ],
               strokeColor: [
                 {selector: 'numPapersStrokeColor'}
@@ -634,6 +652,12 @@ export class ISITemplateProject extends DefaultProject {
               color: [
                 {selector: 'numPapersColor'}
               ],
+              transparency: [
+                {selector: 'numPapersTransparency'}
+              ],
+              strokeTransparency: [
+                {selector: 'numPapersTransparency'}
+              ],
               strokeColor: [
                 {selector: 'numPapersStrokeColor'}
               ]
@@ -727,6 +751,18 @@ export class ISITemplateProject extends DefaultProject {
             graphicVariableType: 'color',
             graphicVariableId: 'color'
           },
+          transparency: {
+            recordSet: 'publication',
+            dataVariable: 'numCites',
+            graphicVariableType: 'transparency',
+            graphicVariableId: 'transparency'
+          },
+          strokeTransparency: {
+            recordSet: 'publication',
+            dataVariable: 'numCites',
+            graphicVariableType: 'strokeTransparency',
+            graphicVariableId: 'strokeTransparency'
+          },
           label: {
             recordSet: 'publication',
             dataVariable: 'numCites',
@@ -769,6 +805,18 @@ export class ISITemplateProject extends DefaultProject {
             dataVariable: 'numCites',
             graphicVariableType: 'color',
             graphicVariableId: 'color'
+          },
+          transparency: {
+            recordSet: 'journal',
+            dataVariable: 'numPapers',
+            graphicVariableType: 'transparency',
+            graphicVariableId: 'transparency'
+          },
+          strokeTransparency: {
+            recordSet: 'journal',
+            dataVariable: 'numPapers',
+            graphicVariableType: 'strokeTransparency',
+            graphicVariableId: 'strokeTransparency'
           },
           label: {
             recordSet: 'journal',
@@ -818,6 +866,18 @@ export class ISITemplateProject extends DefaultProject {
             dataVariable: 'numCites',
             graphicVariableType: 'color',
             graphicVariableId: 'color'
+          },
+          transparency: {
+            recordSet: 'subdiscipline',
+            dataVariable: 'numPapers',
+            graphicVariableType: 'transparency',
+            graphicVariableId: 'transparency'
+          },
+          strokeTransparency: {
+            recordSet: 'subdiscipline',
+            dataVariable: 'numPapers',
+            graphicVariableType: 'strokeTransparency',
+            graphicVariableId: 'strokeTransparency'
           },
           label: {
             recordSet: 'subdiscipline',
@@ -880,6 +940,12 @@ export class ISITemplateProject extends DefaultProject {
             graphicVariableType: 'transparency',
             graphicVariableId: 'transparency'
           },
+          strokeTransparency: {
+            recordSet: 'author',
+            dataVariable: 'numPapers',
+            graphicVariableType: 'strokeTransparency',
+            graphicVariableId: 'strokeTransparency'
+          },
           label: {
             recordSet: 'author',
             dataVariable: 'numCites',
@@ -922,6 +988,18 @@ export class ISITemplateProject extends DefaultProject {
             dataVariable: 'numCites',
             graphicVariableType: 'strokeColor',
             graphicVariableId: 'strokeColor'
+          },
+          transparency: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'numPapers',
+            graphicVariableType: 'transparency',
+            graphicVariableId: 'transparency'
+          },
+          strokeTransparency: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'numPapers',
+            graphicVariableType: 'strokeTransparency',
+            graphicVariableId: 'strokeTransparency'
           }
         }
       }, this)

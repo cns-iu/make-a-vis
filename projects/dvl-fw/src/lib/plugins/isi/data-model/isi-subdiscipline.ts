@@ -3,7 +3,7 @@ import { access, chain, Operand } from '@ngx-dino/core';
 
 import {
   areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, formatNumber, formatYear,
-  greyScaleNormQuantitative, greyScaleNormQuantitativeStroke, norm0to100
+  greyScaleNormQuantitative, greyScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency
 } from '../../../encoding';
 
 
@@ -53,6 +53,8 @@ export class Subdiscipline {
   numPapersColor: string;
   @Operand<string>(chain(access('numPapersNorm'), greyScaleNormQuantitativeStroke))
   numPapersStrokeColor: string;
+  @Operand<number>(chain(access<number>('numPapersNorm'), quantitativeTransparency))
+  numPapersTransparency: number;
 
   // #Cites Encodings
   @Operand<number>(norm0to100('numCites', 'globalStats.numCitesMax'))
