@@ -9,7 +9,7 @@ export interface RGB {
 }
 
 function byteToString(byte: number): string {
-  const value = byte.toString(16);
+  const value = Math.round(byte).toString(16);
   return '0'.repeat(2 - value.length) + value;
 }
 

@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
+    "build:dvl-fw": "npm run build dvl-fw && npm run build:cli",
     "build:cli": "webpack --config projects/dvl-fw/src/lib/cli/webpack.config.js",
     "build:demo": "node --max_old_space_size=3000 ./node_modules/.bin/ng build --prod --output-hashing=none --base-href=./",
     "test": "ng test",
