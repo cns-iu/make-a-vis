@@ -16,6 +16,7 @@ export * from './lib/shared/record-set';
 export * from './lib/shared/record-stream';
 export * from './lib/shared/visualization-component';
 export * from './lib/shared/visualization';
+export * from './lib/shared/object-factory';
 
 // Default Implementations
 export * from './lib/plugins/default/default-data-source';
@@ -31,3 +32,11 @@ export * from './lib/plugins/activity-log/log-raw-data';
 
 // Components
 export * from './lib/visualization/visualization.component';
+
+// Encodings
+export * from './lib/encoding';
+
+// @ngx-dino
+export * from './lib/plugins/ngx-dino/visualizations';
+export * from './lib/plugins/ngx-dino/ngx-dino-plugin';
+export * from './lib/plugins/ngx-dino/ngx-dino.module';
