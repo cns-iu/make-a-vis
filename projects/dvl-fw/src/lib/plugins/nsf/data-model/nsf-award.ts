@@ -2,7 +2,7 @@
 import { access, chain, map, Operand } from '@ngx-dino/core';
 import {
   areaSizeScaleNormQuantitative, extractPoint, formatNumber, formatYear, fontSizeScaleNormQuantitative,
-  greyScaleNormQuantitative, greyScaleNormQuantitativeStroke, norm0to100,
+  greyScaleNormQuantitative, greyScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency
 } from '../../../encoding';
 import { Location } from '../../../encoding/geocoder';
 
@@ -92,6 +92,8 @@ export class Award {
   awardedAmountColor: string;
   @Operand<string>(chain(access('awardedAmountNorm'), greyScaleNormQuantitativeStroke))
   awardedAmountStrokeColor: string;
+  @Operand<number>(chain(access<number>('awardedAmountNorm'), quantitativeTransparency))
+  awardedAmountTransparency: number;
 
   // Start Year Encodings
   @Operand<number>(norm0to100('startYear', 'globalStats.yearMax', 'globalStats.yearMin'))

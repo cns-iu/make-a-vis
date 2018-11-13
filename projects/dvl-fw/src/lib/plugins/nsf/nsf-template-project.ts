@@ -169,7 +169,13 @@ export class NSFTemplateProject extends DefaultProject {
               ],
               strokeColor: [
                 {selector: 'awardedAmountStrokeColor'}
-              ]
+              ],
+              transparency: [
+                {selector: 'awardedAmountTransparency'}
+              ],
+              strokeTransparency: [
+                {selector: 'awardedAmountTransparency'}
+              ],
             },
             organization: {
               axis: [
@@ -219,6 +225,18 @@ export class NSFTemplateProject extends DefaultProject {
             dataVariable: 'startYear',
             graphicVariableType: 'color',
             graphicVariableId: 'color'
+          },
+          transparency: {
+            recordSet: 'award',
+            dataVariable: 'awardedAmount',
+            graphicVariableType: 'transparency',
+            graphicVariableId: 'transparency'
+          },
+          strokeTransparency: {
+            recordSet: 'award',
+            dataVariable: 'awardedAmount',
+            graphicVariableType: 'strokeTransparency',
+            graphicVariableId: 'strokeTransparency'
           },
           x: {
             recordSet: 'award',

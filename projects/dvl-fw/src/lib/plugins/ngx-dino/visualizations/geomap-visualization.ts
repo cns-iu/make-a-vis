@@ -15,6 +15,7 @@ export class GeomapVisualization extends DefaultVisualization {
         { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
         { type: 'areaSize', label: 'Area Size', visualization: 'node-size' },
         { type: 'transparency', label: 'Transparency' },
+        { type: 'strokeTransparency', label: 'Stroke Transparency' },
         { type: 'identifier', label: 'Identifier' },
         { type: 'latlng', label: 'Latitude/Longitude' },
         { type: 'shape', label: 'Shape' }
@@ -25,6 +26,13 @@ export class GeomapVisualization extends DefaultVisualization {
       graphicVariableOptions: [
         { type: 'color', label: 'Color', visualization: 'color' },
         { type: 'identifier', label: 'Identifier' }
+      ]
+    },
+    {
+      id: 'basemap', label: 'Basemap', type: 'area',
+      graphicVariableOptions: [
+        { type: 'transparency', label: 'Transparency' },
+        { type: 'strokeTransparency', label: 'Stroke Transparency' }
       ]
     }
   ];

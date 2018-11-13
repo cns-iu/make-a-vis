@@ -27,7 +27,9 @@ export class NetworkVisualization extends DefaultVisualization {
         { type: 'strokeWidth', label: 'Stroke Width', visualization: 'edge-size' },
         { type: 'identifier', label: 'Identifier' },
         { type: 'source', label: 'Source Position' },
-        { type: 'target', label: 'Target Position' }
+        { type: 'target', label: 'Target Position' },
+        { type: 'transparency', label: 'Transparency' }
+
       ]
     }
   ];
