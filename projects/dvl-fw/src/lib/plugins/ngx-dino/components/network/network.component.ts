@@ -65,7 +65,6 @@ export class NetworkComponent extends BaseVisualizationComponent<Properties, Fie
 
   constructor() {
     super();
-    console.log(this);
   }
 
   fieldNameFor(key: string, group: string): string {
