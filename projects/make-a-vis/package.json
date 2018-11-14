@@ -11,7 +11,7 @@
         "@ngrx/effects": "^6.1.0",
         "@ngrx/store": "^6.1.0",
         "@ngx-dino/core": "^0.9.0",
-        "@ngx-dino/scatterplot": "^0.9.0",
+        "@ngx-dino/scatterplot": "^0.10.0",
         "@ngx-dino/science-map": "^0.9.0",
         "@types/blob-stream": "^0.1.29",
         "@types/pdfkit": "^0.7.36",
