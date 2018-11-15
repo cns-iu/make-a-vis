@@ -29,7 +29,6 @@ export class NetworkVisualization extends DefaultVisualization {
         { type: 'source', label: 'Source Position' },
         { type: 'target', label: 'Target Position' },
         { type: 'transparency', label: 'Transparency' }
-
       ]
     }
   ];

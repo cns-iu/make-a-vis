@@ -1,57 +1,68 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Component } from '@angular/core';
 import { GeomapComponent as NgxGeomapComponent } from '@ngx-dino/geomap';
+import { geoAlbersUsa, geoMercator } from 'd3-geo';
 
 import { BaseVisualizationComponent } from '../base-visualization-component';
 import { createDefaultFieldGroup, createFieldNameMapping } from '../utility';
 
 export type Properties = Pick<
   NgxGeomapComponent,
-  'showCounties' | 'mapDisplayLevel' | 'stateDefaultColor' | 'stateDefaultStrokeColor'
+  'basemapFeatureSelector' | 'basemapProjection' | 'basemapDefaultColor' |
+  'basemapDefaultTransparency' | 'basemapDefaultStrokeColor' | 'basemapDefaultStrokeWidth' |
+  'basemapDefaultStrokeDashArray' | 'basemapDefaultStrokeTransparency'
 >;
 
-export type StateFields = Pick<
+export type BasemapFields = Pick<
   NgxGeomapComponent,
-  'stateField' | 'stateColorField'
+  'basemapColorField' | 'basemapTransparencyField' | 'basemapStrokeColorField' |
+  'basemapStrokeWidthField' | 'basemapStrokeDashArrayField' | 'basemapStrokeTransparencyField'
 >;
 
-export type PointFields = Pick<
+export type NodeFields = Pick<
   NgxGeomapComponent,
-  'pointIdField' | 'pointLatLongField' | 'pointSizeField' | 'pointColorField' |
-  'pointTransparencyField' | 'pointShapeField' | 'strokeColorField' | 'pointTitleField' | 'pointPulseField'
+  'nodeIdField' | 'nodePositionField' | 'nodeSizeField' | 'nodeSymbolField' |
+  'nodeColorField' | 'nodeStrokeColorField' | 'nodeStrokeWidthField' | 'nodeTooltipField' |
+  'nodeLabelField' | 'nodeLabelPositionField' | 'nodeTransparencyField' | 'nodeStrokeTransparencyField'
 >;
 
 export type EdgeFields = Pick<
   NgxGeomapComponent,
-  'edgeTransparencyField'
+  'edgeIdField' | 'edgeSourceField' | 'edgeTargetField' |
+  'edgeStrokeColorField' | 'edgeStrokeWidthField'
 >;
 
 // tslint:disable-next-line:interface-over-type-literal
 export type FieldGroups = {
-  states: StateFields,
-  points: PointFields,
+  basemap: BasemapFields,
+  nodes: NodeFields,
   edges: EdgeFields
 };
 
-const statesFieldNameMapping = createFieldNameMapping([
-  'color'
+// TODO: strokeDashArray
+const basemapFieldNameMapping = createFieldNameMapping([
+  'color', 'transparency', 'strokeColor', 'strokeWidth', 'strokeTransparency'
 ], {
-  'identifier': 'stateField'
-}, 'state');
+}, 'basemap');
 
-// TODO title, pulse
-const pointsFieldNameMapping = createFieldNameMapping([
-  'color', 'shape', 'transparency', 'strokeTransparency'
+// TODO: tooltip, label, labelPosition
+const nodesFieldNameMapping = createFieldNameMapping([
+  'position', 'color', 'transparency', 'strokeColor', 'strokeWidth'
 ], {
-  'identifier': 'pointIdField', 'areaSize': 'pointSizeField', 'strokeColor': 'strokeColorField',
-  'latlng': 'pointLatLongField'
-}, 'point');
+  'identifier': 'nodeIdField', 'areaSize': 'nodeSizeField', 'shape': 'nodeSymbolField',
+}, 'node');
 
 const edgesFieldNameMapping = createFieldNameMapping([
-  'transparency'
+  'source', 'target', 'strokeColor', 'strokeWidth', 'transparency'
 ], {
+  'identifier': 'edgeIdField'
 }, 'edge');
 
+const fieldNameMappingMap = {
+  basemap: basemapFieldNameMapping,
+  nodes: nodesFieldNameMapping,
+  edges: edgesFieldNameMapping
+};
 
 @Component({
   selector: 'dvl-vis-geomap',
@@ -60,23 +71,30 @@ const edgesFieldNameMapping = createFieldNameMapping([
 })
 export class GeomapComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
   readonly defaultProperties: Properties = {
-    showCounties: false, mapDisplayLevel: 'us',
-    stateDefaultColor: '#bebebe', stateDefaultStrokeColor: 'white'
+    basemapFeatureSelector: ['world', 'united states', 'states'],
+    basemapProjection: geoAlbersUsa(),
+    basemapDefaultColor: undefined, basemapDefaultTransparency: undefined,
+    basemapDefaultStrokeColor: undefined, basemapDefaultStrokeWidth: undefined,
+    basemapDefaultStrokeDashArray: undefined, basemapDefaultStrokeTransparency: undefined
   };
 
   readonly defaultFieldGroups: FieldGroups = {
-    states: createDefaultFieldGroup(['stateField', 'stateColorField']),
-    points: createDefaultFieldGroup([
-      'pointIdField', 'pointLatLongField', 'pointSizeField', 'pointColorField', 'pointTransparencyField', 'pointStrokeTransparencyField',
-      'pointShapeField', 'strokeColorField', 'pointTitleField', 'pointPulseField'
+    basemap: createDefaultFieldGroup([
+      'basemapColorField', 'basemapTransparencyField', 'basemapStrokeColorField',
+      'basemapStrokeWidthField', 'basemapStrokeDashArrayField', 'basemapStrokeTransparencyField'
+    ]),
+    nodes: createDefaultFieldGroup([
+      'nodeIdField', 'nodePositionField', 'nodeSizeField', 'nodeSymbolField',
+      'nodeColorField', 'nodeStrokeColorField', 'nodeStrokeWidthField', 'nodeTooltipField',
+      'nodeLabelField', 'nodeLabelPositionField', 'nodeTransparencyField', 'nodeStrokeTransparencyField'
     ]),
     edges: createDefaultFieldGroup([
-      'edgeTransparencyField'
+      'edgeIdField', 'edgeSourceField', 'edgeTargetField',
+      'edgeStrokeColorField', 'edgeStrokeWidthField'
     ])
   };
 
   fieldNameFor(key: string, group: string): string {
-    const mapping = (group === 'states' ? statesFieldNameMapping : (group === 'points' ? pointsFieldNameMapping : edgesFieldNameMapping));
-    return mapping[key];
+    return fieldNameMappingMap[group][key];
   }
 }

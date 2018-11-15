@@ -8,31 +8,36 @@ import { GeomapComponent } from '../components/geomap/geomap.component';
 export class GeomapVisualization extends DefaultVisualization {
   readonly component = GeomapComponent;
   readonly graphicSymbolOptions = [
-  {
-      id: 'points', label: 'Points', type: 'area',
-      graphicVariableOptions: [
-        { type: 'color', label: 'Color', visualization: 'color' },
-        { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
-        { type: 'areaSize', label: 'Area Size', visualization: 'node-size' },
-        { type: 'transparency', label: 'Transparency' },
-        { type: 'strokeTransparency', label: 'Stroke Transparency' },
-        { type: 'identifier', label: 'Identifier' },
-        { type: 'latlng', label: 'Latitude/Longitude' },
-        { type: 'shape', label: 'Shape' }
-      ]
-    },
-    {
-      id: 'states', label: 'States', type: 'area',
-      graphicVariableOptions: [
-        { type: 'color', label: 'Color', visualization: 'color' },
-        { type: 'identifier', label: 'Identifier' }
-      ]
-    },
     {
       id: 'basemap', label: 'Basemap', type: 'area',
       graphicVariableOptions: [
+        { type: 'color', label: 'Color', visualization: 'color' },
         { type: 'transparency', label: 'Transparency' },
+        { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
         { type: 'strokeTransparency', label: 'Stroke Transparency' }
+      ]
+    },
+    {
+      id: 'nodes', label: 'Nodes', type: 'area',
+      graphicVariableOptions: [
+        { type: 'identifier', label: 'Identifier' },
+        { type: 'shape', label: 'Shape' },
+        { type: 'position', label: 'Position' },
+        { type: 'areaSize', label: 'Area Size', visualization: 'node-size'},
+        { type: 'color', label: 'Color', visualization: 'color' },
+        { type: 'transparency', label: 'Transparency'},
+        { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
+        { type: 'strokeTransparency', label: 'Stroke Transparency'}
+      ]
+    }, {
+      id: 'edges', label: 'Edges', type: 'line',
+      graphicVariableOptions: [
+        { type: 'identifier', label: 'Identifier' },
+        { type: 'source', label: 'Source Position' },
+        { type: 'target', label: 'Target Position' },
+        { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
+        { type: 'strokeWidth', label: 'Stroke Width', visualization: 'edge-size' },
+        { type: 'transparency', label: 'Transparency' }
       ]
     }
   ];

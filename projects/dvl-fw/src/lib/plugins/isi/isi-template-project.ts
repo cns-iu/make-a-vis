@@ -1060,12 +1060,12 @@ export class ISITemplateProject extends DefaultProject {
         id: 'GM01',
         template: 'geomap',
         properties: {
-          stateDefaultColor: 'white',
-          stateDefaultStrokeColor: '#bebebe'
+          basemapDefaultColor: 'white',
+          basemapDefaultStrokeColor: '#bebebe'
         },
         graphicSymbols: {
-          points: 'authorPoints'
-          // TODO: Add states
+          nodes: 'authorPoints'
+          // TODO: Add edges and basemap fields
         }
       }, this),
       new NetworkVisualization({
