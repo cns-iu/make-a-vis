@@ -17,7 +17,9 @@ export class ScatterplotVisualization extends DefaultVisualization {
       { type: 'identifier', label: 'Identifier' },
       { type: 'axis', label: 'X-Axis', id: 'x' },
       { type: 'axis', label: 'Y-Axis', id: 'y' },
-      { type: 'shape', label: 'Shape' }
+      { type: 'shape', label: 'Shape' },
+      { type: 'transparency', label: 'Transparency' },
+      { type: 'strokeTransparency', label: 'Stroke Transparency' }
     ]
   }];
 }

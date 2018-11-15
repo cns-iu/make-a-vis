@@ -18,13 +18,19 @@ export type StateFields = Pick<
 export type PointFields = Pick<
   NgxGeomapComponent,
   'pointIdField' | 'pointLatLongField' | 'pointSizeField' | 'pointColorField' |
-  'pointShapeField' | 'strokeColorField' | 'pointTitleField' | 'pointPulseField'
+  'pointTransparencyField' | 'pointShapeField' | 'strokeColorField' | 'pointTitleField' | 'pointPulseField'
+>;
+
+export type EdgeFields = Pick<
+  NgxGeomapComponent,
+  'edgeTransparencyField'
 >;
 
 // tslint:disable-next-line:interface-over-type-literal
 export type FieldGroups = {
   states: StateFields,
-  points: PointFields
+  points: PointFields,
+  edges: EdgeFields
 };
 
 const statesFieldNameMapping = createFieldNameMapping([
@@ -35,11 +41,17 @@ const statesFieldNameMapping = createFieldNameMapping([
 
 // TODO title, pulse
 const pointsFieldNameMapping = createFieldNameMapping([
-  'color', 'shape'
+  'color', 'shape', 'transparency', 'strokeTransparency'
 ], {
   'identifier': 'pointIdField', 'areaSize': 'pointSizeField', 'strokeColor': 'strokeColorField',
   'latlng': 'pointLatLongField'
 }, 'point');
+
+const edgesFieldNameMapping = createFieldNameMapping([
+  'transparency'
+], {
+}, 'edge');
+
 
 @Component({
   selector: 'dvl-vis-geomap',
@@ -55,13 +67,16 @@ export class GeomapComponent extends BaseVisualizationComponent<Properties, Fiel
   readonly defaultFieldGroups: FieldGroups = {
     states: createDefaultFieldGroup(['stateField', 'stateColorField']),
     points: createDefaultFieldGroup([
-      'pointIdField', 'pointLatLongField', 'pointSizeField', 'pointColorField',
+      'pointIdField', 'pointLatLongField', 'pointSizeField', 'pointColorField', 'pointTransparencyField', 'pointStrokeTransparencyField',
       'pointShapeField', 'strokeColorField', 'pointTitleField', 'pointPulseField'
+    ]),
+    edges: createDefaultFieldGroup([
+      'edgeTransparencyField'
     ])
   };
 
   fieldNameFor(key: string, group: string): string {
-    const mapping = group === 'states' ? statesFieldNameMapping : pointsFieldNameMapping;
+    const mapping = (group === 'states' ? statesFieldNameMapping : (group === 'points' ? pointsFieldNameMapping : edgesFieldNameMapping));
     return mapping[key];
   }
 }

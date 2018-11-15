@@ -14,13 +14,13 @@ export type Properties = Pick<
 export type PointFields = Pick<
   NgxScatterplotComponent,
   'pointIdField' | 'strokeColorField' | 'xField' | 'yField' |
-  'colorField' | 'shapeField' | 'sizeField' | 'pulseField' | 'tooltipTextField'
+  'colorField' | 'transparencyField' | 'strokeTransparencyField' | 'shapeField' | 'sizeField' | 'pulseField' | 'tooltipTextField'
 >;
 
 export type FieldGroups = { points: PointFields }; // tslint:disable-line:interface-over-type-literal
 
 const fieldNameMapping = createFieldNameMapping([
-  'x', 'y', 'shape', 'color', 'strokeColor'
+  'x', 'y', 'shape', 'color', 'strokeColor', 'transparency', 'strokeTransparency'
 ], {
   'identifier': 'pointIdField', 'areaSize': 'sizeField'
 });
@@ -39,7 +39,7 @@ export class ScatterplotComponent extends BaseVisualizationComponent<Properties,
 
   readonly defaultFieldGroups: FieldGroups = {
     points: createDefaultFieldGroup([
-      'pointIdField', 'strokeColorField', 'xField', 'yField', 'colorField',
+      'pointIdField', 'strokeColorField', 'xField', 'yField', 'colorField', 'transparencyField', 'strokeTransparencyField',
       'shapeField', 'sizeField', 'pulseField', 'tooltipTextField'
     ])
   };
