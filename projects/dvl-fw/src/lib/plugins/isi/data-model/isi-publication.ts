@@ -3,7 +3,7 @@ import { access, chain, Operand } from '@ngx-dino/core';
 
 import {
   areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, formatNumber, formatYear,
-  greyScaleNormQuantitative, greyScaleNormQuantitativeStroke, norm0to100
+  greyScaleNormQuantitative, greyScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency
 } from '../../../encoding';
 import { Transient } from '../../../shared/transient';
 import { Author } from './isi-author';
@@ -65,6 +65,8 @@ export class Publication {
   numCitesColor: string;
   @Operand<string>(chain(access('numCitesNorm'), greyScaleNormQuantitativeStroke))
   numCitesStrokeColor: string;
+  @Operand<number>(chain(access<number>('numCitesNorm'), quantitativeTransparency))
+  numCitesTransparency: number;
 
   // First Year Encodings
   @Operand<number>(norm0to100('publicationYear', 'globalStats.yearMax', 'globalStats.yearMin'))

@@ -4,7 +4,7 @@ import { access, chain, combine, map, Operand } from '@ngx-dino/core';
 import {
   areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, strokeWidthScaleNormQuantitative,
   greyScaleNormQuantitative, greyScaleNormQuantitativeStroke,
-  norm0to100, formatNumber, formatYear
+  norm0to100, formatNumber, formatYear, quantitativeTransparency
 } from '../../../encoding';
 import { Transient } from '../../../shared/transient';
 
@@ -72,6 +72,8 @@ export class CoAuthorLink {
   numPapersColor: string;
   @Operand<string>(chain(access('numPapersNorm'), greyScaleNormQuantitativeStroke))
   numPapersStrokeColor: string;
+  @Operand<number>(chain(access<number>('numPapersNorm'), quantitativeTransparency))
+  numPapersTransparency: number;
 
   // #Cites Encodings
   @Operand<number>(norm0to100('numCites', 'globalStats.numCitesMax'))

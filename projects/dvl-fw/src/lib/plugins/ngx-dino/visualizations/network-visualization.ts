@@ -16,7 +16,9 @@ export class NetworkVisualization extends DefaultVisualization {
         { type: 'areaSize', label: 'Area Size', visualization: 'node-size'},
         { type: 'identifier', label: 'Identifier' },
         { type: 'position', label: 'Position' },
-        { type: 'shape', label: 'Shape' }
+        { type: 'shape', label: 'Shape' },
+        { type: 'transparency', label: 'Transparency'},
+        { type: 'strokeTransparency', label: 'Stroke Transparency'}
       ]
     }, {
       id: 'edges', label: 'Edges', type: 'line',
@@ -25,7 +27,9 @@ export class NetworkVisualization extends DefaultVisualization {
         { type: 'strokeWidth', label: 'Stroke Width', visualization: 'edge-size' },
         { type: 'identifier', label: 'Identifier' },
         { type: 'source', label: 'Source Position' },
-        { type: 'target', label: 'Target Position' }
+        { type: 'target', label: 'Target Position' },
+        { type: 'transparency', label: 'Transparency' }
+
       ]
     }
   ];

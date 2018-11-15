@@ -3,7 +3,7 @@ import { access, chain, constant, Operand } from '@ngx-dino/core';
 
 import {
   areaSizeScaleNormQuantitative, extractPoint, fontSizeScaleNormQuantitative, formatNumber, formatYear,
-  greyScaleNormQuantitative, greyScaleNormQuantitativeStroke, norm0to100
+  greyScaleNormQuantitative, greyScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency
 } from '../../../encoding';
 import { Location } from '../../../encoding/geocoder';
 
@@ -64,6 +64,8 @@ export class Author {
   numPapersColor: string;
   @Operand<string>(chain(access('numPapersNorm'), greyScaleNormQuantitativeStroke))
   numPapersStrokeColor: string;
+  @Operand<number>(chain(access<number>('numPapersNorm'), quantitativeTransparency))
+  numPapersTransparency: number;
 
   // #Cites Encodings
   @Operand<number>(norm0to100('numCites', 'globalStats.numCitesMax'))
