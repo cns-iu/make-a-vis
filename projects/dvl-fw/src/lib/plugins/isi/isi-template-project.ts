@@ -1008,30 +1008,6 @@ export class ISITemplateProject extends DefaultProject {
 
   getVisualizations(): Visualization[] {
     return [
-      new NodeSizeVisualization({
-        id: 'Node Size Legend',
-        template: 'node-size',
-        properties: { },
-        graphicSymbols: {
-          items: 'publicationPoints'
-        }
-      }, this),
-      new EdgeSizeVisualization({
-        id: 'Edge Size Legend',
-        template: 'edge-size',
-        properties: { },
-        graphicSymbols: {
-          items: 'coAuthorLinks'
-        }
-      }, this),
-      new ColorVisualization({
-        id: 'Color Legend',
-        template: 'color',
-        properties: { },
-        graphicSymbols: {
-          items: 'publicationPoints'
-        }
-      }, this),
       new ScatterplotVisualization({
         id: 'SG01',
         template: 'scattergraph',
