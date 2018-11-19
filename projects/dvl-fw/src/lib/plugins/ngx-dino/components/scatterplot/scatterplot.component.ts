@@ -20,7 +20,7 @@ export type PointFields = Pick<
 export type FieldGroups = { points: PointFields }; // tslint:disable-line:interface-over-type-literal
 
 const fieldNameMapping = createFieldNameMapping([
-  'x', 'y', 'shape', 'color', 'strokeColor', 'transparency', 'strokeTransparency'
+  'x', 'y', 'shape', 'color', 'strokeColor', 'transparency', 'strokeTransparency', 'pulse'
 ], {
   'identifier': 'pointIdField', 'areaSize': 'sizeField'
 });

@@ -19,7 +19,8 @@ export class ScatterplotVisualization extends DefaultVisualization {
       { type: 'axis', label: 'Y-Axis', id: 'y' },
       { type: 'shape', label: 'Shape' },
       { type: 'transparency', label: 'Transparency' },
-      { type: 'strokeTransparency', label: 'Stroke Transparency' }
+      { type: 'strokeTransparency', label: 'Stroke Transparency' },
+      { type: 'pulse', label: 'Pulsing (Motion)' }
     ]
   }];
 }
