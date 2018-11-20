@@ -1,6 +1,6 @@
 {
     "name": "@dvl-fw/core",
-    "version": "0.6.2",
+    "version": "0.6.3",
     "bin": {
         "dvl-fw-import": "./dvl-fw-import",
         "dvl-fw-validate": "./dvl-fw-validate"
@@ -12,11 +12,12 @@
         "@angular/common": "^7.0.0",
         "@angular/core": "^7.0.0",
         "@ngx-dino/core": "^0.9.0",
-        "@ngx-dino/geomap": "^0.10.0",
+        "@ngx-dino/geomap": "^0.10.3",
         "@ngx-dino/legend": "^0.9.0",
-        "@ngx-dino/network": "^0.11.0",
+        "@ngx-dino/network": "^0.11.2",
         "@ngx-dino/scatterplot": "^0.10.0",
         "@ngx-dino/science-map": "^0.9.0",
+        "@types/d3-geo": "^1.10.3",
         "d3-geo": "^1.11.1",
         "d3-scale": "^2.1.2",
         "graphology": "^0.13.1",
