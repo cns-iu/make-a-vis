@@ -1,7 +1,7 @@
 apiVersion: 1
 metadata:
-  dateCreated: 2018-10-15T16:59:53.387Z
-  dateSaved: 2018-10-15T16:59:53.407Z
+  dateCreated: 2018-11-21T14:12:20.030Z
+  dateSaved: 2018-11-21T14:12:20.046Z
 dataSources:
   - id: nsfDataSource
     template: nsf
@@ -11,7 +11,7 @@ dataSources:
       saveParsedData: true
     recordStreams:
       - id: awards
-        label: awards
+        label: Awards
   - id: activityLog
     template: activityLog
     properties:
@@ -20,17 +20,13 @@ dataSources:
       freezeLogs: false
     recordStreams:
       - id: activityLog
-        label: activityLog
+        label: Activity Log
 recordSets:
   - id: award
     label: Award
     labelPlural: Awards
     defaultRecordStream: awards
     dataVariables:
-      - id: id
-        label: ID
-        dataType: text
-        scaleType: nominal
       - id: title
         label: Title
         dataType: text
@@ -63,6 +59,10 @@ recordSets:
         label: NSF Program(s)
         dataType: text
         scaleType: nominal
+      - id: id
+        label: ID
+        dataType: text
+        scaleType: nominal
 graphicVariableMappings:
   - recordStream: awards
     mappings:
@@ -70,20 +70,20 @@ graphicVariableMappings:
         id:
           identifier:
             - id: identifier
-              label: identifier
+              label: ID
               selector: id
         title:
           identifier:
             - id: identifier
-              label: identifier
+              label: Title
               selector: id
           axis:
             - id: axis
-              label: axis
+              label: Title
               selector: title
           text:
             - id: text
-              label: text
+              label: Title
               selector: title
         investigators:
           axis:
@@ -97,95 +97,103 @@ graphicVariableMappings:
         startYear:
           axis:
             - id: axis
-              label: axis
+              label: Start Year
               selector: startYearLabel
           text:
             - id: text
-              label: text
+              label: Start Year
               selector: startYearLabel
           areaSize:
             - id: areaSize
-              label: areaSize
+              label: Start Year
               selector: startYearAreaSize
           fontSize:
             - id: fontSize
-              label: fontSize
+              label: Start Year
               selector: startYearFontSize
           color:
             - id: color
-              label: color
+              label: Start Year
               selector: startYearColor
           strokeColor:
             - id: strokeColor
-              label: strokeColor
+              label: Start Year
               selector: startYearStrokeColor
         endYear:
           axis:
             - id: axis
-              label: axis
+              label: End Year
               selector: endYearLabel
           text:
             - id: text
-              label: text
+              label: End Year
               selector: endYearLabel
           areaSize:
             - id: areaSize
-              label: areaSize
+              label: End Year
               selector: endYearAreaSize
           fontSize:
             - id: fontSize
-              label: fontSize
+              label: End Year
               selector: endYearFontSize
           color:
             - id: color
-              label: color
+              label: End Year
               selector: endYearColor
           strokeColor:
             - id: strokeColor
-              label: strokeColor
+              label: End Year
               selector: endYearStrokeColor
         awardedAmount:
           axis:
             - id: axis
-              label: axis
+              label: $Awarded
               selector: awardedAmountLabel
           text:
             - id: text
-              label: text
+              label: $Awarded
               selector: awardedAmountLabel
           areaSize:
             - id: areaSize
-              label: areaSize
+              label: $Awarded
               selector: awardedAmountAreaSize
           fontSize:
             - id: fontSize
-              label: fontSize
+              label: $Awarded
               selector: awardedAmountFontSize
           color:
             - id: color
-              label: color
+              label: $Awarded
               selector: awardedAmountColor
           strokeColor:
             - id: strokeColor
-              label: strokeColor
+              label: $Awarded
               selector: awardedAmountStrokeColor
+          transparency:
+            - id: transparency
+              label: $Awarded
+              selector: awardedAmountTransparency
+          strokeTransparency:
+            - id: strokeTransparency
+              label: $Awarded
+              selector: awardedAmountTransparency
         organization:
           axis:
             - id: axis
-              label: axis
+              label: Organization
               selector: organization.name
           text:
             - id: text
-              label: text
+              label: Organization
               selector: organization.name
         nsfOrganization:
           axis:
             - id: axis
-              label: axis
+              label: NSF Org.
               selector: nsfOrganization
           text:
             - id: text
-              label: text
+              label: NSF Org.
               selector: nsfOrganization
         nsfPrograms:
           axis:
@@ -211,6 +219,16 @@ graphicSymbolMappings:
         dataVariable: startYear
         graphicVariableType: color
         graphicVariableId: color
+      transparency:
+        recordSet: award
+        dataVariable: awardedAmount
+        graphicVariableType: transparency
+        graphicVariableId: transparency
+      strokeTransparency:
+        recordSet: award
+        dataVariable: awardedAmount
+        graphicVariableType: strokeTransparency
+        graphicVariableId: strokeTransparency
       x:
         recordSet: award
         dataVariable: startYear
