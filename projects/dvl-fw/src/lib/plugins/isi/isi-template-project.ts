@@ -113,6 +113,7 @@ export class ISITemplateProject extends DefaultProject {
           {id: 'latlng', label: 'Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
           {id: 'position', label: 'Position', dataType: '???', scaleType: '???'}, // TODO: Fix types
           {id: 'shape', label: 'Shape', dataType: 'text', scaleType: 'nominal'},
+          {id: 'pulse', label: 'Pulse', dataType: '???', scaleType: '???'} // TODO: Fix types
         ]
       }, this),
       new DefaultRecordSet({
@@ -467,6 +468,11 @@ export class ISITemplateProject extends DefaultProject {
             shape: {
               identifier: [
                 {selector: 'shape'}
+              ]
+            },
+            pulse: {
+              identifier: [
+                {selector: 'pulse'}
               ]
             },
             fullname: {
@@ -919,6 +925,12 @@ export class ISITemplateProject extends DefaultProject {
           shape: {
             recordSet: 'author',
             dataVariable: 'shape',
+            graphicVariableType: 'identifier',
+            graphicVariableId: 'identifier'
+          },
+          pulse: {
+            recordSet: 'author',
+            dataVariable: 'pulse',
             graphicVariableType: 'identifier',
             graphicVariableId: 'identifier'
           },

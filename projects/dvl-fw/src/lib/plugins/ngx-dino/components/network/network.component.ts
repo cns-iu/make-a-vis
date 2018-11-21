@@ -14,7 +14,7 @@ export type NodeFields = Pick<
   NgxNetworkComponent,
   'nodeIdField' | 'nodePositionField' | 'nodeSizeField' | 'nodeSymbolField' | 'nodeColorField' |
   'nodeStrokeField' | 'nodeStrokeWidthField' | 'nodeTooltipField' | 'nodeLabelField' |
-  'nodeLabelPositionField' | 'nodeTransparencyField' | 'strokeTransparencyField'
+  'nodeLabelPositionField' | 'nodeTransparencyField' | 'strokeTransparencyField' | 'nodePulseField'
 >;
 
 export type EdgeFields = Pick<
@@ -37,7 +37,7 @@ const nodesFieldNameMapping = createFieldNameMapping([
 }, 'node');
 
 const edgesFieldNameMapping = createFieldNameMapping([
-  'source', 'target', 'strokeWidth', 'transparency'
+  'source', 'target', 'strokeWidth', 'transparency', 'pulse'
 ], {
   'identifier': 'edgeIdField', 'strokeColor': 'edgeStrokeField'
 }, 'edge');
@@ -56,7 +56,7 @@ export class NetworkComponent extends BaseVisualizationComponent<Properties, Fie
     nodes: createDefaultFieldGroup([
       'nodeIdField', 'nodePositionField', 'nodeSizeField', 'nodeSymbolField', 'nodeColorField',
       'nodeStrokeField', 'nodeStrokeWidthField', 'nodeTooltipField', 'nodeLabelField', 'nodeLabelPositionField',
-      'nodeTransparencyField', 'strokeTransparencyField'
+      'nodeTransparencyField', 'strokeTransparencyField', 'nodePulseField'
     ]),
     edges: createDefaultFieldGroup([
       'edgeIdField', 'edgeSourceField', 'edgeTargetField', 'edgeStrokeField', 'edgeStrokeWidthField', 'edgeTransparencyField'
