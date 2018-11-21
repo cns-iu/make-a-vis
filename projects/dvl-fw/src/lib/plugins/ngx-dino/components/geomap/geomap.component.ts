@@ -8,7 +8,7 @@ import { createDefaultFieldGroup, createFieldNameMapping } from '../utility';
 
 export type Properties = Pick<
   NgxGeomapComponent,
-  'basemapFeatureSelector' | 'basemapProjection' | 'basemapDefaultColor' |
+  'basemapZoomLevels' | 'basemapSelectedZoomLevel' | 'basemapDefaultColor' |
   'basemapDefaultTransparency' | 'basemapDefaultStrokeColor' | 'basemapDefaultStrokeWidth' |
   'basemapDefaultStrokeDashArray' | 'basemapDefaultStrokeTransparency'
 >;
@@ -23,7 +23,8 @@ export type NodeFields = Pick<
   NgxGeomapComponent,
   'nodeIdField' | 'nodePositionField' | 'nodeSizeField' | 'nodeSymbolField' |
   'nodeColorField' | 'nodeStrokeColorField' | 'nodeStrokeWidthField' | 'nodeTooltipField' |
-  'nodeLabelField' | 'nodeLabelPositionField' | 'nodeTransparencyField' | 'nodeStrokeTransparencyField'
+  'nodeLabelField' | 'nodeLabelPositionField' | 'nodeTransparencyField' | 'nodeStrokeTransparencyField' |
+  'nodePulseField'
 >;
 
 export type EdgeFields = Pick<
@@ -47,7 +48,7 @@ const basemapFieldNameMapping = createFieldNameMapping([
 
 // TODO: tooltip, label, labelPosition
 const nodesFieldNameMapping = createFieldNameMapping([
-  'position', 'color', 'transparency', 'strokeColor', 'strokeWidth'
+  'position', 'color', 'transparency', 'strokeColor', 'strokeWidth', 'pulse'
 ], {
   'identifier': 'nodeIdField', 'areaSize': 'nodeSizeField', 'shape': 'nodeSymbolField',
 }, 'node');
@@ -71,8 +72,7 @@ const fieldNameMappingMap = {
 })
 export class GeomapComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
   readonly defaultProperties: Properties = {
-    basemapFeatureSelector: ['world', 'united states', 'states'],
-    basemapProjection: geoAlbersUsa(),
+    basemapZoomLevels: undefined, basemapSelectedZoomLevel: undefined,
     basemapDefaultColor: undefined, basemapDefaultTransparency: undefined,
     basemapDefaultStrokeColor: undefined, basemapDefaultStrokeWidth: undefined,
     basemapDefaultStrokeDashArray: undefined, basemapDefaultStrokeTransparency: undefined
@@ -86,7 +86,8 @@ export class GeomapComponent extends BaseVisualizationComponent<Properties, Fiel
     nodes: createDefaultFieldGroup([
       'nodeIdField', 'nodePositionField', 'nodeSizeField', 'nodeSymbolField',
       'nodeColorField', 'nodeStrokeColorField', 'nodeStrokeWidthField', 'nodeTooltipField',
-      'nodeLabelField', 'nodeLabelPositionField', 'nodeTransparencyField', 'nodeStrokeTransparencyField'
+      'nodeLabelField', 'nodeLabelPositionField', 'nodeTransparencyField', 'nodeStrokeTransparencyField',
+      'nodePulseField'
     ]),
     edges: createDefaultFieldGroup([
       'edgeIdField', 'edgeSourceField', 'edgeTargetField',
