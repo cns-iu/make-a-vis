@@ -1,0 +1,27 @@
+<div class="info-expansion-pane-container">
+  <div class="info-header">
+      <mat-card>
+        {{headerText}}
+      </mat-card>
+  </div>
+  <div class="info-expansion-panels">
+  <mat-expansion-panel class="info-panel" *ngFor="let infoItem of infoItems">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+          {{infoItem.title}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{infoItem.description}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    {{infoItem.content}}
+
+  </mat-expansion-panel>
+  <div class="info-footer-container">
+    <div class="info-footer" *ngFor="let footerItems of footer">
+        <mav-cns-logo-icon></mav-cns-logo-icon>
+    </div>
+  </div>
+</div>
+</div>
