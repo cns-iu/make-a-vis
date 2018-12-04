@@ -15,6 +15,7 @@ import { ExportService } from '../../shared/services/export/export.service';
 import { GetLinkService } from '../../shared/services/get-link/get-link.service';
 
 export type ProjectExtensionType = 'isi' | 'nsf' | 'csv' | 'json' | 'yml';
+export type ExportType = 'png' | 'svg' | 'pdf';
 
 @Component({
   selector: 'mav-sidenav-content',
@@ -34,6 +35,7 @@ export class SidenavContentComponent implements OnInit {
   exportSnapshotType = null;
   panelOpenState = true;
   projectExtensions: ProjectExtensionType[] = ['yml', 'nsf', 'isi'];
+  exportTypes: ExportType[] = ['png', 'svg', 'pdf'];
   project: Project = undefined;
   shareUrlFieldDisabled: boolean;
   private baseUrl: string;
@@ -82,12 +84,12 @@ export class SidenavContentComponent implements OnInit {
   ngOnInit() {
   }
 
-  exportSnapshot() {
-    if (this.exportSnapshotType === 'png') {
+  exportSnapshot(exportType) {
+    if (exportType === 'png') {
       this.exportService.exportToPng();
-    } else if (this.exportSnapshotType === 'svg') {
+    } else if (exportType === 'svg') {
         this.exportService.exportToSvg();
-      } else if (this.exportSnapshotType === 'pdf') {
+      } else if (exportType === 'pdf') {
           this.exportService.exportToPdf();
         }
   }
