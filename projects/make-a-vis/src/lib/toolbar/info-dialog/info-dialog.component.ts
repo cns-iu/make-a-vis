@@ -15,7 +15,7 @@ export class InfoDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) data) {
       this.createItems();
       this.headerText = 'IVC Make-A-Vis';
-      this.footer = [1, 2, 3];
+      this.footer = [1, 2, 3]; // TODO: do something to create footer items
     }
 
   ngOnInit() {

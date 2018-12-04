@@ -149,3 +149,11 @@ hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 .mat-form-field-appearance-legacy .mat-form-field-infix {
   padding: 0;
 }
+
+/* no padding dialog */
+.nopadding-dialog-container .mat-dialog-container {
+  padding: 0;
+}
+.custompadding-expansion-panel-body-container .mat-expansion-panel-body {
+  padding: 0 10px 16px;
+}

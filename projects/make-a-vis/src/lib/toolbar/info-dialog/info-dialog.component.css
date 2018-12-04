@@ -1,6 +1,57 @@
-.info-panel {
-    padding: 2px;
+.info-expansion-pane-container {
+    width: 70vw;
+    max-height: 150vh;
+    border: 5px solid #bbb;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
 }
+
+.info-header {
+    display: flex;
+    height: 2.5rem;
+    padding-top: 1rem;
+    border-bottom: 1px solid #bbb;
+}
+
+.info-header-text {
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding-left: 1rem;
+    width: 94.8%;
+}
+
+.info-expansion-panels {
+    padding: 1rem;
+}
+
+.info-panel {
+    border-left: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    margin-bottom: 4px;
+    border-radius: 0;
+}
+
+.info-panel-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.info-panel-content {
+    font-weight: 400;
+}
+
 .info-footer-container {
     display: flex;
+    height: 2.5rem;
+    padding-bottom: 1rem;
+    border-top: 1px solid #bbb;
+}
+
+.info-footer {
+    
+}
+
+.info-close-button {
+    border: none;
+    background: none;
+    padding-bottom: 1rem;
 }

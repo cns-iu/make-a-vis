@@ -16,10 +16,7 @@ export class InfoIconComponent implements OnInit {
 
   openDialog() {
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.data = {
-        id: 1,
-        title: 'Angular For Beginners'
-    };
+    dialogConfig.panelClass = 'nopadding-dialog-container';
 
     this.dialog.open(InfoDialogComponent, dialogConfig);
   }
