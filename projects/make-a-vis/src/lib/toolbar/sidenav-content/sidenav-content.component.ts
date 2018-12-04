@@ -14,8 +14,7 @@ import { LoggingControlService } from '../../shared/logging/logging-control.serv
 import { ExportService } from '../../shared/services/export/export.service';
 import { GetLinkService } from '../../shared/services/get-link/get-link.service';
 
-export type NewProjectExtensionType = 'isi' | 'nsf' | 'csv' | 'json' | 'yml';
-export type LoadProjectExtensionType = 'yml';
+export type ProjectExtensionType = 'isi' | 'nsf' | 'csv' | 'json' | 'yml';
 
 @Component({
   selector: 'mav-sidenav-content',
@@ -34,9 +33,7 @@ export class SidenavContentComponent implements OnInit {
 
   exportSnapshotType = null;
   panelOpenState = true;
-  newProjectFileExtension: NewProjectExtensionType;
-  newProjectExtensions: NewProjectExtensionType[] = ['nsf', 'isi'];
-  loadProjectExtensions: LoadProjectExtensionType[] = ['yml'];
+  projectExtensions: ProjectExtensionType[] = ['yml', 'nsf', 'isi'];
   project: Project = undefined;
   shareUrlFieldDisabled: boolean;
   private baseUrl: string;
@@ -95,12 +92,7 @@ export class SidenavContentComponent implements OnInit {
         }
   }
 
-  setFileType(event: MatButtonToggleGroup) {
-    this.newProjectFileExtension = event.value;
-  }
-
-
-  getProject(fileName: string, fileExtension: NewProjectExtensionType | LoadProjectExtensionType, event: any ) {
+  getProject(fileName: string, fileExtension: ProjectExtensionType , event: any ) {
     this.store.dispatch(new sidenavStore.LoadProjectStarted({ loadingProject: true, fileName: fileName, fileExtension: fileExtension }));
 
     this.loadProjectService.loadFile(fileExtension, event.srcElement.files[0])
@@ -146,31 +138,24 @@ export class SidenavContentComponent implements OnInit {
         { errorOccurred: true, errorTitle: err.name, errorMessage: 'Failed to load new project from URL:' + err.message }
       ));
     });
-
-
-
   }
-  readNewFile(event: any, isLoadProject: boolean) {
-    const filename = get(event, 'srcElement.files[0].name');
-    let fileExtension = filename && filename.split('.').slice(-1).toString();
 
-    // If they've selected NSF and uploaded a CSV, assume the CSV is an NSF-formatted CSV file.
-    if (!isLoadProject && fileExtension === 'csv' && this.newProjectFileExtension === 'nsf') {
-      fileExtension = 'nsf';
+  isValidFileExtension(selectedExtensionOnButton, actualFileExtension) {
+    if (selectedExtensionOnButton === 'nsf') {
+      return (actualFileExtension === 'csv' || actualFileExtension === 'nsf');
     }
+    return selectedExtensionOnButton === actualFileExtension;
+  }
 
-    if (filename && fileExtension) {
-      if (isLoadProject && this.loadProjectExtensions.indexOf(fileExtension) !== -1) {
-        this.getProject(filename, fileExtension, event);
-      } else if (!isLoadProject
-          && this.newProjectExtensions.indexOf(this.newProjectFileExtension) !== -1
-          && fileExtension === this.newProjectFileExtension) {
-        this.getProject(filename, fileExtension, event);
-      } else {
-        // TODO temporary, use logs
-        alert(`${filename} has the wrong extension.`);
-        console.log(`${filename} has the wrong extension.`);
-      }
+  readNewFile(event: any, selectedExtention: ProjectExtensionType) {
+    const filename = get(event, 'srcElement.files[0].name');
+    const fileExtension = filename && filename.split('.').slice(-1).toString();
+    if (this.isValidFileExtension(selectedExtention , fileExtension.toLowerCase())) {
+      this.getProject(filename, fileExtension, event);
+    } else {
+      // TODO temporary, use logs
+      alert(`${filename} has the wrong extension.`);
+      console.log(`${filename} has the wrong extension.`);
     }
   }
 

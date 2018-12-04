@@ -1,20 +1,11 @@
 <div class="sidenav-content">
-  <div class="title" >
+  <!-- <div class="title" >
     <div class="label">
       <mav-save-icon class="icon"></mav-save-icon>
       <span (click)="saveProject()">Save Project</span>
     </div>
   </div>
-  <mat-divider></mat-divider>
-
-  <div class="title">
-    <div class="label">
-      <mav-load-project-icon class="icon"></mav-load-project-icon>
-      <label for="file-load-project">Load Project</label>
-      <input id="file-load-project" type="file" class="get-data" (change)="readNewFile($event, true)" />
-    </div>
-  </div>
-  <mat-divider></mat-divider>
+  <mat-divider></mat-divider> -->
 
   <mat-accordion [multi]="true">
     <!-- .first panel allows to override default behavior of .cdk-program-focused -->
@@ -23,20 +14,15 @@
         <mat-panel-title>
           <div class="expansion-title">
             <mav-new-project-icon class="icon"></mav-new-project-icon>
-            <span>New Project</span>
+            <span>Start Project</span>
           </div>
         </mat-panel-title>
       </mat-expansion-panel-header>
       <p class="expansion-content">
-        <mat-button-toggle-group name="newProject" aria-label="New Project" class="button-toggle-group" (change)="setFileType($event)">
-          <mat-button-toggle *ngFor="let extension of newProjectExtensions" [value]="extension" class="button-toggle">
-            {{extension.toUpperCase()}}
-          </mat-button-toggle>
-        </mat-button-toggle-group>
-        <br>
-        <label for="file-new-project" class="custom-file-upload button" mat-stroked-button isRoundButton>Get Data</label>
-        <input id="file-new-project" type="file" class="get-data" (change)="readNewFile($event, false)" />
-      </p>
+        <span *ngFor="let extension of projectExtensions">
+          <label [for]="extension" class="custom-file-upload button" mat-stroked-button isRoundButton>{{extension === 'yml' ? 'Open Project' : extension.toUpperCase()}}</label>
+          <input [id]="extension" type="file" class="get-data" (change)="readNewFile($event, extension.toLowerCase())" />
+        </span>
     </mat-expansion-panel>
     <mat-divider></mat-divider>
 
