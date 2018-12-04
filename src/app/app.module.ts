@@ -1,14 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { DemoModule } from './demo/demo.module';
-
-import { AppComponent } from './app.component';
-
 import { HttpClientModule } from '@angular/common/http';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 
+import { MakeAVisModule } from 'make-a-vis';
+import { AppComponent } from './app.component';
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent}
@@ -23,7 +19,7 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
-    DemoModule
+    MakeAVisModule
   ],
   providers: [],
   bootstrap: [AppComponent]
