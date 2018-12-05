@@ -18,17 +18,17 @@ import { NSFParsedRawData } from './nsf-parsed-raw-data';
 
 
 export class NSFTemplateProject extends DefaultProject {
-  static async create(nsfFileContent: string): Promise<Project> {
-    const project = new NSFTemplateProject(nsfFileContent);
+  static async create(nsfFileContent: string, fileName?: string): Promise<Project> {
+    const project = new NSFTemplateProject(nsfFileContent, fileName);
     await project.prePopulateData();
     return project;
   }
 
-  constructor(nsfFileContent: string) {
+  constructor(nsfFileContent: string, fileName?: string) {
     super();
     this.rawData = this.getRawData(nsfFileContent);
     this.dataSources = this.getDataSources();
-    this.recordSets = this.getRecordSets();
+    this.recordSets = this.getRecordSets(fileName);
     this.graphicVariables = this.getGraphicVariables();
     this.graphicSymbols = this.getGraphicSymbols();
     this.visualizations = this.getVisualizations();
@@ -59,12 +59,13 @@ export class NSFTemplateProject extends DefaultProject {
     ];
   }
 
-  getRecordSets(): RecordSet[] {
-    return [
+  getRecordSets(fileName?: string): RecordSet[] {
+    const recordSets = [
       new DefaultRecordSet({
         id: 'award',
         label: 'Award',
         labelPlural: 'Awards',
+        description: fileName || undefined,
         defaultRecordStream: 'awards',
         dataVariables: [
           {id: 'title', label: 'Title', dataType: 'text', scaleType: 'nominal'},
@@ -79,6 +80,8 @@ export class NSFTemplateProject extends DefaultProject {
         ]
       }, this)
     ];
+    recordSets.forEach(rs => rs.resolveParent(recordSets));
+    return recordSets;
   }
 
   getGraphicVariables(): GraphicVariable[] {

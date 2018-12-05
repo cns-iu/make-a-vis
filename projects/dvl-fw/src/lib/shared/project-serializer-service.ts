@@ -19,13 +19,13 @@ export class ProjectSerializerService {
     this.registry = ProjectSerializer.defaultRegistry;
   }
 
-  createProject(template: 'isi' | 'nsf' | 'csv' | 'json', fileContents: string): Observable<Project> {
+  createProject(template: 'isi' | 'nsf' | 'csv' | 'json', fileContents: string, fileName?: string): Observable<Project> {
     return defer<Project>(async () => {
       switch (template) {
         case 'isi':
-          return await ISITemplateProject.create(fileContents);
+          return await ISITemplateProject.create(fileContents, fileName);
         case 'nsf':
-          return await NSFTemplateProject.create(fileContents);
+          return await NSFTemplateProject.create(fileContents, fileName);
         default:
           throw new Error(`Template: ${template} not supported.`);
       }

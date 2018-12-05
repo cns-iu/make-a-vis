@@ -103,7 +103,7 @@ export class SidenavContentComponent implements OnInit {
   getProject(fileName: string, fileExtension: NewProjectExtensionType | LoadProjectExtensionType, event: any ) {
     this.store.dispatch(new sidenavStore.LoadProjectStarted({ loadingProject: true, fileName: fileName, fileExtension: fileExtension }));
 
-    this.loadProjectService.loadFile(fileExtension, event.srcElement.files[0])
+    this.loadProjectService.loadFile(fileExtension, event.srcElement.files[0], fileName)
       .subscribe((project) => {
       if (project) { // success
         this.store.dispatch(new sidenavStore.LoadProjectCompleted(

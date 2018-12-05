@@ -1,7 +1,7 @@
 apiVersion: 1
 metadata:
-  dateCreated: 2018-11-21T14:12:20.030Z
-  dateSaved: 2018-11-21T14:12:20.046Z
+  dateCreated: 2018-12-05T19:23:55.245Z
+  dateSaved: 2018-12-05T19:23:55.262Z
 dataSources:
   - id: nsfDataSource
     template: nsf
@@ -25,6 +25,7 @@ recordSets:
   - id: award
     label: Award
     labelPlural: Awards
+    description: katy-borner_nsf-extract-2018-10-05.csv
     defaultRecordStream: awards
     dataVariables:
       - id: title

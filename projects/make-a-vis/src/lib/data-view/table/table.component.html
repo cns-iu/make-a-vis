@@ -1,5 +1,5 @@
 <ng-template [ngIf]="dataSource && dataSource.data && dataSource.data.length">
-    <mat-toolbar class="header">{{dataSource.label}}</mat-toolbar>
+    <mat-toolbar class="header">{{dataSource.label}} <span class="description" *ngIf="!!dataSource.description">&nbsp;({{ dataSource.description }})</span></mat-toolbar>
     <div class="datatable">
         <div class="wrapper">
             <table mat-table [dataSource]="dataSource.data" class="mat-elevation-z8 table">

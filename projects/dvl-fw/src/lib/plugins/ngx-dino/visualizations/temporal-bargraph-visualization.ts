@@ -6,6 +6,7 @@ import { DefaultVisualization } from '../../default/default-visualization';
 import { TemporalBargraphComponent } from '../components/temporal-bargraph/temporal-bargraph.component';
 
 export class TemporalBargraphVisualization extends DefaultVisualization {
+  readonly description = 'TODO';
   readonly component = TemporalBargraphComponent;
   readonly graphicSymbolOptions = [
     // TODO: Specify valid options

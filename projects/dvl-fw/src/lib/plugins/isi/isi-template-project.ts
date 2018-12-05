@@ -22,17 +22,17 @@ import { ISIParsedRawData } from './isi-parsed-raw-data';
 
 
 export class ISITemplateProject extends DefaultProject {
-  static async create(isiFileContent: string): Promise<Project> {
-    const project = new ISITemplateProject(isiFileContent);
+  static async create(isiFileContent: string, fileName?: string): Promise<Project> {
+    const project = new ISITemplateProject(isiFileContent, fileName);
     await project.prePopulateData();
     return project;
   }
 
-  constructor(isiFileContent: string) {
+  constructor(isiFileContent: string, fileName?: string) {
     super();
     this.rawData = this.getRawData(isiFileContent);
     this.dataSources = this.getDataSources();
-    this.recordSets = this.getRecordSets();
+    this.recordSets = this.getRecordSets(fileName);
     this.graphicVariables = this.getGraphicVariables();
     this.graphicSymbols = this.getGraphicSymbols();
     this.visualizations = this.getVisualizations();
@@ -69,12 +69,13 @@ export class ISITemplateProject extends DefaultProject {
     ];
   }
 
-  getRecordSets(): RecordSet[] {
-    return [
+  getRecordSets(fileName?: string): RecordSet[] {
+    const recordSets = [
       new DefaultRecordSet({
         id: 'publication',
-        label: 'Publication',
-        labelPlural: 'Publications',
+        label: 'ISI Publication',
+        labelPlural: 'ISI Publications',
+        description: fileName || undefined,
         defaultRecordStream: 'publications',
         dataVariables: [
           {id: 'title', label: 'Title', dataType: 'text', scaleType: 'nominal'},
@@ -89,6 +90,8 @@ export class ISITemplateProject extends DefaultProject {
         id: 'journal',
         label: 'Journal',
         labelPlural: 'Journals',
+        parent: 'publication',
+        description: 'from ISI Publications',
         defaultRecordStream: 'journals',
         dataVariables: [
           {id: 'name', label: 'Name', dataType: 'text', scaleType: 'nominal'},
@@ -102,6 +105,8 @@ export class ISITemplateProject extends DefaultProject {
         id: 'author',
         label: 'Author',
         labelPlural: 'Authors',
+        parent: 'publication',
+        description: 'from ISI Publications',
         defaultRecordStream: 'authors',
         dataVariables: [
           {id: 'name', label: 'Name', dataType: 'text', scaleType: 'nominal'},
@@ -120,6 +125,8 @@ export class ISITemplateProject extends DefaultProject {
         id: 'coAuthorLink',
         label: 'Co-Author Link',
         labelPlural: 'Co-Author Links',
+        parent: 'publication',
+        description: 'from ISI Publications',
         defaultRecordStream: 'coAuthorLinks',
         dataVariables: [
           {id: 'author1', label: 'Author 1', dataType: 'text', scaleType: 'nominal'},
@@ -137,6 +144,8 @@ export class ISITemplateProject extends DefaultProject {
         id: 'subdiscipline',
         label: 'Subdiscipline',
         labelPlural: 'Subdisciplines',
+        parent: 'publication',
+        description: 'from ISI Publications',
         defaultRecordStream: 'subdisciplines',
         dataVariables: [
           {id: 'name', label: 'Name', dataType: 'text', scaleType: 'nominal'},
@@ -148,6 +157,8 @@ export class ISITemplateProject extends DefaultProject {
         ]
       }, this)
     ];
+    recordSets.forEach(rs => rs.resolveParent(recordSets));
+    return recordSets;
   }
 
   getGraphicVariables(): GraphicVariable[] {

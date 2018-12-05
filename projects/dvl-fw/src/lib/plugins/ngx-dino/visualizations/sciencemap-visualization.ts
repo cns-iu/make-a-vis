@@ -6,6 +6,7 @@ import { DefaultVisualization } from '../../default/default-visualization';
 import { SciencemapComponent } from '../components/sciencemap/sciencemap.component';
 
 export class SciencemapVisualization extends DefaultVisualization {
+  readonly description = 'TODO';
   readonly component = SciencemapComponent;
   readonly graphicSymbolOptions = [{
     id: 'subdisciplinePoints', label: 'Subdiscipline Points', type: 'area',

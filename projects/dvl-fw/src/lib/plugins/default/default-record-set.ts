@@ -11,18 +11,36 @@ export class DefaultRecordSet implements RecordSet {
   id: string;
   label: string;
   labelPlural: string;
+  parent: RecordSet;
+  description: string;
   defaultRecordStream: RecordStream;
   dataVariables: DataVariable[];
 
-  constructor(data: {id: string, label: string, labelPlural: string, defaultRecordStream: string, dataVariables: any[]}, project: Project) {
+  private parentString: string;
+
+  constructor(data: {id: string, label: string, labelPlural: string,
+      parent?: string, description?: string, defaultRecordStream: string, dataVariables: any[]}, project: Project) {
     const dataVariables = data.dataVariables.map(d => new DefaultDataVariable(d));
     const defaultRecordStream = project.getRecordStream(data.defaultRecordStream);
+    if (data.parent) {
+      this.parentString = data.parent;
+      data.parent = undefined;
+    }
     Object.assign(this, data, { dataVariables, defaultRecordStream });
   }
+
+  resolveParent(recordSets: RecordSet[]) {
+    if (this.parentString && recordSets) {
+      this.parent = recordSets.find(rs => rs.id === this.parentString);
+      this.parentString = undefined;
+    }
+  }
+
   toJSON(): any {
     const dataVariables = this.dataVariables.map(d => d.toJSON());
     const defaultRecordStream = this.defaultRecordStream ? this.defaultRecordStream.id : undefined;
-    return Object.assign({}, this, { dataVariables, defaultRecordStream });
+    const parent = this.parent ? this.parent.id : undefined;
+    return Object.assign({}, this, { parent, dataVariables, defaultRecordStream });
   }
 }
 
