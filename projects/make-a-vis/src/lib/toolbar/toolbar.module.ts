@@ -16,6 +16,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatDialogModule} from '@angular/material';
+import {MatCardModule} from '@angular/material/card';
 
 // Icons
 import { CnsLogoIconComponent } from './icons/cns-logo/cns-logo-icon.component';
@@ -41,6 +43,8 @@ import { StoreModule } from '@ngrx/store';
 // Reducers
 import { sidenavStateReducer } from './shared/store/reducer';
 import { ClipboardLogoComponent } from './icons/clipboard/clipboard-logo/clipboard-logo.component';
+import { InfoIconComponent } from './icons/info-icon/info-icon.component';
+import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 
 @NgModule({
   imports: [
@@ -61,6 +65,8 @@ import { ClipboardLogoComponent } from './icons/clipboard/clipboard-logo/clipboa
     MatToolbarModule,
     ClipboardModule,
     MatTooltipModule,
+    MatDialogModule,
+    MatCardModule,
     StoreModule.forFeature('ui', sidenavStateReducer)
   ],
   declarations: [
@@ -77,8 +83,11 @@ import { ClipboardLogoComponent } from './icons/clipboard/clipboard-logo/clipboa
     MainComponent,
     SidenavContentComponent,
     ToolbarContentComponent,
-    ClipboardLogoComponent
+    ClipboardLogoComponent,
+    InfoIconComponent,
+    InfoDialogComponent
   ],
-  exports: [MainComponent]
+  exports: [MainComponent],
+  entryComponents: [InfoDialogComponent]
 })
 export class ToolbarModule { }

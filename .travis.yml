@@ -20,15 +20,12 @@ jobs:
     name: Run Tests
     script:
     - npm run lint
-    - npm run build dvl-fw
-    - npm run build make-a-vis
-    - npm run build:cli
+    - npm run build:libs
   - stage: deploy
     name: Deploy demo to GitHub Pages
     if: branch = master
     script:
-    - npm run build dvl-fw
-    - npm run build make-a-vis
+    - npm run build:libs
     - npm run build:demo
     deploy:
       provider: pages
@@ -42,7 +39,7 @@ jobs:
     name: Build and publish make-a-vis
     if: tag IS present
     script:
-    - npm run build make-a-vis
+    - npm run build:make-a-vis
     before_deploy:
     - cd dist/make-a-vis
     after_deploy: &1
@@ -59,8 +56,7 @@ jobs:
     name: Build and publish dvl-fw
     if: tag IS present
     script:
-    - npm run build dvl-fw
-    - npm run build:cli
+    - npm run build:dvl-fw
     before_deploy:
     - cd dist/dvl-fw
     after_deploy: *1
