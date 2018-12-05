@@ -1,28 +1,27 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-
+import {  buildInfo } from './build-info';
 @Component({
   selector: 'mav-info-dialog',
   templateUrl: './info-dialog.component.html',
   styleUrls: ['./info-dialog.component.css']
 })
-export class InfoDialogComponent implements OnInit {
 
+export class InfoDialogComponent implements OnInit {
   infoItems: Array<InfoItem>;
   footer: Array<any>;
   headerText: string;
-  constructor(public dialogRef: MatDialogRef<InfoDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) data) {
+
+  constructor(public dialogRef: MatDialogRef<InfoDialogComponent>) {
       this.createItems();
       this.headerText = 'IVC Make-A-Vis';
       this.footer = [1, 2, 3]; // TODO: do something to create footer items
     }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   close() {
-    this.dialogRef.close('Thanks for using me!');
+    this.dialogRef.close();
   }
 
   createItems() {
@@ -37,7 +36,11 @@ export class InfoDialogComponent implements OnInit {
     }, {
       title: 'About Make-A-Vis',
       description: '',
-      content: 'Version 0.0.0.1\nRevision Date 11/15/2018'
+      content: {
+        'version': buildInfo['version'],
+        'lastCommitDate': new Date(buildInfo['lastCommitDate']),
+        'buildDate': new Date('buildDate')
+      }
     }, {
       title: 'Contanct Us',
       description: '',
@@ -49,5 +52,5 @@ export class InfoDialogComponent implements OnInit {
 interface InfoItem {
   title: string;
   description: string;
-  content: string;
+  content: any;
 }
