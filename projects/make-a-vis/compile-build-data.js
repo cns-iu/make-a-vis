@@ -19,6 +19,6 @@ process.exec('git log -1 --pretty="%ct" --date=local', {cwd: __dirname}, functio
         buildDate: new Date()
     };
     var output = `export const buildInfo = ${JSON.stringify(buildInfo, null, 2)};`;
-    output = output.replace(/"/g,'\'');
+    output = output.replace(/"/g,'\'') + '\n';
     fs.writeFileSync('projects/make-a-vis/src/lib/toolbar/info-dialog/build-info.ts', output);
   });
