@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build --prod",
     "build:dvl-fw": "npm run build dvl-fw && npm run build:cli",
-    "build:make-a-vis": "npm run build:build-info && npm run build make-a-vis",
+    "build:make-a-vis": "npm run build make-a-vis",
     "build:libs": "npm run build:dvl-fw && npm run build make-a-vis",
     "build:cli": "webpack --config projects/dvl-fw/src/lib/cli/webpack.config.js",
     "build:build-info": "node projects/make-a-vis/src/scripts/compile-build-data.js",

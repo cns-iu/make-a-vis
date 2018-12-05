@@ -20,11 +20,13 @@ jobs:
     name: Run Tests
     script:
     - npm run lint
+    - npm run build:build-info
     - npm run build:libs
   - stage: deploy
     name: Deploy demo to GitHub Pages
     if: branch = master
     script:
+    - npm run build:build-info
     - npm run build:libs
     - npm run build:demo
     deploy:
@@ -39,6 +41,7 @@ jobs:
     name: Build and publish make-a-vis
     if: tag IS present
     script:
+    - npm run build:build-info
     - npm run build:make-a-vis
     before_deploy:
     - cd dist/make-a-vis
