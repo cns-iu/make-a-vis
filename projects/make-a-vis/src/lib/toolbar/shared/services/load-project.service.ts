@@ -19,14 +19,15 @@ export class LoadProjectService {
   }
   loadFile(
     fileExtension: 'isi' | 'nsf' | 'csv' | 'json' | 'yml',
-    file: Blob
+    file: Blob,
+    fileName?: string
   ): BehaviorSubject<Project> {
     const reader = new FileReader();
     const projectSubject = new BehaviorSubject<Project>(null);
     reader.onload = (event: any) => {
       if (event.target.result !==  null) {
         if (fileExtension !== 'yml') {
-          this.serializer.createProject(<any>fileExtension, event.target.result)
+          this.serializer.createProject(<any>fileExtension, event.target.result, fileName)
             .subscribe((project: Project) => {
               projectSubject.next(this.setSaveActivityLog(project));
             });

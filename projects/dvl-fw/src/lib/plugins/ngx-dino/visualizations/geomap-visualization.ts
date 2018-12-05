@@ -6,6 +6,7 @@ import { DefaultVisualization } from '../../default/default-visualization';
 import { GeomapComponent } from '../components/geomap/geomap.component';
 
 export class GeomapVisualization extends DefaultVisualization {
+  readonly description = 'TODO';
   readonly component = GeomapComponent;
   readonly graphicSymbolOptions = [
     {

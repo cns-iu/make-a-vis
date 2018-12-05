@@ -58,6 +58,7 @@ export class DefaultProjectFactory implements ObjectFactory<Project, Project> {
     p.metadata = data.metadata || undefined;
     p.dataSources = await registry.fromJSONArray<DataSource>('dataSource', 'default', data.dataSources, context);
     p.recordSets = await registry.fromJSONArray<RecordSet>('recordSet', 'default', data.recordSets, context);
+    p.recordSets.forEach(rs => rs.resolveParent(p.recordSets));
     p.graphicVariables =
       await registry.fromJSON<GraphicVariable[]>('graphicVariableMappings', 'default', data.graphicVariableMappings, context);
     p.graphicSymbols =

@@ -7,6 +7,7 @@ import { ScatterplotComponent } from '../components/scatterplot/scatterplot.comp
 
 
 export class ScatterplotVisualization extends DefaultVisualization {
+  readonly description = 'TODO';
   readonly component = ScatterplotComponent;
   readonly graphicSymbolOptions = [{
     id: 'points', label: 'Points', type: 'area',

@@ -6,6 +6,7 @@ import { DefaultVisualization } from '../../default/default-visualization';
 import { NetworkComponent } from '../components/network/network.component';
 
 export class NetworkVisualization extends DefaultVisualization {
+  readonly description = 'TODO';
   readonly component = NetworkComponent;
   readonly graphicSymbolOptions = [
     {

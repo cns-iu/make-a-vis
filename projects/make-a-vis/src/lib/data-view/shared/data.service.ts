@@ -10,6 +10,7 @@ import { ApplicationState, getLoadedProject } from '../../shared/store';
 export interface DataSource {
   id: string;
   label: string;
+  description?: string;
   columns: DataVariable[];
   data: any[];
 }
@@ -32,6 +33,7 @@ export class DataService {
 
             dataSource.id = recordSet.id || '';
             dataSource.label = recordSet.label || '';
+            dataSource.description = recordSet.description || undefined;
             dataSource.columns = recordSet.dataVariables;
 
             const operator = this.getDataMappingOperator(recordSet.dataVariables, project.graphicVariables, recordSet.id);
