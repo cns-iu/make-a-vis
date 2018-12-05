@@ -14,8 +14,8 @@ import { LoggingControlService } from '../../shared/logging/logging-control.serv
 import { ExportService } from '../../shared/services/export/export.service';
 import { GetLinkService } from '../../shared/services/get-link/get-link.service';
 
-export type NewProjectExtensionType = 'isi' | 'nsf' | 'csv' | 'json' | 'yml';
-export type LoadProjectExtensionType = 'yml';
+export type ProjectExtensionType = 'isi' | 'nsf' | 'csv' | 'json' | 'yml';
+export type ExportType = 'png' | 'svg' | 'pdf';
 
 @Component({
   selector: 'mav-sidenav-content',
@@ -28,22 +28,21 @@ export class SidenavContentComponent implements OnInit {
   @Input() set panelsOpenState(sidenavOpenState: boolean) {
     if (!sidenavOpenState) {
       this.accordion.closeAll();
+    } else {
+      this.shareUrl = '';
     }
   }
 
-
   exportSnapshotType = null;
   panelOpenState = true;
-  newProjectFileExtension: NewProjectExtensionType;
-  newProjectExtensions: NewProjectExtensionType[] = ['nsf', 'isi'];
-  loadProjectExtensions: LoadProjectExtensionType[] = ['yml'];
+  projectExtensions: ProjectExtensionType[] = ['yml', 'nsf', 'isi'];
+  exportTypes: ExportType[] = ['png', 'svg', 'pdf'];
   project: Project = undefined;
   shareUrlFieldDisabled: boolean;
   private baseUrl: string;
   shareUrl = '';
   isLoggingEnabled =  true;
   clipboardMsg = 'Copy to clipboard failed!';
-
 
   constructor(
     private saveProjectService: SaveProjectService,
@@ -85,22 +84,17 @@ export class SidenavContentComponent implements OnInit {
   ngOnInit() {
   }
 
-  exportSnapshot() {
-    if (this.exportSnapshotType === 'png') {
+  exportSnapshot(exportType) {
+    if (exportType === 'png') {
       this.exportService.exportToPng();
-    } else if (this.exportSnapshotType === 'svg') {
+    } else if (exportType === 'svg') {
         this.exportService.exportToSvg();
-      } else if (this.exportSnapshotType === 'pdf') {
+      } else if (exportType === 'pdf') {
           this.exportService.exportToPdf();
         }
   }
 
-  setFileType(event: MatButtonToggleGroup) {
-    this.newProjectFileExtension = event.value;
-  }
-
-
-  getProject(fileName: string, fileExtension: NewProjectExtensionType | LoadProjectExtensionType, event: any ) {
+  getProject(fileName: string, fileExtension: ProjectExtensionType , event: any ) {
     this.store.dispatch(new sidenavStore.LoadProjectStarted({ loadingProject: true, fileName: fileName, fileExtension: fileExtension }));
 
     this.loadProjectService.loadFile(fileExtension, event.srcElement.files[0], fileName)
@@ -146,31 +140,24 @@ export class SidenavContentComponent implements OnInit {
         { errorOccurred: true, errorTitle: err.name, errorMessage: 'Failed to load new project from URL:' + err.message }
       ));
     });
-
-
-
   }
-  readNewFile(event: any, isLoadProject: boolean) {
-    const filename = get(event, 'srcElement.files[0].name');
-    let fileExtension = filename && filename.split('.').slice(-1).toString();
 
-    // If they've selected NSF and uploaded a CSV, assume the CSV is an NSF-formatted CSV file.
-    if (!isLoadProject && fileExtension === 'csv' && this.newProjectFileExtension === 'nsf') {
-      fileExtension = 'nsf';
+  isValidFileExtension(selectedExtensionOnButton, actualFileExtension) {
+    if (selectedExtensionOnButton === 'nsf') {
+      return (actualFileExtension === 'csv' || actualFileExtension === 'nsf');
     }
+    return selectedExtensionOnButton === actualFileExtension;
+  }
 
-    if (filename && fileExtension) {
-      if (isLoadProject && this.loadProjectExtensions.indexOf(fileExtension) !== -1) {
-        this.getProject(filename, fileExtension, event);
-      } else if (!isLoadProject
-          && this.newProjectExtensions.indexOf(this.newProjectFileExtension) !== -1
-          && fileExtension === this.newProjectFileExtension) {
-        this.getProject(filename, fileExtension, event);
-      } else {
-        // TODO temporary, use logs
-        alert(`${filename} has the wrong extension.`);
-        console.log(`${filename} has the wrong extension.`);
-      }
+  readNewFile(event: any, selectedExtension: ProjectExtensionType) {
+    const filename = get(event, 'srcElement.files[0].name');
+    const fileExtension = filename && filename.split('.').slice(-1).toString();
+    if (this.isValidFileExtension(selectedExtension , fileExtension.toLowerCase())) {
+      this.getProject(filename, selectedExtension, event);
+    } else {
+      // TODO temporary, use logs
+      alert(`${filename} has the wrong extension.`);
+      console.log(`${filename} has the wrong extension.`);
     }
   }
 
@@ -253,51 +240,50 @@ export class SidenavContentComponent implements OnInit {
     this.isLoggingEnabled = this.loggingControlService.isLoggingEnabled();
   }
 
+  copyToClipboard(text: string) {
+      let isCopySuccessfull = false;
+      let errorObj = {name: 'Copy to clipboard failed.',
+                      message: 'Copy to clipboard failed.'};
+      try {
+        isCopySuccessfull = this.clipboardService.copyFromContent(text);
+      } catch (error) {
+        isCopySuccessfull = false;
+        errorObj = error;
+      }
+      if (isCopySuccessfull) {
+        this.clipboardMsg = 'Copied to clipboard!';
+        this.store.dispatch(new sidenavStore.CopyToClipboardSuccess({
+          content: text
+        }) );
+      } else {
+        this.clipboardMsg = 'Copy to clipboard failed!';
+        this.store.dispatch(new sidenavStore.CopyToClipboardError({
+          errorOccurred: true,
+          content: text,
+          errorTitle: errorObj.name,
+          errorMessage: errorObj.message
+        }) );
+      }
+    }
 
-copyToClipboard(text: string) {
-    let isCopySuccessfull = false;
-    let errorObj = {name: 'Copy to clipboard failed.',
-                    message: 'Copy to clipboard failed.'};
+  /* below are non angular ways of some features */
+  selectTextFromElement(ele: any): boolean {
+    // copies to clipboard as well
+    this.copyToClipboard(this.shareUrl);
     try {
-      isCopySuccessfull = this.clipboardService.copyFromContent(text);
-    } catch (error) {
-      isCopySuccessfull = false;
-      errorObj = error;
+    ele.select();
+    } catch (err) {
+      console.log('select share url failed - clipboard');
+      return false;
     }
-    if (isCopySuccessfull) {
-      this.clipboardMsg = 'Copied to clipboard!';
-      this.store.dispatch(new sidenavStore.CopyToClipboardSuccess({
-        content: text
-      }) );
-    } else {
-      this.clipboardMsg = 'Copy to clipboard failed!';
-      this.store.dispatch(new sidenavStore.CopyToClipboardError({
-        errorOccurred: true,
-        content: text,
-        errorTitle: errorObj.name,
-        errorMessage: errorObj.message
-      }) );
-    }
-  }
-
-/* below are non angular ways of some features */
-selectTextFromElement(ele: any): boolean {
-  // copies to clipboard as well
-  this.copyToClipboard(this.shareUrl);
-  try {
-  ele.select();
-  } catch (err) {
-    console.log('select share url failed - clipboard');
-    return false;
-  }
-  return true;
-}
-
-removeShareUrlFromAddress() {
-  if (window.history && window.history.pushState) {
-    window.history.pushState('mav', 'mav', '/');
     return true;
   }
-  return false;
-}
+
+  removeShareUrlFromAddress() {
+    if (window.history && window.history.pushState) {
+      window.history.pushState('mav', 'mav', '/');
+      return true;
+    }
+    return false;
+  }
 }

@@ -1,21 +1,4 @@
 <div class="sidenav-content">
-  <div class="title" >
-    <div class="label">
-      <mav-save-icon class="icon"></mav-save-icon>
-      <span (click)="saveProject()">Save Project</span>
-    </div>
-  </div>
-  <mat-divider></mat-divider>
-
-  <div class="title">
-    <div class="label">
-      <mav-load-project-icon class="icon"></mav-load-project-icon>
-      <label for="file-load-project">Load Project</label>
-      <input id="file-load-project" type="file" class="get-data" (change)="readNewFile($event, true)" />
-    </div>
-  </div>
-  <mat-divider></mat-divider>
-
   <mat-accordion [multi]="true">
     <!-- .first panel allows to override default behavior of .cdk-program-focused -->
     <mat-expansion-panel class="mat-elevation-z0 first-panel" (opened)="panelOpenState=true" (closed)="panelOpenState=false">
@@ -23,69 +6,54 @@
         <mat-panel-title>
           <div class="expansion-title">
             <mav-new-project-icon class="icon"></mav-new-project-icon>
-            <span>New Project</span>
+            <span>Start Project</span>
           </div>
         </mat-panel-title>
       </mat-expansion-panel-header>
       <p class="expansion-content">
-        <mat-button-toggle-group name="newProject" aria-label="New Project" class="button-toggle-group" (change)="setFileType($event)">
-          <mat-button-toggle *ngFor="let extension of newProjectExtensions" [value]="extension" class="button-toggle">
-            {{extension.toUpperCase()}}
-          </mat-button-toggle>
-        </mat-button-toggle-group>
-        <br>
-        <label for="file-new-project" class="custom-file-upload button" mat-stroked-button isRoundButton>Get Data</label>
-        <input id="file-new-project" type="file" class="get-data" (change)="readNewFile($event, false)" />
+        <span *ngFor="let extension of projectExtensions">
+          <label [for]="extension" class="custom-file-upload button" mat-stroked-button isRoundButton>{{extension === 'yml' ? 'Open Project' : extension.toUpperCase()}}</label>
+          <input [id]="extension" type="file" class="get-data" (change)="readNewFile($event, extension.toLowerCase())" />
+        </span>
       </p>
     </mat-expansion-panel>
     <mat-divider></mat-divider>
 
     <mat-expansion-panel class="mat-elevation-z0" (opened)="panelOpenState=true" (closed)="panelOpenState=false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <div class="expansion-title">
-            <mav-export-snapshot-icon class="icon"></mav-export-snapshot-icon>
-            <span>Export Snapshot</span>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <div class="expansion-title">
+              <mav-share-icon class="icon"></mav-share-icon>
+              <span>Share</span>
+            </div>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="expansion-content">
+          <div class="shareFormContent">
+            <mat-form-field  color="mav-primary" appearance="outline" class="share-url"> 
+              <input matInput placeholder="" (mouseenter)="$event.stopImmediatePropagation()" (mouseleave)="clipboardTarget.hide()" 
+                [matTooltipShowDelay]="100" [matTooltipHideDelay]="1500"
+                [matTooltip]="clipboardMsg" readonly class="input" [disabled]="shareUrlFieldDisabled" (click)="selectTextFromElement($event.target);clipboardTarget.show()"
+                [value]="shareUrl" #clipboardTarget="matTooltip">
+            </mat-form-field>
+            <button class="clipboard-button" *ngIf="shareUrl" (mouseleave)="clipboardTarget.hide()" (click)="copyToClipboard(shareUrl);clipboardTarget.show()">Copy</button>
+            <button mat-stroked-button class="button" *ngIf="!shareUrl" (click)="getUrlLink()">Link</button>
           </div>
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <p class="expansion-content">
-        <mat-button-toggle-group name="exportSnapshot" [(ngModel)]="exportSnapshotType"  aria-label="Export Snapshot" class="button-toggle-group">
-          <mat-button-toggle value="png" class="button-toggle">PNG</mat-button-toggle>
-          <mat-button-toggle value="svg" class="button-toggle">SVG</mat-button-toggle>
-          <mat-button-toggle value="pdf" class="button-toggle">PDF</mat-button-toggle>
-        </mat-button-toggle-group>
-        <br>
-        <button [disabled]="!exportService.visualizationElement" mat-stroked-button isRoundButton (click)="exportSnapshot()" class="button">Export</button>
-      </p>
-    </mat-expansion-panel>
-    <mat-divider></mat-divider>
-
-    <mat-expansion-panel class="mat-elevation-z0" (opened)="panelOpenState=true" (closed)="panelOpenState=false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <div class="expansion-title">
-            <mav-share-icon class="icon"></mav-share-icon>
-            <span>Share</span>
-          </div>
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <div class="expansion-content">
-        <div class="shareFormContent">
-          <mat-form-field  color="mav-primary" appearance="outline" class="share-url"> 
-            <input matInput placeholder="" (mouseenter)="$event.stopImmediatePropagation()" (mouseleave)="clipboardTarget.hide()" 
-             [matTooltipShowDelay]="100" [matTooltipHideDelay]="1500"
-              [matTooltip]="clipboardMsg" readonly class="input" [disabled]="shareUrlFieldDisabled" (click)="selectTextFromElement($event.target);clipboardTarget.show()"
-               [value]="shareUrl" #clipboardTarget="matTooltip">
-          </mat-form-field>
-          <button class="clipboard-button" (mouseleave)="clipboardTarget.hide()" (click)="copyToClipboard(shareUrl);clipboardTarget.show()"><mav-clipboard-logo></mav-clipboard-logo></button>
+          <span *ngFor="let exportType of exportTypes">
+              <button [disabled]="!exportService.visualizationElement" mat-stroked-button isRoundButton (click)="exportSnapshot(exportType.toLowerCase())" class="button">{{exportType.toUpperCase()}}</button>
+          </span>
         </div>
-        <button mat-stroked-button class="button" (click)="getUrlLink()">Get Link</button>
-      </div>
-    </mat-expansion-panel>
+      </mat-expansion-panel>
+    <mat-divider></mat-divider>
   </mat-accordion>
   <mat-divider></mat-divider>
-
+  <div class="title" >
+      <div class="label">
+        <mav-save-icon class="icon"></mav-save-icon>
+        <span (click)="saveProject()">Save Project</span>
+      </div>
+    </div>
+  <mat-divider></mat-divider>
   <div class="title">
     <div class="label">
       <mav-logging-icon class="icon"></mav-logging-icon>
