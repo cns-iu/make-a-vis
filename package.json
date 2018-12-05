@@ -9,7 +9,7 @@
     "build:make-a-vis": "npm run build:build-info && npm run build make-a-vis",
     "build:libs": "npm run build:dvl-fw && npm run build make-a-vis",
     "build:cli": "webpack --config projects/dvl-fw/src/lib/cli/webpack.config.js",
-    "build:build-info": "node projects/make-a-vis/compile-build-data.js",
+    "build:build-info": "node projects/make-a-vis/src/scripts/compile-build-data.js",
     "build:demo": "node --max_old_space_size=3000 ./node_modules/.bin/ng build --prod --output-hashing=none --base-href=./",
     "update-examples": "./dist/dvl-fw/dvl-fw-import isi projects/dvl-fw/src/lib/examples/katy-borner_wos-extract-2018-08-21.isi projects/dvl-fw/src/lib/examples/katy-borner_wos-extract-2018-08-21.yml && ./dist/dvl-fw/dvl-fw-import nsf projects/dvl-fw/src/lib/examples/katy-borner_nsf-extract-2018-10-05.csv projects/dvl-fw/src/lib/examples/katy-borner_nsf-extract-2018-10-05.yml",
     "test": "ng test",

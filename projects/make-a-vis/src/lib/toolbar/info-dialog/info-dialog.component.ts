@@ -19,7 +19,7 @@ export class InfoDialogComponent implements OnInit {
       this.createItems();
       this.createAboutusContent();
       this.createContactusContent();
-      this.headerText = 'IVC Make-A-Vis';
+      this.headerText = 'Make-a-Vis';
       this.footer = [1, 2, 3]; // TODO: do something to create footer items
     }
 
@@ -45,9 +45,11 @@ export class InfoDialogComponent implements OnInit {
     this.aboutusContent = {
       title: 'About Make-A-Vis',
       description: '',
-      content: [{'label': 'Version', 'value': buildInfo['version']},
-      {'label': 'Last commit Date', 'value': new Date(buildInfo['lastCommitDate']).toLocaleDateString('en-US')},
-      {'label': 'Build Date', 'value': new Date(buildInfo['buildDate']).toLocaleDateString('en-US')}]
+      content: [
+        {'label': 'Version', 'value': buildInfo.version},
+        {'label': 'Revision Date', 'value':  buildInfo.lastCommitDate.toLocaleDateString()},
+        {'label': 'Build Date', 'value': buildInfo.buildDate.toLocaleDateString()}
+      ]
     };
   }
 
