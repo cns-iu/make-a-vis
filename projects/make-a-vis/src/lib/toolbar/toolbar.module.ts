@@ -17,7 +17,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDialogModule} from '@angular/material';
-import {MatCardModule} from '@angular/material/card'
+import {MatCardModule} from '@angular/material/card';
 
 // Icons
 import { CnsLogoIconComponent } from './icons/cns-logo/cns-logo-icon.component';
