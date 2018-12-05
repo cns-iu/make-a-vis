@@ -28,9 +28,10 @@ export class SidenavContentComponent implements OnInit {
   @Input() set panelsOpenState(sidenavOpenState: boolean) {
     if (!sidenavOpenState) {
       this.accordion.closeAll();
+    } else {
+      this.shareUrl = '';
     }
   }
-
 
   exportSnapshotType = null;
   panelOpenState = true;
@@ -42,7 +43,6 @@ export class SidenavContentComponent implements OnInit {
   shareUrl = '';
   isLoggingEnabled =  true;
   clipboardMsg = 'Copy to clipboard failed!';
-
 
   constructor(
     private saveProjectService: SaveProjectService,
@@ -161,6 +161,11 @@ export class SidenavContentComponent implements OnInit {
     }
   }
 
+  panelCollapsed() {
+    console.log('collapsed');
+    this.shareUrl = '';
+  }
+
   /*
   * This function get Project state from a store/reducer,
   * then sends that state to a service that does an http post
@@ -239,7 +244,6 @@ export class SidenavContentComponent implements OnInit {
     this.loggingControlService.toggleLogging();
     this.isLoggingEnabled = this.loggingControlService.isLoggingEnabled();
   }
-
 
 copyToClipboard(text: string) {
     let isCopySuccessfull = false;

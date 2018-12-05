@@ -35,9 +35,10 @@
                 [matTooltip]="clipboardMsg" readonly class="input" [disabled]="shareUrlFieldDisabled" (click)="selectTextFromElement($event.target);clipboardTarget.show()"
                  [value]="shareUrl" #clipboardTarget="matTooltip">
             </mat-form-field>
-            <button class="clipboard-button" (mouseleave)="clipboardTarget.hide()" (click)="copyToClipboard(shareUrl);clipboardTarget.show()"><mav-clipboard-logo></mav-clipboard-logo></button>
+            <button class="clipboard-button" *ngIf="shareUrl" (mouseleave)="clipboardTarget.hide()" (click)="copyToClipboard(shareUrl);clipboardTarget.show()">Copy Link</button>
+            <button mat-stroked-button class="button" *ngIf="!shareUrl" (click)="getUrlLink()">Get Link</button>
           </div>
-          <button mat-stroked-button class="button" (click)="getUrlLink()">Get Link</button>
+          
           <span *ngFor="let exportType of exportTypes">
               <button [disabled]="!exportService.visualizationElement" mat-stroked-button isRoundButton (click)="exportSnapshot(exportType.toLowerCase())" class="button">{{exportType.toUpperCase()}}</button>
               <!-- <label [for]="exportType" class="button" mat-stroked-button isRoundButton>{{exportType.toUpperCase()}}</label>
