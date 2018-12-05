@@ -35,8 +35,8 @@
                 [matTooltip]="clipboardMsg" readonly class="input" [disabled]="shareUrlFieldDisabled" (click)="selectTextFromElement($event.target);clipboardTarget.show()"
                  [value]="shareUrl" #clipboardTarget="matTooltip">
             </mat-form-field>
-            <button class="clipboard-button" *ngIf="shareUrl" (mouseleave)="clipboardTarget.hide()" (click)="copyToClipboard(shareUrl);clipboardTarget.show()">Copy Link</button>
-            <button mat-stroked-button class="button" *ngIf="!shareUrl" (click)="getUrlLink()">Get Link</button>
+            <button class="clipboard-button" *ngIf="shareUrl" (mouseleave)="clipboardTarget.hide()" (click)="copyToClipboard(shareUrl);clipboardTarget.show()">Copy</button>
+            <button mat-stroked-button class="button" *ngIf="!shareUrl" (click)="getUrlLink()">Link</button>
           </div>
           
           <span *ngFor="let exportType of exportTypes">

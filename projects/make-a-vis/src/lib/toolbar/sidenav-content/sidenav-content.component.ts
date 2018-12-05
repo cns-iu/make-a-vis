@@ -149,21 +149,16 @@ export class SidenavContentComponent implements OnInit {
     return selectedExtensionOnButton === actualFileExtension;
   }
 
-  readNewFile(event: any, selectedExtention: ProjectExtensionType) {
+  readNewFile(event: any, selectedExtension: ProjectExtensionType) {
     const filename = get(event, 'srcElement.files[0].name');
     const fileExtension = filename && filename.split('.').slice(-1).toString();
-    if (this.isValidFileExtension(selectedExtention , fileExtension.toLowerCase())) {
-      this.getProject(filename, fileExtension, event);
+    if (this.isValidFileExtension(selectedExtension , fileExtension.toLowerCase())) {
+      this.getProject(filename, selectedExtension, event);
     } else {
       // TODO temporary, use logs
       alert(`${filename} has the wrong extension.`);
       console.log(`${filename} has the wrong extension.`);
     }
-  }
-
-  panelCollapsed() {
-    console.log('collapsed');
-    this.shareUrl = '';
   }
 
   /*
@@ -245,50 +240,50 @@ export class SidenavContentComponent implements OnInit {
     this.isLoggingEnabled = this.loggingControlService.isLoggingEnabled();
   }
 
-copyToClipboard(text: string) {
-    let isCopySuccessfull = false;
-    let errorObj = {name: 'Copy to clipboard failed.',
-                    message: 'Copy to clipboard failed.'};
+  copyToClipboard(text: string) {
+      let isCopySuccessfull = false;
+      let errorObj = {name: 'Copy to clipboard failed.',
+                      message: 'Copy to clipboard failed.'};
+      try {
+        isCopySuccessfull = this.clipboardService.copyFromContent(text);
+      } catch (error) {
+        isCopySuccessfull = false;
+        errorObj = error;
+      }
+      if (isCopySuccessfull) {
+        this.clipboardMsg = 'Copied to clipboard!';
+        this.store.dispatch(new sidenavStore.CopyToClipboardSuccess({
+          content: text
+        }) );
+      } else {
+        this.clipboardMsg = 'Copy to clipboard failed!';
+        this.store.dispatch(new sidenavStore.CopyToClipboardError({
+          errorOccurred: true,
+          content: text,
+          errorTitle: errorObj.name,
+          errorMessage: errorObj.message
+        }) );
+      }
+    }
+
+  /* below are non angular ways of some features */
+  selectTextFromElement(ele: any): boolean {
+    // copies to clipboard as well
+    this.copyToClipboard(this.shareUrl);
     try {
-      isCopySuccessfull = this.clipboardService.copyFromContent(text);
-    } catch (error) {
-      isCopySuccessfull = false;
-      errorObj = error;
+    ele.select();
+    } catch (err) {
+      console.log('select share url failed - clipboard');
+      return false;
     }
-    if (isCopySuccessfull) {
-      this.clipboardMsg = 'Copied to clipboard!';
-      this.store.dispatch(new sidenavStore.CopyToClipboardSuccess({
-        content: text
-      }) );
-    } else {
-      this.clipboardMsg = 'Copy to clipboard failed!';
-      this.store.dispatch(new sidenavStore.CopyToClipboardError({
-        errorOccurred: true,
-        content: text,
-        errorTitle: errorObj.name,
-        errorMessage: errorObj.message
-      }) );
-    }
-  }
-
-/* below are non angular ways of some features */
-selectTextFromElement(ele: any): boolean {
-  // copies to clipboard as well
-  this.copyToClipboard(this.shareUrl);
-  try {
-  ele.select();
-  } catch (err) {
-    console.log('select share url failed - clipboard');
-    return false;
-  }
-  return true;
-}
-
-removeShareUrlFromAddress() {
-  if (window.history && window.history.pushState) {
-    window.history.pushState('mav', 'mav', '/');
     return true;
   }
-  return false;
-}
+
+  removeShareUrlFromAddress() {
+    if (window.history && window.history.pushState) {
+      window.history.pushState('mav', 'mav', '/');
+      return true;
+    }
+    return false;
+  }
 }
