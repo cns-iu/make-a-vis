@@ -2,3 +2,7 @@
   font-size: 30px !important;
   padding: 1rem;
 }
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
