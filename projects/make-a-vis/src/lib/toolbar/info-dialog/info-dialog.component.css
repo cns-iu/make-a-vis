@@ -2,7 +2,6 @@
     width: 70vw;
     max-height: 150vh;
     border: 5px solid #bbb;
-    font-family: Roboto,"Helvetica Neue",sans-serif;
 }
 
 .info-header {
@@ -50,4 +49,8 @@
     border: none;
     background: none;
     padding-bottom: 1rem;
+}
+
+.info-close-button:hover {
+    cursor: pointer;
 }

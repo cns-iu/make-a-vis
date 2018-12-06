@@ -3,4 +3,7 @@
   cursor: pointer;
   width: 48px !important;
   height: 48px !important;
+  background-color: #C51162;
+  padding: 8px;
+  margin-left: -16px;
 }

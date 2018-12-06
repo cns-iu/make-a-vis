@@ -1,29 +1,27 @@
 <div class="info-expansion-pane-container custompadding-expansion-panel-body-container">
-
   <div class="info-header">
     <div class="info-header-text" >{{headerText}}</div>
     <button class="info-close-button" (click)="close()">
         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAlCAYAAAAqXEs9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKBSURBVFhH7ZbLiupAEEDvx7qQcenjA1QEFbcufY3id6j42Cnu1JWKiGsdQUH7chpacpNK0smMMIsbOBDSVV0H+2H9ud/v6jfxXyiMyEL7/V6NRiPV7XZVpVJRhUJBwzvfGCNGyrXBSujr60sXKhaLKpFIWEEsOeRKc/oRKjSfz1UmkxGL2kDuYrEQ55bwFTqfz6rZbIpF4tBqtdTlchFrORGFkCmXy+LE34F9xtxSTYNH6F0yBqSCfimPUKPRECf6SVg+d13DP0JsYGmCd+C30V9CHM90Oi0mQzKZFL8HEZRDLelKeAkNh0MxEXK5nDqdTpGWkxNKDrnSOHBPOWVAC91uN5XP58UkmM1miufxeFhdBcQ8n0+dM51OxRjghheFttutmGBIpVJqs9noAhQKkmLDGpn1eq1zpTjDbrfzCg0GAzHYiY1UVBlgq3iEOp2OGOwmSCqODHx+fnqFolyEklRcGaC2RyhoQ0u4peLKALW/LQQUPh6PWoSH96gy4D5pkZfM4FwmHt75JsUGIS4ZG0sK9sO9Z4AnjhRdpkco6JZ20263XzKr1UovE8SVEo89l5MU7EaSMWNxpdz9txYCNpeUYHDLfHx8eGKQYozHRoq+2ykDLyH+6KQksJExRJHy/XMFWgG/Zr7X6+kCYTIGpxS5Ukw2mw1uP4CmSUqGer1uJWNAihxpDEIbNEPUYxsHtoC7rsEjRANOIy5N9BNUq9VoTT68SypMBkQhIJGfVpo4DrQ4YTLgK2RYLpf6REhFbKCnZg5pbolQIbher2oymahSqSQWlSCWHHKlOf2wEnJyOBzUeDxW/X5f1Wo1XRh45xtjxEi5NkQWeje/TOiu/gKXpah5jPxR8gAAAABJRU5ErkJggg==" alt="" />
-      </button>
+    </button>
   </div>
 
   <div class="info-expansion-panels">
-
     <!-- tutorial items -->
-  <mat-expansion-panel class="info-panel" *ngFor="let infoItem of infoItems">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-          <div class="info-panel-title">{{infoItem.title}}</div>
-      </mat-panel-title>
-      <mat-panel-description>
-        <div class="info-panel-description">{{infoItem.description}}</div>
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <div class="info-panel-content">{{infoItem.content}}</div>
-  </mat-expansion-panel>
+    <mat-expansion-panel class="info-panel" *ngFor="let infoItem of infoItems">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            <div class="info-panel-title">{{infoItem.title}}</div>
+        </mat-panel-title>
+        <mat-panel-description>
+          <div class="info-panel-description">{{infoItem.description}}</div>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="info-panel-content">{{infoItem.content}}</div>
+    </mat-expansion-panel>
 
-  <!-- About us -->
-  <mat-expansion-panel class="info-panel" [expanded]="true">
+    <!-- About us -->
+    <mat-expansion-panel class="info-panel" [expanded]="true">
       <mat-expansion-panel-header>
         <mat-panel-title>
             <div class="info-panel-title">{{aboutusContent.title}}</div>
@@ -37,17 +35,16 @@
 
     <!-- Contact us -->
     <mat-expansion-panel class="info-panel">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-              <div class="info-panel-title">{{contactusContent.title}}</div>
-          </mat-panel-title>
-          <mat-panel-description>
-            <div class="info-panel-description">{{contactusContent.description}}</div>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <div class="info-panel-content" *ngFor="let contentItem of contactusContent.content">{{contentItem}}</div>
-      </mat-expansion-panel>
-
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            <div class="info-panel-title">{{contactusContent.title}}</div>
+        </mat-panel-title>
+        <mat-panel-description>
+          <div class="info-panel-description">{{contactusContent.description}}</div>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="info-panel-content" *ngFor="let contentItem of contactusContent.content">{{contentItem}}</div>
+    </mat-expansion-panel>
   </div>
 
   <div class="info-footer-container">

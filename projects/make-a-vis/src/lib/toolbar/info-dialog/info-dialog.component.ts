@@ -1,13 +1,14 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import {  buildInfo } from './build-info';
-import { stringCompare } from '@ngx-dino/core/lib/common';
+import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material';
+
+import { buildInfo } from './build-info';
+
+
 @Component({
   selector: 'mav-info-dialog',
   templateUrl: './info-dialog.component.html',
   styleUrls: ['./info-dialog.component.css']
 })
-
 export class InfoDialogComponent implements OnInit {
   infoItems: Array<InfoItem>;
   footer: Array<any>;
@@ -16,12 +17,12 @@ export class InfoDialogComponent implements OnInit {
   contactusContent: any;
 
   constructor(public dialogRef: MatDialogRef<InfoDialogComponent>) {
-      this.createItems();
-      this.createAboutusContent();
-      this.createContactusContent();
-      this.headerText = 'Make-a-Vis';
-      this.footer = [1, 2, 3]; // TODO: do something to create footer items
-    }
+    this.createItems();
+    this.createAboutusContent();
+    this.createContactusContent();
+    this.headerText = 'Make-a-Vis';
+    this.footer = [1, 2, 3]; // TODO: do something to create footer items
+  }
 
   ngOnInit() {}
 
