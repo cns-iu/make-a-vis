@@ -1,4 +1,10 @@
 .data-view-inner-container {
   height: 91vh;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.child-table {
+  padding-left: 50px
 }

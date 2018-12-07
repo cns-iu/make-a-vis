@@ -1,15 +1,28 @@
 <ng-template [ngIf]="dataSource && dataSource.data && dataSource.data.length">
-    <mat-toolbar class="header">{{dataSource.label}} <span class="description" *ngIf="!!dataSource.description">&nbsp;({{ dataSource.description }})</span></mat-toolbar>
+    <mat-toolbar class="header">{{dataSource.label}} <span class="description" *ngIf="!!dataSource.description">&nbsp;({{
+            dataSource.description }})</span></mat-toolbar>
     <div class="datatable">
         <div class="wrapper">
-            <table mat-table [dataSource]="dataSource.data" class="mat-elevation-z8 table">
-                <ng-container [matColumnDef]="col.label" *ngFor="let col of displayedColumns">
-                    <th mat-header-cell *matHeaderCellDef [mavDraggable]="col" class="header-cell" nowrap>{{col.label}}</th>
-                    <td mat-cell *matCellDef="let element" class="cell">{{element[col.id]}}</td>
-                </ng-container>
-                <tr mat-header-row *matHeaderRowDef="displayedColumnNames; sticky: true;" class="header-row"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumnNames;" class="row"></tr>
-            </table>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <table class="mat-elevation-z8 table">
+                            <th *ngFor="let col of displayedColumns" [mavDraggable]="col" class="header-cell" nowrap>
+                                {{col.label}}
+                            </th>
+                        </table>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <table>
+                    <tr *ngFor="let data of dataSource.data">
+                        <td *ngFor="let col of dataSource.columns">{{data[col.id]}}</td>
+                    </tr>
+                </table>
+                <mat-action-row>
+                    <button mat-button>Previous</button>
+                    <button mat-button>Next</button>
+                </mat-action-row>
+            </mat-expansion-panel>
         </div>
     </div>
 </ng-template>

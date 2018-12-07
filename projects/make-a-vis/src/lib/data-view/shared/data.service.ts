@@ -11,6 +11,8 @@ export interface DataSource {
   id: string;
   label: string;
   description?: string;
+  parent: RecordSet;
+  childrens: RecordSet[];
   columns: DataVariable[];
   data: any[];
 }
@@ -35,6 +37,7 @@ export class DataService {
             dataSource.label = recordSet.label || '';
             dataSource.description = recordSet.description || undefined;
             dataSource.columns = recordSet.dataVariables;
+            dataSource.parent = recordSet.parent;
 
             const operator = this.getDataMappingOperator(recordSet.dataVariables, project.graphicVariables, recordSet.id);
 
@@ -46,6 +49,7 @@ export class DataService {
             });
             return dataSource;
           });
+          console.log(dataSources);
           this.dataSourcesChange.next(dataSources);
         } else {
           this.dataSourcesChange.next([]);

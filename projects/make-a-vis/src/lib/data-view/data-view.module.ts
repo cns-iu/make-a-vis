@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { DragDropModule } from '../drag-drop/drag-drop.module';
 // Components
@@ -11,7 +12,7 @@ import { TableComponent } from './table/table.component';
 
 @NgModule({
   imports: [
-    CommonModule, MatTableModule, MatToolbarModule, DragDropModule
+    CommonModule, MatTableModule, MatToolbarModule, MatExpansionModule, DragDropModule
   ],
   declarations: [MainComponent, TableComponent],
   exports: [MainComponent]
