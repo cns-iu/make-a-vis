@@ -19,7 +19,7 @@
     align-items: center;
     padding-right: 1.875rem;
     position: absolute;
-    right: 0rem;
+    /* right: 0rem; */
     line-height: 0rem;
     height: 3.5rem;
 }

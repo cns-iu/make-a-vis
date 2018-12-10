@@ -1,0 +1,22 @@
+.graphic-symbol-selection-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.graphic-symbol-selection-wrapper .card{
+  width: 3rem;
+  height: 3rem;
+  margin: 4px;
+  display: flex; 
+  flex-basis: calc(50% - 40px);  
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.graphic-symbol-selection-wrapper .card:active {
+  background: #1E88E5;
+  color: #ffffff;
+}
+
+

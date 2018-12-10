@@ -1,23 +1,27 @@
 .main-view {
   display: flex;
-  width: 100vw;
-  height: 93vh;
+  width: 99vw;
+  height: 91vh;
   align-items: stretch;
   overflow: hidden;
+  padding: 1vh .5vw 1vh .5vw;
 
   .data-view {
-    width: 31.25vw;
-    padding: 1vh .5vw 1vh .5vw;
-    overflow-y: auto; 
+    width: 31.5vw;
+    overflow-y: auto;
+    padding-right: 0.5vw; 
+  }
+
+  .mav-selection {
+    height: 100%;
   }
 
   .visualization-and-legend-view {
     position: relative;
-    width: 65vw;
-    flex-direction: column;
-    padding: 1vh 0.5vw 1vh 0.5vw;
+    width: 67vw;
     display: flex;
-
+    flex-direction: column;
+    
     .visualization {
       height: calc(93vh - 1vh - 200px); // .main-view is 93 vh and bottom padding of parent is 1vh, .legend is 200px
     }
@@ -29,4 +33,21 @@
       width: 62vw;
     }
   }
+}
+
+
+.mav-selection-open {
+  .data-view {
+    width: 31.5vw;
+    padding-right: 0.5vw; 
+  }
+  
+  .mav-selection {
+    width: 30vw;
+    padding: 0 0.5vw 0 0.5vw;
+  }
+
+ .visualization-and-legend-view {
+   width: 36vw;
+ } 
 }

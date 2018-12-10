@@ -103,4 +103,5 @@ export class MainComponent {
     this.store.dispatch(new RemoveVisualization(index));
     this.setSelectedVis(index === lastIndex ? index - 1 : index, true);
   }
+
 }

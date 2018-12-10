@@ -8,7 +8,7 @@ import { SidenavState, getLoadingShareUrlCompletedSelector } from '../shared/sto
   styleUrls: ['./toolbar-content.component.css']
 })
 export class ToolbarContentComponent implements OnInit {
-  isSidenavOpen = true;
+  isSidenavOpen = false;
 
   constructor(private store: Store<SidenavState>) {
     /*

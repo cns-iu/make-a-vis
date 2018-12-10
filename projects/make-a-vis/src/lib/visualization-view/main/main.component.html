@@ -1,15 +1,19 @@
+<mat-menu #menu [matMenuTriggerFor]="menu">
+    <button *ngFor="let type of visTypes" (click)="addNewVisualization(type)" mat-menu-item>
+        <mav-visualization-menu [label]="type.label" [icon]="type.icon" class="menu">
+        </mav-visualization-menu>
+    </button>
+</mat-menu>
+
 <mat-tab-group [color]="'#ffffff'" [disableRipple]="true" [(selectedIndex)]="selectedVis" class="tab-group" #visGroup>
-
     <mat-tab *ngFor="let vis of visualizations; let index = index" [disabled]="false">
-
         <ng-template mat-tab-label>
             <mat-chip-list [selectable]="true">
                 <mat-chip [selected]="index === selectedVis" (click)="setSelectedVis(index)" class="tab-label">
-                    <div class="text"> {{ vis.label }} </div>
+                    <div class="text">{{ vis.label }}</div>
                     <mav-cancel-icon (click)="removeVisualization(index)" class="mav-cancel-icon"></mav-cancel-icon>
                 </mat-chip>
             </mat-chip-list>
-
         </ng-template>
 
         <ng-template matTabContent>
@@ -18,18 +22,5 @@
                 <dvl-visualization #visualizations [data]="vis.data"></dvl-visualization>
             </div>
         </ng-template>
-
     </mat-tab>
-
 </mat-tab-group>
-
-<div class="add-visualization">
-    <mav-add-icon [matMenuTriggerFor]="menu" class="mav-add-icon"></mav-add-icon>
-</div>
-
-<mat-menu #menu>
-    <button *ngFor="let type of visTypes" (click)="addNewVisualization(type)" mat-menu-item>
-    <mav-visualization-menu [label]="type.label" [icon]="type.icon" class="menu">
-    </mav-visualization-menu>
-  </button>
-</mat-menu>
