@@ -1,7 +1,7 @@
 .main-view {
   display: flex;
   width: 99vw;
-  height: 91vh;
+  height: calc(100vh - 2vh - 2.5rem); /* equals (total) minus (padding-top plus padding-bottom equal to 2vh) minus (toolbar-height set inside .mav-toolbar equal to 2.5rem) */
   align-items: stretch;
   overflow: hidden;
   padding: 1vh .5vw 1vh .5vw;
@@ -9,7 +9,7 @@
   .data-view {
     width: 31.5vw;
     overflow-y: auto;
-    padding-right: 0.5vw; 
+    margin-right: 0.5vw; 
   }
 
   .mav-selection {
@@ -23,14 +23,14 @@
     flex-direction: column;
     
     .visualization {
-      height: calc(93vh - 1vh - 200px); // .main-view is 93 vh and bottom padding of parent is 1vh, .legend is 200px
+      height: calc(100% - 1vh - 200px); // equals 100% of height of parent minus 1vh padding-bottom minus 200px for .legend 
     }
 
     .legend {
       display: block;
-      height: 200px;
+      height: 100%; // takes the remaining height after .visualization height
       overflow-x: scroll;
-      width: 62vw;
+      width: 100%;
     }
   }
 }
@@ -44,7 +44,7 @@
   
   .mav-selection {
     width: 30vw;
-    padding: 0 0.5vw 0 0.5vw;
+    padding: 0 0.5vw 0 0;
   }
 
  .visualization-and-legend-view {
