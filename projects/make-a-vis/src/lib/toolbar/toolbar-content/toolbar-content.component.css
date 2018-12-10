@@ -1,6 +1,11 @@
-.title {
-  font-size: 30px !important;
-  padding: 1rem;
+.mav-toolbar {
+  height: 2.5rem;
+  padding: 0;
+}
+
+.toolbar-title {
+  font-size: 1.875rem !important;
+  padding-left: 1rem;
 }
 
 .toolbar-spacer {
