@@ -1,14 +1,9 @@
 @import './material-theme.scss';
 @import '../shared/typography.scss';
 @include angular-material-theme($mav-theme-light);
+@import '../shared/misc.scss';
+
+@import './variables.scss';
 @import '../shared/base.scss';
 
-.mav-menu-icon {
-  background-color: #C51162;
-}
-
-.mav-toolbar {
-  font-family: $lato;
-  color: #ffffff;
-  background-color: #000007;
-}
+// Customizations beyond colors/variables goes below.

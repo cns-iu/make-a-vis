@@ -1,6 +1,7 @@
-.tab-group {
+.visualization-wrapper {
     float: left;
     width: 100%;
+    margin-bottom: 0.625rem;
 }
 
 .tab-label {
@@ -29,9 +30,10 @@
     align-items: center;
 }
 
-.tab-content {
-    height: calc(93vh - 1vh - 270px ); /* .main-view is 93vh with 1vh bottom padding in .visualization-view  and .legend is 200px at top-level, 70px - assumed padding(TODO - FIX needed) */
-    width: 100%;
+.visualization-container {
+    height: calc(93vh - 1vh - 285px); /* .main-view is 93vh with 1vh bottom padding in .visualization-view  and .legend is 200px at top-level, 70px - assumed padding(TODO - FIX needed) */
+    width: calc(100% - 2px);
+    border: 1px solid transparent;
 }
 
 .mav-cancel-icon {
