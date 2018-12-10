@@ -2,7 +2,8 @@
 import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 
-import { GraphicSymbolOption, GraphicVariable, GraphicVariableOption, Project, RecordStream, Visualization, GraphicSymbol } from '@dvl-fw/core';
+import { GraphicSymbolOption, GraphicVariable, GraphicVariableOption,
+  Project, RecordStream, Visualization, GraphicSymbol } from '@dvl-fw/core';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import { ApplicationState, getUiFeature } from '../../shared/store';
 
