@@ -1,16 +1,23 @@
 
-$primary: rgba(197, 17, 98, 1);
-$secondary: rgba(30, 136, 339, 1);
-$accent1: rgba(255, 196, 0, 1);
-$accent2: rgba(38, 166, 154, 1);
-$accent3: rgba(191, 54, 12, 1);
-$accentAlert: rgba(213, 0, 0, 1);
-$accentActiveDrag: rgba(255, 255, 0, 1);
-$accentActive: rgba(76, 175, 80, 1);
-$banner: rgba(0, 0, 7, 1);
+@import '../shared/common-colors.scss';
 
-$text1: rgba(33, 33, 33, 1);
-$text2: rgba(189, 189, 189, 1);
-$text3: rgba(224, 224, 224, 1);
-$text4: rgba(250, 250, 250, 1);
-$text5: rgba(245, 245, 245, 1);
+$primary: $blue-600;
+$secondary: $pink-a700;
+
+$primary-text: $gray-900;
+$secondary-text: $gray-600;
+$disabled-text: $gray-400;
+
+$accent1: $amber-a400;
+$accent2: $teal-400;
+$accent3: $deeporange-900;
+
+$alert: $red-a700;
+$highlight: $yellow-a200;
+$active: $green-500;
+
+$black: $black-07;
+$white: $white-white;
+$gray-accent-1: $gray-300;
+$gray-accent-2: $gray-100;
+$gray-accent-3: $gray-50;

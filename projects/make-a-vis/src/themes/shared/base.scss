@@ -1,24 +1,25 @@
 // "Modern" theme styling goes here.
-// Most themes will import
-.mav-menu-icon {
-  background-color: $primary;
-}
+// Most themes will import this file after defining variables
 
 .mav-toolbar {
   font-family: $lato;
-  color: $text4;
-  background-color: $banner;
+  color: $white;
+  background-color: $black;
+}
+
+.mav-toolbar .mav-menu-icon {
+  background-color: $secondary;
 }
 
 .mav-visualization-view .visualization-container {
-  border: 1px solid $text3;
+  border: 1px solid $gray-accent-1;
 }
 
 .mav-legend-view .legend-view-group {
-  border: 1px solid $text3;
-  background-color: $text5;
+  border: 1px solid $gray-accent-1;
+  background-color: $gray-accent-3;
 }
 
 .mav-graphic-variable-legend .graphic-variable-legend-card {
-  border: 1px solid $text3;
+  border: 1px solid $gray-accent-1;
 }
