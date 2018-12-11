@@ -31,6 +31,10 @@
     border-radius: 4px;
 }
 
+::ng-deep .visualization-group .mat-tab-header .mat-tab-header-pagination {
+    box-shadow: none;
+}
+
 .visualization-group .tab .cancel-button {
     border: 0;
     cursor: pointer;

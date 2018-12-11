@@ -29,6 +29,16 @@
   }
 }
 
+.mav-sidenav {
+  .expansion-content {
+    .button, .link-button {
+      color: $secondary-text;
+      background-color: $gray-accent-3;
+      border-color: $gray-accent-1 !important;
+    }
+  }
+}
+
 .mav-visualization-view {
   .visualization-group {
     .selected {

@@ -32,10 +32,10 @@ hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   font-family: $lato;
 }
 
+/*
 .header-bar {
   background-color: #eceff1;
 }
-
 .z-depth-1-half {
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
@@ -43,19 +43,6 @@ hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 // We may not need this card style soon
 .card {
   cursor: grab;
-}
-
-.mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header {
-  &:not([aria-disabled='true']) {
-    &.cdk-keyboard-focused,
-    &.cdk-program-focused {
-      background: none;
-    }
-  }
-}
-
-.mat-expansion-panel-header {
-  padding: 0 0.5rem;
 }
 
 .mat-tab-header {
@@ -134,11 +121,14 @@ hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 .mat-form-field-appearance-legacy .mat-form-field-infix {
   padding: 0;
 }
+*/
 
 /* no padding dialog */
+/*
 .nopadding-dialog-container .mat-dialog-container {
   padding: 0;
 }
 .custompadding-expansion-panel-body-container .mat-expansion-panel-body {
   padding: 0 10px 16px;
 }
+*/
