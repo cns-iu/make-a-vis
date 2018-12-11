@@ -1,25 +1,72 @@
 // "Modern" theme styling goes here.
 // Most themes will import this file after defining variables
 
-.mav-toolbar {
-  font-family: $lato;
-  color: $white;
-  background-color: $black;
-}
-
-.mav-toolbar .mav-menu-icon {
-  background-color: $secondary;
-}
-
-.mav-visualization-view .visualization-container {
-  border: 1px solid $gray-accent-1;
-}
-
-.mav-legend-view .legend-view-group {
-  border: 1px solid $gray-accent-1;
+.mav-main-view {
   background-color: $gray-accent-3;
 }
 
-.mav-graphic-variable-legend .graphic-variable-legend-card {
-  border: 1px solid $gray-accent-1;
+.mav-data-view {
+  .data-view-header {
+    .title {
+      color: $primary-text;
+    }
+    .add-data-icon {
+      color: $primary;
+    }
+  }
+  .data-view-message {
+    color: $secondary-text;
+  }
+}
+
+.mav-toolbar {
+  font-family: $lato;
+  color: $gray-accent-3;
+  background-color: $black;
+
+  .mav-menu-icon {
+    background-color: $secondary;
+  }
+}
+
+.mav-visualization-view {
+  .visualization-group {
+    .selected {
+      border-bottom-color: $secondary !important;
+    }
+    .mat-tab-header {
+      border-color: $border;
+      background-color: $white;
+    }
+    .cancel-button {
+      color: $primary-text;
+    }
+  }
+  .visualization-container {
+    border-color: $border;
+    background-color: $white;
+  }
+  .add-edit-visualization {
+    .add-icon, .edit-icon {
+      color: $primary;
+    }
+  }
+}
+
+.mav-legend-view {
+  .legend-view-group {
+    border-color: $border;
+    background-color: $gray-accent-2;
+  }
+  .mav-graphic-variable-legend {
+    .graphic-variable-legend-card {
+      border-color: $border;
+    }
+    .graphic-variable-legend-title {
+      color: $primary-text;
+    }
+    .graphic-variable-legend-subtitle {
+      color: $secondary-text;
+    }
+  }
 }

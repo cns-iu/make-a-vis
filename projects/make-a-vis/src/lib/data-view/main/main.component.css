@@ -8,7 +8,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 1vh 0 1vh 0;
+  padding-bottom: 1vh;
 }
 
 .data-view-header .title {
@@ -23,8 +23,19 @@
   position: sticky;
   left: calc(100% - 25px);
   z-index: 10;
-  color: #1E88E5;
   background: none;
   border: 0;
   cursor: pointer;
+}
+
+/* FIXME: probably not the most ideal way to do this */
+.data-view-message {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  float: left;
+  z-index: 0;
+  font-size: 1.5rem;
 }

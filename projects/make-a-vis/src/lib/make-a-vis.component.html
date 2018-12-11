@@ -1,7 +1,7 @@
 <mav-light-theme *ngIf="theme === 'light-theme'"></mav-light-theme>
 <div [class]="theme">
   <mav-toolbar>
-    <div class="main-view" [ngClass]="{'mav-selection-open': mavSelection.openMavSideNav}">
+    <div class="mav-main-view" [ngClass]="{'mav-selection-open': mavSelection.openMavSideNav}">
       <div class="data-view">
         <mav-data-view></mav-data-view>
       </div>
