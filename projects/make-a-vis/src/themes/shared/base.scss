@@ -36,6 +36,23 @@
       background-color: $gray-accent-3;
       border-color: $gray-accent-1 !important;
     }
+
+    .button:active, .button:hover, .custom-file-upload:active, .custom-file-upload:hover {
+      background: $gray-accent-1;
+    }
+  }
+
+  .log-toggle {
+    .mat-slide-toggle-thumb {
+      background-color: $green-500-lightened;
+    }
+    .mat-slide-toggle-bar {
+      background-color: $green-500-30pct-alpha;
+    }
+  }
+
+  .first-panel:hover, .title:hover {
+    background: $gray-accent-3;
   }
 }
 
