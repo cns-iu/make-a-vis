@@ -1,4 +1,9 @@
-<div class="title">{{ graphicVariableOption?.label }}: {{ graphicVariable?.label }}</div>
-<div class="graphic-variable-legend">
-  <dvl-visualization #visualization [data]="legend"></dvl-visualization>
+<div class="mav-graphic-variable-legend graphic-variable-legend-container" *ngIf="!hideIfUnset || !!graphicVariable">
+  <mat-card ngClass="graphic-variable-legend-card">
+    <mat-card-title ngClass="graphic-variable-legend-title">{{ graphicVariableOption?.label }}</mat-card-title>
+    <mat-card-subtitle ngClass="graphic-variable-legend-subtitle">{{ graphicVariable?.recordSet.label }}: {{ graphicVariable?.label }}</mat-card-subtitle>
+    <mat-card-content ngClass="graphic-variable-legend-visualization">
+      <dvl-visualization #visualization [data]="legend"></dvl-visualization>
+    </mat-card-content>
+  </mat-card>
 </div>

@@ -2,7 +2,8 @@
 import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 
-import { GraphicSymbolOption, GraphicVariable, GraphicVariableOption, Project, RecordStream, Visualization } from '@dvl-fw/core';
+import { GraphicSymbolOption, GraphicVariable, GraphicVariableOption,
+  Project, RecordStream, Visualization, GraphicSymbol } from '@dvl-fw/core';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import { ApplicationState, getUiFeature } from '../../shared/store';
 
@@ -81,8 +82,14 @@ export class MainComponent {
       options.forEach(option => {
         const symbol = graphicSymbols[option.id];
         const index = symbol ? this.streams.indexOf(symbol.recordStream) : -1;
-        this.groups.push({ option, index });
+        if (symbol && this.hasSetGraphicVariables(symbol)) {
+          this.groups.push({ option, index });
+        }
       });
     }
+  }
+
+  private hasSetGraphicVariables(graphicSymbol: GraphicSymbol): boolean {
+    return Object.entries(graphicSymbol.graphicVariables).length > 0;
   }
 }

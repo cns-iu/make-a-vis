@@ -1,0 +1,17 @@
+<div class="graphic-symbol-wrapper">
+  <mat-expansion-panel *ngFor="let graphicSymbol of graphicSymbolTypes" class="expansion-panel">
+    <mat-expansion-panel-header>
+      <mat-panel-title class="title">
+        {{graphicSymbol}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="graphic-variable-wrapper">
+      <mat-card *ngFor="let variableType of graphicVariableTypes[graphicSymbol]" class="card">
+        <div class="variable-type">{{variableType}}</div>
+        <!-- TODO: temporary placeholder-->
+        <div class="variable-category">Quantitative</div>
+      </mat-card>
+    </div>
+  </mat-expansion-panel>
+</div>

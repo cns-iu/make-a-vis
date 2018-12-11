@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // Material
 import { MatChipsModule } from '@angular/material/chips';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTabsModule } from '@angular/material/tabs';
 
@@ -11,7 +14,6 @@ import { DvlFwModule } from '@dvl-fw/core';
 import { MainComponent } from './main/main.component';
 import { MenuComponent } from './menu/menu.component';
 // Icons
-import { AddIconComponent } from './icons/add/add-icon.component';
 import { CancelIconComponent } from './icons/cancel/cancel-icon.component';
 import { HorizontalBarGraphIconComponent } from './icons/horizontal-bar-graph/horizontal-bar-graph-icon.component';
 import { GeomapIconComponent } from './icons/geomap/geomap-icon.component';
@@ -25,6 +27,9 @@ import { ScatterGraphIconComponent } from './icons/scatter-graph/scatter-graph-i
     CommonModule,
 
     MatChipsModule,
+    MatExpansionModule,
+    MatIconModule,
+    MatInputModule,
     MatMenuModule,
     MatTabsModule,
 
@@ -34,7 +39,6 @@ import { ScatterGraphIconComponent } from './icons/scatter-graph/scatter-graph-i
     MenuComponent,
     MainComponent,
 
-    AddIconComponent,
     CancelIconComponent,
     HorizontalBarGraphIconComponent,
     GeomapIconComponent,

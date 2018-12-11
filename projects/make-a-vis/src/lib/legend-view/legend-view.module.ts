@@ -1,6 +1,7 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 
@@ -18,6 +19,7 @@ import { MainComponent } from './main/main.component';
     DragDropModule,
     DvlFwModule,
 
+    MatCardModule,
     MatFormFieldModule,
     MatSelectModule
   ],

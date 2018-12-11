@@ -1,10 +1,12 @@
-.info-icon {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  background: #fff;
+.info-icon-wrapper {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-top: .3125rem;
 }
 
-.info-icon:hover {
+.info-icon {
+  vertical-align: middle;
   cursor: pointer;
+  width: 1.875rem;
+  height: 1.875rem;
 }

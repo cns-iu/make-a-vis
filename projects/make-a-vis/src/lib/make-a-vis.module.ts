@@ -9,6 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import { DataViewModule } from './data-view/data-view.module';
 import { DragDropModule } from './drag-drop/drag-drop.module';
 import { LegendViewModule } from './legend-view/legend-view.module';
+import { MavSelectionModule } from './mav-selection/mav-selection.module';
 import { ToolbarModule } from './toolbar/toolbar.module';
 import { VisualizationViewModule } from './visualization-view/visualization-view.module';
 
@@ -29,7 +30,7 @@ import { LogActions } from './shared/logging/log';
 @NgModule({
   imports: [
     CommonModule,
-    DataViewModule, DragDropModule, LegendViewModule, ToolbarModule, VisualizationViewModule,
+    DataViewModule, DragDropModule, LegendViewModule, MavSelectionModule, ToolbarModule, VisualizationViewModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([LogActions])
   ],

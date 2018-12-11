@@ -1,0 +1,46 @@
+
+.selection-wrapper {
+  width: 100%;
+  height: 100%;
+  background: #F5F5F5;
+  overflow-y: auto;
+}
+
+.selection-wrapper .selection-title {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.selection-wrapper .expansion-panel-container {
+  padding: 1rem; 
+}
+
+.selection-wrapper .expansion-panel-container .expansion-panel{
+  background: #ffffff;
+}
+
+.selection-wrapper .expansion-panel .title {
+  font-weight: 700;
+}
+
+.selection-wrapper-hidden {
+  display: none;
+  width: 0;
+  height: 0;
+  background: none;
+}
+
+.selection-button {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.selection-button button {
+  color: #1E88E5;
+  width: 100%;
+  margin: 0;
+}

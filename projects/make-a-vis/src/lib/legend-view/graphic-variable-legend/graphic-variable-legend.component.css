@@ -1,12 +1,17 @@
-.graphic-variable-legend {
-  padding: 0 2.5rem 0 2.5rem;
+.graphic-variable-legend-card {
+  padding: 0.5rem;
   min-width: 11rem;
-  height: 154px; /* calculated by subtracting header height and legend-title height from legend total height of 200px */
+  height: 9.375rem; /* calculated by subtracting header height and legend-title height from legend total height of 200px */
   overflow-y: auto;
-  border-left: 1px solid #f5f5f5;
-  border-right: 1px solid #f5f5f5;
+  border: 1px solid transparent;
+  text-align: center;
 }
 
-.title {
-  text-align: center;
+.graphic-variable-legend-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.mav-graphic-variable-legend {
+  padding: 0.3125rem;
 }

@@ -1,28 +1,15 @@
-<div class="legend-types-container">
-    <div class="legend-type" *ngFor="let group of groups">
-        <div class="header-bar">
-            <div class="title">
-                <span>{{ group.option.label }}:</span>
-                <mat-form-field class="record-stream-selector">
-                    <mat-select [(value)]="group.index" (selectionChange)="onStreamChange(group, $event.value)">
-                        <mat-option [value]="-1"></mat-option>
-                        <mat-option *ngFor="let stream of streams; let index = index;" [value]="index">
-                            {{ stream.label }}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-        </div>
-        <div class="legend-type-body">
+<div class="mav-legend-view legend-view-wrapper">
+    <mat-card *ngFor="let group of groups" ngClass="legend-view-group">
+        <mat-card-title ngClass="legend-view-group-title">{{ group.option.label }}</mat-card-title>
+        <mat-card-content ngClass="legend-view-group-container">
             <ng-container *ngFor="let gvOption of group.option.graphicVariableOptions">
-                <mav-data-variable-dropzone [graphicVariableOption]="gvOption" [recordStream]="streams[group.index]"
-                    (graphicVariableChange)="onGraphicVariableChange(group, gvOption, $event)" #dropZone>
-                    <div class="{{ dropZone.selectionClass }}">
-                        <mav-graphic-variable-legend [graphicSymbolOption]="group.option" [graphicVariableOption]="gvOption"
-                            [visualization]="visualization"></mav-graphic-variable-legend>
-                    </div>
-                </mav-data-variable-dropzone>    
+                <mav-graphic-variable-legend
+                    [hideIfUnset]="true"
+                    [graphicSymbolOption]="group.option"
+                    [graphicVariableOption]="gvOption"
+                    [visualization]="visualization">
+                </mav-graphic-variable-legend>
             </ng-container>
-        </div>
-    </div>
+        </mat-card-content>
+    </mat-card>
 </div>

@@ -1,9 +1,11 @@
+.mav-menu-icon-wrapper {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
 .menu-icon {
   vertical-align: middle;
   cursor: pointer;
-  width: 48px !important;
-  height: 48px !important;
-  background-color: #C51162;
-  padding: 8px;
-  margin-left: -16px;
+  width: 2.5rem;
+  height: 2.5rem;
 }
