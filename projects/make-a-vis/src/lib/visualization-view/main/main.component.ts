@@ -28,7 +28,7 @@ export interface VisType {
 @Component({
   selector: 'mav-visualization-view',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
   @Output() toggleAddVis = new EventEmitter<boolean>();

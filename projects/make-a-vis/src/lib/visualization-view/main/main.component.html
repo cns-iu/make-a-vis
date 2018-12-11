@@ -1,10 +1,12 @@
-<div class="mav-visualization-view">
+<div class="mav-visualization-view" [hidden]="selectedVis === -1">
     <mat-tab-group [color]="'#ffffff'" [disableRipple]="true" [(selectedIndex)]="selectedVis" class="vis-group" #visGroup>
         <mat-tab *ngFor="let vis of visualizations; let index = index" [disabled]="false">
             <ng-template mat-tab-label>
                 <div class="tab" (click)="setSelectedVis(index)" [ngClass]="{'selected': index===selectedVis}">
+                    <div class="spacer"></div>
                     <span class="label">{{vis.label}}</span>
                     <mat-icon class="cancel-button" (click)="removeVisualization(index)">cancel</mat-icon>
+                    <div class="spacer"></div>
                 </div>
             </ng-template>
 

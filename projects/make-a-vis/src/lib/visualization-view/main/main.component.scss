@@ -10,7 +10,7 @@
 }
 .vis-group .tab {
     width: 200px;
-    border-bottom: 2px solid #000000;
+    border-bottom: 2px solid transparent;
     display: flex;
     align-content: center;
     justify-content: space-between;
@@ -22,7 +22,13 @@
 }
 
 ::ng-deep .vis-group .mat-tab-header {
-    margin-right: 6rem;
+    height: 2.75rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 6rem;
+    margin-bottom: 0.625rem;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
 }
 
 .vis-group .tab .cancel-button {
@@ -31,21 +37,21 @@
 }
 
 .add-edit-visualization {
-    display: flex;
-    padding-right: 1.875rem;
     position: absolute;
-    right: 0rem;
-    line-height: 0rem;
-    height: 3.5rem;
-}
-
-.add-edit-visualization .add-icon, .edit-icon {
-    z-index: 10;
-    border: 0;
-    background: none;
-    cursor: pointer;
-    color: #1E88E5;
-    padding: 0.2rem;
+    top: 0.5rem;
+    right: 0.8rem;
+    
+    .add-icon, .edit-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 2.5rem;
+        z-index: 10;
+        border: 0;
+        background: none;
+        cursor: pointer;
+        padding: 0.2rem;
+        color: #1E88E5;
+    }
 }
 
 .visualization-container {
