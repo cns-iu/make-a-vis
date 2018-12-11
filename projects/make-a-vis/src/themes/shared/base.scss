@@ -29,6 +29,26 @@
   }
 }
 
+.mav-info-dialog {
+  border-color: $border !important;
+
+  .info-header {
+    border-bottom-color: $border !important;
+
+    .close-button {
+      color: $secondary-text;
+    }
+  }
+  .info-panel-container {
+    border-left-color: $border !important;
+    border-bottom-color: $border !important;
+  }
+  .info-footer-container {
+    border-top-color: $border !important;
+    background-color: $gray-accent-3;
+  }
+}
+
 .mav-sidenav {
   .expansion-content {
     .button, .link-button {
