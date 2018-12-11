@@ -20,7 +20,7 @@ export type ExportType = 'png' | 'svg' | 'pdf';
 @Component({
   selector: 'mav-sidenav-content',
   templateUrl: './sidenav-content.component.html',
-  styleUrls: ['./sidenav-content.component.css']
+  styleUrls: ['./sidenav-content.component.scss']
 })
 export class SidenavContentComponent implements OnInit {
   @ViewChild(MatAccordion) accordion: MatAccordion;
