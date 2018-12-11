@@ -4,30 +4,48 @@
     margin-bottom: 0.625rem;
 }
 
-.tab-label {
+.vis-group {
+    float: left;
+    width: 100%;
+}
+.vis-group .tab {
+    width: 200px;
+    border-bottom: 2px solid #000000;
     display: flex;
-    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.vis-group .selected {
+    border-bottom: none;
+    border-bottom: 2px solid #C51162;
+}
+
+::ng-deep .vis-group .mat-tab-header {
+    margin-right: 6rem;
+}
+
+.vis-group .tab .cancel-button {
+    border: 0;
     cursor: pointer;
-    padding-right: 0.5rem;
 }
 
-.tab-label .text {
-    padding-right: 0.5rem;
-}
-
-.add-visualization {
+.add-edit-visualization {
     display: flex;
-    align-items: center;
     padding-right: 1.875rem;
     position: absolute;
-    /* right: 0rem; */
+    right: 0rem;
     line-height: 0rem;
     height: 3.5rem;
 }
 
-.menu {
-    display: flex;
-    align-items: center;
+.add-edit-visualization .add-icon, .edit-icon {
+    z-index: 10;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    color: #1E88E5;
+    padding: 0.2rem;
 }
 
 .visualization-container {
@@ -36,10 +54,3 @@
     border: 1px solid transparent;
 }
 
-.mav-cancel-icon {
-    display: block;
-}
-
-.mav-add-icon {
-    z-index: 10;
-}

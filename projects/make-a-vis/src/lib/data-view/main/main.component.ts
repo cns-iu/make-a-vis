@@ -10,19 +10,12 @@ import { DataService, DataSource } from '../shared/data.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  @Output() toggleAddVis = new EventEmitter<boolean>();
   dataSources: Observable<DataSource[]>;
-  addVizSidenavState = false;
 
   constructor(private dataService: DataService) {
     this.dataSources = dataService.dataSourcesChanged;
   }
 
   ngOnInit() {
-  }
-
-  toggleAddVisualization() {
-    this.addVizSidenavState = !this.addVizSidenavState;
-    this.toggleAddVis.emit(this.addVizSidenavState);
   }
 }

@@ -1,5 +1,5 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
-import { Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, QueryList, ViewChild, ViewChildren, EventEmitter, Output } from '@angular/core';
 import { MatTabGroup } from '@angular/material';
 import { find, uniqueId } from 'lodash';
 import { select, Store } from '@ngrx/store';
@@ -31,8 +31,11 @@ export interface VisType {
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
+  @Output() toggleAddVis = new EventEmitter<boolean>();
   @ViewChild('visGroup') visGroup: MatTabGroup;
   @ViewChildren('visualizations') visualizationComponents: QueryList<VisualizationComponent>;
+
+  addVizSidenavState = false;
 
   visTypes: VisType[] = [
     { template: 'scattergraph', label: 'Scatter Graph', icon: 'scatterGraph' },
@@ -104,4 +107,8 @@ export class MainComponent {
     this.setSelectedVis(index === lastIndex ? index - 1 : index, true);
   }
 
+  toggleAddVisualization() {
+    this.addVizSidenavState = !this.addVizSidenavState;
+    this.toggleAddVis.emit(this.addVizSidenavState);
+  }
 }

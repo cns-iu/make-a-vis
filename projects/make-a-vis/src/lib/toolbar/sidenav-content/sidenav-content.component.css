@@ -88,3 +88,8 @@
 .shareFormContent {
   display: flex;
 }
+
+
+.input {
+  text-align: center;
+}

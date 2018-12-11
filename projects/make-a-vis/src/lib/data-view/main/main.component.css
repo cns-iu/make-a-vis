@@ -11,8 +11,12 @@
   padding: 1vh 0 3vh 0;
 }
 
-.add-visualization .mav-add-icon {
+.add-visualization .add-icon {
   position: sticky;
   left: calc(100% - 25px);
   z-index: 10;
+  color: #1E88E5;
+  background: none;
+  border: 0;
+  cursor: pointer;
 }

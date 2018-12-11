@@ -2,20 +2,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { DragDropModule } from '../drag-drop/drag-drop.module';
 // Components
-import { AddIconComponent } from '../visualization-view/icons/add/add-icon.component';
 import { MainComponent } from './main/main.component';
 import { TableComponent } from './table/table.component';
 
 @NgModule({
   imports: [
-    CommonModule, DragDropModule, MatTableModule, MatToolbarModule
+    CommonModule, DragDropModule, MatIconModule, MatTableModule, MatToolbarModule
   ],
-  declarations: [AddIconComponent, MainComponent, TableComponent],
+  declarations: [MainComponent, TableComponent],
   exports: [MainComponent]
 })
 export class DataViewModule { }

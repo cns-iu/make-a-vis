@@ -1,7 +1,7 @@
 <div class='data-view-inner-container'>
   <div class="add-visualization">
     <h4>Data</h4>
-    <mav-add-icon class="mav-add-icon" (click)="toggleAddVisualization()"></mav-add-icon>
+      <mat-icon class="add-icon">add_circle_outline</mat-icon>
   </div>
   <ng-container *ngFor="let dataSource of dataSources | async" #table>
     <mav-table [dataSource]="dataSource" [displayedColumns]="dataSource.columns"></mav-table>

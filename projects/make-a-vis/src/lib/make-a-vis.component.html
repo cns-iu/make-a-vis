@@ -3,11 +3,11 @@
   <mav-toolbar>
     <div class="main-view" [ngClass]="{'mav-selection-open': mavSelection.openMavSideNav}">
       <div class="data-view">
-        <mav-data-view (toggleAddVis)="mavSelection.toggleAddVis($event)"></mav-data-view>
+        <mav-data-view></mav-data-view>
       </div>
       <mav-selection class="mav-selection" #mavSelection></mav-selection>
       <div class="visualization-and-legend-view">
-        <mav-visualization-view class="visualization"></mav-visualization-view>
+        <mav-visualization-view class="visualization" (toggleAddVis)="mavSelection.toggleAddVis($event)"></mav-visualization-view>
         <mav-legend-view class="legend"></mav-legend-view>
       </div>
     </div>
