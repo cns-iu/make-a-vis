@@ -80,24 +80,9 @@ export class MainComponent {
     }
   }
 
-  addNewVisualization(type: VisType): void {
-    const preData: Partial<Visualization> = {
-      id: `visualization-${uniqueId()}`,
-      template: type.template,
-      properties: {},
-      graphicSymbols: {}
-    };
-
-    this.store.pipe(
-      select(getLoadedProjectSelector),
-      take(1),
-      concatMap(project => this.serializer.createVisualization(type.template, preData, project)),
-      catchError(() => of(preData as Visualization))
-    ).subscribe(data => {
-      const index = this.visualizations.push({ label: type.label, data }) - 1;
-      this.store.dispatch(new AddNewVisualization(data));
-      this.setSelectedVis(index);
-    });
+  addNewVisualization(event: any): void {
+    const index = this.visualizations.push(event) - 1;
+    this.setSelectedVis(index);
   }
 
   removeVisualization(index: number): void {

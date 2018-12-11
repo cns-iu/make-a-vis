@@ -2,9 +2,9 @@
 import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
 
 import { Project } from '@dvl-fw/core';
-import { ApplicationState } from './state';
 import * as fromUi from '../../toolbar/shared/store/';
 import { sidenavStateReducer } from '../../toolbar/shared/store/reducer';
+import { ApplicationState } from './state';
 
 export const reducers: ActionReducerMap<ApplicationState> = {
   ui: sidenavStateReducer
