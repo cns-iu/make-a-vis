@@ -4,34 +4,35 @@
     margin-bottom: 0.625rem;
 }
 
-.vis-group {
+.visualization-group {
     float: left;
     width: 100%;
 }
-.vis-group .tab {
-    width: 200px;
+.visualization-group .tab {
+    width: 180px;
     border-bottom: 2px solid transparent;
     display: flex;
     align-content: center;
     justify-content: space-between;
 }
 
-.vis-group .selected {
+.visualization-group .selected {
     border-bottom: none;
     border-bottom: 2px solid #C51162;
 }
 
-::ng-deep .vis-group .mat-tab-header {
+::ng-deep .visualization-group .mat-tab-header {
     height: 2.75rem;
     padding-top: 1rem;
     padding-left: 1rem;
-    padding-right: 6rem;
+    padding-right: 7rem;
     margin-bottom: 0.625rem;
     border: 1px solid #E0E0E0;
     border-radius: 4px;
+    background-color: white;
 }
 
-.vis-group .tab .cancel-button {
+.visualization-group .tab .cancel-button {
     border: 0;
     cursor: pointer;
 }
@@ -58,5 +59,5 @@
     height: calc(93vh - 1vh - 285px); /* .main-view is 93vh with 1vh bottom padding in .visualization-view  and .legend is 200px at top-level, 70px - assumed padding(TODO - FIX needed) */
     width: calc(100% - 2px);
     border: 1px solid transparent;
+    background-color: white;
 }
-

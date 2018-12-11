@@ -1,9 +1,9 @@
-.data-view-inner-container {
+.data-view-container {
   display: flex;
   flex-flow: column wrap;
 }
 
-.add-visualization {
+.data-view-header {
   height: 100%;
   width: 100%;
   display: flex;
@@ -11,7 +11,15 @@
   padding: 1vh 0 3vh 0;
 }
 
-.add-visualization .add-icon {
+.data-view-header .title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.data-view-header .add-data-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 2.5rem;
   position: sticky;
   left: calc(100% - 25px);
   z-index: 10;
