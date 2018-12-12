@@ -1,6 +1,10 @@
 // "Modern" theme styling goes here.
 // Most themes will import this file after defining variables
 
+.mat-expansion-indicator::after {
+  color: $primary;
+}
+
 .mav-main-view {
   background-color: $gray-accent-3;
 }
