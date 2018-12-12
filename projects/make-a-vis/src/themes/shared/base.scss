@@ -51,10 +51,15 @@
 
 .mav-sidenav {
   .expansion-content {
-    .button, .link-button {
+    .button {
       color: $secondary-text;
       background-color: $gray-accent-3;
       border-color: $gray-accent-1 !important;
+    }
+    .link-button {
+      color: $gray-accent-3;
+      background-color: $secondary-text;
+      border-color: $secondary-text !important;
     }
 
     .button:active, .button:hover, .custom-file-upload:active, .custom-file-upload:hover {
