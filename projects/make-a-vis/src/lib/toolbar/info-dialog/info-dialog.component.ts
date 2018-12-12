@@ -7,7 +7,7 @@ import { buildInfo } from './build-info';
 @Component({
   selector: 'mav-info-dialog',
   templateUrl: './info-dialog.component.html',
-  styleUrls: ['./info-dialog.component.css']
+  styleUrls: ['./info-dialog.component.scss']
 })
 export class InfoDialogComponent implements OnInit {
   infoItems: Array<InfoItem>;

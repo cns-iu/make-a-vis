@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { InfoDialogComponent } from '../../info-dialog/info-dialog.component';
 
@@ -7,18 +7,13 @@ import { InfoDialogComponent } from '../../info-dialog/info-dialog.component';
   templateUrl: './info-icon.component.html',
   styleUrls: ['./info-icon.component.css']
 })
-export class InfoIconComponent implements OnInit {
+export class InfoIconComponent {
 
   constructor(private dialog: MatDialog) { }
 
-  ngOnInit() {
-  }
-
   openDialog() {
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.panelClass = 'nopadding-dialog-container';
-
+    dialogConfig.panelClass = 'mav-info-dialog-container';
     this.dialog.open(InfoDialogComponent, dialogConfig);
   }
-
 }

@@ -8,9 +8,9 @@
           Select Visualization Type
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <mav-selection-visualization-type></mav-selection-visualization-type>
+      <mav-selection-visualization-type #visType></mav-selection-visualization-type>
       <mat-action-row class="selection-button">
-        <button mat-button>Done</button>
+        <button mat-button (click)="addVisualization(visType.selected)">Done</button>
       </mat-action-row>
     </mat-expansion-panel>
   </div>

@@ -4,6 +4,7 @@
 [![Build Status](https://travis-ci.com/cns-iu/make-a-vis.svg?branch=master)](https://travis-ci.com/cns-iu/make-a-vis)
 [![GitHub last commit](https://img.shields.io/github/last-commit/cns-iu/make-a-vis.svg)](https://github.com/cns-iu/make-a-vis/commits/master)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
+[![View Staging Site](https://img.shields.io/badge/staging-online-brightgreen.svg)](https://make-a-vis.netlify.com/)
 [![View Demo](https://img.shields.io/badge/demo-online-brightgreen.svg)](https://cns-iu.github.io/make-a-vis)
 
 An online tool for creating visualizations
