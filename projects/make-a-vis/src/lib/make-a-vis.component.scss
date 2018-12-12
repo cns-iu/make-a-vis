@@ -6,7 +6,7 @@
   padding: 1.25vh .5vw 0vh .5vw;
 
   .data-view {
-    width: 31.5vw;
+    width: 36vw;
     overflow-y: auto;
     margin-right: 0.5vw; 
   }
@@ -17,7 +17,7 @@
 
   .visualization-and-legend-view {
     position: relative;
-    width: 67vw;
+    width: 63.5vw;
     display: flex;
     flex-direction: column;
     
@@ -36,16 +36,17 @@
 
 .mav-selection-open {
   .data-view {
-    width: 31.5vw;
+    width: 36vw;
     padding-right: 0.5vw; 
   }
   
   .mav-selection {
-    width: 30vw;
+    width: 20vw;
+    min-width: 20rem;
     padding: 0 0.5vw 0 0;
   }
 
  .visualization-and-legend-view {
-   width: 36vw;
+   width: 43.5vw;
  } 
 }
