@@ -118,5 +118,5 @@ const nsfParseOp: Operator<any, NSFRecord> = combine({
 });
 
 export function parseNSFFile(fileContents: string): NSFRecord[] {
-  return parse(fileContents, {header: true}).data.map(nsfParseOp.getter);
+  return parse(fileContents, {header: true}).data.map(nsfParseOp.getter).filter(s => !!s.id);
 }

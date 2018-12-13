@@ -73,6 +73,7 @@ export class NSFTemplateProject extends DefaultProject {
           {id: 'startYear', label: 'Start Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'endYear', label: 'End Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'awardedAmount', label: '$Awarded', dataType: 'integer', scaleType: 'ratio'},
+          {id: 'awardInstrument', label: 'Award Instrument', dataType: 'text', scaleType: 'nominal'},
           {id: 'organization', label: 'Organization', dataType: 'text', scaleType: 'nominal'},
           {id: 'nsfOrganization', label: 'NSF Org.', dataType: 'text', scaleType: 'nominal'},
           {id: 'nsfPrograms', label: 'NSF Program(s)', dataType: 'text', scaleType: 'nominal'},
@@ -112,6 +113,17 @@ export class NSFTemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'investigatorNames[0]', label: 'Primary Investigator'}
+              ]
+            },
+            awardInstrument: {
+              axis: [
+                {selector: 'awardInstrument'}
+              ],
+              text: [
+                {selector: 'awardInstrument'}
+              ],
+              color: [
+                {selector: 'awardInstrumentColor'}
               ]
             },
             startYear: {
@@ -223,24 +235,6 @@ export class NSFTemplateProject extends DefaultProject {
             graphicVariableType: 'identifier',
             graphicVariableId: 'identifier'
           },
-          color: {
-            recordSet: 'award',
-            dataVariable: 'startYear',
-            graphicVariableType: 'color',
-            graphicVariableId: 'color'
-          },
-          transparency: {
-            recordSet: 'award',
-            dataVariable: 'awardedAmount',
-            graphicVariableType: 'transparency',
-            graphicVariableId: 'transparency'
-          },
-          strokeTransparency: {
-            recordSet: 'award',
-            dataVariable: 'awardedAmount',
-            graphicVariableType: 'strokeTransparency',
-            graphicVariableId: 'strokeTransparency'
-          },
           x: {
             recordSet: 'award',
             dataVariable: 'startYear',
@@ -249,7 +243,7 @@ export class NSFTemplateProject extends DefaultProject {
           },
           y: {
             recordSet: 'award',
-            dataVariable: 'awardedAmount',
+            dataVariable: 'endYear',
             graphicVariableType: 'axis',
             graphicVariableId: 'axis'
           },
@@ -259,18 +253,18 @@ export class NSFTemplateProject extends DefaultProject {
             graphicVariableType: 'areaSize',
             graphicVariableId: 'areaSize'
           },
-          label: {
+          color: {
+            recordSet: 'award',
+            dataVariable: 'awardInstrument',
+            graphicVariableType: 'color',
+            graphicVariableId: 'color'
+          },
+          tooltip: {
             recordSet: 'award',
             dataVariable: 'title',
             graphicVariableType: 'text',
             graphicVariableId: 'text'
-          },
-          labelSize: {
-            recordSet: 'award',
-            dataVariable: 'awardedAmount',
-            graphicVariableType: 'fontSize',
-            graphicVariableId: 'fontSize'
-          },
+          }
         }
       }, this)
     ];
@@ -282,7 +276,10 @@ export class NSFTemplateProject extends DefaultProject {
         id: 'SG01',
         template: 'scattergraph',
         properties: {
-          drawGridLines: true
+          enableTooltip: true,
+          gridlines: true,
+          showAxisLabels: false,
+          showAxisIndicators: false
         },
         graphicSymbols: {
           points: 'awardPoints'
