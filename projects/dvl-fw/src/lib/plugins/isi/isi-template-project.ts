@@ -131,8 +131,8 @@ export class ISITemplateProject extends DefaultProject {
         dataVariables: [
           {id: 'author1', label: 'Author 1', dataType: 'text', scaleType: 'nominal'},
           {id: 'author2', label: 'Author 2', dataType: 'text', scaleType: 'nominal'},
-          {id: 'numPapers', label: '# Joined Publications', dataType: 'integer', scaleType: 'ratio'},
-          {id: 'numCites', label: '# Joined Citations', dataType: 'integer', scaleType: 'ratio'},
+          {id: 'numPapers', label: '# Joint Publications', dataType: 'integer', scaleType: 'ratio'},
+          {id: 'numCites', label: '# Joint Citations', dataType: 'integer', scaleType: 'ratio'},
           {id: 'firstYear', label: 'First Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'identifier', label: 'Identifier', dataType: 'text', scaleType: 'nominal'},
