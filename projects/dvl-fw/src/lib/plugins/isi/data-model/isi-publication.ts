@@ -1,5 +1,5 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
-import { access, chain, Operand } from '@ngx-dino/core';
+import { access, chain, map, Operand } from '@ngx-dino/core';
 
 import {
   areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, formatNumber, formatYear,
@@ -51,6 +51,9 @@ export class Publication {
   Authors: Author[];
   @Transient
   Journal: Journal;
+
+  @Operand<string>(chain(access<string[]>('authors'), map(s => s.join(', '))))
+  authorsLabel: string;
 
   // #Cites Encodings
   @Operand<number>(norm0to100('numCites', 'globalStats.numCitesMax'))
