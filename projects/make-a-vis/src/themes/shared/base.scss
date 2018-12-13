@@ -53,6 +53,27 @@
   }
 }
 
+.mav-start-project-icon {
+  .start-project-icon-wrapper {
+    .add-data-icon {
+      font-size: 1.9rem !important;
+    }
+  }
+}
+
+.mav-start-project-options-container {
+  background-color: $primary;
+  padding: 0.35rem 0 0.35rem 0;
+  .mav-start-project-options {
+    .start-project-options-wrapper {
+      .button {
+        color: $white;
+        border-color: $white !important;
+      }
+    }
+  }
+}
+
 .mav-sidenav {
   .expansion-content {
     .button {

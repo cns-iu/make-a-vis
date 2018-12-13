@@ -1,0 +1,9 @@
+<div class="mav-start-project-icon">
+  <div class="start-project-icon-wrapper">
+      <mat-icon class="add-data-icon" [matMenuTriggerFor]="menu" (click)="isMenuOpen = !isMenuOpen">{{isMenuOpen ? 'add_circle' : 'add_circle_outline'}}</mat-icon>
+      <mat-menu #menu="matMenu" xPosition="before" class="mav-start-project-options-container" [overlapTrigger]="false" (closed) = "isMenuOpen = !isMenuOpen">
+          <mav-start-project-options></mav-start-project-options>
+        </mat-menu>
+  </div>
+</div>
+

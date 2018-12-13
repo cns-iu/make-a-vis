@@ -1,0 +1,10 @@
+<div class="mav-start-project-options">
+  <div class='start-project-options-wrapper'>
+  <span *ngFor="let fileExtension of projectExtensions">
+    <label [for]="fileExtension" class="custom-file-upload button" mat-stroked-button isRoundButton>
+      {{fileExtension === 'yml' ? 'Open Project' : fileExtension.toUpperCase()}}
+    </label>
+    <input [id]="fileExtension" type="file" class="get-data" (change)="readNewFile($event, fileExtension.toLowerCase())"/>
+  </span>
+  </div>
+</div>
