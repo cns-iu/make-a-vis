@@ -13,7 +13,7 @@
       <p class="expansion-content">
         <span *ngFor="let extension of projectExtensions">
           <label [for]="extension" class="custom-file-upload button" mat-stroked-button isRoundButton>{{extension === 'yml' ? 'Open Project' : extension.toUpperCase()}}</label>
-          <input [id]="extension" type="file" class="get-data" (change)="readNewFile($event, extension.toLowerCase())" />
+          <input [id]="extension" type="file" class="get-data" (change)="readNewFile($event, extension.toLowerCase())" [accept]="loadProjectService.getSupportedExtension(extension)"/>
         </span>
       </p>
     </mat-expansion-panel>
