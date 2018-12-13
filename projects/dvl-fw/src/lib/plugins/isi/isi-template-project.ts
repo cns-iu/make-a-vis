@@ -780,9 +780,9 @@ export class ISITemplateProject extends DefaultProject {
             graphicVariableType: 'strokeTransparency',
             graphicVariableId: 'strokeTransparency'
           },
-          label: {
+          tooltip: {
             recordSet: 'publication',
-            dataVariable: 'numCites',
+            dataVariable: 'title',
             graphicVariableType: 'text',
             graphicVariableId: 'text'
           }
@@ -846,6 +846,12 @@ export class ISITemplateProject extends DefaultProject {
             dataVariable: 'numCites',
             graphicVariableType: 'fontSize',
             graphicVariableId: 'fontSize'
+          },
+          tooltip: {
+            recordSet: 'journal',
+            dataVariable: 'name',
+            graphicVariableType: 'text',
+            graphicVariableId: 'text'
           }
         }
       }, this),
@@ -907,6 +913,12 @@ export class ISITemplateProject extends DefaultProject {
             dataVariable: 'numCites',
             graphicVariableType: 'fontSize',
             graphicVariableId: 'fontSize'
+          },
+          tooltip: {
+            recordSet: 'subdiscipline',
+            dataVariable: 'name',
+            graphicVariableType: 'text',
+            graphicVariableId: 'text'
           }
         }
       }, this),
@@ -957,24 +969,18 @@ export class ISITemplateProject extends DefaultProject {
             graphicVariableType: 'color',
             graphicVariableId: 'color'
           },
-          transparency: {
-            recordSet: 'author',
-            dataVariable: 'numPapers',
-            graphicVariableType: 'transparency',
-            graphicVariableId: 'transparency'
-          },
           strokeTransparency: {
             recordSet: 'author',
             dataVariable: 'numPapers',
             graphicVariableType: 'strokeTransparency',
             graphicVariableId: 'strokeTransparency'
           },
-          label: {
+          tooltip: {
             recordSet: 'author',
-            dataVariable: 'numCites',
+            dataVariable: 'name',
             graphicVariableType: 'text',
             graphicVariableId: 'text'
-          },
+          }
         }
       }, this),
       new DefaultGraphicSymbol({
@@ -1023,6 +1029,12 @@ export class ISITemplateProject extends DefaultProject {
             dataVariable: 'numPapers',
             graphicVariableType: 'strokeTransparency',
             graphicVariableId: 'strokeTransparency'
+          },
+          tooltip: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'identifier',
+            graphicVariableType: 'identifier',
+            graphicVariableId: 'identifier'
           }
         }
       }, this)
@@ -1035,6 +1047,7 @@ export class ISITemplateProject extends DefaultProject {
         id: 'SG01',
         template: 'scattergraph',
         properties: {
+          enableTooltip: true,
           gridlines: true,
           showAxisLabels: false,
           showAxisIndicators: false
@@ -1047,6 +1060,7 @@ export class ISITemplateProject extends DefaultProject {
         id: 'SG02',
         template: 'scattergraph',
         properties: {
+          enableTooltip: true,
           gridlines: true,
           showAxisLabels: false,
           showAxisIndicators: false

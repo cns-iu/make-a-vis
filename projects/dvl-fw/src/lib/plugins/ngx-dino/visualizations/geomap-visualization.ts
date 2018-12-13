@@ -28,7 +28,9 @@ export class GeomapVisualization extends DefaultVisualization {
         { type: 'color', label: 'Color', visualization: 'color' },
         { type: 'transparency', label: 'Transparency'},
         { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
-        { type: 'strokeTransparency', label: 'Stroke Transparency'}
+        { type: 'strokeTransparency', label: 'Stroke Transparency'},
+        { type: 'label', label: 'Label'},
+        { type: 'tooltip', label: 'Tooltip'}
       ]
     }, {
       id: 'edges', label: 'Edges', type: 'line',

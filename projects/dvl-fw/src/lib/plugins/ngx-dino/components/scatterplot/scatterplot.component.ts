@@ -22,7 +22,7 @@ export type FieldGroups = { points: PointFields }; // tslint:disable-line:interf
 const fieldNameMapping = createFieldNameMapping([
   'x', 'y', 'shape', 'color', 'strokeColor', 'transparency', 'strokeTransparency', 'pulse'
 ], {
-  'identifier': 'pointIdField', 'areaSize': 'sizeField'
+  'identifier': 'pointIdField', 'areaSize': 'sizeField', 'tooltip': 'tooltipTextField'
 });
 
 @Component({
