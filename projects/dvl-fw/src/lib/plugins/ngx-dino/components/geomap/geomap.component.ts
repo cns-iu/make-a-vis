@@ -48,9 +48,9 @@ const basemapFieldNameMapping = createFieldNameMapping([
 
 // TODO: tooltip, label, labelPosition
 const nodesFieldNameMapping = createFieldNameMapping([
-  'position', 'color', 'transparency', 'strokeColor', 'strokeWidth', 'pulse', 'label', 'tooltip'
+  'color', 'transparency', 'strokeColor', 'strokeWidth', 'pulse', 'label', 'tooltip'
 ], {
-  'identifier': 'nodeIdField', 'areaSize': 'nodeSizeField', 'shape': 'nodeSymbolField',
+  'identifier': 'nodeIdField', 'areaSize': 'nodeSizeField', 'shape': 'nodeSymbolField', 'latlng': 'nodePositionField'
 }, 'node');
 
 const edgesFieldNameMapping = createFieldNameMapping([
