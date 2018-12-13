@@ -15,6 +15,7 @@ import { DefaultRawData } from '../default/default-raw-data';
 import { DefaultRecordSet } from '../default/default-record-set';
 import { NSFDataSource } from './nsf-data-source';
 import { NSFParsedRawData } from './nsf-parsed-raw-data';
+import { TemporalBargraphVisualization } from '../ngx-dino/visualizations';
 
 
 export class NSFTemplateProject extends DefaultProject {
@@ -283,6 +284,14 @@ export class NSFTemplateProject extends DefaultProject {
         },
         graphicSymbols: {
           points: 'awardPoints'
+        }
+      }, this),
+      new TemporalBargraphVisualization({
+        id: 'TBG01',
+        template: 'temporal-bargraph',
+        properties: {},
+        graphicSymbols: {
+          // nodes: 'awardPoints'
         }
       }, this)
     ];
