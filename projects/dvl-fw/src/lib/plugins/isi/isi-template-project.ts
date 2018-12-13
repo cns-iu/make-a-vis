@@ -13,12 +13,10 @@ import { DefaultProject } from '../default/default-project';
 import { DefaultRawData } from '../default/default-raw-data';
 import { DefaultRecordSet } from '../default/default-record-set';
 import {
-  ColorVisualization, EdgeSizeVisualization, GeomapVisualization, NetworkVisualization, NodeSizeVisualization,
-  ScatterplotVisualization, SciencemapVisualization, TemporalBargraphVisualization
+  GeomapVisualization, NetworkVisualization, ScatterplotVisualization, SciencemapVisualization, TemporalBargraphVisualization
 } from '../ngx-dino/visualizations';
 import { ISIDataSource } from './isi-data-source';
 import { ISIParsedRawData } from './isi-parsed-raw-data';
-
 
 
 export class ISITemplateProject extends DefaultProject {
@@ -1028,12 +1026,6 @@ export class ISITemplateProject extends DefaultProject {
           edges: 'coAuthorLinks',
           nodes: 'authorPoints'
         }
-      }, this),
-      new TemporalBargraphVisualization({
-        id: 'TBG01',
-        template: 'temporal-bargraph',
-        properties: {},
-        graphicSymbols: {}
       }, this)
     ];
   }

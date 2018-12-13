@@ -5,6 +5,9 @@ import {
   greyScaleNormQuantitative, greyScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency
 } from '../../../encoding';
 import { Location } from '../../../encoding/geocoder';
+import { Transient } from '../../../shared/transient';
+
+import { Investigator } from './nsf-investigator';
 
 
 const awardInstrumentColorLookup = lookup({
@@ -86,6 +89,9 @@ export class Award {
   constructor(data: any) {
     Object.assign(this, data);
   }
+
+  @Transient
+  Investigators: Investigator[];
 
   @Operand<string[]>(map(s => [s.piName].concat(s.coPiNames)))
   investigatorNames: string[];

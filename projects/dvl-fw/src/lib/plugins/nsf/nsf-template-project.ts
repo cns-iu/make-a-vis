@@ -7,15 +7,14 @@ import { RawData } from '../../shared/raw-data';
 import { RecordSet } from '../../shared/record-set';
 import { Visualization } from '../../shared/visualization';
 import { ActivityLogDataSource } from '../activity-log/log-data-source';
-import { ScatterplotVisualization } from '../ngx-dino/visualizations/scatterplot-visualization';
 import { DefaultGraphicSymbol } from '../default/default-graphic-symbol';
 import { DefaultGraphicVariableMapping } from '../default/default-graphic-variable';
 import { DefaultProject } from '../default/default-project';
 import { DefaultRawData } from '../default/default-raw-data';
 import { DefaultRecordSet } from '../default/default-record-set';
+import { ScatterplotVisualization, TemporalBargraphVisualization, GeomapVisualization, NetworkVisualization } from '../ngx-dino/visualizations';
 import { NSFDataSource } from './nsf-data-source';
 import { NSFParsedRawData } from './nsf-parsed-raw-data';
-import { TemporalBargraphVisualization } from '../ngx-dino/visualizations';
 
 
 export class NSFTemplateProject extends DefaultProject {
@@ -50,7 +49,11 @@ export class NSFTemplateProject extends DefaultProject {
       new NSFDataSource({
         id: 'nsfDataSource',
         properties: { rawData: 'nsfFile', parsedData: 'nsfRawData', saveParsedData: true },
-        recordStreams: [{id: 'awards', label: 'Awards'}]
+        recordStreams: [
+          {id: 'awards', label: 'Awards'},
+          {id: 'investigators', label: 'Investigators'},
+          {id: 'coPiLinks', label: 'Co-PI Links'}
+        ]
       }, this),
       new ActivityLogDataSource({
         id: 'activityLog',
@@ -64,8 +67,8 @@ export class NSFTemplateProject extends DefaultProject {
     const recordSets = [
       new DefaultRecordSet({
         id: 'award',
-        label: 'Award',
-        labelPlural: 'Awards',
+        label: 'NSF Award',
+        labelPlural: 'NSF Awards',
         description: fileName || undefined,
         defaultRecordStream: 'awards',
         dataVariables: [
@@ -80,7 +83,41 @@ export class NSFTemplateProject extends DefaultProject {
           {id: 'nsfPrograms', label: 'NSF Program(s)', dataType: 'text', scaleType: 'nominal'},
           {id: 'id', label: 'ID', dataType: 'text', scaleType: 'nominal'}
         ]
-      }, this)
+      }, this),
+      new DefaultRecordSet({
+        id: 'investigator',
+        label: 'Investigator',
+        labelPlural: 'Investigators',
+        parent: 'award',
+        description: 'from NSF Awards',
+        defaultRecordStream: 'investigators',
+        dataVariables: [
+          {id: 'name', label: 'Name', dataType: 'text', scaleType: 'nominal'},
+          {id: 'numAwards', label: '# Awards', dataType: 'integer', scaleType: 'ratio'},
+          {id: 'firstYear', label: 'First Year', dataType: 'integer', scaleType: 'interval'},
+          {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'},
+          {id: 'latlng', label: 'Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
+          {id: 'position', label: 'Position', dataType: '???', scaleType: '???'}, // TODO: Fix types
+        ]
+      }, this),
+      new DefaultRecordSet({
+        id: 'coPiLink',
+        label: 'Co-PI Link',
+        labelPlural: 'Co-PI Links',
+        parent: 'award',
+        description: 'from NSF Awards',
+        defaultRecordStream: 'coPiLinks',
+        dataVariables: [
+          {id: 'investigator1', label: 'Investigator 1', dataType: 'text', scaleType: 'nominal'},
+          {id: 'investigator2', label: 'Investigator 2', dataType: 'text', scaleType: 'nominal'},
+          {id: 'numAwards', label: '# Joint Awards', dataType: 'integer', scaleType: 'ratio'},
+          {id: 'firstYear', label: 'First Year', dataType: 'integer', scaleType: 'interval'},
+          {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'},
+          {id: 'identifier', label: 'Identifier', dataType: 'text', scaleType: 'nominal'},
+          {id: 'source', label: 'Investigator 1 Position', dataType: '???', scaleType: '???'}, // TODO: Fix types
+          {id: 'target', label: 'Investigator 2 Position', dataType: '???', scaleType: '???'}, // TODO: Fix types
+        ]
+      }, this),
     ];
     recordSets.forEach(rs => rs.resolveParent(recordSets));
     return recordSets;
@@ -218,6 +255,219 @@ export class NSFTemplateProject extends DefaultProject {
               ]
             },
           }
+        },
+      },
+      {
+        recordStream: 'investigators',
+        mappings: {
+          investigator: {
+            name: {
+              identifier: [
+                {selector: 'name'}
+              ],
+              axis: [
+                {selector: 'name'}
+              ],
+              text: [
+                {selector: 'name'}
+              ]
+            },
+            latlng: {
+              axis: [
+                {selector: 'latlng'}
+              ]
+            },
+            position: {
+              axis: [
+                {selector: 'position'}
+              ]
+            },
+            numAwards: {
+              axis: [
+                {selector: 'numAwardsLabel'}
+              ],
+              text: [
+                {selector: 'numAwardsLabel'}
+              ],
+              areaSize: [
+                {selector: 'numAwardsAreaSize'}
+              ],
+              fontSize: [
+                {selector: 'numAwardsFontSize'}
+              ],
+              color: [
+                {selector: 'numAwardsColor'}
+              ],
+              strokeColor: [
+                {selector: 'numAwardsStrokeColor'}
+              ],
+              transparency: [
+                {selector: 'numAwardsTransparency'}
+              ],
+              strokeTransparency: [
+                {selector: 'numAwardsTransparency'}
+              ]
+            },
+            firstYear: {
+              axis: [
+                {selector: 'firstYearLabel'}
+              ],
+              text: [
+                {selector: 'firstYearLabel'}
+              ],
+              areaSize: [
+                {selector: 'firstYearAreaSize'}
+              ],
+              fontSize: [
+                {selector: 'firstYearFontSize'}
+              ],
+              color: [
+                {selector: 'firstYearColor'}
+              ],
+              strokeColor: [
+                {selector: 'firstYearStrokeColor'}
+              ]
+            },
+            lastYear: {
+              axis: [
+                {selector: 'lastYearLabel'}
+              ],
+              text: [
+                {selector: 'lastYearLabel'}
+              ],
+              areaSize: [
+                {selector: 'lastYearAreaSize'}
+              ],
+              fontSize: [
+                {selector: 'lastYearFontSize'}
+              ],
+              color: [
+                {selector: 'lastYearColor'}
+              ],
+              strokeColor: [
+                {selector: 'lastYearStrokeColor'}
+              ]
+            }
+          }
+        }
+      },
+      {
+        recordStream: 'coPiLinks',
+        mappings: {
+          coPiLink: {
+            investigator1: {
+              identifier: [
+                {selector: 'investigator1'}
+              ],
+              axis: [
+                {selector: 'investigator1'}
+              ],
+              text: [
+                {selector: 'investigator1'}
+              ]
+            },
+            investigator2: {
+              identifier: [
+                {selector: 'investigator2'}
+              ],
+              axis: [
+                {selector: 'investigator2'}
+              ],
+              text: [
+                {selector: 'investigator2'}
+              ]
+            },
+            identifier: {
+              identifier: [
+                {selector: 'identifier'}
+              ]
+            },
+            source: {
+              source: [
+                {selector: 'source'}
+              ]
+            },
+            target: {
+              target: [
+                {selector: 'target'}
+              ]
+            },
+            numAwards: {
+              axis: [
+                {selector: 'numAwardsLabel'}
+              ],
+              text: [
+                {selector: 'numAwardsLabel'}
+              ],
+              areaSize: [
+                {selector: 'numAwardsAreaSize'}
+              ],
+              strokeWidth: [
+                {selector: 'numAwardsStrokeWidth'}
+              ],
+              fontSize: [
+                {selector: 'numAwardsFontSize'}
+              ],
+              color: [
+                {selector: 'numAwardsColor'}
+              ],
+              transparency: [
+                {selector: 'numAwardsTransparency'}
+              ],
+              strokeTransparency: [
+                {selector: 'numAwardsTransparency'}
+              ],
+              strokeColor: [
+                {selector: 'numAwardsStrokeColor'}
+              ]
+            },
+            firstYear: {
+              axis: [
+                {selector: 'firstYearLabel'}
+              ],
+              text: [
+                {selector: 'firstYearLabel'}
+              ],
+              areaSize: [
+                {selector: 'firstYearAreaSize'}
+              ],
+              strokeWidth: [
+                {selector: 'firstYearStrokeWidth'}
+              ],
+              fontSize: [
+                {selector: 'firstYearFontSize'}
+              ],
+              color: [
+                {selector: 'firstYearColor'}
+              ],
+              strokeColor: [
+                {selector: 'firstYearStrokeColor'}
+              ]
+            },
+            lastYear: {
+              axis: [
+                {selector: 'lastYearLabel'}
+              ],
+              text: [
+                {selector: 'lastYearLabel'}
+              ],
+              areaSize: [
+                {selector: 'lastYearAreaSize'}
+              ],
+              strokeWidth: [
+                {selector: 'lastYearStrokeWidth'}
+              ],
+              fontSize: [
+                {selector: 'lastYearFontSize'}
+              ],
+              color: [
+                {selector: 'lastYearColor'}
+              ],
+              strokeColor: [
+                {selector: 'lastYearStrokeColor'}
+              ]
+            }
+          }
         }
       }
     ], this);
@@ -267,6 +517,92 @@ export class NSFTemplateProject extends DefaultProject {
             graphicVariableId: 'text'
           }
         }
+      }, this),
+      new DefaultGraphicSymbol({
+        id: 'investigatorPoints',
+        type: 'area',
+        recordStream: 'investigators',
+        graphicVariables: {
+          identifier: {
+            recordSet: 'investigator',
+            dataVariable: 'name',
+            graphicVariableType: 'identifier',
+            graphicVariableId: 'identifier'
+          },
+          latlng: {
+            recordSet: 'investigator',
+            dataVariable: 'latlng',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          position: {
+            recordSet: 'investigator',
+            dataVariable: 'position',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          areaSize: {
+            recordSet: 'investigator',
+            dataVariable: 'numAwards',
+            graphicVariableType: 'areaSize',
+            graphicVariableId: 'areaSize'
+          },
+          color: {
+            recordSet: 'investigator',
+            dataVariable: 'firstYear',
+            graphicVariableType: 'color',
+            graphicVariableId: 'color'
+          },
+          tooltip: {
+            recordSet: 'investigator',
+            dataVariable: 'name',
+            graphicVariableType: 'text',
+            graphicVariableId: 'text'
+          }
+        }
+      }, this),
+      new DefaultGraphicSymbol({
+        id: 'coPiLinks',
+        type: 'line',
+        recordStream: 'coPiLinks',
+        graphicVariables: {
+          identifier: {
+            recordSet: 'coPiLink',
+            dataVariable: 'identifier',
+            graphicVariableType: 'identifier',
+            graphicVariableId: 'identifier'
+          },
+          source: {
+            recordSet: 'coPiLink',
+            dataVariable: 'source',
+            graphicVariableType: 'source',
+            graphicVariableId: 'source'
+          },
+          target: {
+            recordSet: 'coPiLink',
+            dataVariable: 'target',
+            graphicVariableType: 'target',
+            graphicVariableId: 'target'
+          },
+          strokeWidth: {
+            recordSet: 'coPiLink',
+            dataVariable: 'numAwards',
+            graphicVariableType: 'strokeWidth',
+            graphicVariableId: 'strokeWidth'
+          },
+          strokeColor: {
+            recordSet: 'coPiLink',
+            dataVariable: 'firstYear',
+            graphicVariableType: 'strokeColor',
+            graphicVariableId: 'strokeColor'
+          },
+          tooltip: {
+            recordSet: 'coPiLink',
+            dataVariable: 'identifier',
+            graphicVariableType: 'identifier',
+            graphicVariableId: 'identifier'
+          }
+        }
       }, this)
     ];
   }
@@ -284,6 +620,15 @@ export class NSFTemplateProject extends DefaultProject {
         },
         graphicSymbols: {
           points: 'awardPoints'
+        }
+      }, this),
+      new NetworkVisualization({
+        id: 'NW01',
+        template: 'network',
+        properties: {},
+        graphicSymbols: {
+          edges: 'coPiLinks',
+          nodes: 'investigatorPoints'
         }
       }, this),
       new TemporalBargraphVisualization({
