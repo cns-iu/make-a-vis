@@ -1,6 +1,7 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Publication, PublicationStats } from './isi-publication';
 import { ISIRecord } from './isi-record';
+import { startCase, toLower } from 'lodash';
 
 export function extractPublications(publications: ISIRecord[]): Publication[] {
   const publicationList: Publication[] = [];
@@ -13,7 +14,7 @@ export function extractPublications(publications: ISIRecord[]): Publication[] {
       eissn: pub.eissn,
       journalName: pub.journalName,
       journalFullname: pub.journalFullname,
-      authors: pub.authors || [],
+      authors: (pub.authors || []).map(s => startCase(toLower(s))),
       authorsFullname: pub.authorsFullname || [],
       authorsAddress: pub.authorsAddress || (pub.authors || []).map(s => ''),
       publicationYear: pub.publicationYear || 0,

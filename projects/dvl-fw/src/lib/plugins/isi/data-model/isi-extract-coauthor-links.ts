@@ -1,17 +1,17 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { CoAuthorLink, CoAuthorLinkStats } from './isi-coauthor-link';
 import { Publication } from './isi-publication';
+import { sortBy, toLower } from 'lodash';
 
 // Assumes this was run after extractAuthors
 export function extractCoAuthorLinks(publications: Publication[]): CoAuthorLink[] {
   const coAuthorLinks: any = {}, coAuthorLinkList: CoAuthorLink[] = [];
   const globalStats = new CoAuthorLinkStats();
   for (const pub of publications) {
-    const authors = pub.Authors.concat();
-    authors.sort((a, b) => a.name < b.name ? -1 : 1);
+    const authors = sortBy(pub.Authors, 'name');
     authors.forEach((author1, index) => {
       for (const author2 of authors.slice(index + 1)) {
-        const id = `${author1.name}<->${author2.name}`;
+        const id = toLower(`${author1.name}<->${author2.name}`);
         let coAuthorLink: CoAuthorLink = coAuthorLinks[id];
         if (!coAuthorLink) {
           coAuthorLink = coAuthorLinks[id] = new CoAuthorLink({
