@@ -12,7 +12,9 @@ import { DefaultGraphicVariableMapping } from '../default/default-graphic-variab
 import { DefaultProject } from '../default/default-project';
 import { DefaultRawData } from '../default/default-raw-data';
 import { DefaultRecordSet } from '../default/default-record-set';
-import { ScatterplotVisualization, TemporalBargraphVisualization, GeomapVisualization, NetworkVisualization } from '../ngx-dino/visualizations';
+import {
+  ScatterplotVisualization, TemporalBargraphVisualization, NetworkVisualization
+} from '../ngx-dino/visualizations';
 import { NSFDataSource } from './nsf-data-source';
 import { NSFParsedRawData } from './nsf-parsed-raw-data';
 
