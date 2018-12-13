@@ -1,9 +1,9 @@
-.expansion-content {
+.start-project-options-wrapper {
     display: flex;
     justify-content: center;
     padding-left: 1rem;
-    padding-right: 2rem;
-
+    padding-right: 1rem;
+    background: none;
     .field {
       width: 10rem;
     }
@@ -22,7 +22,6 @@
       margin-left: 0.25rem;
       margin-right: 0.25rem;
     }
-    
     .custom-file-upload {
       padding: 0.5rem 1.1rem;
     }

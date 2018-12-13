@@ -3,18 +3,13 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'mav-start-project-icon',
   templateUrl: './start-project-icon.component.html',
-  styleUrls: ['./start-project-icon.component.css']
+  styleUrls: ['./start-project-icon.component.scss']
 })
 export class StartProjectIconComponent implements OnInit {
-
-  showMenu: boolean;
-
+  isMenuOpen: boolean;
   constructor() {
-    this.showMenu = false;
+    this.isMenuOpen = false;
    }
-
   ngOnInit() {
   }
-
-
 }
