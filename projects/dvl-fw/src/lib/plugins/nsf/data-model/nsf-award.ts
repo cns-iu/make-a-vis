@@ -1,10 +1,27 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
-import { access, chain, map, Operand } from '@ngx-dino/core';
+import { access, chain, map, lookup, Operand } from '@ngx-dino/core';
 import {
   areaSizeScaleNormQuantitative, extractPoint, formatNumber, formatYear, fontSizeScaleNormQuantitative,
   greyScaleNormQuantitative, greyScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency
 } from '../../../encoding';
 import { Location } from '../../../encoding/geocoder';
+import { Transient } from '../../../shared/transient';
+
+import { Investigator } from './nsf-investigator';
+
+
+const awardInstrumentColorLookup = lookup({
+  'Standard Grant': '#a6cee3', //
+  'Gaa': '#1f78b4',
+  'Continuing Grant': '#b2df8a', //
+  'Cooperative Agreement': '#33a02c',
+  'Interagency Agreement': '#fb9a99', //
+  'Contract': '#e31a1c',
+  'Fixed Price Award': '#fdbf6f',
+  'Fellowship': '#ff7f00', //
+  'Boa/task Order': '#cab2d6',
+  'Contract Interagency Agreement': '#6a3d9a'
+}, '#ffff99');
 
 export class AwardStats {
   awardedAmountMax = 0;
@@ -73,8 +90,14 @@ export class Award {
     Object.assign(this, data);
   }
 
+  @Transient
+  Investigators: Investigator[];
+
   @Operand<string[]>(map(s => [s.piName].concat(s.coPiNames)))
   investigatorNames: string[];
+
+  @Operand<string>(chain(access('awardInstrument'), awardInstrumentColorLookup))
+  awardInstrumentColor: string;
 
   @Operand<number[]>(extractPoint('location.latitude', 'location.longitude'))
   latlng: [number, number];

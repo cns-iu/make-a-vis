@@ -4,8 +4,25 @@ import { Subdiscipline, SubdisciplineStats } from './isi-subdiscipline';
 import underlyingScimapData from './underlyingScimapData.data';
 
 // TODO: @ngx-dino/science-map needs to be redone
-const subdIdToName = underlyingScimapData.nodes.reduce((map, n) => {
-  map[n.subd_id] = n.subd_name;
+const disciplineLookup = underlyingScimapData.disciplines.reduce((map, n) => {
+  map[n.disc_id] = {
+    id: n.disc_id,
+    name: n.disc_name,
+    color: n.color,
+    x: n.x,
+    y: n.y
+  };
+  return map;
+}, {});
+const subdisciplineLookup = underlyingScimapData.nodes.reduce((map, n) => {
+  map[n.subd_id] = {
+    id: n.subd_id,
+    name: n.subd_name,
+    Discipline: disciplineLookup[n.disc_id],
+    x: n.x,
+    y: n.y,
+    size: n.size
+  };
   return map;
 }, {});
 
@@ -16,15 +33,16 @@ export function extractSubdisciplines(journals: Journal[]): Subdiscipline[] {
   for (const journal of journals) {
     let subdiscipline: Subdiscipline = subdisciplines[journal.subdisciplineId];
     if (!subdiscipline) {
-      subdiscipline = subdisciplines[journal.subdisciplineId] = new Subdiscipline({
-        id: journal.subdisciplineId,
-        name: subdIdToName[journal.subdisciplineId], // TODO: Lookup name
-        numPapers: 0,
-        numCites: 0,
-        firstYear: journal.firstYear || 0,
-        lastYear: journal.lastYear || 0,
-        globalStats
-      });
+      const subd_data = subdisciplineLookup[journal.subdisciplineId];
+      subdiscipline = subdisciplines[journal.subdisciplineId] = new Subdiscipline(
+        Object.assign({}, subd_data, {
+          numPapers: 0,
+          numCites: 0,
+          firstYear: journal.firstYear || 0,
+          lastYear: journal.lastYear || 0,
+          globalStats
+        })
+      );
       subdisciplineList.push(subdiscipline);
     }
     subdiscipline.numPapers += journal.numPapers || 0;

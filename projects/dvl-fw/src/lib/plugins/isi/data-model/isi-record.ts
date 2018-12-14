@@ -32,7 +32,9 @@ export const ISI_TAGS: TagMapping = {
   'J9': { string: true, separator: ' ', remap: 'journalName' },
   'JI': { string: true, separator: ' ', remap: 'journalFullname' },
   'AU': { list: true, remap: 'authors' },
+  'BA': { list: true, remap: 'authors' },
   'AF': { list: true, remap: 'authorsFullname' },
+  'BF': { list: true, remap: 'authorsFullname' },
   'C1': { list: true, remap: 'authorsAddress' },
   'PY': { number: true, remap: 'publicationYear' },
 

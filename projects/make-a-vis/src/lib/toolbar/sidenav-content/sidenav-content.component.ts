@@ -8,13 +8,12 @@ import { ClipboardService } from 'ngx-clipboard';
 
 import { Project, ProjectSerializerService } from '@dvl-fw/core';
 import { SaveProjectService } from '../shared/services/save-project/save-project.service';
-import { LoadProjectService } from '../shared/services/load-project.service';
+import { LoadProjectService, ProjectExtensionType } from '../../shared/services/load-project/load-project.service';
 import * as sidenavStore from '../shared/store';
 import { LoggingControlService } from '../../shared/logging/logging-control.service';
 import { ExportService } from '../../shared/services/export/export.service';
 import { GetLinkService } from '../../shared/services/get-link/get-link.service';
 
-export type ProjectExtensionType = 'isi' | 'nsf' | 'csv' | 'json' | 'yml';
 export type ExportType = 'png' | 'svg' | 'pdf';
 
 @Component({
@@ -73,7 +72,7 @@ export class SidenavContentComponent implements OnInit {
         if (routerstate instanceof ActivationEnd ) {
           const projObjId = routerstate.snapshot.queryParams.share;
           if (projObjId) {
-            this.getProjectFromUrl(projObjId);
+            this.loadProjectService.getProjectFromUrl(projObjId, this.baseUrl, this.removeShareUrlFromAddress);
           }
           routerStateWatcher.unsubscribe();
         }
@@ -94,54 +93,6 @@ export class SidenavContentComponent implements OnInit {
         }
   }
 
-  getProject(fileName: string, fileExtension: ProjectExtensionType , event: any ) {
-    this.store.dispatch(new sidenavStore.LoadProjectStarted({ loadingProject: true, fileName: fileName, fileExtension: fileExtension }));
-
-    this.loadProjectService.loadFile(fileExtension, event.srcElement.files[0], fileName)
-      .subscribe((project) => {
-      if (project) { // success
-        this.store.dispatch(new sidenavStore.LoadProjectCompleted(
-          { loadingProject: false, fileName: fileName, fileExtension: fileExtension, project: project }
-        ));
-      } else { // failure
-          this.store.dispatch(new sidenavStore.LoadProjectError(
-            { errorOccurred: true, errorTitle: 'Load Error', errorMessage: 'Failed to load new project' }
-          ));
-        }
-    });
-  }
-
-  /*
-  * given a project object id from the url, this funtion renders it.
-  * used getProject()'s stuff to write this function, probably need a new action.
-  */
-  getProjectFromUrl(id: string) {
-    this.store.dispatch(new sidenavStore.LoadShareUrlStarted(true));
-    const jsonFromIdWatcher = this.getLinkService.getJSONfromId(id).subscribe((json: any) => {
-      if (json) {
-        this.loadProjectService.loadFromProjectJson(json).subscribe((project) => {
-          this.removeShareUrlFromAddress();
-          this.store.dispatch(new sidenavStore.LoadShareUrlCompleted(
-            { loadingShareUrl: false, project: project, shareUrl: this.baseUrl + '?share=' + id, loadingComplete: true }
-          ));
-        }, err => {
-          this.store.dispatch(new sidenavStore.LoadShareUrlError(
-            { errorOccurred: true, errorTitle: err.name, errorMessage: 'Failed to load new project from URL:' + err.message }
-          ));
-        });
-      } else {
-        this.store.dispatch(new sidenavStore.LoadShareUrlError(
-          { errorOccurred: true, errorTitle: 'Load Error', errorMessage: 'Failed to load new project from URL' }
-        ));
-      }
-      jsonFromIdWatcher.unsubscribe();
-    }, err => {
-      this.store.dispatch(new sidenavStore.LoadShareUrlError(
-        { errorOccurred: true, errorTitle: err.name, errorMessage: 'Failed to load new project from URL:' + err.message }
-      ));
-    });
-  }
-
   isValidFileExtension(selectedExtensionOnButton, actualFileExtension) {
     if (selectedExtensionOnButton === 'nsf') {
       return (actualFileExtension === 'csv' || actualFileExtension === 'nsf');
@@ -153,7 +104,7 @@ export class SidenavContentComponent implements OnInit {
     const filename = get(event, 'srcElement.files[0].name');
     const fileExtension = filename && filename.split('.').slice(-1).toString();
     if (this.isValidFileExtension(selectedExtension , fileExtension.toLowerCase())) {
-      this.getProject(filename, selectedExtension, event);
+      this.loadProjectService.getProject(filename, selectedExtension, event);
     } else {
       // TODO temporary, use logs
       alert(`${filename} has the wrong extension.`);

@@ -13,8 +13,8 @@ export class GeomapVisualization extends DefaultVisualization {
       id: 'basemap', label: 'Basemap', type: 'area',
       graphicVariableOptions: [
         { type: 'color', label: 'Color', visualization: 'color' },
-        { type: 'transparency', label: 'Transparency' },
         { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
+        { type: 'transparency', label: 'Transparency' },
         { type: 'strokeTransparency', label: 'Stroke Transparency' }
       ]
     },
@@ -22,13 +22,15 @@ export class GeomapVisualization extends DefaultVisualization {
       id: 'nodes', label: 'Nodes', type: 'area',
       graphicVariableOptions: [
         { type: 'identifier', label: 'Identifier' },
-        { type: 'shape', label: 'Shape' },
-        { type: 'position', label: 'Position' },
-        { type: 'areaSize', label: 'Area Size', visualization: 'node-size'},
+        { type: 'latlng', label: 'Latitude/Longitude' },
         { type: 'color', label: 'Color', visualization: 'color' },
-        { type: 'transparency', label: 'Transparency'},
         { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
-        { type: 'strokeTransparency', label: 'Stroke Transparency'}
+        { type: 'areaSize', label: 'Area Size', visualization: 'node-size'},
+        { type: 'shape', label: 'Shape' },
+        { type: 'transparency', label: 'Transparency'},
+        { type: 'strokeTransparency', label: 'Stroke Transparency'},
+        { type: 'label', label: 'Label'},
+        { type: 'tooltip', label: 'Tooltip'}
       ]
     }, {
       id: 'edges', label: 'Edges', type: 'line',

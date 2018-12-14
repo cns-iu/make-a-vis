@@ -17,7 +17,7 @@ export function extractAuthors(publications: Publication[]): Author[] {
       if (!author) {
         author = authors[name] = new Author({
           name,
-          fullname: pub.authorsFullname[index],
+          fullname: pub.authorsFullname[index] || name,
           numPapers: 0,
           numCites: 0,
           firstYear: pub.publicationYear || 0,

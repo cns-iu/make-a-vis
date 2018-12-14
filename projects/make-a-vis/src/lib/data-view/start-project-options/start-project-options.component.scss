@@ -1,0 +1,37 @@
+::host {
+  padding: 0.35rem 0 0.35rem 0;
+}
+
+.start-project-options-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background: none;
+    
+    .field {
+      width: 10rem;
+    }
+    .button-toggle {
+      width: 3.5rem;
+      text-align: center;
+    }
+    .button {
+      border: 1px solid transparent;
+      white-space: nowrap;
+      font-size: 0.875rem;
+      border-radius: 1rem;
+      cursor: pointer;
+      height: 1.875rem;
+      line-height: 1.875rem;
+      margin-left: 0.25rem;
+      margin-right: 0.25rem;
+    }
+    .custom-file-upload {
+      padding: 0.5rem 1.1rem;
+    }
+    .get-data {
+      display: none;
+    }
+  }
+  

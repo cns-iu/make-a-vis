@@ -12,16 +12,16 @@ export class ScatterplotVisualization extends DefaultVisualization {
   readonly graphicSymbolOptions = [{
     id: 'points', label: 'Points', type: 'area',
     graphicVariableOptions: [
-      { type: 'color', label: 'Color', visualization: 'color' },
-      { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
-      { type: 'areaSize', label: 'Area Size', visualization: 'node-size' },
       { type: 'identifier', label: 'Identifier' },
       { type: 'axis', label: 'X-Axis', id: 'x' },
       { type: 'axis', label: 'Y-Axis', id: 'y' },
+      { type: 'color', label: 'Color', visualization: 'color' },
+      { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
+      { type: 'areaSize', label: 'Area Size', visualization: 'node-size' },
       { type: 'shape', label: 'Shape' },
       { type: 'transparency', label: 'Transparency' },
       { type: 'strokeTransparency', label: 'Stroke Transparency' },
-      { type: 'pulse', label: 'Pulsing (Motion)' }
+      { type: 'tooltip', label: 'Tooltip'}
     ]
   }];
 }

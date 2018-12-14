@@ -6,6 +6,13 @@ import {
   greyScaleNormQuantitative, greyScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency
 } from '../../../encoding';
 
+export interface Discipline {
+  id: number;
+  name: string;
+  color: string;
+  x: number;
+  y: number;
+}
 
 export class SubdisciplineStats {
   numPapersMax = 0;
@@ -30,6 +37,10 @@ export class SubdisciplineStats {
 export class Subdiscipline {
   id: number;
   name: string;
+  Discipline: Discipline;
+  x: number;
+  y: number;
+  size: number;
   numPapers: number;
   numCites: number;
   firstYear: number;
