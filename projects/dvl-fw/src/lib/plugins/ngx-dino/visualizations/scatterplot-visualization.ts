@@ -7,7 +7,7 @@ import { ScatterplotComponent } from '../components/scatterplot/scatterplot.comp
 
 
 export class ScatterplotVisualization extends DefaultVisualization {
-  // TODO remove below string 
+  // TODO remove below string
   readonly description = `He determined to drop his litigation with the monastry, and relinguish
    his claims to the wood-cuting and fishery rihgts at once. He was the more ready to do this becuase the
     rights had becom much less valuable, and he had indeed the vaguest idea where the wood and river in quedtion were.`;
