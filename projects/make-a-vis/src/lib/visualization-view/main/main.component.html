@@ -21,7 +21,7 @@
         </mat-tab>
     </mat-tab-group>
     <div class="add-edit-visualization">
-        <mat-icon class="add-icon" (click)="toggleAddVisualization()">add_circle_outline</mat-icon>
-        <mat-icon class="edit-icon">edit</mat-icon>
+        <mat-icon class="add-icon" (click)="toggleAddVisualization('add')">{{addIconName}}</mat-icon>
+        <mat-icon class="edit-icon" (click)="toggleAddVisualization('edit')">edit</mat-icon>
     </div>
 </div>

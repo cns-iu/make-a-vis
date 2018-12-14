@@ -6,7 +6,7 @@ import {
 } from '@ngrx/store';
 import { assign, pick } from 'lodash';
 
-import { Project } from '@dvl-fw/core';
+import { Project, RecordStream } from '@dvl-fw/core';
 import { INITIAL_SIDENAV_STATE, SidenavState } from './state';
 import { SidenavActionTypes, SidenavActionsUnion } from './actions';
 
@@ -113,9 +113,6 @@ export function sidenavStateReducer (
         assign(newState, pick(action.payload, ['graphicSymbol', 'recordSet']));
         return newState;
 
-      // case SidenavActionTypes.SetGraphicSymbolRecordSet:
-      //   return newState;
-
       case SidenavActionTypes.SetGraphicVariable:
         if (state.project) {
           const { id, slot, variable, visualization } = action.payload;
@@ -137,6 +134,18 @@ export const getLoadedProjectSelector = createSelector<SidenavState, SidenavStat
   getLoadedProject
 );
 
+export const getRecordStreams = (state: SidenavState): RecordStream[] => {
+  if (state.project && state.project.dataSources) {
+    return state.project.dataSources
+      .map(source => source.recordStreams)
+      .reduce((acc, s) => acc.concat(s), [] as RecordStream[]);
+  }
+};
+export const getRecordStreamsSelector = createSelector<SidenavState, SidenavState, RecordStream[]>(
+  selectSelfFeature,
+  getRecordStreams
+);
+
 export const getLoadingProjectCompleted = (state: SidenavState): boolean => state.loadingProject;
 export const getLoadingProjectCompletedSelector = createSelector<SidenavState, SidenavState, boolean>(
   selectSelfFeature,
@@ -148,7 +157,6 @@ export const getLoadingShareUrlCompletedSelector = createSelector<SidenavState, 
   selectSelfFeature,
   getLoadingShareUrlCompleted
 );
-
 
 export const getLoggingToggleState = (state: SidenavState): boolean => state.loggingEnabled;
 export const getLoggingToggleSelector = createSelector<SidenavState, SidenavState, boolean>(

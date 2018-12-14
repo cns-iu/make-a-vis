@@ -13,6 +13,17 @@ const csvfields = [
 function splitTrim(field: string, separator = ','): Operator<any, string[]> {
   return chain(access(field), map<string, string[]>(s => (s || '').split(separator).map(t => t.trim()).filter(u => !!u)));
 }
+function firstValid<T>(...operators: Operator<any, T>[]): Operator<any, T> {
+  return map((s) => {
+    for (const op of operators) {
+      const value = op.get(s);
+      if (value !== undefined) {
+        return value;
+      }
+    }
+    return undefined;
+  });
+}
 function date(field: string): Operator<any, Date> {
   return chain(access(field), map<string, Date>(s => String(new Date(s || undefined)) === 'Invalid Date' ? undefined : new Date(s)));
 }
@@ -97,10 +108,10 @@ const nsfParseOp: Operator<any, NSFRecord> = combine({
   },
 
   'startDate': date('StartDate'),
-  'endDate': date('EndDate'),
+  'endDate': firstValid(date('EndDate'), date('ExpirationDate')),
   'lastAmendmentDate': date('LastAmendmentDate'),
   'startYear': year('StartDate'),
-  'endYear': year('EndDate'),
+  'endYear': firstValid(year('EndDate'), year('ExpirationDate')),
   'lastAmendmentYear': year('LastAmendmentDate'),
 
   'awardInstrument': access('AwardInstrument'),
@@ -118,5 +129,5 @@ const nsfParseOp: Operator<any, NSFRecord> = combine({
 });
 
 export function parseNSFFile(fileContents: string): NSFRecord[] {
-  return parse(fileContents, {header: true}).data.map(nsfParseOp.getter);
+  return parse(fileContents, {header: true}).data.map(nsfParseOp.getter).filter(s => !!s.id);
 }

@@ -1,3 +1,14 @@
-<div class="graphic-symbol-selection-wrapper">
-    <mat-card *ngFor="let symbolType of graphicSymbolTypes" class="card">{{symbolType}}</mat-card>
+<div class="graphic-symbol-selection-container">
+    <mat-card *ngFor="let symbolType of graphicSymbolOptions" 
+    (mavDroppable)="recordStreamDropped($event, symbolType)"
+    (dragDropEvents)="onDragDropEvent($event)"
+    class="card">
+        {{symbolType.label}}({{symbolType.type}})
+    </mat-card>
+</div>
+
+<div class="record-stream-container">
+    <div *ngFor="let recordStream of recordStreams" class="record-stream" [mavDraggable]="recordStream">
+        {{recordStream.label}}
+    </div>
 </div>

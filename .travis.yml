@@ -18,10 +18,28 @@ jobs:
   include:
   - stage: test
     name: Run Tests
+    if: branch != develop
     script:
     - npm run lint
     - npm run build:build-info
     - npm run build:libs
+  - stage: deploy
+    name: Deploy staging to Netlify
+    if: branch = develop
+    script:
+    - npm run lint
+    - npm run build:build-info
+    - npm run build:libs
+    - npm run build:demo
+    deploy:
+      provider: pages
+      target-branch: staging
+      skip-cleanup: true
+      github-token: "$GITHUB_TOKEN"
+      keep-history: false
+      local-dir: dist/make-a-vis-demo
+      on:
+        branch: develop
   - stage: deploy
     name: Deploy demo to GitHub Pages
     if: branch = master

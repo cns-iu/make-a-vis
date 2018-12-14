@@ -1,9 +1,13 @@
 <div class='mav-data-view data-view-container'>
   <div class="data-view-header">
     <div class="title">Data</div>
-    <mat-icon class="add-data-icon">add_circle_outline</mat-icon>
+    <mav-start-project-icon></mav-start-project-icon>
   </div>
   <ng-container *ngFor="let dataSource of dataSources | async" #table>
     <mav-table [dataSource]="dataSource" [displayedColumns]="dataSource.columns" [style.padding-left.rem]="getPadding(dataSource.level)"></mav-table>
   </ng-container>
+  <div class="data-view-message">
+      Add data or<br/>
+      load a project
+  </div>
 </div>

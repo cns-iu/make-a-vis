@@ -18,7 +18,7 @@
 
 .visualization-group .selected {
     border-bottom: none;
-    border-bottom: 2px solid #C51162;
+    border-bottom: 2px solid;
 }
 
 ::ng-deep .visualization-group .mat-tab-header {
@@ -27,9 +27,12 @@
     padding-left: 1rem;
     padding-right: 7rem;
     margin-bottom: 0.625rem;
-    border: 1px solid #E0E0E0;
+    border: 1px solid transparent;
     border-radius: 4px;
-    background-color: white;
+}
+
+::ng-deep .visualization-group .mat-tab-header .mat-tab-header-pagination {
+    box-shadow: none;
 }
 
 .visualization-group .tab .cancel-button {
@@ -51,7 +54,6 @@
         background: none;
         cursor: pointer;
         padding: 0.2rem;
-        color: #1E88E5;
     }
 }
 

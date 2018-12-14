@@ -23,7 +23,7 @@ const fieldNameMapping = createFieldNameMapping([
 ], {
   'identifier': 'subdisciplineIdField',
   'areaSize': 'subdisciplineSizeField',
-  'label': 'tooltipTextField'
+  'tooltip': 'tooltipTextField'
 }, 'subdiscipline');
 
 @Component({
