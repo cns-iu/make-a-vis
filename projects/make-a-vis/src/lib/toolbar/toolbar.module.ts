@@ -31,9 +31,7 @@ import { ExportSnapshotIconComponent } from './icons/export-snapshot/export-snap
 import { GithubIconComponent } from './icons/github/github-icon.component';
 import { InfoIconComponent } from './icons/info-icon/info-icon.component';
 import { LoadProjectIconComponent } from './icons/load-project/load-project-icon.component';
-import { LoggingIconComponent } from './icons/logging/logging-icon.component';
 import { MenuIconComponent } from './icons/menu/menu-icon.component';
-import { NewProjectIconComponent } from './icons/new-project/new-project-icon.component';
 import { SaveIconComponent } from './icons/save/save-icon.component';
 import { ShareIconComponent } from './icons/share/share-icon.component';
 
@@ -74,9 +72,7 @@ import { sidenavStateReducer } from './shared/store/reducer';
     ExportSnapshotIconComponent,
     GithubIconComponent,
     LoadProjectIconComponent,
-    LoggingIconComponent,
     MenuIconComponent,
-    NewProjectIconComponent,
     SaveIconComponent,
     ShareIconComponent,
 

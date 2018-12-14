@@ -1,11 +1,11 @@
 <div class="mav-sidenav">
   <mat-accordion [multi]="true">
     <!-- .first panel allows to override default behavior of .cdk-program-focused -->
-    <mat-expansion-panel class="mat-elevation-z0 first-panel" (opened)="panelOpenState=true" (closed)="panelOpenState=false">
+    <mat-expansion-panel class="mat-elevation-z0 first-panel" (opened)="panelOpenState=true" (closed)="panelOpenState=false" #startProjectPanel>
       <mat-expansion-panel-header>
         <mat-panel-title>
           <div class="expansion-title">
-            <mav-new-project-icon class="icon"></mav-new-project-icon>
+            <mat-icon class="mav-new-project-icon icon">{{startProjectPanel.expanded ? 'add_circle' : 'add_circle_outline'}}</mat-icon>
             <span>Start Project</span>
           </div>
         </mat-panel-title>
@@ -58,7 +58,7 @@
   <mat-divider></mat-divider>
   <div class="title">
     <div class="label">
-      <mav-logging-icon class="icon"></mav-logging-icon>
+      <mat-icon class="mav-logging-icon icon">list</mat-icon>
       <span>Logging</span>
     </div>
     <mat-slide-toggle class="log-toggle" [checked]="isLoggingEnabled" (change)="toggleLogging()"></mat-slide-toggle>
