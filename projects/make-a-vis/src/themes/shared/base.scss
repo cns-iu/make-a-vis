@@ -94,11 +94,17 @@
   }
 
   .log-toggle {
+    // Note: non-color styling is only in here because of the custom nature of this themed element.
     .mat-slide-toggle-thumb {
-      background-color: $green-500-lightened;
+      background-color: $white;
+      border: 1px solid $green-500;
     }
     .mat-slide-toggle-bar {
-      background-color: $green-500-30pct-alpha;
+      background-color: $green-500-30pct-alpha;;
+      border: 1px solid $green-500;
+    }
+    .mat-slide-toggle-thumb-container {
+      top: -4px;
     }
   }
 
