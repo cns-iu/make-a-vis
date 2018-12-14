@@ -46,7 +46,7 @@ export class SidenavContentComponent implements OnInit {
   constructor(
     private saveProjectService: SaveProjectService,
     private store: Store<sidenavStore.SidenavState>,
-    private loadProjectService: LoadProjectService,
+    public loadProjectService: LoadProjectService,
     public exportService: ExportService,
     private loggingControlService: LoggingControlService,
     private projectSerializer: ProjectSerializerService,
