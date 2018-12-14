@@ -1,14 +1,8 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Action } from '@ngrx/store';
 
-import { DataVariable, GraphicSymbol, RecordSet, Visualization } from '@dvl-fw/core';
+import { DataVariable, Visualization } from '@dvl-fw/core';
 import * as payloadTypes from './payload-types';
-
-export interface SetGraphicSymbolRecordSetPayload {
-  graphicSymbol: GraphicSymbol;
-  recordSet: RecordSet;
-}
-
 
 export enum SidenavActionTypes {
   SaveProjectStarted = '[UI] Save Project',
@@ -166,7 +160,7 @@ export class SetRecordStream implements Action {
 
 export class SetGraphicSymbolRecordSet implements Action {
   readonly type = SidenavActionTypes.SetGraphicSymbolRecordSet;
-  constructor(public payload: SetGraphicSymbolRecordSetPayload) {
+  constructor(public payload: payloadTypes.SetGraphicSymbolRecordSetPayload) {
   }
 }
 

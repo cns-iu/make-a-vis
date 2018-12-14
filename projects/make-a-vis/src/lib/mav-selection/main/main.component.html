@@ -1,28 +1,29 @@
-<div [ngClass]="{'selection-wrapper':openMavSideNav, 'selection-wrapper-hidden': !openMavSideNav}">
+<div [ngClass]="{'selection-wrapper':panelState, 'selection-wrapper-hidden': !panelState}">
   <span class="selection-title">Make Visualization</span>
 
   <div class="expansion-panel-container">
-    <mat-expansion-panel class="expansion-panel">
+    <mat-expansion-panel class="expansion-panel" [expanded]="mode==='add'" #visTypePanel>
       <mat-expansion-panel-header>
         <mat-panel-title class="title">
           Select Visualization Type
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <mav-selection-visualization-type #visType></mav-selection-visualization-type>
+      <mav-selection-visualization-type [activeVis]="activeVis" [mode]="mode" [panelState]="panelState" #visType>
+      </mav-selection-visualization-type>
       <mat-action-row class="selection-button">
-        <button mat-button (click)="addVisualization(visType.selected)">Done</button>
+        <button mat-button (click)="visType.selected ? addVisualization(visType.selected): undefined">Done</button>
       </mat-action-row>
     </mat-expansion-panel>
   </div>
 
   <div class="expansion-panel-container">
-    <mat-expansion-panel class="expansion-panel">
+    <mat-expansion-panel class="expansion-panel" [expanded]="mode==='edit'">
       <mat-expansion-panel-header>
         <mat-panel-title class="title">
           Select Graphic Symbol Type(s)
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <mav-selection-graphic-symbol-type></mav-selection-graphic-symbol-type>
+      <mav-selection-graphic-symbol-type [activeVis]="activeVis" [mode]="mode"></mav-selection-graphic-symbol-type>
       <mat-action-row class="selection-button">
         <button mat-button>Done</button>
       </mat-action-row>
@@ -30,7 +31,7 @@
   </div>
 
   <div class="expansion-panel-container">
-    <mat-expansion-panel class="expansion-panel">
+    <mat-expansion-panel class="expansion-panel" [expanded]="'false'">
       <mat-expansion-panel-header>
         <mat-panel-title class="title">
           Select Graphic Variable Types

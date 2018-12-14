@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChildren, QueryList, OnChanges, SimpleChanges } from '@angular/core';
 
-export interface VisType {
-  template: string;
-  label: string;
-  icon: string;
-}
+import { Vis, VisType } from '../../shared/types';
 
 @Component({
   selector: 'mav-selection-visualization-type',
   templateUrl: './visualization-type.component.html',
-  styleUrls: ['./visualization-type.component.css']
+  styleUrls: ['./visualization-type.component.sass']
 })
-export class VisualizationTypeComponent implements OnInit {
+export class VisualizationTypeComponent implements OnInit, OnChanges {
+  @Input() activeVis: Vis;
+  @Input() mode: 'add'|'edit';
+  @Input() panelState: boolean;
+
   selected: VisType;
   visTypes: VisType[] = [
     { template: 'scattergraph', label: 'Scatter Graph', icon: 'scatterGraph' },
@@ -26,7 +26,31 @@ export class VisualizationTypeComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    if ('panelState' in changes && !this.panelState) {
+      this.selected = undefined;
+    }
+  }
+
   visualizationSelected(type: VisType) {
     this.selected = type;
+  }
+
+  isSelected(type: VisType): boolean {
+    if (this.mode === 'add') {
+      if (type && this.selected) {
+        if (type.template === this.selected.template) {
+          return true;
+        }
+      }
+    }
+
+    if (this.mode === 'edit') {
+      if (this.activeVis) {
+        if (type.template === this.activeVis.data.template) {
+          return true;
+        }
+      }
+    }
   }
 }

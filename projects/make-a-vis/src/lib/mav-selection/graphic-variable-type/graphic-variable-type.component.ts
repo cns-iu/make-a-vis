@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'mav-selection-graphic-variable-type',
   templateUrl: './graphic-variable-type.component.html',
-  styleUrls: ['./graphic-variable-type.component.css']
+  styleUrls: ['./graphic-variable-type.component.sass']
 })
 export class GraphicVariableTypeComponent implements OnInit {
   graphicSymbolTypes = ['Record(Area)', 'Link(line)']; // TODO: temporary placeholder

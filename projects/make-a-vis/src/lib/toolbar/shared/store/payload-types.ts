@@ -1,5 +1,5 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
-import { GraphicSymbol, GraphicVariable, Project, Visualization } from '@dvl-fw/core';
+import { GraphicSymbol, GraphicVariable, Project, RecordSet, Visualization } from '@dvl-fw/core';
 
 export interface LoadProjectStartedPayload {
   loadingProject: boolean;
@@ -55,6 +55,11 @@ export interface SetGraphicVariablePayload {
   slot: string;
   id: string;
   variable: GraphicVariable;
+}
+
+export interface SetGraphicSymbolRecordSetPayload {
+  graphicSymbol: GraphicSymbol;
+  recordSet: RecordSet;
 }
 
 export interface CopyToClipboardSuccessPayload {
