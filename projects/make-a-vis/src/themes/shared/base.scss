@@ -121,6 +121,16 @@
     border-color: $border;
     background-color: $white;
   }
+  .about-expansion-panel {
+    border-color: $border !important;
+  }
+  .about-expansion-panel-header {
+    height: 2.2rem !important;
+}
+  .about-expansion-panel-header mat-panel-title {
+    color: $secondary-text !important;
+  }
+    
   .add-edit-visualization {
     .add-icon, .edit-icon {
       color: $primary;

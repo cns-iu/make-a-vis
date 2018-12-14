@@ -26,6 +26,7 @@ export interface Visualization {
   properties: { [key: string]: any };
   graphicSymbols: { [slot: string]: GraphicSymbol };
   readonly description?: string;
+  shortDescriptionText?: string;
   readonly component?: Type<VisualizationComponent>;
   readonly graphicSymbolOptions?: GraphicSymbolOption[];
 

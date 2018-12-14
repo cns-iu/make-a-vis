@@ -16,7 +16,19 @@
                     <div class="visualization-container" [ngClass]="{ active: index === selectedVis }">
                         <dvl-visualization #visualizations [data]="vis.data"></dvl-visualization>
                     </div>
+
+                    <div class="about-wrapper" *ngIf="vis.data">
+                            <mat-expansion-panel (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false" class="about-expansion-panel">
+                                <mat-expansion-panel-header class="about-expansion-panel-header">
+                                    <mat-panel-title>
+                                            About: {{panelOpenState ? vis.data.description : vis.data.shortDescriptionText}}
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                            </mat-expansion-panel>
+                    </div>
                 </div>
+                
             </ng-template>
         </mat-tab>
     </mat-tab-group>
