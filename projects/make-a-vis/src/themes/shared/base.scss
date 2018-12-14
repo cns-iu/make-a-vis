@@ -30,6 +30,12 @@
 
   .mav-menu-icon {
     background-color: $secondary;
+  }  
+}
+
+.mav-info-icon-wrapper {
+  .info-icon-fill {
+    color: $gray-accent-3;
   }
   .mav-info-icon {
     color: $secondary;
