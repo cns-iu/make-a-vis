@@ -2,7 +2,7 @@
 import { Component, Input, OnChanges, SimpleChanges, OnInit } from '@angular/core';
 import { DataVariable } from '@dvl-fw/core';
 
-import { DataSource } from '../shared/data.service';
+import { DataSource, DataService } from '../shared/data.service';
 
 
 /** Flat node with expandable and level information */
@@ -14,24 +14,28 @@ export interface ParentNode {
 @Component({
   selector: 'mav-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  styleUrls: ['./table.component.sass']
 })
 export class TableComponent implements OnChanges, OnInit {
   @Input() dataSource: DataSource;
   @Input() displayedColumns: DataVariable[] = [];
   displayedColumnNames: string[] = [];
-  // parentNode: ParentNode;
-  // parentNodes: ParentNode[];
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnChanges(changes: SimpleChanges) {
     if ('displayedColumns' in changes) {
       this.displayedColumnNames = this.displayedColumns.map((ds) => ds.label);
     }
   }
-  // _.groupBy(temp1, 'parent.id')
 
   ngOnInit() {
-    console.log(this.dataSource);
+  }
+
+  toggleDataTable(dataSource: DataSource) {
+    this.dataService.toggleDataTable(dataSource);
+  }
+
+  toggleRows(dataSource: DataSource) {
+    dataSource.hiddenData = !dataSource.hiddenData;
   }
 }

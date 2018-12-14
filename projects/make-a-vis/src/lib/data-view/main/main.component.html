@@ -4,6 +4,6 @@
     <mat-icon class="add-data-icon">add_circle_outline</mat-icon>
   </div>
   <ng-container *ngFor="let dataSource of dataSources | async" #table>
-    <mav-table [dataSource]="dataSource" [displayedColumns]="dataSource.columns"></mav-table>
+    <mav-table [dataSource]="dataSource" [displayedColumns]="dataSource.columns" [style.padding-left.rem]="getPadding(dataSource.level)"></mav-table>
   </ng-container>
 </div>

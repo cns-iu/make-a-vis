@@ -17,6 +17,9 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.dataSources);
+  }
+
+  getPadding(level) {
+    return 2 * level;
   }
 }

@@ -1,28 +1,33 @@
-<ng-template [ngIf]="dataSource && dataSource.data && dataSource.data.length">
-    <mat-toolbar class="header">{{dataSource.label}} <span class="description" *ngIf="!!dataSource.description">&nbsp;({{
-            dataSource.description }})</span></mat-toolbar>
-    <div class="datatable">
-        <div class="wrapper">
-            <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        <table class="mat-elevation-z8 table">
-                            <th *ngFor="let col of displayedColumns" [mavDraggable]="col" class="header-cell" nowrap>
-                                {{col.label}}
-                            </th>
-                        </table>
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <table>
-                    <tr *ngFor="let data of dataSource.data">
-                        <td *ngFor="let col of dataSource.columns">{{data[col.id]}}</td>
-                    </tr>
-                </table>
-                <mat-action-row>
-                    <button mat-button>Previous</button>
-                    <button mat-button>Next</button>
-                </mat-action-row>
-            </mat-expansion-panel>
-        </div>
+<mat-card class="datatable-wrapper" *ngIf="dataSource && dataSource.data && dataSource.data.length && !dataSource.hidden">
+    <div class="datatable-container">
+        <mat-card-header class="description">
+            <mat-card-title>
+                <span *ngIf="dataSource.children && dataSource.children.length > 0" class="toggle-icon">
+                    <mat-icon class="expand-icon" *ngIf="!dataSource.childrenHidden" (click)="toggleDataTable(dataSource)">expand_more</mat-icon>
+                    <mat-icon class="expand-icon" *ngIf="dataSource.childrenHidden" (click)="toggleDataTable(dataSource)">expand_less</mat-icon>
+                </span>
+                <span class="label">{{dataSource.label}}:</span>
+                <span class="description" *ngIf="!!dataSource.description">&nbsp;({{dataSource.description }})</span>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="table">
+                <div class="header-row">
+                    <div *ngFor="let col of displayedColumns" [mavDraggable]="col" class="header-cell">
+                        {{col.label}}
+                    </div>
+                </div>
+                <div *ngFor="let data of (dataSource.hiddenData ? [] : dataSource.data) | slice:0:3" class="row">
+                    <div *ngFor="let col of displayedColumns" class="cell"> {{data[col.id]}} </div>
+                </div>
+        </mat-card-content>
+        <mat-card-footer>
+            <div class="toggle">
+                <span (click)="toggleRows(dataSource)" class="toggle-group">
+                    <span class="toggle-label">Total Records: {{dataSource.numRows}}</span>
+                    <mat-icon *ngIf="dataSource.hiddenData" class="expand-icon">expand_more</mat-icon>
+                    <mat-icon *ngIf="!dataSource.hiddenData" class="expand-icon">expand_less</mat-icon>
+                </span>
+            </div>
+        </mat-card-footer>
     </div>
-</ng-template>
+</mat-card>
