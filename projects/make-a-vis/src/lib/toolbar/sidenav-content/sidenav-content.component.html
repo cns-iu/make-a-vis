@@ -1,11 +1,11 @@
 <div class="mav-sidenav">
   <mat-accordion [multi]="true">
     <!-- .first panel allows to override default behavior of .cdk-program-focused -->
-    <mat-expansion-panel class="mat-elevation-z0 first-panel" (opened)="panelOpenState=true" (closed)="panelOpenState=false" #startProjectPanel>
+    <mat-expansion-panel class="mat-elevation-z0 first-panel" (opened)="panelOpenState=true" (closed)="panelOpenState=false">
       <mat-expansion-panel-header>
         <mat-panel-title>
           <div class="expansion-title">
-            <mat-icon class="mav-new-project-icon icon">{{startProjectPanel.expanded ? 'add_circle' : 'add_circle_outline'}}</mat-icon>
+            <mat-icon class="mav-new-project-icon icon">add_circle_outline</mat-icon>
             <span>Start Project</span>
           </div>
         </mat-panel-title>
