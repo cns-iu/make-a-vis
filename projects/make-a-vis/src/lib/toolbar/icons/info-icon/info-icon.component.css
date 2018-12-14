@@ -1,12 +1,5 @@
-.info-icon-wrapper {
-  width: 2.5rem;
-  height: 2.5rem;
-  margin-top: .3125rem;
-}
-
 .info-icon {
-  vertical-align: middle;
+  vertical-align: top;
   cursor: pointer;
-  width: 1.875rem;
-  height: 1.875rem;
+  font-size: 1.875rem;
 }
