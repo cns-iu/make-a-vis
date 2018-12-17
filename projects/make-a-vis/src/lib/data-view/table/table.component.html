@@ -11,14 +11,14 @@
             </mat-card-title>
         </mat-card-header>
         <mat-card-content class="table">
-                <div class="header-row">
-                    <div *ngFor="let col of displayedColumns" [mavDraggable]="col" class="header-cell">
-                        {{col.label}}
-                    </div>
-                </div>
-                <div *ngFor="let data of (dataSource.hiddenData ? [] : dataSource.data) | slice:0:3" class="row">
-                    <div *ngFor="let col of displayedColumns" class="cell"> {{data[col.id]}} </div>
-                </div>
+            <mat-table [dataSource]="(dataSource.hiddenData ? [] : dataSource.data.slice(0,3))" class="mat-elevation-z8">
+                <ng-container [matColumnDef]="col.label" *ngFor="let col of displayedColumns">
+                    <mat-header-cell *matHeaderCellDef [mavDraggable]="col" class="header-cell">{{col.label}}</mat-header-cell>
+                    <mat-cell *matCellDef="let element" class="cell">{{element[col.id]}}</mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumnNames; sticky: true;" class="header-row"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumnNames;" class="row"></mat-row>
+            </mat-table>
         </mat-card-content>
         <mat-card-footer>
             <div class="toggle">
