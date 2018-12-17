@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -18,7 +19,7 @@ import { StartProjectIconComponent } from './icons/start-project-icon/start-proj
 
 @NgModule({
   imports: [
-    CommonModule, DragDropModule, MatIconModule, MatTableModule, MatToolbarModule,
+    CommonModule, DragDropModule, MatCardModule, MatIconModule, MatTableModule, MatToolbarModule,
     MatButtonModule, MatButtonToggleModule, MatMenuModule
   ],
   declarations: [MainComponent, TableComponent, StartProjectOptionsComponent, StartProjectIconComponent],

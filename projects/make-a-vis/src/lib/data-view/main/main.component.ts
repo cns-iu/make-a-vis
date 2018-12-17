@@ -18,4 +18,8 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  getPadding(level) {
+    return 2 * level;
+  }
 }
