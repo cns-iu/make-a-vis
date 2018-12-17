@@ -47,10 +47,6 @@ export class MainComponent {
       }))
     ).subscribe(visualizations => {
       this.visualizations = visualizations;
-      this.visualizations.forEach((vis) => {
-        vis.data.shortDescriptionText = vis.data.description.length <= 50 ?
-        vis.data.description : vis.data.description.substring(0, 50) + '...';
-      });
       this.setSelectedVis(visualizations.length ? 0 : -1, true);
     });
 

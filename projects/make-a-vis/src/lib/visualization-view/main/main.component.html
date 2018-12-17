@@ -22,7 +22,7 @@
                             (closed)="panelOpenState = false" class="about-expansion-panel">
                                 <mat-expansion-panel-header class="about-expansion-panel-header">
                                     <mat-panel-title>
-                                            About: {{panelOpenState ? vis.data.description : vis.data.shortDescriptionText}}
+                                            ABOUT: {{panelOpenState ? vis.data.description : vis.data.description.slice(0, 50) + '...'}}
                                     </mat-panel-title>
                                 </mat-expansion-panel-header>
                             </mat-expansion-panel>
