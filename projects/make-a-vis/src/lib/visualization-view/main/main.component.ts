@@ -34,7 +34,6 @@ export class MainComponent {
   ];
   visualizations: Vis[] = [];
   selectedVis = -1;
-  panelOpenState = false;
 
   constructor(private store: Store<SidenavState>, private exportService: ExportService, updateService: UpdateVisService) {
     this.store.pipe(

@@ -64,7 +64,33 @@
     background-color: white;
 }
 
-.about-expansion-panel {
+
+::ng-deep .about-text-long-menu {
+    cursor: pointer;
+    border-radius: 0 !important;
+    max-width: 100% !important;
     border: 1px solid transparent;
-    border-radius: 0;
+    width: 63.4vw;
+    margin-left: -0.16rem;
+    margin-top: -1.6rem;
+    .mat-menu-content {
+        display: flex;
+        padding-left: 1rem;
+        font-size: 0.9rem;
+        .about-text-long {
+            width: 100%;
+        }
+    }
+}
+
+.about-text-short-container {
+    display: flex;
+    cursor: pointer;
+    border: 1px solid transparent;
+    .about-text-short {
+        width: 100%;
+        padding-left: 1rem;
+        font-size: 0.9rem;
+        line-height: 1.3rem;
+    }
 }
