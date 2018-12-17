@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 
-import { GraphicSymbol, GraphicSymbolOption, RecordStream } from '@dvl-fw/core';
+import { GraphicSymbolOption, RecordStream } from '@dvl-fw/core';
 import { DragDropEvent } from '../../drag-drop';
 import { ModeType, Vis } from '../../shared/types';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
-import { getRecordStreamsSelector, SidenavState, SetRecordStream } from '../../toolbar/shared/store';
+import { getRecordStreamsSelector, SidenavState } from '../../toolbar/shared/store';
 
 @Component({
   selector: 'mav-selection-graphic-symbol-type',

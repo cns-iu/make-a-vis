@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild, Input, ElementRef } from '@angular/core';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { select, Store } from '@ngrx/store';
 import { uniqueId } from 'lodash';
@@ -22,11 +22,11 @@ import { VisualizationTypeComponent } from '../visualization-type/visualization-
 })
 export class MainComponent implements OnInit {
   @Output() newVis = new EventEmitter();
-  @ViewChild('visTypeExpansion') visTypePanel: MatExpansionPanel;
   @ViewChild('visType') visType: VisualizationTypeComponent;
-  panelState = false;
   mode: ModeType;
   activeVis: Vis;
+  panelState = false;
+  step = 0;
 
   constructor(private store: Store<SidenavState>, private serializer: ProjectSerializerService) { }
 
@@ -37,6 +37,14 @@ export class MainComponent implements OnInit {
     this.panelState = eventArgs.state;
     this.mode = eventArgs.mode;
     this.activeVis = eventArgs.activeVis;
+
+    if (this.mode === 'add') {
+      this.step = 0;
+    }
+
+    if (this.mode === 'edit') {
+      this.step = 1;
+    }
   }
 
   addVisualization(type: VisType) {
@@ -55,8 +63,14 @@ export class MainComponent implements OnInit {
         catchError(() => of(preData as Visualization))
       ).subscribe((data: Visualization) => {
         this.store.dispatch(new AddNewVisualization(data));
-        this.newVis.emit({ label: type.label, data });
+        this.activeVis = { label: type.label, data };
+        this.newVis.emit(this.activeVis);
+        this.stepDone();
       });
     }
+  }
+
+  stepDone() {
+    this.step++;
   }
 }
