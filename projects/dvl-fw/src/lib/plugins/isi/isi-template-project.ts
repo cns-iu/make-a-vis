@@ -136,6 +136,8 @@ export class ISITemplateProject extends DefaultProject {
           {id: 'identifier', label: 'Identifier', dataType: 'text', scaleType: 'nominal'},
           {id: 'source', label: 'Author 1 Position', dataType: '???', scaleType: '???'}, // TODO: Fix types
           {id: 'target', label: 'Author 2 Position', dataType: '???', scaleType: '???'}, // TODO: Fix types
+          {id: 'latlng1', label: 'Author 1 Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
+          {id: 'latlng2', label: 'Author 2 Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
         ]
       }, this),
       new DefaultRecordSet({
@@ -703,6 +705,22 @@ export class ISITemplateProject extends DefaultProject {
                 {selector: 'target'}
               ]
             },
+            latlng1: {
+              text: [
+                {selector: 'Author1.latlng'}
+              ],
+              latlng: [
+                {selector: 'Author1.latlng'}
+              ]
+            },
+            latlng2: {
+              text: [
+                {selector: 'Author2.latlng'}
+              ],
+              latlng: [
+                {selector: 'Author2.latlng'}
+              ]
+            },
             numCites: {
               axis: [
                 {selector: 'numCitesLabel'}
@@ -1100,6 +1118,18 @@ export class ISITemplateProject extends DefaultProject {
             graphicVariableType: 'target',
             graphicVariableId: 'target'
           },
+          latlng1: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'latlng1',
+            graphicVariableType: 'latlng',
+            graphicVariableId: 'latlng'
+          },
+          latlng2: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'latlng2',
+            graphicVariableType: 'latlng',
+            graphicVariableId: 'latlng'
+          },
           strokeWidth: {
             recordSet: 'coAuthorLink',
             dataVariable: 'numPapers',
@@ -1162,8 +1192,8 @@ export class ISITemplateProject extends DefaultProject {
           basemapDefaultStrokeColor: '#bebebe'
         },
         graphicSymbols: {
-          nodes: 'authorPoints'
-          // TODO: Add edges and basemap fields
+          nodes: 'authorPoints',
+          // edges: 'coAuthorLinks'
         }
       }, this),
       new SciencemapVisualization({
