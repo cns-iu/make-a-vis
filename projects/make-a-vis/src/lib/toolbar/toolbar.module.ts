@@ -26,16 +26,9 @@ import { ClipboardModule } from 'ngx-clipboard';
 
 // Icons
 import { CnsLogoIconComponent } from './icons/cns-logo/cns-logo-icon.component';
-import { ClipboardLogoComponent } from './icons/clipboard/clipboard-logo/clipboard-logo.component';
-import { ExportSnapshotIconComponent } from './icons/export-snapshot/export-snapshot-icon.component';
 import { GithubIconComponent } from './icons/github/github-icon.component';
 import { InfoIconComponent } from './icons/info-icon/info-icon.component';
-import { LoadProjectIconComponent } from './icons/load-project/load-project-icon.component';
-import { LoggingIconComponent } from './icons/logging/logging-icon.component';
 import { MenuIconComponent } from './icons/menu/menu-icon.component';
-import { NewProjectIconComponent } from './icons/new-project/new-project-icon.component';
-import { SaveIconComponent } from './icons/save/save-icon.component';
-import { ShareIconComponent } from './icons/share/share-icon.component';
 
 // Components
 import { InfoDialogComponent } from './info-dialog/info-dialog.component';
@@ -71,19 +64,12 @@ import { sidenavStateReducer } from './shared/store/reducer';
   ],
   declarations: [
     CnsLogoIconComponent,
-    ExportSnapshotIconComponent,
     GithubIconComponent,
-    LoadProjectIconComponent,
-    LoggingIconComponent,
     MenuIconComponent,
-    NewProjectIconComponent,
-    SaveIconComponent,
-    ShareIconComponent,
 
     MainComponent,
     SidenavContentComponent,
     ToolbarContentComponent,
-    ClipboardLogoComponent,
     InfoIconComponent,
     InfoDialogComponent
   ],

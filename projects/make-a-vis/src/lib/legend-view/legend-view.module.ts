@@ -2,9 +2,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-
 import { DragDropModule } from '../drag-drop/drag-drop.module';
 import { DvlFwModule } from '@dvl-fw/core';
 // Components
@@ -20,6 +20,7 @@ import { MainComponent } from './main/main.component';
     DvlFwModule,
 
     MatCardModule,
+    MatIconModule,
     MatFormFieldModule,
     MatSelectModule
   ],

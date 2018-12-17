@@ -5,15 +5,17 @@
       <mat-expansion-panel-header>
         <mat-panel-title>
           <div class="expansion-title">
-            <mav-new-project-icon class="icon"></mav-new-project-icon>
+            <mat-icon class="mav-new-project-icon icon">add_circle_outline</mat-icon>
             <span>Start Project</span>
           </div>
         </mat-panel-title>
       </mat-expansion-panel-header>
       <p class="expansion-content">
         <span *ngFor="let extension of projectExtensions">
-          <label [for]="extension" class="custom-file-upload button" mat-stroked-button isRoundButton>{{extension === 'yml' ? 'Open Project' : extension.toUpperCase()}}</label>
-          <input [id]="extension" type="file" class="get-data" (change)="readNewFile($event, extension.toLowerCase())" />
+          <label [for]="'mav-sidenav-start-project-' + extension" class="custom-file-upload button" mat-stroked-button isRoundButton>
+            {{extension === 'yml' ? 'Open Project' : extension.toUpperCase()}}
+          </label>
+          <input [id]="'mav-sidenav-start-project-' + extension" type="file" class="get-data" (change)="readNewFile($event, extension.toLowerCase())" [accept]="loadProjectService.getSupportedExtension(extension)"/>
         </span>
       </p>
     </mat-expansion-panel>
@@ -23,7 +25,7 @@
         <mat-expansion-panel-header>
           <mat-panel-title>
             <div class="expansion-title">
-              <mav-share-icon class="icon"></mav-share-icon>
+              <mat-icon class="mav-share-icon icon">share</mat-icon>
               <span>Share</span>
             </div>
           </mat-panel-title>
@@ -49,14 +51,14 @@
   </mat-accordion>
   <div class="title">
       <div class="label">
-        <mav-save-icon class="icon"></mav-save-icon>
+        <mat-icon class="mav-save-icon icon">save</mat-icon>
         <span (click)="saveProject()">Save Project</span>
       </div>
     </div>
   <mat-divider></mat-divider>
   <div class="title">
     <div class="label">
-      <mav-logging-icon class="icon"></mav-logging-icon>
+      <mat-icon class="mav-logging-icon icon">list</mat-icon>
       <span>Logging</span>
     </div>
     <mat-slide-toggle class="log-toggle" [checked]="isLoggingEnabled" (change)="toggleLogging()"></mat-slide-toggle>

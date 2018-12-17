@@ -12,7 +12,7 @@ export class StartProjectOptionsComponent implements OnInit {
 
   projectExtensions: ProjectExtensionType[] = ['yml', 'nsf', 'isi'];
 
-  constructor( private loadProjectService: LoadProjectService) { }
+  constructor( public loadProjectService: LoadProjectService) { }
 
   ngOnInit() {
   }
@@ -35,5 +35,4 @@ export class StartProjectOptionsComponent implements OnInit {
     }
     return selectedExtensionOnButton === actualFileExtension;
   }
-
 }

@@ -1,12 +1,21 @@
-.info-icon-wrapper {
+.mav-info-icon-wrapper {
+  position: relative;
   width: 2.5rem;
   height: 2.5rem;
-  margin-top: .3125rem;
+}
+
+.info-icon-fill {
+  color: transparent;
+  vertical-align: middle;
+  cursor: pointer;
+  font-size: 1.875rem;
 }
 
 .info-icon {
+  position: absolute;
+  left: 0;
+  top: calc((2.5rem - 1.875rem) / 2);
   vertical-align: middle;
   cursor: pointer;
-  width: 1.875rem;
-  height: 1.875rem;
+  font-size: 1.875rem;
 }

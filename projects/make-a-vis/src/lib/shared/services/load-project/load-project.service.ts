@@ -14,6 +14,14 @@ import { GetLinkService } from '../get-link/get-link.service';
 })
 export class LoadProjectService {
 
+  projectExtensionPool = [
+    {label: 'isi', extensions: ['.isi']},
+    {label: 'nsf', extensions: ['.nsf', '.csv']},
+    {label: 'csv', extensions: ['.nsf', '.csv']},
+    {label: 'json', extensions: ['.json']},
+    {label: 'yml', extensions: ['.yml']}
+  ];
+
   constructor(private serializer: ProjectSerializerService,
      private loggingControlService: LoggingControlService,
      private store: Store<sidenavStore.SidenavState>,
@@ -106,6 +114,12 @@ getProjectFromUrl(id: string, baseUrl: string, removeShareUrlFromAddressCallback
     ));
   });
   }
-}
 
+  getSupportedExtension(extensionLabel: ProjectExtensionType): string {
+    return this.projectExtensionPool.filter((extnObject => {
+      return  extnObject.label === extensionLabel;
+    }))[0]['extensions'].join(',');
+  }
+}
 export type ProjectExtensionType = 'isi' | 'nsf' | 'csv' | 'json' | 'yml';
+

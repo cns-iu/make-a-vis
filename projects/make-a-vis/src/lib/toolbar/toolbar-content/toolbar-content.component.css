@@ -1,6 +1,7 @@
 .mav-toolbar {
   height: 2.5rem; /* when updating this, update .main-view's height calculation in top level make-a-vis.component */
-  padding: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .toolbar-title {
