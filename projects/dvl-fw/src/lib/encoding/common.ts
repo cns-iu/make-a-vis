@@ -50,3 +50,10 @@ export const strokeWidthScale = new SizeScale(strokeWidthRange[0], strokeWidthRa
 export const strokeWidthScaleNormQuantitative = strokeWidthScale.quantitative([0, 100]);
 
 export const quantitativeTransparency = map<number, number>(n => ((100 - n) / 100) * 0.49);
+
+export const defaultStyles = {
+  transparency: 0.25,
+  strokeTransparency: 0.0,
+  strokeWidth: 1,
+  strokeColor: '#000007'
+};

@@ -2,7 +2,8 @@
 import { access, chain, map, lookup, Operand } from '@ngx-dino/core';
 import {
   areaSizeScaleNormQuantitative, extractPoint, formatNumber, formatYear, fontSizeScaleNormQuantitative,
-  colorScaleNormQuantitative, colorScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency
+  colorScaleNormQuantitative, colorScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency,
+  defaultStyles
 } from '../../../encoding';
 import { Location } from '../../../encoding/geocoder';
 import { Transient } from '../../../shared/transient';
@@ -85,6 +86,7 @@ export class Award {
   abstract: string;
 
   globalStats: AwardStats;
+  defaultStyles = defaultStyles;
 
   constructor(data: any) {
     Object.assign(this, data);

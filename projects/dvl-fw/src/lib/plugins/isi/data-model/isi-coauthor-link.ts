@@ -4,7 +4,7 @@ import { access, chain, combine, map, Operand } from '@ngx-dino/core';
 import {
   areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, strokeWidthScaleNormQuantitative,
   colorScaleNormQuantitative, colorScaleNormQuantitativeStroke,
-  norm0to100, formatNumber, formatYear, quantitativeTransparency
+  norm0to100, formatNumber, formatYear, quantitativeTransparency, defaultStyles
 } from '../../../encoding';
 import { Transient } from '../../../shared/transient';
 
@@ -38,6 +38,7 @@ export class CoAuthorLink {
   firstYear: number;
   lastYear: number;
   globalStats: CoAuthorLinkStats;
+  defaultStyles = defaultStyles;
 
   constructor(data: any) {
     Object.assign(this, data);

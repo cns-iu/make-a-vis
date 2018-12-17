@@ -3,7 +3,8 @@ import { access, chain, Operand } from '@ngx-dino/core';
 
 import {
   areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, formatNumber, formatYear,
-  colorScaleNormQuantitative, colorScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency
+  colorScaleNormQuantitative, colorScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency,
+  defaultStyles
 } from '../../../encoding';
 import { Transient } from '../../../shared/transient';
 import { Subdiscipline } from './isi-subdiscipline';
@@ -42,6 +43,7 @@ export class Journal {
   journalId: number;
   subdisciplineId: number;
   globalStats: JournalStats;
+  defaultStyles = defaultStyles;
 
   constructor(data: {
     name: string;

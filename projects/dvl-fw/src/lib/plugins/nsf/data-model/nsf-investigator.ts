@@ -3,7 +3,8 @@ import { access, chain, constant, Operand } from '@ngx-dino/core';
 
 import {
   areaSizeScaleNormQuantitative, extractPoint, fontSizeScaleNormQuantitative, formatNumber, formatYear,
-  colorScaleNormQuantitative, colorScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency
+  colorScaleNormQuantitative, colorScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency,
+  defaultStyles
 } from '../../../encoding';
 import { Location } from '../../../encoding/geocoder';
 
@@ -36,6 +37,7 @@ export class Investigator {
   lastYear: number;
   position: [number, number];
   globalStats: InvestigatorStats;
+  defaultStyles = defaultStyles;
 
   constructor(data: any) {
     Object.assign(this, data);

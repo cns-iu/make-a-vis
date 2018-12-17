@@ -3,7 +3,8 @@ import { access, chain, Operand } from '@ngx-dino/core';
 
 import {
   areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, formatNumber, formatYear,
-  colorScaleNormQuantitative, colorScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency
+  colorScaleNormQuantitative, colorScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency,
+  defaultStyles
 } from '../../../encoding';
 
 export interface Discipline {
@@ -46,6 +47,7 @@ export class Subdiscipline {
   firstYear: number;
   lastYear: number;
   globalStats: SubdisciplineStats;
+  defaultStyles = defaultStyles;
 
   constructor(data: any) {
     Object.assign(this, data);
