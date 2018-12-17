@@ -2,7 +2,7 @@
 import { access, chain, map, lookup, Operand } from '@ngx-dino/core';
 import {
   areaSizeScaleNormQuantitative, extractPoint, formatNumber, formatYear, fontSizeScaleNormQuantitative,
-  greyScaleNormQuantitative, greyScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency
+  colorScaleNormQuantitative, colorScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency
 } from '../../../encoding';
 import { Location } from '../../../encoding/geocoder';
 import { Transient } from '../../../shared/transient';
@@ -111,9 +111,9 @@ export class Award {
   awardedAmountAreaSize: number;
   @Operand<number>(chain(access('awardedAmountNorm'), fontSizeScaleNormQuantitative))
   awardedAmountFontSize: number;
-  @Operand<string>(chain(access('awardedAmountNorm'), greyScaleNormQuantitative))
+  @Operand<string>(chain(access('awardedAmountNorm'), colorScaleNormQuantitative))
   awardedAmountColor: string;
-  @Operand<string>(chain(access('awardedAmountNorm'), greyScaleNormQuantitativeStroke))
+  @Operand<string>(chain(access('awardedAmountNorm'), colorScaleNormQuantitativeStroke))
   awardedAmountStrokeColor: string;
   @Operand<number>(chain(access<number>('awardedAmountNorm'), quantitativeTransparency))
   awardedAmountTransparency: number;
@@ -127,9 +127,9 @@ export class Award {
   startYearAreaSize: number;
   @Operand<number>(chain(access('startYearNorm'), fontSizeScaleNormQuantitative))
   startYearFontSize: number;
-  @Operand<string>(chain(access('startYearNorm'), greyScaleNormQuantitative))
+  @Operand<string>(chain(access('startYearNorm'), colorScaleNormQuantitative))
   startYearColor: string;
-  @Operand<string>(chain(access('startYearNorm'), greyScaleNormQuantitativeStroke))
+  @Operand<string>(chain(access('startYearNorm'), colorScaleNormQuantitativeStroke))
   startYearStrokeColor: string;
 
   // End Year Encodings
@@ -141,9 +141,9 @@ export class Award {
   endYearAreaSize: number;
   @Operand<number>(chain(access('endYearNorm'), fontSizeScaleNormQuantitative))
   endYearFontSize: number;
-  @Operand<string>(chain(access('endYearNorm'), greyScaleNormQuantitative))
+  @Operand<string>(chain(access('endYearNorm'), colorScaleNormQuantitative))
   endYearColor: string;
-  @Operand<string>(chain(access('endYearNorm'), greyScaleNormQuantitativeStroke))
+  @Operand<string>(chain(access('endYearNorm'), colorScaleNormQuantitativeStroke))
   endYearStrokeColor: string;
 
   // Last Amendment Year Encodings
@@ -155,8 +155,8 @@ export class Award {
   lastAmendmentYearAreaSize: number;
   @Operand<number>(chain(access('lastAmendmentYearNorm'), fontSizeScaleNormQuantitative))
   lastAmendmentYearFontSize: number;
-  @Operand<string>(chain(access('lastAmendmentYearNorm'), greyScaleNormQuantitative))
+  @Operand<string>(chain(access('lastAmendmentYearNorm'), colorScaleNormQuantitative))
   lastAmendmentYearColor: string;
-  @Operand<string>(chain(access('lastAmendmentYearNorm'), greyScaleNormQuantitativeStroke))
+  @Operand<string>(chain(access('lastAmendmentYearNorm'), colorScaleNormQuantitativeStroke))
   lastAmendmentYearStrokeColor: string;
 }

@@ -28,6 +28,11 @@ export function extractPoint<T>(...fields: string[]): Operator<any, T[]> {
 export const formatNumber = map<number, string>(x => x.toLocaleString());
 export const formatYear = map<number, string>(x => '' + x);
 
+// Material colors: Teal 50 to Teal 800
+export const colorScale = new ColorScale('#e0f2f1', '#00695c', '#ffffff', -51);
+export const colorScaleNormQuantitative = colorScale.quantitative([0, 100]);
+export const colorScaleNormQuantitativeStroke = colorScale.quantitativeStrokeColor([0, 100]);
+
 export const greyScale = new ColorScale('#bdbdbd', '#000000', '#ffffff', -51);
 export const greyScaleNormQuantitative = greyScale.quantitative([0, 100]);
 export const greyScaleNormQuantitativeStroke = greyScale.quantitativeStrokeColor([0, 100]);

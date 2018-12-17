@@ -3,7 +3,7 @@ import { access, chain, combine, map, Operand } from '@ngx-dino/core';
 
 import {
   areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, strokeWidthScaleNormQuantitative,
-  greyScaleNormQuantitative, greyScaleNormQuantitativeStroke,
+  colorScaleNormQuantitative, colorScaleNormQuantitativeStroke,
   norm0to100, formatNumber, formatYear, quantitativeTransparency
 } from '../../../encoding';
 import { Transient } from '../../../shared/transient';
@@ -65,9 +65,9 @@ export class CoPiLink {
   numAwardsStrokeWidth: number;
   @Operand<number>(chain(access('numAwardsNorm'), fontSizeScaleNormQuantitative))
   numAwardsFontSize: number;
-  @Operand<string>(chain(access('numAwardsNorm'), greyScaleNormQuantitative))
+  @Operand<string>(chain(access('numAwardsNorm'), colorScaleNormQuantitative))
   numAwardsColor: string;
-  @Operand<string>(chain(access('numAwardsNorm'), greyScaleNormQuantitativeStroke))
+  @Operand<string>(chain(access('numAwardsNorm'), colorScaleNormQuantitativeStroke))
   numAwardsStrokeColor: string;
   @Operand<number>(chain(access<number>('numAwardsNorm'), quantitativeTransparency))
   numAwardsTransparency: number;
@@ -83,9 +83,9 @@ export class CoPiLink {
   firstYearStrokeWidth: number;
   @Operand<number>(chain(access('firstYearNorm'), fontSizeScaleNormQuantitative))
   firstYearFontSize: number;
-  @Operand<string>(chain(access('firstYearNorm'), greyScaleNormQuantitative))
+  @Operand<string>(chain(access('firstYearNorm'), colorScaleNormQuantitative))
   firstYearColor: string;
-  @Operand<string>(chain(access('firstYearNorm'), greyScaleNormQuantitativeStroke))
+  @Operand<string>(chain(access('firstYearNorm'), colorScaleNormQuantitativeStroke))
   firstYearStrokeColor: string;
 
   // Last Year Encodings
@@ -99,8 +99,8 @@ export class CoPiLink {
   lastYearStrokeWidth: number;
   @Operand<number>(chain(access('lastYearNorm'), fontSizeScaleNormQuantitative))
   lastYearFontSize: number;
-  @Operand<string>(chain(access('lastYearNorm'), greyScaleNormQuantitative))
+  @Operand<string>(chain(access('lastYearNorm'), colorScaleNormQuantitative))
   lastYearColor: string;
-  @Operand<string>(chain(access('lastYearNorm'), greyScaleNormQuantitativeStroke))
+  @Operand<string>(chain(access('lastYearNorm'), colorScaleNormQuantitativeStroke))
   lastYearStrokeColor: string;
 }

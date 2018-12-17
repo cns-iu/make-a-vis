@@ -965,8 +965,8 @@ export class ISITemplateProject extends DefaultProject {
           strokeColor: {
             recordSet: 'coAuthorLink',
             dataVariable: 'firstYear',
-            graphicVariableType: 'strokeColor',
-            graphicVariableId: 'strokeColor'
+            graphicVariableType: 'color',
+            graphicVariableId: 'color'
           },
           tooltip: {
             recordSet: 'coAuthorLink',

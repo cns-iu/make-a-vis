@@ -595,8 +595,8 @@ export class NSFTemplateProject extends DefaultProject {
           strokeColor: {
             recordSet: 'coPiLink',
             dataVariable: 'firstYear',
-            graphicVariableType: 'strokeColor',
-            graphicVariableId: 'strokeColor'
+            graphicVariableType: 'color',
+            graphicVariableId: 'color'
           },
           tooltip: {
             recordSet: 'coPiLink',
