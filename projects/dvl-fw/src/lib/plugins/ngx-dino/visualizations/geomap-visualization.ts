@@ -36,8 +36,8 @@ export class GeomapVisualization extends DefaultVisualization {
       id: 'edges', label: 'Edges', type: 'line',
       graphicVariableOptions: [
         { type: 'identifier', label: 'Identifier' },
-        { type: 'source', label: 'Source Position' },
-        { type: 'target', label: 'Target Position' },
+        { type: 'latlng1', label: 'Source Latitude/Longitude' },
+        { type: 'latlng2', label: 'Target Latitude/Longitude' },
         { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
         { type: 'strokeWidth', label: 'Stroke Width', visualization: 'edge-size' },
         { type: 'transparency', label: 'Transparency' }

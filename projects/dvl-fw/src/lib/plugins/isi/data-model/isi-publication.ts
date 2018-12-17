@@ -3,7 +3,8 @@ import { access, chain, map, Operand } from '@ngx-dino/core';
 
 import {
   areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, formatNumber, formatYear,
-  greyScaleNormQuantitative, greyScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency
+  colorScaleNormQuantitative, colorScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency,
+  defaultStyles
 } from '../../../encoding';
 import { Transient } from '../../../shared/transient';
 import { Author } from './isi-author';
@@ -42,6 +43,7 @@ export class Publication {
   issue: number;
   numCites: number;
   globalStats: PublicationStats;
+  defaultStyles = defaultStyles;
 
   constructor(data: any) {
     Object.assign(this, data);
@@ -64,9 +66,9 @@ export class Publication {
   numCitesAreaSize: number;
   @Operand<number>(chain(access('numCitesNorm'), fontSizeScaleNormQuantitative))
   numCitesFontSize: number;
-  @Operand<string>(chain(access('numCitesNorm'), greyScaleNormQuantitative))
+  @Operand<string>(chain(access('numCitesNorm'), colorScaleNormQuantitative))
   numCitesColor: string;
-  @Operand<string>(chain(access('numCitesNorm'), greyScaleNormQuantitativeStroke))
+  @Operand<string>(chain(access('numCitesNorm'), colorScaleNormQuantitativeStroke))
   numCitesStrokeColor: string;
   @Operand<number>(chain(access<number>('numCitesNorm'), quantitativeTransparency))
   numCitesTransparency: number;
@@ -80,8 +82,8 @@ export class Publication {
   publicationYearAreaSize: number;
   @Operand<number>(chain(access('publicationYearNorm'), fontSizeScaleNormQuantitative))
   publicationYearFontSize: number;
-  @Operand<string>(chain(access('publicationYearNorm'), greyScaleNormQuantitative))
+  @Operand<string>(chain(access('publicationYearNorm'), colorScaleNormQuantitative))
   publicationYearColor: string;
-  @Operand<string>(chain(access('publicationYearNorm'), greyScaleNormQuantitativeStroke))
+  @Operand<string>(chain(access('publicationYearNorm'), colorScaleNormQuantitativeStroke))
   publicationYearStrokeColor: string;
 }

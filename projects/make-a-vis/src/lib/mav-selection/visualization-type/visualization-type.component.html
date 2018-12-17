@@ -1,5 +1,5 @@
 <div class="vis-type-selection-wrapper">
-  <mat-card *ngFor="let type of visTypes" class="card" (click)="visualizationSelected(type)" [ngClass]="{'vis-type-selected': panelState && isSelected(type)}" #visType>
+  <mat-card *ngFor="let type of visTypes" class="card" (click)="visualizationSelected(type)" [ngClass]="{'vis-type-selected': panelState && isSelected(type)}">
     {{type.label}}
   </mat-card>
 </div>

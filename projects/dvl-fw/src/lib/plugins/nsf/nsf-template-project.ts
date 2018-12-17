@@ -134,6 +134,18 @@ export class NSFTemplateProject extends DefaultProject {
             id: {
               identifier: [
                 {selector: 'id'}
+              ],
+              transparency: [
+                {id: 'fixed', selector: 'defaultStyles.transparency', label: 'Default'}
+              ],
+              strokeColor: [
+                {id: 'fixed', selector: 'defaultStyles.strokeColor', label: 'Default'}
+              ],
+              strokeWidth: [
+                {id: 'fixed', selector: 'defaultStyles.strokeWidth', label: 'Default'}
+              ],
+              strokeTransparency: [
+                {id: 'fixed', selector: 'defaultStyles.strokeTransparency', label: 'Default'}
               ]
             },
             title: {
@@ -272,6 +284,18 @@ export class NSFTemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'name'}
+              ],
+              transparency: [
+                {id: 'fixed', selector: 'defaultStyles.transparency', label: 'Default'}
+              ],
+              strokeColor: [
+                {id: 'fixed', selector: 'defaultStyles.strokeColor', label: 'Default'}
+              ],
+              strokeWidth: [
+                {id: 'fixed', selector: 'defaultStyles.strokeWidth', label: 'Default'}
+              ],
+              strokeTransparency: [
+                {id: 'fixed', selector: 'defaultStyles.strokeTransparency', label: 'Default'}
               ]
             },
             latlng: {
@@ -382,6 +406,18 @@ export class NSFTemplateProject extends DefaultProject {
             identifier: {
               identifier: [
                 {selector: 'identifier'}
+              ],
+              transparency: [
+                {id: 'fixed', selector: 'defaultStyles.transparency', label: 'Default'}
+              ],
+              strokeColor: [
+                {id: 'fixed', selector: 'defaultStyles.strokeColor', label: 'Default'}
+              ],
+              strokeWidth: [
+                {id: 'fixed', selector: 'defaultStyles.strokeWidth', label: 'Default'}
+              ],
+              strokeTransparency: [
+                {id: 'fixed', selector: 'defaultStyles.strokeTransparency', label: 'Default'}
               ]
             },
             source: {
@@ -517,6 +553,30 @@ export class NSFTemplateProject extends DefaultProject {
             dataVariable: 'title',
             graphicVariableType: 'text',
             graphicVariableId: 'text'
+          },
+          transparency: {
+            recordSet: 'award',
+            dataVariable: 'id',
+            graphicVariableType: 'transparency',
+            graphicVariableId: 'fixed'
+          },
+          strokeTransparency: {
+            recordSet: 'award',
+            dataVariable: 'id',
+            graphicVariableType: 'strokeTransparency',
+            graphicVariableId: 'fixed'
+          },
+          strokeWidth: {
+            recordSet: 'award',
+            dataVariable: 'id',
+            graphicVariableType: 'strokeWidth',
+            graphicVariableId: 'fixed'
+          },
+          strokeColor: {
+            recordSet: 'award',
+            dataVariable: 'id',
+            graphicVariableType: 'strokeColor',
+            graphicVariableId: 'fixed'
           }
         }
       }, this),
@@ -560,6 +620,30 @@ export class NSFTemplateProject extends DefaultProject {
             dataVariable: 'name',
             graphicVariableType: 'text',
             graphicVariableId: 'text'
+          },
+          transparency: {
+            recordSet: 'investigator',
+            dataVariable: 'name',
+            graphicVariableType: 'transparency',
+            graphicVariableId: 'fixed'
+          },
+          strokeTransparency: {
+            recordSet: 'investigator',
+            dataVariable: 'name',
+            graphicVariableType: 'strokeTransparency',
+            graphicVariableId: 'fixed'
+          },
+          strokeWidth: {
+            recordSet: 'investigator',
+            dataVariable: 'name',
+            graphicVariableType: 'strokeWidth',
+            graphicVariableId: 'fixed'
+          },
+          strokeColor: {
+            recordSet: 'investigator',
+            dataVariable: 'name',
+            graphicVariableType: 'strokeColor',
+            graphicVariableId: 'fixed'
           }
         }
       }, this),
@@ -595,14 +679,26 @@ export class NSFTemplateProject extends DefaultProject {
           strokeColor: {
             recordSet: 'coPiLink',
             dataVariable: 'firstYear',
-            graphicVariableType: 'strokeColor',
-            graphicVariableId: 'strokeColor'
+            graphicVariableType: 'color',
+            graphicVariableId: 'color'
           },
           tooltip: {
             recordSet: 'coPiLink',
             dataVariable: 'identifier',
             graphicVariableType: 'identifier',
             graphicVariableId: 'identifier'
+          },
+          transparency: {
+            recordSet: 'coPiLink',
+            dataVariable: 'identifier',
+            graphicVariableType: 'transparency',
+            graphicVariableId: 'fixed'
+          },
+          strokeTransparency: {
+            recordSet: 'coPiLink',
+            dataVariable: 'identifier',
+            graphicVariableType: 'strokeTransparency',
+            graphicVariableId: 'fixed'
           }
         }
       }, this)

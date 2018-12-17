@@ -136,6 +136,8 @@ export class ISITemplateProject extends DefaultProject {
           {id: 'identifier', label: 'Identifier', dataType: 'text', scaleType: 'nominal'},
           {id: 'source', label: 'Author 1 Position', dataType: '???', scaleType: '???'}, // TODO: Fix types
           {id: 'target', label: 'Author 2 Position', dataType: '???', scaleType: '???'}, // TODO: Fix types
+          {id: 'latlng1', label: 'Author 1 Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
+          {id: 'latlng2', label: 'Author 2 Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
         ]
       }, this),
       new DefaultRecordSet({
@@ -169,6 +171,18 @@ export class ISITemplateProject extends DefaultProject {
             id: {
               identifier: [
                 {selector: 'id'}
+              ],
+              transparency: [
+                {id: 'fixed', selector: 'defaultStyles.transparency', label: 'Default'}
+              ],
+              strokeColor: [
+                {id: 'fixed', selector: 'defaultStyles.strokeColor', label: 'Default'}
+              ],
+              strokeWidth: [
+                {id: 'fixed', selector: 'defaultStyles.strokeWidth', label: 'Default'}
+              ],
+              strokeTransparency: [
+                {id: 'fixed', selector: 'defaultStyles.strokeTransparency', label: 'Default'}
               ]
             },
             title: {
@@ -262,6 +276,18 @@ export class ISITemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'name'}
+              ],
+              transparency: [
+                {id: 'fixed', selector: 'defaultStyles.transparency', label: 'Default'}
+              ],
+              strokeColor: [
+                {id: 'fixed', selector: 'defaultStyles.strokeColor', label: 'Default'}
+              ],
+              strokeWidth: [
+                {id: 'fixed', selector: 'defaultStyles.strokeWidth', label: 'Default'}
+              ],
+              strokeTransparency: [
+                {id: 'fixed', selector: 'defaultStyles.strokeTransparency', label: 'Default'}
               ]
             },
             numCites: {
@@ -366,6 +392,18 @@ export class ISITemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'id'}
+              ],
+              transparency: [
+                {id: 'fixed', selector: 'defaultStyles.transparency', label: 'Default'}
+              ],
+              strokeColor: [
+                {id: 'fixed', selector: 'defaultStyles.strokeColor', label: 'Default'}
+              ],
+              strokeWidth: [
+                {id: 'fixed', selector: 'defaultStyles.strokeWidth', label: 'Default'}
+              ],
+              strokeTransparency: [
+                {id: 'fixed', selector: 'defaultStyles.strokeTransparency', label: 'Default'}
               ]
             },
             name: {
@@ -490,6 +528,18 @@ export class ISITemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'name'}
+              ],
+              transparency: [
+                {id: 'fixed', selector: 'defaultStyles.transparency', label: 'Default'}
+              ],
+              strokeColor: [
+                {id: 'fixed', selector: 'defaultStyles.strokeColor', label: 'Default'}
+              ],
+              strokeWidth: [
+                {id: 'fixed', selector: 'defaultStyles.strokeWidth', label: 'Default'}
+              ],
+              strokeTransparency: [
+                {id: 'fixed', selector: 'defaultStyles.strokeTransparency', label: 'Default'}
               ]
             },
             latlng: {
@@ -631,6 +681,18 @@ export class ISITemplateProject extends DefaultProject {
             identifier: {
               identifier: [
                 {selector: 'identifier'}
+              ],
+              transparency: [
+                {id: 'fixed', selector: 'defaultStyles.transparency', label: 'Default'}
+              ],
+              strokeColor: [
+                {id: 'fixed', selector: 'defaultStyles.strokeColor', label: 'Default'}
+              ],
+              strokeWidth: [
+                {id: 'fixed', selector: 'defaultStyles.strokeWidth', label: 'Default'}
+              ],
+              strokeTransparency: [
+                {id: 'fixed', selector: 'defaultStyles.strokeTransparency', label: 'Default'}
               ]
             },
             source: {
@@ -641,6 +703,22 @@ export class ISITemplateProject extends DefaultProject {
             target: {
               target: [
                 {selector: 'target'}
+              ]
+            },
+            latlng1: {
+              text: [
+                {selector: 'Author1.latlng'}
+              ],
+              latlng: [
+                {selector: 'Author1.latlng'}
+              ]
+            },
+            latlng2: {
+              text: [
+                {selector: 'Author2.latlng'}
+              ],
+              latlng: [
+                {selector: 'Author2.latlng'}
               ]
             },
             numCites: {
@@ -789,6 +867,30 @@ export class ISITemplateProject extends DefaultProject {
             dataVariable: 'title',
             graphicVariableType: 'text',
             graphicVariableId: 'text'
+          },
+          transparency: {
+            recordSet: 'publication',
+            dataVariable: 'id',
+            graphicVariableType: 'transparency',
+            graphicVariableId: 'fixed'
+          },
+          strokeTransparency: {
+            recordSet: 'publication',
+            dataVariable: 'id',
+            graphicVariableType: 'strokeTransparency',
+            graphicVariableId: 'fixed'
+          },
+          strokeWidth: {
+            recordSet: 'publication',
+            dataVariable: 'id',
+            graphicVariableType: 'strokeWidth',
+            graphicVariableId: 'fixed'
+          },
+          strokeColor: {
+            recordSet: 'publication',
+            dataVariable: 'id',
+            graphicVariableType: 'strokeColor',
+            graphicVariableId: 'fixed'
           }
         }
       }, this),
@@ -827,18 +929,6 @@ export class ISITemplateProject extends DefaultProject {
             graphicVariableType: 'color',
             graphicVariableId: 'color'
           },
-          transparency: {
-            recordSet: 'journal',
-            dataVariable: 'numPapers',
-            graphicVariableType: 'transparency',
-            graphicVariableId: 'transparency'
-          },
-          strokeTransparency: {
-            recordSet: 'journal',
-            dataVariable: 'numPapers',
-            graphicVariableType: 'strokeTransparency',
-            graphicVariableId: 'strokeTransparency'
-          },
           label: {
             recordSet: 'journal',
             dataVariable: 'name',
@@ -856,6 +946,30 @@ export class ISITemplateProject extends DefaultProject {
             dataVariable: 'name',
             graphicVariableType: 'text',
             graphicVariableId: 'text'
+          },
+          transparency: {
+            recordSet: 'journal',
+            dataVariable: 'name',
+            graphicVariableType: 'transparency',
+            graphicVariableId: 'fixed'
+          },
+          strokeTransparency: {
+            recordSet: 'journal',
+            dataVariable: 'name',
+            graphicVariableType: 'strokeTransparency',
+            graphicVariableId: 'fixed'
+          },
+          strokeWidth: {
+            recordSet: 'journal',
+            dataVariable: 'name',
+            graphicVariableType: 'strokeWidth',
+            graphicVariableId: 'fixed'
+          },
+          strokeColor: {
+            recordSet: 'journal',
+            dataVariable: 'name',
+            graphicVariableType: 'strokeColor',
+            graphicVariableId: 'fixed'
           }
         }
       }, this),
@@ -887,6 +1001,30 @@ export class ISITemplateProject extends DefaultProject {
             dataVariable: 'name',
             graphicVariableType: 'text',
             graphicVariableId: 'tooltip'
+          },
+          transparency: {
+            recordSet: 'subdiscipline',
+            dataVariable: 'id',
+            graphicVariableType: 'transparency',
+            graphicVariableId: 'fixed'
+          },
+          strokeTransparency: {
+            recordSet: 'subdiscipline',
+            dataVariable: 'id',
+            graphicVariableType: 'strokeTransparency',
+            graphicVariableId: 'fixed'
+          },
+          strokeWidth: {
+            recordSet: 'subdiscipline',
+            dataVariable: 'id',
+            graphicVariableType: 'strokeWidth',
+            graphicVariableId: 'fixed'
+          },
+          strokeColor: {
+            recordSet: 'subdiscipline',
+            dataVariable: 'id',
+            graphicVariableType: 'strokeColor',
+            graphicVariableId: 'fixed'
           }
         }
       }, this),
@@ -930,6 +1068,30 @@ export class ISITemplateProject extends DefaultProject {
             dataVariable: 'name',
             graphicVariableType: 'text',
             graphicVariableId: 'text'
+          },
+          transparency: {
+            recordSet: 'author',
+            dataVariable: 'name',
+            graphicVariableType: 'transparency',
+            graphicVariableId: 'fixed'
+          },
+          strokeTransparency: {
+            recordSet: 'author',
+            dataVariable: 'name',
+            graphicVariableType: 'strokeTransparency',
+            graphicVariableId: 'fixed'
+          },
+          strokeWidth: {
+            recordSet: 'author',
+            dataVariable: 'name',
+            graphicVariableType: 'strokeWidth',
+            graphicVariableId: 'fixed'
+          },
+          strokeColor: {
+            recordSet: 'author',
+            dataVariable: 'name',
+            graphicVariableType: 'strokeColor',
+            graphicVariableId: 'fixed'
           }
         }
       }, this),
@@ -956,6 +1118,18 @@ export class ISITemplateProject extends DefaultProject {
             graphicVariableType: 'target',
             graphicVariableId: 'target'
           },
+          latlng1: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'latlng1',
+            graphicVariableType: 'latlng',
+            graphicVariableId: 'latlng'
+          },
+          latlng2: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'latlng2',
+            graphicVariableType: 'latlng',
+            graphicVariableId: 'latlng'
+          },
           strokeWidth: {
             recordSet: 'coAuthorLink',
             dataVariable: 'numPapers',
@@ -965,14 +1139,26 @@ export class ISITemplateProject extends DefaultProject {
           strokeColor: {
             recordSet: 'coAuthorLink',
             dataVariable: 'firstYear',
-            graphicVariableType: 'strokeColor',
-            graphicVariableId: 'strokeColor'
+            graphicVariableType: 'color',
+            graphicVariableId: 'color'
           },
           tooltip: {
             recordSet: 'coAuthorLink',
             dataVariable: 'identifier',
             graphicVariableType: 'identifier',
             graphicVariableId: 'identifier'
+          },
+          transparency: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'identifier',
+            graphicVariableType: 'transparency',
+            graphicVariableId: 'fixed'
+          },
+          strokeTransparency: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'identifier',
+            graphicVariableType: 'strokeTransparency',
+            graphicVariableId: 'fixed'
           }
         }
       }, this)
@@ -1006,8 +1192,8 @@ export class ISITemplateProject extends DefaultProject {
           basemapDefaultStrokeColor: '#bebebe'
         },
         graphicSymbols: {
-          nodes: 'authorPoints'
-          // TODO: Add edges and basemap fields
+          nodes: 'authorPoints',
+          // edges: 'coAuthorLinks'
         }
       }, this),
       new SciencemapVisualization({

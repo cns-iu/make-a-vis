@@ -30,10 +30,10 @@ export type FieldGroups = {
 
 // TODO: strokeWidth, tooltip, label, labelPosition
 const nodesFieldNameMapping = createFieldNameMapping([
-  'color', 'transparency', 'position', 'label', 'tooltip'
+  'color', 'transparency', 'position', 'label', 'labelPosition', 'tooltip', 'strokeWidth'
 ], {
   'identifier': 'nodeIdField', 'areaSize': 'nodeSizeField', 'shape': 'nodeSymbolField',
-  'strokeColor': 'nodeStrokeField'
+  'strokeColor': 'nodeStrokeField', 'strokeTransparency': 'nodeStrokeTransparencyField'
 }, 'node');
 
 const edgesFieldNameMapping = createFieldNameMapping([

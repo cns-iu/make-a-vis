@@ -54,9 +54,9 @@ const nodesFieldNameMapping = createFieldNameMapping([
 }, 'node');
 
 const edgesFieldNameMapping = createFieldNameMapping([
-  'source', 'target', 'strokeColor', 'strokeWidth', 'transparency'
+  'strokeColor', 'strokeWidth', 'transparency'
 ], {
-  'identifier': 'edgeIdField'
+  'identifier': 'edgeIdField', 'latlng1': 'edgeSourceField', 'latlng2': 'edgeTargetField'
 }, 'edge');
 
 const fieldNameMappingMap = {
