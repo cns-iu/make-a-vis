@@ -9,7 +9,7 @@ import { ScatterplotComponent } from '../components/scatterplot/scatterplot.comp
 export class ScatterplotVisualization extends DefaultVisualization {
   // TODO remove below string
   readonly description = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-   incididunt ut labore et dolore magna aliqua. 
+   incididunt ut labore et dolore magna aliqua.
   Dui accumsan sit amet nulla facilisi. Neque volutpat ac tincidunt vitae semper quis lectus nulla at.
   Enim ut sem viverra aliquet eget sit. Vehicula ipsum a arcu cursus vitae congue mauris. Urna et pharetra
    pharetra massa massa. Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. At ultrices mi
