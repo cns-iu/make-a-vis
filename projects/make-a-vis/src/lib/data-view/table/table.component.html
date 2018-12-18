@@ -1,6 +1,6 @@
 <mat-card class="datatable-wrapper" *ngIf="dataSource && dataSource.data && dataSource.data.length && !dataSource.hidden">
     <div class="datatable-container">
-        <mat-card-header class="description">
+        <mat-card-header class="card-header">
             <mat-card-title>
                 <span *ngIf="dataSource.children && dataSource.children.length > 0" class="toggle-icon">
                     <mat-icon class="expand-icon" *ngIf="!dataSource.childrenHidden" (click)="toggleDataTable(dataSource)">expand_more</mat-icon>
@@ -10,17 +10,17 @@
                 <span class="description" *ngIf="!!dataSource.description">&nbsp;({{dataSource.description }})</span>
             </mat-card-title>
         </mat-card-header>
-        <mat-card-content class="table">
-            <mat-table [dataSource]="(dataSource.hiddenData ? [] : dataSource.data.slice(0,3))" class="mat-elevation-z8">
+        <mat-card-content class="card-content">
+            <mat-table [dataSource]="(dataSource.hiddenData ? [] : dataSource.data.slice(0,3))" class="table mat-elevation-z8">
                 <ng-container [matColumnDef]="col.label" *ngFor="let col of displayedColumns">
                     <mat-header-cell *matHeaderCellDef [mavDraggable]="col" class="header-cell">{{col.label}}</mat-header-cell>
-                    <mat-cell *matCellDef="let element" class="cell">{{element[col.id]}}</mat-cell>
+                    <mat-cell *matCellDef="let element" class="mat-cell">{{element[col.id]}}</mat-cell>
                 </ng-container>
                 <mat-header-row *matHeaderRowDef="displayedColumnNames; sticky: true;" class="header-row"></mat-header-row>
                 <mat-row *matRowDef="let row; columns: displayedColumnNames;" class="row"></mat-row>
             </mat-table>
         </mat-card-content>
-        <mat-card-footer>
+        <mat-card-footer class="card-footer">
             <div class="toggle">
                 <span (click)="toggleRows(dataSource)" class="toggle-group">
                     <span class="toggle-label">Total Records: {{dataSource.numRows}}</span>
