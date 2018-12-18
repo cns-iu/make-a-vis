@@ -38,6 +38,9 @@ import { ToolbarContentComponent } from './toolbar-content/toolbar-content.compo
 
 // Reducers
 import { sidenavStateReducer } from './shared/store/reducer';
+import { CnsLogoComponent } from './info-dialog/info-dialog-footer/cns-logo/cns-logo.component';
+import { SiceLogoComponent } from './info-dialog/info-dialog-footer/sice-logo/sice-logo.component';
+import { NsfLogoComponent } from './info-dialog/info-dialog-footer/nsf-logo/nsf-logo.component';
 
 
 @NgModule({
@@ -71,7 +74,10 @@ import { sidenavStateReducer } from './shared/store/reducer';
     SidenavContentComponent,
     ToolbarContentComponent,
     InfoIconComponent,
-    InfoDialogComponent
+    InfoDialogComponent,
+    CnsLogoComponent,
+    SiceLogoComponent,
+    NsfLogoComponent
   ],
   exports: [MainComponent],
   entryComponents: [InfoDialogComponent]
