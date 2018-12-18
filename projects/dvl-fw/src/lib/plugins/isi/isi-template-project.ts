@@ -1192,8 +1192,8 @@ export class ISITemplateProject extends DefaultProject {
           basemapDefaultStrokeColor: '#bebebe'
         },
         graphicSymbols: {
-          nodes: 'authorPoints',
-          // edges: 'coAuthorLinks'
+          edges: 'coAuthorLinks',
+          nodes: 'authorPoints'
         }
       }, this),
       new SciencemapVisualization({
