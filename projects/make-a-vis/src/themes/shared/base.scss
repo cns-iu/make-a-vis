@@ -122,6 +122,9 @@
       border-color: $border;
       background-color: $white;
     }
+    .tab:hover {
+      border-bottom-color: $disabled-text !important;
+    }
     .label {
       color: $primary-text;
     }
