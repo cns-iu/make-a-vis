@@ -13,7 +13,7 @@ import { DefaultProject } from '../default/default-project';
 import { DefaultRawData } from '../default/default-raw-data';
 import { DefaultRecordSet } from '../default/default-record-set';
 import {
-  ScatterplotVisualization, TemporalBargraphVisualization, NetworkVisualization
+  ScatterplotVisualization, TemporalBargraphVisualization, NetworkVisualization, GeomapVisualization
 } from '../ngx-dino/visualizations';
 import { NSFDataSource } from './nsf-data-source';
 import { NSFParsedRawData } from './nsf-parsed-raw-data';
@@ -118,6 +118,8 @@ export class NSFTemplateProject extends DefaultProject {
           {id: 'identifier', label: 'Identifier', dataType: 'text', scaleType: 'nominal'},
           {id: 'source', label: 'Investigator 1 Position', dataType: '???', scaleType: '???'}, // TODO: Fix types
           {id: 'target', label: 'Investigator 2 Position', dataType: '???', scaleType: '???'}, // TODO: Fix types
+          {id: 'latlng1', label: 'Author 1 Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
+          {id: 'latlng2', label: 'Author 2 Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
         ]
       }, this),
     ];
@@ -134,6 +136,18 @@ export class NSFTemplateProject extends DefaultProject {
             id: {
               identifier: [
                 {selector: 'id'}
+              ],
+              transparency: [
+                {id: 'fixed', selector: 'defaultStyles.transparency', label: 'Default'}
+              ],
+              strokeColor: [
+                {id: 'fixed', selector: 'defaultStyles.strokeColor', label: 'Default'}
+              ],
+              strokeWidth: [
+                {id: 'fixed', selector: 'defaultStyles.strokeWidth', label: 'Default'}
+              ],
+              strokeTransparency: [
+                {id: 'fixed', selector: 'defaultStyles.strokeTransparency', label: 'Default'}
               ]
             },
             title: {
@@ -272,6 +286,18 @@ export class NSFTemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'name'}
+              ],
+              transparency: [
+                {id: 'fixed', selector: 'defaultStyles.transparency', label: 'Default'}
+              ],
+              strokeColor: [
+                {id: 'fixed', selector: 'defaultStyles.strokeColor', label: 'Default'}
+              ],
+              strokeWidth: [
+                {id: 'fixed', selector: 'defaultStyles.strokeWidth', label: 'Default'}
+              ],
+              strokeTransparency: [
+                {id: 'fixed', selector: 'defaultStyles.strokeTransparency', label: 'Default'}
               ]
             },
             latlng: {
@@ -382,6 +408,18 @@ export class NSFTemplateProject extends DefaultProject {
             identifier: {
               identifier: [
                 {selector: 'identifier'}
+              ],
+              transparency: [
+                {id: 'fixed', selector: 'defaultStyles.transparency', label: 'Default'}
+              ],
+              strokeColor: [
+                {id: 'fixed', selector: 'defaultStyles.strokeColor', label: 'Default'}
+              ],
+              strokeWidth: [
+                {id: 'fixed', selector: 'defaultStyles.strokeWidth', label: 'Default'}
+              ],
+              strokeTransparency: [
+                {id: 'fixed', selector: 'defaultStyles.strokeTransparency', label: 'Default'}
               ]
             },
             source: {
@@ -392,6 +430,22 @@ export class NSFTemplateProject extends DefaultProject {
             target: {
               target: [
                 {selector: 'target'}
+              ]
+            },
+            latlng1: {
+              text: [
+                {selector: 'Investigator1.latlng'}
+              ],
+              latlng: [
+                {selector: 'Investigator1.latlng'}
+              ]
+            },
+            latlng2: {
+              text: [
+                {selector: 'Investigator2.latlng'}
+              ],
+              latlng: [
+                {selector: 'Investigator2.latlng'}
               ]
             },
             numAwards: {
@@ -517,6 +571,30 @@ export class NSFTemplateProject extends DefaultProject {
             dataVariable: 'title',
             graphicVariableType: 'text',
             graphicVariableId: 'text'
+          },
+          transparency: {
+            recordSet: 'award',
+            dataVariable: 'id',
+            graphicVariableType: 'transparency',
+            graphicVariableId: 'fixed'
+          },
+          strokeTransparency: {
+            recordSet: 'award',
+            dataVariable: 'id',
+            graphicVariableType: 'strokeTransparency',
+            graphicVariableId: 'fixed'
+          },
+          strokeWidth: {
+            recordSet: 'award',
+            dataVariable: 'id',
+            graphicVariableType: 'strokeWidth',
+            graphicVariableId: 'fixed'
+          },
+          strokeColor: {
+            recordSet: 'award',
+            dataVariable: 'id',
+            graphicVariableType: 'strokeColor',
+            graphicVariableId: 'fixed'
           }
         }
       }, this),
@@ -560,6 +638,30 @@ export class NSFTemplateProject extends DefaultProject {
             dataVariable: 'name',
             graphicVariableType: 'text',
             graphicVariableId: 'text'
+          },
+          transparency: {
+            recordSet: 'investigator',
+            dataVariable: 'name',
+            graphicVariableType: 'transparency',
+            graphicVariableId: 'fixed'
+          },
+          strokeTransparency: {
+            recordSet: 'investigator',
+            dataVariable: 'name',
+            graphicVariableType: 'strokeTransparency',
+            graphicVariableId: 'fixed'
+          },
+          strokeWidth: {
+            recordSet: 'investigator',
+            dataVariable: 'name',
+            graphicVariableType: 'strokeWidth',
+            graphicVariableId: 'fixed'
+          },
+          strokeColor: {
+            recordSet: 'investigator',
+            dataVariable: 'name',
+            graphicVariableType: 'strokeColor',
+            graphicVariableId: 'fixed'
           }
         }
       }, this),
@@ -586,6 +688,18 @@ export class NSFTemplateProject extends DefaultProject {
             graphicVariableType: 'target',
             graphicVariableId: 'target'
           },
+          latlng1: {
+            recordSet: 'coPiLink',
+            dataVariable: 'latlng1',
+            graphicVariableType: 'latlng',
+            graphicVariableId: 'latlng'
+          },
+          latlng2: {
+            recordSet: 'coPiLink',
+            dataVariable: 'latlng2',
+            graphicVariableType: 'latlng',
+            graphicVariableId: 'latlng'
+          },
           strokeWidth: {
             recordSet: 'coPiLink',
             dataVariable: 'numAwards',
@@ -595,14 +709,26 @@ export class NSFTemplateProject extends DefaultProject {
           strokeColor: {
             recordSet: 'coPiLink',
             dataVariable: 'firstYear',
-            graphicVariableType: 'strokeColor',
-            graphicVariableId: 'strokeColor'
+            graphicVariableType: 'color',
+            graphicVariableId: 'color'
           },
           tooltip: {
             recordSet: 'coPiLink',
             dataVariable: 'identifier',
             graphicVariableType: 'identifier',
             graphicVariableId: 'identifier'
+          },
+          transparency: {
+            recordSet: 'coPiLink',
+            dataVariable: 'identifier',
+            graphicVariableType: 'transparency',
+            graphicVariableId: 'fixed'
+          },
+          strokeTransparency: {
+            recordSet: 'coPiLink',
+            dataVariable: 'identifier',
+            graphicVariableType: 'strokeTransparency',
+            graphicVariableId: 'fixed'
           }
         }
       }, this)
@@ -622,6 +748,22 @@ export class NSFTemplateProject extends DefaultProject {
         },
         graphicSymbols: {
           points: 'awardPoints'
+        }
+      }, this),
+      new GeomapVisualization({
+        id: 'GM01',
+        template: 'geomap',
+        properties: {
+          basemapZoomLevels: [
+            { selector: ['world', 'united states', 'states'], projection: 'albersUsa', label: 'United States', class: '' }
+          ],
+          basemapSelectedZoomLevel: 0,
+          basemapDefaultColor: 'white',
+          basemapDefaultStrokeColor: '#bebebe'
+        },
+        graphicSymbols: {
+          edges: 'coPiLinks',
+          nodes: 'investigatorPoints'
         }
       }, this),
       new NetworkVisualization({

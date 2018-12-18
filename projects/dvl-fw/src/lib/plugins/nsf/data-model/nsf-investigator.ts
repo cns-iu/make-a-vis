@@ -3,7 +3,8 @@ import { access, chain, constant, Operand } from '@ngx-dino/core';
 
 import {
   areaSizeScaleNormQuantitative, extractPoint, fontSizeScaleNormQuantitative, formatNumber, formatYear,
-  greyScaleNormQuantitative, greyScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency
+  colorScaleNormQuantitative, colorScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency,
+  defaultStyles
 } from '../../../encoding';
 import { Location } from '../../../encoding/geocoder';
 
@@ -36,6 +37,7 @@ export class Investigator {
   lastYear: number;
   position: [number, number];
   globalStats: InvestigatorStats;
+  defaultStyles = defaultStyles;
 
   constructor(data: any) {
     Object.assign(this, data);
@@ -57,9 +59,9 @@ export class Investigator {
   numAwardsAreaSize: number;
   @Operand<number>(chain(access('numAwardsNorm'), fontSizeScaleNormQuantitative))
   numAwardsFontSize: number;
-  @Operand<string>(chain(access('numAwardsNorm'), greyScaleNormQuantitative))
+  @Operand<string>(chain(access('numAwardsNorm'), colorScaleNormQuantitative))
   numAwardsColor: string;
-  @Operand<string>(chain(access('numAwardsNorm'), greyScaleNormQuantitativeStroke))
+  @Operand<string>(chain(access('numAwardsNorm'), colorScaleNormQuantitativeStroke))
   numAwardsStrokeColor: string;
   @Operand<number>(chain(access<number>('numAwardsNorm'), quantitativeTransparency))
   numAwardsTransparency: number;
@@ -73,9 +75,9 @@ export class Investigator {
   firstYearAreaSize: number;
   @Operand<number>(chain(access('firstYearNorm'), fontSizeScaleNormQuantitative))
   firstYearFontSize: number;
-  @Operand<string>(chain(access('firstYearNorm'), greyScaleNormQuantitative))
+  @Operand<string>(chain(access('firstYearNorm'), colorScaleNormQuantitative))
   firstYearColor: string;
-  @Operand<string>(chain(access('firstYearNorm'), greyScaleNormQuantitativeStroke))
+  @Operand<string>(chain(access('firstYearNorm'), colorScaleNormQuantitativeStroke))
   firstYearStrokeColor: string;
 
   // Last Year Encodings
@@ -87,8 +89,8 @@ export class Investigator {
   lastYearAreaSize: number;
   @Operand<number>(chain(access('lastYearNorm'), fontSizeScaleNormQuantitative))
   lastYearFontSize: number;
-  @Operand<string>(chain(access('lastYearNorm'), greyScaleNormQuantitative))
+  @Operand<string>(chain(access('lastYearNorm'), colorScaleNormQuantitative))
   lastYearColor: string;
-  @Operand<string>(chain(access('lastYearNorm'), greyScaleNormQuantitativeStroke))
+  @Operand<string>(chain(access('lastYearNorm'), colorScaleNormQuantitativeStroke))
   lastYearStrokeColor: string;
 }

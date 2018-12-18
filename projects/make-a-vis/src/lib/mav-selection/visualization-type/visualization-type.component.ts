@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChildren, QueryList, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, OnInit, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 
 import { Vis, VisType } from '../../shared/types';
 
@@ -11,7 +11,6 @@ export class VisualizationTypeComponent implements OnInit, OnChanges {
   @Input() activeVis: Vis;
   @Input() mode: 'add'|'edit';
   @Input() panelState: boolean;
-
   selected: VisType;
   visTypes: VisType[] = [
     { template: 'scattergraph', label: 'Scatter Graph', icon: 'scatterGraph' },

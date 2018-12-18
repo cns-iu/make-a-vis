@@ -2,7 +2,7 @@
   <span class="selection-title">Make Visualization</span>
 
   <div class="expansion-panel-container">
-    <mat-expansion-panel class="expansion-panel" [expanded]="mode==='add'" #visTypePanel>
+    <mat-expansion-panel class="expansion-panel" [expanded]="step===0">
       <mat-expansion-panel-header>
         <mat-panel-title class="title">
           Select Visualization Type
@@ -11,13 +11,13 @@
       <mav-selection-visualization-type [activeVis]="activeVis" [mode]="mode" [panelState]="panelState" #visType>
       </mav-selection-visualization-type>
       <mat-action-row class="selection-button">
-        <button mat-button (click)="visType.selected ? addVisualization(visType.selected): undefined">Done</button>
+        <button mat-button (click)="visType.selected?addVisualization(visType.selected):undefined">Done</button>
       </mat-action-row>
     </mat-expansion-panel>
   </div>
 
   <div class="expansion-panel-container">
-    <mat-expansion-panel class="expansion-panel" [expanded]="mode==='edit'">
+    <mat-expansion-panel class="expansion-panel" [expanded]="step===1" [disabled]="step===0">
       <mat-expansion-panel-header>
         <mat-panel-title class="title">
           Select Graphic Symbol Type(s)
@@ -25,13 +25,13 @@
       </mat-expansion-panel-header>
       <mav-selection-graphic-symbol-type [activeVis]="activeVis" [mode]="mode"></mav-selection-graphic-symbol-type>
       <mat-action-row class="selection-button">
-        <button mat-button>Done</button>
+        <button mat-button (click)="stepDone()">Done</button>
       </mat-action-row>
     </mat-expansion-panel>
   </div>
 
   <div class="expansion-panel-container">
-    <mat-expansion-panel class="expansion-panel" [expanded]="'false'">
+    <mat-expansion-panel class="expansion-panel" [expanded]="step===2" [disabled]="step===1 || step===0">
       <mat-expansion-panel-header>
         <mat-panel-title class="title">
           Select Graphic Variable Types
@@ -39,7 +39,7 @@
       </mat-expansion-panel-header>
       <mav-selection-graphic-variable-type></mav-selection-graphic-variable-type>
       <mat-action-row class="selection-button">
-        <button mat-button>Visualize</button>
+        <button mat-button (click)="stepDone()">Visualize</button>
       </mat-action-row>
     </mat-expansion-panel>
   </div>

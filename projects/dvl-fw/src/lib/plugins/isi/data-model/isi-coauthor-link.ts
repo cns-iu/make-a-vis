@@ -3,8 +3,8 @@ import { access, chain, combine, map, Operand } from '@ngx-dino/core';
 
 import {
   areaSizeScaleNormQuantitative, fontSizeScaleNormQuantitative, strokeWidthScaleNormQuantitative,
-  greyScaleNormQuantitative, greyScaleNormQuantitativeStroke,
-  norm0to100, formatNumber, formatYear, quantitativeTransparency
+  colorScaleNormQuantitative, colorScaleNormQuantitativeStroke,
+  norm0to100, formatNumber, formatYear, quantitativeTransparency, defaultStyles
 } from '../../../encoding';
 import { Transient } from '../../../shared/transient';
 
@@ -38,6 +38,7 @@ export class CoAuthorLink {
   firstYear: number;
   lastYear: number;
   globalStats: CoAuthorLinkStats;
+  defaultStyles = defaultStyles;
 
   constructor(data: any) {
     Object.assign(this, data);
@@ -68,9 +69,9 @@ export class CoAuthorLink {
   numPapersStrokeWidth: number;
   @Operand<number>(chain(access('numPapersNorm'), fontSizeScaleNormQuantitative))
   numPapersFontSize: number;
-  @Operand<string>(chain(access('numPapersNorm'), greyScaleNormQuantitative))
+  @Operand<string>(chain(access('numPapersNorm'), colorScaleNormQuantitative))
   numPapersColor: string;
-  @Operand<string>(chain(access('numPapersNorm'), greyScaleNormQuantitativeStroke))
+  @Operand<string>(chain(access('numPapersNorm'), colorScaleNormQuantitativeStroke))
   numPapersStrokeColor: string;
   @Operand<number>(chain(access<number>('numPapersNorm'), quantitativeTransparency))
   numPapersTransparency: number;
@@ -86,9 +87,9 @@ export class CoAuthorLink {
   numCitesStrokeWidth: number;
   @Operand<number>(chain(access('numCitesNorm'), fontSizeScaleNormQuantitative))
   numCitesFontSize: number;
-  @Operand<string>(chain(access('numCitesNorm'), greyScaleNormQuantitative))
+  @Operand<string>(chain(access('numCitesNorm'), colorScaleNormQuantitative))
   numCitesColor: string;
-  @Operand<string>(chain(access('numCitesNorm'), greyScaleNormQuantitativeStroke))
+  @Operand<string>(chain(access('numCitesNorm'), colorScaleNormQuantitativeStroke))
   numCitesStrokeColor: string;
 
   // First Year Encodings
@@ -102,9 +103,9 @@ export class CoAuthorLink {
   firstYearStrokeWidth: number;
   @Operand<number>(chain(access('firstYearNorm'), fontSizeScaleNormQuantitative))
   firstYearFontSize: number;
-  @Operand<string>(chain(access('firstYearNorm'), greyScaleNormQuantitative))
+  @Operand<string>(chain(access('firstYearNorm'), colorScaleNormQuantitative))
   firstYearColor: string;
-  @Operand<string>(chain(access('firstYearNorm'), greyScaleNormQuantitativeStroke))
+  @Operand<string>(chain(access('firstYearNorm'), colorScaleNormQuantitativeStroke))
   firstYearStrokeColor: string;
 
   // Last Year Encodings
@@ -118,8 +119,8 @@ export class CoAuthorLink {
   lastYearStrokeWidth: number;
   @Operand<number>(chain(access('lastYearNorm'), fontSizeScaleNormQuantitative))
   lastYearFontSize: number;
-  @Operand<string>(chain(access('lastYearNorm'), greyScaleNormQuantitative))
+  @Operand<string>(chain(access('lastYearNorm'), colorScaleNormQuantitative))
   lastYearColor: string;
-  @Operand<string>(chain(access('lastYearNorm'), greyScaleNormQuantitativeStroke))
+  @Operand<string>(chain(access('lastYearNorm'), colorScaleNormQuantitativeStroke))
   lastYearStrokeColor: string;
 }

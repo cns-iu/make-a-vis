@@ -122,6 +122,9 @@
       border-color: $border;
       background-color: $white;
     }
+    .tab:hover {
+      border-bottom-color: $disabled-text !important;
+    }
     .label {
       color: $primary-text;
     }
@@ -137,6 +140,29 @@
     .add-icon, .edit-icon {
       color: $primary;
     }
+  }
+
+  .about-text-short-container {
+    border-color: $border !important;
+    background-color: $white;
+
+    .about-text-short {
+      color: $secondary-text !important;
+    }
+    .expand-icon {
+      color: $primary;
+    }
+  }
+}
+
+.about-text-long-menu {
+  border-color: $border !important;
+
+  .about-text-long {
+    color: $secondary-text !important;
+  }
+  .expand-icon {
+    color: $primary;
   }
 }
 

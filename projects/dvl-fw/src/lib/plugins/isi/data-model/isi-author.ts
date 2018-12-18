@@ -3,7 +3,8 @@ import { access, chain, constant, Operand } from '@ngx-dino/core';
 
 import {
   areaSizeScaleNormQuantitative, extractPoint, fontSizeScaleNormQuantitative, formatNumber, formatYear,
-  greyScaleNormQuantitative, greyScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency
+  colorScaleNormQuantitative, colorScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency,
+  defaultStyles
 } from '../../../encoding';
 import { Location } from '../../../encoding/geocoder';
 
@@ -39,6 +40,7 @@ export class Author {
   lastYear: number;
   position: [number, number];
   globalStats: AuthorStats;
+  defaultStyles = defaultStyles;
 
   constructor(data: any) {
     Object.assign(this, data);
@@ -60,9 +62,9 @@ export class Author {
   numPapersAreaSize: number;
   @Operand<number>(chain(access('numPapersNorm'), fontSizeScaleNormQuantitative))
   numPapersFontSize: number;
-  @Operand<string>(chain(access('numPapersNorm'), greyScaleNormQuantitative))
+  @Operand<string>(chain(access('numPapersNorm'), colorScaleNormQuantitative))
   numPapersColor: string;
-  @Operand<string>(chain(access('numPapersNorm'), greyScaleNormQuantitativeStroke))
+  @Operand<string>(chain(access('numPapersNorm'), colorScaleNormQuantitativeStroke))
   numPapersStrokeColor: string;
   @Operand<number>(chain(access<number>('numPapersNorm'), quantitativeTransparency))
   numPapersTransparency: number;
@@ -76,9 +78,9 @@ export class Author {
   numCitesAreaSize: number;
   @Operand<number>(chain(access('numCitesNorm'), fontSizeScaleNormQuantitative))
   numCitesFontSize: number;
-  @Operand<string>(chain(access('numCitesNorm'), greyScaleNormQuantitative))
+  @Operand<string>(chain(access('numCitesNorm'), colorScaleNormQuantitative))
   numCitesColor: string;
-  @Operand<string>(chain(access('numCitesNorm'), greyScaleNormQuantitativeStroke))
+  @Operand<string>(chain(access('numCitesNorm'), colorScaleNormQuantitativeStroke))
   numCitesStrokeColor: string;
 
   // First Year Encodings
@@ -90,9 +92,9 @@ export class Author {
   firstYearAreaSize: number;
   @Operand<number>(chain(access('firstYearNorm'), fontSizeScaleNormQuantitative))
   firstYearFontSize: number;
-  @Operand<string>(chain(access('firstYearNorm'), greyScaleNormQuantitative))
+  @Operand<string>(chain(access('firstYearNorm'), colorScaleNormQuantitative))
   firstYearColor: string;
-  @Operand<string>(chain(access('firstYearNorm'), greyScaleNormQuantitativeStroke))
+  @Operand<string>(chain(access('firstYearNorm'), colorScaleNormQuantitativeStroke))
   firstYearStrokeColor: string;
 
   // Last Year Encodings
@@ -104,8 +106,8 @@ export class Author {
   lastYearAreaSize: number;
   @Operand<number>(chain(access('lastYearNorm'), fontSizeScaleNormQuantitative))
   lastYearFontSize: number;
-  @Operand<string>(chain(access('lastYearNorm'), greyScaleNormQuantitative))
+  @Operand<string>(chain(access('lastYearNorm'), colorScaleNormQuantitative))
   lastYearColor: string;
-  @Operand<string>(chain(access('lastYearNorm'), greyScaleNormQuantitativeStroke))
+  @Operand<string>(chain(access('lastYearNorm'), colorScaleNormQuantitativeStroke))
   lastYearStrokeColor: string;
 }
