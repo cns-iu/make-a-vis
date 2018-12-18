@@ -5,7 +5,6 @@ import { NgxDinoModule } from './plugins/ngx-dino/ngx-dino.module';
 import { DvlFwVisualizationComponent } from './visualization/visualization.component';
 
 
-
 @NgModule({
   imports: [NgxDinoModule],
   declarations: [DvlFwVisualizationComponent],
