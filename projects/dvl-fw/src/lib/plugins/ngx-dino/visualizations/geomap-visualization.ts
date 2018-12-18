@@ -25,7 +25,7 @@ export class GeomapVisualization extends DefaultVisualization {
         { type: 'latlng', label: 'Latitude/Longitude' },
         { type: 'color', label: 'Color', visualization: 'color' },
         { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
-        { type: 'areaSize', label: 'Area Size', visualization: 'node-size'},
+        { type: 'areaSize', label: 'Size', visualization: 'node-size'},
         { type: 'shape', label: 'Shape' },
         { type: 'transparency', label: 'Transparency'},
         { type: 'strokeTransparency', label: 'Stroke Transparency'},
