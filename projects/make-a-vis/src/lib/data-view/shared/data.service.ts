@@ -60,7 +60,6 @@ export class DataService {
             return dataSource;
           });
           this.dataSources = this.getFlatArrayOfDataSources(this.getDataSourceWithChildren(this.dataSources, 0));
-          console.log(this.dataSources);
           this.dataSourcesChange.next(this.dataSources);
         } else {
           this.dataSourcesChange.next([]);
