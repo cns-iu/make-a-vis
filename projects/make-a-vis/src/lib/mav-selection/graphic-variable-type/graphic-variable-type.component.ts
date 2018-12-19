@@ -14,7 +14,7 @@ import { getAvailableGraphicVariablesSelector, SidenavState } from '../../toolba
 })
 export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   @Input() activeVis: Vis;
-  @Input() recordStream: RecordStream;
+  @Input() recordStream: Map<string, RecordStream>;
   graphicSymbolTypes: GraphicSymbolOption[] = [];
   selectionClass = '';
   availableGraphicVariables: GraphicVariable[];
@@ -31,24 +31,30 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if ('activeVis' in changes) {
       if (this.activeVis && Object.keys(this.activeVis.data.graphicSymbols).length) {
+        this.graphicSymbolTypes = [];
         this.getGraphicVariableOptions();
       }
     }
   }
 
   dataVariableDropped(dataVariable: DataVariable, graphicVariableOption: GraphicVariableOption, graphicSymbolOption: GraphicSymbolOption) {
-    const mappableGraphicVariables = this.getGraphicVariable(dataVariable, graphicVariableOption);
+    const mappableGraphicVariables = this.getGraphicVariable(dataVariable, graphicVariableOption, graphicSymbolOption);
     if (mappableGraphicVariables.length) {
       this.updateService.updateGraphicVariable(this.activeVis.data, graphicSymbolOption.id,
-        mappableGraphicVariables[0].id || mappableGraphicVariables[0].type, mappableGraphicVariables[0]);
+        graphicVariableOption.id || graphicVariableOption.type, mappableGraphicVariables[0]);
+        console.log(this.activeVis.data);
     }
   }
 
-  getGraphicVariable(dataVariable: DataVariable, graphicVariableOption: GraphicVariableOption): GraphicVariable[] {
+  getGraphicVariable(
+    dataVariable: DataVariable,
+    graphicVariableOption: GraphicVariableOption,
+    graphicSymbolOption: GraphicSymbolOption
+  ): GraphicVariable[] {
     if (this.availableGraphicVariables.length) {
       const filteredGVs: GraphicVariable[] = this.availableGraphicVariables.filter((gv) => {
         return ((gv.type && gv.type === graphicVariableOption.type)
-        && (gv.recordStream.id === this.recordStream.id)
+        && (gv.recordStream.id === this.recordStream.get(graphicSymbolOption.id).id)
         && (gv.dataVariable.id === dataVariable.id));
       });
       return filteredGVs;
@@ -69,9 +75,9 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
     }
   }
 
-  acceptsDrop(graphicVariableOption: GraphicVariableOption) {
+  acceptsDrop(graphicVariableOption: GraphicVariableOption, graphicSymbolOption: GraphicSymbolOption) {
     return (dataVariable: DataVariable) => {
-      return this.getGraphicVariable(dataVariable, graphicVariableOption).length > 0;
+      return this.getGraphicVariable(dataVariable, graphicVariableOption, graphicSymbolOption).length > 0;
     };
   }
 }

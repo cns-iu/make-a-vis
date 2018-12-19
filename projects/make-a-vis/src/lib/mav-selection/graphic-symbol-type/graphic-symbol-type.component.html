@@ -1,10 +1,10 @@
 <div class="graphic-symbol-selection-container">
     <mat-card *ngFor="let symbolType of graphicSymbolOptions" 
     (mavDroppable)="recordStreamDropped($event, symbolType)"
-    (dragDropEvents)="onDragDropEvent($event)" [ngClass]="{'record-stream-selected': selectedRecordStream?true:false}"
+    (dragDropEvents)="onDragDropEvent($event)" [ngClass]="{'record-stream-selected': selectedRecordStream.get(symbolType.id)?true:false}"
     class="graphic-symbol-card">
         {{symbolType?.label}}({{symbolType?.type}})<br>
-        {{selectedRecordStream?.label}}
+        {{selectedRecordStream.get(symbolType.id)?.label}}
     </mat-card>
 </div>
 

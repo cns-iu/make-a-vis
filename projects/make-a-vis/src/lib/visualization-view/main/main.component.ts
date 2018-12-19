@@ -23,6 +23,7 @@ export class MainComponent {
 
   currentAddVisMode: ModeType;
   addVisPanelState = false;
+  editVisPanelState = false;
   addIcons = ['add_circle', 'add_circle_outline'];
   addIconName = this.addIcons[1];
   visTypes: VisType[] = [
@@ -97,6 +98,7 @@ export class MainComponent {
 
     if (mode === 'edit') {
       this.addIconName = this.addIcons[1];
+      this.editVisPanelState = !this.editVisPanelState;
       if (this.addVisPanelState) {
         // set right icon name
       } else {
