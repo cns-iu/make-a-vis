@@ -6,7 +6,7 @@ import {
 } from '@ngrx/store';
 import { assign, pick } from 'lodash';
 
-import { Project, RecordStream } from '@dvl-fw/core';
+import { Project, RecordStream, GraphicVariable } from '@dvl-fw/core';
 import { INITIAL_SIDENAV_STATE, SidenavState } from './state';
 import { SidenavActionTypes, SidenavActionsUnion } from './actions';
 
@@ -144,6 +144,16 @@ export const getRecordStreams = (state: SidenavState): RecordStream[] => {
 export const getRecordStreamsSelector = createSelector<SidenavState, SidenavState, RecordStream[]>(
   selectSelfFeature,
   getRecordStreams
+);
+
+export const getAvailableGraphicVariables = (state: SidenavState): GraphicVariable[] => {
+  if (state.project && state.project.graphicVariables) {
+    return state.project.graphicVariables;
+  }
+};
+export const getAvailableGraphicVariablesSelector = createSelector<SidenavState, SidenavState, GraphicVariable[]>(
+  selectSelfFeature,
+  getAvailableGraphicVariables
 );
 
 export const getLoadingProjectCompleted = (state: SidenavState): boolean => state.loadingProject;
