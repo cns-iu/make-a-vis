@@ -1,4 +1,4 @@
-<div class="mav-graphic-variable-legend graphic-variable-legend-container" *ngIf="!hideIfUnset || !!graphicVariable">
+<div class="mav-graphic-variable-legend graphic-variable-legend-container" [hidden]="hideIfUnset && !graphicVariable">
   <mat-card ngClass="graphic-variable-legend-card">
     <mat-card-title ngClass="graphic-variable-legend-title">{{ graphicVariableOption?.label }}</mat-card-title>
     <mat-card-subtitle ngClass="graphic-variable-legend-subtitle">{{ graphicVariable?.recordSet.label }}: {{ graphicVariable?.label }}</mat-card-subtitle>
