@@ -578,6 +578,12 @@ export class NSFTemplateProject extends DefaultProject {
             graphicVariableType: 'areaSize',
             graphicVariableId: 'areaSize'
           },
+          'y-order': {
+            recordSet: 'award',
+            dataVariable: 'startYear',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
           color: {
             recordSet: 'award',
             dataVariable: 'awardInstrument',
