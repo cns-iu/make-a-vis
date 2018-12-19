@@ -35,8 +35,24 @@ export class GraphicSymbolTypeComponent implements OnInit, OnChanges {
       if (this.activeVis && this.activeVis.data) {
         this.selectedRecordStream = new Map();
         this.graphicSymbolOptions = this.activeVis.data.graphicSymbolOptions;
+
+        if (this.mode === 'edit') {
+          this.setRecordStreams();
+        }
+      }
+
+      if ('mode' in changes && this.mode === 'edit') {
+        if (this.activeVis && this.activeVis.data) {
+          this.setRecordStreams();
+        }
       }
     }
+  }
+
+  setRecordStreams() {
+    Object.keys(this.activeVis.data.graphicSymbols).forEach((gso) => {
+      this.selectedRecordStream.set(gso, this.activeVis.data.graphicSymbols[gso].recordStream);
+    });
   }
 
   recordStreamDropped(recordStream: RecordStream, graphicSymbolOption: GraphicSymbolOption) {
