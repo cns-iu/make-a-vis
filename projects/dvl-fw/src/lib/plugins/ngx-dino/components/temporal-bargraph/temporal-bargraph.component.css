@@ -6,3 +6,7 @@ svg {
     font-size: 8px;
     transform: translate(-0.25rem);
 }
+
+::ng-deep .temporal-bargraph-visualization .tick-marks-label {
+    font-size: 10px;
+}
