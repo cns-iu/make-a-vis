@@ -51,14 +51,12 @@
 .add-edit-visualization {
     display: flex;
     position: absolute;
-    top: 0.9rem;
+    top: 0.25rem;
     right: 0.8rem;
     z-index: 10;
     width: 6rem;
     
     .add-icon, .edit-icon  {
-        padding: .3125rem;
-        height: auto;
         font-size: 1.875rem;
         z-index: 10;
         border: 0;
@@ -67,12 +65,15 @@
     }
 
     .add-icon {
-        width: 2.5rem
+        width: 2.5rem;
+        padding: .3125rem;
+        height: auto;
      }
     
     .edit-icon { 
-        width: 2.33rem;
-        margin-top: -0.2rem;
+        width: 40px;
+        height: 40px;
+        padding: 1px;
     }
 }
 
