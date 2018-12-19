@@ -16,7 +16,7 @@ import { MainComponent } from './main/main.component';
 import { TableComponent } from './table/table.component';
 import { StartProjectOptionsComponent } from './start-project-options/start-project-options.component';
 import { StartProjectIconComponent } from './icons/start-project-icon/start-project-icon.component';
-import { TableIconComponent } from './icons/table-icon/table-icon/table-icon.component';
+import { TableIconComponent } from './icons/table-icon/table-icon.component';
 
 @NgModule({
   imports: [
