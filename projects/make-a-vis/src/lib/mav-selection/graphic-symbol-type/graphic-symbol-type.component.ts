@@ -15,9 +15,9 @@ import { getRecordStreamsSelector, SidenavState } from '../../toolbar/shared/sto
 export class GraphicSymbolTypeComponent implements OnInit, OnChanges {
   @Input() activeVis: Vis;
   @Input() mode: ModeType;
-
-  graphicSymbolOptions: GraphicSymbolOption[] = []; // TODO: temporary placeholder
+  graphicSymbolOptions: GraphicSymbolOption[] = [];
   recordStreams: RecordStream[];
+  selectedRecordStream: RecordStream;
   selectionClass = '';
 
   constructor(private updateService: UpdateVisService, private store: Store<SidenavState>) {
@@ -38,6 +38,7 @@ export class GraphicSymbolTypeComponent implements OnInit, OnChanges {
   }
 
   recordStreamDropped(recordStream: RecordStream, graphicSymbolOption: GraphicSymbolOption) {
+    this.selectedRecordStream = recordStream;
     this.updateService.updateGraphicSymbol(this.activeVis.data, graphicSymbolOption.id, graphicSymbolOption.type, recordStream);
   }
 

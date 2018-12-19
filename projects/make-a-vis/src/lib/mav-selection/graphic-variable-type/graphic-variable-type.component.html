@@ -2,13 +2,15 @@
   <mat-expansion-panel *ngFor="let graphicSymbol of graphicSymbolTypes" class="expansion-panel">
     <mat-expansion-panel-header>
       <mat-panel-title class="title">
-        {{graphicSymbol}}
+        {{graphicSymbol?.label}}({{graphicSymbol?.type}})
       </mat-panel-title>
     </mat-expansion-panel-header>
 
     <div class="graphic-variable-wrapper">
-      <mat-card *ngFor="let variableType of graphicVariableTypes[graphicSymbol]" class="card">
-        <div class="variable-type">{{variableType}}</div>
+      <mat-card *ngFor="let variableType of graphicSymbol.graphicVariableOptions" class="card"
+      (mavDroppable)="dataVariableDropped($event, variableType, graphicSymbol)"
+      (dragDropEvents)="onDragDropEvent($event)">
+        <div class="variable-type">{{variableType?.label}}</div>
         <!-- TODO: temporary placeholder-->
         <div class="variable-category">Quantitative</div>
       </mat-card>
