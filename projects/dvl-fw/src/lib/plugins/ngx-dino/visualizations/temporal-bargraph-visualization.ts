@@ -14,6 +14,7 @@ export class TemporalBargraphVisualization extends DefaultVisualization {
       { type: 'identifier', label: 'Identifier' },
       { type: 'x-start', label: 'X-axis Start Point' },
       { type: 'x-end', label: 'X-axis End Point' },
+      { type: 'y-order', label: 'Bar Y-axis Ordering' },
       { type: 'height', label: 'Bar Height' },
       { type: 'color', label: 'Color', visualization: 'color' },
       { type: 'transparency', label: 'Transparency'},
