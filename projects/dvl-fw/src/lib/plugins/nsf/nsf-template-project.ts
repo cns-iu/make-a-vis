@@ -592,6 +592,12 @@ export class NSFTemplateProject extends DefaultProject {
           },
           tooltip: {
             recordSet: 'award',
+            dataVariable: 'nsfPrograms',
+            graphicVariableType: 'text',
+            graphicVariableId: 'text'
+          },
+          label: {
+            recordSet: 'award',
             dataVariable: 'title',
             graphicVariableType: 'text',
             graphicVariableId: 'text'
