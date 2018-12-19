@@ -20,6 +20,7 @@ import { GeomapIconComponent } from './icons/geomap/geomap-icon.component';
 import { MapOfScienceIconComponent } from './icons/map-of-science/map-of-science-icon.component';
 import { NetworkIconComponent } from './icons/network/network-icon.component';
 import { ScatterGraphIconComponent } from './icons/scatter-graph/scatter-graph-icon.component';
+import { EditIconComponent } from './icons/edit/edit-icon/edit-icon.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { ScatterGraphIconComponent } from './icons/scatter-graph/scatter-graph-i
     GeomapIconComponent,
     MapOfScienceIconComponent,
     NetworkIconComponent,
-    ScatterGraphIconComponent
+    ScatterGraphIconComponent,
+    EditIconComponent
   ],
   exports: [MainComponent]
 })

@@ -1,0 +1,18 @@
+.mav-edit-icon {
+    .inactive-edit-icon {
+        .st0 {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+        }
+        path {
+            fill: currentColor;
+        }
+    }
+    .active-edit-icon {
+        .st0 {
+            fill: currentColor;
+        }
+    }
+}
