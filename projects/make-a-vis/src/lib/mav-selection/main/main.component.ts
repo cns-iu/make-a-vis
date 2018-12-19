@@ -1,5 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild, Input, ElementRef } from '@angular/core';
-import { MatExpansionPanel } from '@angular/material/expansion';
+import { Component, EventEmitter, OnInit, Output, ViewChild, Input } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { uniqueId } from 'lodash';
 import { of } from 'rxjs';
