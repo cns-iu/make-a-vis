@@ -55,5 +55,6 @@ export const defaultStyles = {
   transparency: 0.25,
   strokeTransparency: 0.0,
   strokeWidth: 1,
-  strokeColor: '#000007'
+  strokeColor: '#000007',
+  labelPosition: 'left'
 };

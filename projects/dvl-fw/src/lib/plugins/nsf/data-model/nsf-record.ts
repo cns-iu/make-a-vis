@@ -31,7 +31,7 @@ function year(field: string): Operator<any, number> {
   return chain(date(field), map<Date, number>(s => s ? s.getFullYear() : undefined));
 }
 function usDollars(field: string): Operator<any, number> {
-  return chain(access(field), map<string, number>(s => Number((s || '').replace('$', '').replace(',', '')) || 0));
+  return chain(access(field), map<string, number>(s => Number((s || '').replace(/[^0-9\.]/g, '')) || 0));
 }
 
 function padLeft(nr, n, str = '0') {

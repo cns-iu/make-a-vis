@@ -148,6 +148,9 @@ export class NSFTemplateProject extends DefaultProject {
               ],
               strokeTransparency: [
                 {id: 'fixed', selector: 'defaultStyles.strokeTransparency', label: 'Default'}
+              ],
+              labelPosition: [
+                {id: 'fixed', selector: 'defaultStyles.labelPosition', label: 'Default'}
               ]
             },
             title: {
@@ -578,6 +581,12 @@ export class NSFTemplateProject extends DefaultProject {
             graphicVariableType: 'areaSize',
             graphicVariableId: 'areaSize'
           },
+          'y-order': {
+            recordSet: 'award',
+            dataVariable: 'startYear',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
           color: {
             recordSet: 'award',
             dataVariable: 'awardInstrument',
@@ -586,9 +595,21 @@ export class NSFTemplateProject extends DefaultProject {
           },
           tooltip: {
             recordSet: 'award',
+            dataVariable: 'nsfPrograms',
+            graphicVariableType: 'text',
+            graphicVariableId: 'text'
+          },
+          label: {
+            recordSet: 'award',
             dataVariable: 'title',
             graphicVariableType: 'text',
             graphicVariableId: 'text'
+          },
+          labelPosition: {
+            recordSet: 'award',
+            dataVariable: 'id',
+            graphicVariableType: 'labelPosition',
+            graphicVariableId: 'fixed'
           },
           transparency: {
             recordSet: 'award',
