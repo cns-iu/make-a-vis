@@ -1,5 +1,5 @@
 <div class="graphic-symbol-wrapper">
-  <mat-expansion-panel *ngFor="let graphicSymbol of graphicSymbolTypes" class="expansion-panel">
+  <mat-expansion-panel *ngFor="let graphicSymbol of graphicSymbolTypes" class="expansion-panel" [expanded]="false">
     <mat-expansion-panel-header>
       <mat-panel-title class="title">
         {{graphicSymbol?.label}}({{graphicSymbol?.type}})

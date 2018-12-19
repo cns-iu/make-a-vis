@@ -7,6 +7,7 @@ import { ModeType, Vis } from '../../shared/types';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import { getRecordStreamsSelector, SidenavState } from '../../toolbar/shared/store';
 
+
 @Component({
   selector: 'mav-selection-graphic-symbol-type',
   templateUrl: './graphic-symbol-type.component.html',
@@ -17,7 +18,7 @@ export class GraphicSymbolTypeComponent implements OnInit, OnChanges {
   @Input() mode: ModeType;
   graphicSymbolOptions: GraphicSymbolOption[] = [];
   recordStreams: RecordStream[];
-  selectedRecordStream: RecordStream;
+  selectedRecordStream: Map<string, RecordStream>;
   selectionClass = '';
 
   constructor(private updateService: UpdateVisService, private store: Store<SidenavState>) {
@@ -32,13 +33,14 @@ export class GraphicSymbolTypeComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if ('activeVis' in changes) {
       if (this.activeVis && this.activeVis.data) {
+        this.selectedRecordStream = new Map();
         this.graphicSymbolOptions = this.activeVis.data.graphicSymbolOptions;
       }
     }
   }
 
   recordStreamDropped(recordStream: RecordStream, graphicSymbolOption: GraphicSymbolOption) {
-    this.selectedRecordStream = recordStream;
+    this.selectedRecordStream.set(graphicSymbolOption.id, recordStream);
     this.updateService.updateGraphicSymbol(this.activeVis.data, graphicSymbolOption.id, graphicSymbolOption.type, recordStream);
   }
 
