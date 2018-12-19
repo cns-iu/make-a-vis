@@ -1,22 +1,56 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Component } from '@angular/core';
 
+import { TemporalBargraphComponent as NgxTemporalBargraphComponent } from '@ngx-dino/temporal-bargraph';
 import { BaseVisualizationComponent } from '../base-visualization-component';
+import { createDefaultFieldGroup, createFieldNameMapping } from '../utility';
 
-export type Properties = any;
+export type Properties = Pick<
+  NgxTemporalBargraphComponent,
+  'barSpacing'
+>;
+
+export type BarFields = Pick<
+  NgxTemporalBargraphComponent,
+  'barIdField' | 'barStartField' | 'barEndField' | 'barWeightField' |
+  'barStackOrderField' | 'barColorField' | 'barTransparencyField' |
+  'barStrokeColorField' | 'barStrokeWidthField' | 'barStrokeTransparencyField' |
+  'barLabelField' | 'barLabelPositionField' | 'barTooltipField'
+>;
 
 // tslint:disable-next-line:interface-over-type-literal
-export type FieldGroups = {};
+export type FieldGroups = {
+  bars: BarFields
+};
+
+const barsFieldNameMapping = createFieldNameMapping([
+  'color', 'transparency', 'strokeColor', 'strokeWidth', 'strokeTransparency',
+  'label', 'labelPosition', 'tooltip'
+], {
+  'identifier': 'barIdField', 'x-start': 'barStartField', 'x-end': 'barEndField',
+  'height': 'barWeightField', 'y-order': 'barStackOrderField'
+}, 'bar');
 
 @Component({
-  selector: 'dvl-temporal-bargraph',
+  selector: 'dvl-vis-temporal-bargraph',
   templateUrl: './temporal-bargraph.component.html',
   styleUrls: ['./temporal-bargraph.component.css']
 })
 export class TemporalBargraphComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
-  readonly defaultProperties = {};
-  readonly defaultFieldGroups = {};
-  fieldNameFor(key: string, group: string): string {
-    return key;
+  readonly defaultProperties = {
+    barSpacing: undefined
+  };
+
+  readonly defaultFieldGroups = {
+    bars: createDefaultFieldGroup([
+      'barIdField', 'barStartField', 'barEndField', 'barWeightField',
+      'barStackOrderField', 'barColorField', 'barTransparencyField',
+      'barStrokeColorField', 'barStrokeWidthField', 'barStrokeTransparencyField',
+      'barLabelField', 'barLabelPositionField', 'barTooltipField'
+    ])
+  };
+
+  fieldNameFor(key: string, _group: string): string {
+    return barsFieldNameMapping[key];
   }
 }

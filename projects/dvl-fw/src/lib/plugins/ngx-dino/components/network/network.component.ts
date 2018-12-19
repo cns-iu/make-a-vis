@@ -28,7 +28,6 @@ export type FieldGroups = {
   edges: EdgeFields
 };
 
-// TODO: strokeWidth, tooltip, label, labelPosition
 const nodesFieldNameMapping = createFieldNameMapping([
   'color', 'transparency', 'position', 'label', 'labelPosition', 'tooltip', 'strokeWidth'
 ], {

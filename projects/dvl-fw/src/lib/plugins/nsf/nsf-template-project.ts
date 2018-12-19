@@ -554,7 +554,25 @@ export class NSFTemplateProject extends DefaultProject {
             graphicVariableType: 'axis',
             graphicVariableId: 'axis'
           },
+          'x-start': {
+            recordSet: 'award',
+            dataVariable: 'startYear',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          'x-end': {
+            recordSet: 'award',
+            dataVariable: 'endYear',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
           areaSize: {
+            recordSet: 'award',
+            dataVariable: 'awardedAmount',
+            graphicVariableType: 'areaSize',
+            graphicVariableId: 'areaSize'
+          },
+          height: {
             recordSet: 'award',
             dataVariable: 'awardedAmount',
             graphicVariableType: 'areaSize',
@@ -780,7 +798,7 @@ export class NSFTemplateProject extends DefaultProject {
         template: 'temporal-bargraph',
         properties: {},
         graphicSymbols: {
-          // nodes: 'awardPoints'
+          bars: 'awardPoints'
         }
       }, this)
     ];

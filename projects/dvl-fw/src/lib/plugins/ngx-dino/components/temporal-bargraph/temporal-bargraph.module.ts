@@ -2,10 +2,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { TemporalBargraphModule as NgxTemporalBargraphModule } from '@ngx-dino/temporal-bargraph';
 import { TemporalBargraphComponent } from './temporal-bargraph.component';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, NgxTemporalBargraphModule],
   declarations: [TemporalBargraphComponent],
   entryComponents: [TemporalBargraphComponent]
 })

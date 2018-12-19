@@ -8,9 +8,21 @@ import { TemporalBargraphComponent } from '../components/temporal-bargraph/tempo
 export class TemporalBargraphVisualization extends DefaultVisualization {
   readonly description = 'TODO';
   readonly component = TemporalBargraphComponent;
-  readonly graphicSymbolOptions = [
-    // TODO: Specify valid options
-  ];
+  readonly graphicSymbolOptions = [{
+    id: 'bars', label: 'Bars', type: 'area',
+    graphicVariableOptions: [
+      { type: 'identifier', label: 'Identifier' },
+      { type: 'x-start', label: 'X-axis Start Point' },
+      { type: 'x-end', label: 'X-axis End Point' },
+      { type: 'height', label: 'Bar Height' },
+      { type: 'color', label: 'Color', visualization: 'color' },
+      { type: 'transparency', label: 'Transparency'},
+      { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
+      { type: 'strokeTransparency', label: 'Stroke Transparency'},
+      { type: 'label', label: 'Label'},
+      { type: 'tooltip', label: 'Tooltip'}
+    ]
+  }];
 }
 
 export class TemporalBargraphVisualizationFactory implements ObjectFactory<Visualization, Project> {
