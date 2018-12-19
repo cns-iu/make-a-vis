@@ -15,6 +15,7 @@
     display: flex;
     align-content: center;
     justify-content: space-between;
+    padding: 0 1rem;
 }
 
 .visualization-group .selected {
@@ -23,8 +24,7 @@
 }
 
 ::ng-deep .visualization-group .mat-tab-header {
-    height: 2.75rem;
-    padding: 0.5rem 1rem;
+    padding: 0 1rem;
     margin-bottom: 0.625rem;
     border: 1px solid transparent;
     border-radius: 4px;

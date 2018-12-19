@@ -1,9 +1,16 @@
 .datatable-wrapper 
     border: 1px solid #E0E0E0
     margin-top: 1rem
+    padding-top: 0.5rem
+    padding-left: 2.5rem
     
     .datatable-container
         .card-header
+            line-height: 1.25rem
+
+            &::ng-deep mat-card-header-text
+                margin: 0
+
             .label 
                 color: #212121
                 font-size: .875rem
@@ -17,13 +24,16 @@
             .expand-icon
                 position: absolute
                 padding: 0.5rem
-                top: 0.25rem
+                top: 0
                 left: 0
                 font-size: 1.5rem
                 color: #1E88E5
                 cursor: pointer
+                height: 2.5rem
+                width: 2.5rem
 
         .card-content
+            margin-bottom: 0
             .table
                 border-bottom: 1px solid #e0e0e0
                 overflow-x: auto
@@ -47,8 +57,9 @@
                 justify-content: flex-end
 
                 .toggle-group
-                    padding-right: 1rem
-                    padding-bottom: 1rem
+                    display: flex
+                    align-items: center
+                    padding: 0
                 
                 .toggle-label
                     color: #bdbdbd
@@ -57,3 +68,7 @@
                 .expand-icon
                     font-size: 1.5rem
                     color: #1E88E5
+                    top: 0
+                    padding: 0.5rem
+                    height: 2.5rem
+                    width: 2.5rem
