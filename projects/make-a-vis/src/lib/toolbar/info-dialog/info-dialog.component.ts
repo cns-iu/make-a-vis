@@ -21,7 +21,6 @@ export class InfoDialogComponent implements OnInit {
     this.createAboutusContent();
     this.createContactusContent();
     this.headerText = 'Make-a-Vis';
-    this.footer = [1, 2, 3]; // TODO: do something to create footer items
   }
 
   ngOnInit() {}

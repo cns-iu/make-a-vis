@@ -21,7 +21,7 @@
 }
 
 .info-expansion-pane-container {
-  width: 70vw;
+  width: 75vw;
   max-height: 150vh;
   border: 0.3125rem solid transparent;
 }
@@ -67,14 +67,30 @@
   }
 }
 
-.info-footer-container {
+.info-footer-wrapper {
   display: flex;
-  height: 2.5rem;
+  max-height: 10rem;
   padding-bottom: 0.5rem;
   border-top: 1px solid transparent;
   overflow: hidden;
+  .info-footer-container-left {
+    display: flex;
+    padding: 1.4rem 5rem 0 1rem;
+  }
 
-  .temp-footer-image {
-    width: 100%;
+  .info-footer-container-middle {
+    display: flex;
+    padding: 1.4rem 0 0 1rem;
+    width: 50rem;
+  }
+
+  .info-footer-container-right {
+    display: flex;
+    padding: 1.05rem 0 0 1rem;
+    
+    .info-text {
+      font-size: 0.7rem;
+      padding-top: 0.6rem;
+    }
   }
 }
