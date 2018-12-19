@@ -29,8 +29,7 @@ export type NodeFields = Pick<
 
 export type EdgeFields = Pick<
   NgxGeomapComponent,
-  'edgeIdField' | 'edgeSourceField' | 'edgeTargetField' |
-  'edgeStrokeColorField' | 'edgeStrokeWidthField'
+  'edgeIdField' | 'edgeSourceField' | 'edgeTargetField' | 'edgeStrokeColorField' | 'edgeStrokeWidthField' | 'edgeTransparencyField'
 >;
 
 // tslint:disable-next-line:interface-over-type-literal
@@ -48,15 +47,18 @@ const basemapFieldNameMapping = createFieldNameMapping([
 
 // TODO: tooltip, label, labelPosition
 const nodesFieldNameMapping = createFieldNameMapping([
-  'color', 'transparency', 'strokeColor', 'strokeWidth', 'pulse', 'label', 'tooltip'
+  'color', 'transparency', 'label', 'labelPosition', 'tooltip', 'strokeWidth'
 ], {
-  'identifier': 'nodeIdField', 'areaSize': 'nodeSizeField', 'shape': 'nodeSymbolField', 'latlng': 'nodePositionField'
+  'identifier': 'nodeIdField', 'areaSize': 'nodeSizeField', 'shape': 'nodeSymbolField',
+  'strokeColor': 'nodeStrokeField', 'strokeTransparency': 'nodeStrokeTransparencyField',
+  'latlng': 'nodePositionField'
 }, 'node');
 
 const edgesFieldNameMapping = createFieldNameMapping([
-  'source', 'target', 'strokeColor', 'strokeWidth', 'transparency'
+  'strokeWidth', 'transparency', 'pulse'
 ], {
-  'identifier': 'edgeIdField'
+  'identifier': 'edgeIdField', 'strokeColor': 'edgeStrokeColorField',
+  'latlng1': 'edgeSourceField', 'latlng2': 'edgeTargetField'
 }, 'edge');
 
 const fieldNameMappingMap = {
@@ -90,8 +92,7 @@ export class GeomapComponent extends BaseVisualizationComponent<Properties, Fiel
       'nodePulseField'
     ]),
     edges: createDefaultFieldGroup([
-      'edgeIdField', 'edgeSourceField', 'edgeTargetField',
-      'edgeStrokeColorField', 'edgeStrokeWidthField'
+      'edgeIdField', 'edgeSourceField', 'edgeTargetField', 'edgeStrokeColorField', 'edgeStrokeWidthField', 'edgeTransparencyField'
     ])
   };
 

@@ -13,7 +13,7 @@ import { getLoadedProjectSelector, SidenavState } from '../../toolbar/shared/sto
 @Component({
   selector: 'mav-graphic-variable-legend',
   templateUrl: './graphic-variable-legend.component.html',
-  styleUrls: ['./graphic-variable-legend.component.css']
+  styleUrls: ['./graphic-variable-legend.component.scss']
 })
 export class GraphicVariableLegendComponent implements OnInit, OnChanges {
   @Input() hideIfUnset = false; // Hide the GV legend if its not been set in the visualization

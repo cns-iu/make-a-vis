@@ -9,7 +9,8 @@
     width: 100%;
 }
 .visualization-group .tab {
-    width: 180px;
+    width: auto;
+    line-height: 1.5rem;
     border-bottom: 2px solid transparent;
     display: flex;
     align-content: center;
@@ -23,12 +24,16 @@
 
 ::ng-deep .visualization-group .mat-tab-header {
     height: 2.75rem;
-    padding-top: 1rem;
-    padding-left: 1rem;
-    padding-right: 7rem;
+    padding: 0.5rem 1rem;
     margin-bottom: 0.625rem;
     border: 1px solid transparent;
     border-radius: 4px;
+}
+
+::ng-deep .visualization-group .mat-tab-label {
+    padding: 0;
+    min-width: auto;
+    opacity: 1;
 }
 
 ::ng-deep .visualization-group .mat-tab-header .mat-tab-header-pagination {
@@ -36,30 +41,67 @@
 }
 
 .visualization-group .tab .cancel-button {
+    margin-left: .5rem;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
     border: 0;
     cursor: pointer;
 }
 
 .add-edit-visualization {
     position: absolute;
-    top: 0.5rem;
+    top: 0.625rem;
     right: 0.8rem;
+    z-index: 10;
     
     .add-icon, .edit-icon {
-        width: 2.5rem;
-        height: 2.5rem;
-        font-size: 2.5rem;
+        padding: .3125rem;
+        width: auto;
+        height: auto;
+        font-size: 1.875rem;
         z-index: 10;
         border: 0;
         background: none;
         cursor: pointer;
-        padding: 0.2rem;
     }
 }
 
 .visualization-container {
-    height: calc(93vh - 1vh - 285px); /* .main-view is 93vh with 1vh bottom padding in .visualization-view  and .legend is 200px at top-level, 70px - assumed padding(TODO - FIX needed) */
+    height: calc(93vh - 1vh - 293px); /* .main-view is 93vh with 1vh bottom padding in .visualization-view  and .legend is 200px at top-level, 70px - assumed padding(TODO - FIX needed) */
     width: calc(100% - 2px);
     border: 1px solid transparent;
     background-color: white;
+}
+
+::ng-deep .about-text-long-menu {
+    cursor: pointer;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    max-width: 100% !important;
+    border: 1px solid transparent;
+    width: calc(63.4vw - 1px);
+    margin-left: 0px;
+    margin-top: -1.7rem;
+    .mat-menu-content {
+        display: flex;
+        padding-left: 1rem;
+        font-size: 0.9rem;
+        .about-text-long {
+            width: 100%;
+        }
+    }
+}
+
+.about-text-short-container {
+    width: calc(100% - 2px);
+    display: flex;
+    cursor: pointer;
+    margin-top: -0.05rem;
+    border: 1px solid transparent;
+    .about-text-short {
+        width: 100%;
+        padding-left: 1rem;
+        font-size: 0.9rem;
+        line-height: 1.5rem;
+    }
 }
