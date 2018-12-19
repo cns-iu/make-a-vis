@@ -1,3 +1,8 @@
 svg {
     height: calc(65vh - 100px);
 }
+
+::ng-deep .temporal-bargraph-visualization .bar-label-left {
+    font-size: 8px;
+    transform: translate(-0.25rem);
+}
