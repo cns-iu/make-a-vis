@@ -42,7 +42,6 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
     if (mappableGraphicVariables.length) {
       this.updateService.updateGraphicVariable(this.activeVis.data, graphicSymbolOption.id,
         graphicVariableOption.id || graphicVariableOption.type, mappableGraphicVariables[0]);
-        console.log(this.activeVis.data);
     }
   }
 
