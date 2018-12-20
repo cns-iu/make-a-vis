@@ -102,7 +102,7 @@ export class CSVTemplateProject extends DefaultProject {
     // Setup some default _naive_ graphic variable mappings.
     const naiveMappings = {};
     for (const field of this.fields) {
-      let types = ['identifier', 'axis', 'text'];
+      let types = ['identifier', 'axis', 'text', 'tooltip', 'label'];
       if (this.fieldTypes[field] === 'integer' || this.fieldTypes[field] === 'number') {
         // These are _guesses_ and not likely correct
         types = types.concat(['areaSize', 'strokeWidth', 'fontSize']);
