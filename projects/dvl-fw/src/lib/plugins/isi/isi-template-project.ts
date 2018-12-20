@@ -205,12 +205,18 @@ export class ISITemplateProject extends DefaultProject {
               text: [
                 {selector: 'Journal.Subdiscipline.Discipline.name'}
               ],
+              axis: [
+                {selector: 'Journal.Subdiscipline.Discipline.name'}
+              ],
               color: [
                 {selector: 'Journal.Subdiscipline.Discipline.color'}
               ]
             },
             subdiscipline: {
               text: [
+                {selector: 'Journal.Subdiscipline.name'}
+              ],
+              axis: [
                 {selector: 'Journal.Subdiscipline.name'}
               ]
             },
@@ -420,6 +426,9 @@ export class ISITemplateProject extends DefaultProject {
             },
             discipline: {
               text: [
+                {selector: 'Discipline.name'}
+              ],
+              axis: [
                 {selector: 'Discipline.name'}
               ],
               color: [

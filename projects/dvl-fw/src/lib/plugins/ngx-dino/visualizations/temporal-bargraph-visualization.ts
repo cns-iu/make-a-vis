@@ -12,14 +12,14 @@ export class TemporalBargraphVisualization extends DefaultVisualization {
     id: 'bars', label: 'Bars', type: 'area',
     graphicVariableOptions: [
       { type: 'identifier', label: 'Identifier' },
-      { type: 'x-start', label: 'X-axis Start Point' },
-      { type: 'x-end', label: 'X-axis End Point' },
-      { type: 'y-order', label: 'Bar Y-axis Ordering' },
-      { type: 'height', label: 'Bar Height' },
-      { type: 'color', label: 'Color', visualization: 'color' },
-      { type: 'transparency', label: 'Transparency'},
-      { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
-      { type: 'strokeTransparency', label: 'Stroke Transparency'},
+      { type: 'x-start', label: 'X-Axis Start' },
+      { type: 'x-end', label: 'X-Axis End' },
+      { type: 'y-order', label: 'Y-Axis Order' },
+      { type: 'height', label: 'Size' },
+      { type: 'color', label: 'Color Hue', visualization: 'color' },
+      // { type: 'transparency', label: 'Transparency'},
+      // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
+      // { type: 'strokeTransparency', label: 'Stroke Transparency'},
       { type: 'label', label: 'Label'},
       { type: 'tooltip', label: 'Tooltip'}
     ]

@@ -28,12 +28,12 @@ export class ScatterplotVisualization extends DefaultVisualization {
       { type: 'identifier', label: 'Identifier' },
       { type: 'axis', label: 'X-Axis', id: 'x' },
       { type: 'axis', label: 'Y-Axis', id: 'y' },
-      { type: 'color', label: 'Color', visualization: 'color' },
-      { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
+      { type: 'color', label: 'Color Hue', visualization: 'color' },
+      // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
       { type: 'areaSize', label: 'Size', visualization: 'node-size' },
-      { type: 'shape', label: 'Shape' },
-      { type: 'transparency', label: 'Transparency' },
-      { type: 'strokeTransparency', label: 'Stroke Transparency' },
+      // { type: 'shape', label: 'Shape' },
+      // { type: 'transparency', label: 'Transparency' },
+      // { type: 'strokeTransparency', label: 'Stroke Transparency' },
       { type: 'tooltip', label: 'Tooltip'}
     ]
   }];

@@ -1,5 +1,5 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
-import { access, BoundField, simpleField } from '@ngx-dino/core';
+import { access, BoundField, Field, Operator, DataType } from '@ngx-dino/core';
 
 import { DataVariable } from '../../shared/data-variable';
 import { GraphicVariable } from '../../shared/graphic-variable';
@@ -27,8 +27,33 @@ export class DefaultGraphicVariable implements GraphicVariable {
   }
 
   asBoundField<T = any>(): BoundField<T> {
-    return simpleField<T>({ label: this.label, operator: access(this.selector) }).getBoundField();
+    const mapping: {[id: string]: Operator<any, T>} = {};
+    mapping[Field.defaultSymbol] = access(this.selector);
+
+    // TODO: This mapping should be smarter/revised.
+    let dataType = DataType.String;
+    switch (this.dataVariable.dataType) {
+      case 'integer':
+      case 'number':
+        dataType = DataType.Number;
+        break;
+      case 'text':
+      case 'string':
+        dataType = DataType.String;
+        break;
+      case 'boolean':
+        dataType = DataType.Boolean;
+        break;
+    }
+
+    return new Field<T>({
+      id: this.id,
+      label: this.label,
+      dataType,
+      mapping
+    }).getBoundField();
   }
+
   toJSON(): any {
     return Object.assign({}, this, {
       recordStream: this.recordStream.id,
