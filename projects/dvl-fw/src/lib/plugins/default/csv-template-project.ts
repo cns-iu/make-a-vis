@@ -38,7 +38,7 @@ export class CSVTemplateProject extends DefaultProject {
   }
 
   getRawData(csvFileContent: string): RawData[] {
-    const parseResults = parse(csvFileContent, {header: true, dynamicTyping: true});
+    const parseResults = parse(csvFileContent, {header: true, dynamicTyping: true, skipEmptyLines: true});
     this.fields = parseResults.meta.fields;
     this.fieldTypes = this.inferDataTypes(parseResults.data);
 
