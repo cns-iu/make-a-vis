@@ -17,9 +17,9 @@ export class TemporalBargraphVisualization extends DefaultVisualization {
       { type: 'y-order', label: 'Y-Axis Order' },
       { type: 'height', label: 'Size' },
       { type: 'color', label: 'Color Hue', visualization: 'color' },
-      { type: 'transparency', label: 'Transparency'},
-      { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
-      { type: 'strokeTransparency', label: 'Stroke Transparency'},
+      // { type: 'transparency', label: 'Transparency'},
+      // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
+      // { type: 'strokeTransparency', label: 'Stroke Transparency'},
       { type: 'label', label: 'Label'},
       { type: 'tooltip', label: 'Tooltip'}
     ]
