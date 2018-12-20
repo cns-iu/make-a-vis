@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core';
 import { defer, Observable } from 'rxjs';
 
+import { CSVTemplateProject } from '../plugins/csv/csv-template-project';
 import { ISITemplateProject } from '../plugins/isi/isi-template-project';
 import { NSFTemplateProject } from '../plugins/nsf/nsf-template-project';
 import { ObjectFactoryRegistry } from './object-factory';
@@ -22,6 +23,8 @@ export class ProjectSerializerService {
   createProject(template: 'isi' | 'nsf' | 'csv' | 'json', fileContents: string, fileName?: string): Observable<Project> {
     return defer<Project>(async () => {
       switch (template) {
+        case 'csv':
+          return await CSVTemplateProject.create(fileContents, fileName);
         case 'isi':
           return await ISITemplateProject.create(fileContents, fileName);
         case 'nsf':
