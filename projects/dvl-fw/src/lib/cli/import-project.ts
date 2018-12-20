@@ -4,7 +4,7 @@ const path = require('path');
 import { ProjectSerializer } from '../shared/project-serializer';
 import { ISITemplateProject } from '../plugins/isi/isi-template-project';
 import { NSFTemplateProject } from '../plugins/nsf/nsf-template-project';
-import { CSVTemplateProject } from '../plugins/csv/csv-template-project';
+import { CSVTemplateProject } from '../plugins/default/csv-template-project';
 
 async function importProject(template, inData, outYAML) {
   if (template === 'isi') {

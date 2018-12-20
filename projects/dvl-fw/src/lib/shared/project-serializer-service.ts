@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { defer, Observable } from 'rxjs';
 
-import { CSVTemplateProject } from '../plugins/csv/csv-template-project';
+import { CSVTemplateProject } from '../plugins/default/csv-template-project';
 import { ISITemplateProject } from '../plugins/isi/isi-template-project';
 import { NSFTemplateProject } from '../plugins/nsf/nsf-template-project';
 import { ObjectFactoryRegistry } from './object-factory';
