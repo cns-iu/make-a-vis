@@ -96,6 +96,7 @@ export class NSFTemplateProject extends DefaultProject {
         dataVariables: [
           {id: 'name', label: 'Name', dataType: 'text', scaleType: 'nominal'},
           {id: 'numAwards', label: '# Awards', dataType: 'integer', scaleType: 'ratio'},
+          {id: 'awardedAmount', label: '$Awarded', dataType: 'integer', scaleType: 'ratio'},
           {id: 'firstYear', label: 'First Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'latlng', label: 'Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
@@ -338,6 +339,32 @@ export class NSFTemplateProject extends DefaultProject {
               strokeTransparency: [
                 {selector: 'numAwardsTransparency'}
               ]
+            },
+            awardedAmount: {
+              axis: [
+                {selector: 'awardedAmountLabel'}
+              ],
+              text: [
+                {selector: 'awardedAmountLabel'}
+              ],
+              areaSize: [
+                {selector: 'awardedAmountAreaSize'}
+              ],
+              fontSize: [
+                {selector: 'awardedAmountFontSize'}
+              ],
+              color: [
+                {selector: 'awardedAmountColor'}
+              ],
+              strokeColor: [
+                {selector: 'awardedAmountStrokeColor'}
+              ],
+              transparency: [
+                {selector: 'awardedAmountTransparency'}
+              ],
+              strokeTransparency: [
+                {selector: 'awardedAmountTransparency'}
+              ],
             },
             firstYear: {
               axis: [
@@ -662,7 +689,7 @@ export class NSFTemplateProject extends DefaultProject {
           },
           areaSize: {
             recordSet: 'investigator',
-            dataVariable: 'numAwards',
+            dataVariable: 'awardedAmount',
             graphicVariableType: 'areaSize',
             graphicVariableId: 'areaSize'
           },

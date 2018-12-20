@@ -9,11 +9,13 @@ import {
 import { Location } from '../../../encoding/geocoder';
 
 export class InvestigatorStats {
+  awardedAmountMax = 0;
   numAwardsMax = 0;
   yearMax = 0;
   yearMin = 9999;
 
   count(item: Investigator) {
+    this.awardedAmountMax = Math.max(this.awardedAmountMax, item.awardedAmountToDate);
     this.numAwardsMax = Math.max(this.numAwardsMax, item.numAwards);
     this.yearMax = Math.max(this.yearMax, item.firstYear, item.lastYear);
     if (item.firstYear > 0) {
@@ -33,6 +35,7 @@ export class Investigator {
   location: Location;
 
   numAwards: number;
+  awardedAmountToDate: number;
   firstYear: number;
   lastYear: number;
   position: [number, number];
@@ -49,6 +52,22 @@ export class Investigator {
 
   @Operand<string>(constant('circle'))
   shape: string;
+
+  // Awarded Amount Encodings
+  @Operand<number>(norm0to100('awardedAmountToDate', 'globalStats.awardedAmountMax'))
+  awardedAmountNorm: number;
+  @Operand<string>(chain(access('awardedAmountToDate'), formatNumber))
+  awardedAmountLabel: string;
+  @Operand<number>(chain(access('awardedAmountNorm'), areaSizeScaleNormQuantitative))
+  awardedAmountAreaSize: number;
+  @Operand<number>(chain(access('awardedAmountNorm'), fontSizeScaleNormQuantitative))
+  awardedAmountFontSize: number;
+  @Operand<string>(chain(access('awardedAmountNorm'), colorScaleNormQuantitative))
+  awardedAmountColor: string;
+  @Operand<string>(chain(access('awardedAmountNorm'), colorScaleNormQuantitativeStroke))
+  awardedAmountStrokeColor: string;
+  @Operand<number>(chain(access<number>('awardedAmountNorm'), quantitativeTransparency))
+  awardedAmountTransparency: number;
 
   // #Papers Encodings
   @Operand<number>(norm0to100('numAwards', 'globalStats.numAwardsMax'))

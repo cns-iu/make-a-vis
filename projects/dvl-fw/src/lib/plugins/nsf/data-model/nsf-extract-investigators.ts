@@ -1,12 +1,10 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
-import { Geocoder } from '../../../encoding/geocoder';
 import { Investigator, InvestigatorStats } from './nsf-investigator';
 import { Award } from './nsf-award';
 
 export function extractInvestigators(awards: Award[]): Investigator[] {
   const investigators: any = {}, investigatorList: Investigator[] = [];
   const globalStats = new InvestigatorStats();
-  const geocoder = new Geocoder();
 
   for (const award of awards) {
     award.investigatorNames.forEach((name, index) => {
@@ -17,6 +15,7 @@ export function extractInvestigators(awards: Award[]): Investigator[] {
         investigator = investigators[name] = new Investigator({
           name,
           numAwards: 0,
+          awardedAmountToDate: 0,
           firstYear: award.startYear || 0,
           lastYear: award.endYear || 0,
           location: award.location,
@@ -33,6 +32,7 @@ export function extractInvestigators(awards: Award[]): Investigator[] {
         investigator.location = Object.assign({}, award.location);
       }
 
+      investigator.awardedAmountToDate += award.awardedAmountToDate;
       investigator.numAwards++;
       if (award.startYear) {
         if (award.startYear < investigator.firstYear) {
