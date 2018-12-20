@@ -5,8 +5,8 @@
                 <span *ngIf="dataSource.children && dataSource.children.length > 0" class="toggle-icon">
                     <mat-icon class="expand-icon" *ngIf="!dataSource.childrenHidden" (click)="toggleDataTable(dataSource)">expand_more</mat-icon>
                     <mat-icon class="expand-icon" *ngIf="dataSource.childrenHidden" (click)="toggleDataTable(dataSource)">expand_less</mat-icon>
-                    <mav-table-icon></mav-table-icon>
                 </span>
+                <mav-table-icon></mav-table-icon>
                 <span class="label">{{dataSource.label}}:</span>
                 <span class="description" *ngIf="!!dataSource.description">&nbsp;({{dataSource.description }})</span>
             </mat-card-title>
