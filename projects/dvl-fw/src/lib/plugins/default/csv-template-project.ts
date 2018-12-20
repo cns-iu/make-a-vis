@@ -38,7 +38,7 @@ export class CSVTemplateProject extends DefaultProject {
   }
 
   getRawData(csvFileContent: string): RawData[] {
-    const parseResults = parse(csvFileContent, {header: true, dynamicTyping: true});
+    const parseResults = parse(csvFileContent, {header: true, dynamicTyping: true, skipEmptyLines: true});
     this.fields = parseResults.meta.fields;
     this.fieldTypes = this.inferDataTypes(parseResults.data);
 
@@ -102,7 +102,7 @@ export class CSVTemplateProject extends DefaultProject {
     // Setup some default _naive_ graphic variable mappings.
     const naiveMappings = {};
     for (const field of this.fields) {
-      let types = ['identifier', 'axis', 'text'];
+      let types = ['identifier', 'axis', 'text', 'tooltip', 'label'];
       if (this.fieldTypes[field] === 'integer' || this.fieldTypes[field] === 'number') {
         // These are _guesses_ and not likely correct
         types = types.concat(['areaSize', 'strokeWidth', 'fontSize']);

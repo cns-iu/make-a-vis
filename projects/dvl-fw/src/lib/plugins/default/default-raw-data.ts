@@ -48,7 +48,7 @@ export class DefaultRawDataFactory implements ObjectFactory<RawData, Project> {
   type = 'rawData';
 
   fromJSON(data: any, context: Project, registry: ObjectFactoryRegistry): RawData | Promise<RawData> {
-    if (registry.hasObjectFactory('rawData', data.template)) {
+    if (data.template !== this.id && registry.hasObjectFactory('rawData', data.template)) {
       return registry.fromJSON<RawData>('rawData', data.template, data, context);
     }
     return new DefaultRawData(data);

@@ -74,9 +74,9 @@ const fieldNameMappingMap = {
 })
 export class GeomapComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
   readonly defaultProperties: Properties = {
-    basemapZoomLevels: undefined, basemapSelectedZoomLevel: undefined,
-    basemapDefaultColor: undefined, basemapDefaultTransparency: undefined,
-    basemapDefaultStrokeColor: undefined, basemapDefaultStrokeWidth: undefined,
+    basemapZoomLevels: undefined, basemapSelectedZoomLevel: 1,
+    basemapDefaultColor: 'white', basemapDefaultTransparency: undefined,
+    basemapDefaultStrokeColor: '#bebebe', basemapDefaultStrokeWidth: undefined,
     basemapDefaultStrokeDashArray: undefined, basemapDefaultStrokeTransparency: undefined
   };
 
