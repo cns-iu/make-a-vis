@@ -14,8 +14,8 @@ export class NetworkVisualization extends DefaultVisualization {
       graphicVariableOptions: [
         { type: 'identifier', label: 'Identifier' },
         { type: 'position', label: 'Position' },
-        { type: 'color', label: 'Color', visualization: 'color' },
-        { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
+        { type: 'color', label: 'Color Hue', visualization: 'color' },
+        { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
         { type: 'areaSize', label: 'Size', visualization: 'node-size'},
         { type: 'shape', label: 'Shape' },
         { type: 'transparency', label: 'Transparency'},
@@ -29,7 +29,7 @@ export class NetworkVisualization extends DefaultVisualization {
         { type: 'identifier', label: 'Identifier' },
         { type: 'source', label: 'Source Position' },
         { type: 'target', label: 'Target Position' },
-        { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
+        { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
         { type: 'strokeWidth', label: 'Stroke Width', visualization: 'edge-size' },
         { type: 'transparency', label: 'Transparency' }
       ]

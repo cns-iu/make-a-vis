@@ -12,7 +12,7 @@ export class SciencemapVisualization extends DefaultVisualization {
     id: 'subdisciplinePoints', label: 'Subdiscipline Points', type: 'area',
     graphicVariableOptions: [
       { type: 'identifier', label: 'Identifier' },
-      { type: 'color', label: 'Color', visualization: 'color' },
+      { type: 'color', label: 'Color Hue', visualization: 'color' },
       { type: 'areaSize', label: 'Size', visualization: 'node-size' },
       { type: 'tooltip', label: 'Tooltip'}
     ]

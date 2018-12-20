@@ -13,7 +13,7 @@ export class ColorVisualization extends DefaultVisualization {
       graphicVariableOptions: [
         { type: 'identifier', label: 'Identifier' },
         { type: 'text', label: 'Label' },
-        { type: 'color', label: 'Color', visualization: 'color' }
+        { type: 'color', label: 'Color Hue', visualization: 'color' }
       ]
     }
   ];

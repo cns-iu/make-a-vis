@@ -12,8 +12,8 @@ export class GeomapVisualization extends DefaultVisualization {
     {
       id: 'basemap', label: 'Basemap', type: 'area',
       graphicVariableOptions: [
-        { type: 'color', label: 'Color', visualization: 'color' },
-        { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
+        { type: 'color', label: 'Color Hue', visualization: 'color' },
+        { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
         { type: 'transparency', label: 'Transparency' },
         { type: 'strokeTransparency', label: 'Stroke Transparency' }
       ]
@@ -23,8 +23,8 @@ export class GeomapVisualization extends DefaultVisualization {
       graphicVariableOptions: [
         { type: 'identifier', label: 'Identifier' },
         { type: 'latlng', label: 'Latitude/Longitude' },
-        { type: 'color', label: 'Color', visualization: 'color' },
-        { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
+        { type: 'color', label: 'Color Hue', visualization: 'color' },
+        { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
         { type: 'areaSize', label: 'Size', visualization: 'node-size'},
         { type: 'shape', label: 'Shape' },
         { type: 'transparency', label: 'Transparency'},
@@ -38,7 +38,7 @@ export class GeomapVisualization extends DefaultVisualization {
         { type: 'identifier', label: 'Identifier' },
         { type: 'latlng1', label: 'Source Latitude/Longitude' },
         { type: 'latlng2', label: 'Target Latitude/Longitude' },
-        { type: 'strokeColor', label: 'Stroke Color', visualization: 'color' },
+        { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
         { type: 'strokeWidth', label: 'Stroke Width', visualization: 'edge-size' },
         { type: 'transparency', label: 'Transparency' }
       ]
