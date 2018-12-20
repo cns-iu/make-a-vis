@@ -34,7 +34,7 @@ export class SidenavContentComponent implements OnInit {
 
   exportSnapshotType = null;
   panelOpenState = true;
-  projectExtensions: ProjectExtensionType[] = ['yml', 'nsf', 'isi'];
+  projectExtensions: ProjectExtensionType[] = ['yml', 'nsf', 'isi', 'csv'];
   exportTypes: ExportType[] = ['png', 'svg', 'pdf'];
   project: Project = undefined;
   shareUrlFieldDisabled: boolean;

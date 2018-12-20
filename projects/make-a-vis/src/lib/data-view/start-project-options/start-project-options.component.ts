@@ -10,7 +10,7 @@ import { LoadProjectService, ProjectExtensionType } from '../../shared/services/
 })
 export class StartProjectOptionsComponent implements OnInit {
 
-  projectExtensions: ProjectExtensionType[] = ['yml', 'nsf', 'isi'];
+  projectExtensions: ProjectExtensionType[] = ['yml', 'nsf', 'isi', 'csv'];
 
   constructor( public loadProjectService: LoadProjectService) { }
 
