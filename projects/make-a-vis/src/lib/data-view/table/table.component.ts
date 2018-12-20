@@ -21,6 +21,7 @@ export interface ParentNode {
 export class TableComponent implements OnChanges, OnInit {
   @Input() dataSource: DataSource;
   @Input() displayedColumns: DataVariable[] = [];
+  @Input() tableIndex: number;
   displayedColumnNames: string[] = [];
   constructor(private dataService: DataService, private actionDispatcherService: ActionDispatcherService) { }
 

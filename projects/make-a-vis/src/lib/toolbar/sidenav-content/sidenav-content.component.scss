@@ -11,7 +11,11 @@
       }
     }
   }
-  
+
+  ::ng-deep .mat-expansion-indicator {
+    display: flex;
+  }
+
   .mat-expansion-panel-header {
     padding: 0 0.5rem;
   }

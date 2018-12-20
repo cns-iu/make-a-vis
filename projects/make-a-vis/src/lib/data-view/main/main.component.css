@@ -32,7 +32,3 @@
 .mav-table {
   width: 100%;
 }
-
-.mav-table .datatable-wrapper:nth-child(1) {
-  margin-top: 0;
-}
