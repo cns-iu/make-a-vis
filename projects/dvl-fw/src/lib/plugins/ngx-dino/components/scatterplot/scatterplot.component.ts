@@ -32,8 +32,8 @@ const fieldNameMapping = createFieldNameMapping([
 })
 export class ScatterplotComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
   readonly defaultProperties: Properties = {
-    enableTooltip: false, xAxisArrow: true, yAxisArrow: true,
-    gridlines: false, gridlinesColor: 'lightgrey', gridlinesOpacity: 0.7,
+    enableTooltip: true, xAxisArrow: true, yAxisArrow: true,
+    gridlines: true, gridlinesColor: 'lightgrey', gridlinesOpacity: 0.7,
     tickLabelColor: 'lightblack', showAxisIndicators: false, showAxisLabels: false,
   };
 
