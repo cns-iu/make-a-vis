@@ -186,7 +186,7 @@ export class NSFTemplateProject extends DefaultProject {
             },
             startYear: {
               axis: [
-                {selector: 'startYearLabel'}
+                {selector: 'startYear'}
               ],
               text: [
                 {selector: 'startYearLabel'}
@@ -206,7 +206,7 @@ export class NSFTemplateProject extends DefaultProject {
             },
             endYear: {
               axis: [
-                {selector: 'endYearLabel'}
+                {selector: 'endYear'}
               ],
               text: [
                 {selector: 'endYearLabel'}
@@ -233,6 +233,9 @@ export class NSFTemplateProject extends DefaultProject {
               ],
               areaSize: [
                 {selector: 'awardedAmountAreaSize'}
+              ],
+              strokeWidth: [
+                {selector: 'awardedAmountStrokeWidth'}
               ],
               fontSize: [
                 {selector: 'awardedAmountFontSize'}
