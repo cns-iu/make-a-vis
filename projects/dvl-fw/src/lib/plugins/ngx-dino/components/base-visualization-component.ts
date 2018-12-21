@@ -42,7 +42,9 @@ implements VisualizationComponent, OnInit, OnChanges, OnPropertyChange, OnGraphi
   abstract fieldNameFor(key: string, group: string): string;
 
   ngOnInit(): void {
-    this.reset(Object.keys(this.defaultFieldGroups));
+    if (this.defaultFieldGroups) {
+      this.reset(Object.keys(this.defaultFieldGroups));
+    }
     this.ngOnChanges({ data: { currentValue: this.data } as SimpleChange});
   }
 

@@ -25,9 +25,9 @@ export class ScatterplotVisualization extends DefaultVisualization {
   readonly graphicSymbolOptions = [{
     id: 'points', label: 'Points', type: 'area',
     graphicVariableOptions: [
-      { type: 'identifier', label: 'Identifier' },
-      { type: 'axis', label: 'X-Axis', id: 'x' },
-      { type: 'axis', label: 'Y-Axis', id: 'y' },
+      { type: 'identifier', label: 'Identifier', visualization: 'id' },
+      { type: 'axis', label: 'X-Axis', id: 'x', visualization: 'x-axis'},
+      { type: 'axis', label: 'Y-Axis', id: 'y', visualization: 'y-axis' },
       { type: 'color', label: 'Color Hue', visualization: 'color' },
       // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
       { type: 'areaSize', label: 'Size', visualization: 'node-size' },

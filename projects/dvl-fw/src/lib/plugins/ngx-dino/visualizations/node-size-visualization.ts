@@ -11,7 +11,7 @@ export class NodeSizeVisualization extends DefaultVisualization {
     {
       id: 'items', label: 'Items', type: 'area',
       graphicVariableOptions: [
-        { type: 'identifier', label: 'Identifier' },
+        { type: 'identifier', label: 'Identifier', visualization: 'id' },
         { type: 'areaSize', label: 'Size', visualization: 'node-size'}
       ]
     }
