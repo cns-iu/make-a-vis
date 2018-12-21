@@ -23,7 +23,6 @@ export class GraphicVariableLegendComponent implements OnInit, OnChanges {
   legend: Visualization;
 
   graphicVariable: GraphicVariable;
-  legendVisualizationTypes = ['color', 'edge-size', 'node-size'];
   legendVisualizationType: string;
 
   @ViewChild('visualization') legendComponent: DvlFwVisualizationComponent;
@@ -51,7 +50,7 @@ export class GraphicVariableLegendComponent implements OnInit, OnChanges {
 
     const template = this.graphicVariableOption.visualization;
     this.legendVisualizationType = template;
-    if (this.legendVisualizationTypes.indexOf(template) !== -1 && graphicVariable) {
+    if (!!template && graphicVariable) {
       const preData: any = {
         id: `legend-visualization-${uniqueId()}`,
         template,
