@@ -16,6 +16,17 @@
   margin-bottom: .5rem;
 }
 
+::ng-deep .graphic-variable-legend-visualization .dvl-static-legend-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 4.375rem;
+}
+
+::ng-deep .graphic-variable-legend-visualization .dvl-static-legend-container svg {
+  height: 3rem
+}
+
 .graphic-variable-legend-card {
   padding: 0.5rem;
   min-width: 11rem;
