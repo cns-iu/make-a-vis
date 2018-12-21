@@ -14,7 +14,7 @@ export class SciencemapVisualization extends DefaultVisualization {
       { type: 'identifier', label: 'Identifier', visualization: 'id' },
       { type: 'color', label: 'Color Hue', visualization: 'color' },
       { type: 'areaSize', label: 'Size', visualization: 'node-size' },
-      { id: 'tooltip', type: 'text', label: 'Tooltip'}
+      { id: 'tooltip', type: 'text', label: 'Tooltip', visualization: 'label'}
     ]
   }];
 }

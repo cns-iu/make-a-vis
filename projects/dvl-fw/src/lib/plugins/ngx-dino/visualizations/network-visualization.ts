@@ -23,7 +23,7 @@ export class NetworkVisualization extends DefaultVisualization {
         // { type: 'transparency', label: 'Transparency'},
         // { type: 'strokeTransparency', label: 'Stroke Transparency'},
         { id: 'label', type: 'text', label: 'Label', visualization: 'label'},
-        { id: 'tooltip', type: 'text', label: 'Tooltip'}
+        { id: 'tooltip', type: 'text', label: 'Tooltip', visualization: 'label'}
       ]
     }, {
       id: 'edges', label: 'Edges', type: 'line',

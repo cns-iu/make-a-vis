@@ -21,7 +21,7 @@ export class TemporalBargraphVisualization extends DefaultVisualization {
       // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
       // { type: 'strokeTransparency', label: 'Stroke Transparency'},
       { id: 'label', type: 'text', label: 'Label', visualization: 'label'},
-      { id: 'tooltip', type: 'text', label: 'Tooltip'}
+      { id: 'tooltip', type: 'text', label: 'Tooltip', visualization: 'label'}
     ]
   }];
 }
