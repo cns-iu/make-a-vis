@@ -1,12 +1,14 @@
-<dino-color-legend 
-  [dataStream]="streams.items" 
-  [colorField]="fieldGroups.items.colorField"
-  [categoryField]="fieldGroups.items.categoryField"
-  [idField]="fieldGroups.items.idField"
-  [legendType]="'qualitative'"
-  [title]="properties.title"
-  [encoding]="properties.encoding">
-</dino-color-legend>
+<div class="dvl-color-legend color-legend-wrapper">
+  <dino-color-legend 
+    [dataStream]="streams.items" 
+    [colorField]="fieldGroups.items.colorField"
+    [categoryField]="fieldGroups.items.categoryField"
+    [idField]="fieldGroups.items.idField"
+    [legendType]="'qualitative'"
+    [title]="properties.title"
+    [encoding]="properties.encoding">
+  </dino-color-legend>
+</div>
 
 <!-- <dino-edge-size-legend 
   [dataStream]="streams.edges" 
