@@ -1,4 +1,4 @@
-<mat-card class="datatable-wrapper" *ngIf="dataSource && dataSource.data && dataSource.data.length && !dataSource.hidden">
+<mat-card class="datatable-wrapper" [ngClass]="{ 'first-data-table': tableIndex == 0} " *ngIf="dataSource && dataSource.data && dataSource.data.length && !dataSource.hidden">
     <div class="datatable-container">
         <mat-card-header class="card-header">
             <mat-card-title>
@@ -6,6 +6,7 @@
                     <mat-icon class="expand-icon" *ngIf="!dataSource.childrenHidden" (click)="toggleDataTable(dataSource)">expand_more</mat-icon>
                     <mat-icon class="expand-icon" *ngIf="dataSource.childrenHidden" (click)="toggleDataTable(dataSource)">expand_less</mat-icon>
                 </span>
+                <mav-table-icon></mav-table-icon>
                 <span class="label">{{dataSource.label}}:</span>
                 <span class="description" *ngIf="!!dataSource.description">&nbsp;({{dataSource.description }})</span>
             </mat-card-title>

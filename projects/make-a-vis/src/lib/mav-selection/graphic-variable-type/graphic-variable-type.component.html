@@ -9,8 +9,15 @@
     <div class="graphic-variable-wrapper">
       <mat-card *ngFor="let variableType of graphicSymbol.graphicVariableOptions" class="card"
       (mavDroppable)="dataVariableDropped($event, variableType, graphicSymbol)"
-      (dragDropEvents)="onDragDropEvent($event)">
-        <div class="variable-type">{{variableType?.label}}</div>
+      (dragDropEvents)="onDragDropEvent($event)"
+      [ngClass]="{'data-variable-selected': selectedDataVariables?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)?true:false}">
+        <div class="variable-type">
+          {{variableType?.label}}
+            <br>
+            <div *ngIf="selectedDataVariables?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)">
+              {{recordStream?.get(graphicSymbol.id)?.label}}: {{selectedDataVariables?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)?.label}}
+            </div>
+        </div>
         <!-- TODO: temporary placeholder-->
         <div class="variable-category">Quantitative</div>
       </mat-card>

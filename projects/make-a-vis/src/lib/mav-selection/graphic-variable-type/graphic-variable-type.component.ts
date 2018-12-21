@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 
-import { DataVariable, GraphicSymbol, GraphicSymbolOption, GraphicVariable, RecordStream, GraphicVariableOption } from '@dvl-fw/core';
+import { DataVariable, GraphicSymbolOption, GraphicVariable, RecordStream, GraphicVariableOption } from '@dvl-fw/core';
 import { DragDropEvent } from '../../drag-drop';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import { Vis } from '../../shared/types';
@@ -19,6 +19,8 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   selectionClass = '';
   availableGraphicVariables: GraphicVariable[];
 
+  selectedDataVariables: Map<string, Map<string, DataVariable>>;
+
   constructor(private store: Store<SidenavState>, private updateService: UpdateVisService) {
     this.store.pipe(select(getAvailableGraphicVariablesSelector)).subscribe((availableGraphicVariables) => {
       this.availableGraphicVariables = availableGraphicVariables;
@@ -32,6 +34,7 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
     if ('activeVis' in changes) {
       if (this.activeVis && Object.keys(this.activeVis.data.graphicSymbols).length) {
         this.graphicSymbolTypes = [];
+        this.selectedDataVariables = new Map();
         this.getGraphicVariableOptions();
       }
     }
@@ -42,7 +45,15 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
     if (mappableGraphicVariables.length) {
       this.updateService.updateGraphicVariable(this.activeVis.data, graphicSymbolOption.id,
         graphicVariableOption.id || graphicVariableOption.type, mappableGraphicVariables[0]);
-        console.log(this.activeVis.data);
+
+      if (this.selectedDataVariables.get(graphicSymbolOption.id)) {
+        this.selectedDataVariables.get(graphicSymbolOption.id).set(graphicVariableOption.id || graphicVariableOption.type, dataVariable);
+      } else {
+        this.selectedDataVariables.set(
+          graphicSymbolOption.id,
+          new Map().set(graphicVariableOption.id || graphicVariableOption.type, dataVariable)
+        );
+      }
     }
   }
 

@@ -1,11 +1,15 @@
 <div class="graphic-symbol-selection-container">
-    <mat-card *ngFor="let symbolType of graphicSymbolOptions" 
-    (mavDroppable)="recordStreamDropped($event, symbolType)"
-    (dragDropEvents)="onDragDropEvent($event)" [ngClass]="{'record-stream-selected': selectedRecordStream.get(symbolType.id)?true:false}"
-    class="graphic-symbol-card">
-        {{symbolType?.label}}({{symbolType?.type}})<br>
-        {{selectedRecordStream.get(symbolType.id)?.label}}
-    </mat-card>
+    <div *ngFor="let symbolType of graphicSymbolOptions" class="wrapper">
+        <mat-card  (mavDroppable)="recordStreamDropped($event, symbolType)"
+            (dragDropEvents)="onDragDropEvent($event)" [ngClass]="{'record-stream-selected': selectedRecordStream.get(symbolType.id)?true:false}"
+            class="graphic-symbol-card">
+            <div class="content">
+                {{symbolType?.label}}({{symbolType?.type}})<br>
+                {{selectedRecordStream.get(symbolType.id)?.label}}
+            </div>
+        </mat-card>
+        <mat-icon class="cancel-icon" *ngIf="selectedRecordStream.get(symbolType.id)?true:false">cancel</mat-icon>
+    </div>
 </div>
 
 <div class="record-stream-container">

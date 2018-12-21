@@ -3,8 +3,9 @@
     margin: 1rem
     
     .graphic-variable-wrapper 
-      display: flex
-      flex-flow: row wrap
+      display: grid
+      grid-template-columns: auto auto
+      grid-gap: 0.5rem
 
       .variable-type 
         padding: 0.25rem
@@ -17,16 +18,17 @@
         padding: 0.25rem
 
       .card 
-        width: 3rem
-        height: 5rem
-        margin: 1rem
-        display: flex 
-        flex-basis: calc(50% - 40px)  
-        justify-content: center
-        flex-direction: column
-        /* flex-wrap: wrap */
-        padding: 0
+        width: 100%
+        padding: 0.25rem
+        cursor: pointer
 
         &:active 
           background: #1E88E5
           color: #ffffff
+
+      .data-variable-selected
+        background: #1E88E5
+        color: #ffffff
+
+.graphic-symbol-wrapper ::ng-deep .mat-expansion-panel-body 
+  padding: 0

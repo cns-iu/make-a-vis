@@ -1193,10 +1193,7 @@ export class ISITemplateProject extends DefaultProject {
         id: 'GM01',
         template: 'geomap',
         properties: {
-          basemapZoomLevels: [
-            { selector: ['world', 'united states', 'states'], projection: 'albersUsa', label: 'United States', class: '' }
-          ],
-          basemapSelectedZoomLevel: 0,
+          basemapSelectedZoomLevel: 1,
           basemapDefaultColor: 'white',
           basemapDefaultStrokeColor: '#bebebe'
         },

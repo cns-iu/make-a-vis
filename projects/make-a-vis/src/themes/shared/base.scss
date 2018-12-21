@@ -97,15 +97,25 @@
     // Note: non-color styling is only in here because of the custom nature of this themed element.
     .mat-slide-toggle-thumb {
       background-color: $white;
-      border: 1px solid $green-500;
+      border: 1px solid $gray-accent-1;
     }
     .mat-slide-toggle-bar {
-      background-color: $green-500-30pct-alpha;;
-      border: 1px solid $green-500;
+      border: 1px solid $gray-accent-1;
     }
+
     .mat-slide-toggle-thumb-container {
       top: -4px;
     }
+  }
+
+  .log-toggle.mat-checked .mat-slide-toggle-thumb {
+      background-color: $white;
+      border: 1px solid $green-500;
+  }
+
+  .log-toggle.mat-checked .mat-slide-toggle-bar {
+      background-color: $green-500-30pct-alpha;
+      border: 1px solid $green-500;
   }
 
   .first-panel:hover, .title:hover {
