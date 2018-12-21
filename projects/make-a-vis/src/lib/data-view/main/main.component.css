@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 1vh;
+  padding-bottom: 0.5rem;
 }
 
 .data-view-header .title {
