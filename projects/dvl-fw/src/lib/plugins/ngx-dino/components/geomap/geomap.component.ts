@@ -1,7 +1,6 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Component } from '@angular/core';
 import { GeomapComponent as NgxGeomapComponent } from '@ngx-dino/geomap';
-import { geoAlbersUsa, geoMercator } from 'd3-geo';
 
 import { BaseVisualizationComponent } from '../base-visualization-component';
 import { createDefaultFieldGroup, createFieldNameMapping } from '../utility';
@@ -21,15 +20,17 @@ export type BasemapFields = Pick<
 
 export type NodeFields = Pick<
   NgxGeomapComponent,
-  'nodeIdField' | 'nodePositionField' | 'nodeSizeField' | 'nodeSymbolField' |
-  'nodeColorField' | 'nodeStrokeColorField' | 'nodeStrokeWidthField' | 'nodeTooltipField' |
-  'nodeLabelField' | 'nodeLabelPositionField' | 'nodeTransparencyField' | 'nodeStrokeTransparencyField' |
-  'nodePulseField'
+  'nodeIdField' | 'nodePositionField' | 'nodeLatitudeField' | 'nodeLongitudeField' |
+  'nodeSizeField' | 'nodeSymbolField' | 'nodeColorField' | 'nodeStrokeColorField' |
+  'nodeStrokeWidthField' | 'nodeTooltipField' | 'nodeLabelField' | 'nodeLabelPositionField' |
+  'nodeTransparencyField' | 'nodeStrokeTransparencyField' | 'nodePulseField'
 >;
 
 export type EdgeFields = Pick<
   NgxGeomapComponent,
-  'edgeIdField' | 'edgeSourceField' | 'edgeTargetField' | 'edgeStrokeColorField' | 'edgeStrokeWidthField' | 'edgeTransparencyField'
+  'edgeIdField' | 'edgeSourceField' | 'edgeSourceLatitudeField' | 'edgeSourceLongitudeField' |
+  'edgeTargetField' | 'edgeTargetLatitudeField' | 'edgeTargetLongitudeField' |
+  'edgeStrokeColorField' | 'edgeStrokeWidthField' | 'edgeTransparencyField'
 >;
 
 // tslint:disable-next-line:interface-over-type-literal
@@ -47,7 +48,8 @@ const basemapFieldNameMapping = createFieldNameMapping([
 
 // TODO: tooltip, label, labelPosition
 const nodesFieldNameMapping = createFieldNameMapping([
-  'color', 'transparency', 'label', 'labelPosition', 'tooltip', 'strokeWidth'
+  'latitude', 'longitude', 'color', 'transparency',
+  'label', 'labelPosition', 'tooltip', 'strokeWidth'
 ], {
   'identifier': 'nodeIdField', 'areaSize': 'nodeSizeField', 'shape': 'nodeSymbolField',
   'strokeColor': 'nodeStrokeField', 'strokeTransparency': 'nodeStrokeTransparencyField',
@@ -58,7 +60,9 @@ const edgesFieldNameMapping = createFieldNameMapping([
   'strokeWidth', 'transparency', 'pulse'
 ], {
   'identifier': 'edgeIdField', 'strokeColor': 'edgeStrokeColorField',
-  'latlng1': 'edgeSourceField', 'latlng2': 'edgeTargetField'
+  'latlng1': 'edgeSourceField', 'latlng2': 'edgeTargetField',
+  'latitude1': 'edgeSourceLatitudeField', 'longitude1': 'edgeSourceLongitudeField',
+  'latitude2': 'edgeTargetLatitudeField', 'longitude2': 'edgeTargetLongitudeField'
 }, 'edge');
 
 const fieldNameMappingMap = {
@@ -86,13 +90,15 @@ export class GeomapComponent extends BaseVisualizationComponent<Properties, Fiel
       'basemapStrokeWidthField', 'basemapStrokeDashArrayField', 'basemapStrokeTransparencyField'
     ]),
     nodes: createDefaultFieldGroup([
-      'nodeIdField', 'nodePositionField', 'nodeSizeField', 'nodeSymbolField',
-      'nodeColorField', 'nodeStrokeColorField', 'nodeStrokeWidthField', 'nodeTooltipField',
-      'nodeLabelField', 'nodeLabelPositionField', 'nodeTransparencyField', 'nodeStrokeTransparencyField',
-      'nodePulseField'
+      'nodeIdField', 'nodePositionField', 'nodeLatitudeField', 'nodeLongitudeField',
+      'nodeSizeField', 'nodeSymbolField', 'nodeColorField', 'nodeStrokeColorField',
+      'nodeStrokeWidthField', 'nodeTooltipField', 'nodeLabelField', 'nodeLabelPositionField',
+      'nodeTransparencyField', 'nodeStrokeTransparencyField', 'nodePulseField'
     ]),
     edges: createDefaultFieldGroup([
-      'edgeIdField', 'edgeSourceField', 'edgeTargetField', 'edgeStrokeColorField', 'edgeStrokeWidthField', 'edgeTransparencyField'
+      'edgeIdField', 'edgeSourceField', 'edgeSourceLatitudeField', 'edgeSourceLongitudeField',
+      'edgeTargetField', 'edgeTargetLatitudeField', 'edgeTargetLongitudeField',
+      'edgeStrokeColorField', 'edgeStrokeWidthField', 'edgeTransparencyField'
     ])
   };
 

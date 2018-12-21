@@ -117,7 +117,9 @@ export class ISITemplateProject extends DefaultProject {
           {id: 'fullname', label: 'Full Name', dataType: 'text', scaleType: 'nominal'},
           {id: 'x', label: 'X', dataType: 'number', scaleType: 'interval'},
           {id: 'y', label: 'Y', dataType: 'number', scaleType: 'interval'},
-          {id: 'latlng', label: 'Latitude/Longitude', dataType: '???', scaleType: '???'} // TODO: Fix types
+          {id: 'latlng', label: 'Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
+          {id: 'latitude', label: 'Latitude', dataType: 'number', scaleType: 'interval'},
+          {id: 'longitude', label: 'Longitude', dataType: 'number', scaleType: 'interval'}
         ]
       }, this),
       new DefaultRecordSet({
@@ -141,6 +143,10 @@ export class ISITemplateProject extends DefaultProject {
           {id: 'targetY', label: 'Target Y', dataType: 'number', scaleType: 'interval'},
           {id: 'latlng1', label: 'Author 1 Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
           {id: 'latlng2', label: 'Author 2 Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
+          {id: 'latitude1', label: 'Author 1 Latitude', dataType: 'number', scaleType: 'interval'},
+          {id: 'longitude1', label: 'Author 1 Longitude', dataType: 'number', scaleType: 'interval'},
+          {id: 'latitude2', label: 'Author 2 Latitude', dataType: 'number', scaleType: 'interval'},
+          {id: 'longitude2', label: 'Author 2 Longitude', dataType: 'number', scaleType: 'interval'},
         ]
       }, this),
       new DefaultRecordSet({
@@ -562,6 +568,22 @@ export class ISITemplateProject extends DefaultProject {
                 {selector: 'latlng'}
               ]
             },
+            latitude: {
+              text: [
+                {selector: 'latlng[0]'}
+              ],
+              axis: [
+                {selector: 'latlng[0]'}
+              ]
+            },
+            longitude: {
+              text: [
+                {selector: 'latlng[1]'}
+              ],
+              axis: [
+                {selector: 'latlng[1]'}
+              ]
+            },
             x: {
               text: [
                 {selector: 'position[0]'}
@@ -767,6 +789,38 @@ export class ISITemplateProject extends DefaultProject {
               ],
               latlng: [
                 {selector: 'Author2.latlng'}
+              ]
+            },
+            latitude1: {
+              text: [
+                {selector: 'Author1.latlng[0]'}
+              ],
+              axis: [
+                {selector: 'Author1.latlng[0]'}
+              ]
+            },
+            longitude1: {
+              text: [
+                {selector: 'Author1.latlng[1]'}
+              ],
+              axis: [
+                {selector: 'Author1.latlng[1]'}
+              ]
+            },
+            latitude2: {
+              text: [
+                {selector: 'Author2.latlng[0]'}
+              ],
+              axis: [
+                {selector: 'Author2.latlng[0]'}
+              ]
+            },
+            longitude2: {
+              text: [
+                {selector: 'Author2.latlng[1]'}
+              ],
+              axis: [
+                {selector: 'Author2.latlng[1]'}
               ]
             },
             numCites: {
@@ -1093,6 +1147,18 @@ export class ISITemplateProject extends DefaultProject {
             graphicVariableType: 'latlng',
             graphicVariableId: 'latlng'
           },
+          latitude: {
+            recordSet: 'author',
+            dataVariable: 'latitude',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          longitude: {
+            recordSet: 'author',
+            dataVariable: 'longitude',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
           x: {
             recordSet: 'author',
             dataVariable: 'x',
@@ -1195,6 +1261,30 @@ export class ISITemplateProject extends DefaultProject {
             dataVariable: 'latlng2',
             graphicVariableType: 'latlng',
             graphicVariableId: 'latlng'
+          },
+          latitude1: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'latitude1',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          longitude1: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'longitude1',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          latitude2: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'latitude2',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          longitude2: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'longitude2',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
           },
           strokeWidth: {
             recordSet: 'coAuthorLink',

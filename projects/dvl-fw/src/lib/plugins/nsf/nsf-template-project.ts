@@ -101,7 +101,9 @@ export class NSFTemplateProject extends DefaultProject {
           {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'x', label: 'X', dataType: 'number', scaleType: 'interval'},
           {id: 'y', label: 'Y', dataType: 'number', scaleType: 'interval'},
-          {id: 'latlng', label: 'Latitude/Longitude', dataType: '???', scaleType: '???'} // TODO: Fix types
+          {id: 'latlng', label: 'Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
+          {id: 'latitude', label: 'Latitude', dataType: 'number', scaleType: 'interval'},
+          {id: 'longitude', label: 'Longitude', dataType: 'number', scaleType: 'interval'}
         ]
       }, this),
       new DefaultRecordSet({
@@ -124,6 +126,10 @@ export class NSFTemplateProject extends DefaultProject {
           {id: 'targetY', label: 'Target Y', dataType: 'number', scaleType: 'interval'},
           {id: 'latlng1', label: 'Author 1 Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
           {id: 'latlng2', label: 'Author 2 Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
+          {id: 'latitude1', label: 'Source Latitude', dataType: 'number', scaleType: 'interval'},
+          {id: 'longitude1', label: 'Source Longitude', dataType: 'number', scaleType: 'interval'},
+          {id: 'latitude2', label: 'Target Latitude', dataType: 'number', scaleType: 'interval'},
+          {id: 'longitude2', label: 'Target Longitude', dataType: 'number', scaleType: 'interval'},
         ]
       }, this),
     ];
@@ -313,6 +319,22 @@ export class NSFTemplateProject extends DefaultProject {
             latlng: {
               axis: [
                 {selector: 'latlng'}
+              ]
+            },
+            latitude: {
+              text: [
+                {selector: 'latlng[0]'}
+              ],
+              axis: [
+                {selector: 'latlng[0]'}
+              ]
+            },
+            longitude: {
+              text: [
+                {selector: 'latlng[1]'}
+              ],
+              axis: [
+                {selector: 'latlng[1]'}
               ]
             },
             x: {
@@ -515,6 +537,38 @@ export class NSFTemplateProject extends DefaultProject {
               ],
               latlng: [
                 {selector: 'Investigator2.latlng'}
+              ]
+            },
+            latitude1: {
+              text: [
+                {selector: 'Investigator1.latlng[0]'}
+              ],
+              axis: [
+                {selector: 'Investigator1.latlng[0]'}
+              ]
+            },
+            longitude1: {
+              text: [
+                {selector: 'Investigator1.latlng[1]'}
+              ],
+              axis: [
+                {selector: 'Investigator1.latlng[1]'}
+              ]
+            },
+            latitude2: {
+              text: [
+                {selector: 'Investigator2.latlng[0]'}
+              ],
+              axis: [
+                {selector: 'Investigator2.latlng[0]'}
+              ]
+            },
+            longitude2: {
+              text: [
+                {selector: 'Investigator2.latlng[1]'}
+              ],
+              axis: [
+                {selector: 'Investigator2.latlng[1]'}
               ]
             },
             numAwards: {
@@ -720,6 +774,18 @@ export class NSFTemplateProject extends DefaultProject {
             graphicVariableType: 'axis',
             graphicVariableId: 'axis'
           },
+          latitude: {
+            recordSet: 'investigator',
+            dataVariable: 'latitude',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          longitude: {
+            recordSet: 'investigator',
+            dataVariable: 'longitude',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
           x: {
             recordSet: 'investigator',
             dataVariable: 'x',
@@ -822,6 +888,30 @@ export class NSFTemplateProject extends DefaultProject {
             dataVariable: 'latlng2',
             graphicVariableType: 'latlng',
             graphicVariableId: 'latlng'
+          },
+          latitude1: {
+            recordSet: 'coPiLink',
+            dataVariable: 'latitude1',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          longitude1: {
+            recordSet: 'coPiLink',
+            dataVariable: 'longitude1',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          latitude2: {
+            recordSet: 'coPiLink',
+            dataVariable: 'latitude2',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          longitude2: {
+            recordSet: 'coPiLink',
+            dataVariable: 'longitude2',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
           },
           strokeWidth: {
             recordSet: 'coPiLink',

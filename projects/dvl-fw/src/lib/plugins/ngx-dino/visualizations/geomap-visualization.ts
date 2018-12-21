@@ -22,7 +22,9 @@ export class GeomapVisualization extends DefaultVisualization {
       id: 'nodes', label: 'Nodes', type: 'area',
       graphicVariableOptions: [
         { type: 'identifier', label: 'Identifier' },
-        { type: 'latlng', label: 'Latitude/Longitude' },
+        // { type: 'latlng', label: 'Latitude/Longitude' },
+        { type: 'latitude', label: 'Latitude' },
+        { type: 'longitude', label: 'Longitude' },
         { type: 'color', label: 'Color Hue', visualization: 'color' },
         // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
         { type: 'areaSize', label: 'Size', visualization: 'node-size'},
@@ -36,8 +38,12 @@ export class GeomapVisualization extends DefaultVisualization {
       id: 'edges', label: 'Edges', type: 'line',
       graphicVariableOptions: [
         { type: 'identifier', label: 'Identifier' },
-        { id: 'latlng1', type: 'latlng', label: 'Source Latitude/Longitude' },
-        { id: 'latlng2', type: 'latlng', label: 'Target Latitude/Longitude' },
+        // { id: 'latlng1', type: 'latlng', label: 'Source Latitude/Longitude' },
+        { type: 'latitude1', label: 'Source Latitude' },
+        { type: 'longitude1', label: 'Source Longitude' },
+        // { id: 'latlng2', type: 'latlng', label: 'Target Latitude/Longitude' },
+        { type: 'latitude2', label: 'Target Latitude' },
+        { type: 'longitude2', label: 'Target Longitude' },
         { type: 'strokeColor', label: 'Color Hue', visualization: 'color' },
         { type: 'strokeWidth', label: 'Size', visualization: 'edge-size' },
         // { type: 'transparency', label: 'Transparency' }
