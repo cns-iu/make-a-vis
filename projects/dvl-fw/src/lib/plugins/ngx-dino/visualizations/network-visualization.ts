@@ -13,22 +13,28 @@ export class NetworkVisualization extends DefaultVisualization {
       id: 'nodes', label: 'Nodes', type: 'area',
       graphicVariableOptions: [
         { type: 'identifier', label: 'Identifier' },
-        { type: 'position', label: 'Position' },
+        // { type: 'position', label: 'Position' },
+        { id: 'x', type: 'axis', label: 'X' },
+        { id: 'y', type: 'axis', label: 'Y' },
         { type: 'color', label: 'Color Hue', visualization: 'color' },
         // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
         { type: 'areaSize', label: 'Size', visualization: 'node-size'},
         // { type: 'shape', label: 'Shape' },
         // { type: 'transparency', label: 'Transparency'},
         // { type: 'strokeTransparency', label: 'Stroke Transparency'},
-        { type: 'label', label: 'Label'},
-        { type: 'tooltip', label: 'Tooltip'}
+        { id: 'label', type: 'text', label: 'Label'},
+        { id: 'tooltip', type: 'text', label: 'Tooltip'}
       ]
     }, {
       id: 'edges', label: 'Edges', type: 'line',
       graphicVariableOptions: [
         { type: 'identifier', label: 'Identifier' },
-        { type: 'source', label: 'Source Position' },
-        { type: 'target', label: 'Target Position' },
+        { id: 'sourceX', type: 'axis', label: 'Source X' },
+        { id: 'sourceY', type: 'axis', label: 'Source Y' },
+        { id: 'targetX', type: 'axis', label: 'Target X' },
+        { id: 'targetY', type: 'axis', label: 'Target Y' },
+        // { type: 'source', label: 'Source Position' },
+        // { type: 'target', label: 'Target Position' },
         { type: 'strokeColor', label: 'Color Hue', visualization: 'color' },
         { type: 'strokeWidth', label: 'Size', visualization: 'edge-size' },
         // { type: 'transparency', label: 'Transparency' }

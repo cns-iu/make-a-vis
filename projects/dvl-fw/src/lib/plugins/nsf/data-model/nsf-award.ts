@@ -3,7 +3,7 @@ import { access, chain, map, lookup, Operand } from '@ngx-dino/core';
 import {
   areaSizeScaleNormQuantitative, extractPoint, formatNumber, formatYear, fontSizeScaleNormQuantitative,
   colorScaleNormQuantitative, colorScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency,
-  defaultStyles
+  strokeWidthScaleNormQuantitative, defaultStyles
 } from '../../../encoding';
 import { Location } from '../../../encoding/geocoder';
 import { Transient } from '../../../shared/transient';
@@ -111,6 +111,8 @@ export class Award {
   awardedAmountLabel: string;
   @Operand<number>(chain(access('awardedAmountNorm'), areaSizeScaleNormQuantitative))
   awardedAmountAreaSize: number;
+  @Operand<number>(chain(access('awardedAmountNorm'), strokeWidthScaleNormQuantitative))
+  awardedAmountStrokeWidth: number;
   @Operand<number>(chain(access('awardedAmountNorm'), fontSizeScaleNormQuantitative))
   awardedAmountFontSize: number;
   @Operand<string>(chain(access('awardedAmountNorm'), colorScaleNormQuantitative))

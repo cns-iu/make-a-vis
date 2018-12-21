@@ -29,15 +29,15 @@ export class GeomapVisualization extends DefaultVisualization {
         // { type: 'shape', label: 'Shape' },
         // { type: 'transparency', label: 'Transparency'},
         // { type: 'strokeTransparency', label: 'Stroke Transparency'},
-        { type: 'label', label: 'Label'},
-        { type: 'tooltip', label: 'Tooltip'}
+        { id: 'label', type: 'text', label: 'Label'},
+        { id: 'tooltip', type: 'text', label: 'Tooltip'}
       ]
     }, {
       id: 'edges', label: 'Edges', type: 'line',
       graphicVariableOptions: [
         { type: 'identifier', label: 'Identifier' },
-        { type: 'latlng1', label: 'Source Latitude/Longitude' },
-        { type: 'latlng2', label: 'Target Latitude/Longitude' },
+        { id: 'latlng1', type: 'latlng', label: 'Source Latitude/Longitude' },
+        { id: 'latlng2', type: 'latlng', label: 'Target Latitude/Longitude' },
         { type: 'strokeColor', label: 'Color Hue', visualization: 'color' },
         { type: 'strokeWidth', label: 'Size', visualization: 'edge-size' },
         // { type: 'transparency', label: 'Transparency' }

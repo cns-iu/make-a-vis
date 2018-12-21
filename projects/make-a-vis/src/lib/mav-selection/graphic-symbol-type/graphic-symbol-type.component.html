@@ -8,7 +8,7 @@
                 {{selectedRecordStream.get(symbolType.id)?.label}}
             </div>
         </mat-card>
-        <mat-icon class="cancel-icon" *ngIf="selectedRecordStream.get(symbolType.id)?true:false">cancel</mat-icon>
+        <mat-icon class="cancel-icon" *ngIf="selectedRecordStream.get(symbolType.id)?true:false" (click)="unsetRecordStream(symbolType.id)">cancel</mat-icon>
     </div>
 </div>
 

@@ -99,8 +99,9 @@ export class NSFTemplateProject extends DefaultProject {
           {id: 'awardedAmount', label: '$Awarded', dataType: 'integer', scaleType: 'ratio'},
           {id: 'firstYear', label: 'First Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'},
-          {id: 'latlng', label: 'Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
-          {id: 'position', label: 'Position', dataType: '???', scaleType: '???'}, // TODO: Fix types
+          {id: 'x', label: 'X', dataType: 'number', scaleType: 'interval'},
+          {id: 'y', label: 'Y', dataType: 'number', scaleType: 'interval'},
+          {id: 'latlng', label: 'Latitude/Longitude', dataType: '???', scaleType: '???'} // TODO: Fix types
         ]
       }, this),
       new DefaultRecordSet({
@@ -117,8 +118,10 @@ export class NSFTemplateProject extends DefaultProject {
           {id: 'firstYear', label: 'First Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'identifier', label: 'Identifier', dataType: 'text', scaleType: 'nominal'},
-          {id: 'source', label: 'Investigator 1 Position', dataType: '???', scaleType: '???'}, // TODO: Fix types
-          {id: 'target', label: 'Investigator 2 Position', dataType: '???', scaleType: '???'}, // TODO: Fix types
+          {id: 'sourceX', label: 'Source X', dataType: 'number', scaleType: 'interval'},
+          {id: 'sourceY', label: 'Source Y', dataType: 'number', scaleType: 'interval'},
+          {id: 'targetX', label: 'Target X', dataType: 'number', scaleType: 'interval'},
+          {id: 'targetY', label: 'Target Y', dataType: 'number', scaleType: 'interval'},
           {id: 'latlng1', label: 'Author 1 Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
           {id: 'latlng2', label: 'Author 2 Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
         ]
@@ -186,7 +189,7 @@ export class NSFTemplateProject extends DefaultProject {
             },
             startYear: {
               axis: [
-                {selector: 'startYearLabel'}
+                {selector: 'startYear'}
               ],
               text: [
                 {selector: 'startYearLabel'}
@@ -206,7 +209,7 @@ export class NSFTemplateProject extends DefaultProject {
             },
             endYear: {
               axis: [
-                {selector: 'endYearLabel'}
+                {selector: 'endYear'}
               ],
               text: [
                 {selector: 'endYearLabel'}
@@ -233,6 +236,9 @@ export class NSFTemplateProject extends DefaultProject {
               ],
               areaSize: [
                 {selector: 'awardedAmountAreaSize'}
+              ],
+              strokeWidth: [
+                {selector: 'awardedAmountStrokeWidth'}
               ],
               fontSize: [
                 {selector: 'awardedAmountFontSize'}
@@ -309,9 +315,20 @@ export class NSFTemplateProject extends DefaultProject {
                 {selector: 'latlng'}
               ]
             },
-            position: {
+            x: {
+              text: [
+                {selector: 'position[0]'}
+              ],
               axis: [
-                {selector: 'position'}
+                {selector: 'position[0]'}
+              ]
+            },
+            y: {
+              text: [
+                {selector: 'position[1]'}
+              ],
+              axis: [
+                {selector: 'position[1]'}
               ]
             },
             numAwards: {
@@ -452,14 +469,36 @@ export class NSFTemplateProject extends DefaultProject {
                 {id: 'fixed', selector: 'defaultStyles.strokeTransparency', label: 'Default'}
               ]
             },
-            source: {
-              source: [
-                {selector: 'source'}
+            sourceX: {
+              text: [
+                {selector: 'source[0]'}
+              ],
+              axis: [
+                {selector: 'source[0]'}
               ]
             },
-            target: {
-              target: [
-                {selector: 'target'}
+            sourceY: {
+              text: [
+                {selector: 'source[1]'}
+              ],
+              axis: [
+                {selector: 'source[1]'}
+              ]
+            },
+            targetX: {
+              text: [
+                {selector: 'target[0]'}
+              ],
+              axis: [
+                {selector: 'target[0]'}
+              ]
+            },
+            targetY: {
+              text: [
+                {selector: 'target[1]'}
+              ],
+              axis: [
+                {selector: 'target[1]'}
               ]
             },
             latlng1: {
@@ -681,9 +720,15 @@ export class NSFTemplateProject extends DefaultProject {
             graphicVariableType: 'axis',
             graphicVariableId: 'axis'
           },
-          position: {
+          x: {
             recordSet: 'investigator',
-            dataVariable: 'position',
+            dataVariable: 'x',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          y: {
+            recordSet: 'investigator',
+            dataVariable: 'y',
             graphicVariableType: 'axis',
             graphicVariableId: 'axis'
           },
@@ -742,17 +787,29 @@ export class NSFTemplateProject extends DefaultProject {
             graphicVariableType: 'identifier',
             graphicVariableId: 'identifier'
           },
-          source: {
+          sourceX: {
             recordSet: 'coPiLink',
-            dataVariable: 'source',
-            graphicVariableType: 'source',
-            graphicVariableId: 'source'
+            dataVariable: 'sourceX',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
           },
-          target: {
+          sourceY: {
             recordSet: 'coPiLink',
-            dataVariable: 'target',
-            graphicVariableType: 'target',
-            graphicVariableId: 'target'
+            dataVariable: 'sourceY',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          targetX: {
+            recordSet: 'coPiLink',
+            dataVariable: 'targetX',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          targetY: {
+            recordSet: 'coPiLink',
+            dataVariable: 'targetY',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
           },
           latlng1: {
             recordSet: 'coPiLink',

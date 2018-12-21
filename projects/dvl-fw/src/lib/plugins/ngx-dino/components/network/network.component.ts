@@ -12,14 +12,16 @@ export type Properties = Pick<
 
 export type NodeFields = Pick<
   NgxNetworkComponent,
-  'nodeIdField' | 'nodePositionField' | 'nodeSizeField' | 'nodeSymbolField' | 'nodeColorField' |
+  'nodeIdField' | 'nodePositionField' | 'nodeXField' | 'nodeYField' | 'nodeSizeField' | 'nodeSymbolField' | 'nodeColorField' |
   'nodeStrokeField' | 'nodeStrokeWidthField' | 'nodeTooltipField' | 'nodeLabelField' |
   'nodeLabelPositionField' | 'nodeTransparencyField' | 'strokeTransparencyField' | 'nodePulseField'
 >;
 
 export type EdgeFields = Pick<
   NgxNetworkComponent,
-  'edgeIdField' | 'edgeSourceField' | 'edgeTargetField' | 'edgeStrokeField' | 'edgeStrokeWidthField' | 'edgeTransparencyField'
+  'edgeIdField' | 'edgeSourceField' | 'edgeSourceXField' | 'edgeSourceYField' |
+  'edgeTargetField' | 'edgeTargetXField' | 'edgeTargetYField' |
+  'edgeStrokeField' | 'edgeStrokeWidthField' | 'edgeTransparencyField'
 >;
 
 // tslint:disable-next-line:interface-over-type-literal
@@ -29,14 +31,14 @@ export type FieldGroups = {
 };
 
 const nodesFieldNameMapping = createFieldNameMapping([
-  'color', 'transparency', 'position', 'label', 'labelPosition', 'tooltip', 'strokeWidth'
+  'color', 'transparency', 'position', 'label', 'labelPosition', 'tooltip', 'strokeWidth', 'x', 'y'
 ], {
   'identifier': 'nodeIdField', 'areaSize': 'nodeSizeField', 'shape': 'nodeSymbolField',
   'strokeColor': 'nodeStrokeField', 'strokeTransparency': 'nodeStrokeTransparencyField'
 }, 'node');
 
 const edgesFieldNameMapping = createFieldNameMapping([
-  'source', 'target', 'strokeWidth', 'transparency', 'pulse'
+  'source', 'target', 'strokeWidth', 'transparency', 'pulse', 'sourceX', 'sourceY', 'targetX', 'targetY'
 ], {
   'identifier': 'edgeIdField', 'strokeColor': 'edgeStrokeField'
 }, 'edge');
@@ -53,12 +55,13 @@ export class NetworkComponent extends BaseVisualizationComponent<Properties, Fie
 
   readonly defaultFieldGroups: FieldGroups = {
     nodes: createDefaultFieldGroup([
-      'nodeIdField', 'nodePositionField', 'nodeSizeField', 'nodeSymbolField', 'nodeColorField',
+      'nodeIdField', 'nodePositionField', 'nodeXField', 'nodeYField', 'nodeSizeField', 'nodeSymbolField', 'nodeColorField',
       'nodeStrokeField', 'nodeStrokeWidthField', 'nodeTooltipField', 'nodeLabelField', 'nodeLabelPositionField',
       'nodeTransparencyField', 'strokeTransparencyField', 'nodePulseField'
     ]),
     edges: createDefaultFieldGroup([
-      'edgeIdField', 'edgeSourceField', 'edgeTargetField', 'edgeStrokeField', 'edgeStrokeWidthField', 'edgeTransparencyField'
+      'edgeIdField', 'edgeSourceField', 'edgeSourceXField', 'edgeSourceYField',
+      'edgeTargetField', 'edgeTargetXField', 'edgeTargetYField', 'edgeStrokeField', 'edgeStrokeWidthField', 'edgeTransparencyField'
     ])
   };
 

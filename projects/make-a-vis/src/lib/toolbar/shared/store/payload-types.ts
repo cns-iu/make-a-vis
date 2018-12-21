@@ -50,6 +50,11 @@ export interface SetRecordStreamPayload {
   symbol?: GraphicSymbol;
 }
 
+export interface UnsetRecordStreamPayload {
+  visualization: Visualization;
+  slot: string;
+}
+
 export interface SetGraphicVariablePayload {
   visualization: Visualization;
   slot: string;
