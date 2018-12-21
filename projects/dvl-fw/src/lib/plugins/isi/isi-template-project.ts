@@ -552,7 +552,10 @@ export class ISITemplateProject extends DefaultProject {
               ]
             },
             latlng: {
-              axis: [
+              text: [
+                {selector: 'latlng'}
+              ],
+              latlng: [
                 {selector: 'latlng'}
               ]
             },
@@ -1051,8 +1054,8 @@ export class ISITemplateProject extends DefaultProject {
           latlng: {
             recordSet: 'author',
             dataVariable: 'latlng',
-            graphicVariableType: 'axis',
-            graphicVariableId: 'axis'
+            graphicVariableType: 'latlng',
+            graphicVariableId: 'latlng'
           },
           position: {
             recordSet: 'author',
