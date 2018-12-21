@@ -103,6 +103,9 @@ export function sidenavStateReducer (
           const { slot, symbol, visualization } = action.payload;
           if (symbol) {
             visualization.graphicSymbols[slot] = symbol;
+            if (!state.project.graphicSymbols.find((s) => s.id === symbol.id)) {
+              state.project.graphicSymbols.push(symbol);
+            }
           } else {
             delete visualization.graphicSymbols[slot];
           }
