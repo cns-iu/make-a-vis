@@ -115,8 +115,9 @@ export class ISITemplateProject extends DefaultProject {
           {id: 'firstYear', label: 'First Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'fullname', label: 'Full Name', dataType: 'text', scaleType: 'nominal'},
-          {id: 'latlng', label: 'Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
-          {id: 'position', label: 'Position', dataType: '???', scaleType: '???'}, // TODO: Fix types
+          {id: 'x', label: 'X', dataType: 'number', scaleType: 'interval'},
+          {id: 'y', label: 'Y', dataType: 'number', scaleType: 'interval'},
+          {id: 'latlng', label: 'Latitude/Longitude', dataType: '???', scaleType: '???'} // TODO: Fix types
         ]
       }, this),
       new DefaultRecordSet({
@@ -134,8 +135,10 @@ export class ISITemplateProject extends DefaultProject {
           {id: 'firstYear', label: 'First Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'lastYear', label: 'Last Year', dataType: 'integer', scaleType: 'interval'},
           {id: 'identifier', label: 'Identifier', dataType: 'text', scaleType: 'nominal'},
-          {id: 'source', label: 'Author 1 Position', dataType: '???', scaleType: '???'}, // TODO: Fix types
-          {id: 'target', label: 'Author 2 Position', dataType: '???', scaleType: '???'}, // TODO: Fix types
+          {id: 'sourceX', label: 'Source X', dataType: 'number', scaleType: 'interval'},
+          {id: 'sourceY', label: 'Source Y', dataType: 'number', scaleType: 'interval'},
+          {id: 'targetX', label: 'Target X', dataType: 'number', scaleType: 'interval'},
+          {id: 'targetY', label: 'Target Y', dataType: 'number', scaleType: 'interval'},
           {id: 'latlng1', label: 'Author 1 Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
           {id: 'latlng2', label: 'Author 2 Latitude/Longitude', dataType: '???', scaleType: '???'}, // TODO: Fix types
         ]
@@ -552,13 +555,27 @@ export class ISITemplateProject extends DefaultProject {
               ]
             },
             latlng: {
-              axis: [
+              text: [
+                {selector: 'latlng'}
+              ],
+              latlng: [
                 {selector: 'latlng'}
               ]
             },
-            position: {
+            x: {
+              text: [
+                {selector: 'position[0]'}
+              ],
               axis: [
-                {selector: 'position'}
+                {selector: 'position[0]'}
+              ]
+            },
+            y: {
+              text: [
+                {selector: 'position[1]'}
+              ],
+              axis: [
+                {selector: 'position[1]'}
               ]
             },
             fullname: {
@@ -704,14 +721,36 @@ export class ISITemplateProject extends DefaultProject {
                 {id: 'fixed', selector: 'defaultStyles.strokeTransparency', label: 'Default'}
               ]
             },
-            source: {
-              source: [
-                {selector: 'source'}
+            sourceX: {
+              text: [
+                {selector: 'source[0]'}
+              ],
+              axis: [
+                {selector: 'source[0]'}
               ]
             },
-            target: {
-              target: [
-                {selector: 'target'}
+            sourceY: {
+              text: [
+                {selector: 'source[1]'}
+              ],
+              axis: [
+                {selector: 'source[1]'}
+              ]
+            },
+            targetX: {
+              text: [
+                {selector: 'target[0]'}
+              ],
+              axis: [
+                {selector: 'target[0]'}
+              ]
+            },
+            targetY: {
+              text: [
+                {selector: 'target[1]'}
+              ],
+              axis: [
+                {selector: 'target[1]'}
               ]
             },
             latlng1: {
@@ -1051,12 +1090,18 @@ export class ISITemplateProject extends DefaultProject {
           latlng: {
             recordSet: 'author',
             dataVariable: 'latlng',
+            graphicVariableType: 'latlng',
+            graphicVariableId: 'latlng'
+          },
+          x: {
+            recordSet: 'author',
+            dataVariable: 'x',
             graphicVariableType: 'axis',
             graphicVariableId: 'axis'
           },
-          position: {
+          y: {
             recordSet: 'author',
-            dataVariable: 'position',
+            dataVariable: 'y',
             graphicVariableType: 'axis',
             graphicVariableId: 'axis'
           },
@@ -1115,17 +1160,29 @@ export class ISITemplateProject extends DefaultProject {
             graphicVariableType: 'identifier',
             graphicVariableId: 'identifier'
           },
-          source: {
+          sourceX: {
             recordSet: 'coAuthorLink',
-            dataVariable: 'source',
-            graphicVariableType: 'source',
-            graphicVariableId: 'source'
+            dataVariable: 'sourceX',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
           },
-          target: {
+          sourceY: {
             recordSet: 'coAuthorLink',
-            dataVariable: 'target',
-            graphicVariableType: 'target',
-            graphicVariableId: 'target'
+            dataVariable: 'sourceY',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          targetX: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'targetX',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
+          },
+          targetY: {
+            recordSet: 'coAuthorLink',
+            dataVariable: 'targetY',
+            graphicVariableType: 'axis',
+            graphicVariableId: 'axis'
           },
           latlng1: {
             recordSet: 'coAuthorLink',

@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
-import { mapValues } from 'lodash';
+import { mapValues, uniqueId } from 'lodash';
 
 import { GraphicSymbol, GraphicVariable, RecordStream, Visualization } from '@dvl-fw/core';
 import { ApplicationState } from '../../store';
@@ -43,7 +43,7 @@ export class UpdateVisService {
   }
 
   updateGraphicSymbol(visualization: Visualization, slot: string, type: string, stream?: RecordStream): void {
-    const symbol = stream ? new SimpleGraphicSymbol(slot, type, stream) : undefined;
+    const symbol = stream ? new SimpleGraphicSymbol(`${slot}-${uniqueId()}`, type, stream) : undefined;
     this.store.dispatch(new SetRecordStream({ slot, symbol, visualization }));
     this._update.next(visualization);
   }
