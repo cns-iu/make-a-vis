@@ -12,27 +12,27 @@ export class NetworkVisualization extends DefaultVisualization {
     {
       id: 'nodes', label: 'Nodes', type: 'area',
       graphicVariableOptions: [
-        { type: 'identifier', label: 'Identifier' },
+        { type: 'identifier', label: 'Identifier', visualization: 'id' },
         // { type: 'position', label: 'Position' },
-        { id: 'x', type: 'axis', label: 'X' },
-        { id: 'y', type: 'axis', label: 'Y' },
+        { id: 'x', type: 'axis', label: 'X', visualization: 'x-axis' },
+        { id: 'y', type: 'axis', label: 'Y', visualization: 'y-axis' },
         { type: 'color', label: 'Color Hue', visualization: 'color' },
         // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
         { type: 'areaSize', label: 'Size', visualization: 'node-size'},
         // { type: 'shape', label: 'Shape' },
         // { type: 'transparency', label: 'Transparency'},
         // { type: 'strokeTransparency', label: 'Stroke Transparency'},
-        { id: 'label', type: 'text', label: 'Label'},
-        { id: 'tooltip', type: 'text', label: 'Tooltip'}
+        { id: 'label', type: 'text', label: 'Label', visualization: 'label'},
+        { id: 'tooltip', type: 'text', label: 'Tooltip', visualization: 'label'}
       ]
     }, {
       id: 'edges', label: 'Edges', type: 'line',
       graphicVariableOptions: [
-        { type: 'identifier', label: 'Identifier' },
-        { id: 'sourceX', type: 'axis', label: 'Source X' },
-        { id: 'sourceY', type: 'axis', label: 'Source Y' },
-        { id: 'targetX', type: 'axis', label: 'Target X' },
-        { id: 'targetY', type: 'axis', label: 'Target Y' },
+        { type: 'identifier', label: 'Identifier', visualization: 'id' },
+        { id: 'sourceX', type: 'axis', label: 'Source X', visualization: 'source' },
+        { id: 'sourceY', type: 'axis', label: 'Source Y', visualization: 'source' },
+        { id: 'targetX', type: 'axis', label: 'Target X', visualization: 'target' },
+        { id: 'targetY', type: 'axis', label: 'Target Y', visualization: 'target' },
         // { type: 'source', label: 'Source Position' },
         // { type: 'target', label: 'Target Position' },
         { type: 'strokeColor', label: 'Color Hue', visualization: 'color' },

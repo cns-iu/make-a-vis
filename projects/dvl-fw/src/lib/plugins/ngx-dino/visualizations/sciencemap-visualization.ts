@@ -11,10 +11,10 @@ export class SciencemapVisualization extends DefaultVisualization {
   readonly graphicSymbolOptions = [{
     id: 'subdisciplinePoints', label: 'Subdiscipline Points', type: 'area',
     graphicVariableOptions: [
-      { type: 'identifier', label: 'Identifier' },
+      { type: 'identifier', label: 'Identifier', visualization: 'id' },
       { type: 'color', label: 'Color Hue', visualization: 'color' },
       { type: 'areaSize', label: 'Size', visualization: 'node-size' },
-      { id: 'tooltip', type: 'text', label: 'Tooltip'}
+      { id: 'tooltip', type: 'text', label: 'Tooltip', visualization: 'label'}
     ]
   }];
 }
