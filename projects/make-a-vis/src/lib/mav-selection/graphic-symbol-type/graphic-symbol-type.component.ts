@@ -60,6 +60,11 @@ export class GraphicSymbolTypeComponent implements OnInit, OnChanges {
     this.updateService.updateGraphicSymbol(this.activeVis.data, graphicSymbolOption.id, graphicSymbolOption.type, recordStream);
   }
 
+  unsetRecordStream(graphicSymbolOptionId: string) {
+    this.updateService.unsetRecordStream(graphicSymbolOptionId, this.activeVis.data);
+    this.selectedRecordStream.delete(graphicSymbolOptionId);
+  }
+
   onDragDropEvent(event: DragDropEvent) {
     if (event.type === 'drag-start') {
       this.selectionClass = event.accepted ? 'selectable' : 'unselectable'; // 'rgba(0,255,0,0.1)' : 'rgba(255,0,0,0.1)';

@@ -112,6 +112,13 @@ export function sidenavStateReducer (
         }
         return newState;
 
+      case SidenavActionTypes.UnsetRecordStream:
+        if (state.project) {
+          const { slot, visualization } = action.payload;
+          delete visualization.graphicSymbols[slot];
+        }
+        return newState;
+
       case SidenavActionTypes.SetGraphicSymbolRecordSet:
         assign(newState, pick(action.payload, ['graphicSymbol', 'recordSet']));
         return newState;
