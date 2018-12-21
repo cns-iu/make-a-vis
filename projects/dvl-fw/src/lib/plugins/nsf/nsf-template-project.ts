@@ -226,7 +226,7 @@ export class NSFTemplateProject extends DefaultProject {
             },
             awardedAmount: {
               axis: [
-                {selector: 'awardedAmountLabel'}
+                {selector: 'awardedAmountToDate'}
               ],
               text: [
                 {selector: 'awardedAmountLabel'}
@@ -342,7 +342,7 @@ export class NSFTemplateProject extends DefaultProject {
             },
             awardedAmount: {
               axis: [
-                {selector: 'awardedAmountLabel'}
+                {selector: 'awardedAmountToDate'}
               ],
               text: [
                 {selector: 'awardedAmountLabel'}
