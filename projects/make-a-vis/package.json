@@ -1,13 +1,13 @@
 {
     "name": "make-a-vis",
-    "version": "0.5.0",
+    "version": "0.9.0",
     "peerDependencies": {
         "@angular/animations": "^7.0.0",
         "@angular/cdk": "^7.0.1",
         "@angular/common": "^7.0.0",
         "@angular/core": "^7.0.0",
         "@angular/material": "^7.0.1",
-        "@dvl-fw/core": "^0.5.0",
+        "@dvl-fw/core": ">=0.9.0 <1.0.0",
         "@ngrx/effects": "^6.1.0",
         "@ngrx/store": "^6.1.0",
         "@ngx-dino/core": "^0.9.0",

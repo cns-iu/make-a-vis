@@ -22,8 +22,8 @@ export class NetworkVisualization extends DefaultVisualization {
         // { type: 'shape', label: 'Shape' },
         // { type: 'transparency', label: 'Transparency'},
         // { type: 'strokeTransparency', label: 'Stroke Transparency'},
-        { type: 'label', label: 'Label'},
-        { type: 'tooltip', label: 'Tooltip'}
+        { id: 'label', type: 'text', label: 'Label'},
+        { id: 'tooltip', type: 'text', label: 'Tooltip'}
       ]
     }, {
       id: 'edges', label: 'Edges', type: 'line',
