@@ -11,7 +11,7 @@ export class EdgeSizeVisualization extends DefaultVisualization {
     {
       id: 'items', label: 'Items', type: 'line',
       graphicVariableOptions: [
-        { type: 'identifier', label: 'Identifier' },
+        { type: 'identifier', label: 'Identifier', visualization: 'id' },
         { type: 'strokeWidth', label: 'Stroke Width', visualization: 'edge-size' }
       ]
     }

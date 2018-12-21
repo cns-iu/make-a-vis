@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ColorModule } from './components/color/color.module';
+import { StaticLegendModule } from './components/static-legend/static-legend.module';
 import { EdgeSizeModule } from './components/edge-size/edge-size.module';
 import { GeomapModule } from './components/geomap/geomap.module';
 import { NetworkModule } from './components/network/network.module';
@@ -14,7 +15,7 @@ import { TemporalBargraphModule } from './components/temporal-bargraph/temporal-
 
 @NgModule({
   imports: [
-    CommonModule,
+    CommonModule, StaticLegendModule,
     ScatterplotModule, GeomapModule, NetworkModule,
     SciencemapModule, TemporalBargraphModule,
     NodeSizeModule, EdgeSizeModule, ColorModule
