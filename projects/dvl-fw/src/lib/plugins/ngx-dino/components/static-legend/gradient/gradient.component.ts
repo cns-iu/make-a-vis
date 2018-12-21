@@ -22,4 +22,3 @@ export class GradientComponent extends BaseVisualizationComponent<Properties, Fi
     return null;
   }
 }
-  
