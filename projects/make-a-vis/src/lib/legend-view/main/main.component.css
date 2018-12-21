@@ -11,9 +11,13 @@
 }
 
 .legend-view-group {
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   margin-right: 0.625rem;
   border: 1px solid transparent;
+}
+
+.legend-view-group ::ng-deep .mat-card-title {
+  margin-bottom: 0.25rem
 }
 
 .legend-view-group-container {

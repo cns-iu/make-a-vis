@@ -11,17 +11,17 @@ export class TemporalBargraphVisualization extends DefaultVisualization {
   readonly graphicSymbolOptions = [{
     id: 'bars', label: 'Bars', type: 'area',
     graphicVariableOptions: [
-      { type: 'identifier', label: 'Identifier' },
-      { id: 'x-start', type: 'axis', label: 'X-Axis Start' },
-      { id: 'x-end', type: 'axis', label: 'X-Axis End' },
+      { type: 'identifier', label: 'Identifier', visualization: 'id' },
+      { id: 'x-start', type: 'axis', label: 'X-Axis Start', visualization: 'source' },
+      { id: 'x-end', type: 'axis', label: 'X-Axis End', visualization: 'target' },
       { id: 'y-order', type: 'axis', label: 'Y-Axis Order' },
       { id: 'height', type: 'areaSize', label: 'Size', visualization: 'edge-size' },
       { type: 'color', label: 'Color Hue', visualization: 'color' },
       // { type: 'transparency', label: 'Transparency'},
       // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
       // { type: 'strokeTransparency', label: 'Stroke Transparency'},
-      { id: 'label', type: 'text', label: 'Label'},
-      { id: 'tooltip', type: 'text', label: 'Tooltip'}
+      { id: 'label', type: 'text', label: 'Label', visualization: 'label'},
+      { id: 'tooltip', type: 'text', label: 'Tooltip', visualization: 'label'}
     ]
   }];
 }

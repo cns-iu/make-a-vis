@@ -6,13 +6,24 @@
 
   .selection-title 
     display: flex
-    justify-content: center
-    padding: 1rem
+    line-height: 2.5rem
+    padding-bottom: 0.5rem
+    padding-left: 1rem
     font-size: 1.15rem
     font-weight: 700
 
   .expansion-panel-container 
-    padding: 1rem 
+    padding: 0 1rem 0.625rem 1rem
+
+    ::ng-deep mat-expansion-panel-header
+      padding-left: 1rem
+      padding-right: 1rem
+    
+    ::ng-deep .mat-expansion-panel-body
+      padding: 0 1rem 1rem
+    
+    ::ng-deep .mat-card
+      padding: 0.5rem .625rem
 
     .expansion-panel
       background: #ffffff

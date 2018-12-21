@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 1vh;
+  padding-bottom: 0.5rem;
 }
 
 .data-view-header .title {
@@ -31,4 +31,8 @@
 
 .mav-table {
   width: 100%;
+}
+
+.mav-data-view {
+  padding-right: 0.5rem
 }
