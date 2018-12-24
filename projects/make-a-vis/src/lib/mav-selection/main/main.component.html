@@ -3,7 +3,7 @@
 
   <div class="select-visualization-container expansion-panel-container">
     <mat-expansion-panel class="expansion-panel" [expanded]="step===0">
-      <mat-expansion-panel-header>
+      <mat-expansion-panel-header class="visualization-type-header">
         <mat-panel-title class="title">
           Select Visualization Type
         </mat-panel-title>
@@ -18,7 +18,7 @@
 
   <div class="expansion-panel-container">
     <mat-expansion-panel class="expansion-panel" [expanded]="step===1" [disabled]="step===0">
-      <mat-expansion-panel-header>
+      <mat-expansion-panel-header class="graphic-symbol-type-header">
         <mat-panel-title class="title">
           Select Graphic Symbol Type(s)
         </mat-panel-title>
@@ -32,7 +32,7 @@
 
   <div class="expansion-panel-container">
     <mat-expansion-panel class="expansion-panel" [expanded]="step===2" [disabled]="step===1 || step===0">
-      <mat-expansion-panel-header>
+      <mat-expansion-panel-header class="graphic-variable-type-header">
         <mat-panel-title class="title">
           Select Graphic Variable Types
         </mat-panel-title>

@@ -1,4 +1,4 @@
-<mat-card class="datatable-wrapper" [ngClass]="{ 'first-data-table': tableIndex == 0} " *ngIf="dataSource && dataSource.data && dataSource.data.length && !dataSource.hidden">
+<mat-card class="datatable-wrapper" [ngClass]="{'no-child': dataSource.children && dataSource.children.length <= 0, 'first-data-table': tableIndex == 0}" *ngIf="dataSource && dataSource.data && dataSource.data.length && !dataSource.hidden">
     <div class="datatable-container">
         <mat-card-header class="card-header">
             <mat-card-title>
