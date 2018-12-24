@@ -17,27 +17,11 @@
                     <div class="visualization-container" [ngClass]="{ active: index === selectedVis }">
                         <dvl-visualization #visualizations [data]="vis.data"></dvl-visualization>
                     </div>
-                    <!--
-                    <div class="about-text-short-container" [matMenuTriggerFor]="aboutMenu" *ngIf="vis.data">
-                        <div class="about-text-short">
-                            ABOUT: {{ vis.data.description.length >= 50 ? vis.data.description.slice(0, 50) + '...' : vis.data.description}} 
-                        </div>
-                        <mat-icon class="expand-icon" >
-                            expand_more
-                        </mat-icon>
-                    </div>
-                    <mat-menu #aboutMenu="matMenu" class="about-text-long-menu" xPosition="before">
-                        <div class="about-text-long"> ABOUT: {{vis.data.description}} </div>
-                        <mat-icon class="expand-icon" >
-                            expand_less
-                        </mat-icon>
-                    </mat-menu>
-                    -->
                     <mat-expansion-panel  class="about-expansion-panel-container" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                         <mat-expansion-panel-header class="about-expansion-panel-header">
                             <mat-panel-title class="about-expansion-panel-title-wrapper">
                                 <div class="about-expansion-panel-title">
-                                    {{'ABOUT: ' + (vis.data.description.length >= 50 ? vis.data.description.slice(0, 50) + '...' : vis.data.description) }}
+                                    {{'Learn about this '+ vis.label }}
                                 </div>
                             </mat-panel-title>
                         </mat-expansion-panel-header>
