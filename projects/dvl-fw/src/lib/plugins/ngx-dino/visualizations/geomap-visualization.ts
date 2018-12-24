@@ -12,7 +12,7 @@ export class GeomapVisualization extends DefaultVisualization {
     {
       id: 'basemap', label: 'Basemap', type: 'area',
       graphicVariableOptions: [
-        { type: 'color', label: 'Color Hue', visualization: 'color' },
+        { type: 'color', label: 'Color Hue', visualization: 'gradient' },
         // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
         // { type: 'transparency', label: 'Transparency' },
         // { type: 'strokeTransparency', label: 'Stroke Transparency' }
@@ -23,10 +23,10 @@ export class GeomapVisualization extends DefaultVisualization {
       graphicVariableOptions: [
         { type: 'identifier', label: 'Identifier', visualization: 'id' },
         // { type: 'latlng', label: 'Latitude/Longitude' },
-        { type: 'latitude', label: 'Latitude' },
-        { type: 'longitude', label: 'Longitude' },
+        { type: 'latitude', label: 'Latitude', visualization: 'x-axis' },
+        { type: 'longitude', label: 'Longitude', visualization: 'y-axis' },
         { type: 'identifier', label: 'Identifier', visualization: 'id' },
-        { type: 'color', label: 'Color Hue', visualization: 'color' },
+        { type: 'color', label: 'Color Hue', visualization: 'gradient' },
         // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
         { type: 'areaSize', label: 'Size', visualization: 'node-size'},
         // { type: 'shape', label: 'Shape' },

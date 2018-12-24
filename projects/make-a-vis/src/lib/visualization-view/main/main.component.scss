@@ -2,6 +2,12 @@
     float: left;
     width: 100%;
     margin-bottom: 0.625rem;
+
+    .about-expansion-panel-container {
+        border-left: 1px solid transparent;
+        border-radius: unset;
+        border-right: 1px solid transparent;
+    }
 }
 
 .visualization-group {
@@ -78,7 +84,7 @@
 
 .visualization-container {
     height: calc(93vh - 1vh - 293px); /* .main-view is 93vh with 1vh bottom padding in .visualization-view  and .legend is 200px at top-level, 70px - assumed padding(TODO - FIX needed) */
-    width: calc(100% - 2px);
+    width: 100%;
     border: 1px solid transparent;
     background-color: white;
 }

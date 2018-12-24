@@ -17,17 +17,15 @@
                     <div class="visualization-container" [ngClass]="{ active: index === selectedVis }">
                         <dvl-visualization #visualizations [data]="vis.data"></dvl-visualization>
                     </div>
-                    <mat-expansion-panel  class="about-expansion-panel-container" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                        <mat-expansion-panel-header class="about-expansion-panel-header">
+                    <mat-expansion-panel class="about-expansion-panel-container" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                        <mat-expansion-panel-header [expandedHeight]="'1.875rem'" [collapsedHeight]="'1.875rem'" class="about-expansion-panel-header">
                             <mat-panel-title class="about-expansion-panel-title-wrapper">
                                 <div class="about-expansion-panel-title">
                                     {{'Learn about this '+ vis.label }}
                                 </div>
                             </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <div class="about-expansion-panel-content">
                             {{vis.data.description}}
-                        </div>
                     </mat-expansion-panel>
                 </div>
             </ng-template>
