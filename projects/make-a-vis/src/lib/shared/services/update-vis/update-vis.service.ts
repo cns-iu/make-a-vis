@@ -5,8 +5,8 @@ import { Observable, Subject } from 'rxjs';
 import { mapValues, uniqueId } from 'lodash';
 
 import { GraphicSymbol, GraphicVariable, RecordStream, Visualization } from '@dvl-fw/core';
+import { SetGraphicVariable, SetRecordStream, UnsetGraphicVariable, UnsetRecordStream } from '../../../toolbar/shared/store';
 import { ApplicationState } from '../../store';
-import { SetGraphicVariable, SetRecordStream, UnsetRecordStream } from '../../../toolbar/shared/store';
 
 class SimpleGraphicSymbol implements GraphicSymbol {
   constructor(
@@ -50,6 +50,11 @@ export class UpdateVisService {
 
   updateGraphicVariable(visualization: Visualization, slot: string, id: string, variable: GraphicVariable): void {
     this.store.dispatch(new SetGraphicVariable({ id, slot, variable, visualization }));
+    this._update.next(visualization);
+  }
+
+  unsetGraphicVariable(visualization: Visualization, slot: string, id: string): void {
+    this.store.dispatch(new UnsetGraphicVariable({ id, slot, visualization }));
     this._update.next(visualization);
   }
 

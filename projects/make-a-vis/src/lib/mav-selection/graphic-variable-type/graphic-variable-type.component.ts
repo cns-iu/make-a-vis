@@ -91,4 +91,9 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
       return this.getGraphicVariable(dataVariable, graphicVariableOption, graphicSymbolOption).length > 0;
     };
   }
+
+  unsetGraphicVariable(graphicSymbolOptionId: string, graphicVariableOptionIdOrType: string) {
+    this.updateService.unsetGraphicVariable(this.activeVis.data, graphicSymbolOptionId, graphicVariableOptionIdOrType);
+    this.selectedDataVariables.get(graphicSymbolOptionId).delete(graphicVariableOptionIdOrType);
+  }
 }

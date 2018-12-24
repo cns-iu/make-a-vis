@@ -62,6 +62,12 @@ export interface SetGraphicVariablePayload {
   variable: GraphicVariable;
 }
 
+export interface UnsetGraphicVariablePayload {
+  visualization: Visualization;
+  slot: string;
+  id: string;
+}
+
 export interface SetGraphicSymbolRecordSetPayload {
   graphicSymbol: GraphicSymbol;
   recordSet: RecordSet;

@@ -38,6 +38,7 @@ export enum SidenavActionTypes {
   SetGraphicSymbolRecordSet = '[UI] Set Graphic Symbol Record Set',
   SetActiveDataVariable = '[UI] Set Active Data Variable',
   SetGraphicVariable = '[UI] Set Graphic Variable',
+  UnsetGraphicVariable = '[UI] Unset Graphic Variable',
 
   CopyToClipboardSuccess = '[UI] Successfully Copied To Clipboard',
   CopyToClipboardError = '[UI] Copy To Clipboard Failed'
@@ -182,6 +183,12 @@ export class SetGraphicVariable implements Action {
   }
 }
 
+export class UnsetGraphicVariable implements Action {
+  readonly type = SidenavActionTypes.UnsetGraphicVariable;
+  constructor(public payload: payloadTypes.UnsetGraphicVariablePayload) {
+  }
+}
+
 export class CopyToClipboardSuccess implements Action {
   readonly type = SidenavActionTypes.CopyToClipboardSuccess;
   constructor(public payload: payloadTypes.CopyToClipboardSuccessPayload) {}
@@ -198,4 +205,5 @@ export type SidenavActionsUnion = SaveProjectStarted | SaveProjectFileCreated | 
   LoadShareUrlStarted | LoadShareUrlCompleted | LoadShareUrlError |
   CreateShareUrlStarted | CreateShareUrlCompleted | CreateShareUrlError |
   ToggleLogging | SetActiveVisualization | AddNewVisualization | RemoveVisualization | SetRecordStream | UnsetRecordStream |
-  SetGraphicSymbolRecordSet | SetActiveDataVariable | SetGraphicVariable | CopyToClipboardSuccess | CopyToClipboardError;
+  SetGraphicSymbolRecordSet | SetActiveDataVariable | SetGraphicVariable | UnsetGraphicVariable |
+  CopyToClipboardSuccess | CopyToClipboardError;
