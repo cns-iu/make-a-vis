@@ -14,7 +14,7 @@
         <div class="variable-type">
           {{variableType?.label}}
             <br>
-            <div *ngIf="selectedDataVariables?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)">
+            <div class="data-variable" *ngIf="selectedDataVariables?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)">
               {{recordStream?.get(graphicSymbol.id)?.label}}: {{selectedDataVariables?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)?.label}}
             </div>
         </div>
