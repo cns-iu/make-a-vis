@@ -33,14 +33,17 @@
                         </mat-icon>
                     </mat-menu>
                     -->
-                    <mat-expansion-panel class= "about-expansion-panel-container" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                        <mat-expansion-panel-header class= "about-expansion-panel-header">
-                            <mat-panel-title class= "about-expansion-panel-title-wrapper">
+                    <mat-expansion-panel  class="about-expansion-panel-container" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                        <mat-expansion-panel-header class="about-expansion-panel-header">
+                            <mat-panel-title class="about-expansion-panel-title-wrapper">
                                 <div class="about-expansion-panel-title">
-                                    {{ panelOpenState ? 'ABOUT:' + vis.data.description :   'ABOUT:' + (vis.data.description.length >= 50 ? vis.data.description.slice(0, 50) + '...' : vis.data.description) }}
+                                    {{'ABOUT: ' + (vis.data.description.length >= 50 ? vis.data.description.slice(0, 50) + '...' : vis.data.description) }}
                                 </div>
                             </mat-panel-title>
                         </mat-expansion-panel-header>
+                        <div class="about-expansion-panel-content">
+                            {{vis.data.description}}
+                        </div>
                     </mat-expansion-panel>
                 </div>
             </ng-template>

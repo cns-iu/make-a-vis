@@ -2,7 +2,7 @@
   <mat-accordion [multi]="true">
     <!-- .first panel allows to override default behavior of .cdk-program-focused -->
     <mat-expansion-panel class="mat-elevation-z0 first-panel" (opened)="panelOpenState=true" (closed)="panelOpenState=false">
-      <mat-expansion-panel-header>
+      <mat-expansion-panel-header [expandedHeight]="'3rem'">
         <mat-panel-title>
           <div class="expansion-title">
             <mat-icon class="mav-new-project-icon icon">add_circle_outline</mat-icon>
@@ -22,7 +22,7 @@
     <mat-divider></mat-divider>
 
     <mat-expansion-panel class="mat-elevation-z0" (opened)="panelOpenState=true" (closed)="panelOpenState=false">
-        <mat-expansion-panel-header>
+        <mat-expansion-panel-header [expandedHeight]="'3rem'">
           <mat-panel-title>
             <div class="expansion-title">
               <mat-icon class="mav-share-icon icon">share</mat-icon>
