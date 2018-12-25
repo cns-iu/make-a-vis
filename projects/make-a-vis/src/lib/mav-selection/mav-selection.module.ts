@@ -12,6 +12,11 @@ import { MainComponent } from './main/main.component';
 import { GraphicSymbolTypeComponent } from './graphic-symbol-type/graphic-symbol-type.component';
 import { GraphicVariableTypeComponent } from './graphic-variable-type/graphic-variable-type.component';
 import { VisualizationTypeComponent } from './visualization-type/visualization-type.component';
+import { ScatterGraphIconComponent } from './visualization-type/icons/scatter-graph-icon/scatter-graph-icon.component';
+import { GeomapIconComponent } from './visualization-type/icons/geomap-icon/geomap-icon.component';
+import { ScienceMapIconComponent } from './visualization-type/icons/science-map-icon/science-map-icon.component';
+import { NetworkIconComponent } from './visualization-type/icons/network-icon/network-icon.component';
+import { TemporalBargraphIconComponent } from './visualization-type/icons/temporal-bargraph-icon/temporal-bargraph-icon.component';
 
 @NgModule({
   imports: [
@@ -23,7 +28,7 @@ import { VisualizationTypeComponent } from './visualization-type/visualization-t
     MatIconModule,
     MatSidenavModule
   ],
-  declarations: [MainComponent, GraphicSymbolTypeComponent, GraphicVariableTypeComponent, VisualizationTypeComponent],
+  declarations: [MainComponent, GraphicSymbolTypeComponent, GraphicVariableTypeComponent, VisualizationTypeComponent, ScatterGraphIconComponent, GeomapIconComponent, ScienceMapIconComponent, NetworkIconComponent, TemporalBargraphIconComponent],
   exports: [MainComponent]
 })
 export class MavSelectionModule { }
