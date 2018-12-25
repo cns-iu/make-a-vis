@@ -130,6 +130,13 @@ export function sidenavStateReducer (
         }
         return newState;
 
+      case SidenavActionTypes.UnsetGraphicVariable:
+        if (state.project) {
+          const { id, slot, visualization } = action.payload;
+          delete visualization.graphicSymbols[slot].graphicVariables[id];
+        }
+        return newState;
+
       default:
         return state;
     }
