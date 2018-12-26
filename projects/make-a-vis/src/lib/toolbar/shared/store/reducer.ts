@@ -94,7 +94,7 @@ export function sidenavStateReducer (
       case SidenavActionTypes.RemoveVisualization:
         if (state.project) {
           newState.project.visualizations = state.project.visualizations.slice();
-          newState.project.visualizations.splice(action.payload, 1);
+          newState.project.visualizations.splice(action.payload.visualizationId, 1);
         }
         return newState;
 

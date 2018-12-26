@@ -7,6 +7,10 @@ export interface LoadProjectStartedPayload {
   fileExtension: 'isi' | 'nsf' | 'csv' | 'json' | 'yml';
 }
 
+export interface VisualizationId {
+  visualizationId: number;
+}
+
 export interface LoadProjectCompletedPayload {
   loadingProject: boolean;
   fileName: string;
@@ -75,6 +79,10 @@ export interface SetGraphicSymbolRecordSetPayload {
 
 export interface CopyToClipboardSuccessPayload {
   content: String;
+}
+
+export interface InfoIcon {
+  opened: boolean;
 }
 
 export interface CopyToClipboardErrorPayload {

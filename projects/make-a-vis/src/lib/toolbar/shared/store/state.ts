@@ -1,5 +1,6 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Project } from '@dvl-fw/core';
+import { VisualizationId } from './payload-types';
 
 export interface SidenavState {
   savingProject: boolean;
@@ -25,7 +26,9 @@ export interface SidenavState {
   errorMessage: string;
 
   project: Project;
-  activeVisualization: number;
+  activeVisualization: VisualizationId;
+
+  opened: boolean;
 }
 
 
@@ -53,5 +56,7 @@ export const INITIAL_SIDENAV_STATE: SidenavState = {
   errorMessage: '',
 
   project: null,
-  activeVisualization: -1
+  activeVisualization: { visualizationId : -1 },
+
+  opened: false
 };

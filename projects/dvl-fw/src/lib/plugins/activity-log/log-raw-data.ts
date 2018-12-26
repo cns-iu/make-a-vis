@@ -1,5 +1,5 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
-import { get } from 'lodash';
+import { extend, get, map, omit } from 'lodash';
 import { NanoSQLInstance, nSQL } from 'nano-sql';
 import { CategoryLogMessage } from 'typescript-logging';
 
@@ -26,15 +26,8 @@ export class ActivityLogRawData implements RawData {
       .model([
         {key: 'logid', type: 'int', props: ['pk', 'ai']}, // pk == primary key, ai == auto incriment
         {key: 'actionName', type: 'string'},
-        {key: 'fileName', type: 'string'},
-        {key: 'fileExtension', type: 'string'},
-        {key: 'createdUrl', type: 'string'},
-        {key: 'copiedUrl', type: 'string'},
-        {key: 'visualizationId', type: 'string'},
-        {key: 'slot', type: 'string'},
-        {key: 'graphicSymbolId', type: 'string'},
-        {key: 'visualizationNumber', type: 'number'},
-        {key: 'date', type: 'string'}
+        {key: 'date', type: 'string'},
+        {key: 'payload', type: 'string' }
       ]).actions([{
           name: 'add_new_log',
           args: ['activitylog:map'],
@@ -57,23 +50,18 @@ export class ActivityLogRawData implements RawData {
       activitylog: {
       id: null,
       actionName: get(msg, 'logData.data.type'),
-      fileName: get(msg, 'logData.data.payload.fileName'),
-      fileExtension: get(msg, 'logData.data.payload.fileExtension'),
-      createdUrl: get(msg, 'logData.data.payload.shareUrl'),
-      copiedUrl: get(msg, 'ng logData.data.payload.content'),
-      visualizationId: get(msg, 'logData.data.payload.id'),
-      graphicSymbolId: get(msg, 'logData.data.payload.symbol.recordStream.id'),
-      slot: get(msg, 'logData.data.slot'),
-      visualizationNumber: Number(get(msg, 'logData.data.payload')),
-      date : new Date().toLocaleString()
+      date : new Date().toLocaleString(),
+      payload: JSON.stringify(omit(msg.logData.data.payload, ['project']))
       }
     });
   }
 
   async getData(): Promise<any> {
-
     if (this.saveActivityLog) {
       return (await ActivityLogRawData.db).query('select').exec().then((rows) => {
+        rows = map(rows, (logItem) => {
+          return extend(omit(logItem, ['payload']), JSON.parse(logItem['payload']));
+        });
         return {activityLog: rows};
       });
     } else {
