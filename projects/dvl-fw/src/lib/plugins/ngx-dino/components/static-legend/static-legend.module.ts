@@ -24,6 +24,8 @@ import { TargetComponent } from './target/target.component';
      ColorAreaComponent, AreaSizeComponent, GradientComponent, ColorEdgesComponent, SourceComponent, TargetComponent],
   entryComponents: [YAxisComponent, XAxisComponent, IdentifierComponent, StartComponent,
      EndComponent, LabelComponent, ThicknessComponent, ShapeComponent, ColorAreaComponent,
-      AreaSizeComponent, GradientComponent, ColorEdgesComponent, SourceComponent, TargetComponent]
-})
+      AreaSizeComponent, GradientComponent, ColorEdgesComponent, SourceComponent, TargetComponent],
+  exports: [YAxisComponent, XAxisComponent, IdentifierComponent, StartComponent,
+    EndComponent, LabelComponent, ThicknessComponent, ShapeComponent, ColorAreaComponent,
+     AreaSizeComponent, GradientComponent, ColorEdgesComponent, SourceComponent, TargetComponent]})
 export class StaticLegendModule { }

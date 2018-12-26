@@ -11,6 +11,26 @@
         <mat-card class="card" (mavDroppable)="dataVariableDropped($event, variableType, graphicSymbol)"
           (dragDropEvents)="onDragDropEvent($event)" [ngClass]="{'data-variable-selected': selectedDataVariables?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)?true:false}">
           <div class="variable-type">
+              <ng-container [ngSwitch]="variableType.type">
+                  <ng-template [ngSwitchCase]="'axis'">
+                    <dvl-y-axis></dvl-y-axis>
+                  </ng-template>
+                  <ng-template [ngSwitchCase]="'color'">
+                    <dvl-color-area></dvl-color-area>
+                  </ng-template>
+                  <ng-template [ngSwitchCase]="'identifier'">
+                    <dvl-identifier></dvl-identifier>
+                  </ng-template>
+                  <ng-template [ngSwitchCase]="'tooltip'">
+                    <dvl-label></dvl-label>
+                  </ng-template>
+                  <ng-template [ngSwitchCase]="'text'">
+                    <dvl-target></dvl-target>
+                  </ng-template>
+                  <ng-template [ngSwitchCase]="'areaSize'">
+                    <dvl-area-size></dvl-area-size>
+                  </ng-template>
+              </ng-container>
             {{variableType?.label}}
             <br>
             <div class="data-variable" *ngIf="selectedDataVariables?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)">

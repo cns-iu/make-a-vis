@@ -5,14 +5,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
-
 import { DragDropModule } from '../drag-drop/drag-drop.module';
-
 import { MainComponent } from './main/main.component';
 import { GraphicSymbolTypeComponent } from './graphic-symbol-type/graphic-symbol-type.component';
 import { GraphicVariableTypeComponent } from './graphic-variable-type/graphic-variable-type.component';
 import { VisualizationTypeComponent } from './visualization-type/visualization-type.component';
 import { ScatterGraphIconComponent } from './visualization-type/icons/scatter-graph-icon/scatter-graph-icon.component';
+import { StaticLegendModule } from '@dvl-fw/core';
 import { GeomapIconComponent } from './visualization-type/icons/geomap-icon/geomap-icon.component';
 import { ScienceMapIconComponent } from './visualization-type/icons/science-map-icon/science-map-icon.component';
 import { NetworkIconComponent } from './visualization-type/icons/network-icon/network-icon.component';
@@ -26,9 +25,13 @@ import { TemporalBargraphIconComponent } from './visualization-type/icons/tempor
     MatCardModule,
     MatExpansionModule,
     MatIconModule,
-    MatSidenavModule
+    MatSidenavModule,
+    StaticLegendModule
   ],
-  declarations: [MainComponent, GraphicSymbolTypeComponent, GraphicVariableTypeComponent, VisualizationTypeComponent, ScatterGraphIconComponent, GeomapIconComponent, ScienceMapIconComponent, NetworkIconComponent, TemporalBargraphIconComponent],
+  declarations: [
+    MainComponent, GraphicSymbolTypeComponent, GraphicVariableTypeComponent, VisualizationTypeComponent,
+    ScatterGraphIconComponent, GeomapIconComponent, ScienceMapIconComponent, NetworkIconComponent, TemporalBargraphIconComponent
+  ],
   exports: [MainComponent]
 })
 export class MavSelectionModule { }

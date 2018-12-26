@@ -5,7 +5,7 @@ import { BaseVisualizationComponent } from '../../base-visualization-component';
 export type Properties = null;
 export type FieldGroups = null;
 @Component({
-  selector: 'dvl-end',
+  selector: 'dvl-area-size',
   templateUrl: './area-size.component.html',
   styleUrls: ['./area-size.component.css']
 })
