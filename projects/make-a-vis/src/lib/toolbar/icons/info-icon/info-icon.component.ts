@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { InfoDialogComponent } from '../../info-dialog/info-dialog.component';
 import { OpenedInfoIcon } from '../../shared/store';
-import { SidenavState } from 'make-a-vis/lib/toolbar/shared/store';
+import { SidenavState } from '../../../toolbar/shared/store';
 
 
 @Component({
