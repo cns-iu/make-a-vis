@@ -5,9 +5,9 @@
       <div class="data-view">
         <mav-data-view></mav-data-view>
       </div>
-      <mav-selection class="mav-selection" (newVis)="visView.addNewVisualization($event)" #mavSelection></mav-selection>
+      <mav-selection class="mav-selection" (newVis)="visView.addNewVisualization($event)" (selectionPanelClosed)="visView.toggleSelPanel($event)" #mavSelection></mav-selection>
       <div class="visualization-and-legend-view">
-        <mav-visualization-view class="visualization" (toggleAddVis)="mavSelection.toggleAddVis($event)" #visView></mav-visualization-view>
+        <mav-visualization-view class="visualization" (toggleSelectionPanel)="mavSelection.toggleSelectionPanel($event)" #visView></mav-visualization-view>
         <mav-legend-view class="legend"></mav-legend-view>
       </div>
     </div>

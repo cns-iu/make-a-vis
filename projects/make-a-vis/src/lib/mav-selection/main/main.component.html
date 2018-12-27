@@ -2,7 +2,7 @@
   <span class="selection-title">Make Visualization</span>
 
   <div class="select-visualization-container expansion-panel-container">
-    <mat-expansion-panel class="expansion-panel" [expanded]="step===0">
+    <mat-expansion-panel class="expansion-panel" [expanded]="isExpanded(0)" (opened)="setStep(0)" #visTypePanel>
       <mat-expansion-panel-header>
         <mat-panel-title class="title">
           Select Visualization Type
@@ -11,13 +11,14 @@
       <mav-selection-visualization-type [activeVis]="activeVis" [mode]="mode" [panelState]="panelState" #visType>
       </mav-selection-visualization-type>
       <mat-action-row class="selection-button">
-        <button mat-button (click)="visType.selected?addVisualization(visType.selected):undefined">Done</button>
+        <button *ngIf="visSelectionButtonState" mat-button (click)="visType.selected?addVisualization(visType.selected):undefined">Done</button>
+        <button class="disabled" *ngIf="!visSelectionButtonState" mat-button disabled>Done</button>
       </mat-action-row>
     </mat-expansion-panel>
   </div>
 
   <div class="expansion-panel-container">
-    <mat-expansion-panel class="expansion-panel" [expanded]="step===1" [disabled]="step===0">
+    <mat-expansion-panel class="expansion-panel" [expanded]="isExpanded(1)" (opened)="setStep(1)" [disabled]="isDisabled(1)">
       <mat-expansion-panel-header>
         <mat-panel-title class="title">
           Select Graphic Symbol Type(s)
@@ -31,7 +32,7 @@
   </div>
 
   <div class="expansion-panel-container">
-    <mat-expansion-panel class="expansion-panel" [expanded]="step===2" [disabled]="step===1 || step===0">
+    <mat-expansion-panel class="expansion-panel" [expanded]="isExpanded(2)" (opened)="setStep(2)" [disabled]="isDisabled(2)">
       <mat-expansion-panel-header>
         <mat-panel-title class="title">
           Select Graphic Variable Types
@@ -39,7 +40,7 @@
       </mat-expansion-panel-header>
       <mav-selection-graphic-variable-type [activeVis]="step===2?gsSelector.activeVis:undefined" [recordStream]="gsSelector.selectedRecordStream"></mav-selection-graphic-variable-type>
       <mat-action-row class="selection-button">
-        <button mat-button (click)="stepDone()">Visualize</button>
+        <button mat-button (click)="closeSelectionPanel()">Visualize</button>
       </mat-action-row>
     </mat-expansion-panel>
   </div>
