@@ -14,6 +14,7 @@
   padding: 0.5rem 1rem;
   margin-right: 0.625rem;
   border: 1px solid transparent;
+  box-shadow: none;
 }
 
 .legend-view-group ::ng-deep .mat-card-title {
@@ -28,3 +29,8 @@
   font-size: 1rem;
   font-weight: 700;
 }
+
+.mav-legend-view .mav-graphic-variable-legend .graphic-variable-legend-card {
+  border-color: transparent;
+  }
+  

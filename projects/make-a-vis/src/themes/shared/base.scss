@@ -129,7 +129,7 @@
       border-bottom-color: $secondary !important;
     }
     .mat-tab-header {
-      border-color: $border;
+      border-color: $gray-accent-1;
       background-color: $white;
     }
     .tab:hover {
@@ -143,7 +143,7 @@
     }
   }
   .visualization-container {
-    border-color: $border;
+    border-color: $gray-accent-1;
     background-color: $white;
   }
   .add-edit-visualization {
@@ -178,24 +178,31 @@
 }*/
 
 .about-expansion-panel-container {
-    border-left-color: $border !important;
-    border-right-color: $border !important;
+    border-left-color: $gray-accent-1 !important;
+    border-right-color: $gray-accent-1 !important;
 }
 
 .mav-legend-view {
   .legend-view-group {
-    border-color: $border;
+    border-color: $gray-accent-1;
     background-color: $gray-accent-2;
   }
   .mav-graphic-variable-legend {
-    .graphic-variable-legend-card {
-      border-color: $border;
-    }
     .graphic-variable-legend-title {
       color: $primary-text;
     }
     .graphic-variable-legend-subtitle {
       color: $secondary-text;
+    }
+  }
+}
+
+.graphic-symbol-wrapper {
+  .expansion-panel {
+    .graphic-variable-wrapper {
+      .variable-type {
+        color: $gray-300
+      }
     }
   }
 }

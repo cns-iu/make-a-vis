@@ -1,26 +1,28 @@
 <div class="vis-type-selection-wrapper">
   <mat-card *ngFor="let type of visTypes" class="card" (click)="visualizationSelected(type)" [ngClass]="{'vis-type-selected': panelState && isSelected(type)}">
-    <ng-container [ngSwitch]="type.icon">
-      <ng-template [ngSwitchCase]="'scatterGraph'">
-        <mav-scatter-graph-icon></mav-scatter-graph-icon>
-      </ng-template>
-    
-      <ng-template [ngSwitchCase]="'geomap'">
-        <mav-geomap-icon></mav-geomap-icon>
-      </ng-template>
-    
-      <ng-template [ngSwitchCase]="'mapOfScience'">
-        <mav-science-map-icon></mav-science-map-icon>
-      </ng-template>
-    
-      <ng-template [ngSwitchCase]="'network'">
-        <mav-network-icon></mav-network-icon>
-      </ng-template>
-    
-      <ng-template [ngSwitchCase]="'tbg'">
-        <mav-temporal-bargraph-icon></mav-temporal-bargraph-icon>
-      </ng-template>
-    </ng-container>
+    <div class="icon">
+      <ng-container [ngSwitch]="type.icon">
+        <ng-template [ngSwitchCase]="'scatterGraph'">
+          <mav-scatter-graph-icon></mav-scatter-graph-icon>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="'geomap'">
+          <mav-geomap-icon></mav-geomap-icon>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="'mapOfScience'">
+          <mav-science-map-icon></mav-science-map-icon>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="'network'">
+          <mav-network-icon></mav-network-icon>
+        </ng-template>
+      
+        <ng-template [ngSwitchCase]="'tbg'">
+          <mav-temporal-bargraph-icon></mav-temporal-bargraph-icon>
+        </ng-template>
+      </ng-container>
+    </div>
     {{type.label}}
   </mat-card>
 </div>

@@ -12,6 +12,9 @@
     }
   }
 
+  ::ng-deep .mat-expansion-panel-body {
+    padding: 0 1rem 1rem
+  }
   ::ng-deep .mat-expansion-indicator {
     display: flex;
   }

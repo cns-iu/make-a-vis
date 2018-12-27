@@ -3,10 +3,33 @@
     width: 100%;
     margin-bottom: 0.625rem;
 
+    ::ng-deep .mat-expansion-panel:not([class*=mat-elevation-z]) {
+        box-shadow: none
+    }
+    ::ng-deep .mat-expansion-indicator {
+        display: flex;
+    }
+
+    .about-expansion-panel-header {
+        padding: 0px 1rem;
+        height: 1.875rem;
+    }
     .about-expansion-panel-container {
         border-left: 1px solid transparent;
         border-radius: unset;
         border-right: 1px solid transparent;
+        border-bottom: 1px solid #e0e0e0;
+        
+        ::ng-deep .mat-expansion-panel-content {
+            font-size: .75rem
+        }
+
+        ::ng-deep .mat-expansion-panel-body {
+            padding: 0 1rem 1rem
+        }
+    }
+    .about-expansion-panel-container.mat-expanded {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,.5);
     }
 }
 
@@ -57,9 +80,10 @@
 .add-edit-visualization {
     display: flex;
     position: absolute;
-    top: 0.25rem;
-    right: 0.5rem;
+    right: 1.875rem;
     z-index: 10;
+    height: 50px;
+    align-items: center;
     
     .add-icon, .edit-icon  {
         font-size: 1.875rem;
