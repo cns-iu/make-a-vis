@@ -28,7 +28,7 @@ export class ActivityLogRawData implements RawData {
         {key: 'actionName', type: 'string'},
         {key: 'date', type: 'string'},
         {key: 'payload', type: 'string' },
-        {key: 'time', type: 'string'}
+        {key: 'time', type: 'int'}
       ]).actions([{
           name: 'add_new_log',
           args: ['activitylog:map'],
