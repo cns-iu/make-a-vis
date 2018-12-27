@@ -1,18 +1,17 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild, Input } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { uniqueId } from 'lodash';
 import { of } from 'rxjs';
 import { catchError, concatMap, take } from 'rxjs/operators';
 
 import { ProjectSerializerService, Visualization } from '@dvl-fw/core';
-import { ModeType, ToggleAddVisType, Vis, VisType } from '../../shared/types';
+import { ModeType, ToggleSelectionPanelType, Vis, VisType } from '../../shared/types';
 import {
   AddNewVisualization,
   getLoadedProjectSelector,
   SidenavState
 } from '../../toolbar/shared/store';
 import { VisualizationTypeComponent } from '../visualization-type/visualization-type.component';
-
 
 @Component({
   selector: 'mav-selection',
@@ -21,28 +20,32 @@ import { VisualizationTypeComponent } from '../visualization-type/visualization-
 })
 export class MainComponent implements OnInit {
   @Output() newVis = new EventEmitter();
+  @Output() selectionPanelClosed = new EventEmitter();
   @ViewChild('visType') visType: VisualizationTypeComponent;
   mode: ModeType;
   activeVis: Vis;
   panelState = false;
   step = 0;
+  visSelectionButtonState = true;
 
   constructor(private store: Store<SidenavState>, private serializer: ProjectSerializerService) { }
 
   ngOnInit() {
   }
 
-  toggleAddVis(eventArgs: ToggleAddVisType) {
+  toggleSelectionPanel(eventArgs: ToggleSelectionPanelType) {
     this.panelState = eventArgs.state;
     this.mode = eventArgs.mode;
     this.activeVis = eventArgs.activeVis;
 
     if (this.mode === 'add') {
       this.step = 0;
+      this.visSelectionButtonState = true;
     }
 
     if (this.mode === 'edit') {
       this.step = 1;
+      this.visSelectionButtonState = false;
     }
   }
 
@@ -71,5 +74,43 @@ export class MainComponent implements OnInit {
 
   stepDone() {
     this.step++;
+  }
+
+  setStep(target: number) {
+    if (target === 0 && this.mode === 'edit') {
+      this.step = 1;
+    } else  {
+      this.step = target;
+    }
+  }
+
+  isExpanded(target: number) {
+    if (this.step === target) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  isDisabled(target: number) {
+    if (this.step === target || target === this.step - 1) {
+      return false;
+    } else {
+      if (this.mode === 'add') {
+        return true;
+      }
+    }
+  }
+
+  closeSelectionPanel() {
+    this.stepDone();
+    this.panelState = false;
+    this.toggleSelectionPanel({
+      state: this.panelState,
+      mode: this.mode,
+      activeVis: this.activeVis
+    });
+
+    this.selectionPanelClosed.emit(this.mode);
   }
 }

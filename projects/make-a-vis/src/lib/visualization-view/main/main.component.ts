@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 import { VisualizationComponent } from '@dvl-fw/core';
 import { ExportService } from '../../shared/services/export/export.service';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
-import { ModeType, ToggleAddVisType, Vis, VisType } from '../../shared/types';
+import { ModeType, ToggleSelectionPanelType, Vis, VisType } from '../../shared/types';
 import { getLoadedProjectSelector, RemoveVisualization, SidenavState, SetActiveVisualization } from '../../toolbar/shared/store';
 
 @Component({
@@ -17,12 +17,12 @@ import { getLoadedProjectSelector, RemoveVisualization, SidenavState, SetActiveV
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-  @Output() toggleAddVis = new EventEmitter<ToggleAddVisType>();
+  @Output() toggleSelectionPanel = new EventEmitter<ToggleSelectionPanelType>();
   @ViewChild('visGroup') visGroup: MatTabGroup;
   @ViewChildren('visualizations') visualizationComponents: QueryList<VisualizationComponent>;
 
   currentAddVisMode: ModeType;
-  addVisPanelState = false;
+  visPanelState = false;
   editVisPanelState = false;
   addIcons = ['add_circle', 'add_circle_outline'];
   addIconName = this.addIcons[1];
@@ -61,7 +61,7 @@ export class MainComponent {
       this.exportService.visualizationElement = this.visGroup;
       this.store.dispatch(new SetActiveVisualization(index));
     }
-    this.emitToggleAddVisEvent();
+    this.emitToggleSelectionPanelEvent();
   }
 
   addNewVisualization(event: any): void {
@@ -76,19 +76,20 @@ export class MainComponent {
     this.setSelectedVis(index === lastIndex ? index - 1 : index, true);
   }
 
-  toggleAddVisualization(mode: ModeType) {
+  toggleSelPanel(mode: ModeType) {
     if (!this.currentAddVisMode) {
-      this.addVisPanelState  = true;
+      this.visPanelState  = true;
     }
 
     if (this.currentAddVisMode === mode) {
-      this.addVisPanelState = !this.addVisPanelState;
+      this.visPanelState = !this.visPanelState;
     } else {
       this.currentAddVisMode = mode;
     }
 
     if (mode === 'add') {
-      if (this.addVisPanelState) {
+      if (this.visPanelState) {
+        this.editVisPanelState = false;
         this.addIconName = this.addIcons[0];
       } else {
         this.currentAddVisMode = undefined;
@@ -99,22 +100,20 @@ export class MainComponent {
     if (mode === 'edit') {
       this.addIconName = this.addIcons[1];
       this.editVisPanelState = !this.editVisPanelState;
-      if (this.addVisPanelState) {
-        // set right icon name
-      } else {
+
+      if (!this.visPanelState) {
         this.currentAddVisMode = undefined;
-        // set right icon name
       }
     }
 
-    this.emitToggleAddVisEvent();
+    this.emitToggleSelectionPanelEvent();
   }
 
-  emitToggleAddVisEvent() {
-    this.toggleAddVis.emit({
-      state: this.addVisPanelState,
+  emitToggleSelectionPanelEvent() {
+    this.toggleSelectionPanel.emit({
+      state: this.visPanelState,
       mode: this.currentAddVisMode,
-      activeVis: this.addVisPanelState ? this.visualizations[this.selectedVis] : undefined
+      activeVis: this.visPanelState ? this.visualizations[this.selectedVis] : undefined
     });
   }
 }

@@ -37,7 +37,7 @@
         </mat-tab>
     </mat-tab-group>
     <div class="add-edit-visualization">
-        <mat-icon class="add-icon" (click)="toggleAddVisualization('add')">{{addIconName}}</mat-icon>
-        <mav-edit-icon class="edit-icon" (click)="toggleAddVisualization('edit')" [isActive]="editVisPanelState"></mav-edit-icon>
+        <mat-icon class="add-icon" (click)="toggleSelPanel('add')">{{addIconName}}</mat-icon>
+        <mav-edit-icon class="edit-icon" (click)="toggleSelPanel('edit')" [isActive]="editVisPanelState"></mav-edit-icon>
     </div>
 </div>
