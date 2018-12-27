@@ -13,7 +13,7 @@ export interface VisType {
   icon: string;
 }
 
-export interface ToggleAddVisType {
+export interface ToggleSelectionPanelType {
   state: boolean;
   mode: ModeType;
   activeVis: Vis;

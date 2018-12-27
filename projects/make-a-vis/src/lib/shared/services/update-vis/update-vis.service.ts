@@ -60,5 +60,6 @@ export class UpdateVisService {
 
   unsetRecordStream(slot: string, visualization: Visualization) {
     this.store.dispatch(new UnsetRecordStream({slot, visualization}));
+    this._update.next(visualization);
   }
 }

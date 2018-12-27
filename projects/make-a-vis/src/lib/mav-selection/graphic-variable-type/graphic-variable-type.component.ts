@@ -36,6 +36,7 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
         this.graphicSymbolTypes = [];
         this.selectedDataVariables = new Map();
         this.getGraphicVariableOptions();
+        this.getDataVariables();
       }
     }
   }
@@ -75,6 +76,23 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   getGraphicVariableOptions() {
     Object.keys(this.activeVis.data.graphicSymbols).forEach((gs) => {
       this.graphicSymbolTypes.push(this.activeVis.data.graphicSymbolOptions.filter((gso) => gso.id === gs)[0]);
+    });
+  }
+
+  getDataVariables() {
+    Object.keys(this.activeVis.data.graphicSymbols).forEach((gs: string) => {
+      const gvs = Object.keys(this.activeVis.data.graphicSymbols[gs].graphicVariables);
+      if (gvs.length) {
+       gvs.forEach((gv: string) => {
+        const dv = this.activeVis.data.graphicSymbols[gs].graphicVariables[gv].dataVariable;
+        const mapEntry = this.selectedDataVariables.get(gs);
+        if (mapEntry) {
+          mapEntry.set(gv, dv);
+        } else {
+          this.selectedDataVariables.set(gs, new Map().set(gv, dv));
+        }
+       });
+      }
     });
   }
 
