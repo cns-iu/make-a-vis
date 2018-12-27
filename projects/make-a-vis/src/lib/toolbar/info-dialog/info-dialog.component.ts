@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 
 import { buildInfo } from './build-info';
 import { ClosedInfoIcon } from '../shared/store';
-import { SidenavState } from 'make-a-vis/lib/toolbar/shared/store';
+import { SidenavState } from '../../toolbar/shared/store';
 
 
 

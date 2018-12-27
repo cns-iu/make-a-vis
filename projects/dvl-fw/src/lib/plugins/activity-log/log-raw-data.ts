@@ -27,7 +27,8 @@ export class ActivityLogRawData implements RawData {
         {key: 'logid', type: 'int', props: ['pk', 'ai']}, // pk == primary key, ai == auto incriment
         {key: 'actionName', type: 'string'},
         {key: 'date', type: 'string'},
-        {key: 'payload', type: 'string' }
+        {key: 'payload', type: 'string' },
+        {key: 'time', type: 'string'}
       ]).actions([{
           name: 'add_new_log',
           args: ['activitylog:map'],
@@ -51,6 +52,7 @@ export class ActivityLogRawData implements RawData {
       id: null,
       actionName: get(msg, 'logData.data.type'),
       date : new Date().toLocaleString(),
+      time: new Date().getTime(),
       payload: JSON.stringify(omit(msg.logData.data.payload, ['project']))
       }
     });
