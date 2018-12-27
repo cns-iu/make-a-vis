@@ -1,11 +1,13 @@
 import { Logger, MessageType, LogData, ErrorType, TypescriptLoggerFactory, LogLevel } from '@ngx-dino/core';
 import { Actions, Effect , ofType } from '@ngrx/effects';
-import { SidenavActionTypes, LoadProjectCompleted } from '../../toolbar/shared/store';
-import { catchError, map , exhaustMap, tap } from 'rxjs/operators';
+import { SidenavActionTypes } from '../../toolbar/shared/store';
+import { tap } from 'rxjs/operators';
 import { Action } from '@ngrx/store';
-import { pick, values } from 'lodash';
-import { Observable, of } from 'rxjs';
+import { pick, values, concat, omit } from 'lodash';
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
+
+import { DataViewActionTypes } from '../../data-view/shared/store';
 
 @Injectable()
 export class LogActions {
@@ -14,29 +16,11 @@ export class LogActions {
   messageType: MessageType;
   logData: LogData;
   errorType: ErrorType;
-  startingActions: any = values(pick(SidenavActionTypes, [
-    'SaveProjectStarted',
-    'SaveProjectCompleted',
-
-    'LoadProjectStarted',
-    'LoadProjectCompleted',
-
-    'ExportSnapshotStarted',
-    'ExportSnapshotCompleted',
-
-    'LoadShareUrlStarted',
-
-    'CreateShareUrlCompleted',
-    'CopyToClipboardSuccess',
-    'LoadShareUrlCompletedPayload',
-
-    'SetRecordStream',
-    'AddNewVisualization',
-    'RemoveVisualization',
-    'SetActiveVisualization'
+  sidenavActions: string[] = values(omit(SidenavActionTypes, [
+    'SaveProjectFileCreated'
   ]));
 
-
+  startingActions = concat(this.sidenavActions, Object.values(DataViewActionTypes));
   errorActions: any = values(pick(SidenavActionTypes, [
     'LoadProjectError',
     'ExportSnapshotError',

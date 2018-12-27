@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApplicationState } from '../../shared/store';
 import * as fromUi from '../../toolbar/shared/store';
 import { StoreLogger } from './store-logger';
-import { Store, select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 
 import { ToggleLogging } from '../../toolbar/shared/store';
 import { LoggerType } from 'typescript-logging';
