@@ -4,8 +4,8 @@
             (dragDropEvents)="onDragDropEvent($event)" [ngClass]="{'record-stream-selected': selectedRecordStream.get(symbolType.id)?true:false}"
             class="graphic-symbol-card">
             <div class="content">
-                {{symbolType?.label}}({{symbolType?.type}})<br>
-                {{selectedRecordStream.get(symbolType.id)?.label}}
+                <div class="graphic-symbol-type">{{symbolType?.label}}({{symbolType?.type}})</div>
+                <div class="record-stream">{{selectedRecordStream.get(symbolType.id)?.label}}</div>
             </div>
         </mat-card>
         <mat-icon class="cancel-icon" *ngIf="selectedRecordStream.get(symbolType.id)?true:false" (click)="unsetRecordStream(symbolType.id)">cancel</mat-icon>

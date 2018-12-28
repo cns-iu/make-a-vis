@@ -11,24 +11,46 @@
         <mat-card class="card" (mavDroppable)="dataVariableDropped($event, variableType, graphicSymbol)"
           (dragDropEvents)="onDragDropEvent($event)" [ngClass]="{'data-variable-selected': selectedDataVariables?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)?true:false}">
           <div class="variable-type">
-              <ng-container class="icon" [ngSwitch]="variableType.type">
-                  <ng-template [ngSwitchCase]="'axis'">
-                    <dvl-y-axis></dvl-y-axis>
+              <ng-container class="icon" [ngSwitch]="variableType.visualization">      
+                  <ng-template [ngSwitchCase]="'x-axis'">
+                      <dvl-x-axis></dvl-x-axis>
+                  </ng-template>
+                  <ng-template [ngSwitchCase]="'y-axis'">
+                      <dvl-y-axis></dvl-y-axis>
+                  </ng-template>
+                  <ng-template [ngSwitchCase]="'source'">
+                      <dvl-source></dvl-source>
+                  </ng-template>
+                  <ng-template [ngSwitchCase]="'target'">
+                      <dvl-target></dvl-target>
+                  </ng-template>
+                  <ng-template [ngSwitchCase]="'gradient'">
+                    <dvl-gradient></dvl-gradient>
                   </ng-template>
                   <ng-template [ngSwitchCase]="'color'">
-                    <dvl-color-area></dvl-color-area>
+                    <dvl-color-edges *ngIf="variableType.type === 'strokeColor'"></dvl-color-edges>
+                    <dvl-color-area *ngIf="variableType.type === 'color'"></dvl-color-area>
                   </ng-template>
-                  <ng-template [ngSwitchCase]="'identifier'">
+                  <ng-template [ngSwitchCase]="'edge-size'">
+                    <dvl-thickness></dvl-thickness>
+                  </ng-template>
+                  <ng-template [ngSwitchCase]="'id'">
                     <dvl-identifier></dvl-identifier>
                   </ng-template>
-                  <ng-template [ngSwitchCase]="'tooltip'">
+                  <ng-template [ngSwitchCase]="'label'">
                     <dvl-label></dvl-label>
                   </ng-template>
-                  <ng-template [ngSwitchCase]="'text'">
-                    <dvl-target></dvl-target>
-                  </ng-template>
-                  <ng-template [ngSwitchCase]="'areaSize'">
+                  <ng-template [ngSwitchCase]="'node-size'">
                     <dvl-area-size></dvl-area-size>
+                  </ng-template>
+                  <ng-template [ngSwitchCase]="'start'">
+                      <dvl-start></dvl-start>
+                  </ng-template>
+                  <ng-template [ngSwitchCase]="'end'">
+                    <dvl-end></dvl-end>
+                  </ng-template>
+                  <ng-template [ngSwitchCase]="'shape'">
+                      <dvl-shape></dvl-shape>
                   </ng-template>
               </ng-container>
               <span class="graphic-variable-label">{{variableType?.label}}</span>

@@ -5,7 +5,7 @@ import { BaseVisualizationComponent } from '../../base-visualization-component';
 export type Properties = null;
 export type FieldGroups = null;
 @Component({
-  selector: 'dvl-end',
+  selector: 'dvl-thickness',
   templateUrl: './thickness.component.html',
   styleUrls: ['./thickness.component.css']
 })

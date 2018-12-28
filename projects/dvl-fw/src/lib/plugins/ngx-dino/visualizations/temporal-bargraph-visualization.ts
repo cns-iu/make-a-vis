@@ -12,8 +12,8 @@ export class TemporalBargraphVisualization extends DefaultVisualization {
     id: 'bars', label: 'Bars', type: 'area',
     graphicVariableOptions: [
       { type: 'identifier', label: 'Identifier', visualization: 'id' },
-      { id: 'x-start', type: 'axis', label: 'X-Axis Start', visualization: 'source' },
-      { id: 'x-end', type: 'axis', label: 'X-Axis End', visualization: 'target' },
+      { id: 'x-start', type: 'axis', label: 'X-Axis Start', visualization: 'start' },
+      { id: 'x-end', type: 'axis', label: 'X-Axis End', visualization: 'end' },
       { id: 'y-order', type: 'axis', label: 'Y-Axis Order' },
       { id: 'height', type: 'areaSize', label: 'Size', visualization: 'edge-size' },
       { type: 'color', label: 'Color Hue', visualization: 'color' },

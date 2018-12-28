@@ -31,7 +31,7 @@ export class ScatterplotVisualization extends DefaultVisualization {
       { type: 'color', label: 'Color Hue', visualization: 'color' },
       // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
       { type: 'areaSize', label: 'Size', visualization: 'node-size' },
-      // { type: 'shape', label: 'Shape' },
+      // { type: 'shape', label: 'Shape', visualization: 'shape' },
       // { type: 'transparency', label: 'Transparency' },
       // { type: 'strokeTransparency', label: 'Stroke Transparency' },
       { type: 'tooltip', label: 'Tooltip', visualization: 'label'}
