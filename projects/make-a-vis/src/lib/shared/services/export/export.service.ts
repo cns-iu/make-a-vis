@@ -33,11 +33,11 @@ export class ExportService {
     this.store.dispatch(new ExportSnapshotStarted(true));
     this.exportToPngService.getSnapShot(
       this.getVisualizationElement(),
-      'visualisation.png'
+      'visualization.png'
     );
     this.store.dispatch(new ExportSnapshotCompleted({
       exportingSnapshot: false,
-      fileName: 'visualisation.png',
+      fileName: 'visualization.png',
       fileExtension: 'png'
     }));
   }
@@ -46,10 +46,10 @@ export class ExportService {
     this.store.dispatch(new ExportSnapshotStarted(true));
     this.exportToSvgService.getSnapShot(
       this.getVisualizationElement(),
-      'visualisation.svg');
+      'visualization.svg');
       this.store.dispatch(new ExportSnapshotCompleted({
         exportingSnapshot: false,
-        fileName: 'visualisation.svg',
+        fileName: 'visualization.svg',
         fileExtension: 'svg'
       }));
   }
@@ -60,14 +60,14 @@ export class ExportService {
     this.pdfOptions.preserveAspectRatio = 'xMinYMin';
     this.exportToPdfService.getSnapShot(
       this.getVisualizationElement(),
-      'visualisation.pdf',
+      'visualization.pdf',
       this.pdfOptions,
       0,
       0
     );
     this.store.dispatch(new ExportSnapshotCompleted({
       exportingSnapshot: false,
-      fileName: 'visualisation.pdf',
+      fileName: 'visualization.pdf',
       fileExtension: 'pdf'
     }));
   }

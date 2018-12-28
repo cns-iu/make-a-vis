@@ -41,8 +41,12 @@ export enum SidenavActionTypes {
   UnsetGraphicVariable = '[UI] Unset Graphic Variable',
 
   CopyToClipboardSuccess = '[UI] Successfully Copied To Clipboard',
-  CopyToClipboardError = '[UI] Copy To Clipboard Failed'
+  CopyToClipboardError = '[UI] Copy To Clipboard Failed',
+
+  OpenInfoIcon = '[UI] Info Icon Opened',
+  CloseInfoIcon = '[UI] Info Icon Closed'
 }
+
 
 export class SaveProjectStarted implements Action {
   readonly type = SidenavActionTypes.SaveProjectStarted;
@@ -142,7 +146,7 @@ export class ToggleLogging implements Action {
 
 export class SetActiveVisualization implements Action {
   readonly type = SidenavActionTypes.SetActiveVisualization;
-  constructor(public payload: number) { }
+  constructor(public payload: payloadTypes.VisualizationId) { }
 }
 
 export class AddNewVisualization implements Action {
@@ -152,7 +156,7 @@ export class AddNewVisualization implements Action {
 
 export class RemoveVisualization implements Action {
   readonly type = SidenavActionTypes.RemoveVisualization;
-  constructor(public payload: number) { }
+  constructor(public payload: payloadTypes.VisualizationId) { }
 }
 
 export class SetRecordStream implements Action {
@@ -199,6 +203,16 @@ export class CopyToClipboardError implements Action {
   constructor(public payload: payloadTypes.CopyToClipboardErrorPayload) {}
 }
 
+export class OpenedInfoIcon implements Action {
+  readonly type = SidenavActionTypes.OpenInfoIcon;
+  constructor(public payload: payloadTypes.InfoIcon) {}
+}
+
+export class ClosedInfoIcon implements Action {
+  readonly type = SidenavActionTypes.CloseInfoIcon;
+  constructor(public payload: payloadTypes.InfoIcon) {}
+}
+
 export type SidenavActionsUnion = SaveProjectStarted | SaveProjectFileCreated | SaveProjectCompleted |
   LoadProjectStarted | LoadProjectCompleted | LoadProjectError |
   ExportSnapshotStarted | ExportSnapshotCompleted | ExportSnapshotError |
@@ -206,4 +220,4 @@ export type SidenavActionsUnion = SaveProjectStarted | SaveProjectFileCreated | 
   CreateShareUrlStarted | CreateShareUrlCompleted | CreateShareUrlError |
   ToggleLogging | SetActiveVisualization | AddNewVisualization | RemoveVisualization | SetRecordStream | UnsetRecordStream |
   SetGraphicSymbolRecordSet | SetActiveDataVariable | SetGraphicVariable | UnsetGraphicVariable |
-  CopyToClipboardSuccess | CopyToClipboardError;
+  CopyToClipboardSuccess | CopyToClipboardError | OpenedInfoIcon | ClosedInfoIcon;

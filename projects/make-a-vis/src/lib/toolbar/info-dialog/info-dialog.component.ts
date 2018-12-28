@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
+import { Store } from '@ngrx/store';
 
 import { buildInfo } from './build-info';
+import { ClosedInfoIcon } from '../shared/store';
+import { SidenavState } from '../../toolbar/shared/store';
+
 
 
 @Component({
@@ -16,7 +20,7 @@ export class InfoDialogComponent implements OnInit {
   aboutusContent: any;
   contactusContent: any;
 
-  constructor(public dialogRef: MatDialogRef<InfoDialogComponent>) {
+  constructor(public dialogRef: MatDialogRef<InfoDialogComponent>, private store: Store<SidenavState>) {
     this.createItems();
     this.createAboutusContent();
     this.createContactusContent();
@@ -27,6 +31,7 @@ export class InfoDialogComponent implements OnInit {
 
   close() {
     this.dialogRef.close();
+    this.store.dispatch(new ClosedInfoIcon({opened: false}));
   }
 
   createItems() {

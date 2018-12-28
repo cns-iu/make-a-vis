@@ -60,7 +60,7 @@ export class MainComponent {
     if (index !== this.selectedVis || force) {
       this.selectedVis = index;
       this.exportService.visualizationElement = this.visGroup;
-      this.store.dispatch(new SetActiveVisualization(index));
+      this.store.dispatch(new SetActiveVisualization({visualizationId: index}));
     }
     this.emitToggleSelectionPanelEvent();
   }
@@ -73,7 +73,7 @@ export class MainComponent {
   removeVisualization(index: number): void {
     const lastIndex = this.visualizations.length - 1;
     this.visualizations.splice(index, 1);
-    this.store.dispatch(new RemoveVisualization(index));
+    this.store.dispatch(new RemoveVisualization({visualizationId: index}));
     this.setSelectedVis(index === lastIndex ? index - 1 : index, true);
   }
 
