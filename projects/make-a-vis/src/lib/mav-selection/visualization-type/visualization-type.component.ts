@@ -11,6 +11,7 @@ export class VisualizationTypeComponent implements OnInit, OnChanges {
   @Input() activeVis: Vis;
   @Input() mode: 'add'|'edit';
   @Input() panelState: boolean;
+  @Output() visSelected = new EventEmitter<boolean>();
   selected: VisType;
   visTypes: VisType[] = [
     { template: 'scattergraph', label: 'Scatter Graph', icon: 'scatterGraph' },
@@ -33,6 +34,11 @@ export class VisualizationTypeComponent implements OnInit, OnChanges {
 
   visualizationSelected(type: VisType) {
     this.selected = type;
+    if (this.selected) {
+      this.visSelected.emit(true);
+    } else {
+      this.visSelected.emit(false);
+    }
   }
 
   isSelected(type: VisType): boolean {

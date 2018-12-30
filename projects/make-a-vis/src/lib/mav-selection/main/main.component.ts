@@ -26,7 +26,7 @@ export class MainComponent implements OnInit {
   activeVis: Vis;
   panelState = false;
   step = 0;
-  visSelectionButtonState = true;
+  visSelectionButtonState = false;
 
   constructor(private store: Store<SidenavState>, private serializer: ProjectSerializerService) { }
 
@@ -40,11 +40,21 @@ export class MainComponent implements OnInit {
 
     if (this.mode === 'add') {
       this.step = 0;
-      this.visSelectionButtonState = true;
     }
 
     if (this.mode === 'edit') {
       this.step = 1;
+    }
+
+    this.setVisSelectionButtonState(false);
+  }
+
+  setVisSelectionButtonState(visSelected: boolean) {
+    if (this.mode === 'add') {
+      this.visSelectionButtonState = visSelected;
+    }
+
+    if (this.mode === 'edit') {
       this.visSelectionButtonState = false;
     }
   }
