@@ -1,9 +1,34 @@
 import { Component } from '@angular/core';
 
+import { StartLegendComponent as NgxStartComponent } from '@ngx-dino/legend';
+
 import { BaseVisualizationComponent } from '../../base-visualization-component';
 
-export type Properties = null;
-export type FieldGroups = null;
+import { createDefaultFieldGroup, createFieldNameMapping } from '../../utility';
+
+export type SizeFields = Pick<
+NgxStartComponent,
+  'sizeField' | 'idField' | 'categoryField'
+>;
+
+export type Properties = Pick<
+NgxStartComponent,
+  'sizeMapping'
+>;
+
+// tslint:disable-next-line:interface-over-type-literal
+export type FieldGroups = {
+  items: SizeFields
+};
+
+const sizeFieldNameMapping = createFieldNameMapping([
+  'size'
+], {
+  'identifier': 'idField',
+  'text': 'categoryField'
+});
+
+
 @Component({
   selector: 'dvl-start',
   templateUrl: './start.component.html',
@@ -12,13 +37,15 @@ export type FieldGroups = null;
 export class StartComponent extends BaseVisualizationComponent<Properties, FieldGroups>  {
 
   readonly defaultProperties = null;
-  readonly defaultFieldGroups = null;
+  readonly defaultFieldGroups: FieldGroups = {
+    items: createDefaultFieldGroup(['sizeField', 'idField', 'categoryField'])
+  };
 
   constructor() {
     super();
    }
 
   fieldNameFor(key: string, group: string): string {
-    return null;
+    return sizeFieldNameMapping[key];
   }
 }
