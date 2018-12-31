@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, OnInit, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 
 import { GraphicSymbolOption, RecordStream } from '@dvl-fw/core';
@@ -16,9 +16,10 @@ import { getRecordStreamsSelector, SidenavState } from '../../toolbar/shared/sto
 export class GraphicSymbolTypeComponent implements OnInit, OnChanges {
   @Input() activeVis: Vis;
   @Input() mode: ModeType;
+  @Output() recordStreamChange = new EventEmitter<Map<string, RecordStream>>();
   graphicSymbolOptions: GraphicSymbolOption[] = [];
   recordStreams: RecordStream[];
-  selectedRecordStream: Map<string, RecordStream>;
+  selectedRecordStreamMapping: Map<string, RecordStream>;
   selectionClass = '';
 
   constructor(private updateService: UpdateVisService, private store: Store<SidenavState>) {
@@ -33,7 +34,7 @@ export class GraphicSymbolTypeComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if ('activeVis' in changes) {
       if (this.activeVis && this.activeVis.data) {
-        this.selectedRecordStream = new Map();
+        this.selectedRecordStreamMapping = new Map();
         this.graphicSymbolOptions = this.activeVis.data.graphicSymbolOptions;
 
         if (this.mode === 'edit') {
@@ -51,18 +52,21 @@ export class GraphicSymbolTypeComponent implements OnInit, OnChanges {
 
   setRecordStreams() {
     Object.keys(this.activeVis.data.graphicSymbols).forEach((gso) => {
-      this.selectedRecordStream.set(gso, this.activeVis.data.graphicSymbols[gso].recordStream);
+      this.selectedRecordStreamMapping.set(gso, this.activeVis.data.graphicSymbols[gso].recordStream);
     });
+    this.recordStreamChange.emit(this.selectedRecordStreamMapping);
   }
 
   recordStreamDropped(recordStream: RecordStream, graphicSymbolOption: GraphicSymbolOption) {
-    this.selectedRecordStream.set(graphicSymbolOption.id, recordStream);
     this.updateService.updateGraphicSymbol(this.activeVis.data, graphicSymbolOption.id, graphicSymbolOption.type, recordStream);
+    this.selectedRecordStreamMapping.set(graphicSymbolOption.id, recordStream);
+    this.recordStreamChange.emit(this.selectedRecordStreamMapping);
   }
 
   unsetRecordStream(graphicSymbolOptionId: string) {
     this.updateService.unsetRecordStream(graphicSymbolOptionId, this.activeVis.data);
-    this.selectedRecordStream.delete(graphicSymbolOptionId);
+    this.selectedRecordStreamMapping.delete(graphicSymbolOptionId);
+    this.recordStreamChange.emit(this.selectedRecordStreamMapping);
   }
 
   onDragDropEvent(event: DragDropEvent) {

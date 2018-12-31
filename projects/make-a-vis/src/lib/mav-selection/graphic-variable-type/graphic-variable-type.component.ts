@@ -14,12 +14,11 @@ import { getAvailableGraphicVariablesSelector, SidenavState } from '../../toolba
 })
 export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   @Input() activeVis: Vis;
-  @Input() recordStream: Map<string, RecordStream>;
+  @Input() recordStreamMapping: Map<string, RecordStream>;
   graphicSymbolTypes: GraphicSymbolOption[] = [];
   selectionClass = '';
   availableGraphicVariables: GraphicVariable[];
-
-  selectedDataVariables: Map<string, Map<string, DataVariable>>;
+  selectedDataVariablesMapping: Map<string, Map<string, DataVariable>>;
 
   constructor(private store: Store<SidenavState>, private updateService: UpdateVisService) {
     this.store.pipe(select(getAvailableGraphicVariablesSelector)).subscribe((availableGraphicVariables) => {
@@ -31,10 +30,10 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if ('activeVis' in changes) {
-      if (this.activeVis && Object.keys(this.activeVis.data.graphicSymbols).length) {
+    if ('activeVis' in changes || 'recordStreamMapping' in changes) {
+      if (this.activeVis) {
         this.graphicSymbolTypes = [];
-        this.selectedDataVariables = new Map();
+        this.selectedDataVariablesMapping = new Map();
         this.getGraphicVariableOptions();
         this.getDataVariables();
       }
@@ -47,10 +46,11 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
       this.updateService.updateGraphicVariable(this.activeVis.data, graphicSymbolOption.id,
         graphicVariableOption.id || graphicVariableOption.type, mappableGraphicVariables[0]);
 
-      if (this.selectedDataVariables.get(graphicSymbolOption.id)) {
-        this.selectedDataVariables.get(graphicSymbolOption.id).set(graphicVariableOption.id || graphicVariableOption.type, dataVariable);
+      if (this.selectedDataVariablesMapping.get(graphicSymbolOption.id)) {
+        this.selectedDataVariablesMapping.get(graphicSymbolOption.id)
+          .set(graphicVariableOption.id || graphicVariableOption.type, dataVariable);
       } else {
-        this.selectedDataVariables.set(
+        this.selectedDataVariablesMapping.set(
           graphicSymbolOption.id,
           new Map().set(graphicVariableOption.id || graphicVariableOption.type, dataVariable)
         );
@@ -66,7 +66,7 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
     if (this.availableGraphicVariables.length) {
       const filteredGVs: GraphicVariable[] = this.availableGraphicVariables.filter((gv) => {
         return ((gv.type && gv.type === graphicVariableOption.type)
-        && (gv.recordStream.id === this.recordStream.get(graphicSymbolOption.id).id)
+        && (gv.recordStream.id === this.recordStreamMapping.get(graphicSymbolOption.id).id)
         && (gv.dataVariable.id === dataVariable.id));
       });
       return filteredGVs;
@@ -85,11 +85,11 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
       if (gvs.length) {
        gvs.forEach((gv: string) => {
         const dv = this.activeVis.data.graphicSymbols[gs].graphicVariables[gv].dataVariable;
-        const mapEntry = this.selectedDataVariables.get(gs);
+        const mapEntry = this.selectedDataVariablesMapping.get(gs);
         if (mapEntry) {
           mapEntry.set(gv, dv);
         } else {
-          this.selectedDataVariables.set(gs, new Map().set(gv, dv));
+          this.selectedDataVariablesMapping.set(gs, new Map().set(gv, dv));
         }
        });
       }
@@ -112,6 +112,6 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
 
   unsetGraphicVariable(graphicSymbolOptionId: string, graphicVariableOptionIdOrType: string) {
     this.updateService.unsetGraphicVariable(this.activeVis.data, graphicSymbolOptionId, graphicVariableOptionIdOrType);
-    this.selectedDataVariables.get(graphicSymbolOptionId).delete(graphicVariableOptionIdOrType);
+    this.selectedDataVariablesMapping.get(graphicSymbolOptionId).delete(graphicVariableOptionIdOrType);
   }
 }
