@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { BoundLegendComponent as NgxBoundComponent } from '@ngx-dino/legend';
 
 import { BaseVisualizationComponent } from '../../base-visualization-component';
-
 import { createDefaultFieldGroup, createFieldNameMapping } from '../../utility';
 
 export type SizeFields = Pick<
