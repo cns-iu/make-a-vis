@@ -11,7 +11,7 @@
         <mat-card class="card" (mavDroppable)="dataVariableDropped($event, variableType, graphicSymbol)"
           (dragDropEvents)="onDragDropEvent($event)" [ngClass]="{'data-variable-selected': selectedDataVariablesMapping?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)?true:false}">
           <div class="variable-type">
-            <mav-graphic-variable-icon [visualization]="activeVis.data" [graphicSymbolOption]="graphicSymbol" [graphicVariableOption]="variableType">
+            <mav-graphic-variable-icon [visualization]="activeVis?.data" [graphicSymbolOption]="graphicSymbol" [graphicVariableOption]="variableType">
             </mav-graphic-variable-icon>
               <span class="graphic-variable-label">{{variableType?.label}}</span>
             <div class="data-variable" *ngIf="selectedDataVariablesMapping?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)">
