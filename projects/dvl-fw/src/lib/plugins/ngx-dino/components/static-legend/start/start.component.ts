@@ -11,21 +11,17 @@ NgxStartComponent,
   'sizeField' | 'idField' | 'categoryField'
 >;
 
-export type Properties = Pick<
-NgxStartComponent,
-  'sizeMapping'
->;
+export type Properties = null;
 
 // tslint:disable-next-line:interface-over-type-literal
 export type FieldGroups = {
   items: SizeFields
 };
 
-const sizeFieldNameMapping = createFieldNameMapping([
-  'size'
-], {
+const sizeFieldNameMapping = createFieldNameMapping([], {
   'identifier': 'idField',
-  'text': 'categoryField'
+  'text': 'categoryField',
+  'axis': 'sizeField'
 });
 
 
