@@ -16,7 +16,7 @@ export class TemporalBargraphVisualization extends DefaultVisualization {
       { id: 'x-end', type: 'axis', label: 'X-Axis End', visualization: 'end' },
       { id: 'y-order', type: 'axis', label: 'Y-Axis Order' },
       { id: 'height', type: 'areaSize', label: 'Size', visualization: 'edge-size' },
-      { type: 'color', label: 'Color Hue', visualization: 'color' },
+      { type: 'color', label: 'Color Hue', visualization: 'color', staticVisualization: 'color-area' },
       // { type: 'transparency', label: 'Transparency'},
       // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
       // { type: 'strokeTransparency', label: 'Stroke Transparency'},
