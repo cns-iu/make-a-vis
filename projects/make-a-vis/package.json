@@ -1,6 +1,9 @@
 {
     "name": "make-a-vis",
-    "version": "0.9.0",
+    "version": "0.9.1",
+    "publishConfig": {
+        "access": "public"
+    },
     "peerDependencies": {
         "@angular/animations": "^7.0.0",
         "@angular/cdk": "^7.0.1",
