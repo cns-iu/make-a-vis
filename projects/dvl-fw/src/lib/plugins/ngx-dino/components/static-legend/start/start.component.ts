@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 
-import { StartLegendComponent as NgxStartComponent } from '@ngx-dino/legend';
+import { BoundLegendComponent as NgxBoundComponent } from '@ngx-dino/legend';
 
 import { BaseVisualizationComponent } from '../../base-visualization-component';
 
 import { createDefaultFieldGroup, createFieldNameMapping } from '../../utility';
 
 export type SizeFields = Pick<
-NgxStartComponent,
+NgxBoundComponent,
   'sizeField' | 'idField' | 'categoryField'
 >;
 
