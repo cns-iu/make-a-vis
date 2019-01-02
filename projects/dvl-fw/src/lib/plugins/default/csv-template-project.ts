@@ -107,7 +107,7 @@ export class CSVTemplateProject extends DefaultProject {
         // These are _guesses_ and not likely correct
         types = types.concat(['areaSize', 'strokeWidth', 'fontSize']);
       }
-      if (this.fieldTypes[field] === 'text' || field.toLowerCase().indexOf('color') !== -1) {
+      if (this.fieldTypes[field] === 'text' && field.toLowerCase().indexOf('color') !== -1) {
         // These are _guesses_ and not likely correct
         types = types.concat(['color', 'strokeColor']);
       }
