@@ -24,9 +24,9 @@ export class GeomapVisualization extends DefaultVisualization {
         { type: 'identifier', label: 'Identifier', visualization: 'id' },
         { type: 'latitude', label: 'Latitude', visualization: 'x-axis' },
         { type: 'longitude', label: 'Longitude', visualization: 'y-axis' },
-        { type: 'color', label: 'Color Hue', visualization: 'gradient' },
+        { type: 'color', label: 'Color Hue', visualization: 'gradient', staticVisualization: 'color-area' },
         // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
-        { type: 'areaSize', label: 'Size', visualization: 'node-size'},
+        { type: 'areaSize', label: 'Size', visualization: 'node-size', staticVisualization: 'area-size'},
         // { type: 'shape', label: 'Shape' },
         // { type: 'transparency', label: 'Transparency'},
         // { type: 'strokeTransparency', label: 'Stroke Transparency'},
@@ -41,8 +41,8 @@ export class GeomapVisualization extends DefaultVisualization {
         { type: 'longitude1', label: 'Source Longitude', visualization: 'source' },
         { type: 'latitude2', label: 'Target Latitude', visualization: 'target' },
         { type: 'longitude2', label: 'Target Longitude', visualization: 'target' },
-        { type: 'strokeColor', label: 'Color Hue', visualization: 'color' },
-        { type: 'strokeWidth', label: 'Size', visualization: 'edge-size' },
+        { type: 'strokeColor', label: 'Color Hue', visualization: 'color', staticVisualization: 'color-edges' },
+        { type: 'strokeWidth', label: 'Size', visualization: 'edge-size', staticVisualization: 'thickness'  },
         // { type: 'transparency', label: 'Transparency' }
       ]
     }

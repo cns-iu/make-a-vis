@@ -78,8 +78,6 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
     Object.keys(this.activeVis.data.graphicSymbols).forEach((gs) => {
       this.graphicSymbolTypes.push(this.activeVis.data.graphicSymbolOptions.filter((gso) => gso.id === gs)[0]);
     });
-    console.log('graphic symbol');
-    console.log(this.graphicSymbolTypes);
   }
 
   getDataVariables() {

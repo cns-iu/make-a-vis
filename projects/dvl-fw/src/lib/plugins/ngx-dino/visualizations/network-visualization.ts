@@ -16,9 +16,9 @@ export class NetworkVisualization extends DefaultVisualization {
         // { type: 'position', label: 'Position' },
         { id: 'x', type: 'axis', label: 'X', visualization: 'x-axis' },
         { id: 'y', type: 'axis', label: 'Y', visualization: 'y-axis' },
-        { type: 'color', label: 'Color Hue', visualization: 'color' },
+        { type: 'color', label: 'Color Hue', visualization: 'color',  staticVisualization: 'color-area' },
         // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
-        { type: 'areaSize', label: 'Size', visualization: 'node-size'},
+        { type: 'areaSize', label: 'Size', visualization: 'node-size', staticVisualization: 'area-size' },
         // { type: 'shape', label: 'Shape' },
         // { type: 'transparency', label: 'Transparency'},
         // { type: 'strokeTransparency', label: 'Stroke Transparency'},
@@ -35,8 +35,8 @@ export class NetworkVisualization extends DefaultVisualization {
         { id: 'targetY', type: 'axis', label: 'Target Y', visualization: 'target' },
         // { type: 'source', label: 'Source Position' },
         // { type: 'target', label: 'Target Position' },
-        { type: 'strokeColor', label: 'Color Hue', visualization: 'color' },
-        { type: 'strokeWidth', label: 'Size', visualization: 'edge-size' },
+        { type: 'strokeColor', label: 'Color Hue', visualization: 'color', staticVisualization: 'color-area' },
+        { type: 'strokeWidth', label: 'Size', visualization: 'edge-size',  staticVisualization: 'thickness'  },
         // { type: 'transparency', label: 'Transparency' }
       ]
     }
