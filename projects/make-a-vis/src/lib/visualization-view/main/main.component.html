@@ -1,4 +1,4 @@
-<div class="mav-visualization-view" [hidden]="selectedVis === -1">
+<div class="mav-visualization-view">
     <mat-tab-group [color]="'#ffffff'" [disableRipple]="true" [(selectedIndex)]="selectedVis" class="visualization-group" #visGroup>
         <mat-tab *ngFor="let vis of visualizations; let index = index" [disabled]="false">
             <ng-template mat-tab-label>

@@ -9,63 +9,20 @@
     <div class="graphic-variable-wrapper">
       <div class="card-wrapper" *ngFor="let variableType of graphicSymbol.graphicVariableOptions">
         <mat-card class="card" (mavDroppable)="dataVariableDropped($event, variableType, graphicSymbol)"
-          (dragDropEvents)="onDragDropEvent($event)" [ngClass]="{'data-variable-selected': selectedDataVariables?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)?true:false}">
+          (dragDropEvents)="onDragDropEvent($event)" [ngClass]="{'data-variable-selected': selectedDataVariablesMapping?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)?true:false}">
           <div class="variable-type">
             <mav-graphic-variable-icon [visualization]="activeVis.data" [graphicSymbolOption]="graphicSymbol" [graphicVariableOption]="variableType">
             </mav-graphic-variable-icon>
               <dvl-visualization [data]="legend"></dvl-visualization>
-              <!-- <ng-container class="icon" [ngSwitch]="variableType.visualization">      
-                  <ng-template [ngSwitchCase]="'x-axis'">
-                      <dvl-x-axis></dvl-x-axis>
-                  </ng-template>
-                  <ng-template [ngSwitchCase]="'y-axis'">
-                      <dvl-y-axis></dvl-y-axis>
-                  </ng-template>
-                  <ng-template [ngSwitchCase]="'source'">
-                      <dvl-source></dvl-source>
-                  </ng-template>
-                  <ng-template [ngSwitchCase]="'target'">
-                      <dvl-target></dvl-target>
-                  </ng-template>
-                  <ng-template [ngSwitchCase]="'gradient'">
-                    <dvl-gradient></dvl-gradient>
-                  </ng-template>
-                  <ng-template [ngSwitchCase]="'color'">
-                    <dvl-color-edges *ngIf="variableType.type === 'strokeColor'"></dvl-color-edges>
-                    <dvl-color-area *ngIf="variableType.type === 'color'"></dvl-color-area>
-                  </ng-template>
-                  <ng-template [ngSwitchCase]="'edge-size'">
-                    <dvl-thickness></dvl-thickness>
-                  </ng-template>
-                  <ng-template [ngSwitchCase]="'id'">
-                    <dvl-identifier></dvl-identifier>
-                  </ng-template>
-                  <ng-template [ngSwitchCase]="'label'">
-                    <dvl-label></dvl-label>
-                  </ng-template>
-                  <ng-template [ngSwitchCase]="'node-size'">
-                    <dvl-area-size></dvl-area-size>
-                  </ng-template>
-                  <ng-template [ngSwitchCase]="'start'">
-                      <dvl-start></dvl-start>
-                  </ng-template>
-                  <ng-template [ngSwitchCase]="'end'">
-                    <dvl-end></dvl-end>
-                  </ng-template>
-                  <ng-template [ngSwitchCase]="'shape'">
-                      <dvl-shape></dvl-shape>
-                  </ng-template>
-              </ng-container> -->
               <span class="graphic-variable-label">{{variableType?.label}}</span>
-            <div class="data-variable" *ngIf="selectedDataVariables?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)">
+            <div class="data-variable" *ngIf="selectedDataVariablesMapping?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)">
               <span>{{recordStream?.get(graphicSymbol.id)?.label}}:</span>
-              {{selectedDataVariables?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)?.label}}
             </div>
           </div>
           <!-- TODO: temporary placeholder-->
           <div class="variable-category">Quantitative</div>
         </mat-card>
-        <mat-icon class="cancel-icon" *ngIf="selectedDataVariables?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)?true:false" 
+        <mat-icon class="cancel-icon" *ngIf="selectedDataVariablesMapping?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)?true:false" 
           (click)="unsetGraphicVariable(graphicSymbol.id, variableType.id || variableType.type)">
           cancel
         </mat-icon>

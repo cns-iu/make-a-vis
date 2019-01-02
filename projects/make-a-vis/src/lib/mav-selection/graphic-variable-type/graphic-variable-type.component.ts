@@ -16,12 +16,12 @@ import { getAvailableGraphicVariablesSelector, SidenavState, getLoadedProjectSel
 })
 export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   @Input() activeVis: Vis;
-  @Input() recordStream: Map<string, RecordStream>;
+  @Input() recordStreamMapping: Map<string, RecordStream>;
   graphicSymbolTypes: GraphicSymbolOption[] = [];
   selectionClass = '';
   availableGraphicVariables: GraphicVariable[];
+  selectedDataVariablesMapping: Map<string, Map<string, DataVariable>>;
   isStaticVisualization = true;
-  selectedDataVariables: Map<string, Map<string, DataVariable>>;
   legent: Visualization;
 
   constructor(private store: Store<SidenavState>, private updateService: UpdateVisService, private serializer: ProjectSerializerService) {
@@ -31,14 +31,13 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    this.createIcon(this.activeVis.data, this.graphicSymbolTypes[index]);
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if ('activeVis' in changes) {
-      if (this.activeVis && Object.keys(this.activeVis.data.graphicSymbols).length) {
+    if ('activeVis' in changes || 'recordStreamMapping' in changes) {
+      if (this.activeVis) {
         this.graphicSymbolTypes = [];
-        this.selectedDataVariables = new Map();
+        this.selectedDataVariablesMapping = new Map();
         this.getGraphicVariableOptions();
         this.getDataVariables();
       }
@@ -51,10 +50,11 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
       this.updateService.updateGraphicVariable(this.activeVis.data, graphicSymbolOption.id,
         graphicVariableOption.id || graphicVariableOption.type, mappableGraphicVariables[0]);
 
-      if (this.selectedDataVariables.get(graphicSymbolOption.id)) {
-        this.selectedDataVariables.get(graphicSymbolOption.id).set(graphicVariableOption.id || graphicVariableOption.type, dataVariable);
+      if (this.selectedDataVariablesMapping.get(graphicSymbolOption.id)) {
+        this.selectedDataVariablesMapping.get(graphicSymbolOption.id)
+          .set(graphicVariableOption.id || graphicVariableOption.type, dataVariable);
       } else {
-        this.selectedDataVariables.set(
+        this.selectedDataVariablesMapping.set(
           graphicSymbolOption.id,
           new Map().set(graphicVariableOption.id || graphicVariableOption.type, dataVariable)
         );
@@ -70,7 +70,7 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
     if (this.availableGraphicVariables.length) {
       const filteredGVs: GraphicVariable[] = this.availableGraphicVariables.filter((gv) => {
         return ((gv.type && gv.type === graphicVariableOption.type)
-        && (gv.recordStream.id === this.recordStream.get(graphicSymbolOption.id).id)
+        && (gv.recordStream.id === this.recordStreamMapping.get(graphicSymbolOption.id).id)
         && (gv.dataVariable.id === dataVariable.id));
       });
       return filteredGVs;
@@ -91,11 +91,11 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
       if (gvs.length) {
        gvs.forEach((gv: string) => {
         const dv = this.activeVis.data.graphicSymbols[gs].graphicVariables[gv].dataVariable;
-        const mapEntry = this.selectedDataVariables.get(gs);
+        const mapEntry = this.selectedDataVariablesMapping.get(gs);
         if (mapEntry) {
           mapEntry.set(gv, dv);
         } else {
-          this.selectedDataVariables.set(gs, new Map().set(gv, dv));
+          this.selectedDataVariablesMapping.set(gs, new Map().set(gv, dv));
         }
        });
       }
@@ -118,62 +118,6 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
 
   unsetGraphicVariable(graphicSymbolOptionId: string, graphicVariableOptionIdOrType: string) {
     this.updateService.unsetGraphicVariable(this.activeVis.data, graphicSymbolOptionId, graphicVariableOptionIdOrType);
-    this.selectedDataVariables.get(graphicSymbolOptionId).delete(graphicVariableOptionIdOrType);
+    this.selectedDataVariablesMapping.get(graphicSymbolOptionId).delete(graphicVariableOptionIdOrType);
   }
-
-  private createIcon(visualization, graphicSymbolOption, graphicVariableOption, isStaticVisualization) {
-    if (visualization) { return; }
-    const graphicSymbol: GraphicSymbol = visualization.graphicSymbols[graphicSymbolOption.id];
-    if (!graphicSymbol) { return; }
-    const graphicVariable: GraphicVariable = graphicSymbol.graphicVariables[graphicVariableOption.id ||
-      graphicVariableOption.type];
-
-    const template = isStaticVisualization ?
-                      (graphicVariableOption.staticVisualization || graphicVariableOption.visualization ) :
-    graphicVariableOption.visualization;
-    // this.legendVisualizationType = template;
-    if (!!template && graphicVariable) {
-      const preData: any = {
-        id: `legend-visualization-${uniqueId()}`,
-        template,
-        properties: {},
-        graphicSymbols: {}
-      };
-      this.store.pipe(
-        select(getLoadedProjectSelector)
-      ).subscribe(project => {
-        this.serializer.createVisualization(
-          template, preData, project
-        ).subscribe((legend) => {
-          legend.graphicSymbols.items = this.generateLegendGraphicSymbol(template, graphicVariable, graphicSymbol, project);
-          this.legend = legend;
-          console.log('legend');
-          console.log(this.legend);
-          // this.legendComponent.data = legend;
-          // this.legendComponent.runDataChangeDetection();
-        });
-      });
-    }
-  }
-
-  private generateLegendGraphicSymbol(template: string, graphicVariable: GraphicVariable,
-    sourceGraphicSymbol: GraphicSymbol, project: Project): GraphicSymbol {
-  const graphicSymbol: GraphicSymbol = new DefaultGraphicSymbol({
-    id: 'items', type: sourceGraphicSymbol.type, recordStream: sourceGraphicSymbol.recordStream.id,
-    graphicVariables: {}
-  }, project);
-
-  const gvars = graphicSymbol.graphicVariables;
-  gvars[graphicVariable.type] = graphicVariable;
-  if (template === 'color') {
-    gvars.color = graphicVariable;
-  }
-  gvars.identifier = sourceGraphicSymbol.graphicVariables.identifier;
-  for (const gv of project.graphicVariables) {
-    if (gv.dataVariable === graphicVariable.dataVariable && !gvars[gv.type]) {
-      gvars[gv.type] = gv;
-    }
-  }
-  return graphicSymbol;
-}
 }

@@ -1,10 +1,10 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { uniqueId } from 'lodash';
 import { of } from 'rxjs';
 import { catchError, concatMap, take } from 'rxjs/operators';
 
-import { ProjectSerializerService, Visualization } from '@dvl-fw/core';
+import { ProjectSerializerService, RecordStream, Visualization } from '@dvl-fw/core';
 import { ModeType, ToggleSelectionPanelType, Vis, VisType } from '../../shared/types';
 import {
   AddNewVisualization,
@@ -22,11 +22,12 @@ export class MainComponent implements OnInit {
   @Output() newVis = new EventEmitter();
   @Output() selectionPanelClosed = new EventEmitter();
   @ViewChild('visType') visType: VisualizationTypeComponent;
+  recordStreamMapping: Map<string, RecordStream>;
   mode: ModeType;
   activeVis: Vis;
   panelState = false;
   step = 0;
-  visSelectionButtonState = true;
+  visSelectionButtonState = false;
 
   constructor(private store: Store<SidenavState>, private serializer: ProjectSerializerService) { }
 
@@ -40,11 +41,21 @@ export class MainComponent implements OnInit {
 
     if (this.mode === 'add') {
       this.step = 0;
-      this.visSelectionButtonState = true;
     }
 
     if (this.mode === 'edit') {
       this.step = 1;
+    }
+
+    this.setVisSelectionButtonState(false);
+  }
+
+  setVisSelectionButtonState(visSelected: boolean) {
+    if (this.mode === 'add') {
+      this.visSelectionButtonState = visSelected;
+    }
+
+    if (this.mode === 'edit') {
       this.visSelectionButtonState = false;
     }
   }
@@ -112,5 +123,9 @@ export class MainComponent implements OnInit {
     });
 
     this.selectionPanelClosed.emit(this.mode);
+  }
+
+  updateRecordStreamMapping(recordStreamMapping: Map<string, RecordStream>) {
+    this.recordStreamMapping = recordStreamMapping;
   }
 }
