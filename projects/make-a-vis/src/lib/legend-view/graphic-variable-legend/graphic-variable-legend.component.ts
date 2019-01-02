@@ -43,9 +43,10 @@ export class GraphicVariableLegendComponent implements OnInit, OnChanges {
 
   private visualizationUpdated() {
     if (!this.visualization) { return; }
-    const graphicSymbol = this.visualization.graphicSymbols[this.graphicSymbolOption.id];
+    const graphicSymbol: GraphicSymbol = this.visualization.graphicSymbols[this.graphicSymbolOption.id];
     if (!graphicSymbol) { return; }
-    const graphicVariable = graphicSymbol.graphicVariables[this.graphicVariableOption.id || this.graphicVariableOption.type];
+    const graphicVariable: GraphicVariable = graphicSymbol.graphicVariables[this.graphicVariableOption.id ||
+        this.graphicVariableOption.type];
     this.graphicVariable = graphicVariable;
 
     const template = this.graphicVariableOption.visualization;

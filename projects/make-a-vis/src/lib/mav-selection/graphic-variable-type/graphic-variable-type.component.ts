@@ -1,11 +1,13 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { select, Store } from '@ngrx/store';
+import { uniqueId } from 'lodash';
 
-import { DataVariable, GraphicSymbolOption, GraphicVariable, RecordStream, GraphicVariableOption } from '@dvl-fw/core';
+import { DataVariable, GraphicSymbolOption, GraphicVariable,
+  GraphicVariableOption, RecordStream, GraphicSymbol, Visualization, ProjectSerializerService } from '@dvl-fw/core';
 import { DragDropEvent } from '../../drag-drop';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import { Vis } from '../../shared/types';
-import { getAvailableGraphicVariablesSelector, SidenavState } from '../../toolbar/shared/store';
+import { getAvailableGraphicVariablesSelector, SidenavState, getLoadedProjectSelector } from '../../toolbar/shared/store';
 
 @Component({
   selector: 'mav-selection-graphic-variable-type',
@@ -18,16 +20,18 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   graphicSymbolTypes: GraphicSymbolOption[] = [];
   selectionClass = '';
   availableGraphicVariables: GraphicVariable[];
-
+  isStaticVisualization = true;
   selectedDataVariables: Map<string, Map<string, DataVariable>>;
+  legent: Visualization;
 
-  constructor(private store: Store<SidenavState>, private updateService: UpdateVisService) {
+  constructor(private store: Store<SidenavState>, private updateService: UpdateVisService, private serializer: ProjectSerializerService) {
     this.store.pipe(select(getAvailableGraphicVariablesSelector)).subscribe((availableGraphicVariables) => {
       this.availableGraphicVariables = availableGraphicVariables;
     });
   }
 
   ngOnInit() {
+    this.createIcon(this.activeVis.data, this.graphicSymbolTypes[index]);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -77,6 +81,8 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
     Object.keys(this.activeVis.data.graphicSymbols).forEach((gs) => {
       this.graphicSymbolTypes.push(this.activeVis.data.graphicSymbolOptions.filter((gso) => gso.id === gs)[0]);
     });
+    console.log('graphic symbol');
+    console.log(this.graphicSymbolTypes);
   }
 
   getDataVariables() {
@@ -114,4 +120,60 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
     this.updateService.unsetGraphicVariable(this.activeVis.data, graphicSymbolOptionId, graphicVariableOptionIdOrType);
     this.selectedDataVariables.get(graphicSymbolOptionId).delete(graphicVariableOptionIdOrType);
   }
+
+  private createIcon(visualization, graphicSymbolOption, graphicVariableOption, isStaticVisualization) {
+    if (visualization) { return; }
+    const graphicSymbol: GraphicSymbol = visualization.graphicSymbols[graphicSymbolOption.id];
+    if (!graphicSymbol) { return; }
+    const graphicVariable: GraphicVariable = graphicSymbol.graphicVariables[graphicVariableOption.id ||
+      graphicVariableOption.type];
+
+    const template = isStaticVisualization ?
+                      (graphicVariableOption.staticVisualization || graphicVariableOption.visualization ) :
+    graphicVariableOption.visualization;
+    // this.legendVisualizationType = template;
+    if (!!template && graphicVariable) {
+      const preData: any = {
+        id: `legend-visualization-${uniqueId()}`,
+        template,
+        properties: {},
+        graphicSymbols: {}
+      };
+      this.store.pipe(
+        select(getLoadedProjectSelector)
+      ).subscribe(project => {
+        this.serializer.createVisualization(
+          template, preData, project
+        ).subscribe((legend) => {
+          legend.graphicSymbols.items = this.generateLegendGraphicSymbol(template, graphicVariable, graphicSymbol, project);
+          this.legend = legend;
+          console.log('legend');
+          console.log(this.legend);
+          // this.legendComponent.data = legend;
+          // this.legendComponent.runDataChangeDetection();
+        });
+      });
+    }
+  }
+
+  private generateLegendGraphicSymbol(template: string, graphicVariable: GraphicVariable,
+    sourceGraphicSymbol: GraphicSymbol, project: Project): GraphicSymbol {
+  const graphicSymbol: GraphicSymbol = new DefaultGraphicSymbol({
+    id: 'items', type: sourceGraphicSymbol.type, recordStream: sourceGraphicSymbol.recordStream.id,
+    graphicVariables: {}
+  }, project);
+
+  const gvars = graphicSymbol.graphicVariables;
+  gvars[graphicVariable.type] = graphicVariable;
+  if (template === 'color') {
+    gvars.color = graphicVariable;
+  }
+  gvars.identifier = sourceGraphicSymbol.graphicVariables.identifier;
+  for (const gv of project.graphicVariables) {
+    if (gv.dataVariable === graphicVariable.dataVariable && !gvars[gv.type]) {
+      gvars[gv.type] = gv;
+    }
+  }
+  return graphicSymbol;
+}
 }

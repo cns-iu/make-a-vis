@@ -10,6 +10,7 @@ export interface GraphicVariableOption {
   type: string;
   label: string;
   visualization?: string; // TODO
+  staticVisualization?: string;
 }
 
 export interface GraphicSymbolOption {

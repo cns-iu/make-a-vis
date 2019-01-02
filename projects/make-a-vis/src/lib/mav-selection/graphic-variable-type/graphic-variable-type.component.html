@@ -1,5 +1,5 @@
 <div class="graphic-symbol-wrapper">
-  <mat-expansion-panel *ngFor="let graphicSymbol of graphicSymbolTypes" class="expansion-panel" [expanded]="false">
+  <mat-expansion-panel *ngFor="let graphicSymbol of graphicSymbolTypes; let i = index" class="expansion-panel" [expanded]="false">
     <mat-expansion-panel-header [expandedHeight]="'3rem'">
       <mat-panel-title class="title">
         {{graphicSymbol?.label}}({{graphicSymbol?.type}})
@@ -11,7 +11,10 @@
         <mat-card class="card" (mavDroppable)="dataVariableDropped($event, variableType, graphicSymbol)"
           (dragDropEvents)="onDragDropEvent($event)" [ngClass]="{'data-variable-selected': selectedDataVariables?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)?true:false}">
           <div class="variable-type">
-              <ng-container class="icon" [ngSwitch]="variableType.visualization">      
+            <mav-graphic-variable-icon [visualization]="activeVis.data" [graphicSymbolOption]="graphicSymbol" [graphicVariableOption]="variableType">
+            </mav-graphic-variable-icon>
+              <dvl-visualization [data]="legend"></dvl-visualization>
+              <!-- <ng-container class="icon" [ngSwitch]="variableType.visualization">      
                   <ng-template [ngSwitchCase]="'x-axis'">
                       <dvl-x-axis></dvl-x-axis>
                   </ng-template>
@@ -52,7 +55,7 @@
                   <ng-template [ngSwitchCase]="'shape'">
                       <dvl-shape></dvl-shape>
                   </ng-template>
-              </ng-container>
+              </ng-container> -->
               <span class="graphic-variable-label">{{variableType?.label}}</span>
             <div class="data-variable" *ngIf="selectedDataVariables?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)">
               <span>{{recordStream?.get(graphicSymbol.id)?.label}}:</span>
