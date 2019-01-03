@@ -14,7 +14,7 @@
         <mat-card-content class="card-content">
             <mat-table [dataSource]="(dataSource.hiddenData ? [] : dataSource.data.slice(0,3))" class="table">
                 <ng-container [matColumnDef]="col.label" *ngFor="let col of displayedColumns">
-                    <mat-header-cell *matHeaderCellDef [mavDraggable]="col" class="header-cell">{{col.label}}</mat-header-cell>
+                    <mat-header-cell *matHeaderCellDef [mavDraggable]="col" class="header-cell" (mouseover)="startHover(col)" (mouseout)="endHover(col)">{{col.label}}</mat-header-cell>
                     <mat-cell *matCellDef="let element" class="mat-cell">{{element[col.id]}}</mat-cell>
                 </ng-container>
                 <mat-header-row *matHeaderRowDef="displayedColumnNames; sticky: true;" class="header-row"></mat-header-row>
@@ -25,8 +25,8 @@
             <div class="toggle">
                 <span (click)="toggleRows(dataSource)" class="toggle-group">
                     <span class="toggle-label">Total Records: {{dataSource.numRows}}</span>
-                    <mat-icon *ngIf="dataSource.hiddenData" class="expand-icon">expand_more</mat-icon>
-                    <mat-icon *ngIf="!dataSource.hiddenData" class="expand-icon">expand_less</mat-icon>
+                <mat-icon *ngIf="dataSource.hiddenData" class="expand-icon">expand_more</mat-icon>
+                <mat-icon *ngIf="!dataSource.hiddenData" class="expand-icon">expand_less</mat-icon>
                 </span>
             </div>
         </mat-card-footer>

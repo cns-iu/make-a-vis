@@ -8,8 +8,8 @@
 
         <div class="graphic-variable-wrapper">
             <div class="card-wrapper" *ngFor="let variableType of graphicSymbol.graphicVariableOptions">
-                <mat-card class="card" (mavDroppable)="dataVariableDropped($event, variableType, graphicSymbol)" (dragDropEvents)="onDragDropEvent($event)" [ngClass]="{'data-variable-selected': selectedDataVariablesMapping?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)?true:false}"
-                    [acceptsDrop]="acceptsDrop(variableType, graphicSymbol)">
+                <mat-card class="card" (mavDroppable)="dataVariableDropped($event, variableType, graphicSymbol)" (dragDropEvents)="onDragDropEvent($event)" [ngClass]="{'data-variable-selected': selectedDataVariablesMapping?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)?true:false, 'highlight': shouldHighlight(variableType, graphicSymbol)}"
+                    [acceptsDrop]="acceptsDrop(variableType, graphicSymbol)" (mouseenter)="startHover(variableType)" (mouseleave)="endHover()">
                     <div class="variable-type">
                         <mav-graphic-variable-icon [visualization]="activeVis?.data" [graphicSymbolOption]="graphicSymbol" [graphicVariableOption]="variableType">
                         </mav-graphic-variable-icon>
