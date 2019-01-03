@@ -1,17 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { GraphicSymbolOption, GraphicVariableOption, GraphicVariable, GraphicSymbol,
-  ProjectSerializerService, Project, Visualization, DefaultGraphicSymbol,  } from '@dvl-fw/core';
-import { uniqueId } from 'lodash';
-import { select, Store } from '@ngrx/store';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { GraphicVariableOption, GraphicVariable, GraphicSymbol, Visualization } from '@dvl-fw/core';
 
-import { getLoadedProjectSelector, SidenavState } from '../../toolbar/shared/store';
+import { LegendService } from '../../shared/services/legend/legend.service';
 
 @Component({
   selector: 'mav-graphic-variable-icon',
   templateUrl: './graphic-variable-icon.component.html',
   styleUrls: ['./graphic-variable-icon.component.css']
 })
-export class GraphicVariableIconComponent implements OnInit {
+export class GraphicVariableIconComponent implements OnInit, OnChanges {
 
   @Input() graphicVariableOption: GraphicVariableOption;
   @Input() graphicSymbolOption: GraphicSymbol;
@@ -21,9 +18,13 @@ export class GraphicVariableIconComponent implements OnInit {
 
   graphicVariable: GraphicVariable;
 
-  constructor(private store: Store<SidenavState>, private serializer: ProjectSerializerService) { }
+  constructor(private legendService: LegendService) { }
 
   ngOnInit() {
+    this.createIcon();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
     this.createIcon();
   }
 
@@ -38,45 +39,11 @@ export class GraphicVariableIconComponent implements OnInit {
     const template = this.isStaticVisualization ?
                       (this.graphicVariableOption.staticVisualization || this.graphicVariableOption.visualization ) :
     this.graphicVariableOption.visualization;
-    if (!!template && graphicVariable) {
-      const preData: any = {
-        id: `legend-visualization-${uniqueId()}`,
-        template,
-        properties: {},
-        graphicSymbols: {}
-      };
-      this.store.pipe(
-        select(getLoadedProjectSelector)
-      ).subscribe(project => {
-        this.serializer.createVisualization(
-          template, preData, project
-        ).subscribe((legend) => {
-          legend.graphicSymbols.items = this.generateLegendGraphicSymbol(template, graphicVariable, graphicSymbol, project);
-          this.legend = legend;
-        });
-      });
+    if (!!template) {
+      this.legendService.createLegend(template, graphicVariable, graphicSymbol).subscribe((legend) => {
+        this.legend = legend;
+    });
     }
   }
-
-  private generateLegendGraphicSymbol(template: string, graphicVariable: GraphicVariable,
-    sourceGraphicSymbol: GraphicSymbol, project: Project): GraphicSymbol {
-  const graphicSymbol: GraphicSymbol = new DefaultGraphicSymbol({
-    id: 'items', type: sourceGraphicSymbol.type, recordStream: sourceGraphicSymbol.recordStream.id,
-    graphicVariables: {}
-  }, project);
-
-  const gvars = graphicSymbol.graphicVariables;
-  gvars[graphicVariable.type] = graphicVariable;
-  if (template === 'color') {
-    gvars.color = graphicVariable;
-  }
-  gvars.identifier = sourceGraphicSymbol.graphicVariables.identifier;
-  for (const gv of project.graphicVariables) {
-    if (gv.dataVariable === graphicVariable.dataVariable && !gvars[gv.type]) {
-      gvars[gv.type] = gv;
-    }
-  }
-  return graphicSymbol;
-}
 
 }

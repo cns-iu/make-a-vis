@@ -16,7 +16,7 @@ import { getAvailableGraphicVariablesSelector, SidenavState } from '../../toolba
 export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   @Input() activeVis: Vis;
   @Input() recordStreamMapping: Map<string, RecordStream>;
-  graphicSymbolTypes: GraphicSymbolOption[] = [];
+  graphicSymbolOptions: GraphicSymbolOption[] = [];
   selectionClass = '';
   availableGraphicVariables: GraphicVariable[];
   selectedDataVariablesMapping: Map<string, Map<string, DataVariable>>;
@@ -33,7 +33,7 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if ('activeVis' in changes || 'recordStreamMapping' in changes) {
       if (this.activeVis) {
-        this.graphicSymbolTypes = [];
+        this.graphicSymbolOptions = [];
         this.selectedDataVariablesMapping = new Map();
         this.getGraphicVariableOptions();
         this.getDataVariables();
@@ -76,7 +76,7 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
 
   getGraphicVariableOptions() {
     Object.keys(this.activeVis.data.graphicSymbols).forEach((gs) => {
-      this.graphicSymbolTypes.push(this.activeVis.data.graphicSymbolOptions.filter((gso) => gso.id === gs)[0]);
+      this.graphicSymbolOptions.push(this.activeVis.data.graphicSymbolOptions.filter((gso) => gso.id === gs)[0]);
     });
   }
 

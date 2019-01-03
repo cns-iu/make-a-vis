@@ -1,14 +1,12 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { uniqueId } from 'lodash';
-import { select, Store } from '@ngrx/store';
 
 import {
-  DefaultGraphicSymbol, DvlFwVisualizationComponent, GraphicSymbol, GraphicSymbolOption,
-  GraphicVariable, GraphicVariableOption, Project, ProjectSerializerService, Visualization
+  DvlFwVisualizationComponent, GraphicSymbol, GraphicSymbolOption,
+  GraphicVariable, GraphicVariableOption, Visualization
 } from '@dvl-fw/core';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
-import { getLoadedProjectSelector, SidenavState } from '../../toolbar/shared/store';
+import { LegendService } from '../../shared/services/legend/legend.service';
 
 @Component({
   selector: 'mav-graphic-variable-legend',
@@ -27,7 +25,7 @@ export class GraphicVariableLegendComponent implements OnInit, OnChanges {
 
   @ViewChild('visualization') legendComponent: DvlFwVisualizationComponent;
 
-  constructor(private store: Store<SidenavState>, private updateService: UpdateVisService, private serializer: ProjectSerializerService) { }
+  constructor(private updateService: UpdateVisService, private legendService: LegendService) { }
 
   ngOnInit() {
     this.updateService.update.subscribe((visualization) => {
@@ -52,50 +50,15 @@ export class GraphicVariableLegendComponent implements OnInit, OnChanges {
     const template = this.graphicVariableOption.visualization;
     this.legendVisualizationType = template;
     if (!!template && graphicVariable) {
-      const preData: any = {
-        id: `legend-visualization-${uniqueId()}`,
-        template,
-        properties: {},
-        graphicSymbols: {}
-      };
-      this.store.pipe(
-        select(getLoadedProjectSelector)
-      ).subscribe(project => {
-        this.serializer.createVisualization(
-          this.graphicVariableOption.visualization, preData, project
-        ).subscribe((legend) => {
-          legend.graphicSymbols.items = this.generateLegendGraphicSymbol(template, graphicVariable, graphicSymbol, project);
-          this.legend = legend;
-          this.legendComponent.data = legend;
-          this.legendComponent.runDataChangeDetection();
-        });
+      this.legendService.createLegend(template, graphicVariable, graphicSymbol).subscribe((legend) => {
+      this.legend = legend;
+      this.legendComponent.data = legend;
+      this.legendComponent.runDataChangeDetection();
       });
     } else if (this.legendComponent) {
       this.legend = undefined; // TODO
       this.legendComponent.data = undefined; // TODO
       this.legendComponent.runDataChangeDetection();
     }
-  }
-
-  /* Create a graphic symbol that encodes everything by a given graphicVariable's source data variable */
-  private generateLegendGraphicSymbol(template: string, graphicVariable: GraphicVariable,
-      sourceGraphicSymbol: GraphicSymbol, project: Project): GraphicSymbol {
-    const graphicSymbol: GraphicSymbol = new DefaultGraphicSymbol({
-      id: 'items', type: sourceGraphicSymbol.type, recordStream: sourceGraphicSymbol.recordStream.id,
-      graphicVariables: {}
-    }, project);
-
-    const gvars = graphicSymbol.graphicVariables;
-    gvars[graphicVariable.type] = graphicVariable;
-    if (template === 'color') {
-      gvars.color = graphicVariable;
-    }
-    gvars.identifier = sourceGraphicSymbol.graphicVariables.identifier;
-    for (const gv of project.graphicVariables) {
-      if (gv.dataVariable === graphicVariable.dataVariable && !gvars[gv.type]) {
-        gvars[gv.type] = gv;
-      }
-    }
-    return graphicSymbol;
   }
 }
