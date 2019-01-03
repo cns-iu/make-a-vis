@@ -51,14 +51,16 @@ export class GraphicVariableLegendComponent implements OnInit, OnChanges {
     this.legendVisualizationType = template;
     if (!!template && graphicVariable) {
       this.legendService.createLegend(template, graphicVariable, graphicSymbol).subscribe((legend) => {
-      this.legend = legend;
-      this.legendComponent.data = legend;
-      this.legendComponent.runDataChangeDetection();
+        this.updateLegend(legend);
       });
     } else if (this.legendComponent) {
-      this.legend = undefined; // TODO
-      this.legendComponent.data = undefined; // TODO
-      this.legendComponent.runDataChangeDetection();
+      this.updateLegend();
     }
+  }
+
+  private updateLegend(legend?: Visualization) {
+    this.legend = legend;
+    this.legendComponent.data = legend;
+    this.legendComponent.runDataChangeDetection();
   }
 }

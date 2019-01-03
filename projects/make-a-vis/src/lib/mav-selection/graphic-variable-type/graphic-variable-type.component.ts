@@ -2,7 +2,7 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/cor
 import { select, Store } from '@ngrx/store';
 
 import { DataVariable, GraphicSymbolOption, GraphicVariable,
-  GraphicVariableOption, RecordStream, Visualization, ProjectSerializerService } from '@dvl-fw/core';
+  GraphicVariableOption, RecordStream, ProjectSerializerService } from '@dvl-fw/core';
 import { DragDropEvent } from '../../drag-drop';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import { Vis } from '../../shared/types';
@@ -33,10 +33,8 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if ('activeVis' in changes || 'recordStreamMapping' in changes) {
       if (this.activeVis) {
-        this.graphicSymbolOptions = [];
-        this.selectedDataVariablesMapping = new Map();
-        this.getGraphicVariableOptions();
-        this.getDataVariables();
+        this.graphicSymbolOptions = this.getGraphicSymbolOptions();
+        this.selectedDataVariablesMapping = this.getDataVariableMappings();
       }
     }
   }
@@ -74,27 +72,31 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
     }
   }
 
-  getGraphicVariableOptions() {
+  getGraphicSymbolOptions(): GraphicSymbolOption[] {
+    const gvOption: GraphicSymbolOption[] = [];
     Object.keys(this.activeVis.data.graphicSymbols).forEach((gs) => {
-      this.graphicSymbolOptions.push(this.activeVis.data.graphicSymbolOptions.filter((gso) => gso.id === gs)[0]);
+      gvOption.push(this.activeVis.data.graphicSymbolOptions.filter((gso) => gso.id === gs)[0]);
     });
+    return gvOption;
   }
 
-  getDataVariables() {
+  getDataVariableMappings(): Map<string, Map<string, DataVariable>> {
+    const dvMap = new Map();
     Object.keys(this.activeVis.data.graphicSymbols).forEach((gs: string) => {
       const gvs = Object.keys(this.activeVis.data.graphicSymbols[gs].graphicVariables);
       if (gvs.length) {
        gvs.forEach((gv: string) => {
         const dv = this.activeVis.data.graphicSymbols[gs].graphicVariables[gv].dataVariable;
-        const mapEntry = this.selectedDataVariablesMapping.get(gs);
+        const mapEntry = dvMap.get(gs);
         if (mapEntry) {
           mapEntry.set(gv, dv);
         } else {
-          this.selectedDataVariablesMapping.set(gs, new Map().set(gv, dv));
+          dvMap.set(gs, new Map().set(gv, dv));
         }
        });
       }
     });
+    return dvMap;
   }
 
   onDragDropEvent(event: DragDropEvent) {
