@@ -1,31 +1,30 @@
 <div class="graphic-symbol-wrapper">
-  <mat-expansion-panel *ngFor="let graphicSymbolOption of graphicSymbolOptions" class="expansion-panel" [expanded]="false">
-    <mat-expansion-panel-header [expandedHeight]="'3rem'">
-      <mat-panel-title class="title">
-        {{graphicSymbolOption?.label}}({{graphicSymbolOption?.type}})
-      </mat-panel-title>
-    </mat-expansion-panel-header>
+    <mat-expansion-panel *ngFor="let graphicSymbolOption of graphicSymbolOptions" class="expansion-panel" [expanded]="false">
+        <mat-expansion-panel-header [expandedHeight]="'3rem'">
+            <mat-panel-title class="title">
+                {{graphicSymbolOption?.label}}({{graphicSymbolOption?.type}})
+            </mat-panel-title>
+        </mat-expansion-panel-header>
 
-    <div class="graphic-variable-wrapper">
-      <div class="card-wrapper" *ngFor="let graphicVariableOption of graphicSymbolOption.graphicVariableOptions">
-        <mat-card class="card" (mavDroppable)="dataVariableDropped($event, graphicVariableOption, graphicSymbolOption)"
-          (dragDropEvents)="onDragDropEvent($event)" [ngClass]="{'data-variable-selected': selectedDataVariablesMapping?.get(graphicSymbolOption.id)?.get(graphicVariableOption.id || graphicVariableOption.type)?true:false}">
-          <div class="variable-type">
-            <mav-graphic-variable-icon [visualization]="activeVis?.data" [graphicSymbolOption]="graphicSymbolOption" [graphicVariableOption]="graphicVariableOption">
-            </mav-graphic-variable-icon>
-              <span class="graphic-variable-label">{{graphicVariableOption?.label}}</span>
-            <div class="data-variable" *ngIf="selectedDataVariablesMapping?.get(graphicSymbolOption.id)?.get(graphicVariableOption.id || graphicVariableOption.type)">
-              <span>{{recordStreamMapping?.get(graphicSymbolOption.id)?.label}}:</span>
+        <div class="graphic-variable-wrapper">
+            <div class="card-wrapper" *ngFor="let graphicVariableOption of graphicSymbolOption.graphicVariableOptions">
+                <mat-card class="card" (mavDroppable)="dataVariableDropped($event, graphicVariableOption, graphicSymbolOption)" (dragDropEvents)="onDragDropEvent($event)" [ngClass]="{'data-variable-selected': selectedDataVariablesMapping?.get(graphicSymbolOption.id)?.get(graphicVariableOption.id || graphicVariableOption.type)?true:false, 'highlight': shouldHighlight(graphicVariableOption, graphicSymbolOption)}"
+                    [acceptsDrop]="acceptsDrop(graphicVariableOption, graphicSymbolOption)" (mouseenter)="startHover(graphicVariableOption)" (mouseleave)="endHover()">
+                    <div class="variable-type ">
+                        <mav-graphic-variable-icon [visualization]="activeVis?.data " [graphicSymbolOption]="graphicSymbolOption " [graphicVariableOption]="graphicVariableOption ">
+                        </mav-graphic-variable-icon>
+                        <span class="graphic-variable-label ">{{graphicVariableOption?.label}}</span>
+                        <div class="data-variable " *ngIf="selectedDataVariablesMapping?.get(graphicSymbolOption.id)?.get(graphicVariableOption.id || graphicVariableOption.type) ">
+                            <span>{{recordStreamMapping?.get(graphicSymbolOption.id)?.label}}:</span>
+                        </div>
+                    </div>
+                    <!-- TODO: temporary placeholder-->
+                    <div class="variable-category ">Quantitative</div>
+                </mat-card>
+                <mat-icon class="cancel-icon " *ngIf="selectedDataVariablesMapping?.get(graphicSymbolOption.id)?.get(graphicVariableOption.id || graphicVariableOption.type)?true:false " (click)="unsetGraphicVariable(graphicSymbolOption.id, graphicVariableOption.id || graphicVariableOption.type) ">
+                    cancel
+                </mat-icon>
             </div>
-          </div>
-          <!-- TODO: temporary placeholder-->
-          <div class="variable-category">Quantitative</div>
-        </mat-card>
-        <mat-icon class="cancel-icon" *ngIf="selectedDataVariablesMapping?.get(graphicSymbolOption.id)?.get(graphicVariableOption.id || graphicVariableOption.type)?true:false" 
-          (click)="unsetGraphicVariable(graphicSymbolOption.id, graphicVariableOption.id || graphicVariableOption.type)">
-          cancel
-        </mat-icon>
-      </div>
-    </div>
-  </mat-expansion-panel>
+        </div>
+    </mat-expansion-panel>
 </div>

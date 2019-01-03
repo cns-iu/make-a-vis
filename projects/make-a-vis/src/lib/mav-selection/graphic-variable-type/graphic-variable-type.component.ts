@@ -7,6 +7,7 @@ import { DragDropEvent } from '../../drag-drop';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import { Vis } from '../../shared/types';
 import { getAvailableGraphicVariablesSelector, SidenavState } from '../../toolbar/shared/store';
+import { DataVariableHoverService } from '../../shared/services/hover/data-variable-hover.service';
 
 @Component({
   selector: 'mav-selection-graphic-variable-type',
@@ -20,10 +21,23 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   selectionClass = '';
   availableGraphicVariables: GraphicVariable[];
   selectedDataVariablesMapping: Map<string, Map<string, DataVariable>>;
+  currentHighlightId: string;
 
-  constructor(private store: Store<SidenavState>, private updateService: UpdateVisService, private serializer: ProjectSerializerService) {
-    this.store.pipe(select(getAvailableGraphicVariablesSelector)).subscribe((availableGraphicVariables) => {
+  constructor(
+    store: Store<SidenavState>,
+    private updateService: UpdateVisService,
+    private hoverService: DataVariableHoverService
+  ) {
+    store.pipe(select(getAvailableGraphicVariablesSelector)).subscribe((availableGraphicVariables) => {
       this.availableGraphicVariables = availableGraphicVariables;
+    });
+
+    hoverService.hovers.subscribe(event => {
+      if (event.length === 0) {
+        this.currentHighlightId = undefined;
+      } else if (event.length === 2 && event[0] === 'table') {
+        this.currentHighlightId = event[1];
+      }
     });
   }
 
@@ -70,6 +84,7 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
       });
       return filteredGVs;
     }
+    return [];
   }
 
   getGraphicSymbolOptions(): GraphicSymbolOption[] {
@@ -116,5 +131,17 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   unsetGraphicVariable(graphicSymbolOptionId: string, graphicVariableOptionIdOrType: string) {
     this.updateService.unsetGraphicVariable(this.activeVis.data, graphicSymbolOptionId, graphicVariableOptionIdOrType);
     this.selectedDataVariablesMapping.get(graphicSymbolOptionId).delete(graphicVariableOptionIdOrType);
+  }
+
+  shouldHighlight(graphicVariableOption: GraphicVariableOption, graphicSymbolOption: GraphicSymbolOption): boolean {
+    return this.getGraphicVariable({ id: this.currentHighlightId } as any, graphicVariableOption, graphicSymbolOption).length !== 0;
+  }
+
+  startHover(data: GraphicVariableOption): void {
+    this.hoverService.startHover(['selector', data.id]);
+  }
+
+  endHover(): void {
+    this.hoverService.endHover();
   }
 }
