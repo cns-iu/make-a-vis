@@ -1,27 +1,27 @@
 <div class="graphic-symbol-wrapper">
-    <mat-expansion-panel *ngFor="let graphicSymbol of graphicSymbolTypes; let i = index" class="expansion-panel" [expanded]="false">
+    <mat-expansion-panel *ngFor="let graphicSymbolOption of graphicSymbolOptions" class="expansion-panel" [expanded]="false">
         <mat-expansion-panel-header [expandedHeight]="'3rem'">
             <mat-panel-title class="title">
-                {{graphicSymbol?.label}}({{graphicSymbol?.type}})
+                {{graphicSymbolOption?.label}}({{graphicSymbolOption?.type}})
             </mat-panel-title>
         </mat-expansion-panel-header>
 
         <div class="graphic-variable-wrapper">
-            <div class="card-wrapper" *ngFor="let variableType of graphicSymbol.graphicVariableOptions">
-                <mat-card class="card" (mavDroppable)="dataVariableDropped($event, variableType, graphicSymbol)" (dragDropEvents)="onDragDropEvent($event)" [ngClass]="{'data-variable-selected': selectedDataVariablesMapping?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)?true:false, 'highlight': shouldHighlight(variableType, graphicSymbol)}"
-                    [acceptsDrop]="acceptsDrop(variableType, graphicSymbol)" (mouseenter)="startHover(variableType)" (mouseleave)="endHover()">
-                    <div class="variable-type">
-                        <mav-graphic-variable-icon [visualization]="activeVis?.data" [graphicSymbolOption]="graphicSymbol" [graphicVariableOption]="variableType">
+            <div class="card-wrapper" *ngFor="let graphicVariableOption of graphicSymbolOption.graphicVariableOptions">
+                <mat-card class="card" (mavDroppable)="dataVariableDropped($event, graphicVariableOption, graphicSymbolOption)" (dragDropEvents)="onDragDropEvent($event)" [ngClass]="{'data-variable-selected': selectedDataVariablesMapping?.get(graphicSymbolOption.id)?.get(graphicVariableOption.id || graphicVariableOption.type)?true:false, 'highlight': shouldHighlight(graphicVariableOption, graphicSymbolOption)}"
+                    [acceptsDrop]="acceptsDrop(graphicVariableOption, graphicSymbolOption)" (mouseenter)="startHover(graphicVariableOption)" (mouseleave)="endHover()">
+                    <div class="variable-type ">
+                        <mav-graphic-variable-icon [visualization]="activeVis?.data " [graphicSymbolOption]="graphicSymbolOption " [graphicVariableOption]="graphicVariableOption ">
                         </mav-graphic-variable-icon>
-                        <span class="graphic-variable-label">{{variableType?.label}}</span>
-                        <div class="data-variable" *ngIf="selectedDataVariablesMapping?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)">
-                            <span>{{recordStreamMapping?.get(graphicSymbol.id)?.label}}:</span>
+                        <span class="graphic-variable-label ">{{graphicVariableOption?.label}}</span>
+                        <div class="data-variable " *ngIf="selectedDataVariablesMapping?.get(graphicSymbolOption.id)?.get(graphicVariableOption.id || graphicVariableOption.type) ">
+                            <span>{{recordStreamMapping?.get(graphicSymbolOption.id)?.label}}:</span>
                         </div>
                     </div>
                     <!-- TODO: temporary placeholder-->
-                    <div class="variable-category">Quantitative</div>
+                    <div class="variable-category ">Quantitative</div>
                 </mat-card>
-                <mat-icon class="cancel-icon" *ngIf="selectedDataVariablesMapping?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)?true:false" (click)="unsetGraphicVariable(graphicSymbol.id, variableType.id || variableType.type)">
+                <mat-icon class="cancel-icon " *ngIf="selectedDataVariablesMapping?.get(graphicSymbolOption.id)?.get(graphicVariableOption.id || graphicVariableOption.type)?true:false " (click)="unsetGraphicVariable(graphicSymbolOption.id, graphicVariableOption.id || graphicVariableOption.type) ">
                     cancel
                 </mat-icon>
             </div>
