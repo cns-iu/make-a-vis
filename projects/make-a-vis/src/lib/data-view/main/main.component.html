@@ -6,7 +6,7 @@
   <ng-container *ngFor="let dataSource of dataSources | async; index as i" #table>
     <mav-table class="mav-table" [tableIndex]="i" [dataSource]="dataSource" [displayedColumns]="dataSource.columns" [style.padding-left.rem]="getPadding(dataSource.level)"></mav-table>
   </ng-container>
-  <div class="data-view-message">
+  <div class="data-view-message" *ngIf="showDataViewMessage">
       Add data or<br/>
       load a project
   </div>

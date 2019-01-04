@@ -2,12 +2,13 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/cor
 import { select, Store } from '@ngrx/store';
 
 import { DataVariable, GraphicSymbolOption, GraphicVariable,
-  GraphicVariableOption, RecordStream } from '@dvl-fw/core';
+  GraphicVariableOption, RecordStream
+} from '@dvl-fw/core';
 import { DragDropEvent } from '../../drag-drop';
+import { DataVariableHoverService } from '../../shared/services/hover/data-variable-hover.service';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import { Vis } from '../../shared/types';
 import { getAvailableGraphicVariablesSelector, SidenavState } from '../../toolbar/shared/store';
-import { DataVariableHoverService } from '../../shared/services/hover/data-variable-hover.service';
 
 @Component({
   selector: 'mav-selection-graphic-variable-type',
@@ -21,6 +22,8 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   selectionClass = '';
   availableGraphicVariables: GraphicVariable[];
   selectedDataVariablesMapping: Map<string, Map<string, DataVariable>>;
+  qualitativeScaleTypes = ['interval', 'nominal'];
+  quantitativeScaleTypes = ['ratio'];
   currentHighlightId: string;
 
   constructor(
@@ -93,6 +96,18 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
       gvOption.push(this.activeVis.data.graphicSymbolOptions.filter((gso) => gso.id === gs)[0]);
     });
     return gvOption;
+  }
+
+  getVariableScaleType(graphicVariableOption: any) {
+    if (graphicVariableOption && graphicVariableOption.scaleType) {
+      if (this.quantitativeScaleTypes.indexOf(graphicVariableOption.scaleType) !== -1) {
+        return 'Quantitative';
+      } else if (this.qualitativeScaleTypes.indexOf(graphicVariableOption.scaleType) !== -1) {
+        return 'Qualitative';
+      } else {
+        return '';
+      }
+    }
   }
 
   getDataVariableMappings(): Map<string, Map<string, DataVariable>> {

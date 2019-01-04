@@ -192,9 +192,6 @@ export class ISITemplateProject extends DefaultProject {
               ]
             },
             title: {
-              identifier: [
-                {selector: 'id'}
-              ],
               axis: [
                 {selector: 'title'}
               ],
@@ -214,6 +211,15 @@ export class ISITemplateProject extends DefaultProject {
               axis: [
                 {selector: 'Journal.Subdiscipline.Discipline.name'}
               ],
+              input: [
+                {selector: 'Journal.Subdiscipline.Discipline.name'}
+              ],
+              label: [
+                {selector: 'Journal.Subdiscipline.Discipline.name'}
+              ],
+              order: [
+                {selector: 'Journal.Subdiscipline.Discipline.id'},
+              ],
               color: [
                 {selector: 'Journal.Subdiscipline.Discipline.color'}
               ]
@@ -232,6 +238,15 @@ export class ISITemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'numCitesLabel'}
+              ],
+              input: [
+                {selector: 'numCites'}
+              ],
+              label: [
+                {selector: 'numCitesLabel'}
+              ],
+              order: [
+                {selector: 'numCites'},
               ],
               areaSize: [
                 {selector: 'numCitesAreaSize'}
@@ -258,6 +273,15 @@ export class ISITemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'publicationYearLabel'}
+              ],
+              input: [
+                {selector: 'publicationYear'}
+              ],
+              label: [
+                {selector: 'publicationYearLabel'}
+              ],
+              order: [
+                {selector: 'publicationYear'},
               ],
               areaSize: [
                 {selector: 'publicationYearAreaSize'}
@@ -309,6 +333,15 @@ export class ISITemplateProject extends DefaultProject {
               text: [
                 {selector: 'numCitesLabel'}
               ],
+              input: [
+                {selector: 'numCites'}
+              ],
+              label: [
+                {selector: 'numCitesLabel'}
+              ],
+              order: [
+                {selector: 'numCites'},
+              ],
               areaSize: [
                 {selector: 'numCitesAreaSize'}
               ],
@@ -328,6 +361,15 @@ export class ISITemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'numPapersLabel'}
+              ],
+              input: [
+                {selector: 'numPapers'}
+              ],
+              label: [
+                {selector: 'numPapersLabel'}
+              ],
+              order: [
+                {selector: 'numPapers'},
               ],
               areaSize: [
                 {selector: 'numPapersAreaSize'}
@@ -355,6 +397,15 @@ export class ISITemplateProject extends DefaultProject {
               text: [
                 {selector: 'firstYearLabel'}
               ],
+              input: [
+                {selector: 'firstYear'}
+              ],
+              label: [
+                {selector: 'firstYearLabel'}
+              ],
+              order: [
+                {selector: 'firstYear'},
+              ],
               areaSize: [
                 {selector: 'firstYearAreaSize'}
               ],
@@ -374,6 +425,15 @@ export class ISITemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'lastYearLabel'}
+              ],
+              input: [
+                {selector: 'lastYear'}
+              ],
+              label: [
+                {selector: 'lastYearLabel'}
+              ],
+              order: [
+                {selector: 'lastYear'},
               ],
               areaSize: [
                 {selector: 'lastYearAreaSize'}
@@ -437,6 +497,15 @@ export class ISITemplateProject extends DefaultProject {
               axis: [
                 {selector: 'Discipline.name'}
               ],
+              input: [
+                {selector: 'Discipline.name'}
+              ],
+              label: [
+                {selector: 'Discipline.name'}
+              ],
+              order: [
+                {selector: 'Discipline.id'},
+              ],
               color: [
                 {selector: 'Discipline.color'}
               ]
@@ -447,6 +516,15 @@ export class ISITemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'numCitesLabel'}
+              ],
+              input: [
+                {selector: 'numCites'}
+              ],
+              label: [
+                {selector: 'numCitesLabel'}
+              ],
+              order: [
+                {selector: 'numCites'},
               ],
               areaSize: [
                 {selector: 'numCitesAreaSize'}
@@ -467,6 +545,15 @@ export class ISITemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'numPapersLabel'}
+              ],
+              input: [
+                {selector: 'numPapers'}
+              ],
+              label: [
+                {selector: 'numPapersLabel'}
+              ],
+              order: [
+                {selector: 'numPapers'},
               ],
               areaSize: [
                 {selector: 'numPapersAreaSize'}
@@ -494,6 +581,15 @@ export class ISITemplateProject extends DefaultProject {
               text: [
                 {selector: 'firstYearLabel'}
               ],
+              input: [
+                {selector: 'firstYear'}
+              ],
+              label: [
+                {selector: 'firstYearLabel'}
+              ],
+              order: [
+                {selector: 'firstYear'},
+              ],
               areaSize: [
                 {selector: 'firstYearAreaSize'}
               ],
@@ -513,6 +609,15 @@ export class ISITemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'lastYearLabel'}
+              ],
+              input: [
+                {selector: 'lastYear'}
+              ],
+              label: [
+                {selector: 'lastYearLabel'}
+              ],
+              order: [
+                {selector: 'lastYear'},
               ],
               areaSize: [
                 {selector: 'lastYearAreaSize'}
@@ -607,6 +712,15 @@ export class ISITemplateProject extends DefaultProject {
               text: [
                 {selector: 'numCitesLabel'}
               ],
+              input: [
+                {selector: 'numCites'}
+              ],
+              label: [
+                {selector: 'numCitesLabel'}
+              ],
+              order: [
+                {selector: 'numCites'},
+              ],
               areaSize: [
                 {selector: 'numCitesAreaSize'}
               ],
@@ -626,6 +740,15 @@ export class ISITemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'numPapersLabel'}
+              ],
+              input: [
+                {selector: 'numPapers'}
+              ],
+              label: [
+                {selector: 'numPapersLabel'}
+              ],
+              order: [
+                {selector: 'numPapers'},
               ],
               areaSize: [
                 {selector: 'numPapersAreaSize'}
@@ -653,6 +776,15 @@ export class ISITemplateProject extends DefaultProject {
               text: [
                 {selector: 'firstYearLabel'}
               ],
+              input: [
+                {selector: 'firstYear'}
+              ],
+              label: [
+                {selector: 'firstYearLabel'}
+              ],
+              order: [
+                {selector: 'firstYear'},
+              ],
               areaSize: [
                 {selector: 'firstYearAreaSize'}
               ],
@@ -672,6 +804,15 @@ export class ISITemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'lastYearLabel'}
+              ],
+              input: [
+                {selector: 'lastYear'}
+              ],
+              label: [
+                {selector: 'lastYearLabel'}
+              ],
+              order: [
+                {selector: 'lastYear'},
               ],
               areaSize: [
                 {selector: 'lastYearAreaSize'}
@@ -803,6 +944,15 @@ export class ISITemplateProject extends DefaultProject {
               text: [
                 {selector: 'numCitesLabel'}
               ],
+              input: [
+                {selector: 'numCites'}
+              ],
+              label: [
+                {selector: 'numCitesLabel'}
+              ],
+              order: [
+                {selector: 'numCites'},
+              ],
               areaSize: [
                 {selector: 'numCitesAreaSize'}
               ],
@@ -825,6 +975,15 @@ export class ISITemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'numPapersLabel'}
+              ],
+              input: [
+                {selector: 'numPapers'}
+              ],
+              label: [
+                {selector: 'numPapersLabel'}
+              ],
+              order: [
+                {selector: 'numPapers'},
               ],
               areaSize: [
                 {selector: 'numPapersAreaSize'}
@@ -855,6 +1014,15 @@ export class ISITemplateProject extends DefaultProject {
               text: [
                 {selector: 'firstYearLabel'}
               ],
+              input: [
+                {selector: 'firstYear'}
+              ],
+              label: [
+                {selector: 'firstYearLabel'}
+              ],
+              order: [
+                {selector: 'firstYear'},
+              ],
               areaSize: [
                 {selector: 'firstYearAreaSize'}
               ],
@@ -877,6 +1045,15 @@ export class ISITemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'lastYearLabel'}
+              ],
+              input: [
+                {selector: 'lastYear'}
+              ],
+              label: [
+                {selector: 'lastYearLabel'}
+              ],
+              order: [
+                {selector: 'lastYear'},
               ],
               areaSize: [
                 {selector: 'lastYearAreaSize'}
