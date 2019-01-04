@@ -10,16 +10,17 @@
       <div class="card-wrapper" *ngFor="let variableType of graphicSymbol.graphicVariableOptions">
         <mat-card class="card" (mavDroppable)="dataVariableDropped($event, variableType, graphicSymbol)"
           (dragDropEvents)="onDragDropEvent($event)" [ngClass]="{'data-variable-selected': selectedDataVariablesMapping?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)?true:false}">
+          <span class="required-dot" *ngIf="variableType.required"></span>
           <div class="variable-type">
             <mav-graphic-variable-icon [visualization]="activeVis?.data" [graphicSymbolOption]="graphicSymbol" [graphicVariableOption]="variableType">
             </mav-graphic-variable-icon>
               <span class="graphic-variable-label">{{variableType?.label}}</span>
             <div class="data-variable" *ngIf="selectedDataVariablesMapping?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)">
-              <span>{{recordStreamMapping?.get(graphicSymbol.id)?.label}}:</span>
+              <span>{{recordStreamMapping?.get(graphicSymbol.id)?.label}}: </span>
+                <span>{{selectedDataVariablesMapping?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)?.label}}</span>
             </div>
           </div>
-          <!-- TODO: temporary placeholder-->
-          <div class="variable-category">Quantitative</div>
+          <div class="variable-category" [ngClass]="{'selected-variable-category': selectedDataVariablesMapping?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)?true:false}">{{ getVariableScaleType(variableType) }}</div>
         </mat-card>
         <mat-icon class="cancel-icon" *ngIf="selectedDataVariablesMapping?.get(graphicSymbol.id)?.get(variableType.id || variableType.type)?true:false" 
           (click)="unsetGraphicVariable(graphicSymbol.id, variableType.id || variableType.type)">

@@ -20,6 +20,8 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   selectionClass = '';
   availableGraphicVariables: GraphicVariable[];
   selectedDataVariablesMapping: Map<string, Map<string, DataVariable>>;
+  qualitativeScaleTypes = ['interval', 'nominal'];
+  quantitativeScaleTypes = ['ratio'];
 
   constructor(private store: Store<SidenavState>, private updateService: UpdateVisService, private serializer: ProjectSerializerService) {
     this.store.pipe(select(getAvailableGraphicVariablesSelector)).subscribe((availableGraphicVariables) => {
@@ -78,6 +80,18 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
     Object.keys(this.activeVis.data.graphicSymbols).forEach((gs) => {
       this.graphicSymbolTypes.push(this.activeVis.data.graphicSymbolOptions.filter((gso) => gso.id === gs)[0]);
     });
+  }
+
+  getVariableScaleType(graphicVariableOption: any) {
+    if (graphicVariableOption && graphicVariableOption.scaleType) {
+      if (this.quantitativeScaleTypes.indexOf(graphicVariableOption.scaleType) !== -1) {
+        return 'Quantitative';
+      } else if (this.qualitativeScaleTypes.indexOf(graphicVariableOption.scaleType) !== -1) {
+        return 'Qualitative';
+      } else {
+        return '';
+      }
+    }
   }
 
   getDataVariables() {

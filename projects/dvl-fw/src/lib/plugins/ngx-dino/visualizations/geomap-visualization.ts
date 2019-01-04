@@ -12,7 +12,7 @@ export class GeomapVisualization extends DefaultVisualization {
     {
       id: 'basemap', label: 'Basemap', type: 'area',
       graphicVariableOptions: [
-        { type: 'color', label: 'Color Hue', visualization: 'color', staticVisualization: 'color-area' },
+        { type: 'color', label: 'Color Hue', visualization: 'color', scaleType: 'nominal', staticVisualization: 'color-area' },
         // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
         // { type: 'transparency', label: 'Transparency' },
         // { type: 'strokeTransparency', label: 'Stroke Transparency' }
@@ -21,28 +21,32 @@ export class GeomapVisualization extends DefaultVisualization {
     {
       id: 'nodes', label: 'Nodes', type: 'area',
       graphicVariableOptions: [
-        { type: 'identifier', label: 'Identifier', visualization: 'id' },
-        { type: 'latitude', label: 'Latitude', visualization: 'x-axis' },
-        { type: 'longitude', label: 'Longitude', visualization: 'y-axis' },
-        { type: 'color', label: 'Color Hue', visualization: 'color', staticVisualization: 'color-area' },
+        { type: 'identifier', label: 'Identifier', visualization: 'id', scaleType: 'ratio', required: true },
+        { type: 'latitude', label: 'Latitude', visualization: 'x-axis', scaleType: 'ratio', required: true },
+        { type: 'longitude', label: 'Longitude', visualization: 'y-axis', scaleType: 'ratio', required: true },
+        { type: 'color', label: 'Color Hue', visualization: 'color', scaleType: 'nominal', staticVisualization: 'color-area' },
         // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
-        { type: 'areaSize', label: 'Size', visualization: 'node-size', staticVisualization: 'area-size'},
+        { type: 'areaSize', label: 'Size', visualization: 'node-size', scaleType: 'ratio', required: true, 
+          staticVisualization: 'area-size'
+        },
         // { type: 'shape', label: 'Shape' },
         // { type: 'transparency', label: 'Transparency'},
         // { type: 'strokeTransparency', label: 'Stroke Transparency'},
-        { id: 'label', type: 'text', label: 'Label', visualization: 'label'},
-        { id: 'tooltip', type: 'text', label: 'Tooltip', visualization: 'label'}
+        { id: 'label', type: 'text', label: 'Label', visualization: 'label', scaleType: 'nominal' },
+        { id: 'tooltip', type: 'text', label: 'Tooltip', visualization: 'label' }
       ]
     }, {
       id: 'edges', label: 'Edges', type: 'line',
       graphicVariableOptions: [
-        { type: 'identifier', label: 'Identifier', visualization: 'id' },
-        { type: 'latitude1', label: 'Source Latitude', visualization: 'source' },
-        { type: 'longitude1', label: 'Source Longitude', visualization: 'source' },
-        { type: 'latitude2', label: 'Target Latitude', visualization: 'target' },
-        { type: 'longitude2', label: 'Target Longitude', visualization: 'target' },
-        { type: 'strokeColor', label: 'Color Hue', visualization: 'color', staticVisualization: 'color-edges' },
-        { type: 'strokeWidth', label: 'Size', visualization: 'edge-size', staticVisualization: 'thickness'  },
+        { type: 'identifier', label: 'Identifier', visualization: 'id', scaleType: 'ratio', required: true },
+        { type: 'latitude1', label: 'Source Latitude', visualization: 'source', scaleType: 'ratio', required: true },
+        { type: 'longitude1', label: 'Source Longitude', visualization: 'source', scaleType: 'ratio', required: true },
+        { type: 'latitude2', label: 'Target Latitude', visualization: 'target', scaleType: 'ratio', required: true },
+        { type: 'longitude2', label: 'Target Longitude', visualization: 'target', scaleType: 'ratio', required: true },
+        { type: 'strokeColor', label: 'Color Hue', visualization: 'color', scaleType: 'nominal', staticVisualization: 'color-edges' },
+        { type: 'strokeWidth', label: 'Size', visualization: 'edge-size', scaleType: 'ratio', required: true,
+          staticVisualization: 'thickness'
+        },
         // { type: 'transparency', label: 'Transparency' }
       ]
     }

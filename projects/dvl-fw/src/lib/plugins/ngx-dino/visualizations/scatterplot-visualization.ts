@@ -25,16 +25,16 @@ export class ScatterplotVisualization extends DefaultVisualization {
   readonly graphicSymbolOptions = [{
     id: 'points', label: 'Points', type: 'area',
     graphicVariableOptions: [
-      { type: 'identifier', label: 'Identifier', visualization: 'id' },
-      { type: 'axis', label: 'X-Axis', id: 'x', visualization: 'x-axis'},
-      { type: 'axis', label: 'Y-Axis', id: 'y', visualization: 'y-axis' },
-      { type: 'color', label: 'Color Hue', visualization: 'color', staticVisualization: 'color-area' },
+      { type: 'identifier', label: 'Identifier', visualization: 'id', scaleType: 'ratio', required: true },
+      { type: 'axis', label: 'X-Axis', id: 'x', visualization: 'x-axis', required: true },
+      { type: 'axis', label: 'Y-Axis', id: 'y', visualization: 'y-axis', required: true },
+      { type: 'color', label: 'Color Hue', visualization: 'color', scaleType: 'nominal', staticVisualization: 'color-area' },
       // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
-      { type: 'areaSize', label: 'Size', visualization: 'node-size', staticVisualization: 'area-size' },
-      // { type: 'shape', label: 'Shape', visualization: 'shape' },
+      { type: 'areaSize', label: 'Size', visualization: 'node-size', scaleType: 'ratio', required: true, staticVisualization: 'area-size' },
+      // { type: 'shape', label: 'Shape' },
       // { type: 'transparency', label: 'Transparency' },
       // { type: 'strokeTransparency', label: 'Stroke Transparency' },
-      { type: 'tooltip', label: 'Tooltip', visualization: 'label'}
+      { type: 'tooltip', label: 'Tooltip', visualization: 'label' }
     ]
   }];
 }

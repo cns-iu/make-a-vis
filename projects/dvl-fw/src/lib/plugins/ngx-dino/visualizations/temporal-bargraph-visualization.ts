@@ -11,17 +11,17 @@ export class TemporalBargraphVisualization extends DefaultVisualization {
   readonly graphicSymbolOptions = [{
     id: 'bars', label: 'Bars', type: 'area',
     graphicVariableOptions: [
-      { type: 'identifier', label: 'Identifier', visualization: 'id' },
-      { id: 'x-start', type: 'axis', label: 'X-Axis Start', visualization: 'start' },
-      { id: 'x-end', type: 'axis', label: 'X-Axis End', visualization: 'end' },
+      { type: 'identifier', label: 'Identifier', visualization: 'id', scaleType: 'ratio', required: true },
+      { id: 'x-start', type: 'axis', label: 'X-Axis Start', visualization: 'start', scaleType: 'ratio', required: true },
+      { id: 'x-end', type: 'axis', label: 'X-Axis End', visualization: 'end', scaleType: 'ratio', required: true },
       { id: 'y-order', type: 'axis', label: 'Y-Axis Order' },
-      { id: 'height', type: 'areaSize', label: 'Size', visualization: 'edge-size' },
-      { type: 'color', label: 'Color Hue', visualization: 'color', staticVisualization: 'color-area' },
+      { id: 'height', type: 'areaSize', label: 'Size', visualization: 'edge-size', scaleType: 'ratio' },
+      { type: 'color', label: 'Color Hue', visualization: 'color', scaleType: 'nominal', staticVisualization: 'color-area' },
       // { type: 'transparency', label: 'Transparency'},
       // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
       // { type: 'strokeTransparency', label: 'Stroke Transparency'},
-      { id: 'label', type: 'text', label: 'Label', visualization: 'label'},
-      { id: 'tooltip', type: 'text', label: 'Tooltip', visualization: 'label'}
+      { id: 'label', type: 'text', label: 'Label', visualization: 'label', scaleType: 'nominal' },
+      { id: 'tooltip', type: 'text', label: 'Tooltip', visualization: 'label' }
     ]
   }];
 }
