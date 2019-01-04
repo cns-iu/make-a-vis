@@ -197,6 +197,15 @@ export class NSFTemplateProject extends DefaultProject {
               text: [
                 {selector: 'startYearLabel'}
               ],
+              input: [
+                {selector: 'startYear'}
+              ],
+              label: [
+                {selector: 'startYearLabel'}
+              ],
+              order: [
+                {selector: 'startYear'},
+              ],
               areaSize: [
                 {selector: 'startYearAreaSize'}
               ],
@@ -217,6 +226,15 @@ export class NSFTemplateProject extends DefaultProject {
               text: [
                 {selector: 'endYearLabel'}
               ],
+              input: [
+                {selector: 'endYear'}
+              ],
+              label: [
+                {selector: 'endYearLabel'}
+              ],
+              order: [
+                {selector: 'endYear'},
+              ],
               areaSize: [
                 {selector: 'endYearAreaSize'}
               ],
@@ -236,6 +254,15 @@ export class NSFTemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'awardedAmountLabel'}
+              ],
+              input: [
+                {selector: 'awardedAmountToDate'}
+              ],
+              label: [
+                {selector: 'awardedAmountLabel'}
+              ],
+              order: [
+                {selector: 'awardedAmountToDate'},
               ],
               areaSize: [
                 {selector: 'awardedAmountAreaSize'}
@@ -352,6 +379,15 @@ export class NSFTemplateProject extends DefaultProject {
               text: [
                 {selector: 'numAwardsLabel'}
               ],
+              input: [
+                {selector: 'numAwards'}
+              ],
+              label: [
+                {selector: 'numAwardsLabel'}
+              ],
+              order: [
+                {selector: 'numAwards'},
+              ],
               areaSize: [
                 {selector: 'numAwardsAreaSize'}
               ],
@@ -377,6 +413,15 @@ export class NSFTemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'awardedAmountLabel'}
+              ],
+              input: [
+                {selector: 'awardedAmountToDate'}
+              ],
+              label: [
+                {selector: 'awardedAmountLabel'}
+              ],
+              order: [
+                {selector: 'awardedAmountToDate'},
               ],
               areaSize: [
                 {selector: 'awardedAmountAreaSize'}
@@ -404,6 +449,15 @@ export class NSFTemplateProject extends DefaultProject {
               text: [
                 {selector: 'firstYearLabel'}
               ],
+              input: [
+                {selector: 'firstYear'}
+              ],
+              label: [
+                {selector: 'firstYearLabel'}
+              ],
+              order: [
+                {selector: 'firstYear'},
+              ],
               areaSize: [
                 {selector: 'firstYearAreaSize'}
               ],
@@ -423,6 +477,15 @@ export class NSFTemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'lastYearLabel'}
+              ],
+              input: [
+                {selector: 'lastYear'}
+              ],
+              label: [
+                {selector: 'lastYearLabel'}
+              ],
+              order: [
+                {selector: 'lastYear'},
               ],
               areaSize: [
                 {selector: 'lastYearAreaSize'}
@@ -554,6 +617,15 @@ export class NSFTemplateProject extends DefaultProject {
               text: [
                 {selector: 'numAwardsLabel'}
               ],
+              input: [
+                {selector: 'numAwards'}
+              ],
+              label: [
+                {selector: 'numAwardsLabel'}
+              ],
+              order: [
+                {selector: 'numAwards'},
+              ],
               areaSize: [
                 {selector: 'numAwardsAreaSize'}
               ],
@@ -583,6 +655,15 @@ export class NSFTemplateProject extends DefaultProject {
               text: [
                 {selector: 'firstYearLabel'}
               ],
+              input: [
+                {selector: 'firstYear'}
+              ],
+              label: [
+                {selector: 'firstYearLabel'}
+              ],
+              order: [
+                {selector: 'firstYear'},
+              ],
               areaSize: [
                 {selector: 'firstYearAreaSize'}
               ],
@@ -605,6 +686,15 @@ export class NSFTemplateProject extends DefaultProject {
               ],
               text: [
                 {selector: 'lastYearLabel'}
+              ],
+              input: [
+                {selector: 'lastYear'}
+              ],
+              label: [
+                {selector: 'lastYearLabel'}
+              ],
+              order: [
+                {selector: 'lastYear'},
               ],
               areaSize: [
                 {selector: 'lastYearAreaSize'}

@@ -1,18 +1,15 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Component } from '@angular/core';
-import { NodeSizeLegendComponent as NgxNodeSizeComponent } from '@ngx-dino/legend';
+import { AreaSizeLegendComponent } from '@ngx-dino/legend';
 
 import { BaseVisualizationComponent } from '../base-visualization-component';
 import { createDefaultFieldGroup, createFieldNameMapping } from '../utility';
 
-export type Properties = Pick<
-  NgxNodeSizeComponent,
-  'title' | 'encoding' | 'nodeSizeRange' | 'margin'
->;
+export type Properties = null;
 
 export type NodeSizeFields = Pick<
-  NgxNodeSizeComponent,
-  'nodeSizeField' | 'nodeIdField'
+  AreaSizeLegendComponent,
+  'idField' | 'areaSizeField' | 'inputField' | 'labelField' | 'orderField'
 >;
 
 // tslint:disable-next-line:interface-over-type-literal
@@ -21,7 +18,11 @@ export type FieldGroups = {
 };
 
 const nodesFieldNameMapping = createFieldNameMapping([], {
-  'identifier': 'nodeIdField', 'areaSize': 'nodeSizeField'
+  'identifier': 'idField',
+  'areaSize': 'areaSizeField',
+  'input': 'inputField',
+  'label': 'labelField',
+  'order': 'orderField'
 });
 
 
@@ -31,11 +32,9 @@ const nodesFieldNameMapping = createFieldNameMapping([], {
   styleUrls: ['./node-size.component.css']
 })
 export class NodeSizeComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
-  readonly defaultProperties: Properties = {
-    title: '', encoding: '', nodeSizeRange: [5, 15], margin: ''
-  };
+  readonly defaultProperties = null;
   readonly defaultFieldGroups: FieldGroups = {
-    items: createDefaultFieldGroup(['nodeIdField', 'nodeSizeField'])
+    items: createDefaultFieldGroup(['idField', 'areaSizeField', 'inputField', 'labelField', 'orderField'])
   };
   fieldNameFor(key: string, group: string): string {
     return nodesFieldNameMapping[key];
