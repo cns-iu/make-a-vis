@@ -1,18 +1,15 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Component } from '@angular/core';
-import { EdgeSizeLegendComponent as NgxEdgeSizeComponent } from '@ngx-dino/legend';
+import { StrokeWidthLegendComponent } from '@ngx-dino/legend';
 
 import { BaseVisualizationComponent } from '../base-visualization-component';
 import { createDefaultFieldGroup, createFieldNameMapping } from '../utility';
 
-export type Properties = Pick<
-  NgxEdgeSizeComponent,
-  'title' | 'encoding' | 'edgeSizeRange' | 'margin'
->;
+export type Properties = null;
 
 export type EdgeSizeFields = Pick<
-  NgxEdgeSizeComponent,
-  'edgeSizeField' | 'edgeIdField'
+StrokeWidthLegendComponent,
+  'idField' | 'strokeWidthField' | 'inputField' | 'labelField' | 'orderField'
 >;
 
 // tslint:disable-next-line:interface-over-type-literal
@@ -21,7 +18,11 @@ export type FieldGroups = {
 };
 
 const edgesFieldNameMapping = createFieldNameMapping([], {
-  'identifier': 'edgeIdField', 'strokeWidth': 'edgeSizeField'
+  'identifier': 'idField',
+  'strokeWidth': 'strokeWidthField',
+  'input': 'inputField',
+  'label': 'labelField',
+  'order': 'orderField'
 });
 
 
@@ -31,11 +32,9 @@ const edgesFieldNameMapping = createFieldNameMapping([], {
   styleUrls: ['./edge-size.component.css']
 })
 export class EdgeSizeComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
-  readonly defaultProperties: Properties = {
-    title: '', encoding: '', edgeSizeRange: [5, 15], margin: ''
-  };
+  readonly defaultProperties = null;
   readonly defaultFieldGroups: FieldGroups = {
-    items: createDefaultFieldGroup(['edgeIdField', 'edgeSizeField'])
+    items: createDefaultFieldGroup(['idField', 'strokeWidthField', 'inputField', 'labelField', 'orderField'])
   };
   fieldNameFor(key: string, group: string): string {
     return edgesFieldNameMapping[key];

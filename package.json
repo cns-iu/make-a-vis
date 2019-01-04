@@ -33,7 +33,7 @@
     "@ngrx/store": "^6.1.2",
     "@ngx-dino/core": "^0.9.1",
     "@ngx-dino/geomap": "^0.12.0",
-    "@ngx-dino/legend": "^0.9.0",
+    "@ngx-dino/legend": "^0.10.0",
     "@ngx-dino/network": "^0.14.1",
     "@ngx-dino/scatterplot": "^0.10.4",
     "@ngx-dino/science-map": "^0.9.3",

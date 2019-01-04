@@ -2,8 +2,10 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/cor
 import { select, Store } from '@ngrx/store';
 
 import { DataVariable, GraphicSymbolOption, GraphicVariable,
-  GraphicVariableOption, RecordStream, Visualization, ProjectSerializerService } from '@dvl-fw/core';
+  GraphicVariableOption, RecordStream
+} from '@dvl-fw/core';
 import { DragDropEvent } from '../../drag-drop';
+import { DataVariableHoverService } from '../../shared/services/hover/data-variable-hover.service';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import { Vis } from '../../shared/types';
 import { getAvailableGraphicVariablesSelector, SidenavState } from '../../toolbar/shared/store';
@@ -16,16 +18,29 @@ import { getAvailableGraphicVariablesSelector, SidenavState } from '../../toolba
 export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   @Input() activeVis: Vis;
   @Input() recordStreamMapping: Map<string, RecordStream>;
-  graphicSymbolTypes: GraphicSymbolOption[] = [];
+  graphicSymbolOptions: GraphicSymbolOption[] = [];
   selectionClass = '';
   availableGraphicVariables: GraphicVariable[];
   selectedDataVariablesMapping: Map<string, Map<string, DataVariable>>;
   qualitativeScaleTypes = ['interval', 'nominal'];
   quantitativeScaleTypes = ['ratio'];
+  currentHighlightId: string;
 
-  constructor(private store: Store<SidenavState>, private updateService: UpdateVisService, private serializer: ProjectSerializerService) {
-    this.store.pipe(select(getAvailableGraphicVariablesSelector)).subscribe((availableGraphicVariables) => {
+  constructor(
+    store: Store<SidenavState>,
+    private updateService: UpdateVisService,
+    private hoverService: DataVariableHoverService
+  ) {
+    store.pipe(select(getAvailableGraphicVariablesSelector)).subscribe((availableGraphicVariables) => {
       this.availableGraphicVariables = availableGraphicVariables;
+    });
+
+    hoverService.hovers.subscribe(event => {
+      if (event.length === 0) {
+        this.currentHighlightId = undefined;
+      } else if (event.length === 2 && event[0] === 'table') {
+        this.currentHighlightId = event[1];
+      }
     });
   }
 
@@ -35,10 +50,8 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if ('activeVis' in changes || 'recordStreamMapping' in changes) {
       if (this.activeVis) {
-        this.graphicSymbolTypes = [];
-        this.selectedDataVariablesMapping = new Map();
-        this.getGraphicVariableOptions();
-        this.getDataVariables();
+        this.graphicSymbolOptions = this.getGraphicSymbolOptions();
+        this.selectedDataVariablesMapping = this.getDataVariableMappings();
       }
     }
   }
@@ -74,12 +87,15 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
       });
       return filteredGVs;
     }
+    return [];
   }
 
-  getGraphicVariableOptions() {
+  getGraphicSymbolOptions(): GraphicSymbolOption[] {
+    const gvOption: GraphicSymbolOption[] = [];
     Object.keys(this.activeVis.data.graphicSymbols).forEach((gs) => {
-      this.graphicSymbolTypes.push(this.activeVis.data.graphicSymbolOptions.filter((gso) => gso.id === gs)[0]);
+      gvOption.push(this.activeVis.data.graphicSymbolOptions.filter((gso) => gso.id === gs)[0]);
     });
+    return gvOption;
   }
 
   getVariableScaleType(graphicVariableOption: any) {
@@ -94,21 +110,23 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
     }
   }
 
-  getDataVariables() {
+  getDataVariableMappings(): Map<string, Map<string, DataVariable>> {
+    const dvMap = new Map();
     Object.keys(this.activeVis.data.graphicSymbols).forEach((gs: string) => {
       const gvs = Object.keys(this.activeVis.data.graphicSymbols[gs].graphicVariables);
       if (gvs.length) {
        gvs.forEach((gv: string) => {
         const dv = this.activeVis.data.graphicSymbols[gs].graphicVariables[gv].dataVariable;
-        const mapEntry = this.selectedDataVariablesMapping.get(gs);
+        const mapEntry = dvMap.get(gs);
         if (mapEntry) {
           mapEntry.set(gv, dv);
         } else {
-          this.selectedDataVariablesMapping.set(gs, new Map().set(gv, dv));
+          dvMap.set(gs, new Map().set(gv, dv));
         }
        });
       }
     });
+    return dvMap;
   }
 
   onDragDropEvent(event: DragDropEvent) {
@@ -128,5 +146,17 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   unsetGraphicVariable(graphicSymbolOptionId: string, graphicVariableOptionIdOrType: string) {
     this.updateService.unsetGraphicVariable(this.activeVis.data, graphicSymbolOptionId, graphicVariableOptionIdOrType);
     this.selectedDataVariablesMapping.get(graphicSymbolOptionId).delete(graphicVariableOptionIdOrType);
+  }
+
+  shouldHighlight(graphicVariableOption: GraphicVariableOption, graphicSymbolOption: GraphicSymbolOption): boolean {
+    return this.getGraphicVariable({ id: this.currentHighlightId } as any, graphicVariableOption, graphicSymbolOption).length !== 0;
+  }
+
+  startHover(data: GraphicVariableOption): void {
+    this.hoverService.startHover(['selector', data.id]);
+  }
+
+  endHover(): void {
+    this.hoverService.endHover();
   }
 }

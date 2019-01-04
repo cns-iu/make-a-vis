@@ -1,10 +1,11 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
-import { Component, Input, OnChanges, SimpleChanges, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DataVariable } from '@dvl-fw/core';
 
 import { ActionDispatcherService } from '../../shared/services/actionDispatcher/action-dispatcher.service';
 import { DataSource, DataService } from '../shared/data.service';
 import * as payloadTypes from '../../data-view/shared/store/payload-types';
+import { DataVariableHoverService } from '../../shared/services/hover/data-variable-hover.service';
 
 
 /** Flat node with expandable and level information */
@@ -18,20 +19,22 @@ export interface ParentNode {
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.sass']
 })
-export class TableComponent implements OnChanges, OnInit {
+export class TableComponent implements OnChanges {
   @Input() dataSource: DataSource;
   @Input() displayedColumns: DataVariable[] = [];
   @Input() tableIndex: number;
   displayedColumnNames: string[] = [];
-  constructor(private dataService: DataService, private actionDispatcherService: ActionDispatcherService) { }
+
+  constructor(
+    private dataService: DataService,
+    private actionDispatcherService: ActionDispatcherService,
+    private hoverService: DataVariableHoverService
+  ) { }
 
   ngOnChanges(changes: SimpleChanges) {
     if ('displayedColumns' in changes) {
       this.displayedColumnNames = this.displayedColumns.map((ds) => ds.label);
     }
-  }
-
-  ngOnInit() {
   }
 
   toggleDataTable(dataSource: DataSource) {
@@ -50,5 +53,13 @@ export class TableComponent implements OnChanges, OnInit {
     };
     this.actionDispatcherService.toggleDataTableRows(payload);
     dataSource.hiddenData = !dataSource.hiddenData;
+  }
+
+  startHover(data: DataVariable): void {
+    this.hoverService.startHover(['table', data.id]);
+  }
+
+  endHover(_data: DataVariable): void {
+    this.hoverService.endHover();
   }
 }

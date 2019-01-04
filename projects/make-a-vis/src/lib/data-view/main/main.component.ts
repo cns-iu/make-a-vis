@@ -11,9 +11,17 @@ import { DataService, DataSource } from '../shared/data.service';
 })
 export class MainComponent implements OnInit {
   dataSources: Observable<DataSource[]>;
+  showDataViewMessage = true;
 
   constructor(private dataService: DataService) {
     this.dataSources = dataService.dataSourcesChanged;
+    this.dataSources.subscribe((d) => {
+      if (d.length > 0) {
+        this.showDataViewMessage = false;
+      } else {
+        this.showDataViewMessage = true;
+      }
+    });
   }
 
   ngOnInit() {

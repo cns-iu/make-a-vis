@@ -1,14 +1,14 @@
-.graphic-symbol-wrapper 
+.graphic-symbol-wrapper
   display: grid
   grid-template-columns: 100%
   grid-gap: 0.625rem 3%
 
   .expansion-panel
-    
-    ::ng-deep .mat-expansion-panel-header 
+
+    ::ng-deep .mat-expansion-panel-header
       padding: 0 1rem
 
-    .graphic-variable-wrapper 
+    .graphic-variable-wrapper
       display: grid
       grid-template-columns: 48.25% 48.25%
       grid-gap: 0.5rem 3%
@@ -25,19 +25,22 @@
             flex-flow: column !important
             text-align: center
             width: 100%
-          
+
           .graphic-variable-label
             color: #e0e0e0 !important
             margin-left: 0 !important
 
+        ::ng-deep .highlight
+          background-color: rgba(255,255,0,0.5) !important
 
-        .card 
+
+        .card
           width: 100%
           padding: 0
           cursor: pointer
           display: flex
 
-          &:active 
+          &:active
             background: #1E88E5
             color: #ffffff
 
@@ -95,5 +98,5 @@
           color: #ffffff
           border: 1px solid #ffffff
 
-.graphic-symbol-wrapper ::ng-deep .mat-expansion-panel-body 
+.graphic-symbol-wrapper ::ng-deep .mat-expansion-panel-body
   padding: 0

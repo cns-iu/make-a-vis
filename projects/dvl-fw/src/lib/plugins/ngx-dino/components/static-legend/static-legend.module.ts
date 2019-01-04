@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LegendModule } from '@ngx-dino/legend';
 import { YAxisComponent } from './y-axis/y-axis.component';
 import { XAxisComponent } from './x-axis/x-axis.component';
 import { IdentifierComponent } from './identifier/identifier.component';
@@ -15,9 +16,11 @@ import { ColorEdgesComponent } from './color-edges/color-edges.component';
 import { SourceComponent } from './source/source.component';
 import { TargetComponent } from './target/target.component';
 
+
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    LegendModule
   ],
   declarations: [YAxisComponent, XAxisComponent, IdentifierComponent,
      StartComponent, EndComponent, LabelComponent, ThicknessComponent, ShapeComponent,
