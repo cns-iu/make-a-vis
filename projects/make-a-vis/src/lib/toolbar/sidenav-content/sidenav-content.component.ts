@@ -93,17 +93,17 @@ export class SidenavContentComponent implements OnInit {
         }
   }
 
-  isValidFileExtension(selectedExtensionOnButton, actualFileExtension) {
-    if (selectedExtensionOnButton === 'nsf') {
-      return (actualFileExtension === 'csv' || actualFileExtension === 'nsf');
-    }
-    return selectedExtensionOnButton === actualFileExtension;
+  isValidFileExtension(selectedExtensionOnButton: ProjectExtensionType, fileExtensionFromFile: ProjectExtensionType) {
+    return this.loadProjectService.getSupportedExtension(selectedExtensionOnButton).split(',').indexOf('.' + fileExtensionFromFile) !== -1;
   }
 
   readNewFile(event: any, selectedExtension: ProjectExtensionType) {
     const filename = get(event, 'srcElement.files[0].name');
-    const fileExtension = filename && filename.split('.').slice(-1).toString();
-    if (this.isValidFileExtension(selectedExtension , fileExtension.toLowerCase())) {
+    if (!filename) {
+      return;
+    }
+    const fileExtension = filename && filename.split('.').slice(-1).toString().toLowerCase();
+    if (this.isValidFileExtension(selectedExtension , fileExtension)) {
       this.loadProjectService.getProject(filename, selectedExtension, event);
     } else {
       // TODO temporary, use logs
