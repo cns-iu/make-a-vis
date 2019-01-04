@@ -2,7 +2,7 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/cor
 import { select, Store } from '@ngrx/store';
 
 import { DataVariable, GraphicSymbolOption, GraphicVariable,
-  GraphicVariableOption, RecordStream, ProjectSerializerService } from '@dvl-fw/core';
+  GraphicVariableOption, RecordStream } from '@dvl-fw/core';
 import { DragDropEvent } from '../../drag-drop';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import { Vis } from '../../shared/types';
@@ -137,8 +137,15 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
     return this.getGraphicVariable({ id: this.currentHighlightId } as any, graphicVariableOption, graphicSymbolOption).length !== 0;
   }
 
-  startHover(data: GraphicVariableOption): void {
-    this.hoverService.startHover(['selector', data.id]);
+  startHover(
+    graphicVariableOption: GraphicVariableOption,
+    graphicSymbolOption: GraphicSymbolOption
+    ): void {
+    const ids = this.availableGraphicVariables.filter((gv) => {
+      return ((gv.type && gv.type === graphicVariableOption.type) &&
+        (gv.recordStream.id === this.recordStreamMapping.get(graphicSymbolOption.id).id));
+    }).map(gv => gv.dataVariable.id);
+    this.hoverService.startHover(['selector'].concat(ids));
   }
 
   endHover(): void {

@@ -24,12 +24,21 @@ export class TableComponent implements OnChanges {
   @Input() displayedColumns: DataVariable[] = [];
   @Input() tableIndex: number;
   displayedColumnNames: string[] = [];
+  hoverIds: string[] = [];
 
   constructor(
     private dataService: DataService,
     private actionDispatcherService: ActionDispatcherService,
     private hoverService: DataVariableHoverService
-  ) { }
+  ) {
+    hoverService.hovers.subscribe(event => {
+      if (event.length === 0) {
+        this.hoverIds = [];
+      } else if (event.length >= 2 && event[0] === 'selector') {
+        this.hoverIds = event.slice(1);
+      }
+    });
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if ('displayedColumns' in changes) {
