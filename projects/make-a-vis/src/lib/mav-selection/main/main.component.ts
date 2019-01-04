@@ -6,11 +6,7 @@ import { catchError, concatMap, take } from 'rxjs/operators';
 
 import { ProjectSerializerService, RecordStream, Visualization } from '@dvl-fw/core';
 import { ModeType, ToggleSelectionPanelType, Vis, VisType } from '../../shared/types';
-import {
-  AddNewVisualization,
-  getLoadedProjectSelector,
-  SidenavState
-} from '../../toolbar/shared/store';
+import { getLoadedProjectSelector, SidenavState } from '../../toolbar/shared/store';
 import { VisualizationTypeComponent } from '../visualization-type/visualization-type.component';
 
 @Component({
@@ -75,7 +71,6 @@ export class MainComponent implements OnInit {
         concatMap(project => this.serializer.createVisualization(type.template, preData, project)),
         catchError(() => of(preData as Visualization))
       ).subscribe((data: Visualization) => {
-        this.store.dispatch(new AddNewVisualization(data));
         this.activeVis = { label: type.label, data };
         this.newVis.emit(this.activeVis);
         this.stepDone();

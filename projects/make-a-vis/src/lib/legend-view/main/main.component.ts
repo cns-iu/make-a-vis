@@ -23,16 +23,16 @@ export class MainComponent {
 
   visualization: Visualization;
 
-  private lastActiveVisualization: number;
+  private lastActiveVisualizationIndex: number;
   private lastProject: Project;
 
   constructor(private store: Store<ApplicationState>, private updateService: UpdateVisService) {
     store.pipe(select(getUiFeature)).subscribe(({ activeVisualization, project }) => {
-      const changed = activeVisualization.visualizationId !== this.lastActiveVisualization || project !== this.lastProject;
-      this.lastActiveVisualization = activeVisualization.visualizationId;
+      const changed = activeVisualization.visualizationIndex !== this.lastActiveVisualizationIndex || project !== this.lastProject;
+      this.lastActiveVisualizationIndex = activeVisualization.visualizationIndex;
       this.lastProject = project;
       if (changed) {
-        this.setState(project, activeVisualization.visualizationId);
+        this.setState(project, activeVisualization.visualizationIndex);
       }
     });
   }

@@ -7,8 +7,9 @@ export interface LoadProjectStartedPayload {
   fileExtension: 'isi' | 'nsf' | 'csv' | 'json' | 'yml';
 }
 
-export interface VisualizationId {
-  visualizationId: number;
+export interface VisualizationGroup {
+  visualizationIndex: number;
+  visualization: Visualization;
 }
 
 export interface LoadProjectCompletedPayload {

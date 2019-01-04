@@ -146,17 +146,17 @@ export class ToggleLogging implements Action {
 
 export class SetActiveVisualization implements Action {
   readonly type = SidenavActionTypes.SetActiveVisualization;
-  constructor(public payload: payloadTypes.VisualizationId) { }
+  constructor(public payload: payloadTypes.VisualizationGroup) { }
 }
 
 export class AddNewVisualization implements Action {
   readonly type = SidenavActionTypes.AddNewVisualization;
-  constructor(public payload: Visualization) { }
+  constructor(public payload: payloadTypes.VisualizationGroup) { }
 }
 
 export class RemoveVisualization implements Action {
   readonly type = SidenavActionTypes.RemoveVisualization;
-  constructor(public payload: payloadTypes.VisualizationId) { }
+  constructor(public payload: payloadTypes.VisualizationGroup) { }
 }
 
 export class SetRecordStream implements Action {

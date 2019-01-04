@@ -87,14 +87,14 @@ export function sidenavStateReducer (
 
       case SidenavActionTypes.AddNewVisualization:
         if (state.project) {
-          newState.project.visualizations = state.project.visualizations.concat(action.payload);
+          newState.project.visualizations = state.project.visualizations.concat(action.payload.visualization);
         }
         return newState;
 
       case SidenavActionTypes.RemoveVisualization:
         if (state.project) {
           newState.project.visualizations = state.project.visualizations.slice();
-          newState.project.visualizations.splice(action.payload.visualizationId, 1);
+          newState.project.visualizations.splice(action.payload.visualizationIndex, 1);
         }
         return newState;
 

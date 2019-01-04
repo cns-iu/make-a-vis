@@ -5,11 +5,12 @@ import { select, Store } from '@ngrx/store';
 import { find } from 'lodash';
 import { map } from 'rxjs/operators';
 
-import { VisualizationComponent } from '@dvl-fw/core';
+import { VisualizationComponent, Visualization } from '@dvl-fw/core';
 import { ExportService } from '../../shared/services/export/export.service';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import { ModeType, ToggleSelectionPanelType, Vis, VisType } from '../../shared/types';
-import { getLoadedProjectSelector, RemoveVisualization, SidenavState, SetActiveVisualization } from '../../toolbar/shared/store';
+import { AddNewVisualization, getLoadedProjectSelector, RemoveVisualization,
+  SidenavState, SetActiveVisualization,  } from '../../toolbar/shared/store';
 
 @Component({
   selector: 'mav-visualization-view',
@@ -48,7 +49,8 @@ export class MainComponent {
       }))
     ).subscribe(visualizations => {
       this.visualizations = visualizations;
-      this.setSelectedVis(visualizations.length ? 0 : -1, true);
+      const visualization  = this.visualizations && this.visualizations.length > 0 ? (this.visualizations[0].data) : undefined;
+      this.setSelectedVis(visualizations.length ? 0 : -1, visualization, true);
     });
 
     updateService.update.pipe(
@@ -56,25 +58,30 @@ export class MainComponent {
     ).subscribe(component => (component as any).runDataChangeDetection());
   }
 
-  setSelectedVis(index: number, force = false): void {
+  setSelectedVis(index: number, visualization: Visualization, force = false): void {
     if (index !== this.selectedVis || force) {
       this.selectedVis = index;
       this.exportService.visualizationElement = this.visGroup;
-      this.store.dispatch(new SetActiveVisualization({visualizationId: index}));
+      this.store.dispatch(new SetActiveVisualization({visualizationIndex: index, visualization: visualization}));
     }
     this.emitToggleSelectionPanelEvent();
   }
 
   addNewVisualization(event: any): void {
     const index = this.visualizations.push(event) - 1;
-    this.setSelectedVis(index);
+    const visualization = this.visualizations[index];
+    this.store.dispatch(new AddNewVisualization({ visualizationIndex: index , visualization: visualization.data }));
+    this.setSelectedVis(index, visualization.data);
   }
 
   removeVisualization(index: number): void {
     const lastIndex = this.visualizations.length - 1;
+    const removeVisualization  = this.visualizations[index].data;
     this.visualizations.splice(index, 1);
-    this.store.dispatch(new RemoveVisualization({visualizationId: index}));
-    this.setSelectedVis(index === lastIndex ? index - 1 : index, true);
+    this.store.dispatch(new RemoveVisualization({ visualizationIndex: index, visualization: removeVisualization }));
+    const selectedVisIndex = index === lastIndex ? index - 1 : index;
+    const selectedVisualization = this.visualizations[selectedVisIndex].data;
+    this.setSelectedVis(index === lastIndex ? index - 1 : index, selectedVisualization, true);
   }
 
   toggleSelPanel(mode: ModeType) {
