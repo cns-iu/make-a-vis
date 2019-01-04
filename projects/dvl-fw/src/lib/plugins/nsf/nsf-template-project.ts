@@ -186,6 +186,15 @@ export class NSFTemplateProject extends DefaultProject {
               text: [
                 {selector: 'awardInstrument'}
               ],
+              input: [
+                {selector: 'awardInstrument'}
+              ],
+              label: [
+                {selector: 'awardInstrument'}
+              ],
+              order: [
+                {selector: 'awardInstrument'},
+              ],
               color: [
                 {selector: 'awardInstrumentColor'}
               ]

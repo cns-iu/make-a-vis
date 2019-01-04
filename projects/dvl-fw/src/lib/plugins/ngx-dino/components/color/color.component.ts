@@ -1,18 +1,15 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Component } from '@angular/core';
-import { ColorLegendComponent as NgxColorComponent } from '@ngx-dino/legend';
+import { ColorHueLegendComponent } from '@ngx-dino/legend';
 
 import { BaseVisualizationComponent } from '../base-visualization-component';
 import { createDefaultFieldGroup, createFieldNameMapping } from '../utility';
 
-export type Properties = Pick<
-  NgxColorComponent,
-  'colorMapping' | 'legendType' | 'title' | 'encoding' | 'colorRange' | 'margin'
->;
+export type Properties = null;
 
 export type ColorFields = Pick<
-  NgxColorComponent,
-  'colorField' | 'idField' | 'categoryField'
+  ColorHueLegendComponent,
+  'idField' | 'colorField' | 'inputField' | 'labelField' | 'orderField'
 >;
 
 // tslint:disable-next-line:interface-over-type-literal
@@ -20,11 +17,12 @@ export type FieldGroups = {
   items: ColorFields
 };
 
-const colorFieldNameMapping = createFieldNameMapping([
-  'color'
-], {
+const colorFieldNameMapping = createFieldNameMapping([], {
   'identifier': 'idField',
-  'text': 'categoryField'
+  'color': 'colorField',
+  'input': 'inputField',
+  'label': 'labelField',
+  'order': 'orderField'
 });
 
 
@@ -34,11 +32,9 @@ const colorFieldNameMapping = createFieldNameMapping([
   styleUrls: ['./color.component.css']
 })
 export class ColorComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
-  readonly defaultProperties: Properties = {
-    colorMapping: [], legendType: '', title: '', encoding: '', colorRange: '', margin: ''
-  };
+  readonly defaultProperties = null;
   readonly defaultFieldGroups: FieldGroups = {
-    items: createDefaultFieldGroup(['colorField', 'idField', 'categoryField'])
+    items: createDefaultFieldGroup(['idField', 'colorField', 'inputField', 'labelField', 'orderField'])
   };
   fieldNameFor(key: string, group: string): string {
     return colorFieldNameMapping[key];
