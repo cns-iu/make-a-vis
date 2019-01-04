@@ -81,7 +81,7 @@ export class MainComponent {
     this.store.dispatch(new RemoveVisualization({ visualizationIndex: index, visualization: removeVisualization }));
     const selectedVisIndex = index === lastIndex ? index - 1 : index;
     const selectedVisualization = this.visualizations[selectedVisIndex].data;
-    this.setSelectedVis(index === lastIndex ? index - 1 : index, selectedVisualization, true);
+    this.setSelectedVis(selectedVisIndex , selectedVisualization, true);
   }
 
   toggleSelPanel(mode: ModeType) {
