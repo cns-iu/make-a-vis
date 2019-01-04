@@ -12,17 +12,18 @@ import { Investigator } from './nsf-investigator';
 
 
 const awardInstrumentColorLookup = lookup({
-  'Standard Grant': '#a6cee3', //
-  'Gaa': '#1f78b4',
-  'Continuing Grant': '#b2df8a', //
-  'Cooperative Agreement': '#33a02c',
-  'Interagency Agreement': '#fb9a99', //
-  'Contract': '#e31a1c',
-  'Fixed Price Award': '#fdbf6f',
-  'Fellowship': '#ff7f00', //
-  'Boa/task Order': '#cab2d6',
-  'Contract Interagency Agreement': '#6a3d9a'
-}, '#ffff99');
+  'Standard Grant': '#c51162', //
+  'Gaa': '#ffd54f',
+  'Continuing Grant': '#5335b1', //
+  'Continuing grant': '#5335b1', //
+  'Cooperative Agreement': '#004d40',
+  'Interagency Agreement': '#42a5f5', //
+  'Contract': '#2e7d32',
+  'Fixed Price Award': '#ce93d8',
+  'Fellowship': '#ffc400', //
+  'Boa/task Order': '#f0f4c3',
+  'Contract Interagency Agreement': '#e0f2f1'
+}, '#3e2723');
 
 export class AwardStats {
   awardedAmountMax = 0;
