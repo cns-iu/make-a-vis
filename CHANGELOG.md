@@ -2,6 +2,18 @@
 
 Changelog for Make-a-Vis and DVL-FW.
 
+## 0.10.0 - 2019-01-04
+
+### Added in 0.10.0
+
+- Refined legend styling and in general
+- Graphic Variable hovering feature added
+- Bug fixes, stabilization
+
+### Known issues in 0.10.0
+
+- There are still some bugs/QA to be worked out next week
+
 ## 0.9.1 - 2019-01-02
 
 ### Added in 0.9.1
