@@ -31,7 +31,7 @@
     .legend {
       display: block;
       height: 100%; // takes the remaining height after .visualization height
-      overflow-x: scroll;
+      overflow-x: auto;
       width: 100%;
       margin-top: .625rem;
     }
