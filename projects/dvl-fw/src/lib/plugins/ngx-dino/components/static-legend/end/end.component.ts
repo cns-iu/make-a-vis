@@ -5,12 +5,12 @@ import { BoundLegendComponent as NgxBoundComponent } from '@ngx-dino/legend';
 import { BaseVisualizationComponent } from '../../base-visualization-component';
 import { createDefaultFieldGroup, createFieldNameMapping } from '../../utility';
 
-export type SizeFields = Pick<
-NgxBoundComponent,
-  'sizeField' | 'idField' | 'categoryField'
->;
-
 export type Properties = null;
+
+export type SizeFields = Pick<
+  NgxBoundComponent,
+  'idField' | 'valueField' | 'inputField' | 'labelField' | 'orderField'
+>;
 
 // tslint:disable-next-line:interface-over-type-literal
 export type FieldGroups = {
@@ -19,8 +19,10 @@ export type FieldGroups = {
 
 const sizeFieldNameMapping = createFieldNameMapping([], {
   'identifier': 'idField',
-  'text': 'categoryField',
-  'axis': 'sizeField'
+  'axis': 'valueField',
+  'input': 'inputField',
+  'label': 'labelField',
+  'order': 'orderField'
 });
 
 
@@ -33,12 +35,12 @@ export class EndComponent extends BaseVisualizationComponent<Properties, FieldGr
 
   readonly defaultProperties = null;
   readonly defaultFieldGroups: FieldGroups = {
-    items: createDefaultFieldGroup(['sizeField', 'idField', 'categoryField'])
+    items: createDefaultFieldGroup(['idField', 'valueField', 'inputField', 'labelField', 'orderField'])
   };
 
   constructor() {
     super();
-   }
+  }
 
   fieldNameFor(key: string, group: string): string {
     return sizeFieldNameMapping[key];

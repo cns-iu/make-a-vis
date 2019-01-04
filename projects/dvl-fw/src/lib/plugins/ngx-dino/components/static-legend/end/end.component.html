@@ -1,11 +1,11 @@
 <div class="dvl-end-container dvl-static-legend-container">
-
-    <dino-bound-legend
-        [dataStream]="streams.items"
-        [sizeField]="fieldGroups.items.sizeField"
-        [categoryField]="fieldGroups.items.categoryField"
-        [idField]="fieldGroups.items.idField"
-        [boundLegendType]="'end'">
-    </dino-bound-legend>
-  
-  </div>
+  <dino-bound-legend
+    [dataStream]="streams.items" 
+    [idField]="fieldGroups.items.idField"
+    [valueField]="fieldGroups.items.valueField"
+    [inputField]="fieldGroups.items.inputField"
+    [labelField]="fieldGroups.items.labelField"
+    [orderField]="fieldGroups.items.orderField"
+    [boundLegendType]="'end'">
+  </dino-bound-legend>
+</div>
