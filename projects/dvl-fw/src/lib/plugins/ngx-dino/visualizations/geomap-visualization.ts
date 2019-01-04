@@ -26,7 +26,7 @@ export class GeomapVisualization extends DefaultVisualization {
         { type: 'longitude', label: 'Longitude', visualization: 'y-axis', scaleType: 'ratio', required: true },
         { type: 'color', label: 'Color Hue', visualization: 'color', scaleType: 'nominal', staticVisualization: 'color-area' },
         // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
-        { type: 'areaSize', label: 'Size', visualization: 'node-size', scaleType: 'ratio', required: true, 
+        { type: 'areaSize', label: 'Size', visualization: 'node-size', scaleType: 'ratio', required: true,
           staticVisualization: 'area-size'
         },
         // { type: 'shape', label: 'Shape' },
