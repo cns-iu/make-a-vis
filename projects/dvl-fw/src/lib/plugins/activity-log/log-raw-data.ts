@@ -1,5 +1,5 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
-import { extend, get, map, omit } from 'lodash';
+import { difference, extend, get, map, omit, pick } from 'lodash';
 import { NanoSQLInstance, nSQL } from 'nano-sql';
 import { CategoryLogMessage } from 'typescript-logging';
 
@@ -9,10 +9,18 @@ import { RawData } from '../../shared/raw-data';
 
 export class ActivityLogRawData implements RawData {
   private static db: NanoSQLInstance | Promise<NanoSQLInstance> = null;
+  private static schema: any = null;
   template = 'activityLog';
   saveActivityLog = true;
 
   constructor(public id: string, data: any) {
+    ActivityLogRawData.schema = [
+      {key: 'logid', type: 'int', props: ['pk', 'ai']}, // pk == primary key, ai == auto incriment
+      {key: 'actionName', type: 'string'},
+      {key: 'date', type: 'string'},
+      {key: 'payload', type: 'string' },
+      {key: 'time', type: 'int'}
+    ];
     ActivityLogRawData.db = this.setupDB(data.data);
   }
 
@@ -23,13 +31,7 @@ export class ActivityLogRawData implements RawData {
     }
 
     await nSQL('activitylog')
-      .model([
-        {key: 'logid', type: 'int', props: ['pk', 'ai']}, // pk == primary key, ai == auto incriment
-        {key: 'actionName', type: 'string'},
-        {key: 'date', type: 'string'},
-        {key: 'payload', type: 'string' },
-        {key: 'time', type: 'int'}
-      ]).actions([{
+      .model(ActivityLogRawData.schema).actions([{
           name: 'add_new_log',
           args: ['activitylog:map'],
           call: function(args, database) {
@@ -41,9 +43,18 @@ export class ActivityLogRawData implements RawData {
       }).connect();
 
     if (data && data.activityLog) {
-      await nSQL('activitylog').loadJS('activitylog', data.activityLog);
+      const activityLog = data.activityLog.map(this.mapActivityLog);
+      await nSQL('activitylog').loadJS('activitylog', activityLog);
     }
     return ActivityLogRawData.db = nSQL('activitylog');
+  }
+
+  private mapActivityLog(activityLog: any): any {
+      const nonPayloadKeys = ActivityLogRawData.schema.map(a => a.key).filter(b => b !== 'payload');
+      const payloadKeys =  difference(Object.keys(activityLog) , nonPayloadKeys);
+      const payload = pick(activityLog , payloadKeys);
+      const nonPayloadObject = omit(activityLog , payloadKeys);
+      return extend(nonPayloadObject , { 'payload' : JSON.stringify(payload)});
   }
 
   public async logActivity(msg: CategoryLogMessage): Promise<void> {
@@ -62,7 +73,9 @@ export class ActivityLogRawData implements RawData {
     if (this.saveActivityLog) {
       return (await ActivityLogRawData.db).query('select').exec().then((rows) => {
         rows = map(rows, (logItem) => {
-          return extend(omit(logItem, ['payload']), JSON.parse(logItem['payload']));
+          const removePayload = omit(logItem, ['payload']);
+          const parsedPayload = JSON.parse(logItem['payload']);
+          return extend(removePayload, parsedPayload);
         });
         return {activityLog: rows};
       });
