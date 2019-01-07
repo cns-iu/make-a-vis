@@ -9,8 +9,8 @@ export function layoutCoAuthorNetwork(authors: Author[], links: CoAuthorLink[]) 
   const graph = new Graph();
   for (const author of authors) {
     graph.addNode(author.name, {
-      x: Math.random(),
-      y: Math.random(),
+      x: Math.random() * 1000,
+      y: Math.random() * 1000,
       size: author.numCitesAreaSize
     });
   }
@@ -19,7 +19,7 @@ export function layoutCoAuthorNetwork(authors: Author[], links: CoAuthorLink[]) 
   }
 
   const settings = forceAtlas2.inferSettings(graph);
-  const positions = forceAtlas2(graph, {iterations: 100, settings});
+  const positions = forceAtlas2(graph, {iterations: 500, settings});
 
   for (const author of authors) {
     if (positions[author.name]) {
