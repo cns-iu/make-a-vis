@@ -26,7 +26,8 @@
       </mat-expansion-panel-header>
       <mav-selection-graphic-symbol-type [activeVis]="activeVis" [mode]="mode" (recordStreamChange)="updateRecordStreamMapping($event)" #gsSelector></mav-selection-graphic-symbol-type>
       <mat-action-row class="selection-button">
-        <button mat-button (click)="stepDone()">Done</button>
+        <button *ngIf="recordStreamMapping?.size" mat-button (click)="stepDone()">Done</button>
+        <button *ngIf="!recordStreamMapping?.size" class="disabled" mat-button disabled>Done</button>
       </mat-action-row>
     </mat-expansion-panel>
   </div>
@@ -38,9 +39,11 @@
           Select Graphic Variable Types
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <mav-selection-graphic-variable-type [activeVis]="step===2?gsSelector.activeVis:undefined" [recordStreamMapping]="recordStreamMapping"></mav-selection-graphic-variable-type>
+      <mav-selection-graphic-variable-type [activeVis]="step===2?gsSelector.activeVis:undefined" [recordStreamMapping]="recordStreamMapping" (gvSelectionMade)="gvSelectionMade($event)">
+      </mav-selection-graphic-variable-type>
       <mat-action-row class="selection-button">
-        <button mat-button (click)="closeSelectionPanel()">Visualize</button>
+        <button mat-button *ngIf="gvSelectionButtonState" (click)="closeSelectionPanel()">Visualize</button>
+        <button *ngIf="!gvSelectionButtonState" class="disabled" mat-button disabled>Visualize</button>
       </mat-action-row>
     </mat-expansion-panel>
   </div>

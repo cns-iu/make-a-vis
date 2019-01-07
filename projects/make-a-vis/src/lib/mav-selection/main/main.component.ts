@@ -24,6 +24,7 @@ export class MainComponent implements OnInit {
   panelState = false;
   step = 0;
   visSelectionButtonState = false;
+  gvSelectionButtonState = false;
 
   constructor(private store: Store<SidenavState>, private serializer: ProjectSerializerService) { }
 
@@ -122,5 +123,9 @@ export class MainComponent implements OnInit {
 
   updateRecordStreamMapping(recordStreamMapping: Map<string, RecordStream>) {
     this.recordStreamMapping = recordStreamMapping;
+  }
+
+  gvSelectionMade(selectionMade: boolean) {
+    this.gvSelectionButtonState = selectionMade;
   }
 }

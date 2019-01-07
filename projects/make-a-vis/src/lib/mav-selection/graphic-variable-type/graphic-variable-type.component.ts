@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 
 import { DataVariable, GraphicSymbolOption, GraphicVariable,
@@ -18,6 +18,7 @@ import { getAvailableGraphicVariablesSelector, SidenavState } from '../../toolba
 export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   @Input() activeVis: Vis;
   @Input() recordStreamMapping: Map<string, RecordStream>;
+  @Output() gvSelectionMade = new EventEmitter<boolean>();
   graphicSymbolOptions: GraphicSymbolOption[] = [];
   selectionClass = '';
   availableGraphicVariables: GraphicVariable[];
@@ -25,6 +26,7 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   qualitativeScaleTypes = ['interval', 'nominal'];
   quantitativeScaleTypes = ['ratio'];
   currentHighlightId: string;
+  gvSelected = false;
 
   constructor(
     store: Store<SidenavState>,
@@ -52,12 +54,13 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
       if (this.activeVis) {
         this.graphicSymbolOptions = this.getGraphicSymbolOptions();
         this.selectedDataVariablesMapping = this.getDataVariableMappings();
+        this.updateActionButtonStatus();
       }
     }
   }
 
   dataVariableDropped(dataVariable: DataVariable, graphicVariableOption: GraphicVariableOption, graphicSymbolOption: GraphicSymbolOption) {
-    const mappableGraphicVariables = this.getGraphicVariable(dataVariable, graphicVariableOption, graphicSymbolOption);
+    const mappableGraphicVariables = this.getMappableGraphicVariables(dataVariable, graphicVariableOption, graphicSymbolOption);
     if (mappableGraphicVariables.length) {
       this.updateService.updateGraphicVariable(this.activeVis.data, graphicSymbolOption.id,
         graphicVariableOption.id || graphicVariableOption.type, mappableGraphicVariables[0]);
@@ -72,14 +75,17 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
         );
       }
     }
+
+    this.updateActionButtonStatus();
   }
 
-  getGraphicVariable(
+  getMappableGraphicVariables(
     dataVariable: DataVariable,
     graphicVariableOption: GraphicVariableOption,
     graphicSymbolOption: GraphicSymbolOption
   ): GraphicVariable[] {
     if (this.availableGraphicVariables.length) {
+      console.log('here');
       const filteredGVs: GraphicVariable[] = this.availableGraphicVariables.filter((gv) => {
         return ((gv.type && gv.type === graphicVariableOption.type)
         && (gv.recordStream.id === this.recordStreamMapping.get(graphicSymbolOption.id).id)
@@ -98,7 +104,7 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
     return gvOption;
   }
 
-  getVariableScaleType(graphicVariableOption: any) {
+  getVariableScaleType(graphicVariableOption: any): string {
     if (graphicVariableOption && graphicVariableOption.scaleType) {
       if (this.quantitativeScaleTypes.indexOf(graphicVariableOption.scaleType) !== -1) {
         return 'Quantitative';
@@ -139,28 +145,36 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
 
   acceptsDrop(graphicVariableOption: GraphicVariableOption, graphicSymbolOption: GraphicSymbolOption) {
     return (dataVariable: DataVariable) => {
-      return this.getGraphicVariable(dataVariable, graphicVariableOption, graphicSymbolOption).length > 0;
+      return this.getMappableGraphicVariables(dataVariable, graphicVariableOption, graphicSymbolOption).length > 0;
     };
   }
 
   unsetGraphicVariable(graphicSymbolOptionId: string, graphicVariableOptionIdOrType: string) {
     this.updateService.unsetGraphicVariable(this.activeVis.data, graphicSymbolOptionId, graphicVariableOptionIdOrType);
     this.selectedDataVariablesMapping.get(graphicSymbolOptionId).delete(graphicVariableOptionIdOrType);
+    if (!this.selectedDataVariablesMapping.get(graphicSymbolOptionId).size) {
+      this.selectedDataVariablesMapping.delete(graphicSymbolOptionId);
+    }
+    this.updateActionButtonStatus();
+  }
+
+  updateActionButtonStatus() {
+    if (this.selectedDataVariablesMapping && this.selectedDataVariablesMapping.size) {
+      this.gvSelected = true;
+    } else {
+      this.gvSelected = false;
+    }
+
+    this.gvSelectionMade.emit(this.gvSelected);
   }
 
   shouldHighlight(graphicVariableOption: GraphicVariableOption, graphicSymbolOption: GraphicSymbolOption): boolean {
-    return this.getGraphicVariable({ id: this.currentHighlightId } as any, graphicVariableOption, graphicSymbolOption).length !== 0;
+    return this.getMappableGraphicVariables({ id: this.currentHighlightId } as any, graphicVariableOption, graphicSymbolOption)
+      .length !== 0;
   }
 
-  startHover(
-    graphicVariableOption: GraphicVariableOption,
-    graphicSymbolOption: GraphicSymbolOption
-    ): void {
-    const ids = this.availableGraphicVariables.filter((gv) => {
-      return ((gv.type && gv.type === graphicVariableOption.type) &&
-        (gv.recordStream.id === this.recordStreamMapping.get(graphicSymbolOption.id).id));
-    }).map(gv => gv.dataVariable.id);
-    this.hoverService.startHover(['selector'].concat(ids));
+  startHover(data: GraphicVariableOption): void {
+    this.hoverService.startHover(['selector', data.id]);
   }
 
   endHover(): void {
