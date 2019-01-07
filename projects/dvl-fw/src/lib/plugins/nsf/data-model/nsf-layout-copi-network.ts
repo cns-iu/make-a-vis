@@ -9,8 +9,8 @@ export function layoutCoPiNetwork(nodes: Investigator[], links: CoPiLink[]) {
   const graph = new Graph();
   for (const node of nodes) {
     graph.addNode(node.name, {
-      x: Math.random(),
-      y: Math.random(),
+      x: Math.random() * 1000,
+      y: Math.random() * 1000,
       size: node.numAwardsAreaSize
     });
   }
@@ -19,7 +19,7 @@ export function layoutCoPiNetwork(nodes: Investigator[], links: CoPiLink[]) {
   }
 
   const settings = forceAtlas2.inferSettings(graph);
-  const positions = forceAtlas2(graph, {iterations: 100, settings});
+  const positions = forceAtlas2(graph, {iterations: 500, settings});
 
   for (const node of nodes) {
     if (positions[node.name]) {
