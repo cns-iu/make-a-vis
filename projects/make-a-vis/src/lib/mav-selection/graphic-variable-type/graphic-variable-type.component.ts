@@ -85,7 +85,6 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
     graphicSymbolOption: GraphicSymbolOption
   ): GraphicVariable[] {
     if (this.availableGraphicVariables.length) {
-      console.log('here');
       const filteredGVs: GraphicVariable[] = this.availableGraphicVariables.filter((gv) => {
         return ((gv.type && gv.type === graphicVariableOption.type)
         && (gv.recordStream.id === this.recordStreamMapping.get(graphicSymbolOption.id).id)
