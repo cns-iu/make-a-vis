@@ -34,7 +34,7 @@ export class ScatterplotVisualization extends DefaultVisualization {
       // { type: 'shape', label: 'Shape' },
       // { type: 'transparency', label: 'Transparency' },
       // { type: 'strokeTransparency', label: 'Stroke Transparency' },
-      { type: 'tooltip', label: 'Tooltip', visualization: 'label' }
+      { id: 'tooltip', type: 'text', label: 'Tooltip', visualization: 'label' }
     ]
   }];
 }
