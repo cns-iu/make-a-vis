@@ -65,7 +65,7 @@ export class TableComponent implements OnChanges {
   }
 
   startHover(data: DataVariable): void {
-    this.hoverService.startHover(['table', data.id]);
+    this.hoverService.startHover(['table', data.id, data.recordStreamId]);
   }
 
   endHover(_data: DataVariable): void {

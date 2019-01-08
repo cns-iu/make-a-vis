@@ -20,7 +20,7 @@ export class DefaultRecordSet implements RecordSet {
 
   constructor(data: {id: string, label: string, labelPlural: string,
       parent?: string, description?: string, defaultRecordStream: string, dataVariables: any[]}, project: Project) {
-    const dataVariables = data.dataVariables.map(d => new DefaultDataVariable(d));
+    const dataVariables = data.dataVariables.map(d => new DefaultDataVariable(d, data.defaultRecordStream));
     const defaultRecordStream = project.getRecordStream(data.defaultRecordStream);
     if (data.parent) {
       this.parentString = data.parent;

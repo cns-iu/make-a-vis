@@ -3,6 +3,6 @@ export interface DataVariable {
   label: string;
   dataType: string;
   scaleType: string;
-
+  recordStreamId: string;
   toJSON(): any;
 }

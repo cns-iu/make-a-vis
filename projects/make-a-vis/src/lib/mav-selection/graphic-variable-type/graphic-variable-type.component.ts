@@ -26,6 +26,7 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   qualitativeScaleTypes = ['interval', 'nominal'];
   quantitativeScaleTypes = ['ratio'];
   currentHighlightId: string;
+  selectedDataVariableRecordStreamId: string;
   gvSelected = false;
 
   constructor(
@@ -40,8 +41,9 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
     hoverService.hovers.subscribe(event => {
       if (event.length === 0) {
         this.currentHighlightId = undefined;
-      } else if (event.length === 2 && event[0] === 'table') {
+      } else if (event.length === 3 && event[0] === 'table') {
         this.currentHighlightId = event[1];
+        this.selectedDataVariableRecordStreamId = event[2];
       }
     });
   }
@@ -88,6 +90,7 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
       const filteredGVs: GraphicVariable[] = this.availableGraphicVariables.filter((gv) => {
         return ((gv.type && gv.type === graphicVariableOption.type)
         && (gv.recordStream.id === this.recordStreamMapping.get(graphicSymbolOption.id).id)
+        && (dataVariable.recordStreamId === this.recordStreamMapping.get(graphicSymbolOption.id).id)
         && (gv.dataVariable.id === dataVariable.id));
       });
       return filteredGVs;
@@ -168,8 +171,10 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   }
 
   shouldHighlight(graphicVariableOption: GraphicVariableOption, graphicSymbolOption: GraphicSymbolOption): boolean {
-    return this.getMappableGraphicVariables({ id: this.currentHighlightId } as any, graphicVariableOption, graphicSymbolOption)
-      .length !== 0;
+    return this.getMappableGraphicVariables(
+      { id: this.currentHighlightId, recordStreamId: this.selectedDataVariableRecordStreamId } as any,
+      graphicVariableOption, graphicSymbolOption
+    ).length !== 0;
   }
 
   startHover(data: GraphicVariableOption): void {
