@@ -1,5 +1,5 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild, QueryList, ViewChildren } from '@angular/core';
 import { MatAccordion, MatButtonToggleGroup } from '@angular/material';
 import { ActivationEnd, Router } from '@angular/router';
 import { get } from 'lodash';
@@ -24,6 +24,7 @@ export type ExportType = 'png' | 'svg' | 'pdf';
 export class SidenavContentComponent implements OnInit {
   @ViewChild(MatAccordion) accordion: MatAccordion;
   @ViewChild('clipboardTarget') clipboardTargetEl: ElementRef;
+  @ViewChildren('sidenavFileInputTag') fileInputTags: QueryList<ElementRef>;
   @Input() set panelsOpenState(sidenavOpenState: boolean) {
     if (!sidenavOpenState) {
       this.accordion.closeAll();
@@ -97,10 +98,18 @@ export class SidenavContentComponent implements OnInit {
     return this.loadProjectService.getSupportedExtension(selectedExtensionOnButton).split(',').indexOf('.' + fileExtensionFromFile) !== -1;
   }
 
-  readNewFile(event: any, selectedExtension: ProjectExtensionType) {
+  readNewFile(event: any, target: any, selectedExtension: ProjectExtensionType) {
     const filename = get(event, 'srcElement.files[0].name');
     if (!filename) {
       return;
+    }
+    // clear the values of other fileinput tags.
+    if (this.fileInputTags) {
+      this.fileInputTags.forEach((elementRef: ElementRef) => {
+        if (elementRef.nativeElement && elementRef.nativeElement.id !== target.id) {
+          elementRef.nativeElement.value = null;
+        }
+      });
     }
     const fileExtension = filename && filename.split('.').slice(-1).toString().toLowerCase();
     if (this.isValidFileExtension(selectedExtension , fileExtension)) {
