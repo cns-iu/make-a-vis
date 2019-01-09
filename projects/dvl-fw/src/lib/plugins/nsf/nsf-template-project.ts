@@ -355,6 +355,9 @@ export class NSFTemplateProject extends DefaultProject {
               ],
               axis: [
                 {selector: 'latlng[0]'}
+              ],
+              latitude: [
+                {selector: 'latlng[0]'}
               ]
             },
             longitude: {
@@ -362,6 +365,9 @@ export class NSFTemplateProject extends DefaultProject {
                 {selector: 'latlng[1]'}
               ],
               axis: [
+                {selector: 'latlng[1]'}
+              ],
+              longitude: [
                 {selector: 'latlng[1]'}
               ]
             },
@@ -593,6 +599,9 @@ export class NSFTemplateProject extends DefaultProject {
               ],
               axis: [
                 {selector: 'Investigator1.latlng[0]'}
+              ],
+              latitude: [
+                {selector: 'Investigator1.latlng[0]'}
               ]
             },
             longitude1: {
@@ -600,6 +609,9 @@ export class NSFTemplateProject extends DefaultProject {
                 {selector: 'Investigator1.latlng[1]'}
               ],
               axis: [
+                {selector: 'Investigator1.latlng[1]'}
+              ],
+              longitude: [
                 {selector: 'Investigator1.latlng[1]'}
               ]
             },
@@ -609,6 +621,9 @@ export class NSFTemplateProject extends DefaultProject {
               ],
               axis: [
                 {selector: 'Investigator2.latlng[0]'}
+              ],
+              latitude: [
+                {selector: 'Investigator2.latlng[0]'}
               ]
             },
             longitude2: {
@@ -616,6 +631,9 @@ export class NSFTemplateProject extends DefaultProject {
                 {selector: 'Investigator2.latlng[1]'}
               ],
               axis: [
+                {selector: 'Investigator2.latlng[1]'}
+              ],
+              longitude: [
                 {selector: 'Investigator2.latlng[1]'}
               ]
             },
@@ -846,14 +864,14 @@ export class NSFTemplateProject extends DefaultProject {
           latitude: {
             recordSet: 'investigator',
             dataVariable: 'latitude',
-            graphicVariableType: 'axis',
-            graphicVariableId: 'axis'
+            graphicVariableType: 'latitude',
+            graphicVariableId: 'latitude'
           },
           longitude: {
             recordSet: 'investigator',
             dataVariable: 'longitude',
-            graphicVariableType: 'axis',
-            graphicVariableId: 'axis'
+            graphicVariableType: 'longitude',
+            graphicVariableId: 'longitude'
           },
           x: {
             recordSet: 'investigator',
@@ -949,26 +967,26 @@ export class NSFTemplateProject extends DefaultProject {
           latitude1: {
             recordSet: 'coPiLink',
             dataVariable: 'latitude1',
-            graphicVariableType: 'axis',
-            graphicVariableId: 'axis'
+            graphicVariableType: 'latitude',
+            graphicVariableId: 'latitude'
           },
           longitude1: {
             recordSet: 'coPiLink',
             dataVariable: 'longitude1',
-            graphicVariableType: 'axis',
-            graphicVariableId: 'axis'
+            graphicVariableType: 'longitude',
+            graphicVariableId: 'longitude'
           },
           latitude2: {
             recordSet: 'coPiLink',
             dataVariable: 'latitude2',
-            graphicVariableType: 'axis',
-            graphicVariableId: 'axis'
+            graphicVariableType: 'latitude',
+            graphicVariableId: 'latitude'
           },
           longitude2: {
             recordSet: 'coPiLink',
             dataVariable: 'longitude2',
-            graphicVariableType: 'axis',
-            graphicVariableId: 'axis'
+            graphicVariableType: 'longitude',
+            graphicVariableId: 'longitude'
           },
           strokeWidth: {
             recordSet: 'coPiLink',
