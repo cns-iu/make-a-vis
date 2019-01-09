@@ -660,6 +660,10 @@ export class ISITemplateProject extends DefaultProject {
               ],
               strokeTransparency: [
                 {id: 'fixed', selector: 'defaultStyles.strokeTransparency', label: 'Default'}
+              ],
+              labelPosition: [
+                {id: 'fixed', selector: 'defaultStyles.labelPosition', label: 'Default'},
+                {id: 'fixedCenter', selector: 'defaultStyles.labelPositionCenter', label: 'Centered Label'}
               ]
             },
             latitude: {
@@ -722,7 +726,8 @@ export class ISITemplateProject extends DefaultProject {
                 {selector: 'numCites'}
               ],
               label: [
-                {selector: 'numCitesLabel'}
+                {selector: 'numCitesLabel'},
+                {id: 'topLabels', selector: 'numCitesTopLabel'}
               ],
               order: [
                 {selector: 'numCites'},

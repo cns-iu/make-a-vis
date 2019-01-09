@@ -59,5 +59,6 @@ export const defaultStyles = {
   strokeTransparency: 0.0,
   strokeWidth: 0.5,
   strokeColor: '#000007',
-  labelPosition: 'left'
+  labelPosition: 'left',
+  labelPositionCenter: 'center'
 };
