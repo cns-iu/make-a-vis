@@ -57,8 +57,27 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
         this.graphicSymbolOptions = this.getGraphicSymbolOptions();
         this.selectedDataVariablesMapping = this.getDataVariableMappings();
         this.updateActionButtonStatus();
+      } else {
+        this.clear();
       }
     }
+  }
+
+  clear() {
+    // clear mapping
+    if (this.selectedDataVariablesMapping && this.selectedDataVariablesMapping.size) {
+      this.selectedDataVariablesMapping.clear();
+    }
+
+    // clear available GVs and graphic-symbol-options
+    this.availableGraphicVariables = [];
+    this.graphicSymbolOptions = [];
+
+    // clear other variables
+    this.currentHighlightId = '';
+    this.selectedDataVariableRecordStreamId = '';
+    this.selectionClass = '';
+    this.gvSelected = false;
   }
 
   dataVariableDropped(dataVariable: DataVariable, graphicVariableOption: GraphicVariableOption, graphicSymbolOption: GraphicSymbolOption) {

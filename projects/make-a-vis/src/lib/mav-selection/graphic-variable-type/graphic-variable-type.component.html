@@ -8,23 +8,23 @@
 
         <div class="graphic-variable-wrapper">
             <div class="card-wrapper" *ngFor="let graphicVariableOption of graphicSymbolOption.graphicVariableOptions">
-                <mat-card class="card" (mavDroppable)="dataVariableDropped($event, graphicVariableOption, graphicSymbolOption)" (dragDropEvents)="onDragDropEvent($event)" [ngClass]="{'data-variable-selected': selectedDataVariablesMapping?.get(graphicSymbolOption.id)?.get(graphicVariableOption.id || graphicVariableOption.type)?true:false, 'highlight': shouldHighlight(graphicVariableOption, graphicSymbolOption)}"
+                <mat-card class="card" (mavDroppable)="dataVariableDropped($event, graphicVariableOption, graphicSymbolOption)" (dragDropEvents)="onDragDropEvent($event)" [ngClass]="{'data-variable-selected': selectedDataVariablesMapping?.get(graphicSymbolOption?.id)?.get(graphicVariableOption?.id || graphicVariableOption?.type)?true:false, 'highlight': shouldHighlight(graphicVariableOption, graphicSymbolOption)}"
                     [acceptsDrop]="acceptsDrop(graphicVariableOption, graphicSymbolOption)" (mouseenter)="startHover(graphicVariableOption, graphicSymbolOption)" (mouseleave)="endHover()">
                     <span class="required-dot" *ngIf="graphicVariableOption?.required"></span>
                     <div class="variable-type ">
                         <mav-graphic-variable-icon [visualization]="activeVis?.data " [graphicSymbolOption]="graphicSymbolOption " [graphicVariableOption]="graphicVariableOption ">
                         </mav-graphic-variable-icon>
                         <span class="graphic-variable-label ">{{graphicVariableOption?.label}}</span>
-                        <div class="data-variable " *ngIf="selectedDataVariablesMapping?.get(graphicSymbolOption.id)?.get(graphicVariableOption.id || graphicVariableOption.type) ">
-                            <span>{{recordStreamMapping?.get(graphicSymbolOption.id)?.label}}: </span>
-                            <span>{{selectedDataVariablesMapping?.get(graphicSymbolOption.id)?.get(graphicVariableOption.id || graphicVariableOption.type)?.label}}</span>
+                        <div class="data-variable " *ngIf="selectedDataVariablesMapping?.get(graphicSymbolOption.id)?.get(graphicVariableOption?.id || graphicVariableOption?.type) ">
+                            <span>{{recordStreamMapping?.get(graphicSymbolOption?.id)?.label}}: </span>
+                            <span>{{selectedDataVariablesMapping?.get(graphicSymbolOption?.id)?.get(graphicVariableOption?.id || graphicVariableOption?.type)?.label}}</span>
                         </div>
                     </div>
                     <div class="variable-category" [ngClass]="{'selected-variable-category': selectedDataVariablesMapping?.get(graphicSymbolOption.id)?.get(graphicVariableOption.id || graphicVariableOption.type)?true:false}">
                         {{ getVariableScaleType(graphicVariableOption) }}
                     </div>
                 </mat-card>
-                <mat-icon class="cancel-icon " *ngIf="selectedDataVariablesMapping?.get(graphicSymbolOption.id)?.get(graphicVariableOption.id || graphicVariableOption.type)?true:false " (click)="unsetGraphicVariable(graphicSymbolOption.id, graphicVariableOption.id || graphicVariableOption.type) ">
+                <mat-icon class="cancel-icon " *ngIf="selectedDataVariablesMapping?.get(graphicSymbolOption?.id)?.get(graphicVariableOption?.id || graphicVariableOption?.type)?true:false " (click)="unsetGraphicVariable(graphicSymbolOption?.id, graphicVariableOption?.id || graphicVariableOption?.type) ">
                     cancel
                 </mat-icon>
             </div>
