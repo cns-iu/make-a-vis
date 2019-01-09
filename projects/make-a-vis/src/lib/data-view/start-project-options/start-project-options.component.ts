@@ -22,14 +22,6 @@ export class StartProjectOptionsComponent implements OnInit {
     if (!filename) {
       return;
     }
-    // clear the values of other fileinput tags.
-    if (this.fileInputTags) {
-      this.fileInputTags.forEach((elementRef: ElementRef) => {
-        if (elementRef.nativeElement && elementRef.nativeElement.id !== target.id) {
-          elementRef.nativeElement.value = null;
-        }
-      });
-    }
     const fileExtension = filename && filename.split('.').slice(-1).toString().toLowerCase();
     if (this.isValidFileExtension(selectedExtension, fileExtension)) {
       this.loadProjectService.getProject(filename, selectedExtension, event);
@@ -37,6 +29,12 @@ export class StartProjectOptionsComponent implements OnInit {
       // TODO temporary, use logs
       alert(`${filename} has the wrong extension.`);
       console.log(`${filename} has the wrong extension.`);
+    }
+    // clear the values of fileinput tags.
+    if (this.fileInputTags) {
+      this.fileInputTags.forEach((elementRef: ElementRef) => {
+          elementRef.nativeElement.value = null;
+      });
     }
   }
 
