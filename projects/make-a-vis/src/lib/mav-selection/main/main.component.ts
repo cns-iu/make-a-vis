@@ -84,11 +84,7 @@ export class MainComponent implements OnInit {
   }
 
   setStep(target: number) {
-    if (target === 0 && this.mode === 'edit') {
-      this.step = 1;
-    } else  {
-      this.step = target;
-    }
+    this.step = target;
   }
 
   isExpanded(target: number) {
