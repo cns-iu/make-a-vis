@@ -3,7 +3,7 @@
         <mat-card (mavDroppable)="recordStreamDropped($event, symbolType)" (dragDropEvents)="onDragDropEvent($event)"
             [ngClass]="{'record-stream-selected': selectedRecordStreamMapping.get(symbolType.id)?true:false}" class="graphic-symbol-card">
             <div class="content">
-                <div class="graphic-symbol-type">{{symbolType?.label}}({{symbolType?.type}})</div>
+                <div class="graphic-symbol-type">{{symbolType?.label}} ({{symbolType?.type}})</div>
                 <div class="record-stream">{{selectedRecordStreamMapping.get(symbolType.id)?.label}}</div>
             </div>
         </mat-card>
