@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChildren, QueryList, ElementRef } from '@angular/core';
+import {MatSnackBar} from '@angular/material';
+
 import { get } from 'lodash';
 
 import { LoadProjectService, ProjectExtensionType } from '../../shared/services/load-project/load-project.service';
@@ -12,7 +14,7 @@ export class StartProjectOptionsComponent implements OnInit {
   @ViewChildren('startProjectFileInputTag') fileInputTags: QueryList<ElementRef>;
   projectExtensions: ProjectExtensionType[] = ['yml', 'nsf', 'isi', 'csv'];
 
-  constructor( public loadProjectService: LoadProjectService) { }
+  constructor( public loadProjectService: LoadProjectService, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -27,7 +29,12 @@ export class StartProjectOptionsComponent implements OnInit {
       this.loadProjectService.getProject(filename, selectedExtension, event);
     } else {
       // TODO temporary, use logs
-      alert(`${filename} has the wrong extension.`);
+      // alert(`${filename} has the wrong extension.`);
+      this.snackBar.open(`${filename} has the wrong extension.`, null, {
+        duration: 3000,
+        verticalPosition: 'top',
+        panelClass: 'mav-snackbar-wrapper'
+      });
       console.log(`${filename} has the wrong extension.`);
     }
     // clear the values of fileinput tags.

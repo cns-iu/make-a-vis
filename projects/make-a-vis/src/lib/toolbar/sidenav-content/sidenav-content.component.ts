@@ -2,6 +2,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild, QueryList, ViewChildren } from '@angular/core';
 import { MatAccordion, MatButtonToggleGroup } from '@angular/material';
 import { ActivationEnd, Router } from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 import { get } from 'lodash';
 import { select, Store } from '@ngrx/store';
 import { ClipboardService } from 'ngx-clipboard';
@@ -53,7 +54,8 @@ export class SidenavContentComponent implements OnInit {
     private projectSerializer: ProjectSerializerService,
     private getLinkService: GetLinkService,
     private router: Router,
-    private clipboardService: ClipboardService
+    private clipboardService: ClipboardService,
+    public snackBar: MatSnackBar
   ) {
       loggingControlService.enableLogging();
       this.isLoggingEnabled = loggingControlService.isLoggingEnabled();
@@ -108,7 +110,12 @@ export class SidenavContentComponent implements OnInit {
       this.loadProjectService.getProject(filename, selectedExtension, event);
     } else {
       // TODO temporary, use logs
-      alert(`${filename} has the wrong extension.`);
+      // alert(`${filename} has the wrong extension.`);
+      this.snackBar.open(`${filename} has the wrong extension.`, null, {
+        duration: 3000,
+        verticalPosition: 'top',
+        panelClass: 'mav-snackbar-wrapper'
+      });
       console.log(`${filename} has the wrong extension.`);
     }
     // clear the values of fileinput tags.
