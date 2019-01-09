@@ -11,6 +11,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -53,6 +54,7 @@ import { NsfLogoComponent } from './info-dialog/info-dialog-footer/nsf-logo/nsf-
     MatDividerModule,
     MatExpansionModule,
     MatFormFieldModule,
+    MatSnackBarModule,
     MatInputModule,
     MatIconModule,
     MatSelectModule,

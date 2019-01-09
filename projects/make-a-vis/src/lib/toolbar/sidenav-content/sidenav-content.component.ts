@@ -2,6 +2,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild, QueryList, ViewChildren } from '@angular/core';
 import { MatAccordion, MatButtonToggleGroup } from '@angular/material';
 import { ActivationEnd, Router } from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 import { get } from 'lodash';
 import { select, Store } from '@ngrx/store';
 import { ClipboardService } from 'ngx-clipboard';
@@ -53,7 +54,8 @@ export class SidenavContentComponent implements OnInit {
     private projectSerializer: ProjectSerializerService,
     private getLinkService: GetLinkService,
     private router: Router,
-    private clipboardService: ClipboardService
+    private clipboardService: ClipboardService,
+    public snackBar: MatSnackBar
   ) {
       loggingControlService.enableLogging();
       this.isLoggingEnabled = loggingControlService.isLoggingEnabled();
@@ -103,21 +105,24 @@ export class SidenavContentComponent implements OnInit {
     if (!filename) {
       return;
     }
-    // clear the values of other fileinput tags.
-    if (this.fileInputTags) {
-      this.fileInputTags.forEach((elementRef: ElementRef) => {
-        if (elementRef.nativeElement && elementRef.nativeElement.id !== target.id) {
-          elementRef.nativeElement.value = null;
-        }
-      });
-    }
     const fileExtension = filename && filename.split('.').slice(-1).toString().toLowerCase();
     if (this.isValidFileExtension(selectedExtension , fileExtension)) {
       this.loadProjectService.getProject(filename, selectedExtension, event);
     } else {
       // TODO temporary, use logs
-      alert(`${filename} has the wrong extension.`);
+      // alert(`${filename} has the wrong extension.`);
+      this.snackBar.open(`${filename} has the wrong extension.`, null, {
+        duration: 3000,
+        verticalPosition: 'top',
+        panelClass: 'mav-snackbar-wrapper'
+      });
       console.log(`${filename} has the wrong extension.`);
+    }
+    // clear the values of fileinput tags.
+    if (this.fileInputTags) {
+      this.fileInputTags.forEach((elementRef: ElementRef) => {
+          elementRef.nativeElement.value = null;
+      });
     }
   }
 

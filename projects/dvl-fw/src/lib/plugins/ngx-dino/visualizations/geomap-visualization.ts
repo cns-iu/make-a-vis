@@ -39,10 +39,10 @@ export class GeomapVisualization extends DefaultVisualization {
       id: 'edges', label: 'Edges', type: 'line',
       graphicVariableOptions: [
         { type: 'identifier', label: 'Identifier', visualization: 'id', scaleType: 'ratio', required: true },
-        { type: 'latitude1', label: 'Source Latitude', visualization: 'source', scaleType: 'ratio', required: true },
-        { type: 'longitude1', label: 'Source Longitude', visualization: 'source', scaleType: 'ratio', required: true },
-        { type: 'latitude2', label: 'Target Latitude', visualization: 'target', scaleType: 'ratio', required: true },
-        { type: 'longitude2', label: 'Target Longitude', visualization: 'target', scaleType: 'ratio', required: true },
+        { id: 'latitude1', type: 'latitude', label: 'Source Latitude', visualization: 'source', scaleType: 'ratio', required: true },
+        { id: 'longitude1', type: 'longitude', label: 'Source Longitude', visualization: 'source', scaleType: 'ratio', required: true },
+        { id: 'latitude2', type: 'latitude', label: 'Target Latitude', visualization: 'target', scaleType: 'ratio', required: true },
+        { id: 'longitude2', type: 'longitude', label: 'Target Longitude', visualization: 'target', scaleType: 'ratio', required: true },
         { type: 'strokeColor', label: 'Color Hue', visualization: 'color', scaleType: 'nominal', staticVisualization: 'color-edges' },
         { type: 'strokeWidth', label: 'Size', visualization: 'edge-size', scaleType: 'ratio', required: true,
           staticVisualization: 'thickness'
