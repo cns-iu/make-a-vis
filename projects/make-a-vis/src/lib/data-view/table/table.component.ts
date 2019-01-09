@@ -24,6 +24,7 @@ export class TableComponent implements OnChanges {
   @Input() displayedColumns: DataVariable[] = [];
   @Input() tableIndex: number;
   displayedColumnNames: string[] = [];
+  hoverRecordStreamId: string;
   hoverIds: string[] = [];
 
   constructor(
@@ -34,8 +35,9 @@ export class TableComponent implements OnChanges {
     hoverService.hovers.subscribe(event => {
       if (event.length === 0) {
         this.hoverIds = [];
-      } else if (event.length >= 2 && event[0] === 'selector') {
-        this.hoverIds = event.slice(1);
+      } else if (event.length >= 3 && event[0] === 'selector') {
+        this.hoverRecordStreamId = event[1];
+        this.hoverIds = event.slice(2);
       }
     });
   }
@@ -62,6 +64,10 @@ export class TableComponent implements OnChanges {
     };
     this.actionDispatcherService.toggleDataTableRows(payload);
     dataSource.hiddenData = !dataSource.hiddenData;
+  }
+
+  shouldHighlight(column: DataVariable): boolean {
+    return this.hoverIds.indexOf(column.id) !== -1 && column.recordStreamId === this.hoverRecordStreamId;
   }
 
   startHover(data: DataVariable): void {

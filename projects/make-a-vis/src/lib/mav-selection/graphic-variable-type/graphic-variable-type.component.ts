@@ -178,8 +178,15 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
     ).length !== 0;
   }
 
-  startHover(data: GraphicVariableOption): void {
-    this.hoverService.startHover(['selector', data.id]);
+  startHover(
+    graphicVariableOption: GraphicVariableOption,
+    graphicSymbolOption: GraphicSymbolOption
+    ): void {
+    const ids = this.availableGraphicVariables.filter((gv) => {
+      return ((gv.type && gv.type === graphicVariableOption.type) &&
+        (gv.recordStream.id === this.recordStreamMapping.get(graphicSymbolOption.id).id));
+    }).map(gv => gv.dataVariable.id);
+    this.hoverService.startHover(['selector', this.recordStreamMapping.get(graphicSymbolOption.id).id].concat(ids));
   }
 
   endHover(): void {
