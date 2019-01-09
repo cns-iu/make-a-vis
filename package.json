@@ -37,7 +37,7 @@
     "@ngx-dino/network": "^0.14.1",
     "@ngx-dino/scatterplot": "^0.10.4",
     "@ngx-dino/science-map": "^0.9.3",
-    "@ngx-dino/temporal-bargraph": "^0.1.3",
+    "@ngx-dino/temporal-bargraph": "^0.2.0",
     "@ngx-dino/vega-util": "^0.9.0",
     "@types/blob-stream": "^0.1.29",
     "@types/d3-geo": "^1.10.3",
