@@ -69,8 +69,7 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
       this.selectedDataVariablesMapping.clear();
     }
 
-    // clear available GVs and graphic-symbol-options
-    this.availableGraphicVariables = [];
+    // clear graphic-symbol-options
     this.graphicSymbolOptions = [];
 
     // clear other variables
