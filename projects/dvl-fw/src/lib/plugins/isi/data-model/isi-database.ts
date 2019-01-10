@@ -20,6 +20,14 @@ export class ISIDatabase {
   authors: Author[];
   coAuthorLinks: CoAuthorLink[];
 
+  constructor(data: { publications: Publication[], journals: Journal[], subdisciplines: Subdiscipline[],
+      authors: Author[], coAuthorLinks: CoAuthorLink[] }, reconstitue?: boolean) {
+    Object.assign(this, data);
+    if (reconstitue) {
+      this.reconstitute();
+    }
+  }
+
   static fromISIFile(isiFileContents: string): ISIDatabase {
     const records = parseISIFile(isiFileContents);
     const publications = extractPublications(records);
@@ -29,15 +37,31 @@ export class ISIDatabase {
     const coAuthorLinks = extractCoAuthorLinks(publications);
     layoutCoAuthorNetwork(authors, coAuthorLinks);
 
-    return { journals, authors, subdisciplines, coAuthorLinks, publications };
+    return new ISIDatabase({ journals, authors, subdisciplines, coAuthorLinks, publications });
   }
   static fromJSON(data: any): ISIDatabase {
-    return {
+    return new ISIDatabase({
       journals: (data.journals || []).map(j => new Journal(j)),
       authors: (data.authors || []).map(a => new Author(a)),
       subdisciplines: (data.subdisciplines || []).map(s => new Subdiscipline(s)),
       coAuthorLinks: (data.coAuthorLinks || []).map(c => new CoAuthorLink(c)),
       publications: (data.publications || []).map(p => new Publication(p))
-    };
+    }, true);
+  }
+
+  private reconstitute() {
+    const journals = this.journals.reduce((acc, val) => (acc[val.name] = val, acc), {});
+    const subdisciplines = this.subdisciplines.reduce((acc, val) => (acc[val.id] = val, acc), {});
+    const authors = this.authors.reduce((acc, val) => (acc[val.name] = val, acc), {});
+
+    this.publications.forEach(p => {
+      p.Authors = p.authors.map(a => authors[a]);
+      p.Journal = journals[p.journalName];
+    });
+    this.journals.forEach(j => j.Subdiscipline = subdisciplines[j.subdisciplineId]);
+    this.coAuthorLinks.forEach(co => {
+      co.Author1 = authors[co.author1];
+      co.Author2 = authors[co.author2];
+    });
   }
 }

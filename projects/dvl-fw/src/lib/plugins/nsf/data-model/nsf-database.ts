@@ -16,6 +16,13 @@ export class NSFDatabase {
   // TODO:
   // organizations: Organization[];
 
+  constructor(data: { awards: Award[], investigators: Investigator[], coPiLinks: CoPiLink[] }, reconstitute?: boolean) {
+    Object.assign(this, data);
+    if (reconstitute) {
+      this.reconstitute();
+    }
+  }
+
   static fromNSFFile(nsfFileContents: string): NSFDatabase {
     const records = parseNSFFile(nsfFileContents);
     const awards = extractAwards(records);
@@ -23,13 +30,23 @@ export class NSFDatabase {
     const coPiLinks = extractCoPiLinks(awards);
     layoutCoPiNetwork(investigators, coPiLinks);
 
-    return { awards, investigators, coPiLinks };
+    return new NSFDatabase({ awards, investigators, coPiLinks });
   }
   static fromJSON(data: any): NSFDatabase {
-    return {
+    return new NSFDatabase({
       awards: (data.awards || []).map(a => new Award(a)),
       investigators: (data.investigators || []).map(i => new Investigator(i)),
       coPiLinks: (data.coPiLinks || []).map(c => new CoPiLink(c))
-    };
+    }, true);
+  }
+
+  private reconstitute() {
+    const investigators = this.investigators.reduce((acc, val) => (acc[val.name] = val, acc), {});
+
+    this.awards.forEach(a => a.Investigators = a.investigatorNames.map(i => investigators[i]));
+    this.coPiLinks.forEach(co => {
+      co.Investigator1 = investigators[co.investigator1];
+      co.Investigator2 = investigators[co.investigator2];
+    });
   }
 }

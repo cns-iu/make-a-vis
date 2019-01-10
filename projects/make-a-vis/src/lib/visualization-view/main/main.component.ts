@@ -24,7 +24,7 @@ export class MainComponent {
 
   currentAddVisMode: ModeType;
   visPanelState = false;
-  editVisPanelState = false;
+  editButtonState = false;
   addIcons = ['add_circle', 'add_circle_outline'];
   addIconName = this.addIcons[1];
   visTypes: VisType[] = [
@@ -79,12 +79,27 @@ export class MainComponent {
     const removeVisualization  = this.visualizations[index].data;
     this.visualizations.splice(index, 1);
     this.store.dispatch(new RemoveVisualization({ visualizationIndex: index, visualization: removeVisualization }));
-    const selectedVisIndex = index === lastIndex ? index - 1 : index;
-    const selectedVisualization = this.visualizations[selectedVisIndex].data;
-    this.setSelectedVis(selectedVisIndex , selectedVisualization, true);
+
+    const selectedVis = this.selectedVis;
+    const selectedVisIndex = selectedVis === lastIndex ? lastIndex - 1 : selectedVis;
+    if (this.visualizations[selectedVisIndex]) {
+      const selectedVisualization = this.visualizations[selectedVisIndex].data;
+      this.setSelectedVis(selectedVisIndex , selectedVisualization, true);
+    } else {
+      this.toggleSelPanel(this.currentAddVisMode);
+      this.setSelectedVis(selectedVisIndex , undefined, true);
+    }
   }
 
   toggleSelPanel(mode: ModeType) {
+    if (mode) {
+      this.updatePanelState(mode);
+      this.updateModeButtonState(mode);
+    }
+    this.emitToggleSelectionPanelEvent();
+  }
+
+  updatePanelState(mode: ModeType) {
     if (!this.currentAddVisMode) {
       this.visPanelState  = true;
     }
@@ -94,10 +109,12 @@ export class MainComponent {
     } else {
       this.currentAddVisMode = mode;
     }
+  }
 
+  updateModeButtonState(mode: ModeType) {
     if (mode === 'add') {
       if (this.visPanelState) {
-        this.editVisPanelState = false;
+        this.editButtonState = false;
         this.addIconName = this.addIcons[0];
       } else {
         this.currentAddVisMode = undefined;
@@ -107,14 +124,12 @@ export class MainComponent {
 
     if (mode === 'edit') {
       this.addIconName = this.addIcons[1];
-      this.editVisPanelState = !this.editVisPanelState;
+      this.editButtonState = !this.editButtonState;
 
       if (!this.visPanelState) {
         this.currentAddVisMode = undefined;
       }
     }
-
-    this.emitToggleSelectionPanelEvent();
   }
 
   emitToggleSelectionPanelEvent() {

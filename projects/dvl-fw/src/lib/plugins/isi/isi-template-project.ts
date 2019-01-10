@@ -479,9 +479,6 @@ export class ISITemplateProject extends DefaultProject {
               ]
             },
             name: {
-              identifier: [
-                {selector: 'name'}
-              ],
               axis: [
                 {selector: 'name'}
               ],
@@ -660,6 +657,10 @@ export class ISITemplateProject extends DefaultProject {
               ],
               strokeTransparency: [
                 {id: 'fixed', selector: 'defaultStyles.strokeTransparency', label: 'Default'}
+              ],
+              labelPosition: [
+                {id: 'fixed', selector: 'defaultStyles.labelPosition', label: 'Default'},
+                {id: 'fixedCenter', selector: 'defaultStyles.labelPositionCenter', label: 'Centered Label'}
               ]
             },
             latitude: {
@@ -668,6 +669,9 @@ export class ISITemplateProject extends DefaultProject {
               ],
               axis: [
                 {selector: 'latlng[0]'}
+              ],
+              latitude: [
+                {selector: 'latlng[0]'}
               ]
             },
             longitude: {
@@ -675,6 +679,9 @@ export class ISITemplateProject extends DefaultProject {
                 {selector: 'latlng[1]'}
               ],
               axis: [
+                {selector: 'latlng[1]'}
+              ],
+              longitude: [
                 {selector: 'latlng[1]'}
               ]
             },
@@ -695,9 +702,6 @@ export class ISITemplateProject extends DefaultProject {
               ]
             },
             fullname: {
-              identifier: [
-                {selector: 'fullname'}
-              ],
               axis: [
                 {selector: 'fullname'}
               ],
@@ -716,7 +720,8 @@ export class ISITemplateProject extends DefaultProject {
                 {selector: 'numCites'}
               ],
               label: [
-                {selector: 'numCitesLabel'}
+                {selector: 'numCitesLabel'},
+                {id: 'topLabels', selector: 'numCitesTopLabel'}
               ],
               order: [
                 {selector: 'numCites'},
@@ -875,34 +880,34 @@ export class ISITemplateProject extends DefaultProject {
             },
             sourceX: {
               text: [
-                {selector: 'source[0]'}
+                {selector: 'Author1.position[0]'}
               ],
               axis: [
-                {selector: 'source[0]'}
+                {selector: 'Author1.position[0]'}
               ]
             },
             sourceY: {
               text: [
-                {selector: 'source[1]'}
+                {selector: 'Author1.position[1]'}
               ],
               axis: [
-                {selector: 'source[1]'}
+                {selector: 'Author1.position[1]'}
               ]
             },
             targetX: {
               text: [
-                {selector: 'target[0]'}
+                {selector: 'Author2.position[0]'}
               ],
               axis: [
-                {selector: 'target[0]'}
+                {selector: 'Author2.position[0]'}
               ]
             },
             targetY: {
               text: [
-                {selector: 'target[1]'}
+                {selector: 'Author2.position[1]'}
               ],
               axis: [
-                {selector: 'target[1]'}
+                {selector: 'Author2.position[1]'}
               ]
             },
             latitude1: {
@@ -910,6 +915,9 @@ export class ISITemplateProject extends DefaultProject {
                 {selector: 'Author1.latlng[0]'}
               ],
               axis: [
+                {selector: 'Author1.latlng[0]'}
+              ],
+              latitude: [
                 {selector: 'Author1.latlng[0]'}
               ]
             },
@@ -919,6 +927,9 @@ export class ISITemplateProject extends DefaultProject {
               ],
               axis: [
                 {selector: 'Author1.latlng[1]'}
+              ],
+              longitude: [
+                {selector: 'Author1.latlng[1]'}
               ]
             },
             latitude2: {
@@ -927,6 +938,9 @@ export class ISITemplateProject extends DefaultProject {
               ],
               axis: [
                 {selector: 'Author2.latlng[0]'}
+              ],
+              latitude: [
+                {selector: 'Author2.latlng[0]'}
               ]
             },
             longitude2: {
@@ -934,6 +948,9 @@ export class ISITemplateProject extends DefaultProject {
                 {selector: 'Author2.latlng[1]'}
               ],
               axis: [
+                {selector: 'Author2.latlng[1]'}
+              ],
+              longitude: [
                 {selector: 'Author2.latlng[1]'}
               ]
             },
@@ -1294,14 +1311,14 @@ export class ISITemplateProject extends DefaultProject {
           latitude: {
             recordSet: 'author',
             dataVariable: 'latitude',
-            graphicVariableType: 'axis',
-            graphicVariableId: 'axis'
+            graphicVariableType: 'latitude',
+            graphicVariableId: 'latitude'
           },
           longitude: {
             recordSet: 'author',
             dataVariable: 'longitude',
-            graphicVariableType: 'axis',
-            graphicVariableId: 'axis'
+            graphicVariableType: 'longitude',
+            graphicVariableId: 'longitude'
           },
           x: {
             recordSet: 'author',
@@ -1397,26 +1414,26 @@ export class ISITemplateProject extends DefaultProject {
           latitude1: {
             recordSet: 'coAuthorLink',
             dataVariable: 'latitude1',
-            graphicVariableType: 'axis',
-            graphicVariableId: 'axis'
+            graphicVariableType: 'latitude',
+            graphicVariableId: 'latitude'
           },
           longitude1: {
             recordSet: 'coAuthorLink',
             dataVariable: 'longitude1',
-            graphicVariableType: 'axis',
-            graphicVariableId: 'axis'
+            graphicVariableType: 'longitude',
+            graphicVariableId: 'longitude'
           },
           latitude2: {
             recordSet: 'coAuthorLink',
             dataVariable: 'latitude2',
-            graphicVariableType: 'axis',
-            graphicVariableId: 'axis'
+            graphicVariableType: 'latitude',
+            graphicVariableId: 'latitude'
           },
           longitude2: {
             recordSet: 'coAuthorLink',
             dataVariable: 'longitude2',
-            graphicVariableType: 'axis',
-            graphicVariableId: 'axis'
+            graphicVariableType: 'longitude',
+            graphicVariableId: 'longitude'
           },
           strokeWidth: {
             recordSet: 'coAuthorLink',

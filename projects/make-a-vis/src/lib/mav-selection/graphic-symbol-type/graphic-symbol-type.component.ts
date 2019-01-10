@@ -40,11 +40,15 @@ export class GraphicSymbolTypeComponent implements OnInit, OnChanges {
         if (this.mode === 'edit') {
           this.setRecordStreams();
         }
+      } else {
+        this.clear();
       }
 
       if ('mode' in changes && this.mode === 'edit') {
         if (this.activeVis && this.activeVis.data) {
           this.setRecordStreams();
+        } else {
+          this.clear();
         }
       }
     }
@@ -67,6 +71,21 @@ export class GraphicSymbolTypeComponent implements OnInit, OnChanges {
     this.updateService.unsetRecordStream(graphicSymbolOptionId, this.activeVis.data);
     this.selectedRecordStreamMapping.delete(graphicSymbolOptionId);
     this.recordStreamChange.emit(this.selectedRecordStreamMapping);
+  }
+
+  clear() {
+    // clear record-streams
+    this.recordStreams = [];
+
+    // clear mapping
+    if (this.selectedRecordStreamMapping && this.selectedRecordStreamMapping.size) {
+      this.selectedRecordStreamMapping.clear();
+      this.recordStreamChange.emit(this.selectedRecordStreamMapping);
+    }
+
+    // clear graphic-symbol-options and selectionClass
+    this.graphicSymbolOptions = [];
+    this.selectionClass = '';
   }
 
   onDragDropEvent(event: DragDropEvent) {

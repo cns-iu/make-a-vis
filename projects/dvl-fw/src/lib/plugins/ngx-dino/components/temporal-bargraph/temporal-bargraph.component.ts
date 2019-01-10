@@ -7,7 +7,10 @@ import { createDefaultFieldGroup, createFieldNameMapping } from '../utility';
 
 export type Properties = Pick<
   NgxTemporalBargraphComponent,
-  'barSpacing'
+  'defaultBarWeight' | 'defaultBarColor' | 'defaultBarTransparency' |
+  'defaultBarStrokeColor' | 'defaultBarStrokeWidth' | 'defaultBarStrokeTransparency' |
+  'defaultBarLabel' | 'defaultBarLabelPosition' | 'defaultBarTooltip' |
+  'barSpacing' | 'barLabelMaxLength'
 >;
 
 export type BarFields = Pick<
@@ -38,16 +41,22 @@ const barsFieldNameMapping = createFieldNameMapping([
 })
 export class TemporalBargraphComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
   readonly defaultProperties = {
-    barSpacing: undefined
-  };
+    defaultBarWeight: undefined, defaultBarColor: undefined, defaultBarTransparency: undefined,
+    defaultBarStrokeColor: undefined, defaultBarStrokeWidth: undefined, defaultBarStrokeTransparency: undefined,
+    defaultBarLabel: undefined, defaultBarLabelPosition: 'left', defaultBarTooltip: undefined,
+    barSpacing: 40, barLabelMaxLength: 50
+  } as Properties;
 
   readonly defaultFieldGroups = {
-    bars: createDefaultFieldGroup([
-      'barIdField', 'barStartField', 'barEndField', 'barWeightField',
-      'barStackOrderField', 'barColorField', 'barTransparencyField',
-      'barStrokeColorField', 'barStrokeWidthField', 'barStrokeTransparencyField',
-      'barLabelField', 'barLabelPositionField', 'barTooltipField'
-    ])
+    bars: createDefaultFieldGroup(
+      ['barIdField'],
+      [
+        'barStartField', 'barEndField',
+        'barWeightField', 'barStackOrderField', 'barColorField', 'barTransparencyField',
+        'barStrokeColorField', 'barStrokeWidthField', 'barStrokeTransparencyField',
+        'barLabelField', 'barLabelPositionField', 'barTooltipField'
+      ]
+    )
   };
 
   fieldNameFor(key: string, _group: string): string {
