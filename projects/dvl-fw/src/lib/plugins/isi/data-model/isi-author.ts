@@ -1,5 +1,5 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
-import { access, chain, constant, Operand } from '@ngx-dino/core';
+import { access, chain, constant, map, Operand } from '@ngx-dino/core';
 
 import {
   areaSizeScaleNormQuantitative, extractPoint, fontSizeScaleNormQuantitative, formatNumber, formatYear,
@@ -82,6 +82,9 @@ export class Author {
   numCitesColor: string;
   @Operand<string>(chain(access('numCitesNorm'), colorScaleNormQuantitativeStroke))
   numCitesStrokeColor: string;
+
+  @Operand<string>(map(a => a.numCitesNorm > 15 ? a.name : undefined))
+  numCitesTopLabel: string;
 
   // First Year Encodings
   @Operand<number>(norm0to100('firstYear', 'globalStats.yearMax', 'globalStats.yearMin'))
