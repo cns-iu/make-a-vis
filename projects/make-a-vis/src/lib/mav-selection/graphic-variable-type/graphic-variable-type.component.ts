@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { select, Store } from '@ngrx/store';
+import { capitalize as loCapitalize } from 'lodash';
 
 import { DataVariable, GraphicSymbolOption, GraphicVariable,
   GraphicVariableOption, RecordStream
@@ -209,5 +210,9 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
 
   endHover(): void {
     this.hoverService.endHover();
+  }
+
+  capitalize(text: string): string {
+    return loCapitalize(text);
   }
 }

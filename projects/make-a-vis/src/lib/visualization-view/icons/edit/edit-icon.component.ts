@@ -12,5 +12,4 @@ export class EditIconComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

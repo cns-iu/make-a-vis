@@ -40,7 +40,7 @@ export class MainComponent implements OnInit {
       this.step = 0;
     }
 
-    if (this.mode === 'edit') {
+    if (this.activeVis && this.mode === 'edit') {
       this.step = 1;
     }
 
