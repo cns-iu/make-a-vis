@@ -41,6 +41,7 @@ export class GraphicVariableIconComponent implements OnInit, OnChanges {
     this.graphicVariableOption.visualization;
     if (!!template) {
       this.legendService.createLegend(template, graphicVariable, graphicSymbol).subscribe((legend) => {
+        legend.graphicSymbols = {}; // Clear symbol since this is a static legend
         this.legend = legend;
     });
     }
