@@ -58,6 +58,10 @@ export class MainComponent {
     ).subscribe(component => (component as any).runDataChangeDetection());
   }
 
+  get doesVisExist() {
+    return (this.selectedVis > -1 && this.visualizations.length);
+  }
+
   setSelectedVis(index: number, visualization: Visualization, force = false): void {
     if (index !== this.selectedVis || force) {
       this.selectedVis = index;
@@ -92,10 +96,9 @@ export class MainComponent {
   }
 
   toggleSelPanel(mode: ModeType) {
-    if (mode) {
-      this.updatePanelState(mode);
-      this.updateModeButtonState(mode);
-    }
+    this.updatePanelState(mode);
+    this.updateModeButtonState(mode);
+
     this.emitToggleSelectionPanelEvent();
   }
 
@@ -123,11 +126,15 @@ export class MainComponent {
     }
 
     if (mode === 'edit') {
-      this.addIconName = this.addIcons[1];
-      this.editButtonState = !this.editButtonState;
+      if (this.doesVisExist) {
+        this.addIconName = this.addIcons[1];
+        this.editButtonState = !this.editButtonState;
 
-      if (!this.visPanelState) {
-        this.currentAddVisMode = undefined;
+        if (!this.visPanelState) {
+          this.currentAddVisMode = undefined;
+        }
+      } else {
+        this.editButtonState = false;
       }
     }
   }

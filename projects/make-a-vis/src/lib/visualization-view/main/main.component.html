@@ -12,7 +12,6 @@
 
             <ng-template matTabContent>
                 <div class="visualization-wrapper">
-
                     <!-- active class is used by export to select the element -->
                     <div class="visualization-container" [ngClass]="{ active: index === selectedVis }">
                         <dvl-visualization #visualizations [data]="vis.data"></dvl-visualization>
@@ -33,6 +32,6 @@
     </mat-tab-group>
     <div class="add-edit-visualization">
         <mat-icon class="add-icon" (click)="toggleSelPanel('add')">{{addIconName}}</mat-icon>
-        <mav-edit-icon class="edit-icon" (click)="toggleSelPanel('edit')" [isActive]="editButtonState"></mav-edit-icon>
+        <mav-edit-icon class="edit-icon" (click)="doesVisExist? toggleSelPanel('edit'): undefined" [isActive]="editButtonState" [ngClass]="{'edit-icon-disabled': !doesVisExist}"></mav-edit-icon>
     </div>
 </div>
