@@ -95,7 +95,7 @@ implements VisualizationComponent, OnInit, OnChanges, OnPropertyChange, OnGraphi
 
         const changed = this.applyChanges<GraphicVariable, BoundField<any>>(
           graphicVariables, newFields[key], this.defaultFieldGroups[key],
-          k => this.fieldNameFor(k, key), v => v.asBoundField(), (v1, v2) => v1.equals(v2)
+          k => this.fieldNameFor(k, key), v => v.asBoundField(), (v1, v2) =>  v1 && v2 && v1.equals(v2)
         );
 
         if (currentValue && (!previousValue || currentStream !== previousStream || changed)) {
@@ -160,7 +160,7 @@ implements VisualizationComponent, OnInit, OnChanges, OnPropertyChange, OnGraphi
       if (hasOwnProperty.call(obj, key)) {
         const oldValue = obj[key];
         const newValue = rawValue !== undefined ? projFn(rawValue) : defaults[key];
-        if (!eqFn(oldValue, newValue)) {
+        if (oldValue !== newValue && !eqFn(oldValue, newValue)) {
           obj[key] = newValue;
           changed = true;
         }
