@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { select, Store } from '@ngrx/store';
+import { capitalize as loCapitalize } from 'lodash';
 
 import { GraphicSymbolOption, RecordStream } from '@dvl-fw/core';
 import { DragDropEvent } from '../../drag-drop';
@@ -94,5 +95,9 @@ export class GraphicSymbolTypeComponent implements OnInit, OnChanges {
     } else if (event.type === 'drag-end') {
       this.selectionClass = '';
     }
+  }
+
+  capitalize(text: string): string {
+    return loCapitalize(text);
   }
 }
