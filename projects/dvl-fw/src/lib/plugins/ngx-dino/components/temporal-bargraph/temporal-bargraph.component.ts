@@ -44,15 +44,14 @@ export class TemporalBargraphComponent extends BaseVisualizationComponent<Proper
     defaultBarWeight: undefined, defaultBarColor: undefined, defaultBarTransparency: undefined,
     defaultBarStrokeColor: undefined, defaultBarStrokeWidth: undefined, defaultBarStrokeTransparency: undefined,
     defaultBarLabel: undefined, defaultBarLabelPosition: 'left', defaultBarTooltip: undefined,
-    barSpacing: 20, barLabelMaxLength: 50
+    barSpacing: 40, barLabelMaxLength: 50
   } as Properties;
 
   readonly defaultFieldGroups = {
     bars: createDefaultFieldGroup(
+      ['barIdField'],
       [
-        'barIdField', 'barStartField', 'barEndField'
-      ],
-      [
+        'barStartField', 'barEndField',
         'barWeightField', 'barStackOrderField', 'barColorField', 'barTransparencyField',
         'barStrokeColorField', 'barStrokeWidthField', 'barStrokeTransparencyField',
         'barLabelField', 'barLabelPositionField', 'barTooltipField'
