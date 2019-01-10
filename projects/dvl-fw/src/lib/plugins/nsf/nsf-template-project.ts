@@ -156,9 +156,6 @@ export class NSFTemplateProject extends DefaultProject {
               strokeTransparency: [
                 {id: 'fixed', selector: 'defaultStyles.strokeTransparency', label: 'Default'}
               ],
-              labelPosition: [
-                {id: 'fixed', selector: 'defaultStyles.labelPosition', label: 'Default'}
-              ]
             },
             title: {
               identifier: [
@@ -817,12 +814,6 @@ export class NSFTemplateProject extends DefaultProject {
             dataVariable: 'title',
             graphicVariableType: 'text',
             graphicVariableId: 'text'
-          },
-          labelPosition: {
-            recordSet: 'award',
-            dataVariable: 'id',
-            graphicVariableType: 'labelPosition',
-            graphicVariableId: 'fixed'
           },
           transparency: {
             recordSet: 'award',
