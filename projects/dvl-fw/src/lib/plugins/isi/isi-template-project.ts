@@ -479,9 +479,6 @@ export class ISITemplateProject extends DefaultProject {
               ]
             },
             name: {
-              identifier: [
-                {selector: 'name'}
-              ],
               axis: [
                 {selector: 'name'}
               ],
@@ -705,9 +702,6 @@ export class ISITemplateProject extends DefaultProject {
               ]
             },
             fullname: {
-              identifier: [
-                {selector: 'fullname'}
-              ],
               axis: [
                 {selector: 'fullname'}
               ],

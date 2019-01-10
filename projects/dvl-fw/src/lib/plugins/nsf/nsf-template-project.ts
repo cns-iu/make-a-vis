@@ -161,9 +161,6 @@ export class NSFTemplateProject extends DefaultProject {
               ]
             },
             title: {
-              identifier: [
-                {selector: 'id'}
-              ],
               axis: [
                 {selector: 'title'}
               ],
