@@ -156,14 +156,8 @@ export class NSFTemplateProject extends DefaultProject {
               strokeTransparency: [
                 {id: 'fixed', selector: 'defaultStyles.strokeTransparency', label: 'Default'}
               ],
-              labelPosition: [
-                {id: 'fixed', selector: 'defaultStyles.labelPosition', label: 'Default'}
-              ]
             },
             title: {
-              identifier: [
-                {selector: 'id'}
-              ],
               axis: [
                 {selector: 'title'}
               ],
@@ -563,34 +557,34 @@ export class NSFTemplateProject extends DefaultProject {
             },
             sourceX: {
               text: [
-                {selector: 'source[0]'}
+                {selector: 'Investigator1.position[0]'}
               ],
               axis: [
-                {selector: 'source[0]'}
+                {selector: 'Investigator1.position[0]'}
               ]
             },
             sourceY: {
               text: [
-                {selector: 'source[1]'}
+                {selector: 'Investigator1.position[1]'}
               ],
               axis: [
-                {selector: 'source[1]'}
+                {selector: 'Investigator1.position[1]'}
               ]
             },
             targetX: {
               text: [
-                {selector: 'target[0]'}
+                {selector: 'Investigator2.position[0]'}
               ],
               axis: [
-                {selector: 'target[0]'}
+                {selector: 'Investigator2.position[0]'}
               ]
             },
             targetY: {
               text: [
-                {selector: 'target[1]'}
+                {selector: 'Investigator2.position[1]'}
               ],
               axis: [
-                {selector: 'target[1]'}
+                {selector: 'Investigator2.position[1]'}
               ]
             },
             latitude1: {
@@ -817,12 +811,6 @@ export class NSFTemplateProject extends DefaultProject {
             dataVariable: 'title',
             graphicVariableType: 'text',
             graphicVariableId: 'text'
-          },
-          labelPosition: {
-            recordSet: 'award',
-            dataVariable: 'id',
-            graphicVariableType: 'labelPosition',
-            graphicVariableId: 'fixed'
           },
           transparency: {
             recordSet: 'award',

@@ -479,9 +479,6 @@ export class ISITemplateProject extends DefaultProject {
               ]
             },
             name: {
-              identifier: [
-                {selector: 'name'}
-              ],
               axis: [
                 {selector: 'name'}
               ],
@@ -705,9 +702,6 @@ export class ISITemplateProject extends DefaultProject {
               ]
             },
             fullname: {
-              identifier: [
-                {selector: 'fullname'}
-              ],
               axis: [
                 {selector: 'fullname'}
               ],
@@ -886,34 +880,34 @@ export class ISITemplateProject extends DefaultProject {
             },
             sourceX: {
               text: [
-                {selector: 'source[0]'}
+                {selector: 'Author1.position[0]'}
               ],
               axis: [
-                {selector: 'source[0]'}
+                {selector: 'Author1.position[0]'}
               ]
             },
             sourceY: {
               text: [
-                {selector: 'source[1]'}
+                {selector: 'Author1.position[1]'}
               ],
               axis: [
-                {selector: 'source[1]'}
+                {selector: 'Author1.position[1]'}
               ]
             },
             targetX: {
               text: [
-                {selector: 'target[0]'}
+                {selector: 'Author2.position[0]'}
               ],
               axis: [
-                {selector: 'target[0]'}
+                {selector: 'Author2.position[0]'}
               ]
             },
             targetY: {
               text: [
-                {selector: 'target[1]'}
+                {selector: 'Author2.position[1]'}
               ],
               axis: [
-                {selector: 'target[1]'}
+                {selector: 'Author2.position[1]'}
               ]
             },
             latitude1: {
