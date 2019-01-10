@@ -1,94 +1,111 @@
-.datatable-wrapper
-    border: 1px solid #E0E0E0
-    margin-top: 0.625rem
-    padding-top: 0.5rem
-    padding-left: 2.5rem
-    border-color: transparent
+.mav-datatable-container
+    visibility: visible
+    transition: visibility 0.3s, max-height 0.3s
+    -webkit-transition: visibility 0.3s, max-height 0.3s
+    max-height: 100rem
 
-    .datatable-container
-        .card-header
-            line-height: 1.25rem
+    .datatable-wrapper
+        border: 1px solid #E0E0E0
+        margin-top: 0.625rem
+        padding-top: 0.5rem
+        padding-left: 2.5rem
+        border-color: transparent
 
-            ::ng-deep .mat-card-header-text
-                margin: 0
+        .datatable-container
+            .card-header
+                line-height: 1.25rem
 
-            .label
-                color: #212121
-                font-size: .875rem
-                font-weight: bold
+                ::ng-deep .mat-card-header-text
+                    margin: 0
 
-            .description
-                color: #757575
-                font-size: .875rem
-                font-style: italic
-
-            .expand-icon
-                position: absolute
-                padding: 0.5rem
-                top: 0
-                left: 0
-                font-size: 1.5rem
-                color: #1E88E5
-                cursor: pointer
-                height: 2.5rem
-                width: 2.5rem
-
-        .card-content
-            margin-bottom: 0
-            ::ng-deep .mat-cell, .mat-footer-cell, .mat-header-cell
-                padding: 0.5rem
-
-            ::ng-deep .mat-header-row
-                min-height: 0
-                border-top: 1px solid #e0e0e0
-
-            ::ng-deep .mat-row
-                min-height: auto
-                align-items: start
-            .table
-                border-bottom: 1px solid #e0e0e0
-                overflow-x: auto
-                .row
-                    min-width: 132rem
-                    &:nth-child(even)
-                        background: #f5f5f5
-                .header-row
-                    min-width: 132rem
-
-                .header-cell
-                    font-weight: 700
+                .label
                     color: #212121
-                    font-size: 0.875rem
+                    font-size: .875rem
+                    font-weight: bold
 
-
-                    &:hover, &:active
-                        background-color: rgba(255,255,0,0.5)
-
-            ::ng-deep .highlight
-                background-color: rgba(255,255,0,0.5)
-
-        .card-footer
-            .toggle
-                cursor: pointer
-                display: flex
-                justify-content: flex-end
-
-                .toggle-group
-                    display: flex
-                    align-items: center
-                    padding: 0
-
-                .toggle-label
-                    color: #bdbdbd
-                    font-size: 0.7rem
+                .description
+                    color: #757575
+                    font-size: .875rem
+                    font-style: italic
 
                 .expand-icon
+                    position: absolute
+                    padding: 0.5rem
+                    top: 0
+                    left: 0
                     font-size: 1.5rem
                     color: #1E88E5
-                    top: 0
-                    padding: 0.5rem
+                    cursor: pointer
                     height: 2.5rem
                     width: 2.5rem
+
+            .card-content
+                margin-bottom: 0
+                ::ng-deep .mat-cell, .mat-footer-cell, .mat-header-cell
+                    padding: 0.5rem
+
+                ::ng-deep .mat-header-row
+                    min-height: 0
+                    border-top: 1px solid #e0e0e0
+
+                ::ng-deep .mat-row
+                    min-height: auto
+                    align-items: start
+                .table
+                    transition: max-height 0.5s
+                    -webkit-transition: max-height 0.5s
+                    max-height: 100rem
+                    border-bottom: 1px solid #e0e0e0
+                    overflow-x: auto
+                    .row
+                        min-width: 132rem
+                        &:nth-child(even)
+                            background: #f5f5f5
+                    .header-row
+                        min-width: 132rem
+
+                    .header-cell
+                        font-weight: 700
+                        color: #212121
+                        font-size: 0.875rem
+
+
+                        &:hover, &:active
+                            background-color: rgba(255,255,0,0.5)
+
+                ::ng-deep .highlight
+                    background-color: rgba(255,255,0,0.5)
+                .hidden-table
+                    max-height: 3.1rem
+                    height: auto
+
+            .card-footer
+                .toggle
+                    cursor: pointer
+                    display: flex
+                    justify-content: flex-end
+
+                    .toggle-group
+                        display: flex
+                        align-items: center
+                        padding: 0
+
+                    .toggle-label
+                        color: #bdbdbd
+                        font-size: 0.7rem
+
+                    .expand-icon
+                        font-size: 1.5rem
+                        color: #1E88E5
+                        top: 0
+                        padding: 0.5rem
+                        height: 2.5rem
+                        width: 2.5rem
+
+.mav-datatable-container-hidden
+    visibility: hidden
+    max-height: 0
+    height: auto
 
 .first-data-table
     margin-top: 0
