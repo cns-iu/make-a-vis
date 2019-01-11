@@ -2,6 +2,12 @@
 
 Changelog for Make-a-Vis and DVL-FW.
 
+## 0.13.0 - 2019-01-11
+
+### Added in 0.13.0
+
+- A lot of Bug Fixes, UI Tweaks, and Stabilization
+
 ## 0.10.0 - 2019-01-04
 
 ### Added in 0.10.0
