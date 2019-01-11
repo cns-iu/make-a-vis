@@ -1,10 +1,10 @@
-import { RecordStream } from './record-stream';
+import { RecordSet } from './record-set';
 
 export interface DataVariable {
   id: string;
   label: string;
   dataType: string;
   scaleType: string;
-  recordStream: RecordStream;
+  recordSet: RecordSet;
   toJSON(): any;
 }
