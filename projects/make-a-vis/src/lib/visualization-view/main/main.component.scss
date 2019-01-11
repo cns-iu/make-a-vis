@@ -63,6 +63,12 @@
     border: 1px solid transparent;
     border-radius: 4px;
     height: 3.125rem;
+    .tab {
+        padding-bottom: 0.375rem !important;
+        .label {
+            padding-right: 0.635rem !important;
+        }
+    }
 }
 
 ::ng-deep .visualization-group .mat-tab-label {
