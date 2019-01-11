@@ -15,10 +15,10 @@ export class VisualizationTypeComponent implements OnInit, OnChanges {
   selected: VisType;
   visTypes: VisType[] = [
     { template: 'scattergraph', label: 'Scatter Graph', icon: 'scatterGraph' },
+    { template: 'temporal-bargraph', label: 'Temporal Bar Graph', icon: 'tbg' },
     { template: 'geomap', label: 'Geomap', icon: 'geomap' },
     { template: 'science-map', label: 'Map of Science', icon: 'mapOfScience' },
     { template: 'network', label: 'Network', icon: 'network' },
-    { template: 'temporal-bargraph', label: 'Temporal Bar Graph', icon: 'tbg' }
   ];
 
   constructor() { }
