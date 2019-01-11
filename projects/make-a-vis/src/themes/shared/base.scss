@@ -151,35 +151,22 @@
       color: $primary;
     }
   }
-
-  /*.about-text-short-container {
-    border-color: $border !important;
-    background-color: $white;
-
-    .about-text-short {
-      color: $secondary-text !important;
-    }
-    .expand-icon {
-      color: $primary;
-    }
-  }*/
 }
 
-
-/*.about-text-long-menu {
-  border-color: $border !important;
-
-  .about-text-long {
-    color: $secondary-text !important;
+.about-expansion-panel-header {
+  .about-expansion-panel-title-wrapper {
+      .about-expansion-panel-title {
+        color: $secondary-text;
+      }
   }
-  .expand-icon {
-    color: $primary;
-  }
-}*/
+}
 
 .about-expansion-panel-container {
     border-left-color: $gray-accent-1 !important;
     border-right-color: $gray-accent-1 !important;
+    .mat-expansion-panel-content {
+      color: $secondary-text !important;
+    }
 }
 
 .mav-legend-view {

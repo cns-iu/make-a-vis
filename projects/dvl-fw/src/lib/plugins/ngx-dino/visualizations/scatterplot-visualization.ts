@@ -30,7 +30,7 @@ export class ScatterplotVisualization extends DefaultVisualization {
       { type: 'axis', label: 'Y-Axis', id: 'y', visualization: 'y-axis', required: true },
       { type: 'color', label: 'Color Hue', visualization: 'color', scaleType: 'nominal', staticVisualization: 'color-area' },
       // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
-      { type: 'areaSize', label: 'Size', visualization: 'node-size', scaleType: 'ratio', required: true, staticVisualization: 'area-size' },
+      { type: 'areaSize', label: 'Size', visualization: 'node-size', scaleType: 'ratio', staticVisualization: 'area-size' },
       // { type: 'shape', label: 'Shape' },
       // { type: 'transparency', label: 'Transparency' },
       // { type: 'strokeTransparency', label: 'Stroke Transparency' },
