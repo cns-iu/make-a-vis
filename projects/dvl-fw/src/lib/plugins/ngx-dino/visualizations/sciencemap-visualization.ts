@@ -13,7 +13,7 @@ export class SciencemapVisualization extends DefaultVisualization {
     graphicVariableOptions: [
       { type: 'identifier', label: 'Identifier', visualization: 'id', scaleType: 'ratio', required: true },
       { type: 'color', label: 'Color Hue', visualization: 'color', scaleType: 'nominal', staticVisualization: 'color-area' },
-      { type: 'areaSize', label: 'Size', visualization: 'node-size', scaleType: 'ratio', required: true, staticVisualization: 'area-size' },
+      { type: 'areaSize', label: 'Size', visualization: 'node-size', scaleType: 'ratio', staticVisualization: 'area-size' },
       { id: 'tooltip', type: 'text', label: 'Tooltip', visualization: 'label' }
     ]
   }];
