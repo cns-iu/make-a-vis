@@ -6,7 +6,8 @@ import { DefaultVisualization } from '../../default/default-visualization';
 import { SciencemapComponent } from '../components/sciencemap/sciencemap.component';
 
 export class SciencemapVisualization extends DefaultVisualization {
-  readonly description = 'TODO';
+  // tslint:disable-next-line: max-line-length
+  readonly description = 'The UCSD map of science depicts a network of 554 subdiscipline nodes that are aggregated to 13 main disciplines of science. Each discipline has a distinct color and is labeled. Overlaid are circles, each representing the number of records, e.g., journal papers, per unique subdiscipline. The Unclassified and Multidisciplinary nodes in the lower left represent all records that could not be matched and all records that were published in multidisciplinary journals such as Science, Nature, etc., respectively.  Circle area is proportional to the number of papers and the minimum and maximum values are given in the legend. Node tooltips reveal the names of subdiscipline nodes.';
   readonly component = SciencemapComponent;
   readonly graphicSymbolOptions = [{
     id: 'subdisciplinePoints', label: 'Subdiscipline Points', type: 'area',
