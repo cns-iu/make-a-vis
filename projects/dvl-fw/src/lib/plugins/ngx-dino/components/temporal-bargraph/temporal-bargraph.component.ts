@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 
 import { TemporalBargraphComponent as NgxTemporalBargraphComponent } from '@ngx-dino/temporal-bargraph';
+import { defaultStyles } from '../../../../encoding';
 import { BaseVisualizationComponent } from '../base-visualization-component';
 import { createDefaultFieldGroup, createFieldNameMapping } from '../utility';
 
@@ -37,13 +38,14 @@ const barsFieldNameMapping = createFieldNameMapping([
 @Component({
   selector: 'dvl-vis-temporal-bargraph',
   templateUrl: './temporal-bargraph.component.html',
-  styleUrls: ['./temporal-bargraph.component.css']
+  styleUrls: ['./temporal-bargraph.component.scss']
 })
 export class TemporalBargraphComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
   readonly defaultProperties = {
-    defaultBarWeight: undefined, defaultBarColor: undefined, defaultBarTransparency: undefined,
-    defaultBarStrokeColor: undefined, defaultBarStrokeWidth: undefined, defaultBarStrokeTransparency: undefined,
-    defaultBarLabel: undefined, defaultBarLabelPosition: 'left', defaultBarTooltip: undefined,
+    defaultBarWeight: undefined, defaultBarColor: undefined, defaultBarTransparency: defaultStyles.transparency,
+    defaultBarStrokeColor: defaultStyles.strokeColor, defaultBarStrokeWidth: defaultStyles.strokeWidth,
+    defaultBarStrokeTransparency: defaultStyles.strokeTransparency, defaultBarLabel: undefined,
+    defaultBarLabelPosition: defaultStyles.labelPosition, defaultBarTooltip: undefined,
     barSpacing: 40, barLabelMaxLength: 50
   } as Properties;
 

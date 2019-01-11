@@ -1,5 +1,6 @@
 
 @import '../shared/common-colors.scss';
+@import '../shared/typography.scss';
 
 $primary: $blue-600;
 $secondary: $pink-a700;
@@ -22,3 +23,5 @@ $white: $white-white;
 $gray-accent-1: $gray-300;
 $gray-accent-2: $gray-100;
 $gray-accent-3: $gray-50;
+
+$tooltip-font : $lato;
