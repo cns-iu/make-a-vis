@@ -7,20 +7,8 @@ import { ScatterplotComponent } from '../components/scatterplot/scatterplot.comp
 
 
 export class ScatterplotVisualization extends DefaultVisualization {
-  // TODO remove below string
-  readonly description = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-   incididunt ut labore et dolore magna aliqua.
-  Dui accumsan sit amet nulla facilisi. Neque volutpat ac tincidunt vitae semper quis lectus nulla at.
-  Enim ut sem viverra aliquet eget sit. Vehicula ipsum a arcu cursus vitae congue mauris. Urna et pharetra
-   pharetra massa massa. Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. At ultrices mi
-    tempus imperdiet nulla malesuada pellentesque elit eget. Sagittis nisl rhoncus mattis
-     rhoncus urna neque viverra justo. Urna cursus eget nunc scelerisque viverra
-     mauris in. Auctor urna nunc id cursus metus aliquam. Sed vulputate mi sit
-      amet mauris. Dolor magna eget est lorem ipsum dolor sit amet consectetur. Pretium aenean
-      pharetra magna ac placerat vestibulum. Turpis cursus in hac habitasse platea dictumst
-       quisque sagittis. Adipiscing vitae proin sagittis nisl rhoncus mattis
-       rhoncus urna. Massa placerat duis ultricies lacus sed. Orci eu lobortis
-        elementum nibh tellus. Ac turpis egestas maecenas pharetra convallis posuere morbi leo.`;
+  // tslint:disable-next-line: max-line-length
+  readonly description = 'A scatter graph is a visualization of type graph which uses Cartesian coordinates as a reference system. In the MAV scatter graph, records are represented by circles. Circles are placed based on values for two data variables--one plotted along the x-axis and the other along the y-axis. Circles can be size-coded and color-coded to represent additional data variables. Tooltips for nodes can be used to represent a third data variable.';
   readonly component = ScatterplotComponent;
   readonly graphicSymbolOptions = [{
     id: 'points', label: 'Points', type: 'area',

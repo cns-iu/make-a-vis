@@ -6,7 +6,8 @@ import { DefaultVisualization } from '../../default/default-visualization';
 import { GeomapComponent } from '../components/geomap/geomap.component';
 
 export class GeomapVisualization extends DefaultVisualization {
-  readonly description = 'TODO';
+  // tslint:disable-next-line: max-line-length
+  readonly description = 'U.S. Map: This proportional symbol map shows 52 U.S. states and other jurisdictions using the Albers equal-area conic projection with Alaska, Puerto Rico, and Hawaii inset. Each dataset record is represented by a circle centered at its geolocation. The area, interior color, and exterior color of each circle may represent numeric attribute values. Minimum and maximum data values are given in the legend.\n\nWorld Map: This proportional symbol map shows 209 countries of the world using the equal-area Eckert IV projection. Each dataset record is represented by a circle centered at its geolocation. The area, interior color, and exterior color of each circle may represent numeric attribute values. Minimum and maximum data values are given in the legend.';
   readonly component = GeomapComponent;
   readonly graphicSymbolOptions = [
     {

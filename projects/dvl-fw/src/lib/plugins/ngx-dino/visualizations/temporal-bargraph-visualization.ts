@@ -6,7 +6,8 @@ import { DefaultVisualization } from '../../default/default-visualization';
 import { TemporalBargraphComponent } from '../components/temporal-bargraph/temporal-bargraph.component';
 
 export class TemporalBargraphVisualization extends DefaultVisualization {
-  readonly description = 'TODO';
+  // tslint:disable-next-line: max-line-length
+  readonly description = 'This temporal bar graph visualization represents each record as a horizontal bar with a specific start and end date and a text label on its left side. The area of each bar encodes a numerical attribute value, e.g., total amount of funding. Bars may be colored to present categorical attribute values of records. Tooltips for bars can be used to represent an additional data variable.';
   readonly component = TemporalBargraphComponent;
   readonly graphicSymbolOptions = [{
     id: 'bars', label: 'Bars', type: 'area',
