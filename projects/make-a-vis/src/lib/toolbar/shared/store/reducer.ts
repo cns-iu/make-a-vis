@@ -153,9 +153,13 @@ export const getLoadedProjectSelector = createSelector<SidenavState, SidenavStat
 
 export const getRecordStreams = (state: SidenavState): RecordStream[] => {
   if (state.project && state.project.dataSources) {
-    return state.project.dataSources
+    const recordStreams = state.project.dataSources
       .map(source => source.recordStreams)
       .reduce((acc, s) => acc.concat(s), [] as RecordStream[]);
+
+    return recordStreams.filter((rs: RecordStream) => state.project.graphicVariables.some(
+      (gv: GraphicVariable) => rs.id === gv.recordStream.id)
+    );
   }
 };
 export const getRecordStreamsSelector = createSelector<SidenavState, SidenavState, RecordStream[]>(
