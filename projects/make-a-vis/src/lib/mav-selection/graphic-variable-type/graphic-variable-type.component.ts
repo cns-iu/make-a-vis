@@ -110,7 +110,7 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
         return ((gv.type && gv.type === graphicVariableOption.type)
         && (this.recordStreamMapping && this.recordStreamMapping.get(graphicSymbolOption.id))
         && (gv.recordStream.id === this.recordStreamMapping.get(graphicSymbolOption.id).id)
-        && (dataVariable.recordStreamId === this.recordStreamMapping.get(graphicSymbolOption.id).id)
+        && (dataVariable.recordStream.id === this.recordStreamMapping.get(graphicSymbolOption.id).id)
         && (gv.dataVariable.id === dataVariable.id));
       });
       return filteredGVs;
@@ -192,7 +192,7 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
 
   shouldHighlight(graphicVariableOption: GraphicVariableOption, graphicSymbolOption: GraphicSymbolOption): boolean {
     return this.getMappableGraphicVariables(
-      { id: this.currentHighlightId, recordStreamId: this.selectedDataVariableRecordStreamId } as any,
+      { id: this.currentHighlightId, recordStream: { id: this.selectedDataVariableRecordStreamId } } as any,
       graphicVariableOption, graphicSymbolOption
     ).length !== 0;
   }

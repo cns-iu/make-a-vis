@@ -67,11 +67,11 @@ export class TableComponent implements OnChanges {
   }
 
   shouldHighlight(column: DataVariable): boolean {
-    return this.hoverIds.indexOf(column.id) !== -1 && column.recordStreamId === this.hoverRecordStreamId;
+    return this.hoverIds.indexOf(column.id) !== -1 && column.recordStream.id === this.hoverRecordStreamId;
   }
 
   startHover(data: DataVariable): void {
-    this.hoverService.startHover(['table', data.id, data.recordStreamId]);
+    this.hoverService.startHover(['table', data.id, data.recordStream.id]);
   }
 
   endHover(_data: DataVariable): void {
