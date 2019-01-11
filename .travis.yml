@@ -61,7 +61,7 @@ jobs:
     if: tag IS present
     script:
     - npm run build:build-info
-    - npm run build:make-a-vis
+    - npm run build:libs
     before_deploy:
     - cd dist/make-a-vis
     after_deploy: &1
