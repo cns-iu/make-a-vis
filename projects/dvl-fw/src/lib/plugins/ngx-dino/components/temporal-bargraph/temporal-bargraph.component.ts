@@ -38,7 +38,7 @@ const barsFieldNameMapping = createFieldNameMapping([
 @Component({
   selector: 'dvl-vis-temporal-bargraph',
   templateUrl: './temporal-bargraph.component.html',
-  styleUrls: ['./temporal-bargraph.component.css']
+  styleUrls: ['./temporal-bargraph.component.scss']
 })
 export class TemporalBargraphComponent extends BaseVisualizationComponent<Properties, FieldGroups> {
   readonly defaultProperties = {
