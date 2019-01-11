@@ -35,7 +35,7 @@
     "@ngx-dino/geomap": "^0.12.0",
     "@ngx-dino/legend": "^0.12.2",
     "@ngx-dino/network": "^0.14.1",
-    "@ngx-dino/scatterplot": "^0.10.4",
+    "@ngx-dino/scatterplot": "^0.11.0",
     "@ngx-dino/science-map": "^0.9.4",
     "@ngx-dino/temporal-bargraph": "^0.2.2",
     "@ngx-dino/vega-util": "^0.9.0",
