@@ -28,12 +28,9 @@ export class MainComponent {
 
   constructor(private store: Store<ApplicationState>, private updateService: UpdateVisService) {
     store.pipe(select(getUiFeature)).subscribe(({ activeVisualization, project }) => {
-      const changed = activeVisualization.visualizationIndex !== this.lastActiveVisualizationIndex || project !== this.lastProject;
       this.lastActiveVisualizationIndex = activeVisualization.visualizationIndex;
       this.lastProject = project;
-      if (changed) {
-        this.setState(project, activeVisualization.visualizationIndex);
-      }
+      this.setState(project, activeVisualization.visualizationIndex);
     });
   }
 
