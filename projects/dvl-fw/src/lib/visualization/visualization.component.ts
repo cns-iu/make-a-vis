@@ -19,7 +19,7 @@ interface VisualizationChange {
 @Component({
   selector: 'dvl-visualization',
   templateUrl: './visualization.component.html',
-  styleUrls: ['./visualization.component.css']
+  styleUrls: ['./visualization.component.scss']
 })
 export class DvlFwVisualizationComponent implements OnInit, OnChanges {
   @Input() data: Visualization = undefined;
