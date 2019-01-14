@@ -43,6 +43,8 @@
                 margin-bottom: 0
                 ::ng-deep .mat-cell, .mat-footer-cell, .mat-header-cell
                     padding: 0.5rem
+                    min-width: 12rem
+                    max-width: 12rem
 
                 ::ng-deep .mat-header-row
                     min-height: 0
@@ -58,11 +60,11 @@
                     border-bottom: 1px solid #e0e0e0
                     overflow-x: auto
                     .row
-                        min-width: 132rem
+                        width: fit-content
                         &:nth-child(even)
                             background: #f5f5f5
                     .header-row
-                        min-width: 132rem
+                        width: fit-content
 
                     .header-cell
                         font-weight: 700
