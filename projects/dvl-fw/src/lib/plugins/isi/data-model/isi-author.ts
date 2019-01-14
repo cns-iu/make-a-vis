@@ -46,6 +46,9 @@ export class Author {
     Object.assign(this, data);
   }
 
+  @Operand(chain(access<number[]>('position'), map(p => p ? p.map(e => parseFloat(e.toFixed(2))) : undefined)))
+  positionLabel: [string, string];
+
   // Positions
   @Operand<number[]>(extractPoint('location.latitude', 'location.longitude'))
   latlng: [number, number];

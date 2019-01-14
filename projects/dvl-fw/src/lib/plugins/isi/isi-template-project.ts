@@ -687,7 +687,7 @@ export class ISITemplateProject extends DefaultProject {
             },
             x: {
               text: [
-                {selector: 'position[0]'}
+                {selector: 'positionLabel[0]'}
               ],
               axis: [
                 {selector: 'position[0]'}
@@ -695,7 +695,7 @@ export class ISITemplateProject extends DefaultProject {
             },
             y: {
               text: [
-                {selector: 'position[1]'}
+                {selector: 'positionLabel[1]'}
               ],
               axis: [
                 {selector: 'position[1]'}
@@ -880,7 +880,7 @@ export class ISITemplateProject extends DefaultProject {
             },
             sourceX: {
               text: [
-                {selector: 'Author1.position[0]'}
+                {selector: 'author1PositionLabel[0]'}
               ],
               axis: [
                 {selector: 'Author1.position[0]'}
@@ -888,7 +888,7 @@ export class ISITemplateProject extends DefaultProject {
             },
             sourceY: {
               text: [
-                {selector: 'Author1.position[1]'}
+                {selector: 'author1PositionLabel[1]'}
               ],
               axis: [
                 {selector: 'Author1.position[1]'}
@@ -896,7 +896,7 @@ export class ISITemplateProject extends DefaultProject {
             },
             targetX: {
               text: [
-                {selector: 'Author2.position[0]'}
+                {selector: 'author2PositionLabel[0]'}
               ],
               axis: [
                 {selector: 'Author2.position[0]'}
@@ -904,7 +904,7 @@ export class ISITemplateProject extends DefaultProject {
             },
             targetY: {
               text: [
-                {selector: 'Author2.position[1]'}
+                {selector: 'author2PositionLabel[1]'}
               ],
               axis: [
                 {selector: 'Author2.position[1]'}
