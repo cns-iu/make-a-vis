@@ -202,7 +202,6 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   updateActionButtonStatus() {
     let result = true;
     this.requiredGraphicVariablesMapping.forEach((reqGVIds, gsoId) => {
-      console.log(reqGVIds, gsoId);
       result = result && reqGVIds.every((gvId) => {
         if (this.selectedDataVariablesMapping.get(gsoId)) {
           return this.selectedDataVariablesMapping.get(gsoId).get(gvId) ? true : false;
