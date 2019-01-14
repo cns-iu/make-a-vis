@@ -370,12 +370,12 @@ export class NSFTemplateProject extends DefaultProject {
                 {selector: 'positionLabel[0]'}
               ],
               axis: [
-                {selector: 'positionLabel[1]'}
+                {selector: 'position[1]'}
               ]
             },
             y: {
               text: [
-                {selector: 'position[1]'}
+                {selector: 'positionLabel[1]'}
               ],
               axis: [
                 {selector: 'position[1]'}
@@ -557,7 +557,7 @@ export class NSFTemplateProject extends DefaultProject {
             },
             sourceX: {
               text: [
-                {selector: 'Investigator1.position[0]'}
+                {selector: 'Investigator1.positionLabel[0]'}
               ],
               axis: [
                 {selector: 'Investigator1.position[0]'}
@@ -565,7 +565,7 @@ export class NSFTemplateProject extends DefaultProject {
             },
             sourceY: {
               text: [
-                {selector: 'Investigator1.position[1]'}
+                {selector: 'Investigator1.positionLabel[1]'}
               ],
               axis: [
                 {selector: 'Investigator1.position[1]'}
@@ -573,7 +573,7 @@ export class NSFTemplateProject extends DefaultProject {
             },
             targetX: {
               text: [
-                {selector: 'Investigator2.position[0]'}
+                {selector: 'Investigator2.positionLabel[0]'}
               ],
               axis: [
                 {selector: 'Investigator2.position[0]'}
@@ -581,7 +581,7 @@ export class NSFTemplateProject extends DefaultProject {
             },
             targetY: {
               text: [
-                {selector: 'Investigator2.position[1]'}
+                {selector: 'Investigator2.positionLabel[1]'}
               ],
               axis: [
                 {selector: 'Investigator2.position[1]'}
