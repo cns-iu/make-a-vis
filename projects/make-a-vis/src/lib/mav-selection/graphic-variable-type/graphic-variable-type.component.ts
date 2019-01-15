@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { capitalize as loCapitalize } from 'lodash';
 
@@ -10,13 +10,14 @@ import { DataVariableHoverService } from '../../shared/services/hover/data-varia
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import { Vis } from '../../shared/types';
 import { getAvailableGraphicVariablesSelector, SidenavState } from '../../toolbar/shared/store';
+import { GVGroupPanelOpened, GVGroupPanelClosed } from '../shared/store';
 
 @Component({
   selector: 'mav-selection-graphic-variable-type',
   templateUrl: './graphic-variable-type.component.html',
   styleUrls: ['./graphic-variable-type.component.sass']
 })
-export class GraphicVariableTypeComponent implements OnInit, OnChanges {
+export class GraphicVariableTypeComponent implements OnChanges {
   @Input() activeVis: Vis;
   @Input() recordStreamMapping: Map<string, RecordStream>;
   @Output() gvSelectionMade = new EventEmitter<boolean>();
@@ -31,7 +32,7 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   gvSelected = false;
 
   constructor(
-    store: Store<SidenavState>,
+    private store: Store<any>,
     private updateService: UpdateVisService,
     private hoverService: DataVariableHoverService
   ) {
@@ -47,9 +48,6 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
         this.selectedDataVariableRecordSetId = event[2];
       }
     });
-  }
-
-  ngOnInit() {
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -223,5 +221,23 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
 
   capitalize(text: string): string {
     return loCapitalize(text);
+  }
+
+  panelOpened(gsOption: GraphicSymbolOption): void {
+    const gsId = gsOption.id;
+    const mapping = this.selectedDataVariablesMapping.get(gsId);
+    const dvs = mapping && Array.from(mapping.values());
+    const rs = dvs && dvs.length > 0 && dvs[0].recordSet;
+    const rsId = rs && rs.id;
+    this.store.dispatch(new GVGroupPanelOpened({ gsId, streamId: rsId }));
+  }
+
+  panelClosed(gsOption: GraphicSymbolOption): void {
+    const gsId = gsOption.id;
+    const mapping = this.selectedDataVariablesMapping.get(gsId);
+    const dvs = mapping && Array.from(mapping.values());
+    const rs = dvs && dvs.length > 0 && dvs[0].recordSet;
+    const rsId = rs && rs.id;
+    this.store.dispatch(new GVGroupPanelClosed({ gsId, streamId: rsId }));
   }
 }

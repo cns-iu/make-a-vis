@@ -8,6 +8,7 @@ import { ProjectSerializerService, RecordStream, Visualization } from '@dvl-fw/c
 import { ModeType, ToggleSelectionPanelType, Vis, VisType } from '../../shared/types';
 import { getLoadedProjectSelector, SidenavState } from '../../toolbar/shared/store';
 import { VisualizationTypeComponent } from '../visualization-type/visualization-type.component';
+import { GVPanelOpened, GVPanelClosed } from '../shared/store';
 
 @Component({
   selector: 'mav-selection',
@@ -26,7 +27,7 @@ export class MainComponent implements OnInit {
   visSelectionButtonState = false;
   gvSelectionButtonState = false;
 
-  constructor(private store: Store<SidenavState>, private serializer: ProjectSerializerService) { }
+  constructor(private store: Store<any>, private serializer: ProjectSerializerService) { }
 
   ngOnInit() {
   }
@@ -123,5 +124,13 @@ export class MainComponent implements OnInit {
 
   gvSelectionMade(selectionMade: boolean) {
     this.gvSelectionButtonState = selectionMade;
+  }
+
+  gvPanelOpened(): void {
+    this.store.dispatch(new GVPanelOpened());
+  }
+
+  gvPanelClosed(): void {
+    this.store.dispatch(new GVPanelClosed());
   }
 }

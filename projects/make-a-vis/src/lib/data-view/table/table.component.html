@@ -1,5 +1,5 @@
 <div class="mav-datatable-container" [ngClass]="{'mav-datatable-container-hidden': dataSource.hidden}">
-    <mat-card class="datatable-wrapper"  [ngClass]="{'no-child': dataSource.children && dataSource.children.length <= 0, 'first-data-table': tableIndex == 0}" *ngIf="dataSource && dataSource.data && dataSource.data.length">
+    <mat-card class="datatable-wrapper" [ngClass]="{'no-child': dataSource.children && dataSource.children.length <= 0, 'first-data-table': tableIndex == 0}" *ngIf="dataSource && dataSource.data && dataSource.data.length">
         <div class="datatable-container">
             <mat-card-header class="card-header">
                 <mat-card-title>
@@ -15,7 +15,7 @@
             <mat-card-content class="card-content">
                 <mat-table [class.hidden-table]="dataSource.hiddenData || dataSource.hidden" [dataSource]="dataSource.data.slice(0,3)" class="table">
                     <ng-container [matColumnDef]="col.label" *ngFor="let col of displayedColumns">
-                        <mat-header-cell *matHeaderCellDef [mavDraggable]="col" class="header-cell" (mouseover)="startHover(col)" (mouseout)="endHover(col)" [class.highlight]="shouldHighlight(col)">{{col.label}}</mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef [class.hoverable]="isHoverable" [mavDraggable]="col" class="header-cell" (mouseover)="startHover(col)" (mouseout)="endHover(col)" [class.highlight]="shouldHighlight(col)">{{col.label}}</mat-header-cell>
                         <mat-cell *matCellDef="let element" class="mat-cell">{{element[col.id]}}</mat-cell>
                     </ng-container>
                     <mat-header-row *matHeaderRowDef="displayedColumnNames; sticky: true;" class="header-row"></mat-header-row>
