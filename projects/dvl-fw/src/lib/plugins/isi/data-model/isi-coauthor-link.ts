@@ -52,11 +52,6 @@ export class CoAuthorLink {
   @Operand<string>(chain(combine([access('author1'), access('author2')]), map(([a1, a2]) => a1 + a2)))
   identifier: string;
 
-  @Operand(chain(access<number[]>('Author1.position'), map(p => p ? p.map(e => parseFloat(e.toFixed(2))) : undefined)))
-  author1PositionLabel: [string, string];
-  @Operand(chain(access<number[]>('Author2.position'), map(p => p ? p.map(e => parseFloat(e.toFixed(2))) : undefined)))
-  author2PositionLabel: [string, string];
-
   // Positions
   @Operand<[number, number]>(access('Author1.position'))
   source: [number, number];
