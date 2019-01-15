@@ -102,6 +102,14 @@ export class Award {
   @Operand<string>(chain(access('awardInstrument'), awardInstrumentColorLookup))
   awardInstrumentColor: string;
 
+  @Operand(chain(access<string>('awardInstrument'), map(p => {
+    return p.replace(/\w\S*/g, (txt) => {
+          return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      }
+  );
+  })))
+  awardItrumentLabel: string;
+
   @Operand<number[]>(extractPoint('location.latitude', 'location.longitude'))
   latlng: [number, number];
 
