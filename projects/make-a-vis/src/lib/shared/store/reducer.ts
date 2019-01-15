@@ -5,9 +5,11 @@ import { Project } from '@dvl-fw/core';
 import * as fromUi from '../../toolbar/shared/store/';
 import { sidenavStateReducer } from '../../toolbar/shared/store/reducer';
 import { ApplicationState } from './state';
+import { mavSelectionStateReducer } from '../../mav-selection/shared/store';
 
 export const reducers: ActionReducerMap<ApplicationState> = {
-  ui: sidenavStateReducer
+  ui: sidenavStateReducer,
+  mavSelection: mavSelectionStateReducer
 };
 
 // get feature state from Application State
