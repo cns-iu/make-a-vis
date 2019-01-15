@@ -1,14 +1,14 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { combineLatest, distinctUntilChanged, map } from 'rxjs/operators';
-import { Store } from '@ngrx/store';
 import { DataVariable } from '@dvl-fw/core';
+import { Store } from '@ngrx/store';
+import { combineLatest, distinctUntilChanged, map } from 'rxjs/operators';
 
+import * as payloadTypes from '../../data-view/shared/store/payload-types';
+import { isGVPanelOpenSelector, getOpenGVGroupPanelsSelector } from '../../mav-selection/shared/store';
 import { ActionDispatcherService } from '../../shared/services/actionDispatcher/action-dispatcher.service';
 import { DataSource, DataService } from '../shared/data.service';
-import * as payloadTypes from '../../data-view/shared/store/payload-types';
 import { DataVariableHoverService } from '../../shared/services/hover/data-variable-hover.service';
-import { isGVPanelOpenSelector, getOpenGVGroupPanelsSelector } from '../../mav-selection/shared/store';
 
 
 /** Flat node with expandable and level information */

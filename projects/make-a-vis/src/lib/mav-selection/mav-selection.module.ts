@@ -20,6 +20,9 @@ import { TemporalBargraphIconComponent } from './visualization-type/icons/tempor
 import { GraphicVariableIconComponent } from './graphic-variable-icon/graphic-variable-icon.component';
 import { mavSelectionStateReducer } from './shared/store';
 
+// Needed for angulars broken aot compiler
+export function reduceWrapper(state: any, action: any): any { return mavSelectionStateReducer(state, action); }
+
 @NgModule({
   imports: [
     CommonModule,
@@ -31,7 +34,7 @@ import { mavSelectionStateReducer } from './shared/store';
     MatIconModule,
     MatSidenavModule,
     StaticLegendModule,
-    StoreModule.forFeature('mavSelection', mavSelectionStateReducer)
+    StoreModule.forFeature('mavSelection', reduceWrapper)
   ],
   declarations: [
     MainComponent, GraphicSymbolTypeComponent, GraphicVariableTypeComponent, VisualizationTypeComponent,
