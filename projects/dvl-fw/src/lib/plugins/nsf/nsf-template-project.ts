@@ -178,13 +178,13 @@ export class NSFTemplateProject extends DefaultProject {
                 {selector: 'awardInstrument'}
               ],
               text: [
-                {selector: 'awardInstrument'}
+                {selector: 'awardInstrumentLabel'}
               ],
               input: [
                 {selector: 'awardInstrument'}
               ],
               label: [
-                {selector: 'awardInstrument'}
+                {selector: 'awardInstrumentLabel'}
               ],
               order: [
                 {selector: 'awardInstrument'},
