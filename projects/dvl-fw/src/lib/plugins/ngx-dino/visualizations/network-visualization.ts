@@ -7,7 +7,7 @@ import { NetworkComponent } from '../components/network/network.component';
 
 export class NetworkVisualization extends DefaultVisualization {
   // tslint:disable-next-line: max-line-length
-  readonly description = 'This network visualization show nodes connected by links. ForceAtlas2, a force-directed layout algorithm, is used to position nodes in a two-dimensional space. The algorithm aims to minimize edge crossings and to place nodes in a manner such that all edges are of more or less equal length. Nodes can be size and color coded. Edges can be thickness coded and color coded. Tooltips for nodes can be used to represent an additional data variable.';
+  readonly description = 'This network visualization presents nodes connected by links. ForceAtlas2, a force-directed layout algorithm, is used to position nodes in two-dimensional space. The algorithm aims to minimize edge crossings and to place nodes so that all edges are of more or less equal length. Nodes can be size and color coded, and edges can be thickness and color coded. An additional data variable can be presented through tooltips on the nodes.';
   readonly component = NetworkComponent;
   readonly graphicSymbolOptions = [
     {
