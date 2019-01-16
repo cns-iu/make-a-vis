@@ -24,7 +24,7 @@
                                 </div>
                             </mat-panel-title>
                         </mat-expansion-panel-header>
-                            {{vis.data.description}}
+                        <span [innerHTML]="vis.data.description | safe: 'html'"></span>
                     </mat-expansion-panel>
                 </div>
             </ng-template>

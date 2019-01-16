@@ -21,6 +21,7 @@ import { MapOfScienceIconComponent } from './icons/map-of-science/map-of-science
 import { NetworkIconComponent } from './icons/network/network-icon.component';
 import { ScatterGraphIconComponent } from './icons/scatter-graph/scatter-graph-icon.component';
 import { EditIconComponent } from './icons/edit/edit-icon.component';
+import { SafePipe } from './safe-pipe/safe.pipe';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { EditIconComponent } from './icons/edit/edit-icon.component';
     MapOfScienceIconComponent,
     NetworkIconComponent,
     ScatterGraphIconComponent,
-    EditIconComponent
+    EditIconComponent,
+    SafePipe
   ],
   exports: [MainComponent]
 })
