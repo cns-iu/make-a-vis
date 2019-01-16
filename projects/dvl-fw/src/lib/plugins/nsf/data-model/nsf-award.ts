@@ -1,6 +1,6 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { access, chain, map, lookup, Operand } from '@ngx-dino/core';
-import { startCase } from 'lodash';
+import { startCase, uniq } from 'lodash';
 
 import {
   areaSizeScaleNormQuantitative, extractPoint, formatNumber, formatYear, fontSizeScaleNormQuantitative,
@@ -97,7 +97,7 @@ export class Award {
   @Transient
   Investigators: Investigator[];
 
-  @Operand<string[]>(map(s => [s.piName].concat(s.coPiNames)))
+  @Operand<string[]>(map(s => uniq([s.piName].concat(s.coPiNames))))
   investigatorNames: string[];
 
   @Operand<string>(chain(access('awardInstrument'), awardInstrumentColorLookup))
