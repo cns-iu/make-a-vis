@@ -3,9 +3,11 @@
     <div class="title">Data</div>
     <mav-start-project-icon></mav-start-project-icon>
   </div>
-  <ng-container *ngFor="let dataSource of dataSources | async; index as i" #table>
-    <mav-table class="mav-table" [tableIndex]="i" [dataSource]="dataSource" [displayedColumns]="dataSource.columns" [style.padding-left.rem]="getPadding(dataSource.level)"></mav-table>
-  </ng-container>
+  <div [ngClass]="{'mav-table-container-fade-in': animateDataTableOptions.fadeIn, 'mav-table-container-fade-out': animateDataTableOptions.fadeOut}">
+    <ng-container *ngFor="let dataSource of dataSources | async; index as i" #table>
+      <mav-table class="mav-table" [tableIndex]="i" [dataSource]="dataSource" [displayedColumns]="dataSource.columns" [style.padding-left.rem]="getPadding(dataSource.level)"></mav-table>
+    </ng-container>
+  </div>
   <div class="data-view-message" *ngIf="showDataViewMessage">
       Add data or<br/>
       load a project
