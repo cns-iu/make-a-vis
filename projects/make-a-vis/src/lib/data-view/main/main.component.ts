@@ -12,10 +12,13 @@ import { DataService, DataSource } from '../shared/data.service';
 export class MainComponent implements OnInit {
   dataSources: Observable<DataSource[]>;
   showDataViewMessage = true;
+  animateDataTableOptions = { 'fadeOut': false, 'fadeIn': true };
 
   constructor(private dataService: DataService) {
     this.dataSources = dataService.dataSourcesChanged;
     this.dataSources.subscribe((d) => {
+      this.animateDataTableOptions.fadeIn = !this.animateDataTableOptions.fadeIn;
+      this.animateDataTableOptions.fadeOut = !this.animateDataTableOptions.fadeOut;
       if (d.length > 0) {
         this.showDataViewMessage = false;
       } else {
