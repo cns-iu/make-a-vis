@@ -1,5 +1,5 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
-import { access, chain, constant, Operand } from '@ngx-dino/core';
+import { access, chain, constant, Operand, map } from '@ngx-dino/core';
 
 import {
   areaSizeScaleNormQuantitative, extractPoint, fontSizeScaleNormQuantitative, formatNumber, formatYear,
@@ -45,6 +45,9 @@ export class Investigator {
   constructor(data: any) {
     Object.assign(this, data);
   }
+
+  @Operand(chain(access<number[]>('position'), map(p => p ? p.map(e => parseFloat(e.toFixed(2))) : undefined)))
+  positionLabel: [string, string];
 
   // Positions
   @Operand<number[]>(extractPoint('location.latitude', 'location.longitude'))

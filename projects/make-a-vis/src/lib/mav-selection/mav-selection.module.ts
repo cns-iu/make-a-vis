@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { StoreModule } from '@ngrx/store';
 import { DragDropModule } from '../drag-drop/drag-drop.module';
 import { MainComponent } from './main/main.component';
 import { GraphicSymbolTypeComponent } from './graphic-symbol-type/graphic-symbol-type.component';
@@ -17,6 +18,10 @@ import { ScienceMapIconComponent } from './visualization-type/icons/science-map-
 import { NetworkIconComponent } from './visualization-type/icons/network-icon/network-icon.component';
 import { TemporalBargraphIconComponent } from './visualization-type/icons/temporal-bargraph-icon/temporal-bargraph-icon.component';
 import { GraphicVariableIconComponent } from './graphic-variable-icon/graphic-variable-icon.component';
+import { mavSelectionStateReducer } from './shared/store';
+
+// Needed for angulars broken aot compiler
+export function reduceWrapper(state: any, action: any): any { return mavSelectionStateReducer(state, action); }
 
 @NgModule({
   imports: [
@@ -28,7 +33,8 @@ import { GraphicVariableIconComponent } from './graphic-variable-icon/graphic-va
     MatExpansionModule,
     MatIconModule,
     MatSidenavModule,
-    StaticLegendModule
+    StaticLegendModule,
+    StoreModule.forFeature('mavSelection', reduceWrapper)
   ],
   declarations: [
     MainComponent, GraphicSymbolTypeComponent, GraphicVariableTypeComponent, VisualizationTypeComponent,

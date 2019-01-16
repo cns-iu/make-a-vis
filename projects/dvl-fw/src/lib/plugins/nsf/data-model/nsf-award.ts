@@ -1,5 +1,7 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { access, chain, map, lookup, Operand } from '@ngx-dino/core';
+import { startCase } from 'lodash';
+
 import {
   areaSizeScaleNormQuantitative, extractPoint, formatNumber, formatYear, fontSizeScaleNormQuantitative,
   colorScaleNormQuantitative, colorScaleNormQuantitativeStroke, norm0to100, quantitativeTransparency,
@@ -9,7 +11,6 @@ import { Location } from '../../../encoding/geocoder';
 import { Transient } from '../../../shared/transient';
 
 import { Investigator } from './nsf-investigator';
-
 
 const awardInstrumentColorLookup = lookup({
   'Standard Grant': '#c51162', //
@@ -101,6 +102,9 @@ export class Award {
 
   @Operand<string>(chain(access('awardInstrument'), awardInstrumentColorLookup))
   awardInstrumentColor: string;
+
+  @Operand(chain(access<string>('awardInstrument'), map(p => startCase(p))))
+  awardInstrumentLabel: string;
 
   @Operand<number[]>(extractPoint('location.latitude', 'location.longitude'))
   latlng: [number, number];
