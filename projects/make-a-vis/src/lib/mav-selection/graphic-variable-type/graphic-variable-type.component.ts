@@ -263,19 +263,17 @@ export class GraphicVariableTypeComponent implements OnChanges {
 
   panelOpened(gsOption: GraphicSymbolOption): void {
     const gsId = gsOption.id;
-    const mapping = this.selectedDataVariablesMapping.get(gsId);
-    const dvs = mapping && Array.from(mapping.values());
-    const rs = dvs && dvs.length > 0 && dvs[0].recordSet;
-    const rsId = rs && rs.id;
-    this.store.dispatch(new GVGroupPanelOpened({ gsId, streamId: rsId }));
+    const mapping = this.recordStreamMapping;
+    const stream = mapping && mapping.get(gsId);
+    const streamId = stream && stream.id;
+    this.store.dispatch(new GVGroupPanelOpened({ gsId, streamId }));
   }
 
   panelClosed(gsOption: GraphicSymbolOption): void {
     const gsId = gsOption.id;
-    const mapping = this.selectedDataVariablesMapping.get(gsId);
-    const dvs = mapping && Array.from(mapping.values());
-    const rs = dvs && dvs.length > 0 && dvs[0].recordSet;
-    const rsId = rs && rs.id;
-    this.store.dispatch(new GVGroupPanelClosed({ gsId, streamId: rsId }));
+    const mapping = this.recordStreamMapping;
+    const stream = mapping && mapping.get(gsId);
+    const streamId = stream && stream.id;
+    this.store.dispatch(new GVGroupPanelClosed({ gsId, streamId }));
   }
 }

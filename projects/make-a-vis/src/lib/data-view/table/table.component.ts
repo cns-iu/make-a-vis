@@ -48,7 +48,7 @@ export class TableComponent implements OnChanges {
 
     store.select(getOpenGVGroupPanelsSelector).pipe(
       map(groups => groups.map(({ streamId }) => streamId)),
-      map(ids => ids.indexOf(this.dataSource && this.dataSource.id) !== -1),
+      map(ids => ids.indexOf(this.dataSource && this.dataSource.streamId) !== -1),
       combineLatest(store.select(isGVPanelOpenSelector)),
       map(values => values.every(v => v)),
       distinctUntilChanged()
