@@ -142,6 +142,7 @@ export class GraphicVariableTypeComponent implements OnChanges {
     const graphicSymbolOptionId = get(graphicSymbolOption, 'id');
     const option = graphicVariableOptionId || graphicVariableOptionType;
     if (this.selectedDataVariablesMapping && graphicSymbolOptionId &&
+      this.selectedDataVariablesMapping.get(graphicSymbolOptionId) &&
       this.selectedDataVariablesMapping.get(graphicSymbolOptionId).get(option)
     ) {
       return this.selectedDataVariablesMapping.get(graphicSymbolOptionId).get(option).label;
