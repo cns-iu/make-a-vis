@@ -70,13 +70,17 @@
                         font-weight: 700
                         color: #212121
                         font-size: 0.875rem
+                        border: 0.125rem solid transparent
 
                     .header-cell.hoverable
                         &:hover
-                            background-color: rgba(255,255,0,0.5)
+                            background-color: rgba(255,255,0,0.2)
+                            border-color: rgba(255,255,0,1)
+                            border-color: rgba(255,255,0,1) !important
 
                 ::ng-deep .highlight
-                    background-color: rgba(255,255,0,0.5)
+                    background-color: rgba(255,255,0,0.2)
+                    border-color: rgba(255,255,0,1) !important
                 .hidden-table
                     max-height: 3.1rem
                     height: auto

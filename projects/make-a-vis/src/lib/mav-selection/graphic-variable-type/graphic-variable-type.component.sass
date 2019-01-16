@@ -43,7 +43,9 @@
             margin-left: 0 !important
 
         ::ng-deep .highlight
-          background-color: rgba(255,255,0,0.5) !important
+          background-color: rgba(255,255,0,0.2) !important
+          border-color: rgba(255,255,0,1) !important
+          border-width: 0.125rem !important
 
           .graphic-variable-label,
           .data-variable
@@ -63,6 +65,8 @@
           padding: 0
           cursor: pointer
           display: flex
+          border-width: 0.125rem
+          border-color: transparent
 
           &:active
             background: #1E88E5
@@ -114,7 +118,8 @@
         .data-variable-selected
           background: #1E88E5
           color: #ffffff
-          border: 1px solid #ffffff
+          border-width: 0.125rem
+          border-style: solid
 
           .selected-variable-category
             display: none
