@@ -20,6 +20,7 @@ export interface DataSource {
   hidden: boolean;
   hiddenData: boolean;
   numRows: number;
+  streamId: string;
 }
 
 @Injectable({
@@ -49,6 +50,7 @@ export class DataService {
             dataSource.childrenHidden = false;
             dataSource.hiddenData = false;
             dataSource.numRows = 0;
+            dataSource.streamId = recordSet.defaultRecordStream.id;
             const operator = this.getDataMappingOperator(recordSet.dataVariables, project.graphicVariables, recordSet.id);
             recordSet.defaultRecordStream.asObservable().subscribe((changeSet: RawChangeSet<any>) => {
               dataSource.data = (changeSet.insert || []).slice(0, this.maxRecords).map(operator.getter);
