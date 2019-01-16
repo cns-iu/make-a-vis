@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { capitalize as loCapitalize } from 'lodash';
+import { capitalize as loCapitalize, get } from 'lodash';
 
 import { DataVariable, GraphicSymbolOption, GraphicVariable,
   GraphicVariableOption, RecordStream
@@ -134,6 +134,19 @@ export class GraphicVariableTypeComponent implements OnChanges {
         return '';
       }
     }
+  }
+
+  getGraphicVariableSelected(graphicVariableOption, graphicSymbolOption): string {
+    const graphicVariableOptionId = get(graphicVariableOption, 'id');
+    const graphicVariableOptionType = get(graphicVariableOption, 'type');
+    const graphicSymbolOptionId = get(graphicSymbolOption, 'id');
+    const option = graphicVariableOptionId || graphicVariableOptionType;
+    if (this.selectedDataVariablesMapping && graphicSymbolOptionId &&
+      this.selectedDataVariablesMapping.get(graphicSymbolOptionId).get(option)
+    ) {
+      return this.selectedDataVariablesMapping.get(graphicSymbolOptionId).get(option).label;
+    }
+    return '';
   }
 
   getDataVariableMappings(): Map<string, Map<string, DataVariable>> {
