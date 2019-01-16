@@ -370,7 +370,7 @@ export class NSFTemplateProject extends DefaultProject {
                 {selector: 'positionLabel[0]'}
               ],
               axis: [
-                {selector: 'position[1]'}
+                {selector: 'position[0]'}
               ]
             },
             y: {
