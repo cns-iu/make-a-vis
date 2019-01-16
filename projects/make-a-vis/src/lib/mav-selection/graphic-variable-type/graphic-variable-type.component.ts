@@ -9,7 +9,7 @@ import { DragDropEvent } from '../../drag-drop';
 import { DataVariableHoverService } from '../../shared/services/hover/data-variable-hover.service';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import { Vis } from '../../shared/types';
-import { getAvailableGraphicVariablesSelector, SidenavState } from '../../toolbar/shared/store';
+import { getAvailableGraphicVariablesSelector } from '../../toolbar/shared/store';
 import { GVGroupPanelOpened, GVGroupPanelClosed } from '../shared/store';
 
 @Component({

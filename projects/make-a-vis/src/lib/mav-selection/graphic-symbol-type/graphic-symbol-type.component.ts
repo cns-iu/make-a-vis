@@ -41,16 +41,14 @@ export class GraphicSymbolTypeComponent implements OnInit, OnChanges {
         if (this.mode === 'edit') {
           this.setRecordStreams();
         }
+      }
+    }
+
+    if ('mode' in changes && this.mode === 'edit') {
+      if (this.activeVis && this.activeVis.data) {
+        this.setRecordStreams();
       } else {
         this.clear();
-      }
-
-      if ('mode' in changes && this.mode === 'edit') {
-        if (this.activeVis && this.activeVis.data) {
-          this.setRecordStreams();
-        } else {
-          this.clear();
-        }
       }
     }
   }
