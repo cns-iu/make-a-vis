@@ -16,7 +16,7 @@
                         <span class="graphic-variable-label">{{graphicVariableOption?.label}}</span>
                         <div class="data-variable" *ngIf="getGraphicVariableSelected(graphicVariableOption , graphicSymbolOption)">
                             <span>{{recordStreamMapping?.get(graphicSymbolOption?.id)?.label}}: </span>
-                            <span>{{selectedDataVariablesMapping?.get(graphicSymbolOption?.id)?.get(graphicVariableOption?.id || graphicVariableOption?.type)?.label}}</span>
+                            <span>{{getGraphicVariableSelected(graphicVariableOption , graphicSymbolOption)}}</span>
                         </div>
                     </div>
                     <div class="variable-category" [ngClass]="{'selected-variable-category': getGraphicVariableSelected(graphicVariableOption , graphicSymbolOption),

@@ -138,15 +138,17 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
     }
   }
 
-  getGraphicVariableSelected(graphicVariableOption, graphicSymbolOption): boolean {
+  getGraphicVariableSelected(graphicVariableOption, graphicSymbolOption): string {
     const graphicVariableOptionId = get(graphicVariableOption, 'id');
     const graphicVariableOptionType = get(graphicVariableOption, 'type');
     const graphicSymbolOptionId = get(graphicSymbolOption, 'id');
     const option = graphicVariableOptionId || graphicVariableOptionType;
-    if (this.selectedDataVariablesMapping && graphicSymbolOptionId) {
-      return Boolean(this.selectedDataVariablesMapping.get(graphicSymbolOptionId).get(option));
+    if (this.selectedDataVariablesMapping && graphicSymbolOptionId &&
+      this.selectedDataVariablesMapping.get(graphicSymbolOptionId).get(option)
+    ) {
+      return this.selectedDataVariablesMapping.get(graphicSymbolOptionId).get(option).label;
     }
-    return false;
+    return '';
   }
 
   getDataVariableMappings(): Map<string, Map<string, DataVariable>> {
