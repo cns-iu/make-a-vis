@@ -8,7 +8,7 @@ import { ScatterplotComponent } from '../components/scatterplot/scatterplot.comp
 
 export class ScatterplotVisualization extends DefaultVisualization {
   // tslint:disable-next-line: max-line-length
-  readonly description = 'A scatter graph is a visualization of type graph which uses Cartesian coordinates as a reference system. In the MAV scatter graph, records are represented by circles. Circles are placed based on values for two data variables--one plotted along the x-axis and the other along the y-axis. Circles can be size-coded and color-coded to represent additional data variables. Tooltips for nodes can be used to represent a third data variable.';
+  readonly description = 'A scatter graph visualization uses Cartesian coordinates as a reference system. In the current MAV, records are represented by circles. Circles are placed based on values for two data variables: one plotted along the x-axis, the other along the y-axis. Circles can be size coded and color coded to represent additional data variables. A third data variable can be added to the graph using tooltips for circles.';
   readonly component = ScatterplotComponent;
   readonly graphicSymbolOptions = [{
     id: 'points', label: 'Points', type: 'area',

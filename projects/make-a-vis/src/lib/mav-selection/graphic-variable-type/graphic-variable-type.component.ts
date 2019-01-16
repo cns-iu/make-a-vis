@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { capitalize as loCapitalize, get } from 'lodash';
 
@@ -10,28 +10,29 @@ import { DataVariableHoverService } from '../../shared/services/hover/data-varia
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import { Vis } from '../../shared/types';
 import { getAvailableGraphicVariablesSelector, SidenavState } from '../../toolbar/shared/store';
+import { GVGroupPanelOpened, GVGroupPanelClosed } from '../shared/store';
 
 @Component({
   selector: 'mav-selection-graphic-variable-type',
   templateUrl: './graphic-variable-type.component.html',
   styleUrls: ['./graphic-variable-type.component.sass']
 })
-export class GraphicVariableTypeComponent implements OnInit, OnChanges {
+export class GraphicVariableTypeComponent implements OnChanges {
   @Input() activeVis: Vis;
-  @Input() recordStreamMapping: Map<string, RecordStream>;
+  @Input() recordStreamMapping: Map<string, RecordStream>; // i.e. Map<gsoId, RecordStream>
   @Output() gvSelectionMade = new EventEmitter<boolean>();
   graphicSymbolOptions: GraphicSymbolOption[] = [];
   selectionClass = '';
   availableGraphicVariables: GraphicVariable[];
-  selectedDataVariablesMapping: Map<string, Map<string, DataVariable>>;
+  selectedDataVariablesMapping: Map<string, Map<string, DataVariable>>; // i.e. Map<gsoId, Map<gvId, DataVariable>
+  requiredGraphicVariablesMapping: Map<string, string[]>; // i.e. Map<gsoId, array of required gvIds>
   qualitativeScaleTypes = ['interval', 'nominal'];
   quantitativeScaleTypes = ['ratio'];
   currentHighlightId: string;
   selectedDataVariableRecordSetId: string;
-  gvSelected = false;
 
   constructor(
-    store: Store<SidenavState>,
+    private store: Store<any>,
     private updateService: UpdateVisService,
     private hoverService: DataVariableHoverService
   ) {
@@ -49,13 +50,11 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
     });
   }
 
-  ngOnInit() {
-  }
-
   ngOnChanges(changes: SimpleChanges) {
     if ('activeVis' in changes || 'recordStreamMapping' in changes) {
       if (this.activeVis) {
         this.graphicSymbolOptions = this.getGraphicSymbolOptions();
+        this.requiredGraphicVariablesMapping = this.getReqGVMappings();
         this.selectedDataVariablesMapping = this.getDataVariableMappings();
         this.updateActionButtonStatus();
       } else {
@@ -77,7 +76,6 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
     this.currentHighlightId = '';
     this.selectedDataVariableRecordSetId = '';
     this.selectionClass = '';
-    this.gvSelected = false;
   }
 
   dataVariableDropped(dataVariable: DataVariable, graphicVariableOption: GraphicVariableOption, graphicSymbolOption: GraphicSymbolOption) {
@@ -170,6 +168,25 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
     return dvMap;
   }
 
+  getReqGVMappings (): Map<string, string[]> {
+    const reqGVMap = new Map();
+    if (this.graphicSymbolOptions.length) {
+      this.graphicSymbolOptions.forEach((gso) => {
+        gso.graphicVariableOptions.forEach((gvo: any) => {
+          if (gvo && gvo.required) {
+            if (reqGVMap.get(gso.id)) {
+              reqGVMap.get(gso.id).push(gvo.id ? gvo.id : gvo.type);
+            } else {
+              reqGVMap.set(gso.id, Array.of(gvo.id ? gvo.id : gvo.type));
+            }
+          }
+        });
+      });
+    }
+
+    return reqGVMap;
+  }
+
   onDragDropEvent(event: DragDropEvent) {
     if (event.type === 'drag-start') {
       this.selectionClass = event.accepted ? 'selectable' : 'unselectable'; // 'rgba(0,255,0,0.1)' : 'rgba(255,0,0,0.1)';
@@ -194,13 +211,18 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
   }
 
   updateActionButtonStatus() {
-    if (this.selectedDataVariablesMapping && this.selectedDataVariablesMapping.size) {
-      this.gvSelected = true;
-    } else {
-      this.gvSelected = false;
-    }
+    let result = true;
+    this.requiredGraphicVariablesMapping.forEach((reqGVIds, gsoId) => {
+      result = result && reqGVIds.every((gvId) => {
+        if (this.selectedDataVariablesMapping.get(gsoId)) {
+          return this.selectedDataVariablesMapping.get(gsoId).get(gvId) ? true : false;
+        } else {
+          return false;
+        }
+      });
+    });
 
-    this.gvSelectionMade.emit(this.gvSelected);
+    this.gvSelectionMade.emit(result);
   }
 
   shouldHighlight(graphicVariableOption: GraphicVariableOption, graphicSymbolOption: GraphicSymbolOption): boolean {
@@ -236,5 +258,23 @@ export class GraphicVariableTypeComponent implements OnInit, OnChanges {
 
   capitalize(text: string): string {
     return loCapitalize(text);
+  }
+
+  panelOpened(gsOption: GraphicSymbolOption): void {
+    const gsId = gsOption.id;
+    const mapping = this.selectedDataVariablesMapping.get(gsId);
+    const dvs = mapping && Array.from(mapping.values());
+    const rs = dvs && dvs.length > 0 && dvs[0].recordSet;
+    const rsId = rs && rs.id;
+    this.store.dispatch(new GVGroupPanelOpened({ gsId, streamId: rsId }));
+  }
+
+  panelClosed(gsOption: GraphicSymbolOption): void {
+    const gsId = gsOption.id;
+    const mapping = this.selectedDataVariablesMapping.get(gsId);
+    const dvs = mapping && Array.from(mapping.values());
+    const rs = dvs && dvs.length > 0 && dvs[0].recordSet;
+    const rsId = rs && rs.id;
+    this.store.dispatch(new GVGroupPanelClosed({ gsId, streamId: rsId }));
   }
 }
