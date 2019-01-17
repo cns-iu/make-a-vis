@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core';
 import { select, Store} from '@ngrx/store';
 import { access, combine, Operator, RawChangeSet} from '@ngx-dino/core';
+import { get } from 'lodash';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { DataVariable, GraphicVariable, Project, RecordSet } from '@dvl-fw/core';
@@ -50,15 +51,17 @@ export class DataService {
             dataSource.childrenHidden = false;
             dataSource.hiddenData = false;
             dataSource.numRows = 0;
-            dataSource.streamId = recordSet.defaultRecordStream.id;
+            dataSource.streamId = get(recordSet.defaultRecordStream, 'id');
             const operator = this.getDataMappingOperator(recordSet.dataVariables, project.graphicVariables, recordSet.id);
-            recordSet.defaultRecordStream.asObservable().subscribe((changeSet: RawChangeSet<any>) => {
-              dataSource.data = (changeSet.insert || []).slice(0, this.maxRecords).map(operator.getter);
-              dataSource.numRows += (changeSet.insert.length || 0) - (changeSet.remove.length || 0);
-              if (changeSet.insert.length > 1) {
-                dataSource.label = recordSet.labelPlural;
-              }
-            });
+            if (recordSet.defaultRecordStream) {
+              recordSet.defaultRecordStream.asObservable().subscribe((changeSet: RawChangeSet<any>) => {
+                dataSource.data = (changeSet.insert || []).slice(0, this.maxRecords).map(operator.getter);
+                dataSource.numRows += (changeSet.insert.length || 0) - (changeSet.remove.length || 0);
+                if (changeSet.insert.length > 1) {
+                  dataSource.label = recordSet.labelPlural;
+                }
+              });
+            }
             return dataSource;
           });
           this.dataSources = this.getFlatArrayOfDataSources(this.getDataSourceWithChildren(this.dataSources, 0));
