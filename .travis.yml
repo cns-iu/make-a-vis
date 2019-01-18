@@ -37,6 +37,7 @@ jobs:
     - npm run lint
     - npm run build:build-info
     - npm run build:libs
+    - sonar-scanner
     - npm run build:demo
     deploy:
       provider: pages
