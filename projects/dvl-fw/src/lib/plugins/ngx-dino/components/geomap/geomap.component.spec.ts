@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { GeomapComponent as NgxGeomapComponent } from '@ngx-dino/geomap';
+import { MockComponents } from 'ng-mocks';
 
 import { GeomapComponent } from './geomap.component';
 
@@ -8,7 +10,7 @@ describe('GeomapComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GeomapComponent ]
+      declarations: [ GeomapComponent, MockComponents(NgxGeomapComponent) ]
     })
     .compileComponents();
   }));

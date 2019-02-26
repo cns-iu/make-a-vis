@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ScatterplotComponent as NgxScatterplotComponent } from '@ngx-dino/scatterplot';
+import { MockComponent } from 'ng-mocks';
 
 import { ScatterplotComponent } from './scatterplot.component';
 
@@ -8,7 +10,7 @@ describe('ScatterplotComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ScatterplotComponent ]
+      declarations: [ ScatterplotComponent, MockComponent(NgxScatterplotComponent) ]
     })
     .compileComponents();
   }));
