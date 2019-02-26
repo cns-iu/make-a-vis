@@ -1,6 +1,6 @@
 ::ng-deep .mav-graphic-variable-legend .mat-card-content:last-child .graphic-variable-legend-container {
   padding-right: 0;
-} 
+}
 ::ng-deep .mav-graphic-variable-legend .mat-card-content:first-child .graphic-variable-legend-container {
   padding-left: 0;
 }
@@ -8,12 +8,13 @@
   .legend-item {
     line-height: 1.5rem;
   }
-  .title, .encoding {
+  .title,
+  .encoding {
     display: none;
   }
 }
 ::ng-deep .mav-graphic-variable-legend .mat-card-subtitle {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 ::ng-deep .graphic-variable-legend-visualization .dvl-static-legend-container {
@@ -24,7 +25,7 @@
 }
 
 ::ng-deep .graphic-variable-legend-visualization .dvl-static-legend-container svg {
-  height: 3rem
+  height: 3rem;
 }
 
 .graphic-variable-legend-card {

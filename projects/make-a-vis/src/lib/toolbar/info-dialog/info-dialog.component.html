@@ -1,6 +1,6 @@
 <div class="mav-info-dialog info-expansion-pane-container">
   <div class="info-header">
-    <div class="title" >{{headerText}}</div>
+    <div class="title">{{headerText}}</div>
     <mat-icon class="close-button" (click)="close()">cancel</mat-icon>
   </div>
 
@@ -9,7 +9,7 @@
     <mat-expansion-panel class="info-panel" *ngFor="let infoItem of infoItems">
       <mat-expansion-panel-header>
         <mat-panel-title>
-            <div class="title">{{infoItem.title}}</div>
+          <div class="title">{{infoItem.title}}</div>
         </mat-panel-title>
         <mat-panel-description>
           <div class="description">{{infoItem.description}}</div>
@@ -22,14 +22,16 @@
     <mat-expansion-panel class="info-panel" [expanded]="true">
       <mat-expansion-panel-header>
         <mat-panel-title>
-            <div class="title">{{aboutusContent.title}}</div>
+          <div class="title">{{aboutusContent.title}}</div>
         </mat-panel-title>
         <mat-panel-description>
           <div class="description">{{aboutusContent.description}}</div>
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <div class="content" *ngFor="let contentItem of aboutusContent.content">{{contentItem.label}}: {{contentItem.value}}</div>
-      <div class="content"><a href="https://github.com/cns-iu/make-a-vis" target="_blank">View source on Github</a></div>
+      <div class="content" *ngFor="let contentItem of aboutusContent.content">{{contentItem.label}}:
+        {{contentItem.value}}</div>
+      <div class="content"><a href="https://github.com/cns-iu/make-a-vis" target="_blank">View source on Github</a>
+      </div>
       <div class="content"><a href="mailto:mav-issues@fire.fundersclub.com">Submit a Bug Report</a></div>
     </mat-expansion-panel>
 
@@ -37,7 +39,7 @@
     <mat-expansion-panel class="info-panel">
       <mat-expansion-panel-header>
         <mat-panel-title>
-            <div class="title">{{contactusContent.title}}</div>
+          <div class="title">{{contactusContent.title}}</div>
         </mat-panel-title>
         <mat-panel-description>
           <div class="description">{{contactusContent.description}}</div>
@@ -48,30 +50,30 @@
   </div>
 
   <div class="info-footer-wrapper">
-
     <div class="info-footer-container-left">
-        <div class="info-logo">  
-          <mav-cns-logo></mav-cns-logo>   
-        </div>
-        <div class="info-text"></div>
+      <div class="info-logo">
+        <mav-cns-logo></mav-cns-logo>
       </div>
+      <div class="info-text"></div>
+    </div>
 
-      <div class="info-footer-container-middle">
-          <div class="info-logo">
-              <mav-sice-logo></mav-sice-logo>   
-          </div>
-          <div class="info-text"></div>
+    <div class="info-footer-container-middle">
+      <div class="info-logo">
+        <mav-sice-logo></mav-sice-logo>
       </div>
+      <div class="info-text"></div>
+    </div>
 
-      <div class="info-footer-container-right">
-              <div class="info-logo">
-                  <mav-nsf-logo></mav-nsf-logo>   
-              </div>
-              <div class="info-text">
-                  The work was supported in part by NSF award AISL-1713567. Any opinions, findings, and conclusions or recommendations expressed in this 
-                  material are those of the author(s) and do not necessarily reflect the views of the NSF.
-              </div>
+    <div class="info-footer-container-right">
+      <div class="info-logo">
+        <mav-nsf-logo></mav-nsf-logo>
       </div>
+      <div class="info-text">
+        The work was supported in part by NSF award AISL-1713567. Any opinions, findings, and conclusions or
+        recommendations expressed in this
+        material are those of the author(s) and do not necessarily reflect the views of the NSF.
+      </div>
+    </div>
 
   </div>
 </div>

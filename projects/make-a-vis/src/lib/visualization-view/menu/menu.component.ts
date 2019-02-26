@@ -3,7 +3,7 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/cor
 @Component({
   selector: 'mav-visualization-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
   @Input() label: string;

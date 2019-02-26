@@ -1,18 +1,22 @@
 ::ng-deep .mav-info-dialog-container .mat-dialog-container {
   padding: 0;
 }
+
 ::ng-deep .mav-info-dialog .mat-expansion-panel-body {
   padding: 0 0.625rem 1rem;
 }
+
 ::ng-deep .mav-info-dialog .mat-expansion-panel-header {
   padding: 0 0.5rem;
 }
+
 ::ng-deep .mav-info-dialog .info-panel-container > .mat-expanded {
   margin-top: 1rem;
   margin-bottom: 1rem !important;
 }
+
 ::ng-deep .mav-info-dialog .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header {
-  &:not([aria-disabled='true']) {
+  &:not([aria-disabled="true"]) {
     &.cdk-keyboard-focused,
     &.cdk-program-focused {
       background: none;
@@ -46,7 +50,6 @@
   }
 }
 
-
 .info-panel-container {
   padding: 1rem;
 
@@ -73,6 +76,7 @@
   padding-bottom: 0.5rem;
   border-top: 1px solid transparent;
   overflow: hidden;
+
   .info-footer-container-left {
     display: flex;
     padding: 1.4rem 5rem 0 1rem;
@@ -87,7 +91,7 @@
   .info-footer-container-right {
     display: flex;
     padding: 1.05rem 0 0 1rem;
-    
+
     .info-text {
       font-size: 0.7rem;
       padding-top: 0.6rem;
