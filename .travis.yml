@@ -51,7 +51,7 @@ jobs:
       on:
         branch: develop
   - stage: deploy
-    name: Deploy compodoc to gh-pages
+    name: Deploy compodoc
     if: branch = PBI-182-sonar-and-compodoc
     script:
     - npm run compodoc
