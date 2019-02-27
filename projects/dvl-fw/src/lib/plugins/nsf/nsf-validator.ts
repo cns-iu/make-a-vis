@@ -27,7 +27,7 @@ export function isNSFCompatibleCSV(fileContents: string): boolean {
 }
 
 /**
- * lodash differenceBy accepts this callback function.
+ * lodash 'intersectionBy' accepts this callback function.
  * @param header is one header out of array of headers.
  * @returns double quote trimmed and \r removed (DOS line ending) header.
  */
