@@ -6,7 +6,7 @@ import { LegendService } from '../../shared/services/legend/legend.service';
 @Component({
   selector: 'mav-graphic-variable-icon',
   templateUrl: './graphic-variable-icon.component.html',
-  styleUrls: ['./graphic-variable-icon.component.css']
+  styleUrls: ['./graphic-variable-icon.component.scss']
 })
 export class GraphicVariableIconComponent implements OnInit, OnChanges {
 

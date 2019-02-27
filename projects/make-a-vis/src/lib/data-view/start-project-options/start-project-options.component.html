@@ -1,11 +1,11 @@
 <div class="mav-start-project-options">
   <div class='start-project-options-wrapper'>
-  <span *ngFor="let fileExtension of projectExtensions">
-    <label [for]="'mav-start-project-options-' + fileExtension" class="custom-file-upload button" mat-stroked-button isRoundButton>
-      {{fileExtension === 'yml' ? 'Open Project' : fileExtension.toUpperCase()}}
-    </label>
-    <input #startProjectFileInputTag [id]="'mav-start-project-options-' + fileExtension" type="file" class="get-data" [accept]="loadProjectService.getSupportedExtension(fileExtension)" 
-    (change)="readNewFile($event, $event.target, fileExtension.toLowerCase())"/>
-  </span>
+    <span *ngFor="let fileExtension of projectExtensions">
+      <label [for]="'mav-start-project-options-' + fileExtension" class="custom-file-upload button" mat-stroked-button isRoundButton>
+        {{fileExtension === 'yml' ? 'Open Project' : fileExtension.toUpperCase()}}
+      </label>
+      <input #startProjectFileInputTag [id]="'mav-start-project-options-' + fileExtension" type="file" class="get-data" [accept]="loadProjectService.getSupportedExtension(fileExtension)" 
+      (change)="readNewFile($event, $event.target, fileExtension.toLowerCase())"/>
+    </span>
   </div>
 </div>

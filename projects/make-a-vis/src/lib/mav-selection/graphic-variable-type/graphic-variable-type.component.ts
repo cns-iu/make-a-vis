@@ -15,7 +15,7 @@ import { GVGroupPanelOpened, GVGroupPanelClosed } from '../shared/store';
 @Component({
   selector: 'mav-selection-graphic-variable-type',
   templateUrl: './graphic-variable-type.component.html',
-  styleUrls: ['./graphic-variable-type.component.sass']
+  styleUrls: ['./graphic-variable-type.component.scss']
 })
 export class GraphicVariableTypeComponent implements OnChanges {
   @Input() activeVis: Vis;

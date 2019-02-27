@@ -7,7 +7,7 @@ import { DataService, DataSource } from '../shared/data.service';
 @Component({
   selector: 'mav-data-view',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
   dataSources: Observable<DataSource[]>;

@@ -1,0 +1,34 @@
+.data-view-container {
+  display: flex;
+  flex-flow: column wrap;
+
+  .data-view-header {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.5rem;
+
+    .title {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+  }
+
+  /* FIXME: probably not the most ideal way to do this */
+  .data-view-message {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    float: left;
+    z-index: 0;
+    font-size: 1.5rem;
+  }
+
+  .mav-table {
+    width: 100%;
+  }
+}

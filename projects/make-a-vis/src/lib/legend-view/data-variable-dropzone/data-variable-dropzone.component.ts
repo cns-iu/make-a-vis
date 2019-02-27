@@ -12,7 +12,7 @@ import { DataVariableHoverService } from '../../shared/services/hover/data-varia
 @Component({
   selector: 'mav-data-variable-dropzone',
   templateUrl: './data-variable-dropzone.component.html',
-  styleUrls: ['./data-variable-dropzone.component.css']
+  styleUrls: ['./data-variable-dropzone.component.scss']
 })
 export class DataVariableDropzoneComponent {
   @Input() recordStream: RecordStream;
