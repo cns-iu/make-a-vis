@@ -39,6 +39,7 @@ jobs:
     - npm run build:libs
     - sonar-scanner -X
     - npm run build:demo
+    - npm run compodoc
     deploy:
       provider: pages
       target-branch: staging
@@ -55,6 +56,7 @@ jobs:
     - npm run build:build-info
     - npm run build:libs
     - npm run build:demo
+    - npm run compodoc
     deploy:
       provider: pages
       skip-cleanup: true
