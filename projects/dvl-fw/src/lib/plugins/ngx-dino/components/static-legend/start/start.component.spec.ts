@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { BoundLegendComponent as NgxBoundComponent } from '@ngx-dino/legend';
+import { MockComponent } from 'ng-mocks';
 
 import { StartComponent } from './start.component';
 
@@ -8,7 +10,7 @@ describe('StartComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StartComponent ]
+      declarations: [ StartComponent, MockComponent(NgxBoundComponent) ]
     })
     .compileComponents();
   }));

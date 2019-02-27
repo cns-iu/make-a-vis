@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ColorHueLegendComponent } from '@ngx-dino/legend';
+import { MockComponent } from 'ng-mocks';
 
 import { ColorComponent } from './color.component';
 
@@ -8,7 +10,7 @@ describe('ColorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ColorComponent ]
+      declarations: [ ColorComponent, MockComponent(ColorHueLegendComponent) ]
     })
     .compileComponents();
   }));
