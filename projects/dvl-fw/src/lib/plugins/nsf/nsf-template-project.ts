@@ -26,12 +26,13 @@ import { isNSFCompatibleCSV } from './nsf-validator';
 
 export class NSFTemplateProject extends DefaultProject {
   static async create(nsfFileContent: string, fileName?: string): Promise<Project> {
-    // if the csv file has nsf compatible headers.
+    // if the csv file has nsf compatible headers,load the CSV data with NSF Template Project
     if (isNSFCompatibleCSV(nsfFileContent)) {
       const project = new NSFTemplateProject(nsfFileContent, fileName);
       await project.prePopulateData();
       return project;
     } else {
+      // Otherwise, load the CSV data with the default CSV Template Project.
       return await CSVTemplateProject.create(nsfFileContent, fileName);
     }
   }
