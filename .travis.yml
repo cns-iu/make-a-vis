@@ -16,7 +16,6 @@ branches:
   - master
   - develop
   - "/^v\\d+\\.\\d+(\\.\\d+)?(-\\S*)?$/"
-  - PBI-182-sonar-and-compodoc
 install:
   - npm install
   - npm install typescript@">=3.1.1 <3.2" # Temporary fix for @angular/compiler-cli
@@ -50,20 +49,6 @@ jobs:
       local-dir: dist/make-a-vis-demo
       on:
         branch: develop
-  - stage: deploy
-    name: Deploy compodoc
-    if: branch = PBI-182-sonar-and-compodoc
-    script:
-    - npm run compodoc
-    deploy:
-      provider: pages
-      target-branch: PBI-182-sonar-and-compodoc-test
-      skip-cleanup: true
-      github-token: "$GITHUB_TOKEN"
-      keep-history: false
-      local-dir: dist/make-a-vis-demo/docs
-      on:
-        branch: PBI-182-sonar-and-compodoc
   - stage: deploy
     name: Deploy demo to GitHub Pages
     if: branch = master
