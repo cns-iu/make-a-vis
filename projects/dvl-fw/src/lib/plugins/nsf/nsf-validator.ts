@@ -10,7 +10,7 @@ const tolerance = 0; // %
 /**
  * Determines whether csv file is nsf template compatible.
  * reads the first row of the file then creates an array of strings (headers),
- * these two arrays are then fed into lodash 'intersectionby' which returns an array of headers not matched between the two.
+ * these two arrays are then fed into lodash 'differenceBy' which returns an array of headers not matched between the two.
  * Tolerance specifies how many unmatched headers are allowed.
  * @example if length of unmatched headers is 10, and if the tolerance is 10%, then 1  unmatched header will be tolerated.
  * @param fileContents contents of the file.
@@ -21,7 +21,7 @@ export function isNSFCompatibleCSV(fileContents: string): boolean {
     // get the first row
     const fileHeader = fileContents.substring(0, fileContents.indexOf('\n'));
     // get headers from first row
-    const fileHeaderSet: Array<string> = fileHeader.split(',') as Array<string>;
+    const fileHeaderSet: Array<string> = fileHeader.split(',');
     const unmatchedHeaders: Array<string> = differenceBy(nsfHeaderSet, fileHeaderSet, conditionBy);
     return unmatchedHeaders.length === unmatchedHeaders.length * Math.round((tolerance) / 100);
 }
