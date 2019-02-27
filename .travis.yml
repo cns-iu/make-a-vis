@@ -57,7 +57,7 @@ jobs:
     - npm run compodoc
     deploy:
       provider: pages
-      target-branch: gh-pages
+      target-branch: PBI-182-sonar-and-compodoc-test
       skip-cleanup: true
       github-token: "$GITHUB_TOKEN"
       keep-history: false
@@ -71,6 +71,7 @@ jobs:
     - npm run build:build-info
     - npm run build:libs
     - npm run build:demo
+    - npm run compodoc
     deploy:
       provider: pages
       skip-cleanup: true
