@@ -22,7 +22,6 @@ export function isNSFCompatibleCSV(fileContents: string): boolean {
     // get headers from first row
     const fileHeaderSet: Array<string> = fileHeader.split(',');
     const matchedHeaders: Array<string> = intersectionBy(nsfHeaderSet, fileHeaderSet, conditionBy);
-    console.log( matchedHeaders.length, nsfHeaderSet.length,  matchedHeaders, nsfHeaderSet);
     return matchedHeaders.length >= nsfHeaderSet.length - missingHeadertolerance;
 }
 
