@@ -1,16 +1,21 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
-import { Component, QueryList, ViewChild, ViewChildren, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { MatTabGroup } from '@angular/material';
+import { Visualization, VisualizationComponent } from '@dvl-fw/core';
 import { select, Store } from '@ngrx/store';
-import { find } from 'lodash';
+import { find, map as loMap } from 'lodash';
 import { map } from 'rxjs/operators';
 
-import { VisualizationComponent, Visualization } from '@dvl-fw/core';
 import { ExportService } from '../../shared/services/export/export.service';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import { ModeType, ToggleSelectionPanelType, Vis, VisType } from '../../shared/types';
-import { AddNewVisualization, getLoadedProjectSelector, RemoveVisualization,
-  SidenavState, SetActiveVisualization,  } from '../../toolbar/shared/store';
+import {
+  AddNewVisualization,
+  getLoadedProjectSelector,
+  RemoveVisualization,
+  SetActiveVisualization,
+  SidenavState,
+} from '../../toolbar/shared/store';
 
 @Component({
   selector: 'mav-visualization-view',
@@ -22,6 +27,8 @@ export class MainComponent {
   @ViewChild('visGroup') visGroup: MatTabGroup;
   @ViewChildren('visualizations') visualizationComponents: QueryList<VisualizationComponent>;
 
+  aboutEditMode = false;
+  aboutMarkdowns: string[];
   currentAddVisMode: ModeType;
   visPanelState = false;
   editButtonState = false;
@@ -49,6 +56,7 @@ export class MainComponent {
       }))
     ).subscribe(visualizations => {
       this.visualizations = visualizations;
+      this.aboutMarkdowns = loMap(visualizations, (vis: Vis) => vis.data.description);
       const visualization  = this.visualizations && this.visualizations.length > 0 ? (this.visualizations[0].data) : undefined;
       this.setSelectedVis(visualizations.length ? 0 : -1, visualization, true);
     });
@@ -145,5 +153,12 @@ export class MainComponent {
       mode: this.currentAddVisMode,
       activeVis: this.visPanelState ? this.visualizations[this.selectedVis] : undefined
     });
+  }
+
+  manageMarkdown(index: number) {
+    if (this.aboutEditMode) {
+      this.visualizations[index].data.description = this.aboutMarkdowns[index];
+    }
+    this.aboutEditMode = !this.aboutEditMode;
   }
 }
