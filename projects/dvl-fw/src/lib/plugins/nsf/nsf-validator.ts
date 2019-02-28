@@ -4,7 +4,7 @@ const nsfHeaderSet: Array<string> = Array<string>('AwardNumber', 'Title', 'Princ
 'Organization', 'OrganizationStreet', 'OrganizationCity', 'OrganizationState', 'OrganizationZip', 'OrganizationPhone',
 'StartDate', 'ExpirationDate', 'EndDate', 'LastAmendmentDate', 'AwardInstrument', 'AwardedAmountToDate', 'ARRAAmount', 'NSFOrganization',
 'Program(s)', 'ProgramManager', 'NSFDirectorate', 'ProgramElementCode(s)', 'ProgramReferenceCode(s)', 'Abstract');
-const missingHeadertolerance = 0; // number of missing headers allowed
+const missingHeadertolerance = 2; // number of missing headers allowed
 
 /**
  * Determines whether csv file is nsf template compatible.
