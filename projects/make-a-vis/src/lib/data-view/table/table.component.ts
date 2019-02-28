@@ -20,7 +20,7 @@ export interface ParentNode {
 @Component({
   selector: 'mav-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.sass']
+  styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnChanges {
   @Input() dataSource: DataSource;

@@ -5,7 +5,7 @@ import { Vis, VisType } from '../../shared/types';
 @Component({
   selector: 'mav-selection-visualization-type',
   templateUrl: './visualization-type.component.html',
-  styleUrls: ['./visualization-type.component.sass']
+  styleUrls: ['./visualization-type.component.scss']
 })
 export class VisualizationTypeComponent implements OnInit, OnChanges {
   @Input() activeVis: Vis;

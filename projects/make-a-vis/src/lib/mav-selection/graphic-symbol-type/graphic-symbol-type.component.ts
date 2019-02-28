@@ -12,7 +12,7 @@ import { getRecordStreamsSelector, SidenavState } from '../../toolbar/shared/sto
 @Component({
   selector: 'mav-selection-graphic-symbol-type',
   templateUrl: './graphic-symbol-type.component.html',
-  styleUrls: ['./graphic-symbol-type.component.sass']
+  styleUrls: ['./graphic-symbol-type.component.scss']
 })
 export class GraphicSymbolTypeComponent implements OnInit, OnChanges {
   @Input() activeVis: Vis;

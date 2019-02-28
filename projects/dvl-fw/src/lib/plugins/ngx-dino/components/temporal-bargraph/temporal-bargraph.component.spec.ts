@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { TemporalBargraphComponent as NgxTemporalBargraphComponent } from '@ngx-dino/temporal-bargraph';
+import { MockComponent } from 'ng-mocks';
 
 import { TemporalBargraphComponent } from './temporal-bargraph.component';
 
@@ -8,7 +10,7 @@ describe('TemporalBargraphComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TemporalBargraphComponent ]
+      declarations: [ TemporalBargraphComponent, MockComponent(NgxTemporalBargraphComponent) ]
     })
     .compileComponents();
   }));

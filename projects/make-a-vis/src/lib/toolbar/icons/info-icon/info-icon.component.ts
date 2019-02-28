@@ -9,7 +9,7 @@ import { SidenavState } from '../../../toolbar/shared/store';
 @Component({
   selector: 'mav-info-icon',
   templateUrl: './info-icon.component.html',
-  styleUrls: ['./info-icon.component.css']
+  styleUrls: ['./info-icon.component.scss']
 })
 export class InfoIconComponent {
   constructor(private dialog: MatDialog, private store: Store<SidenavState>) { }

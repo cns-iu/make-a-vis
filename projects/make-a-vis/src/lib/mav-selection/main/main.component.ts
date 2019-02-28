@@ -13,7 +13,7 @@ import { GVPanelOpened, GVPanelClosed } from '../shared/store';
 @Component({
   selector: 'mav-selection',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.sass']
+  styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
   @Output() newVis = new EventEmitter();

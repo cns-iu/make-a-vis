@@ -15,7 +15,7 @@ export interface Group {
 @Component({
   selector: 'mav-legend-view',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
   streams: RecordStream[];

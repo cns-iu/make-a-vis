@@ -4,7 +4,7 @@
   height: 90vh;
 
   .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header {
-    &:not([aria-disabled='true']) {
+    &:not([aria-disabled="true"]) {
       &.cdk-keyboard-focused,
       &.cdk-program-focused {
         background: none;
@@ -13,8 +13,9 @@
   }
 
   ::ng-deep .mat-expansion-panel-body {
-    padding: 0 1rem 1rem
+    padding: 0 1rem 1rem;
   }
+
   ::ng-deep .mat-expansion-indicator {
     display: flex;
   }
@@ -23,23 +24,27 @@
     padding: 0 0.5rem;
   }
 
-  .title, .expansion-title {
+  .title,
+  .expansion-title {
     display: flex;
     align-items: center;
     height: 3rem;
     justify-content: space-between;
     cursor: pointer;
   }
+
   .title {
     margin-right: 0.5rem;
 
     .icon {
       margin: 0 0.5rem;
     }
+
     .label {
       display: flex;
       align-items: center;
     }
+
     .toggle {
       padding: 0.5rem;
     }
@@ -51,11 +56,14 @@
     }
   }
 
-  .expansion-title:hover, .first-panel, .first-panel.mat-expanded:hover {
+  .expansion-title:hover,
+  .first-panel,
+  .first-panel.mat-expanded:hover {
     background: none;
   }
 
-  .first-panel:hover, .mav-sidenav .title:hover {
+  .first-panel:hover,
+  .mav-sidenav .title:hover {
     cursor: pointer;
   }
 
@@ -82,10 +90,12 @@
     .field {
       width: 10rem;
     }
+
     .button-toggle {
       width: 3.5rem;
       text-align: center;
     }
+
     .button {
       border: 1px solid transparent;
       white-space: nowrap;
@@ -97,14 +107,15 @@
       margin-left: 0.25rem;
       margin-right: 0.25rem;
     }
-    
+
     .custom-file-upload {
       padding: 0.5rem 1.1rem;
     }
+
     .get-data {
       display: none;
     }
-  }    
+  }
 }
 
 ::ng-deep .mat-expansion-panel-spacing {
