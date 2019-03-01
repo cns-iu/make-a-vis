@@ -24,11 +24,11 @@ export class ProjectSerializerService {
     return defer<Project>(async () => {
       switch (template) {
         case 'csv':
-          return await CSVTemplateProject.create(fileContents, fileName);
+          // fall through NSFTemplateProject
+        case 'nsf':
+        return await NSFTemplateProject.create(fileContents, fileName);
         case 'isi':
           return await ISITemplateProject.create(fileContents, fileName);
-        case 'nsf':
-          return await NSFTemplateProject.create(fileContents, fileName);
         default:
           throw new Error(`Template: ${template} not supported.`);
       }
