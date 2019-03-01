@@ -2,7 +2,8 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DataVariable } from '@dvl-fw/core';
 import { Store } from '@ngrx/store';
-import { combineLatest, distinctUntilChanged, map } from 'rxjs/operators';
+import { combineLatest } from 'rxjs';
+import { distinctUntilChanged, map } from 'rxjs/operators';
 
 import * as payloadTypes from '../../data-view/shared/store/payload-types';
 import { getOpenGVGroupPanelsSelector, isGVPanelOpenSelector } from '../../mav-selection/shared/store';
@@ -48,11 +49,14 @@ export class TableComponent implements OnChanges {
       }
     });
 
-    store.select(getOpenGVGroupPanelsSelector).pipe(
-      map(groups => groups.map(({ streamId }) => streamId)),
-      map(ids => ids.indexOf(this.dataSource && this.dataSource.streamId) !== -1),
-      combineLatest(store.select(isGVPanelOpenSelector)),
-      map(values => values.every(v => v)),
+    combineLatest(
+      store.select(getOpenGVGroupPanelsSelector).pipe(
+        map(groups => groups.map(({ streamId }) => streamId)),
+        map(ids => ids.indexOf(this.dataSource && this.dataSource.streamId) !== -1)
+      ),
+      store.select(isGVPanelOpenSelector)
+    ).pipe(
+      map(([b1, b2]) => b1 && b2),
       distinctUntilChanged()
     ).subscribe(hoverable => setTimeout(() => this.isHoverable = hoverable, 0));
   }
