@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { saveAs } from 'file-saver';
+import { at as loAt, map as loMap } from 'lodash';
 import { unparse } from 'papaparse';
-import { map as loMap, at as loAt } from 'lodash'
 
 import { DataSource } from './data.service';
 
