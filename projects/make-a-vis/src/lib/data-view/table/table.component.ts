@@ -5,10 +5,11 @@ import { Store } from '@ngrx/store';
 import { combineLatest, distinctUntilChanged, map } from 'rxjs/operators';
 
 import * as payloadTypes from '../../data-view/shared/store/payload-types';
-import { isGVPanelOpenSelector, getOpenGVGroupPanelsSelector } from '../../mav-selection/shared/store';
+import { getOpenGVGroupPanelsSelector, isGVPanelOpenSelector } from '../../mav-selection/shared/store';
 import { ActionDispatcherService } from '../../shared/services/actionDispatcher/action-dispatcher.service';
-import { DataSource, DataService } from '../shared/data.service';
 import { DataVariableHoverService } from '../../shared/services/hover/data-variable-hover.service';
+import { DataService, DataSource } from '../shared/data.service';
+import { ExportTableService } from '../shared/export-table.service';
 
 
 /** Flat node with expandable and level information */
@@ -33,8 +34,9 @@ export class TableComponent implements OnChanges {
 
   constructor(
     store: Store<any>,
-    private dataService: DataService,
     private actionDispatcherService: ActionDispatcherService,
+    private dataService: DataService,
+    private exportService: ExportTableService,
     private hoverService: DataVariableHoverService
   ) {
     hoverService.hovers.subscribe(event => {
@@ -89,5 +91,9 @@ export class TableComponent implements OnChanges {
 
   endHover(_data: DataVariable): void {
     this.hoverService.endHover();
+  }
+
+  exportTable(source: DataSource): void {
+    this.exportService.save(source);
   }
 }
