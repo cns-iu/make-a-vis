@@ -23,10 +23,11 @@ export interface GraphicSymbolOption {
 
 export interface Visualization {
   id: string;
+  description?: string;
   template: string;
   properties: { [key: string]: any };
   graphicSymbols: { [slot: string]: GraphicSymbol };
-  description?: string;
+  readonly defaultDescription?: string;
   readonly component?: Type<VisualizationComponent>;
   readonly graphicSymbolOptions?: GraphicSymbolOption[];
 

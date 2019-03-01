@@ -3,7 +3,7 @@ import { Component, EventEmitter, Output, QueryList, ViewChild, ViewChildren } f
 import { MatTabGroup } from '@angular/material';
 import { Visualization, VisualizationComponent } from '@dvl-fw/core';
 import { select, Store } from '@ngrx/store';
-import { find, map as loMap } from 'lodash';
+import { find } from 'lodash';
 import { map } from 'rxjs/operators';
 
 import { ExportService } from '../../shared/services/export/export.service';
@@ -28,7 +28,6 @@ export class MainComponent {
   @ViewChildren('visualizations') visualizationComponents: QueryList<VisualizationComponent>;
 
   aboutEditMode = false;
-  aboutMarkdowns: string[];
   currentAddVisMode: ModeType;
   visPanelState = false;
   editButtonState = false;
@@ -56,7 +55,6 @@ export class MainComponent {
       }))
     ).subscribe(visualizations => {
       this.visualizations = visualizations;
-      this.aboutMarkdowns = loMap(visualizations, (vis: Vis) => vis.data.description);
       const visualization  = this.visualizations && this.visualizations.length > 0 ? (this.visualizations[0].data) : undefined;
       this.setSelectedVis(visualizations.length ? 0 : -1, visualization, true);
     });
@@ -75,6 +73,7 @@ export class MainComponent {
       this.selectedVis = index;
       this.exportService.visualizationElement = this.visGroup;
       this.store.dispatch(new SetActiveVisualization({visualizationIndex: index, visualization: visualization}));
+      this.aboutEditMode = false; // Turn off about text editor when switching visualizations
     }
     this.emitToggleSelectionPanelEvent();
   }
@@ -153,12 +152,5 @@ export class MainComponent {
       mode: this.currentAddVisMode,
       activeVis: this.visPanelState ? this.visualizations[this.selectedVis] : undefined
     });
-  }
-
-  manageMarkdown(index: number) {
-    if (this.aboutEditMode) {
-      this.visualizations[index].data.description = this.aboutMarkdowns[index];
-    }
-    this.aboutEditMode = !this.aboutEditMode;
   }
 }
