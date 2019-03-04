@@ -1,6 +1,6 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 import { ActivityLogRawData, Project, ProjectSerializerService } from '@dvl-fw/core';
@@ -36,7 +36,7 @@ export class LoadProjectService {
     fileExtension: 'isi' | 'nsf' | 'csv' | 'json' | 'yml' | 'txt',
     file: Blob,
     fileName?: string
-  ): BehaviorSubject<Project> {
+  ): Observable<Project> {
     const reader = new FileReader();
     const projectSubject = new BehaviorSubject<Project>(null);
     reader.onload = (event: any) => {
@@ -55,7 +55,7 @@ export class LoadProjectService {
       }
     };
     reader.readAsText(file);
-    return projectSubject;
+    return projectSubject.asObservable();
   }
 
   /* loads project from json given as an argument
