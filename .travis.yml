@@ -29,6 +29,7 @@ jobs:
     - npm run lint
     - npm run build:build-info
     - npm run build:libs
+    - npm run test
     - sonar-scanner -X
   - stage: deploy
     name: Deploy staging to Netlify
@@ -37,8 +38,10 @@ jobs:
     - npm run lint
     - npm run build:build-info
     - npm run build:libs
+    - npm run test
     - sonar-scanner -X
     - npm run build:demo
+    - npm run compodoc
     deploy:
       provider: pages
       target-branch: staging
@@ -55,6 +58,7 @@ jobs:
     - npm run build:build-info
     - npm run build:libs
     - npm run build:demo
+    - npm run compodoc
     deploy:
       provider: pages
       skip-cleanup: true

@@ -83,7 +83,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
-            ]
+            ],
+            "codeCoverage": true
           }
         },
         "lint": {
@@ -151,7 +152,8 @@
             "main": "projects/make-a-vis/src/test.ts",
             "tsConfig": "projects/make-a-vis/tsconfig.spec.json",
             "karmaConfig": "projects/make-a-vis/karma.conf.js",
-            "watch": false
+            "watch": false,
+            "codeCoverage": true
           }
         },
         "lint": {
@@ -192,7 +194,8 @@
             "main": "projects/dvl-fw/src/test.ts",
             "tsConfig": "projects/dvl-fw/tsconfig.spec.json",
             "karmaConfig": "projects/dvl-fw/karma.conf.js",
-            "watch": false
+            "watch": false,
+            "codeCoverage": true
           }
         },
         "lint": {

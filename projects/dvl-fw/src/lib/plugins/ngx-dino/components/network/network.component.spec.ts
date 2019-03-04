@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NetworkComponent as NgxNetworkComponent } from '@ngx-dino/network';
+import { MockComponent } from 'ng-mocks';
 
 import { NetworkComponent } from './network.component';
 
@@ -8,7 +10,7 @@ describe('NetworkComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NetworkComponent ]
+      declarations: [ NetworkComponent, MockComponent(NgxNetworkComponent) ]
     })
     .compileComponents();
   }));

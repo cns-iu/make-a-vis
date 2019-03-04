@@ -17,7 +17,7 @@ export class LoadProjectService {
   projectExtensionPool = [
     {label: 'isi', extensions: ['.isi']},
     {label: 'nsf', extensions: ['.nsf', '.csv']},
-    {label: 'csv', extensions: ['.csv']},
+    {label: 'csv', extensions: ['.nsf', '.csv']},
     {label: 'json', extensions: ['.json']},
     {label: 'yml', extensions: ['.yml']}
   ];

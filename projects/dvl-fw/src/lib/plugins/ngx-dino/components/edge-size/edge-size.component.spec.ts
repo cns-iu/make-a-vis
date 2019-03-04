@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { StrokeWidthLegendComponent } from '@ngx-dino/legend';
+import { MockComponent } from 'ng-mocks';
 
 import { EdgeSizeComponent } from './edge-size.component';
 
@@ -8,7 +10,7 @@ describe('EdgeSizeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EdgeSizeComponent ]
+      declarations: [ EdgeSizeComponent, MockComponent(StrokeWidthLegendComponent) ]
     })
     .compileComponents();
   }));

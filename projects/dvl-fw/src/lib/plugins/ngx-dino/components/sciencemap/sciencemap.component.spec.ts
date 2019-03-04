@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ScienceMapComponent as NgxSciencemapComponent } from '@ngx-dino/science-map';
+import { MockComponent } from 'ng-mocks';
 
 import { SciencemapComponent } from './sciencemap.component';
 
@@ -8,7 +10,7 @@ describe('SciencemapComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SciencemapComponent ]
+      declarations: [ SciencemapComponent, MockComponent(NgxSciencemapComponent) ]
     })
     .compileComponents();
   }));

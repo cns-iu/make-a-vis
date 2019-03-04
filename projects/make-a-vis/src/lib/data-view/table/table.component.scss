@@ -42,6 +42,18 @@
           height: 2.5rem;
           width: 2.5rem;
         }
+
+        .export-to-csv-icon {
+          position: absolute;
+          padding-top: 0.5rem;
+          top: 0;
+          right: 0;
+          font-size: 1.5rem;
+          color: #1e88e5;
+          cursor: pointer;
+          height: 2.5rem;
+          width: 2.5rem;
+        }
       }
 
       .card-content {
