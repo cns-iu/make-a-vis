@@ -15,7 +15,7 @@ import { GetLinkService } from '../get-link/get-link.service';
 export class LoadProjectService {
 
   projectExtensionPool = [
-    {label: 'isi', extensions: ['.isi']},
+    {label: 'isi', extensions: ['.isi', '.txt']},
     {label: 'nsf', extensions: ['.nsf', '.csv']},
     {label: 'csv', extensions: ['.nsf', '.csv']},
     {label: 'json', extensions: ['.json']},
@@ -33,7 +33,7 @@ export class LoadProjectService {
     return project;
   }
   loadFile(
-    fileExtension: 'isi' | 'nsf' | 'csv' | 'json' | 'yml',
+    fileExtension: 'isi' | 'nsf' | 'csv' | 'json' | 'yml' | 'txt',
     file: Blob,
     fileName?: string
   ): BehaviorSubject<Project> {
