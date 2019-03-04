@@ -1,15 +1,16 @@
-<div class='mav-data-view data-view-container'>
-  <div class="data-view-header">
+<div class='mav-data-view wrapper'>
+  <div class="data-view-header container">
     <div class="title">Data</div>
     <mav-start-project-icon></mav-start-project-icon>
   </div>
-  
+
   <ng-container *ngFor="let dataSource of dataSources | async; index as i" #table>
-    <mav-table class="mav-table" [tableIndex]="i" [dataSource]="dataSource" [displayedColumns]="dataSource.columns" [style.padding-left.rem]="getPadding(dataSource.level)"></mav-table>
+    <mav-table class="mav-table container" [tableIndex]="i" [dataSource]="dataSource"
+      [displayedColumns]="dataSource.columns" [style.padding-left.rem]="getPadding(dataSource.level)"></mav-table>
   </ng-container>
-  
-  <div class="data-view-message" *ngIf="showDataViewMessage">
-      Add data or<br/>
-      load a project
+
+  <div class="data-view-message container" *ngIf="showDataViewMessage">
+    Add data or<br/>
+    load a project
   </div>
 </div>

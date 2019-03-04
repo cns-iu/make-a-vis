@@ -1,4 +1,8 @@
-.map-of-science-icon {
-  width: 1.5rem;
-  height: 1.5rem;
+.mav-map-of-science-icon {
+  &.wrapper {
+    .map-of-science-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
 }

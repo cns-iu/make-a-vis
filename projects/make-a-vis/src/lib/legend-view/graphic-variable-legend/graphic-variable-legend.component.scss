@@ -1,47 +1,55 @@
-::ng-deep .mav-graphic-variable-legend .mat-card-content:last-child .graphic-variable-legend-container {
-  padding-right: 0;
-}
-::ng-deep .mav-graphic-variable-legend .mat-card-content:first-child .graphic-variable-legend-container {
-  padding-left: 0;
-}
-::ng-deep .mav-graphic-variable-legend .graphic-variable-legend-visualization {
-  .legend-item {
-    line-height: 1.5rem;
-  }
-  .title,
-  .encoding {
-    display: none;
-  }
-}
-::ng-deep .mav-graphic-variable-legend .mat-card-subtitle {
-  margin-bottom: 0.5rem;
-}
-
-::ng-deep .graphic-variable-legend-visualization .dvl-static-legend-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 4.375rem;
-}
-
-::ng-deep .graphic-variable-legend-visualization .dvl-static-legend-container svg {
-  height: 3rem;
-}
-
-.graphic-variable-legend-card {
-  padding: 0.5rem;
-  min-width: 11rem;
-  height: 9.375rem; /* calculated by subtracting header height and legend-title height from legend total height of 200px */
-  overflow-y: auto;
-  border: 1px solid transparent;
-  text-align: center;
-}
-
-.graphic-variable-legend-title {
-  font-size: 1rem;
-  font-weight: 700;
-}
-
 .mav-graphic-variable-legend {
-  padding: 0.3125rem;
+  &.wrapper {
+    padding: 0.3125rem;
+
+    .container {
+      padding: 0.5rem;
+      min-width: 11rem;
+      height: 9.375rem; /* calculated by subtracting header height and legend-title height from legend total height of 200px */
+      overflow-y: auto;
+      border: 1px solid transparent;
+      text-align: center;
+
+      .title {
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      .subtitle {
+        margin-bottom: 0.5rem;
+      }
+
+      .visualization {
+        .legend-item {
+          line-height: 1.5rem;
+        }
+
+        .title,
+        .encoding {
+          display: none;
+        }
+
+        &:last-child {
+          padding-right: 0;
+        }
+
+        &:first-child {
+          padding-left: 0;
+        }
+
+        ::ng-deep {
+          .dvl-static-legend-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 4.375rem;
+
+            svg {
+              height: 3rem;
+            }
+          }
+        }
+      }
+    }
+  }
 }

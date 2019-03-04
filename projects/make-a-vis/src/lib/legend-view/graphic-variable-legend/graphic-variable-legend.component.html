@@ -1,8 +1,8 @@
-<div class="mav-graphic-variable-legend graphic-variable-legend-container" [hidden]="hideIfUnset && !graphicVariable">
-  <mat-card ngClass="graphic-variable-legend-card">
-    <mat-card-title ngClass="graphic-variable-legend-title">{{ graphicVariableOption?.label }}</mat-card-title>
-    <mat-card-subtitle ngClass="graphic-variable-legend-subtitle">{{ graphicVariable?.recordSet.label }}: {{ graphicVariable?.label }}</mat-card-subtitle>
-    <mat-card-content ngClass="graphic-variable-legend-visualization">
+<div class="mav-graphic-variable-legend wrapper" [hidden]="hideIfUnset && !graphicVariable">
+  <mat-card ngClass="container">
+    <mat-card-title ngClass="title">{{ graphicVariableOption?.label }}</mat-card-title>
+    <mat-card-subtitle ngClass="subtitle">{{ graphicVariable?.recordSet.label }}: {{ graphicVariable?.label }}</mat-card-subtitle>
+    <mat-card-content ngClass="visualization">
       <dvl-visualization #visualization [data]="legend"></dvl-visualization>
     </mat-card-content>
   </mat-card>

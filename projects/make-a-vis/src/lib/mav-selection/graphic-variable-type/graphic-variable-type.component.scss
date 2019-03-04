@@ -1,155 +1,159 @@
-.graphic-symbol-wrapper {
-  display: grid;
-  grid-template-columns: 100%;
-  gap: 0.625rem 3%;
+.graphic-variable-type {
+  &.wrapper {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 0.625rem 3%;
 
-  .expansion-panel {
-    ::ng-deep .mat-expansion-panel-header {
-      padding: 0 1rem;
-    }
-
-    .graphic-variable-wrapper {
-      display: grid;
-      grid-template-columns: 48.25% 48.25%;
-      gap: 0.5rem 3%;
-
-      .selected {
-        .required-dot {
-          display: none;
-        }
-
-        .cancel-icon {
-          position: absolute;
-          right: -5px;
-          z-index: 10;
-          top: -5px;
-          cursor: pointer;
-          display: inline-block !important;
-        }
+    .container {
+      ::ng-deep .mat-expansion-panel-header {
+        padding: 0 1rem;
       }
 
-      .card-wrapper {
-        display: flex;
-        position: relative;
+      .graphic-variable {
+        &.container {
+          display: grid;
+          grid-template-columns: 48.25% 48.25%;
+          gap: 0.5rem 3%;
 
-        ::ng-deep .data-variable-selected {
-          .dvl-static-legend-container {
-            display: none;
+          .selected {
+            .required-dot {
+              display: none;
+            }
+
+            .cancel-icon {
+              position: absolute;
+              right: -5px;
+              z-index: 10;
+              top: -5px;
+              cursor: pointer;
+              display: inline-block !important;
+            }
           }
 
-          .variable-type {
-            flex-flow: column !important;
-            text-align: center;
-            width: 100%;
-          }
-
-          .graphic-variable-label {
-            color: #e0e0e0 !important;
-            margin-left: 0 !important;
-          }
-        }
-
-        ::ng-deep .highlight {
-          background-color: rgba(255, 255, 0, 0.2) !important;
-          border-color: rgba(255, 255, 0, 1) !important;
-          border-width: 0.125rem !important;
-
-          .graphic-variable-label,
-          .data-variable {
-            color: #212121 !important;
-          }
-        }
-
-        .required-dot {
-          height: 0.625rem;
-          width: 0.625rem;
-          background-color: #bf360c;
-          border-radius: 10px;
-          position: absolute;
-          right: 0.5rem;
-          top: 0.5rem;
-        }
-
-        .card {
-          width: 100%;
-          padding: 0;
-          cursor: pointer;
-          display: flex;
-          border-width: 0.125rem;
-          border-color: transparent;
-
-          &:active {
-            background: #1e88e5;
-            color: #ffffff;
-          }
-
-          .variable-type {
+          .inner-container {
             display: flex;
-            flex-flow: row nowrap;
-            align-items: center;
-            padding: 0.625rem 0.625rem 1.875rem;
+            position: relative;
 
-            .graphic-variable-label {
-              color: #212121;
-              margin-left: 0.5rem;
+            ::ng-deep .data-variable-selected {
+              .dvl-static-legend-container {
+                display: none;
+              }
+
+              .variable-type {
+                flex-flow: column !important;
+                text-align: center;
+                width: 100%;
+              }
+
+              .graphic-variable-label {
+                color: #e0e0e0 !important;
+                margin-left: 0 !important;
+              }
             }
 
-            ::ng-deep .dvl-static-legend-container {
-              width: 1.875rem;
-              height: 1.875rem;
+            ::ng-deep .highlight {
+              background-color: rgba(255, 255, 0, 0.2) !important;
+              border-color: rgba(255, 255, 0, 1) !important;
+              border-width: 0.125rem !important;
+
+              .graphic-variable-label,
+              .data-variable {
+                color: #212121 !important;
+              }
             }
 
-            .data-variable {
+            .required-dot {
+              height: 0.625rem;
+              width: 0.625rem;
+              background-color: #bf360c;
+              border-radius: 10px;
+              position: absolute;
+              right: 0.5rem;
+              top: 0.5rem;
+            }
+
+            .card {
+              width: 100%;
+              padding: 0;
+              cursor: pointer;
+              display: flex;
+              border-width: 0.125rem;
+              border-color: transparent;
+
+              &:active {
+                background: #1e88e5;
+                color: #ffffff;
+              }
+
+              .variable-type {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                padding: 0.625rem 0.625rem 1.875rem;
+
+                .graphic-variable-label {
+                  color: #212121;
+                  margin-left: 0.5rem;
+                }
+
+                ::ng-deep .dvl-static-legend-container {
+                  width: 1.875rem;
+                  height: 1.875rem;
+                }
+
+                .data-variable {
+                  color: #ffffff;
+                }
+              }
+
+              .variable-category {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                padding: 0 0.5rem;
+                font-size: 0.625rem;
+                border-bottom-left-radius: 4px;
+                border-bottom-right-radius: 4px;
+                text-align: center;
+              }
+
+              .variable-category-qualitative {
+                background: #bf360c;
+                color: #fff;
+              }
+
+              .variable-category-quantitative {
+                background: #bdbdbd;
+                color: #212121;
+              }
+            }
+
+            .cancel-icon {
+              position: absolute;
+              right: -5px;
+              z-index: 10;
+              top: -5px;
+              cursor: pointer;
+              display: none;
+            }
+
+            .data-variable-selected {
+              background: #1e88e5;
               color: #ffffff;
+              border-width: 0.125rem;
+              border-style: solid;
+
+              .selected-variable-category {
+                display: none;
+              }
             }
-          }
-
-          .variable-category {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            padding: 0 0.5rem;
-            font-size: 0.625rem;
-            border-bottom-left-radius: 4px;
-            border-bottom-right-radius: 4px;
-            text-align: center;
-          }
-
-          .variable-category-qualitative {
-            background: #bf360c;
-            color: #fff;
-          }
-
-          .variable-category-quantitative {
-            background: #bdbdbd;
-            color: #212121;
-          }
-        }
-
-        .cancel-icon {
-          position: absolute;
-          right: -5px;
-          z-index: 10;
-          top: -5px;
-          cursor: pointer;
-          display: none;
-        }
-
-        .data-variable-selected {
-          background: #1e88e5;
-          color: #ffffff;
-          border-width: 0.125rem;
-          border-style: solid;
-
-          .selected-variable-category {
-            display: none;
           }
         }
       }
     }
   }
-}
 
-.graphic-symbol-wrapper ::ng-deep .mat-expansion-panel-body {
-  padding: 0;
+  .graphic-symbol-wrapper ::ng-deep .mat-expansion-panel-body {
+    padding: 0;
+  }
 }

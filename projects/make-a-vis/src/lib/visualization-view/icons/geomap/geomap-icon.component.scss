@@ -1,4 +1,8 @@
-.geomap-icon {
-  width: 1.5rem;
-  height: 1.5rem;
+.mav-geomap-icon {
+  &.wrapper {
+    .geomap-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
 }

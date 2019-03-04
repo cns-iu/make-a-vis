@@ -6,19 +6,20 @@
   ::ng-deep .mat-expansion-panel:not([class*="mat-elevation-z"]) {
     box-shadow: none;
   }
+
   ::ng-deep .mat-expansion-indicator {
     display: flex;
   }
 
-  .about-expansion-panel-header {
-    padding: 0px 1rem;
-    height: 1.875rem;
-    .about-expansion-panel-title-wrapper {
-      .about-expansion-panel-title {
-        font-size: 0.875rem;
-      }
-    }
+  .visualization-container {
+    height: calc(
+      93vh - 1vh - 293px
+    ); /* .main-view is 93vh with 1vh bottom padding in .visualization-view  and .legend is 200px at top-level, 70px - assumed padding(TODO - FIX needed) */
+    width: 100%;
+    border: 1px solid transparent;
+    background-color: white;
   }
+
   .about-expansion-panel-container {
     border-left: 1px solid transparent;
     border-radius: unset;
@@ -32,9 +33,20 @@
     ::ng-deep .mat-expansion-panel-body {
       padding: 0 1rem 1rem;
     }
-  }
-  .about-expansion-panel-container.mat-expanded {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+
+    .mat-expanded {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    .about-expansion-panel-header {
+      padding: 0px 1rem;
+      height: 1.875rem;
+      .about-expansion-panel-title-wrapper {
+        .about-expansion-panel-title {
+          font-size: 0.875rem;
+        }
+      }
+    }
   }
 }
 
@@ -56,38 +68,38 @@
     border-bottom: none;
     border-bottom: 2px solid;
   }
-}
 
-::ng-deep .visualization-group .mat-tab-header {
-  padding: 0 6rem 0 1rem;
-  margin-bottom: 0.625rem;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  height: 3.125rem;
-  .tab {
-    padding-bottom: 0.375rem !important;
-    .label {
-      padding-right: 0.635rem !important;
+  .tab .cancel-button {
+    margin-left: 0.5rem;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    border: 0;
+    cursor: pointer;
+  }
+
+  ::ng-deep .mat-tab-header {
+    padding: 0 6rem 0 1rem;
+    margin-bottom: 0.625rem;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    height: 3.125rem;
+    .tab {
+      padding-bottom: 0.375rem !important;
+      .label {
+        padding-right: 0.635rem !important;
+      }
     }
   }
-}
 
-::ng-deep .visualization-group .mat-tab-label {
-  padding: 0;
-  min-width: auto;
-  opacity: 1;
-}
+  ::ng-deep .mat-tab-label {
+    padding: 0;
+    min-width: auto;
+    opacity: 1;
+  }
 
-::ng-deep .visualization-group .mat-tab-header .mat-tab-header-pagination {
-  box-shadow: none;
-}
-
-.visualization-group .tab .cancel-button {
-  margin-left: 0.5rem;
-  font-size: 1.25rem;
-  line-height: 1.5rem;
-  border: 0;
-  cursor: pointer;
+  ::ng-deep .mat-tab-header .mat-tab-header-pagination {
+    box-shadow: none;
+  }
 }
 
 .add-edit-visualization {
@@ -122,13 +134,4 @@
   .edit-icon-disabled {
     color: #bdbdbd;
   }
-}
-
-.visualization-container {
-  height: calc(
-    93vh - 1vh - 293px
-  ); /* .main-view is 93vh with 1vh bottom padding in .visualization-view  and .legend is 200px at top-level, 70px - assumed padding(TODO - FIX needed) */
-  width: 100%;
-  border: 1px solid transparent;
-  background-color: white;
 }

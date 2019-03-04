@@ -30,15 +30,17 @@
 
   .mav-menu-icon {
     background-color: $secondary;
-  }  
+  }
 }
 
-.mav-info-icon-wrapper {
-  .info-icon-fill {
-    color: $gray-accent-3;
-  }
-  .mav-info-icon {
-    color: $secondary;
+.mav-info-icon {
+  &.wrapper {
+    .info-icon-fill {
+      color: $gray-accent-3;
+    }
+    .info-icon {
+      color: $secondary;
+    }
   }
 }
 
@@ -62,11 +64,11 @@
   }
 }
 
-.mav-start-project-options-container {
+.mav-start-project-options.container {
   background-color: $primary;
 
-  .mav-start-project-options {
-    .start-project-options-wrapper {
+  .start-project-options.wrapper {
+    .container {
       .button {
         color: $white;
         border-color: $white !important;
@@ -88,7 +90,10 @@
       border-color: $secondary-text !important;
     }
 
-    .button:active, .button:hover, .custom-file-upload:active, .custom-file-upload:hover {
+    .button:active,
+    .button:hover,
+    .custom-file-upload:active,
+    .custom-file-upload:hover {
       background: $gray-accent-1;
     }
   }
@@ -109,76 +114,86 @@
   }
 
   .log-toggle.mat-checked .mat-slide-toggle-thumb {
-      background-color: $white;
-      border: 1px solid $green-500;
+    background-color: $white;
+    border: 1px solid $green-500;
   }
 
   .log-toggle.mat-checked .mat-slide-toggle-bar {
-      background-color: $green-500-30pct-alpha;
-      border: 1px solid $green-500;
+    background-color: $green-500-30pct-alpha;
+    border: 1px solid $green-500;
   }
 
-  .first-panel:hover, .title:hover {
+  .first-panel:hover,
+  .title:hover {
     background: $gray-accent-3;
   }
 }
 
 .mav-visualization-view {
-  .visualization-group {
-    .selected {
-      border-bottom-color: $secondary !important;
+  &.wrapper {
+    .visualization-group {
+      .selected {
+        border-bottom-color: $secondary !important;
+      }
+      .mat-tab-header {
+        border-color: $gray-accent-1;
+        background-color: $white;
+      }
+      .tab:hover {
+        border-bottom-color: $disabled-text !important;
+      }
+      .label {
+        color: $primary-text;
+      }
+      .cancel-button {
+        color: $primary-text;
+      }
     }
-    .mat-tab-header {
-      border-color: $gray-accent-1;
-      background-color: $white;
+
+    .visualization-wrapper {
+      .visualization-container {
+        border-color: $gray-accent-1;
+        background-color: $white;
+      }
     }
-    .tab:hover {
-      border-bottom-color: $disabled-text !important;
-    }
-    .label {
-      color: $primary-text;
-    }
-    .cancel-button {
-      color: $primary-text;
-    }
-  }
-  .visualization-container {
-    border-color: $gray-accent-1;
-    background-color: $white;
-  }
-  .add-edit-visualization {
-    .add-icon, .edit-icon {
-      color: $primary;
+
+    .add-edit-visualization {
+      .add-icon,
+      .edit-icon {
+        color: $primary;
+      }
     }
   }
 }
 
 .about-expansion-panel-header {
   .about-expansion-panel-title-wrapper {
-      .about-expansion-panel-title {
-        color: $secondary-text;
-      }
+    .about-expansion-panel-title {
+      color: $secondary-text;
+    }
   }
 }
 
 .about-expansion-panel-container {
-    border-left-color: $gray-accent-1 !important;
-    border-right-color: $gray-accent-1 !important;
-    .mat-expansion-panel-content {
-      color: $secondary-text !important;
-    }
+  border-left-color: $gray-accent-1 !important;
+  border-right-color: $gray-accent-1 !important;
+  .mat-expansion-panel-content {
+    color: $secondary-text !important;
+  }
 }
 
 .mav-legend-view {
   .legend-view-group {
-    border-color: $gray-accent-1;
-    background-color: $gray-accent-2;
+    &.container {
+      border-color: $gray-accent-1;
+      background-color: $gray-accent-2;
+    }
   }
   .mav-graphic-variable-legend {
-    .graphic-variable-legend-title {
+    .title {
       color: $primary-text;
     }
-    .graphic-variable-legend-subtitle {
+    .subtitle {
       color: $secondary-text;
     }
   }
@@ -188,16 +203,18 @@
   .expansion-panel {
     .graphic-variable-wrapper {
       .variable-type {
-        color: $gray-300
+        color: $gray-300;
       }
     }
   }
 }
 
-.visualization-container .temporal-bargraph-tooltip {
-  font-family: $tooltip-font !important;
-}
+.visualization-container {
+  .temporal-bargraph-tooltip {
+    font-family: $tooltip-font !important;
+  }
 
-.visualization-container .tooltip {
-  font-family: $tooltip-font !important;
+  .tooltip {
+    font-family: $tooltip-font !important;
+  }
 }

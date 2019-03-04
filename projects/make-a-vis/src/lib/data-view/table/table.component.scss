@@ -1,17 +1,17 @@
-.mav-datatable-container {
+.mav-datatable.wrapper {
   visibility: visible;
   transition: visibility 0.7s, max-height 0.7s;
   -webkit-transition: visibility 0.7s, max-height 0.7s;
   max-height: 100rem;
 
-  .datatable-wrapper {
+  .datatable.container {
     border: 1px solid #e0e0e0;
     margin-top: 0.625rem;
     padding-top: 0.5rem;
     padding-left: 2.5rem;
     border-color: transparent;
 
-    .datatable-container {
+    .datatable.inner-container {
       .card-header {
         line-height: 1.25rem;
 
@@ -142,7 +142,7 @@
   }
 }
 
-.mav-datatable-container-hidden {
+.mav-datatable.wrapper.mav-datatable-hidden {
   visibility: hidden;
   max-height: 0;
   height: auto;

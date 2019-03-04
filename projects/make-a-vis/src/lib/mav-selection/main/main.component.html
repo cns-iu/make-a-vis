@@ -1,30 +1,35 @@
 <div [ngClass]="{'selection-wrapper':panelState, 'selection-wrapper-hidden': !panelState}">
     <span class="selection-title">Make Visualization</span>
 
-    <div class="select-visualization-container expansion-panel-container">
+    <div class="expansion-panel container">
         <mat-expansion-panel class="expansion-panel" [expanded]="isExpanded(0)" (opened)="setStep(0)" #visTypePanel>
             <mat-expansion-panel-header [expandedHeight]="'3rem'" class="visualization-type-header">
                 <mat-panel-title class="title">
                     Select Visualization Type
                 </mat-panel-title>
             </mat-expansion-panel-header>
-            <mav-selection-visualization-type [activeVis]="activeVis" [mode]="mode" [panelState]="panelState" (visSelected)="setVisSelectionButtonState($event)" #visType>
+            <mav-selection-visualization-type [activeVis]="activeVis" [mode]="mode" [panelState]="panelState"
+                (visSelected)="setVisSelectionButtonState($event)" #visType>
             </mav-selection-visualization-type>
             <mat-action-row class="selection-button">
-                <button *ngIf="visSelectionButtonState" mat-button (click)="visType.selected?addVisualization(visType.selected):undefined">Done</button>
+                <button *ngIf="visSelectionButtonState" mat-button
+                    (click)="visType.selected?addVisualization(visType.selected):undefined">Done</button>
                 <button *ngIf="!visSelectionButtonState" class="disabled" mat-button disabled>Done</button>
             </mat-action-row>
         </mat-expansion-panel>
     </div>
 
-    <div class="expansion-panel-container">
-        <mat-expansion-panel class="expansion-panel" [expanded]="isExpanded(1)" (opened)="setStep(1)" [disabled]="isDisabled(1)">
+    <div class="expansion-panel container">
+        <mat-expansion-panel class="expansion-panel" [expanded]="isExpanded(1)" (opened)="setStep(1)"
+            [disabled]="isDisabled(1)">
             <mat-expansion-panel-header [expandedHeight]="'3rem'" class="graphic-symbol-type-header">
                 <mat-panel-title class="title">
                     Select Graphic Symbol Type(s)
                 </mat-panel-title>
             </mat-expansion-panel-header>
-            <mav-selection-graphic-symbol-type [activeVis]="activeVis" [mode]="mode" (recordStreamChange)="updateRecordStreamMapping($event)" #gsSelector></mav-selection-graphic-symbol-type>
+            <mav-selection-graphic-symbol-type [activeVis]="activeVis" [mode]="mode"
+                (recordStreamChange)="updateRecordStreamMapping($event)" #gsSelector>
+            </mav-selection-graphic-symbol-type>
             <mat-action-row class="selection-button">
                 <button *ngIf="recordStreamMapping?.size" mat-button (click)="stepDone()">Done</button>
                 <button *ngIf="!recordStreamMapping?.size" class="disabled" mat-button disabled>Done</button>
@@ -32,14 +37,16 @@
         </mat-expansion-panel>
     </div>
 
-    <div class="expansion-panel-container">
-        <mat-expansion-panel class="expansion-panel" [expanded]="isExpanded(2)" (opened)="setStep(2)" [disabled]="isDisabled(2)" (opened)="gvPanelOpened()" (closed)="gvPanelClosed()">
+    <div class="expansion-panel container">
+        <mat-expansion-panel class="expansion-panel" [expanded]="isExpanded(2)" (opened)="setStep(2)"
+            [disabled]="isDisabled(2)" (opened)="gvPanelOpened()" (closed)="gvPanelClosed()">
             <mat-expansion-panel-header [expandedHeight]="'3rem'" class="graphic-variable-type-header">
                 <mat-panel-title class="title">
                     Select Graphic Variable Types
                 </mat-panel-title>
             </mat-expansion-panel-header>
-            <mav-selection-graphic-variable-type [activeVis]="step===2?gsSelector.activeVis:undefined" [recordStreamMapping]="recordStreamMapping" (gvSelectionMade)="gvSelectionMade($event)">
+            <mav-selection-graphic-variable-type [activeVis]="step===2?gsSelector.activeVis:undefined"
+                [recordStreamMapping]="recordStreamMapping" (gvSelectionMade)="gvSelectionMade($event)">
             </mav-selection-graphic-variable-type>
             <mat-action-row class="selection-button">
                 <button mat-button *ngIf="gvSelectionButtonState" (click)="closeSelectionPanel()">Visualize</button>

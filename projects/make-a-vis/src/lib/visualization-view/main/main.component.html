@@ -1,11 +1,12 @@
-<div class="mav-visualization-view">
-    <mat-tab-group [color]="'#ffffff'" [disableRipple]="true" [(selectedIndex)]="selectedVis" class="visualization-group" #visGroup>
+<div class="mav-visualization-view wrapper">
+    <mat-tab-group class="visualization-group" [color]="'#ffffff'" [disableRipple]="true" [(selectedIndex)]="selectedVis" #visGroup>
         <mat-tab *ngFor="let vis of visualizations; let index = index" [disabled]="false">
             <ng-template mat-tab-label>
-                <div class="tab" (click)="setSelectedVis(index, vis.data)" [ngClass]="{'selected': index===selectedVis}">
+                <div class="tab" (click)="setSelectedVis(index, vis.data)"
+                    [ngClass]="{'selected': index===selectedVis}">
                     <div class="spacer"></div>
                     <span class="label">{{vis.label}}</span>
-                    <mat-icon class="canclel-button" (click)="removeVisualization(index)">cancel</mat-icon>
+                    <mat-icon class="cancel-button" (click)="removeVisualization(index)">cancel</mat-icon>
                     <div class="spacer"></div>
                 </div>
             </ng-template>
@@ -16,8 +17,11 @@
                     <div class="visualization-container" [ngClass]="{ active: index === selectedVis }">
                         <dvl-visualization #visualizations [data]="vis.data"></dvl-visualization>
                     </div>
-                    <mat-expansion-panel class="about-expansion-panel-container" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                        <mat-expansion-panel-header [expandedHeight]="'1.875rem'" [collapsedHeight]="'1.875rem'" class="about-expansion-panel-header">
+
+                    <mat-expansion-panel class="about-expansion-panel-container" (opened)="panelOpenState = true"
+                        (closed)="panelOpenState = false">
+                        <mat-expansion-panel-header [expandedHeight]="'1.875rem'" [collapsedHeight]="'1.875rem'"
+                            class="about-expansion-panel-header">
                             <mat-panel-title class="about-expansion-panel-title-wrapper">
                                 <div class="about-expansion-panel-title">
                                     {{'Learn about this '+ vis.label }}
@@ -30,8 +34,10 @@
             </ng-template>
         </mat-tab>
     </mat-tab-group>
+
     <div class="add-edit-visualization">
         <mat-icon class="add-icon" (click)="toggleSelPanel('add')">{{addIconName}}</mat-icon>
-        <mav-edit-icon class="edit-icon" (click)="doesVisExist? toggleSelPanel('edit'): undefined" [isActive]="editButtonState" [ngClass]="{'edit-icon-disabled': !doesVisExist}"></mav-edit-icon>
+        <mav-edit-icon class="edit-icon" (click)="doesVisExist? toggleSelPanel('edit'): undefined"
+            [isActive]="editButtonState" [ngClass]="{'edit-icon-disabled': !doesVisExist}"></mav-edit-icon>
     </div>
 </div>

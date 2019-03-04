@@ -1,10 +1,12 @@
-.start-project-icon-wrapper {
-  .add-data-icon {
-    width: auto;
-    height: auto;
-    font-size: 1.875rem;
-    padding: 0.3125rem;
-    cursor: pointer;
+.mav-start-project-icon {
+  &.wrapper {
+    .add-data-icon {
+      width: auto;
+      height: auto;
+      font-size: 1.875rem;
+      padding: 0.3125rem;
+      cursor: pointer;
+    }
   }
 }
 

@@ -1,10 +1,12 @@
-.st0 {
-    fill: #000007;
-}
-
 .mav-table-icon {
-    width:0.875rem;
+  &.wrapper {
+    width: 0.875rem;
     height: 0.875rem;
     display: inline-block;
     margin-right: 0.5rem;
+
+    svg .st0 {
+      fill: #000007;
+    }
+  }
 }

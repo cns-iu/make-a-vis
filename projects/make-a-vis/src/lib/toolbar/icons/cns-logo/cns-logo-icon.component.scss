@@ -1,9 +1,11 @@
-.cns-logo {
-  position: absolute;
-  right: 54px;
-  top: 5px;
+.cns-logo-icon {
+  &.wrapper {
+    position: absolute;
+    right: 54px;
+    top: 5px;
 
-  .icon {
-    height: 54px;
+    .icon {
+      height: 54px;
+    }
   }
 }
