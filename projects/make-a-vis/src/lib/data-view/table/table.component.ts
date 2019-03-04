@@ -4,6 +4,7 @@ import { DataVariable } from '@dvl-fw/core';
 import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs';
 import { distinctUntilChanged, map } from 'rxjs/operators';
+import { get as loGet } from 'lodash';
 
 import * as payloadTypes from '../../data-view/shared/store/payload-types';
 import { getOpenGVGroupPanelsSelector, isGVPanelOpenSelector } from '../../mav-selection/shared/store';
@@ -100,4 +101,11 @@ export class TableComponent implements OnChanges {
   exportTable(source: DataSource): void {
     this.exportService.save(source);
   }
+
+  // New
+
+  isHidden(): boolean { return loGet(this.dataSource, 'hidden', true); }
+  isFirst(): boolean { return this.tableIndex === 0; }
+  hasData(): boolean { return loGet(this.dataSource, ['data', 'length'], 0) !== 0; }
+  hasChildren(): boolean { return loGet(this.dataSource, ['children', 'length'], 0) !== 0; }
 }
