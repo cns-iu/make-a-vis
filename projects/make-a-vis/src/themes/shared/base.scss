@@ -335,3 +335,21 @@
     }
   }
 }
+
+/* colors from mav-selection/main.component.scss */
+.selection-wrapper {
+  background-color: #f5f5f5;
+  .expansion-panel-container {
+    .expansion-panel {
+      background-color: #ffffff;
+      .selection-button {
+        button {
+          color: #1e88e5;
+        }
+        .disabled {
+          color: #e0e0e0;
+        }
+      }
+    }
+  }
+}
