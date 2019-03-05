@@ -21,7 +21,6 @@ import { NetworkIconComponent } from './icons/network/network-icon.component';
 import { ScatterGraphIconComponent } from './icons/scatter-graph/scatter-graph-icon.component';
 import { MainComponent } from './main/main.component';
 import { MenuComponent } from './menu/menu.component';
-import { SafePipe } from './safe-pipe/safe.pipe';
 
 
 // Material
@@ -55,8 +54,7 @@ import { SafePipe } from './safe-pipe/safe.pipe';
     MapOfScienceIconComponent,
     NetworkIconComponent,
     ScatterGraphIconComponent,
-    EditIconComponent,
-    SafePipe
+    EditIconComponent
   ],
   exports: [MainComponent]
 })
