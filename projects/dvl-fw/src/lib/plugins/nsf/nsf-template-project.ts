@@ -7,23 +7,34 @@ import { RawData } from '../../shared/raw-data';
 import { RecordSet } from '../../shared/record-set';
 import { Visualization } from '../../shared/visualization';
 import { ActivityLogDataSource } from '../activity-log/log-data-source';
+import { CSVTemplateProject } from '../default/csv-template-project';
 import { DefaultGraphicSymbol } from '../default/default-graphic-symbol';
 import { DefaultGraphicVariableMapping } from '../default/default-graphic-variable';
 import { DefaultProject } from '../default/default-project';
 import { DefaultRawData } from '../default/default-raw-data';
 import { DefaultRecordSet } from '../default/default-record-set';
 import {
-  ScatterplotVisualization, TemporalBargraphVisualization, NetworkVisualization, GeomapVisualization
+  GeomapVisualization,
+  NetworkVisualization,
+  ScatterplotVisualization,
+  TemporalBargraphVisualization,
 } from '../ngx-dino/visualizations';
 import { NSFDataSource } from './nsf-data-source';
 import { NSFParsedRawData } from './nsf-parsed-raw-data';
+import { isNSFCompatibleCSV } from './nsf-validator';
 
 
 export class NSFTemplateProject extends DefaultProject {
   static async create(nsfFileContent: string, fileName?: string): Promise<Project> {
-    const project = new NSFTemplateProject(nsfFileContent, fileName);
-    await project.prePopulateData();
-    return project;
+    // if the csv file has nsf compatible headers,load the CSV data with NSF Template Project
+    if (isNSFCompatibleCSV(nsfFileContent)) {
+      const project = new NSFTemplateProject(nsfFileContent, fileName);
+      await project.prePopulateData();
+      return project;
+    } else {
+      // Otherwise, load the CSV data with the default CSV Template Project.
+      return await CSVTemplateProject.create(nsfFileContent, fileName);
+    }
   }
 
   constructor(nsfFileContent: string, fileName?: string) {

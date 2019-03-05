@@ -10,6 +10,7 @@
                     <mav-table-icon></mav-table-icon>
                     <span class="label">{{dataSource.label}}:</span>
                     <span class="description" *ngIf="!!dataSource.description">&nbsp;({{dataSource.description }})</span>
+                    <mat-icon class="export-to-csv-icon" (click)="exportTable(dataSource)">cloud_download</mat-icon>
                 </mat-card-title>
             </mat-card-header>
             <mat-card-content class="card-content">
