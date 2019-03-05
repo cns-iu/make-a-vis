@@ -205,6 +205,7 @@
   font-family: $tooltip-font !important;
 }
 
+/* colors from table.component.scss */
 .mav-datatable-container {
   .datatable-wrapper {
     .datatable-container {
@@ -249,6 +250,37 @@
         }
       }
       
+    }
+  }
+}
+
+/* colors from graphic-symbol-type.component.scss */
+.graphic-symbol-selection-container {
+  .wrapper {
+    .graphic-symbol-card {
+      &:active {
+        background-color: #1e88e5 !important;
+        color: #ffffff !important;
+      }
+    }
+    .record-stream-selected {
+      background-color: #1e88e5 !important;
+      color: #ffffff !important;
+      border-color: #ffffff !important;
+      .graphic-symbol-type {
+      color: #e0e0e0 !important;
+    }
+    }
+  }
+}
+
+.record-stream-container {
+  .record-stream {
+    border-color: #e0e0e0 !important;
+    background-color: #f5f5f5 !important;
+    &:hover,
+    &:active {
+      background-color: rgba(255, 255, 0, 0.5) !important;
     }
   }
 }
