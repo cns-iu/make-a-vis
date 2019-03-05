@@ -1,7 +1,6 @@
-.wrapper {
+.mav-table.wrapper {
   visibility: visible;
   transition: visibility 0.7s, max-height 0.7s;
-  -webkit-transition: visibility 0.7s, max-height 0.7s;
   max-height: 100rem;
 
   &.hidden {
@@ -10,158 +9,128 @@
     height: auto;
   }
 
-  .container {
+  .container .card {
     border: 1px solid #e0e0e0;
     margin-top: 0.625rem;
     padding-top: 0.5rem;
     padding-left: 2.5rem;
     border-color: transparent;
 
-    &.first-table {
-      margin-top: 0;
-    }
-
-    &:not(with-children) {
+    &:not(.with-children) {
       padding-left: 1rem;
     }
 
-    .datatable-container {
-      .card-header {
-        line-height: 1.25rem;
+    .interactive-icon {
+      font-size: 1.5rem;
+      color: #1e88e5;
+      cursor: pointer;
+      height: 2.5rem;
+      width: 2.5rem;
+    }
 
-        ::ng-deep .mat-card-header-text {
-          margin: 0;
-        }
+    .header {
+      line-height: 1.25rem;
 
-        .label {
-          color: #212121;
-          font-size: 0.875rem;
-          font-weight: bold;
-        }
-
-        .description {
-          color: #757575;
-          font-size: 0.875rem;
-          font-style: italic;
-        }
-
-        .expand-icon {
-          position: absolute;
-          padding: 0.5rem;
-          top: 0;
-          left: 0;
-          font-size: 1.5rem;
-          color: #1e88e5;
-          cursor: pointer;
-          height: 2.5rem;
-          width: 2.5rem;
-        }
-
-        .export-to-csv-icon {
-          position: absolute;
-          padding-top: 0.5rem;
-          top: 0;
-          right: 0;
-          font-size: 1.5rem;
-          color: #1e88e5;
-          cursor: pointer;
-          height: 2.5rem;
-          width: 2.5rem;
-        }
+      ::ng-deep .mat-card-header-text {
+        margin: 0;
       }
 
-      .card-content {
-        margin-bottom: 0;
-        ::ng-deep .mat-cell,
-        .mat-footer-cell,
-        .mat-header-cell {
+      .toggle-icon {
+        position: absolute;
+        padding: 0.5rem;
+        top: 0;
+        left: 0;
+      }
+
+      .label {
+        color: #212121;
+        font-size: 0.875rem;
+        font-weight: bold;
+      }
+
+      .description {
+        color: #757575;
+        font-size: 0.875rem;
+        font-style: italic;
+      }
+
+      .export-to-csv-icon {
+        position: absolute;
+        padding-top: 0.5rem;
+        top: 0;
+        right: 0;
+      }
+    }
+
+    .content {
+      margin-bottom: 0;
+
+      .table {
+        transition: max-height 0.7s;
+        max-height: 100rem;
+        border-bottom: 1px solid #e0e0e0;
+        overflow-x: auto;
+
+        .header-row .header-cell,
+        .row .row-cell {
           padding: 0.5rem;
           min-width: 12rem;
           max-width: 12rem;
         }
 
-        ::ng-deep .mat-header-row {
+        .header-row {
+          width: fit-content;
           min-height: 0;
           border-top: 1px solid #e0e0e0;
-        }
-
-        ::ng-deep .mat-row {
-          min-height: auto;
-          align-items: start;
-        }
-
-        .table {
-          transition: max-height 0.7s;
-          -webkit-transition: max-height 0.7s;
-          max-height: 100rem;
-          border-bottom: 1px solid #e0e0e0;
-          overflow-x: auto;
-
-          .row {
-            width: fit-content;
-
-            &:nth-child(even) {
-              background: #f5f5f5;
-            }
-          }
-
-          .header-row {
-            width: fit-content;
-          }
 
           .header-cell {
             font-weight: 700;
             color: #212121;
             font-size: 0.875rem;
             border: 0.125rem solid transparent;
-          }
 
-          .header-cell.hoverable {
-            &:hover {
+            &.hoverable:hover,
+            &.highlight {
               background-color: rgba(255, 255, 0, 0.2);
               border-color: rgba(255, 255, 0, 1);
-              border-color: rgba(255, 255, 0, 1) !important;
             }
           }
         }
 
-        ::ng-deep .highlight {
-          background-color: rgba(255, 255, 0, 0.2);
-          border-color: rgba(255, 255, 0, 1) !important;
+        .row {
+          width: fit-content;
+          min-height: auto;
+          align-items: start;
+
+          &:nth-child(even) {
+            background: #f5f5f5;
+          }
         }
 
-        .hidden-table {
+        &.hidden {
           max-height: 3.1rem;
           height: auto;
           overflow-y: hidden;
         }
       }
+    }
 
-      .card-footer {
-        .toggle {
-          cursor: pointer;
-          display: flex;
-          justify-content: flex-end;
+    .footer {
+      .record-toggle-group {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        cursor: pointer;
+        padding: 0;
 
-          .toggle-group {
-            display: flex;
-            align-items: center;
-            padding: 0;
-          }
+        .label {
+          color: #bdbdbd;
+          font-size: 0.7rem;
+        }
 
-          .toggle-label {
-            color: #bdbdbd;
-            font-size: 0.7rem;
-          }
-
-          .expand-icon {
-            font-size: 1.5rem;
-            color: #1e88e5;
-            top: 0;
-            padding: 0.5rem;
-            height: 2.5rem;
-            width: 2.5rem;
-          }
+        .toggle-icon {
+          top: 0;
+          padding: 0.5rem;
         }
       }
     }
