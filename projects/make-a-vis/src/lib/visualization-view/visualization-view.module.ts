@@ -1,4 +1,3 @@
-// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -22,11 +21,6 @@ import { ScatterGraphIconComponent } from './icons/scatter-graph/scatter-graph-i
 import { MainComponent } from './main/main.component';
 import { MenuComponent } from './menu/menu.component';
 
-
-// Material
-// Components
-// Icons
-
 @NgModule({
   imports: [
     CommonModule,
@@ -40,7 +34,6 @@ import { MenuComponent } from './menu/menu.component';
     MatButtonModule,
     FormsModule,
     MarkdownModule.forRoot(),
-
 
     DvlFwModule
   ],
