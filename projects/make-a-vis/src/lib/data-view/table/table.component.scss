@@ -116,6 +116,31 @@
     }
 
     .footer {
+      display: flex;
+      justify-content: flex-end;
+
+      .paginator ::ng-deep .mat-paginator-container {
+        min-height: 0;
+        padding: 0;
+
+        .mat-paginator-range-label {
+          margin: 0px 0.625rem 0px 0px;
+          color: #757575;
+        }
+
+        .mat-icon-button {
+          // TODO: Tighten distance between elements
+
+          svg {
+            fill: #1e88e5;
+          }
+
+          &[disabled] svg {
+            fill: #bdbdbd;
+          }
+        }
+      }
+
       .record-toggle-group {
         display: flex;
         justify-content: flex-end;

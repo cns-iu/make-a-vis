@@ -1,4 +1,5 @@
-import { Component, Input, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild } from '@angular/core';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { DataVariable } from '@dvl-fw/core';
 import { Store } from '@ngrx/store';
 import { every as loEvery, forEach as loForEach, get as loGet, includes as loIncludes, map as loMap } from 'lodash';
@@ -17,18 +18,24 @@ import { ExportTableService } from '../shared/export-table.service';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnDestroy {
+export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() dataSource: DataSource;
   @Input() displayedColumns: DataVariable[] = [];
   @Input() tableIndex: number;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  get label(): string { return loGet(this.dataSource, 'label', ''); }
-  get description(): string { return loGet(this.dataSource, 'description', ''); }
-  get numberOfRows(): number { return loGet(this.dataSource, 'numRows', 0); }
+  readonly pageSize = 3;
+
   get columnNames(): string[] { return loMap(this.displayedColumns, 'label'); }
-  hoverEnabled = false;
+  get data(): any[] { return loGet(this.dataSource, 'data', []); }
+  get description(): string { return loGet(this.dataSource, 'description', ''); }
+  get label(): string { return loGet(this.dataSource, 'label', ''); }
+  get numberOfRows(): number { return loGet(this.dataSource, ['data', 'length'], 0); }
 
-  private hoverableColumnIds: string[] = [];
+  hoverEnabled = false;
+  tableDataSource = new MatTableDataSource<any>();
+
+  private hoverableColumnIds: string[] = undefined;
   private hoverableRecordSetId: string = undefined;
   private subscriptions: Subscription[] = [];
 
@@ -43,8 +50,20 @@ export class TableComponent implements OnDestroy {
     this.subscriptions.push(this.subscribeToHoverEnabled(store));
   }
 
+  ngAfterViewInit() {
+    const { data, paginator, tableDataSource } = this;
+    tableDataSource.data = data;
+    tableDataSource.paginator = paginator;
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    const { data, tableDataSource } = this;
+    if ('dataSource' in changes) { tableDataSource.data = data; }
+  }
+
   ngOnDestroy() {
     loForEach(this.subscriptions, sub => sub.unsubscribe());
+    this.subscriptions = [];
   }
 
   isHidden(): boolean { return loGet(this.dataSource, 'hidden', true); }
@@ -91,7 +110,8 @@ export class TableComponent implements OnDestroy {
       const [type, rsId, ...ids] = event;
 
       if (length === 0) {
-        this.hoverableColumnIds = [];
+        this.hoverableRecordSetId = undefined;
+        this.hoverableColumnIds = undefined;
       } else if (length >= 3 && type === 'selector') {
         this.hoverableRecordSetId = rsId;
         this.hoverableColumnIds = ids;
