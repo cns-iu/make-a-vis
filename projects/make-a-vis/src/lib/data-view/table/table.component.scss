@@ -20,13 +20,11 @@
         }
 
         .label {
-          color: #212121;
           font-size: 0.875rem;
           font-weight: bold;
         }
 
         .description {
-          color: #757575;
           font-size: 0.875rem;
           font-style: italic;
         }
@@ -37,7 +35,6 @@
           top: 0;
           left: 0;
           font-size: 1.5rem;
-          color: #1e88e5;
           cursor: pointer;
           height: 2.5rem;
           width: 2.5rem;
@@ -49,7 +46,6 @@
           top: 0;
           right: 0;
           font-size: 1.5rem;
-          color: #1e88e5;
           cursor: pointer;
           height: 2.5rem;
           width: 2.5rem;
@@ -97,25 +93,17 @@
 
           .header-cell {
             font-weight: 700;
-            color: #212121;
             font-size: 0.875rem;
             border: 0.125rem solid transparent;
           }
 
           .header-cell.hoverable {
             &:hover {
-              background-color: rgba(255, 255, 0, 0.2);
-              border-color: rgba(255, 255, 0, 1);
-              border-color: rgba(255, 255, 0, 1) !important;
+              background-color: transparent;
+              border-color: transparent;
             }
           }
         }
-
-        ::ng-deep .highlight {
-          background-color: rgba(255, 255, 0, 0.2);
-          border-color: rgba(255, 255, 0, 1) !important;
-        }
-
         .hidden-table {
           max-height: 3.1rem;
           height: auto;
@@ -136,13 +124,11 @@
           }
 
           .toggle-label {
-            color: #bdbdbd;
             font-size: 0.7rem;
           }
 
           .expand-icon {
             font-size: 1.5rem;
-            color: #1e88e5;
             top: 0;
             padding: 0.5rem;
             height: 2.5rem;
