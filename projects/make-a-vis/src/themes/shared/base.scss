@@ -353,3 +353,19 @@
     }
   }
 }
+
+/* colors from visualization-type.component.scss */
+.vis-type-selection-wrapper {
+  .card{
+    background: none;
+    color: #000000;
+    &:active {
+      background: #1e88e5;
+      color: #ffffff;
+    }
+  }
+  .vis-type-selected {
+    background: #1e88e5;
+    color: #ffffff;
+  }
+}
