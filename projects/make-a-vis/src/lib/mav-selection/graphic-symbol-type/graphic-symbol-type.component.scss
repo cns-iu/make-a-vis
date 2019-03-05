@@ -26,21 +26,10 @@
       .content {
         white-space: pre-wrap;
       }
-
-      &:active {
-        background: transparent;
-        color: transparent;
-      }
     }
 
     .record-stream-selected {
-      background: transparent;
-      color: transparent;
       border: 1px solid transparent;
-
-      .graphic-symbol-type {
-        color: transparent;
-      }
     }
   }
 }
@@ -55,12 +44,6 @@
     margin: 0.25rem;
     border: 1px solid transparent;
     cursor: move;
-    background-color: transparent;
     border-radius: 4px;
-
-    &:hover,
-    &:active {
-      background-color: transparent;
-    }
   }
 }

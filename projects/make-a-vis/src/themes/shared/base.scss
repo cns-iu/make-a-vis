@@ -174,7 +174,7 @@
 
 .mav-legend-view {
   .legend-view-group {
-    border-color: $gray-accent-1;
+    border-color: $gray-accent-1 !important;
     background-color: $gray-accent-2;
   }
   .mav-graphic-variable-legend {
@@ -271,16 +271,16 @@
   .wrapper {
     .graphic-symbol-card {
       &:active {
-        background-color: #1e88e5 !important;
-        color: #ffffff !important;
+        background-color: #1e88e5;
+        color: #ffffff;
       }
     }
     .record-stream-selected {
-      background-color: #1e88e5 !important;
-      color: #ffffff !important;
-      border-color: #ffffff !important;
+      background-color: #1e88e5;
+      color: #ffffff;
+      border-color: #ffffff;
       .graphic-symbol-type {
-      color: #e0e0e0 !important;
+      color: #e0e0e0;
     }
     }
   }
@@ -288,11 +288,11 @@
 
 .record-stream-container {
   .record-stream {
-    border-color: #e0e0e0 !important;
-    background-color: #f5f5f5 !important;
+    border-color: #e0e0e0;
+    background-color: #f5f5f5;
     &:hover,
     &:active {
-      background-color: rgba(255, 255, 0, 0.5) !important;
+      background-color: rgba(255, 255, 0, 0.5);
     }
   }
 }
@@ -384,6 +384,16 @@
 }
 
 /* colors from visualization-view/main.component.scss */
+.visualization-wrapper {
+  .about-expansion-panel-container {
+    border-bottom-color: #e0e0e0 !important;
+    .mat-expansion-panel-body {
+      .edit-about-button {
+        background-color: transparent;
+      }
+    }
+  }
+}
 .add-edit-visualization {
   .edit-icon-disabled {
     color: #bdbdbd;
@@ -392,3 +402,4 @@
 .visualization-container {
   background-color: white;
 }
+
