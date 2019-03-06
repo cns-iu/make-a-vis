@@ -13,16 +13,21 @@ addons:
 cache: npm
 branches:
   only:
+  - travis-optimize
   - master
   - develop
-  - travis-optimize
   - "/^v\\d+\\.\\d+(\\.\\d+)?(-\\S*)?$/"
 install:
   - npm install
   - npm install typescript@">=3.1.1 <3.2" # Temporary fix for @angular/compiler-cli
 script: skip
-matrix:
+jobs:
   include:
+  - stage: Sonar
+    name: run sonar checks
+    if: NOT (branch = master AND tag IS present) 
+    script:
+    - sonar-scanner -X
   - stage: test
     name: Run Tests
     if: branch != develop
@@ -31,7 +36,6 @@ matrix:
     - npm run build:build-info
     - npm run build:libs
     - npm run test
-    - sonar-scanner -X
   - stage: deploy
     name: Deploy staging to Netlify
     if: branch = develop
@@ -40,7 +44,6 @@ matrix:
     - npm run build:build-info
     - npm run build:libs
     - npm run test
-    - sonar-scanner -X
     - npm run build:demo
     - npm run compodoc
     deploy:
