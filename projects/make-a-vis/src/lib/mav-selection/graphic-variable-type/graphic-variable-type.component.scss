@@ -44,26 +44,17 @@
           }
 
           .graphic-variable-label {
-            color: #e0e0e0 !important;
             margin-left: 0 !important;
           }
         }
 
         ::ng-deep .highlight {
-          background-color: rgba(255, 255, 0, 0.2) !important;
-          border-color: rgba(255, 255, 0, 1) !important;
           border-width: 0.125rem !important;
-
-          .graphic-variable-label,
-          .data-variable {
-            color: #212121 !important;
-          }
         }
 
         .required-dot {
           height: 0.625rem;
           width: 0.625rem;
-          background-color: #bf360c;
           border-radius: 10px;
           position: absolute;
           right: 0.5rem;
@@ -76,12 +67,6 @@
           cursor: pointer;
           display: flex;
           border-width: 0.125rem;
-          border-color: transparent;
-
-          &:active {
-            background: #1e88e5;
-            color: #ffffff;
-          }
 
           .variable-type {
             display: flex;
@@ -90,17 +75,12 @@
             padding: 0.625rem 0.625rem 1.875rem;
 
             .graphic-variable-label {
-              color: #212121;
               margin-left: 0.5rem;
             }
 
             ::ng-deep .dvl-static-legend-container {
               width: 1.875rem;
               height: 1.875rem;
-            }
-
-            .data-variable {
-              color: #ffffff;
             }
           }
 
@@ -114,16 +94,6 @@
             border-bottom-right-radius: 4px;
             text-align: center;
           }
-
-          .variable-category-qualitative {
-            background: #bf360c;
-            color: #fff;
-          }
-
-          .variable-category-quantitative {
-            background: #bdbdbd;
-            color: #212121;
-          }
         }
 
         .cancel-icon {
@@ -136,8 +106,6 @@
         }
 
         .data-variable-selected {
-          background: #1e88e5;
-          color: #ffffff;
           border-width: 0.125rem;
           border-style: solid;
 
