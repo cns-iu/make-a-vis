@@ -175,11 +175,23 @@
 }
 
 .about-expansion-panel-container {
+<<<<<<< HEAD
   border-left-color: $gray-accent-1 !important;
   border-right-color: $gray-accent-1 !important;
   .mat-expansion-panel-content {
     color: $secondary-text !important;
   }
+=======
+    border-left-color: $gray-accent-1 !important;
+    border-right-color: $gray-accent-1 !important;
+    .mat-expansion-panel-content {
+      color: $secondary-text !important;
+      .edit-about-button {
+        color : $secondary-text !important;
+        border-color: $gray-accent-1 !important;
+      }
+    }
+>>>>>>> 3df01cae8bebef3b4e1d3c24dda2de8fe5453679
 }
 
 .mav-legend-view {
