@@ -233,12 +233,12 @@
         }
         .header-cell.hoverable {
           &:hover {
-            background-color: rgba(255, 255, 0, 0.2);
+            background-color: $highlight-accent-1;
             border-color: $highlight !important;
           }
         }
         .highlight {
-          background-color: rgba(255, 255, 0, 0.2);
+          background-color: $highlight-accent-1;
           border-color: $highlight !important;
         }
       }
@@ -283,7 +283,7 @@
     background-color: $gray-accent-2;
     &:hover,
     &:active {
-      background-color: rgba(255, 255, 0, 0.5);
+      background-color: $highlight-accent-2;
     }
   }
 }
@@ -302,7 +302,7 @@
           }
         }
         .highlight {
-          background-color: rgba(255, 255, 0, 0.2) !important;
+          background-color: $highlight-accent-1 !important;
           border-color: $highlight !important;
           .graphic-variable-label, .data-variable {
             color: $primary-text !important;
