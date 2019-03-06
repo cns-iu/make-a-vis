@@ -1,10 +1,9 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 import { ActivityLogRawData, Project, ProjectSerializerService } from '@dvl-fw/core';
-
 import { LoggingControlService } from '../../../shared/logging/logging-control.service';
 import * as sidenavStore from '../../../toolbar/shared/store';
 import { GetLinkService } from '../get-link/get-link.service';
@@ -60,11 +59,11 @@ export class LoadProjectService {
 
   /* loads project from json given as an argument
   */
-  loadFromProjectJson(json: string) {
+  loadFromProjectJson(json: string): Observable<Project> {
     const projectSubject = new BehaviorSubject<Project>(null);
     this.serializer.fromJSON(json)
       .subscribe((project: Project) => projectSubject.next(project));
-    return projectSubject;
+    return projectSubject.asObservable();
   }
 
   getProject(fileName: string, fileExtension: ProjectExtensionType , event: any ) {
