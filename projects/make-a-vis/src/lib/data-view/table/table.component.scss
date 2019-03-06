@@ -14,7 +14,6 @@
     margin-top: 0.625rem;
     padding-top: 0.5rem;
     padding-left: 2.5rem;
-    border-color: transparent;
 
     &:not(.with-children) {
       padding-left: 1rem;
@@ -85,7 +84,6 @@
 
           .header-cell {
             font-weight: 700;
-            color: #212121;
             font-size: 0.875rem;
             border: 0.125rem solid transparent;
 
@@ -129,8 +127,6 @@
         }
 
         .mat-icon-button {
-          // TODO: Tighten distance between elements
-
           svg {
             fill: #1e88e5;
           }
