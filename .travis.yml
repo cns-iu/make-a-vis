@@ -23,13 +23,13 @@ install:
 script: skip
 jobs:
   include:
-  - stage: test
-    name: run sonar checks
+  - stage: run sonar checks
+    name: test
     if: NOT (branch = master OR tag IS present) 
     script:
     - sonar-scanner -X
-  - stage: test
-    name: Run Tests
+  - stage: Run Tests
+    name: test
     if: branch != develop
     script:
     - npm run lint
