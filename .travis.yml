@@ -23,7 +23,7 @@ jobs:
   include:
   - stage: test
     name: Run Tests
-    if: branch != develop
+    if: NOT (branch = master AND tag IS present) 
     script:
     - npm run build:build-info
     - npm run build:libs
