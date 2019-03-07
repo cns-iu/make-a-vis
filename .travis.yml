@@ -23,16 +23,6 @@ script: skip
 jobs:
   include:
   - stage: test
-    name: run sonar checks
-    if: NOT (branch = master AND tag IS present) 
-    script:
-    - sonar-scanner -X
-  - stage: test
-    name: run sonar checks
-    if: NOT (branch = master AND tag IS present) 
-    script:
-    - npm run lint
-  - stage: test
     name: Run Tests
     if: branch != develop
     script:
@@ -100,6 +90,16 @@ jobs:
     - cd dist/dvl-fw
     after_deploy: *1
     deploy: *2
+    - stage: test
+    name: run sonar checks
+    if: NOT (branch = master AND tag IS present) 
+    script:
+    - sonar-scanner -X
+  - stage: test
+    name: run linter
+    if: NOT (branch = master AND tag IS present) 
+    script:
+    - npm run lint
 notifications:
   slack:
     secure: kmHjR6duu+E+c+JEBLjECE5mSboVOrz599dOubVU7eqwVNUGvbe3YDGIKAc0S6akqsW0q9bVUWM2Zi+J4ROHrlMi1A+VQRJAW+2DG+6wu8fmdZiA0u/fK2w9IMRPFDDk80mMZN7TzSPMu5nRv6UGbVqpNeqRWotd2XtyLOu3+KRYKggUjKKz5D3oiYYGaHZWj6foDG7u42q33RQ55LlWff0GmAUuYVSfOUlxAYevOTuV9QF8NfFRnlQAfIYucM9177dd9cfWUdRgWPL7VGDUrANF2NtrfTUcWMM/zl6Vk7KMTxcCr1Oy0osxPE4DlpD8Mdz+i54tqKtcopJirBUnogZx+6MoMqMpTu7mU9pmB1H5rhAqlddYUMxiiyUvAvsScm3G5tY7azvqB0i6qalveTXuZWTa3CZUKHHTkDaDd0tnCvnLqWUaxZ2TeS//67q4EvreTfIdD4hD4phXjqfS+x0Ha8w7MpjwNln651svxsnpv+Ak6ET8N/NVRY61LhzAocMHitqMZMycTgyf8l5rciUtWE2cIuDiH86SBF+KeDYnoCCBwN8qXUTktVie37PeBX2drO84wNc8tmzjpIguXyCQUCBN/t0BodC4BIH+/oasfsYtKpXj6LQaV4/brf+t+hZX2FYssS44UZAKn3CQ92Mp7YurngUMHBqaMC6wPu4=
