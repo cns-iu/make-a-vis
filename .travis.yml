@@ -91,12 +91,12 @@ jobs:
     after_deploy: *1
     deploy: *2
   - stage: test
-    name: run sonar checks
+    name: Run sonar checks
     if: NOT (branch = master AND tag IS present) 
     script:
     - sonar-scanner -X
   - stage: test
-    name: run linter
+    name: Run linter
     if: NOT (branch = master AND tag IS present) 
     script:
     - npm run lint
