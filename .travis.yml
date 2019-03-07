@@ -90,7 +90,7 @@ jobs:
     - cd dist/dvl-fw
     after_deploy: *1
     deploy: *2
-    - stage: test
+  - stage: test
     name: run sonar checks
     if: NOT (branch = master AND tag IS present) 
     script:
