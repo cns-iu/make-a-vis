@@ -23,7 +23,7 @@ install:
 script: skip
 jobs:
   include:
-  - stage: Sonar
+  - stage: test
     name: run sonar checks
     if: NOT (branch = master AND tag IS present) 
     script:
