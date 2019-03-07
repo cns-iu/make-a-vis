@@ -7,7 +7,7 @@ import { TemporalBargraphComponent } from '../components/temporal-bargraph/tempo
 
 export class TemporalBargraphVisualization extends DefaultVisualization {
   // tslint:disable-next-line: max-line-length
-  readonly defaultDescription = 'A temporal bar graph is a visualization where each record is presented as a labeled horizontal bar with a specific start and end date. The area of each bar encodes a numerical attribute value (e.g., total amount of funding). Bars may be color coded to present categorical attribute values of records. An additional variable can be presented through tooltips on the bars.';
+  readonly description = 'A temporal bar graph is a visualization where each record is presented as a labeled horizontal bar with a specific start and end date. The area of each bar encodes a numerical attribute value (e.g., total amount of funding). Bars may be color coded to present categorical attribute values of records. An additional variable can be presented through tooltips on the bars.';
   readonly component = TemporalBargraphComponent;
   readonly graphicSymbolOptions = [{
     id: 'bars', label: 'Bars', type: 'area',

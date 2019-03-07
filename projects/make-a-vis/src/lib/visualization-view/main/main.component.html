@@ -28,16 +28,7 @@
                                 </div>
                             </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <div *ngIf="!aboutEditMode">
-                            <markdown [data]="vis.data.description || vis.data.defaultDescription"></markdown>
-                            <button class="edit-about-button" (click)="aboutEditMode = true">Edit</button>
-                        </div>
-                        <div *ngIf="aboutEditMode">
-                            <mat-form-field class="edit-about-formfield">
-                                <textarea #markdownInput matInput name="mdInput" [value]="vis.data.description || vis.data.defaultDescription"></textarea>
-                            </mat-form-field>
-                            <button class="edit-about-button" (click)="vis.data.description = markdownInput.value; aboutEditMode = false;">Save</button>    
-                        </div>
+                        <span [innerHTML]="vis.data.description | safe: 'html'"></span>
                     </mat-expansion-panel>
                 </div>
             </ng-template>
