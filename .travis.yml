@@ -13,7 +13,6 @@ addons:
 cache: npm
 branches:
   only:
-  - travis-optimize
   - master
   - develop
   - "/^v\\d+\\.\\d+(\\.\\d+)?(-\\S*)?$/"
