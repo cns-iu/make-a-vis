@@ -29,7 +29,7 @@
 
   .mav-menu-icon {
     background-color: $secondary;
-  }  
+  }
 }
 
 .mav-info-icon-wrapper {
@@ -197,62 +197,60 @@
 
 
 /* colors from table.component.scss */
-.mav-datatable-container {
-  .datatable-wrapper {
+.mav-table {
+  .card {
     border-color: $gray-accent-1;
-    .datatable-container {
-      .card-header {
-        .label {
-          color: $primary-text;
-        }
-        .description {
-          color: $secondary-text;
-        }
-        .expand-icon {
-          color: $primary;
-        }
-        .export-to-csv-icon {
-          color: $primary;
-        }
+
+    .interactive-icon {
+      color: $primary;
+    }
+
+    .header {
+      .label {
+        color: $primary-text;
       }
-      .card-content {
-        .mat-header-row {
-          min-height: 0;
-          border-top-color: $gray-accent-1;
-        }
-        .table {
-          border-bottom: $gray-accent-1;
-          .row {
-            &:nth-child(even) {
-              background: $gray-accent-2;
-            }
-          }
-        }
+
+      .description {
+        color: $secondary-text;
+      }
+    }
+
+    .content .table {
+      border-bottom-color: $gray-accent-1;
+
+      .header-row {
+        border-top-color: $gray-accent-1;
+
         .header-cell {
           color: $primary-text;
-        }
-        .header-cell.hoverable {
-          &:hover {
+
+          &.hoverable:hover,
+          &.highlight {
             background-color: $highlight-accent-1;
             border-color: $highlight !important;
           }
         }
-        .highlight {
-          background-color: $highlight-accent-1;
-          border-color: $highlight !important;
+      }
+
+      .row:nth-child(even) {
+        background: $gray-accent-2;
+      }
+    }
+
+    .footer {
+      .mat-paginator-range-label {
+        color: $border;
+      }
+
+      .mat-icon-button {
+        svg {
+          fill: $primary;
+        }
+
+        &[disabled] svg {
+          fill: $gray-400;
         }
       }
-      .card-footer {
-        .toggle {
-          .toggle-label {
-            color: $border !important;
-          }
-          .expand-icon {
-            color: $primary !important;
-          }
-        }
-      }
-      
     }
   }
 }
@@ -323,7 +321,7 @@
             .data-variable {
                color: $white;
             }
-            
+
           }
           .variable-category-qualitative {
             background-color: $accent3;
@@ -397,5 +395,3 @@
 .visualization-container {
   background-color: $white;
 }
-
-
