@@ -1,11 +1,11 @@
-// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild } from '@angular/core';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { DataVariable } from '@dvl-fw/core';
 import { Store } from '@ngrx/store';
-import { combineLatest } from 'rxjs';
-import { distinctUntilChanged, map } from 'rxjs/operators';
+import { every as loEvery, forEach as loForEach, get as loGet, includes as loIncludes, map as loMap } from 'lodash';
+import { combineLatest as rxCombineLatest, Subscription } from 'rxjs';
+import { distinctUntilChanged as rxDistinctUntilChanged, map as rxMap } from 'rxjs/operators';
 
-import * as payloadTypes from '../../data-view/shared/store/payload-types';
 import { getOpenGVGroupPanelsSelector, isGVPanelOpenSelector } from '../../mav-selection/shared/store';
 import { ActionDispatcherService } from '../../shared/services/actionDispatcher/action-dispatcher.service';
 import { DataVariableHoverService } from '../../shared/services/hover/data-variable-hover.service';
@@ -13,91 +13,122 @@ import { DataService, DataSource } from '../shared/data.service';
 import { ExportTableService } from '../shared/export-table.service';
 
 
-/** Flat node with expandable and level information */
-export interface ParentNode {
-  label: string;
-  description: string;
-}
-
 @Component({
   selector: 'mav-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnChanges {
+export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() dataSource: DataSource;
   @Input() displayedColumns: DataVariable[] = [];
   @Input() tableIndex: number;
-  displayedColumnNames: string[] = [];
-  hoverRecordSetId: string;
-  hoverIds: string[] = [];
-  isHoverable = false;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  readonly pageSize = 3;
+
+  get columnNames(): string[] { return loMap(this.displayedColumns, 'label'); }
+  get data(): any[] { return loGet(this.dataSource, 'data', []); }
+  get description(): string { return loGet(this.dataSource, 'description', ''); }
+  get label(): string { return loGet(this.dataSource, 'label', ''); }
+  get numberOfRows(): number { return loGet(this.dataSource, ['data', 'length'], 0); }
+
+  hoverEnabled = false;
+  tableDataSource = new MatTableDataSource<any>();
+
+  private hoverableColumnIds: string[] = undefined;
+  private hoverableRecordSetId: string = undefined;
+  private subscriptions: Subscription[] = [];
 
   constructor(
     store: Store<any>,
     private actionDispatcherService: ActionDispatcherService,
     private dataService: DataService,
     private exportService: ExportTableService,
-    private hoverService: DataVariableHoverService
+    private hoverService: DataVariableHoverService,
   ) {
-    hoverService.hovers.subscribe(event => {
-      if (event.length === 0) {
-        this.hoverIds = [];
-      } else if (event.length >= 3 && event[0] === 'selector') {
-        this.hoverRecordSetId = event[1];
-        this.hoverIds = event.slice(2);
-      }
-    });
+    this.subscriptions.push(this.subscribeToHoverEvents());
+    this.subscriptions.push(this.subscribeToHoverEnabled(store));
+  }
 
-    combineLatest(
-      store.select(getOpenGVGroupPanelsSelector).pipe(
-        map(groups => groups.map(({ streamId }) => streamId)),
-        map(ids => ids.indexOf(this.dataSource && this.dataSource.streamId) !== -1)
-      ),
-      store.select(isGVPanelOpenSelector)
-    ).pipe(
-      map(([b1, b2]) => b1 && b2),
-      distinctUntilChanged()
-    ).subscribe(hoverable => setTimeout(() => this.isHoverable = hoverable, 0));
+  ngAfterViewInit() {
+    const { data, paginator, tableDataSource } = this;
+    tableDataSource.data = data;
+    tableDataSource.paginator = paginator;
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if ('displayedColumns' in changes) {
-      this.displayedColumnNames = this.displayedColumns.map((ds) => ds.label);
-    }
+    const { data, tableDataSource } = this;
+    if ('dataSource' in changes) { tableDataSource.data = data; }
   }
 
-  toggleDataTable(dataSource: DataSource) {
-    const payload: payloadTypes.ToggleDataTableChildren = {
-      hiddenChildren : !dataSource.childrenHidden,
-      dataSourceId: dataSource.id
-    };
-    this.actionDispatcherService.toggleDataTableChildren(payload);
-    this.dataService.toggleDataTable(dataSource);
+  ngOnDestroy() {
+    loForEach(this.subscriptions, sub => sub.unsubscribe());
+    this.subscriptions = [];
   }
 
-  toggleRows(dataSource: DataSource) {
-    const payload: payloadTypes.ToggleDataTableRows = {
-      hiddenRows : !dataSource.hiddenData,
-      dataSourceId: dataSource.id
-    };
-    this.actionDispatcherService.toggleDataTableRows(payload);
-    dataSource.hiddenData = !dataSource.hiddenData;
+  isHidden(): boolean { return loGet(this.dataSource, 'hidden', true); }
+  isFirst(): boolean { return this.tableIndex === 0; }
+  isChildrenHidden(): boolean { return loGet(this.dataSource, 'childrenHidden', true); }
+  hasData(): boolean { return loGet(this.dataSource, ['data', 'length'], 0) !== 0; }
+  hasHiddenData(): boolean { return loGet(this.dataSource, 'hiddenData', false); }
+  hasChildren(): boolean { return loGet(this.dataSource, ['children', 'length'], 0) !== 0; }
+
+  getToggleIcon(more: boolean): string { return more ? 'expand_more' : 'expand_less'; }
+
+  toggleChildTables(): void {
+    const { actionDispatcherService, dataService, dataSource } = this;
+    dataService.toggleDataTable(dataSource);
+    actionDispatcherService.toggleDataTableChildren({
+      dataSourceId: loGet(dataSource, 'id'),
+      hiddenChildren: !this.isChildrenHidden()
+    });
   }
 
-  shouldHighlight(column: DataVariable): boolean {
-    return this.hoverIds.indexOf(column.id) !== -1 && column.recordSet.id === this.hoverRecordSetId;
+  toggleRows(): void {
+    const { actionDispatcherService, dataSource } = this;
+    if (dataSource) { dataSource.hiddenData = !dataSource.hiddenData; }
+    actionDispatcherService.toggleDataTableRows({
+      dataSourceId: loGet(dataSource, 'id'),
+      hiddenRows: !this.hasHiddenData()
+    });
   }
 
-  startHover(data: DataVariable): void {
-    this.hoverService.startHover(['table', data.id, data.recordSet.id]);
+  shouldHighlight({ id, recordSet: { id: rsId } }: DataVariable): boolean {
+    const { hoverableColumnIds, hoverableRecordSetId } = this;
+    return loIncludes(hoverableColumnIds, id) && rsId === hoverableRecordSetId;
   }
 
-  endHover(_data: DataVariable): void {
-    this.hoverService.endHover();
+  startHover({ id, recordSet: { id: rsId } }: DataVariable): void {
+    this.hoverService.startHover(['table', id, rsId]);
+  }
+  endHover(_data: DataVariable): void { this.hoverService.endHover(); }
+  exportTable(source: DataSource): void { this.exportService.save(source); }
+
+  private subscribeToHoverEvents(): Subscription {
+    return this.hoverService.hovers.subscribe(event => {
+      const length = event.length;
+      const [type, rsId, ...ids] = event;
+
+      if (length === 0) {
+        this.hoverableRecordSetId = undefined;
+        this.hoverableColumnIds = undefined;
+      } else if (length >= 3 && type === 'selector') {
+        this.hoverableRecordSetId = rsId;
+        this.hoverableColumnIds = ids;
+      }
+    });
   }
 
-  exportTable(source: DataSource): void {
-    this.exportService.save(source);
+  private subscribeToHoverEnabled(store: Store<any>): Subscription {
+    const isGVPanelOpen = store.select(isGVPanelOpenSelector);
+    const hasGVSubpanelWithIds = store.select(getOpenGVGroupPanelsSelector).pipe(
+      rxMap(groups => loMap(groups, 'streamId')),
+      rxMap(ids => loIncludes(ids, loGet(this.dataSource, 'streamId')))
+    );
+
+    return rxCombineLatest(isGVPanelOpen, hasGVSubpanelWithIds).pipe(
+      rxMap(conditions => loEvery(conditions)),
+      rxDistinctUntilChanged()
+    ).subscribe(hoverEnabled => setTimeout(() => this.hoverEnabled = hoverEnabled, 0));
   }
 }

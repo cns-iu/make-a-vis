@@ -45,6 +45,10 @@ export class MainComponent implements OnInit {
       this.step = 1;
     }
 
+    if (!this.panelState && this.step === 2) {
+      this.gvPanelClosed();
+    }
+
     this.setVisSelectionButtonState(false);
   }
 
