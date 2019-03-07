@@ -28,10 +28,14 @@ jobs:
     script:
     - sonar-scanner -X
   - stage: test
+    name: run sonar checks
+    if: NOT (branch = master AND tag IS present) 
+    script:
+    - npm run lint
+  - stage: test
     name: Run Tests
     if: branch != develop
     script:
-    - npm run lint
     - npm run build:build-info
     - npm run build:libs
     - npm run test
@@ -39,7 +43,6 @@ jobs:
     name: Deploy staging to Netlify
     if: branch = develop
     script:
-    - npm run lint
     - npm run build:build-info
     - npm run build:libs
     - npm run test
