@@ -9,9 +9,8 @@
         <mat-icon class="cancel-icon" *ngIf="selectedRecordStreamMapping.get(symbolType.id)?true:false" (click)="unsetRecordStream(symbolType.id)">cancel</mat-icon>
     </div>
 </div>
-
 <div class="record-stream-container">
-    <div *ngFor="let recordStream of recordStreams" class="record-stream" [mavDraggable]="recordStream">
-        {{recordStream?.label}}
+    <div *ngFor="let heirarchicalRecord of heirarchicalRecordStreams" class="record-stream" [mavDraggable]="heirarchicalRecord.recordStream" [style.margin-left.rem]="heirarchicalRecord.level">
+        {{heirarchicalRecord.recordStream?.label}}
     </div>
 </div>

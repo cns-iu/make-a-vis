@@ -10,13 +10,6 @@ import { ActionDispatcherService } from '../../shared/services/actionDispatcher/
 import { DataSource, DataService } from '../shared/data.service';
 import { DataVariableHoverService } from '../../shared/services/hover/data-variable-hover.service';
 
-
-/** Flat node with expandable and level information */
-export interface ParentNode {
-  label: string;
-  description: string;
-}
-
 @Component({
   selector: 'mav-table',
   templateUrl: './table.component.html',

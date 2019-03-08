@@ -47,8 +47,8 @@
 
 .record-stream-container {
   display: flex;
-  flex-flow: row wrap;
-  margin-top: 0.5rem;
+  flex-flow: column;
+  margin-top: 1rem;
 
   .record-stream {
     padding: 0.5rem;
