@@ -8,7 +8,6 @@
 .mav-main-view {
   background-color: $gray-accent-3;
 }
-
 .mav-data-view {
   .data-view-header {
     .title {
@@ -30,7 +29,7 @@
 
   .mav-menu-icon {
     background-color: $secondary;
-  }  
+  }
 }
 
 .mav-info-icon-wrapper {
@@ -166,12 +165,16 @@
     border-right-color: $gray-accent-1 !important;
     .mat-expansion-panel-content {
       color: $secondary-text !important;
+      .edit-about-button {
+        color : $secondary-text !important;
+        border-color: $gray-accent-1 !important;
+      }
     }
 }
 
 .mav-legend-view {
   .legend-view-group {
-    border-color: $gray-accent-1;
+    border-color: $gray-accent-1 !important;
     background-color: $gray-accent-2;
   }
   .mav-graphic-variable-legend {
@@ -184,20 +187,211 @@
   }
 }
 
-.graphic-symbol-wrapper {
-  .expansion-panel {
-    .graphic-variable-wrapper {
-      .variable-type {
-        color: $gray-300
-      }
-    }
-  }
-}
-
 .visualization-container .temporal-bargraph-tooltip {
   font-family: $tooltip-font !important;
 }
 
 .visualization-container .tooltip {
   font-family: $tooltip-font !important;
+}
+
+
+/* colors from table.component.scss */
+.mav-table {
+  .card {
+    border-color: $gray-accent-1;
+
+    .interactive-icon {
+      color: $primary;
+    }
+
+    .header {
+      .label {
+        color: $primary-text;
+      }
+
+      .description {
+        color: $secondary-text;
+      }
+    }
+
+    .content .table {
+      border-bottom-color: $gray-accent-1;
+
+      .header-row {
+        border-top-color: $gray-accent-1;
+
+        .header-cell {
+          color: $primary-text;
+
+          &.hoverable:hover,
+          &.highlight {
+            background-color: $highlight-accent-1;
+            border-color: $highlight !important;
+          }
+        }
+      }
+
+      .row:nth-child(even) {
+        background: $gray-accent-2;
+      }
+    }
+
+    .footer {
+      .mat-paginator-range-label {
+        color: $border;
+      }
+
+      .mat-icon-button {
+        svg {
+          fill: $primary;
+        }
+
+        &[disabled] svg {
+          fill: $gray-400;
+        }
+      }
+    }
+  }
+}
+
+/* colors from graphic-symbol-type.component.scss */
+.graphic-symbol-selection-container {
+  .wrapper {
+    .graphic-symbol-card {
+      &:active {
+        background-color: $primary;
+        color: $white;
+      }
+    }
+    .record-stream-selected {
+      background-color: $primary;
+      color: $white;
+      border-color: $white !important;
+      .graphic-symbol-type {
+      color: $gray-accent-1;
+    }
+    }
+  }
+}
+
+.record-stream-container {
+  .record-stream {
+    border-color: $gray-accent-1 !important;
+    background-color: $gray-accent-2;
+    &:hover,
+    &:active {
+      background-color: $highlight-accent-2;
+    }
+  }
+}
+
+/* colors from graphic-variable-type.component.scss */
+.graphic-symbol-wrapper {
+  .expansion-panel {
+    .graphic-variable-wrapper {
+      .variable-type {
+        color: $gray-300;
+      }
+      .card-wrapper {
+        .data-variable-selected {
+          .graphic-variable-label {
+            color: $gray-accent-1 !important;
+          }
+        }
+        .highlight {
+          background-color: $highlight-accent-1 !important;
+          border-color: $highlight !important;
+          .graphic-variable-label, .data-variable {
+            color: $primary-text !important;
+          }
+        }
+        .required-dot {
+          background-color: $accent3;
+        }
+        .card {
+          &:active {
+            background-color: $primary;
+            color: $white;
+          }
+          .variable-type {
+            .graphic-variable-label {
+              color: $primary-text;
+            }
+            .data-variable {
+               color: $white;
+            }
+
+          }
+          .variable-category-qualitative {
+            background-color: $accent3;
+            color: $white;
+          }
+          .variable-category-quantitative {
+            background-color: $border;
+            color: $primary-text;
+          }
+        }
+      }
+      .data-variable-selected {
+        background-color: $primary;
+        color: $white;
+      }
+    }
+  }
+}
+
+/* colors from mav-selection/main.component.scss */
+.selection-wrapper {
+  background-color: $gray-accent-2;
+  .expansion-panel-container {
+    .expansion-panel {
+      background-color: $white;
+      .selection-button {
+        button {
+          color: $primary;
+        }
+        .disabled {
+          color: $gray-accent-1;
+        }
+      }
+    }
+  }
+}
+
+/* colors from visualization-type.component.scss */
+.vis-type-selection-wrapper {
+  .card{
+    background: none;
+    color: $black;
+    &:active {
+      background: $primary;
+      color: $white;
+    }
+  }
+  .vis-type-selected {
+    background: $primary;
+    color: $white;
+    border-color: $white !important;
+  }
+}
+
+/* colors from visualization-view/main.component.scss */
+.visualization-wrapper {
+  .about-expansion-panel-container {
+    border-bottom-color: $gray-accent-1 !important;
+    .mat-expansion-panel-body {
+      .edit-about-button {
+        background-color: transparent;
+      }
+    }
+  }
+}
+.add-edit-visualization {
+  .edit-icon-disabled {
+    color: $border;
+  }
+}
+.visualization-container {
+  background-color: $white;
 }

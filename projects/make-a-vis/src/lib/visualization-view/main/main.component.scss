@@ -23,7 +23,7 @@
     border-left: 1px solid transparent;
     border-radius: unset;
     border-right: 1px solid transparent;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid transparent;
 
     ::ng-deep .mat-expansion-panel-content {
       font-size: 0.75rem;
@@ -31,7 +31,20 @@
 
     ::ng-deep .mat-expansion-panel-body {
       padding: 0 1rem 1rem;
+      .edit-about-button {
+        position: absolute;
+        bottom: 0.625rem;
+        right: 0.0625rem;
+        padding: 0.0625rem 0.25rem 0.0625rem 0.25rem;
+        border: 1px solid transparent;
+        cursor: pointer;
+      }
+      .edit-about-formfield {
+        width: 100%;
+        height: 100%;
+      }
     }
+ 
   }
   .about-expansion-panel-container.mat-expanded {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
@@ -118,10 +131,6 @@
     height: 40px;
     padding: 1px;
   }
-
-  .edit-icon-disabled {
-    color: #bdbdbd;
-  }
 }
 
 .visualization-container {
@@ -130,5 +139,4 @@
   ); /* .main-view is 93vh with 1vh bottom padding in .visualization-view  and .legend is 200px at top-level, 70px - assumed padding(TODO - FIX needed) */
   width: 100%;
   border: 1px solid transparent;
-  background-color: white;
 }

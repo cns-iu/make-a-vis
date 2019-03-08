@@ -1,36 +1,35 @@
-<div class="mav-datatable-container" [ngClass]="{'mav-datatable-container-hidden': dataSource.hidden}">
-    <mat-card class="datatable-wrapper" [ngClass]="{'no-child': dataSource.children && dataSource.children.length <= 0, 'first-data-table': tableIndex == 0}" *ngIf="dataSource && dataSource.data && dataSource.data.length">
-        <div class="datatable-container">
-            <mat-card-header class="card-header">
-                <mat-card-title>
-                    <span *ngIf="dataSource.children && dataSource.children.length > 0" class="toggle-icon">
-                        <mat-icon class="expand-icon" *ngIf="!dataSource.childrenHidden" (click)="toggleDataTable(dataSource)">expand_more</mat-icon>
-                        <mat-icon class="expand-icon" *ngIf="dataSource.childrenHidden" (click)="toggleDataTable(dataSource)">expand_less</mat-icon>
-                    </span>
-                    <mav-table-icon></mav-table-icon>
-                    <span class="label">{{dataSource.label}}:</span>
-                    <span class="description" *ngIf="!!dataSource.description">&nbsp;({{dataSource.description }})</span>
-                </mat-card-title>
-            </mat-card-header>
-            <mat-card-content class="card-content">
-                <mat-table [class.hidden-table]="dataSource.hiddenData || dataSource.hidden" [dataSource]="dataSource.data.slice(0,3)" class="table">
-                    <ng-container [matColumnDef]="col.label" *ngFor="let col of displayedColumns">
-                        <mat-header-cell *matHeaderCellDef [class.hoverable]="isHoverable" [mavDraggable]="col" class="header-cell" (mouseover)="startHover(col)" (mouseout)="endHover(col)" [class.highlight]="shouldHighlight(col)">{{col.label}}</mat-header-cell>
-                        <mat-cell *matCellDef="let element" class="mat-cell">{{element[col.id]}}</mat-cell>
-                    </ng-container>
-                    <mat-header-row *matHeaderRowDef="displayedColumnNames; sticky: true;" class="header-row"></mat-header-row>
-                    <mat-row *matRowDef="let row; columns: displayedColumnNames;" class="row"></mat-row>
-                </mat-table>
-            </mat-card-content>
-            <mat-card-footer class="card-footer">
-                <div class="toggle">
-                    <span (click)="toggleRows(dataSource)" class="toggle-group">
-                        <span class="toggle-label">Total Records: {{dataSource.numRows}}</span>
-                    <mat-icon *ngIf="dataSource.hiddenData" class="expand-icon">expand_more</mat-icon>
-                    <mat-icon *ngIf="!dataSource.hiddenData" class="expand-icon">expand_less</mat-icon>
-                    </span>
-                </div>
-            </mat-card-footer>
+<div class="mav-table wrapper" [class.hidden]="isHidden()">
+  <div *ngIf="hasData()" class="container">
+    <mat-card class="card" [class.first-table]="isFirst()" [class.with-children]="hasChildren()">
+      <mat-card-header class="header">
+        <mat-card-title>
+          <mat-icon *ngIf="hasChildren()" class="interactive-icon toggle-icon" (click)="toggleChildTables()">{{ getToggleIcon(!isChildrenHidden()) }}</mat-icon>
+          <mav-table-icon></mav-table-icon>
+          <span class="label">{{ label }}{{ description ? ':' : '' }}</span>
+          <span class="description" *ngIf="description">&nbsp;({{ description }})</span>
+          <mat-icon class="interactive-icon export-to-csv-icon" (click)="exportTable(dataSource)">cloud_download</mat-icon>
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content class="content">
+        <mat-table class="table" [class.hidden]="isHidden() || hasHiddenData()" [dataSource]="tableDataSource">
+          <mat-header-row *matHeaderRowDef="columnNames; sticky: true;" class="header-row"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: columnNames;" class="row"></mat-row>
+
+          <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column.label">
+            <mat-header-cell *matHeaderCellDef class="header-cell" [class.hoverable]="hoverEnabled" [class.highlight]="shouldHighlight(column)"
+                [mavDraggable]="column" (mouseover)="startHover(column)" (mouseout)="endHover(column)">{{ column.label }}</mat-header-cell>
+            <mat-cell *matCellDef="let element" class="row-cell">{{ element[column.id] }}</mat-cell>
+          </ng-container>
+        </mat-table>
+      </mat-card-content>
+
+      <mat-card-footer class="footer">
+        <mat-paginator class="paginator" [hidePageSize]="true" [showFirstLastButtons]="false" [pageSize]="pageSize" [length]="numberOfRows"></mat-paginator>
+        <div class="record-toggle-group" (click)="toggleRows()">
+          <mat-icon class="interactive-icon toggle-icon">{{ getToggleIcon(hasHiddenData()) }}</mat-icon>
         </div>
+      </mat-card-footer>
     </mat-card>
+  </div>
 </div>

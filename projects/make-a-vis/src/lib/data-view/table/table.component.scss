@@ -1,157 +1,130 @@
-.mav-datatable-container {
+.mav-table.wrapper {
   visibility: visible;
   transition: visibility 0.7s, max-height 0.7s;
-  -webkit-transition: visibility 0.7s, max-height 0.7s;
   max-height: 100rem;
 
-  .datatable-wrapper {
-    border: 1px solid #e0e0e0;
+  &.hidden {
+    visibility: hidden;
+    max-height: 0;
+    height: auto;
+  }
+
+  .container .card {
+    border: 1px solid;
     margin-top: 0.625rem;
     padding-top: 0.5rem;
     padding-left: 2.5rem;
-    border-color: transparent;
 
-    .datatable-container {
-      .card-header {
-        line-height: 1.25rem;
+    &:not(.with-children) {
+      padding-left: 1rem;
+    }
 
-        ::ng-deep .mat-card-header-text {
-          margin: 0;
-        }
+    .interactive-icon {
+      font-size: 1.5rem;
+      cursor: pointer;
+      height: 2.5rem;
+      width: 2.5rem;
+    }
 
-        .label {
-          color: #212121;
-          font-size: 0.875rem;
-          font-weight: bold;
-        }
+    .header {
+      line-height: 1.25rem;
 
-        .description {
-          color: #757575;
-          font-size: 0.875rem;
-          font-style: italic;
-        }
-
-        .expand-icon {
-          position: absolute;
-          padding: 0.5rem;
-          top: 0;
-          left: 0;
-          font-size: 1.5rem;
-          color: #1e88e5;
-          cursor: pointer;
-          height: 2.5rem;
-          width: 2.5rem;
-        }
+      ::ng-deep .mat-card-header-text {
+        margin: 0;
       }
 
-      .card-content {
-        margin-bottom: 0;
-        ::ng-deep .mat-cell,
-        .mat-footer-cell,
-        .mat-header-cell {
+      .toggle-icon {
+        position: absolute;
+        padding: 0.5rem;
+        top: 0;
+        left: 0;
+      }
+
+      .label {
+        font-size: 0.875rem;
+        font-weight: bold;
+      }
+
+      .description {
+        font-size: 0.875rem;
+        font-style: italic;
+      }
+
+      .export-to-csv-icon {
+        position: absolute;
+        padding-top: 0.5rem;
+        top: 0;
+        right: 0;
+      }
+    }
+
+    .content {
+      margin-bottom: 0;
+
+      .table {
+        transition: max-height 0.7s;
+        max-height: 100rem;
+        border-bottom: 1px solid;
+        overflow-x: auto;
+
+        .header-row .header-cell,
+        .row .row-cell {
           padding: 0.5rem;
           min-width: 12rem;
           max-width: 12rem;
         }
 
-        ::ng-deep .mat-header-row {
+        .header-row {
+          width: fit-content;
           min-height: 0;
-          border-top: 1px solid #e0e0e0;
+          border-top: 1px solid;
+
+          .header-cell {
+            font-weight: 700;
+            font-size: 0.875rem;
+            border: 0.125rem solid transparent;
+          }
         }
 
-        ::ng-deep .mat-row {
+        .row {
+          width: fit-content;
           min-height: auto;
           align-items: start;
         }
 
-        .table {
-          transition: max-height 0.7s;
-          -webkit-transition: max-height 0.7s;
-          max-height: 100rem;
-          border-bottom: 1px solid #e0e0e0;
-          overflow-x: auto;
-
-          .row {
-            width: fit-content;
-
-            &:nth-child(even) {
-              background: #f5f5f5;
-            }
-          }
-
-          .header-row {
-            width: fit-content;
-          }
-
-          .header-cell {
-            font-weight: 700;
-            color: #212121;
-            font-size: 0.875rem;
-            border: 0.125rem solid transparent;
-          }
-
-          .header-cell.hoverable {
-            &:hover {
-              background-color: rgba(255, 255, 0, 0.2);
-              border-color: rgba(255, 255, 0, 1);
-              border-color: rgba(255, 255, 0, 1) !important;
-            }
-          }
-        }
-
-        ::ng-deep .highlight {
-          background-color: rgba(255, 255, 0, 0.2);
-          border-color: rgba(255, 255, 0, 1) !important;
-        }
-
-        .hidden-table {
+        &.hidden {
           max-height: 3.1rem;
           height: auto;
           overflow-y: hidden;
         }
       }
+    }
 
-      .card-footer {
-        .toggle {
-          cursor: pointer;
-          display: flex;
-          justify-content: flex-end;
+    .footer {
+      display: flex;
+      justify-content: flex-end;
 
-          .toggle-group {
-            display: flex;
-            align-items: center;
-            padding: 0;
-          }
+      .paginator ::ng-deep .mat-paginator-container {
+        min-height: 0;
+        padding: 0;
 
-          .toggle-label {
-            color: #bdbdbd;
-            font-size: 0.7rem;
-          }
+        .mat-paginator-range-label {
+          margin: 0px 0.625rem 0px 0px;
+        }
+      }
 
-          .expand-icon {
-            font-size: 1.5rem;
-            color: #1e88e5;
-            top: 0;
-            padding: 0.5rem;
-            height: 2.5rem;
-            width: 2.5rem;
-          }
+      .record-toggle-group {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        cursor: pointer;
+        padding: 0;
+
+        .toggle-icon {
+          top: 0;
+          padding: 0.5rem;
         }
       }
     }
   }
-}
-
-.mav-datatable-container-hidden {
-  visibility: hidden;
-  max-height: 0;
-  height: auto;
-}
-
-.first-data-table {
-  margin-top: 0;
-}
-
-.no-child {
-  padding-left: 1rem;
 }

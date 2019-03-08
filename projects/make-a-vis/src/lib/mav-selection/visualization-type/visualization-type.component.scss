@@ -5,20 +5,11 @@
 
   .card {
     cursor: pointer;
-    background: none;
-    color: #000000;
     padding: 0.625rem 0.625rem 0.25rem 0.625rem;
-
-    &:active {
-      background: #1e88e5;
-      color: #ffffff;
-    }
   }
 
   .vis-type-selected {
-    background: #1e88e5;
-    color: #ffffff;
-    border: 1px solid #ffffff;
+    border: 1px solid transparent;
   }
 
   .vis-type-selected.card {
