@@ -9,6 +9,6 @@
 }
 
 ::ng-deep .mat-menu-panel {
-  min-width: 0 !important;
-  max-width: fit-content !important;
+  max-width: 600px !important;
+  overflow: visible !important;
 }
