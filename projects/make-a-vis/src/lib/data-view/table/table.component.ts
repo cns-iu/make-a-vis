@@ -12,7 +12,6 @@ import { DataVariableHoverService } from '../../shared/services/hover/data-varia
 import { DataService, DataSource } from '../shared/data.service';
 import { ExportTableService } from '../shared/export-table.service';
 
-
 @Component({
   selector: 'mav-table',
   templateUrl: './table.component.html',
