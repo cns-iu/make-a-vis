@@ -98,7 +98,6 @@ export class CSVTemplateProject extends DefaultProject {
   }
 
   getGraphicVariables(): GraphicVariable[] {
-
     // Setup some default _naive_ graphic variable mappings.
     const naiveMappings = {};
     for (const field of this.fields) {
