@@ -1,13 +1,18 @@
-import { Component, EventEmitter, OnInit, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { GraphicSymbolOption, RecordStream } from '@dvl-fw/core';
 import { select, Store } from '@ngrx/store';
 import { capitalize as loCapitalize } from 'lodash';
 
-import { GraphicSymbolOption, RecordStream } from '@dvl-fw/core';
+import { DataService } from '../../data-view/shared/data.service';
 import { DragDropEvent } from '../../drag-drop';
-import { ModeType, Vis } from '../../shared/types';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
+import { ModeType, Vis } from '../../shared/types';
 import { getRecordStreamsSelector, SidenavState } from '../../toolbar/shared/store';
 
+interface HeirarchicalRecordStream {
+  recordStream: RecordStream;
+  level: number;
+}
 
 @Component({
   selector: 'mav-selection-graphic-symbol-type',
@@ -19,13 +24,26 @@ export class GraphicSymbolTypeComponent implements OnInit, OnChanges {
   @Input() mode: ModeType;
   @Output() recordStreamChange = new EventEmitter<Map<string, RecordStream>>();
   graphicSymbolOptions: GraphicSymbolOption[] = [];
-  recordStreams: RecordStream[];
+  heirarchicalRecordStreams: HeirarchicalRecordStream[] = [];
   selectedRecordStreamMapping: Map<string, RecordStream>;
   selectionClass = '';
 
-  constructor(private updateService: UpdateVisService, private store: Store<SidenavState>) {
+  constructor(private updateService: UpdateVisService, private store: Store<SidenavState>, private dataService: DataService) {
     this.store.pipe(select(getRecordStreamsSelector)).subscribe((recordStreams: RecordStream[]) => {
-      this.recordStreams = recordStreams;
+      const heirarchicalRecordStreams: HeirarchicalRecordStream[] = [];
+      if (recordStreams) {
+        recordStreams.forEach((record) => {
+          const dataScource = dataService.dataSources.find(dataSource => dataSource.streamId === record.id);
+          if (dataScource) {
+            const heirarchicalRecordStream = {
+                recordStream: record,
+                level: dataScource.level
+            };
+            heirarchicalRecordStreams.push(heirarchicalRecordStream);
+          }
+        });
+      }
+      this.heirarchicalRecordStreams = heirarchicalRecordStreams;
     });
   }
 
@@ -74,7 +92,7 @@ export class GraphicSymbolTypeComponent implements OnInit, OnChanges {
 
   clear() {
     // clear record-streams
-    this.recordStreams = [];
+    this.heirarchicalRecordStreams = [];
 
     // clear mapping
     if (this.selectedRecordStreamMapping && this.selectedRecordStreamMapping.size) {

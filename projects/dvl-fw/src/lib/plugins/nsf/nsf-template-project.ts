@@ -63,7 +63,7 @@ export class NSFTemplateProject extends DefaultProject {
         id: 'nsfDataSource',
         properties: { rawData: 'nsfFile', parsedData: 'nsfRawData', saveParsedData: true },
         recordStreams: [
-          {id: 'awards', label: 'Awards'},
+          {id: 'awards', label: 'NSF Awards'},
           {id: 'investigators', label: 'Investigators'},
           {id: 'coPiLinks', label: 'Co-PI Links'}
         ]
