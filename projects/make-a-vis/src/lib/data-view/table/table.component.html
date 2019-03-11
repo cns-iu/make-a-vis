@@ -11,8 +11,8 @@
         </mat-card-title>
       </mat-card-header>
 
-      <mat-card-content class="content">
-        <mat-table class="table" [class.hidden]="isHidden() || hasHiddenData()" [dataSource]="tableDataSource">
+      <mat-card-content class="content" [class.hidden]="isHidden() || hasHiddenData()">
+        <mat-table class="table" [dataSource]="tableDataSource">
           <mat-header-row *matHeaderRowDef="columnNames; sticky: true;" class="header-row"></mat-header-row>
           <mat-row *matRowDef="let row; columns: columnNames;" class="row"></mat-row>
 
