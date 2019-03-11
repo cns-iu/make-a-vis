@@ -16,6 +16,7 @@ import { GraphicSymbol } from '../../shared/graphic-symbol';
 import { Visualization } from '../../shared/visualization';
 import { ScatterplotVisualization } from '../ngx-dino/visualizations';
 import { DefaultGraphicSymbol } from './default-graphic-symbol';
+import { filter } from 'rxjs/operators';
 
 
 export class CSVTemplateProject extends DefaultProject {
@@ -46,6 +47,13 @@ export class CSVTemplateProject extends DefaultProject {
       new DefaultRawData({id: 'csvRawData', template: 'json', data: {csvData: parseResults.data}})
     ];
   }
+
+  private getFilteredFields(fields: string[]): string[] {
+    return fields.filter((field: string) => {
+      return (field.trim().length !== 0) && (field.trim().split('$$').length === 1);
+    });
+  }
+
   private inferDataTypes(data: any[]): {[field: string]: string} {
     const types: {[field: string]: string} = {};
 
@@ -88,7 +96,7 @@ export class CSVTemplateProject extends DefaultProject {
         labelPlural: 'CSV Data',
         description: fileName || undefined,
         defaultRecordStream: 'csvData',
-        dataVariables: this.fields.map(f => {
+        dataVariables: this.getFilteredFields(this.fields).map(f => {
           return {id: f, label: f, dataType: this.fieldTypes[f] || 'text', scaleType: '???'};
         })
       }, this)
@@ -99,25 +107,17 @@ export class CSVTemplateProject extends DefaultProject {
 
   getGraphicVariables(): GraphicVariable[] {
     // Setup some default _naive_ graphic variable mappings.
-    const naiveMappings = {};
-    for (const field of this.fields) {
-      let types = ['identifier', 'axis', 'text', 'tooltip', 'label', 'input', 'order'];
-      if (this.fieldTypes[field] === 'integer' || this.fieldTypes[field] === 'number') {
-        // These are _guesses_ and not likely correct
-        types = types.concat(['areaSize', 'strokeWidth', 'fontSize']);
+    const filteredFields = this.getFilteredFields(this.fields);
+    const mappingFields = this.fields.filter((f: string) => !filteredFields.includes(f));
+
+    const naiveMappings = this.getNaiveMappings(filteredFields);
+    const predefinedMappings = this.getPredefinedMappings(mappingFields);
+
+    Object.entries(predefinedMappings).forEach((entry: [string, {}]) => {
+      if (entry[1]) {
+        naiveMappings[entry[0]][Object.keys(entry[1])[0]] = Object.values(entry[1])[0];
       }
-      if (this.fieldTypes[field] === 'text' && field.toLowerCase().indexOf('color') !== -1) {
-        // These are _guesses_ and not likely correct
-        types = types.concat(['color', 'strokeColor']);
-      }
-      // Use the field name as a graphic variable type.
-      // Use Case: User formats their csv to have color in color column, etc.
-      if (!types.find(t => t === field)) {
-        types.push(field);
-      }
-      naiveMappings[field] = {};
-      types.forEach(t => naiveMappings[field][t] = [{selector: field}]);
-    }
+    });
 
     return DefaultGraphicVariableMapping.fromJSON([
       {
@@ -127,6 +127,49 @@ export class CSVTemplateProject extends DefaultProject {
         }
       }
     ], this);
+  }
+
+  getPredefinedMappings(mappingFields: string[]): {} {
+    const predefinedMappings = {};
+
+    for (const field of mappingFields) {
+      const splitFields = field.trim().split('$$');
+      if (splitFields.length > 1) {
+        predefinedMappings[splitFields[0]] = {};
+        predefinedMappings[splitFields[0]][splitFields[1]] = [{selector: splitFields[0]}];
+      }
+    }
+
+    return predefinedMappings;
+  }
+
+  getNaiveMappings(filteredFields: string[]): {} {
+    const naiveMappings = {};
+
+    for (const field of filteredFields) {
+      let types = ['identifier', 'axis', 'text', 'tooltip', 'label', 'input', 'order'];
+
+      if (this.fieldTypes[field] === 'integer' || this.fieldTypes[field] === 'number') {
+        // These are _guesses_ and not likely correct
+        types = types.concat(['areaSize', 'strokeWidth', 'fontSize']);
+      }
+
+      if (this.fieldTypes[field] === 'text' && field.toLowerCase().indexOf('color') !== -1) {
+        // These are _guesses_ and not likely correct
+        types = types.concat(['color', 'strokeColor']);
+      }
+
+      // Use the field name as a graphic variable type.
+      // Use Case: User formats their csv to have color in color column, etc.
+      if (!types.find(t => t === field)) {
+        types.push(field);
+      }
+
+      naiveMappings[field] = {};
+      types.forEach(t => naiveMappings[field][t] = [{selector: field}]);
+    }
+
+    return naiveMappings;
   }
 
   getGraphicSymbols(): GraphicSymbol[] {
