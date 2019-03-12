@@ -135,7 +135,9 @@ export class CSVTemplateProject extends DefaultProject {
     for (const field of mappingFields) {
       const splitFields = field.trim().split('$$');
       if (splitFields.length > 1) {
-        predefinedMappings[splitFields[0]] = {};
+        if (!predefinedMappings[splitFields[0]]) {
+          predefinedMappings[splitFields[0]] = {};
+        }
         predefinedMappings[splitFields[0]][splitFields[1]] = [{selector: splitFields[0]}];
       }
     }
