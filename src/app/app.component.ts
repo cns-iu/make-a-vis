@@ -10,7 +10,7 @@ import { AppUpdaterService } from './services/app-updater.service';
 export class AppComponent {
   title = 'make-a-vis-demo';
   constructor(private readonly appUpdaterService: AppUpdaterService) {
-    if(!isDevMode()) {
+    if (!isDevMode()) {
       appUpdaterService.checkForUpdates();
       appUpdaterService.askToUpdate();
     }
