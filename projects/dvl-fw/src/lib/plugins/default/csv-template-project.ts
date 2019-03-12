@@ -110,12 +110,12 @@ export class CSVTemplateProject extends DefaultProject {
     const filteredFields = this.getFilteredFields(this.fields);
     const mappingFields = this.fields.filter((f: string) => !filteredFields.includes(f));
 
-    const naiveMappings = this.getNaiveMappings(filteredFields);
+    const mappings = { ...this.getNaiveMappings(filteredFields) };
     const predefinedMappings = this.getPredefinedMappings(mappingFields);
 
     Object.entries(predefinedMappings).forEach((entry: [string, {}]) => {
       if (entry[1]) {
-        naiveMappings[entry[0]][Object.keys(entry[1])[0]] = Object.values(entry[1])[0];
+        mappings[entry[0]][Object.keys(entry[1])[0]] = Object.values(entry[1])[0];
       }
     });
 
@@ -123,7 +123,7 @@ export class CSVTemplateProject extends DefaultProject {
       {
         recordStream: 'csvData',
         mappings: {
-          csvData: naiveMappings
+          csvData: mappings
         }
       }
     ], this);
