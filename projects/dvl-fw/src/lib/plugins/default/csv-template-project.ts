@@ -138,7 +138,7 @@ export class CSVTemplateProject extends DefaultProject {
         if (!predefinedMappings[splitFields[0]]) {
           predefinedMappings[splitFields[0]] = {};
         }
-        predefinedMappings[splitFields[0]][splitFields[1]] = [{selector: splitFields[0]}];
+        predefinedMappings[splitFields[0]][splitFields[1]] = [{selector: field}];
       }
     }
 
