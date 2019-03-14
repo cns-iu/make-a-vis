@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "node --max_old_space_size=3000 ./node_modules/.bin/ng",
     "start": "npm run ng serve",
-    "serve:build": "npm run build:libs && npm run build && ./node_modules/http-server/bin/http-server -p 4200 -c-1 dist/make-a-vis-demo",
+    "serve:build": "http-server -p 4200 -c-1 dist/make-a-vis-demo",
     "build": "ng build --prod",
     "build:dvl-fw": "npm run build dvl-fw && npm run build:cli",
     "build:make-a-vis": "npm run build make-a-vis",

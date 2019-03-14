@@ -9,7 +9,7 @@ import { first } from 'rxjs/operators';
 })
 export class AppUpdaterService {
   isSnackbarloaded = false;
-  checkUpdateInterval = 1000 * 60 * 7;
+  checkUpdateInterval = 1000 * 60 * 2 * 60; // 2 hours
   constructor(
     private readonly appRef: ApplicationRef,
     private readonly updates: SwUpdate,
