@@ -52,21 +52,15 @@
     .record-stream {
       &.container {
         display: flex;
-        flex-flow: row wrap;
-        margin-top: 0.5rem;
+        flex-flow: column;
+        margin-top: 1rem;
 
         .inner-container {
           padding: 0.5rem;
           margin: 0.25rem;
-          border: 1px solid #e0e0e0;
+          border: 1px solid transparent;
           cursor: move;
-          background: #f5f5f5;
           border-radius: 4px;
-
-          &:hover,
-          &:active {
-            background-color: rgba(255, 255, 0, 0.5);
-          }
         }
       }
     }

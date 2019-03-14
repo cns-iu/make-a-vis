@@ -52,7 +52,7 @@ export class ISITemplateProject extends DefaultProject {
         id: 'isiDataSource',
         properties: { rawData: 'isiFile', parsedData: 'isiRawData', saveParsedData: true },
         recordStreams: [
-          {id: 'publications', label: 'Publications'},
+          {id: 'publications', label: 'ISI Publications'},
           {id: 'journals', label: 'Journals'},
           {id: 'authors', label: 'Authors'},
           {id: 'coAuthorLinks', label: 'Co-Author Links'},

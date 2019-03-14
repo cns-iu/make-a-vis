@@ -16,8 +16,9 @@
     </div>
 
     <div class="record-stream container">
-        <div *ngFor="let recordStream of recordStreams" class="inner-container" [mavDraggable]="recordStream">
-            {{recordStream?.label}}
+        <div *ngFor="let heirarchicalRecord of heirarchicalRecordStreams" class="inner-container"
+            [mavDraggable]="heirarchicalRecord.recordStream" [style.margin-left.rem]="heirarchicalRecord.level">
+            {{heirarchicalRecord.recordStream?.label}}
         </div>
     </div>
 </div>
