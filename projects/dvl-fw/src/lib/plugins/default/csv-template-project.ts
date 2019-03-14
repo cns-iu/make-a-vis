@@ -33,7 +33,6 @@ export class CSVTemplateProject extends DefaultProject {
     this.dataSources = this.getDataSources();
     this.recordSets = this.getRecordSets(fileName);
     this.graphicVariables = this.getGraphicVariables();
-    console.log(this.graphicVariables);
     this.graphicSymbols = this.getGraphicSymbols();
     this.visualizations = this.getVisualizations();
   }
