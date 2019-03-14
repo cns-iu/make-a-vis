@@ -88,7 +88,7 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
     if (dataSource) { dataSource.hiddenData = !dataSource.hiddenData; }
     actionDispatcherService.toggleDataTableRows({
       dataSourceId: loGet(dataSource, 'id'),
-      hiddenRows: !this.hasHiddenData()
+      hiddenRows: this.hasHiddenData()
     });
   }
 
