@@ -10,7 +10,8 @@
   }
 
   .container .card {
-    border: 1px solid;
+    border-width: 1px;
+    border-style: solid;
     margin-top: 0.625rem;
     padding-top: 0.5rem;
     padding-left: 2.5rem;
@@ -61,12 +62,16 @@
     .content {
       margin-bottom: 0;
       overflow-x: auto;
+      transition: max-height 0.9s;
+      max-height: 100rem;
+      overflow-y: hidden;
 
       .table {
         display: table;
-        transition: max-height 0.7s;
-        max-height: 100rem;
-        border-bottom: 1px solid;
+        border-top-width: 1px;
+        border-top-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
 
         .header-row .header-cell,
         .row .row-cell {
@@ -78,7 +83,6 @@
         .header-row {
           width: fit-content;
           min-height: 0;
-          border-top: 1px solid;
 
           .header-cell {
             font-weight: 700;
@@ -92,12 +96,13 @@
           min-height: auto;
           align-items: start;
         }
+      }
 
-        &.hidden {
-          max-height: 3.1rem;
-          height: auto;
-          overflow-y: hidden;
-        }
+      &.hidden {
+        transition: max-height 0.5s;
+        max-height: 3.1rem;
+        height: auto;
+        overflow-y: hidden;
       }
     }
 

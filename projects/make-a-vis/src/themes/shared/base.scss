@@ -216,11 +216,10 @@
     }
 
     .content .table {
+      border-top-color: $gray-accent-1;
       border-bottom-color: $gray-accent-1;
 
       .header-row {
-        border-top-color: $gray-accent-1;
-
         .header-cell {
           color: $primary-text;
 
