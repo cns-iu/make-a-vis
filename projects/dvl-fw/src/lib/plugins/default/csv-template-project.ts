@@ -16,7 +16,6 @@ import { GraphicSymbol } from '../../shared/graphic-symbol';
 import { Visualization } from '../../shared/visualization';
 import { ScatterplotVisualization } from '../ngx-dino/visualizations';
 import { DefaultGraphicSymbol } from './default-graphic-symbol';
-import { filter } from 'rxjs/operators';
 
 
 export class CSVTemplateProject extends DefaultProject {
@@ -48,7 +47,7 @@ export class CSVTemplateProject extends DefaultProject {
     ];
   }
 
-  private getFilteredFields(fields: string[]): string[] {
+  private getDatavariableNames(fields: string[]): string[] {
     return fields.filter((field: string) => {
       return (field.trim().length !== 0) && (field.trim().split('$$').length === 1);
     });
@@ -96,7 +95,7 @@ export class CSVTemplateProject extends DefaultProject {
         labelPlural: 'CSV Data',
         description: fileName || undefined,
         defaultRecordStream: 'csvData',
-        dataVariables: this.getFilteredFields(this.fields).map(f => {
+        dataVariables: this.getDatavariableNames(this.fields).map(f => {
           return {id: f, label: f, dataType: this.fieldTypes[f] || 'text', scaleType: '???'};
         })
       }, this)
@@ -107,10 +106,10 @@ export class CSVTemplateProject extends DefaultProject {
 
   getGraphicVariables(): GraphicVariable[] {
     // Setup some default _naive_ graphic variable mappings.
-    const filteredFields = this.getFilteredFields(this.fields);
-    const mappingFields = this.fields.filter((f: string) => !filteredFields.includes(f));
+    const dataVariables = this.getDatavariableNames(this.fields);
+    const mappingFields = this.fields.filter((f: string) => !dataVariables.includes(f));
 
-    const mappings = { ...this.getNaiveMappings(filteredFields) };
+    const mappings = { ...this.getNaiveMappings(dataVariables) };
     const predefinedMappings = this.getPredefinedMappings(mappingFields);
 
     Object.entries(predefinedMappings).forEach((entry: [string, {}]) => {
@@ -145,10 +144,10 @@ export class CSVTemplateProject extends DefaultProject {
     return predefinedMappings;
   }
 
-  getNaiveMappings(filteredFields: string[]): {} {
+  getNaiveMappings(dataVariables: string[]): {} {
     const naiveMappings = {};
 
-    for (const field of filteredFields) {
+    for (const field of dataVariables) {
       let types = ['identifier', 'axis', 'text', 'tooltip', 'label', 'input', 'order'];
 
       if (this.fieldTypes[field] === 'integer' || this.fieldTypes[field] === 'number') {
