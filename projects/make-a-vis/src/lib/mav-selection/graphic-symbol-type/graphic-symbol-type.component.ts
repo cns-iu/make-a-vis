@@ -44,7 +44,6 @@ export class GraphicSymbolTypeComponent implements OnInit, OnChanges {
         });
       }
       this.heirarchicalRecordStreams = heirarchicalRecordStreams;
-      console.log(this.heirarchicalRecordStreams);
     });
   }
 
