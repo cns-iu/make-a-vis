@@ -1,7 +1,7 @@
 import { Provider, SimpleChange } from '@angular/core';
 import { async, TestBed } from '@angular/core/testing';
 import { MatCard, MatIcon } from '@angular/material';
-import { GraphicSymbolOption, RecordStream } from '@dvl-fw/core';
+import { GraphicSymbol, GraphicSymbolOption, RecordStream } from '@dvl-fw/core';
 import { Store } from '@ngrx/store';
 import { MockStore } from '@ngrx/store/testing';
 import { MockComponents } from 'ng-mocks';
@@ -9,6 +9,7 @@ import { of } from 'rxjs';
 
 import { MockDirective } from '../../../testing/utility';
 import { DataService } from '../../data-view/shared/data.service';
+import { DragEndEvent, DragStartEvent } from '../../drag-drop';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import { Vis } from '../../shared/types';
 import { GraphicSymbolTypeComponent } from './graphic-symbol-type.component';
@@ -42,12 +43,19 @@ describe('GraphicSymbolTypeComponent', () => {
       label: graphicSymbolLabel,
       type: graphicSymbolType
     }];
+    const graphicSymbol: GraphicSymbol = {
+      id : 'id',
+      type: 'type',
+      recordStream: recordStreams[0],
+      graphicVariables: undefined,
+      toJSON: undefined
+    };
     const activeVis: Vis = {
       data: {
         id: 'id',
         template: 'template',
         properties: undefined,
-        graphicSymbols: undefined,
+        graphicSymbols: { 'graphicKey' : graphicSymbol },
         graphicSymbolOptions: graphicSymbolOptions,
         toJSON: () => {}
       },
@@ -145,5 +153,48 @@ describe('GraphicSymbolTypeComponent', () => {
     const component = createComponent();
     const capitalize = component.capitalize('small_BIG');
     expect(capitalize).toBe('Small_big');
+  });
+
+  it('should set the class when dragging starts', () => {
+    const dragdropEvent: DragStartEvent = {
+      type: 'drag-start',
+      zone: undefined,
+      data: undefined,
+      accepted: true
+    };
+    const component = createComponent();
+    component.onDragDropEvent(dragdropEvent);
+    expect(component.selectionClass).toBe('selectable');
+  });
+
+  it('should set the class when dragging starts and is not selectable', () => {
+    const dragdropEvent: DragStartEvent = {
+      type: 'drag-start',
+      zone: undefined,
+      data: undefined,
+      accepted: false
+    };
+    const component = createComponent();
+    component.onDragDropEvent(dragdropEvent);
+    expect(component.selectionClass).toBe('unselectable');
+  });
+
+  it('should set the class when dragging ends', () => {
+    const dragdropEvent: DragEndEvent = {
+      type: 'drag-end',
+      zone: undefined,
+      data: undefined,
+      canceled: true
+    };
+    const component = createComponent();
+    component.onDragDropEvent(dragdropEvent);
+    expect(component.selectionClass).toBe('');
+  });
+
+  it('should set record streams', () => {
+    const component = createComponent();
+    component.setRecordStreams();
+    expect(component.selectedRecordStreamMapping.has('graphicKey')).toBeTruthy();
+    expect(component.selectedRecordStreamMapping.get('graphicKey')).toEqual(recordStreams[0]);
   });
 });
