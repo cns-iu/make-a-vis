@@ -2,6 +2,20 @@
 
 Changelog for Make-a-Vis and DVL-FW.
 
+## 0.15.0 - 2019-03-15
+
+### Added in 0.15.0
+
+- Added a a download button to the data tables for downloading as .csv
+- Added paging to the data tables so that all data can be seen
+- Added an offline mode. All features work offline except for sharing. A check is made every two hours to see if there are new updates. If so, a prompt is shown to allow the user to upgrade to latest version.
+- An initial documentation site was created. It is available [here](https://make-a-vis.netlify.com/docs/).
+- Improved appearance of record streams in the middle column add/edit visualization feature.
+- Improved CSS structure of the app.
+- ISI and NSF files no longer have to be named .isi or .nsf (respectively) and can remain as .txt or .csv (respectively).
+- CSV files can now accept columns formatted as "xxx$$yyy" to create custom DataVariable (xxx) to GraphicVariable (yyy) mappings.
+- Bug fixes, unit tests added, and documentation added. Testing and Documentation is a work in progress. Our eventual goal is to get to >90% coverage on both.
+
 ## 0.14.1 - 2019-01-17
 
 ### Added in 0.14.1

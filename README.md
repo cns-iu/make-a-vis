@@ -7,7 +7,7 @@
 [![View Staging Site](https://img.shields.io/badge/staging-online-brightgreen.svg)](https://make-a-vis.netlify.com/)
 [![View Demo](https://img.shields.io/badge/demo-online-brightgreen.svg)](https://cns-iu.github.io/make-a-vis)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?branch=master&project=cns-iu_make-a-vis&metric=alert_status)](https://sonarcloud.io/dashboard?id=cns-iu_make-a-vis&branch=master)
-[![Documentation Status](https://make-a-vis.netlify.com/docs/images/coverage-badge-documentation.svg)](https://make-a-vis.netlify.com/docs/)
+[![Documentation Status](https://make-a-vis.netlify.com/docs/images/coverage-badge-documentation.svg)](https://cns-iu.github.io/make-a-vis/docs/)
 
 An online tool for creating visualizations
 

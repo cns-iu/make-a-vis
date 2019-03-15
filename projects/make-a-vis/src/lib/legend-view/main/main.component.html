@@ -1,7 +1,7 @@
-<div class="mav-legend-view legend-view-wrapper">
-    <mat-card *ngFor="let group of groups" ngClass="legend-view-group">
-        <mat-card-title ngClass="legend-view-group-title">{{ group.option.label }}</mat-card-title>
-        <mat-card-content ngClass="legend-view-group-container">
+<div class="mav-legend-view wrapper">
+    <mat-card *ngFor="let group of groups" ngClass="legend-view-group container">
+        <mat-card-title ngClass="title">{{ group.option.label }}</mat-card-title>
+        <mat-card-content ngClass="inner-container">
             <ng-container *ngFor="let gvOption of group.option.graphicVariableOptions">
                 <mav-graphic-variable-legend
                     [hideIfUnset]="true"

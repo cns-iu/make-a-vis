@@ -1,6 +1,6 @@
-<div (mavDroppable)="dataVariableDropped($event)"
-     (dragDropEvents)="onDragDropEvent($event)"
-     [acceptsDrop]="acceptsDrop"
-     class="dropTarget">
+<div class="dropTarget wrapper"
+  (mavDroppable)="dataVariableDropped($event)"
+  (dragDropEvents)="onDragDropEvent($event)"
+  [acceptsDrop]="acceptsDrop">
   <ng-content></ng-content>
 </div>

@@ -1,6 +1,10 @@
-.cancel-icon {
-  cursor: pointer;
-  width: 1.5rem;
-  height: 1.5rem;
-  display: block;
+.mav-cancel-icon {
+  &.wrapper {
+    .cancel-icon {
+      cursor: pointer;
+      width: 1.5rem;
+      height: 1.5rem;
+      display: block;
+    }
+  }
 }

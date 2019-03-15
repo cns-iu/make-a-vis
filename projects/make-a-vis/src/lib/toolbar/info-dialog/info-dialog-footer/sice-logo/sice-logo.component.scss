@@ -1,4 +1,8 @@
-svg {
-  width: 21.8rem;
-  height: 2.1rem;
+.sice-logo {
+  &.wrapper {
+    svg {
+      width: 21.8rem;
+      height: 2.1rem;
+    }
+  }
 }
