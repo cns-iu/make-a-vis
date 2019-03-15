@@ -1,4 +1,12 @@
-.hbg-icon {
-  width: 1.5rem;
-  height: 1.5rem;
+.mav-horizontal-bar-graph-icon {
+  &.wrapper {
+    .hbg-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+
+      .st0 {
+        fill: none;
+      }
+    }
+  }
 }

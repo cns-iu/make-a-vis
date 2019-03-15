@@ -1,4 +1,8 @@
-.scatter-graph-icon {
-  width: 1.5rem;
-  height: 1.5rem;
+.mav-scatter-graph-icon {
+  &.wrapper {
+    .scatter-graph-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
 }

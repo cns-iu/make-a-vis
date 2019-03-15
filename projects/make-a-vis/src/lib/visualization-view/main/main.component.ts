@@ -1,21 +1,16 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
-import { Component, EventEmitter, Output, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, QueryList, ViewChild, ViewChildren, EventEmitter, Output } from '@angular/core';
 import { MatTabGroup } from '@angular/material';
-import { Visualization, VisualizationComponent } from '@dvl-fw/core';
 import { select, Store } from '@ngrx/store';
 import { find } from 'lodash';
 import { map } from 'rxjs/operators';
 
+import { VisualizationComponent, Visualization } from '@dvl-fw/core';
 import { ExportService } from '../../shared/services/export/export.service';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import { ModeType, ToggleSelectionPanelType, Vis, VisType } from '../../shared/types';
-import {
-  AddNewVisualization,
-  getLoadedProjectSelector,
-  RemoveVisualization,
-  SetActiveVisualization,
-  SidenavState,
-} from '../../toolbar/shared/store';
+import { AddNewVisualization, getLoadedProjectSelector, RemoveVisualization,
+  SidenavState, SetActiveVisualization,  } from '../../toolbar/shared/store';
 
 @Component({
   selector: 'mav-visualization-view',
@@ -27,7 +22,6 @@ export class MainComponent {
   @ViewChild('visGroup') visGroup: MatTabGroup;
   @ViewChildren('visualizations') visualizationComponents: QueryList<VisualizationComponent>;
 
-  aboutEditMode = false;
   currentAddVisMode: ModeType;
   visPanelState = false;
   editButtonState = false;
@@ -73,7 +67,6 @@ export class MainComponent {
       this.selectedVis = index;
       this.exportService.visualizationElement = this.visGroup;
       this.store.dispatch(new SetActiveVisualization({visualizationIndex: index, visualization: visualization}));
-      this.aboutEditMode = false; // Turn off about text editor when switching visualizations
     }
     this.emitToggleSelectionPanelEvent();
   }

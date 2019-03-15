@@ -1,20 +1,22 @@
-.mav-info-icon-wrapper {
-  position: relative;
-  width: 2.5rem;
-  height: 2.5rem;
+.mav-info-icon {
+  &.wrapper {
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
 
-  .info-icon-fill {
-    vertical-align: middle;
-    cursor: pointer;
-    font-size: 1.875rem;
-  }
+    .info-icon-fill {
+      vertical-align: middle;
+      cursor: pointer;
+      font-size: 1.875rem;
+    }
 
-  .info-icon {
-    position: absolute;
-    left: 0;
-    top: calc((2.5rem - 1.875rem) / 2);
-    vertical-align: middle;
-    cursor: pointer;
-    font-size: 1.875rem;
+    .info-icon {
+      position: absolute;
+      left: 0;
+      top: calc((2.5rem - 1.875rem) / 2);
+      vertical-align: middle;
+      cursor: pointer;
+      font-size: 1.875rem;
+    }
   }
 }

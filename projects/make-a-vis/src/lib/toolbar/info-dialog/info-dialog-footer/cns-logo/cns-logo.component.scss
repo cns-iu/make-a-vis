@@ -1,8 +1,12 @@
-svg {
-  width: 12.5rem;
-  height: 2rem;
+.cns-logo {
+  &.wrapper {
+    svg {
+      width: 12.5rem;
+      height: 2rem;
 
-  .st0 {
-    fill: #8ec640;
+      .st0 {
+        fill: #8ec640;
+      }
+    }
   }
 }

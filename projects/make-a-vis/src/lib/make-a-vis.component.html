@@ -1,19 +1,22 @@
-<mav-light-theme *ngIf="theme === 'light-theme'"></mav-light-theme>
-<div [class]="theme">
-  <mav-toolbar>
-    <div class="mav-main-view" [ngClass]="{'mav-selection-open': mavSelection.panelState}">
-      <div class="data-view">
-        <mav-data-view></mav-data-view>
+<div class="mav-main wrapper">
+  <mav-light-theme *ngIf="theme === 'light-theme'"></mav-light-theme>
+  <div [class]="theme">
+    <mav-toolbar>
+      <div class="mav-main-view" [ngClass]="{'mav-selection-open': mavSelection.panelState}">
+        <div class="data-view">
+          <mav-data-view></mav-data-view>
+        </div>
+        <mav-selection class="mav-selection" (newVis)="visView.addNewVisualization($event)"
+          (selectionPanelClosed)="visView.toggleSelPanel($event)" #mavSelection>
+        </mav-selection>
+        <div class="visualization-and-legend-view">
+          <mav-visualization-view class="visualization"
+            (toggleSelectionPanel)="mavSelection.toggleSelectionPanel($event)" #visView
+            [hidden]="!(checkSaveProject | async)">
+          </mav-visualization-view>
+          <mav-legend-view class="legend"></mav-legend-view>
+        </div>
       </div>
-      <mav-selection class="mav-selection" (newVis)="visView.addNewVisualization($event)"
-        (selectionPanelClosed)="visView.toggleSelPanel($event)" #mavSelection>
-      </mav-selection>
-      <div class="visualization-and-legend-view">
-        <mav-visualization-view class="visualization" (toggleSelectionPanel)="mavSelection.toggleSelectionPanel($event)"
-          #visView [hidden]="!(checkSaveProject | async)">
-        </mav-visualization-view>
-        <mav-legend-view class="legend"></mav-legend-view>
-      </div>
-    </div>
-  </mav-toolbar>
+    </mav-toolbar>
+  </div>
 </div>

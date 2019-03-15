@@ -1,14 +1,18 @@
-.mav-toolbar {
-  height: 2.5rem; /* when updating this, update .main-view's height calculation in top level make-a-vis.component */
-  padding-left: 0;
-  padding-right: 0;
+.toolbar-content {
+  &.wrapper {
+    .mav-toolbar {
+      height: 2.5rem; /* when updating this, update .main-view's height calculation in top level make-a-vis.component */
+      padding-left: 0;
+      padding-right: 0;
 
-  .toolbar-title {
-    font-size: 1.875rem !important;
-    padding-left: 1rem;
-  }
+      .toolbar-title {
+        font-size: 1.875rem !important;
+        padding-left: 1rem;
+      }
 
-  .toolbar-spacer {
-    flex: 1 1 auto;
+      .toolbar-spacer {
+        flex: 1 1 auto;
+      }
+    }
   }
 }

@@ -1,4 +1,8 @@
-.network-icon {
-  width: 1.5rem;
-  height: 1.5rem;
+.mav-network-icon {
+  &.wrapper {
+    .network-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
 }

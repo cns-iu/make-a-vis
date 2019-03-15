@@ -8,6 +8,7 @@
 .mav-main-view {
   background-color: $gray-accent-3;
 }
+
 .mav-data-view {
   .data-view-header {
     .title {
@@ -32,12 +33,14 @@
   }
 }
 
-.mav-info-icon-wrapper {
-  .info-icon-fill {
-    color: $gray-accent-3;
-  }
-  .mav-info-icon {
-    color: $secondary;
+.mav-info-icon {
+  &.wrapper {
+    .info-icon-fill {
+      color: $gray-accent-3;
+    }
+    .info-icon {
+      color: $secondary;
+    }
   }
 }
 
@@ -61,14 +64,16 @@
   }
 }
 
-.mav-start-project-options-container {
-  background-color: $primary;
+.mav-start-project-options {
+  &.container {
+    background-color: $primary;
 
-  .mav-start-project-options {
-    .start-project-options-wrapper {
-      .button {
-        color: $white;
-        border-color: $white !important;
+    .start-project-options.wrapper {
+      .container {
+        .button {
+          color: $white;
+          border-color: $white !important;
+        }
       }
     }
   }
@@ -87,7 +92,10 @@
       border-color: $secondary-text !important;
     }
 
-    .button:active, .button:hover, .custom-file-upload:active, .custom-file-upload:hover {
+    .button:active,
+    .button:hover,
+    .custom-file-upload:active,
+    .custom-file-upload:hover {
       background: $gray-accent-1;
     }
   }
@@ -105,96 +113,93 @@
     .mat-slide-toggle-thumb-container {
       top: -4px;
     }
-  }
 
-  .log-toggle.mat-checked .mat-slide-toggle-thumb {
+    &.mat-checked .mat-slide-toggle-thumb {
       background-color: $white;
       border: 1px solid $green-500;
-  }
+    }
 
-  .log-toggle.mat-checked .mat-slide-toggle-bar {
+    &.mat-checked .mat-slide-toggle-bar {
       background-color: $green-500-30pct-alpha;
       border: 1px solid $green-500;
+    }
   }
 
-  .first-panel:hover, .title:hover {
+  .first-panel:hover,
+  .title:hover {
     background: $gray-accent-3;
   }
 }
 
 .mav-visualization-view {
-  .visualization-group {
-    .selected {
-      border-bottom-color: $secondary !important;
+  &.wrapper {
+    .visualization-group {
+      .selected {
+        border-bottom-color: $secondary !important;
+      }
+      .mat-tab-header {
+        border-color: $gray-accent-1;
+        background-color: $white;
+      }
+      .tab:hover {
+        border-bottom-color: $disabled-text !important;
+      }
+      .label {
+        color: $primary-text;
+      }
+      .cancel-button {
+        color: $primary-text;
+      }
     }
-    .mat-tab-header {
-      border-color: $gray-accent-1;
-      background-color: $white;
+
+    .visualization-wrapper {
+      .visualization-container {
+        border-color: $gray-accent-1;
+        background-color: $white;
+      }
     }
-    .tab:hover {
-      border-bottom-color: $disabled-text !important;
-    }
-    .label {
-      color: $primary-text;
-    }
-    .cancel-button {
-      color: $primary-text;
-    }
-  }
-  .visualization-container {
-    border-color: $gray-accent-1;
-    background-color: $white;
-  }
-  .add-edit-visualization {
-    .add-icon, .edit-icon {
-      color: $primary;
+
+    .add-edit-visualization {
+      .add-icon,
+      .edit-icon {
+        color: $primary;
+      }
     }
   }
 }
 
 .about-expansion-panel-header {
   .about-expansion-panel-title-wrapper {
-      .about-expansion-panel-title {
-        color: $secondary-text;
-      }
-  }
-}
-
-.about-expansion-panel-container {
-    border-left-color: $gray-accent-1 !important;
-    border-right-color: $gray-accent-1 !important;
-    .mat-expansion-panel-content {
-      color: $secondary-text !important;
-      .edit-about-button {
-        color : $secondary-text !important;
-        border-color: $gray-accent-1 !important;
-      }
-    }
-}
-
-.mav-legend-view {
-  .legend-view-group {
-    border-color: $gray-accent-1 !important;
-    background-color: $gray-accent-2;
-  }
-  .mav-graphic-variable-legend {
-    .graphic-variable-legend-title {
-      color: $primary-text;
-    }
-    .graphic-variable-legend-subtitle {
+    .about-expansion-panel-title {
       color: $secondary-text;
     }
   }
 }
 
-.visualization-container .temporal-bargraph-tooltip {
-  font-family: $tooltip-font !important;
+.about-expansion-panel-container {
+  border-left-color: $gray-accent-1 !important;
+  border-right-color: $gray-accent-1 !important;
+  .mat-expansion-panel-content {
+    color: $secondary-text !important;
+  }
 }
 
-.visualization-container .tooltip {
-  font-family: $tooltip-font !important;
+.mav-legend-view {
+  .legend-view-group {
+    &.container {
+      border-color: $gray-accent-1 !important;
+      background-color: $gray-accent-2;
+    }
+  }
+  .mav-graphic-variable-legend {
+    .title {
+      color: $primary-text;
+    }
+    .subtitle {
+      color: $secondary-text;
+    }
+  }
 }
-
 
 /* colors from table.component.scss */
 .mav-table {
@@ -268,19 +273,22 @@
       color: $white;
       border-color: $white !important;
       .graphic-symbol-type {
-      color: $gray-accent-1;
-    }
+        color: $gray-accent-1;
+      }
     }
   }
 }
 
-.record-stream-container {
-  .record-stream {
-    border-color: $gray-accent-1 !important;
-    background-color: $gray-accent-2;
-    &:hover,
-    &:active {
-      background-color: $highlight-accent-2;
+.record-stream {
+  &.container {
+    .inner-container {
+      border-color: $gray-accent-1 !important;
+      background-color: $gray-accent-2;
+
+      &:hover,
+      &:active {
+        background-color: $highlight-accent-2;
+      }
     }
   }
 }
@@ -292,40 +300,49 @@
       .variable-type {
         color: $gray-300;
       }
+
       .card-wrapper {
         .data-variable-selected {
           .graphic-variable-label {
             color: $gray-accent-1 !important;
           }
         }
+
         .highlight {
           background-color: $highlight-accent-1 !important;
           border-color: $highlight !important;
-          .graphic-variable-label, .data-variable {
+
+          .graphic-variable-label,
+          .data-variable {
             color: $primary-text !important;
           }
         }
+
         .required-dot {
           background-color: $accent3;
         }
+
         .card {
           &:active {
             background-color: $primary;
             color: $white;
           }
+
           .variable-type {
             .graphic-variable-label {
               color: $primary-text;
             }
-            .data-variable {
-               color: $white;
-            }
 
+            .data-variable {
+              color: $white;
+            }
           }
+
           .variable-category-qualitative {
             background-color: $accent3;
             color: $white;
           }
+
           .variable-category-quantitative {
             background-color: $border;
             color: $primary-text;
@@ -358,39 +375,12 @@
   }
 }
 
-/* colors from visualization-type.component.scss */
-.vis-type-selection-wrapper {
-  .card{
-    background: none;
-    color: $black;
-    &:active {
-      background: $primary;
-      color: $white;
-    }
-  }
-  .vis-type-selected {
-    background: $primary;
-    color: $white;
-    border-color: $white !important;
-  }
-}
-
-/* colors from visualization-view/main.component.scss */
-.visualization-wrapper {
-  .about-expansion-panel-container {
-    border-bottom-color: $gray-accent-1 !important;
-    .mat-expansion-panel-body {
-      .edit-about-button {
-        background-color: transparent;
-      }
-    }
-  }
-}
-.add-edit-visualization {
-  .edit-icon-disabled {
-    color: $border;
-  }
-}
 .visualization-container {
-  background-color: $white;
+  .temporal-bargraph-tooltip {
+    font-family: $tooltip-font !important;
+  }
+
+  .tooltip {
+    font-family: $tooltip-font !important;
+  }
 }

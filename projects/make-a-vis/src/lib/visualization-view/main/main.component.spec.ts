@@ -26,6 +26,7 @@ import { MapOfScienceIconComponent } from '../icons/map-of-science/map-of-scienc
 import { NetworkIconComponent } from '../icons/network/network-icon.component';
 import { ScatterGraphIconComponent } from '../icons/scatter-graph/scatter-graph-icon.component';
 import { MenuComponent } from '../menu/menu.component';
+import { SafePipe } from '../safe-pipe/safe.pipe';
 import { MainComponent } from './main.component';
 
 describe('visualization-view', () => {
@@ -67,7 +68,7 @@ describe('MainComponent', () => {
 
         StoreModule.forRoot({})
       ],
-      declarations: [ MainComponent, mockComponents ]
+      declarations: [ MainComponent, MockPipe(SafePipe), mockComponents ]
     })
     .compileComponents();
   }));
