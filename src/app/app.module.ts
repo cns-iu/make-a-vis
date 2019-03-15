@@ -5,6 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { MakeAVisModule } from 'make-a-vis';
 import { AppComponent } from './app.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent}
@@ -19,7 +21,8 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
-    MakeAVisModule
+    MakeAVisModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,10 +5,18 @@ import { unparse } from 'papaparse';
 
 import { DataSource } from './data.service';
 
+/**
+ * Service for saving a table's data to a csv file.
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class ExportTableService {
+  /**
+   * Saves table data to a csv file.
+   *
+   * @param source The table data.
+   */
   save(source: DataSource): void {
     const header = loMap(source.columns, 'label');
     const ids = loMap(source.columns, 'id');
