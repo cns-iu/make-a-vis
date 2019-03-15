@@ -1,7 +1,9 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 // Material
+import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
@@ -14,6 +16,7 @@ import { DvlFwModule } from '@dvl-fw/core';
 import { MainComponent } from './main/main.component';
 import { MenuComponent } from './menu/menu.component';
 // Icons
+import { MarkdownModule } from 'ngx-markdown';
 import { CancelIconComponent } from './icons/cancel/cancel-icon.component';
 import { HorizontalBarGraphIconComponent } from './icons/horizontal-bar-graph/horizontal-bar-graph-icon.component';
 import { GeomapIconComponent } from './icons/geomap/geomap-icon.component';
@@ -21,7 +24,6 @@ import { MapOfScienceIconComponent } from './icons/map-of-science/map-of-science
 import { NetworkIconComponent } from './icons/network/network-icon.component';
 import { ScatterGraphIconComponent } from './icons/scatter-graph/scatter-graph-icon.component';
 import { EditIconComponent } from './icons/edit/edit-icon.component';
-import { SafePipe } from './safe-pipe/safe.pipe';
 
 
 @NgModule({
@@ -34,6 +36,9 @@ import { SafePipe } from './safe-pipe/safe.pipe';
     MatInputModule,
     MatMenuModule,
     MatTabsModule,
+    MatButtonModule,
+    FormsModule,
+    MarkdownModule.forRoot(),
 
     DvlFwModule
   ],
@@ -47,8 +52,7 @@ import { SafePipe } from './safe-pipe/safe.pipe';
     MapOfScienceIconComponent,
     NetworkIconComponent,
     ScatterGraphIconComponent,
-    EditIconComponent,
-    SafePipe
+    EditIconComponent
   ],
   exports: [MainComponent]
 })
