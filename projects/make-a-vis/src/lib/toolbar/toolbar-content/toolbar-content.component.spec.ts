@@ -1,28 +1,34 @@
+import { Provider, Type } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-// Material
-import { MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { Store } from '@ngrx/store';
+import { MockComponents } from 'ng-mocks';
 
-import { createStubComponent } from '../../../testing/utility';
+import { InfoIconComponent } from '../icons/info-icon/info-icon.component';
+import { MenuIconComponent } from '../icons/menu/menu-icon.component';
 import { ToolbarContentComponent } from './toolbar-content.component';
 
-describe('toolbar', () => {
 describe('ToolbarContentComponent', () => {
+  const mockedStore = { pipe: () => ({ subscribe: (): boolean => true}) };
   let component: ToolbarContentComponent;
   let fixture: ComponentFixture<ToolbarContentComponent>;
 
   beforeEach(async(() => {
+    const mockedComponents: Type<any>[] = MockComponents(
+      InfoIconComponent,
+      MenuIconComponent
+    );
+    const mockedProviders: Provider[] = [
+      { provide: Store, useValue: mockedStore}
+    ];
+
     TestBed.configureTestingModule({
       imports: [
         MatIconModule, MatToolbarModule
       ],
-      declarations: [
-        ...[
-          'cns-logo', 'github', 'menu'
-        ].map((name) => createStubComponent(`mav-${name}-icon`)),
-        ToolbarContentComponent
-      ]
+      declarations: [ ToolbarContentComponent ].concat(mockedComponents),
+      providers: mockedProviders
     })
     .compileComponents();
   }));
@@ -33,9 +39,8 @@ describe('ToolbarContentComponent', () => {
     fixture.detectChanges();
   });
 
-  // FIXME: To be fixed after test coverage setup in SONAR
-  xit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
+    expect(component.isSidenavOpen).toBeFalsy();
   });
-});
 });

@@ -8,7 +8,7 @@ import { SidenavState, getLoadingShareUrlCompletedSelector } from '../shared/sto
   templateUrl: './toolbar-content.component.html',
   styleUrls: ['./toolbar-content.component.scss']
 })
-export class ToolbarContentComponent implements OnInit {
+export class ToolbarContentComponent {
   isSidenavOpen = false;
 
   constructor(private store: Store<SidenavState>) {
@@ -21,8 +21,5 @@ export class ToolbarContentComponent implements OnInit {
         this.isSidenavOpen = false;
         }
     });
-  }
-
-  ngOnInit() {
   }
 }
