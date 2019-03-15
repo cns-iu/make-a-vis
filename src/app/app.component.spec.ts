@@ -7,6 +7,7 @@ import { MakeAVisModule } from 'make-a-vis';
 import { MockComponents } from 'ng-mocks';
 
 import { AppComponent } from './app.component';
+import { AppUpdaterService } from './services/app-updater.service';
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent}
@@ -14,6 +15,10 @@ const appRoutes: Routes = [
 let fixture: ComponentFixture<AppComponent>;
 let app: AppComponent;
 describe('AppComponent', () => {
+  const mockedAppUpdaterService = {
+    checkForUpdates: (): void => undefined,
+    askToUpdate: (): void => undefined,
+  };
   beforeEach(async(() => {
     const mockComponents = MockComponents(
       MatMenu,
@@ -26,7 +31,10 @@ describe('AppComponent', () => {
         MakeAVisModule,
         RouterModule.forRoot(appRoutes)
       ],
-      declarations: [ AppComponent ].concat(mockComponents)
+      declarations: [ AppComponent ].concat(mockComponents),
+      providers: [
+        {provide: AppUpdaterService, useValue: mockedAppUpdaterService}
+      ]
     }).compileComponents();
   }));
 

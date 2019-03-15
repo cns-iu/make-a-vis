@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, isDevMode } from '@angular/core';
+
+import { AppUpdaterService } from './services/app-updater.service';
 
 @Component({
   selector: 'mav-root',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'make-a-vis-demo';
+  constructor(private readonly appUpdaterService: AppUpdaterService) {
+    if (!isDevMode()) {
+      appUpdaterService.checkForUpdates();
+      appUpdaterService.askToUpdate();
+    }
+
+  }
 }
