@@ -242,7 +242,7 @@ describe('TableComponent', () => {
     });
   });
 
-  fdescribe('dom', () => {
+  describe('dom', () => {
     function updateDataSource(updates: Partial<DataSource>): void {
       const newDataSource = loAssign({ }, dataSource, updates);
       fixture.componentInstance.data = newDataSource;
