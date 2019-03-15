@@ -34,7 +34,7 @@ jobs:
     script:
     - npm run build:build-info
     - npm run build:libs
-    - npm run build:demo
+    - npm run build -- --base-href=/
     - npm run compodoc
     deploy:
       provider: pages
@@ -51,7 +51,7 @@ jobs:
     script:
     - npm run build:build-info
     - npm run build:libs
-    - npm run build:demo
+    - npm run build -- --base-href=/make-a-vis/
     - npm run compodoc
     deploy:
       provider: pages
