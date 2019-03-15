@@ -46,6 +46,18 @@ export class CSVTemplateProject extends DefaultProject {
       new DefaultRawData({id: 'csvRawData', template: 'json', data: {csvData: parseResults.data}})
     ];
   }
+
+  private getDataVariableNames(fields: string[]): string[] {
+    const dataVariableNames = [];
+    fields.forEach((field: string) => {
+      const dataVar = field.trim().split('$$')[0];
+      if ((dataVar.length !== 0) && (!dataVariableNames.includes(dataVar))) {
+        dataVariableNames.push(dataVar);
+      }
+    });
+    return dataVariableNames;
+  }
+
   private inferDataTypes(data: any[]): {[field: string]: string} {
     const types: {[field: string]: string} = {};
 
@@ -88,7 +100,7 @@ export class CSVTemplateProject extends DefaultProject {
         labelPlural: 'CSV Data',
         description: fileName || undefined,
         defaultRecordStream: 'csvData',
-        dataVariables: this.fields.map(f => {
+        dataVariables: this.getDataVariableNames(this.fields).map(f => {
           return {id: f, label: f, dataType: this.fieldTypes[f] || 'text', scaleType: '???'};
         })
       }, this)
@@ -98,36 +110,71 @@ export class CSVTemplateProject extends DefaultProject {
   }
 
   getGraphicVariables(): GraphicVariable[] {
-
     // Setup some default _naive_ graphic variable mappings.
+    const dataVariables = this.getDataVariableNames(this.fields);
+    const mappingFields = this.fields.filter((field: string) => field.trim().split('$$').length > 1);
+
+    const mappings = { ...this.getNaiveMappings(dataVariables) };
+    const predefinedMappings = this.getPredefinedMappings(mappingFields);
+
+    Object.entries(predefinedMappings).forEach((entry: [string, {}]) => {
+      if (entry[1] && mappings[entry[0]]) {
+        mappings[entry[0]][Object.keys(entry[1])[0]] = Object.values(entry[1])[0];
+      }
+    });
+    return DefaultGraphicVariableMapping.fromJSON([
+      {
+        recordStream: 'csvData',
+        mappings: {
+          csvData: mappings
+        }
+      }
+    ], this);
+  }
+
+  getPredefinedMappings(mappingFields: string[]): {} {
+    const predefinedMappings = {};
+
+    for (const field of mappingFields) {
+      const splitFields = field.trim().split('$$');
+      if (splitFields.length > 1) {
+        if (!predefinedMappings[splitFields[0]]) {
+          predefinedMappings[splitFields[0]] = {};
+        }
+        predefinedMappings[splitFields[0]][splitFields[1]] = [{selector: field}];
+      }
+    }
+
+    return predefinedMappings;
+  }
+
+  getNaiveMappings(dataVariables: string[]): {} {
     const naiveMappings = {};
-    for (const field of this.fields) {
+
+    for (const field of dataVariables) {
       let types = ['identifier', 'axis', 'text', 'tooltip', 'label', 'input', 'order'];
+
       if (this.fieldTypes[field] === 'integer' || this.fieldTypes[field] === 'number') {
         // These are _guesses_ and not likely correct
         types = types.concat(['areaSize', 'strokeWidth', 'fontSize']);
       }
+
       if (this.fieldTypes[field] === 'text' && field.toLowerCase().indexOf('color') !== -1) {
         // These are _guesses_ and not likely correct
         types = types.concat(['color', 'strokeColor']);
       }
+
       // Use the field name as a graphic variable type.
       // Use Case: User formats their csv to have color in color column, etc.
       if (!types.find(t => t === field)) {
         types.push(field);
       }
+
       naiveMappings[field] = {};
       types.forEach(t => naiveMappings[field][t] = [{selector: field}]);
     }
 
-    return DefaultGraphicVariableMapping.fromJSON([
-      {
-        recordStream: 'csvData',
-        mappings: {
-          csvData: naiveMappings
-        }
-      }
-    ], this);
+    return naiveMappings;
   }
 
   getGraphicSymbols(): GraphicSymbol[] {
