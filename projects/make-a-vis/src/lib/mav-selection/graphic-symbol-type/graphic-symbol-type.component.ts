@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { GraphicSymbolOption, RecordStream } from '@dvl-fw/core';
 import { select, Store } from '@ngrx/store';
 import { capitalize as loCapitalize } from 'lodash';
@@ -19,7 +19,7 @@ interface HeirarchicalRecordStream {
   templateUrl: './graphic-symbol-type.component.html',
   styleUrls: ['./graphic-symbol-type.component.scss']
 })
-export class GraphicSymbolTypeComponent implements OnInit, OnChanges {
+export class GraphicSymbolTypeComponent implements OnChanges {
   @Input() activeVis: Vis;
   @Input() mode: ModeType;
   @Output() recordStreamChange = new EventEmitter<Map<string, RecordStream>>();
@@ -45,9 +45,6 @@ export class GraphicSymbolTypeComponent implements OnInit, OnChanges {
       }
       this.heirarchicalRecordStreams = heirarchicalRecordStreams;
     });
-  }
-
-  ngOnInit() {
   }
 
   ngOnChanges(changes: SimpleChanges) {
