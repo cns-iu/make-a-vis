@@ -181,6 +181,11 @@
   border-right-color: $gray-accent-1 !important;
   .mat-expansion-panel-content {
     color: $secondary-text !important;
+    
+    .edit-about-button {
+      color : $secondary-text !important;
+      border-color: $gray-accent-1 !important;
+    }
   }
 }
 
