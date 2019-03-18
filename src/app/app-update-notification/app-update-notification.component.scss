@@ -1,0 +1,20 @@
+.app-update-notification-wrapper {
+    .container {
+        display: flex;
+        .update-text {
+            margin-right: 1rem;
+            font-weight: 550;
+            color: #fff;
+        }
+        .refresh-text {
+            margin-left: 1rem;
+            margin-right: 1rem;
+            font-weight: bold;
+            color: #70b7ff;
+            cursor: pointer;
+        }
+        .close-button {
+            cursor: pointer;
+        }
+    }
+}
