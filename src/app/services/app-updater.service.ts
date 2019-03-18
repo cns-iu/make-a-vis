@@ -52,10 +52,9 @@ export class AppUpdaterService {
    */
   openSnackBar() {
     this.snackbar.openFromComponent(AppUpdateNotificationComponent, {
-      horizontalPosition: 'center',
-      verticalPosition: 'top'
+      horizontalPosition: 'left',
+      verticalPosition: 'bottom'
     });
-
   }
 
   /**

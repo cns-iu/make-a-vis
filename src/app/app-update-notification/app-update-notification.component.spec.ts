@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppUpdateNotificationComponent } from './app-update-notification.component';
 
-describe('SnackbarComponent', () => {
+describe('AppUpdateNotificationComponent', () => {
   let component: AppUpdateNotificationComponent;
   let fixture: ComponentFixture<AppUpdateNotificationComponent>;
 
