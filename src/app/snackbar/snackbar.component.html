@@ -1,0 +1,13 @@
+<div class="snackbar-wrapper">
+  <div class="container">
+    <div class="update-text">
+      A new version of Make-a-Vis is available
+    </div>
+    <div class="refresh-text" (click)="appUpdaterService.updateApp()">
+      REFRESH
+    </div>
+    <div class="close-button">
+      <mat-icon (click)="appUpdaterService.closeSnackbar()">close</mat-icon>
+    </div>
+  </div>
+</div>

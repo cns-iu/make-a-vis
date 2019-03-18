@@ -4,12 +4,14 @@ import { SwUpdate } from '@angular/service-worker';
 import { concat, interval } from 'rxjs';
 import { first } from 'rxjs/operators';
 
+import { SnackbarComponent } from '../snackbar/snackbar.component';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AppUpdaterService {
   isSnackbarloaded = false;
-  checkUpdateInterval = 1000 * 60 * 2 * 60; // 2 hours
+  checkUpdateInterval = 1000; // 2 hours
   constructor(
     private readonly appRef: ApplicationRef,
     private readonly updates: SwUpdate,
@@ -46,18 +48,23 @@ export class AppUpdaterService {
   /**
    * Opens snack bar.
    * Uses angular material snackbar service to open the snackbar.
-   * When 'Click here to update!' button is pressed, updateApp function is called.
+   * When 'REFRESH' button is pressed, updateApp function is called.
    */
   openSnackBar() {
-    this.snackbar.open('New update available', 'Click here to update!', {
+    this.snackbar.openFromComponent(SnackbarComponent, {
       horizontalPosition: 'center',
       verticalPosition: 'top',
       panelClass: 'app-update-snackbar-wrapper'
-    }).onAction().subscribe(() => {
-      this.updateApp();
     });
   }
 
+  /**
+   * Closes snackbar.
+   */
+  closeSnackbar() {
+    this.isSnackbarloaded = false;
+    this.snackbar.dismiss();
+  }
 
   /**
    * Updates app whenever there is an active update available
