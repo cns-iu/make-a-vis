@@ -4,14 +4,14 @@ import { SwUpdate } from '@angular/service-worker';
 import { concat, interval } from 'rxjs';
 import { first } from 'rxjs/operators';
 
-import { SnackbarComponent } from '../snackbar/snackbar.component';
+import { AppUpdateNotificationComponent } from '../app-update-notification/app-update-notification.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppUpdaterService {
   isSnackbarloaded = false;
-  checkUpdateInterval = 1000; // 2 hours
+  checkUpdateInterval = 1000 * 60 * 60 * 2; // 2 hours
   constructor(
     private readonly appRef: ApplicationRef,
     private readonly updates: SwUpdate,
@@ -51,11 +51,11 @@ export class AppUpdaterService {
    * When 'REFRESH' button is pressed, updateApp function is called.
    */
   openSnackBar() {
-    this.snackbar.openFromComponent(SnackbarComponent, {
+    this.snackbar.openFromComponent(AppUpdateNotificationComponent, {
       horizontalPosition: 'center',
-      verticalPosition: 'top',
-      panelClass: 'app-update-snackbar-wrapper'
+      verticalPosition: 'top'
     });
+
   }
 
   /**

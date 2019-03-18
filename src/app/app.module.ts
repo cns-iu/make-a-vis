@@ -8,7 +8,7 @@ import { MakeAVisModule } from 'make-a-vis';
 
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
-import { SnackbarComponent } from './snackbar/snackbar.component';
+import { AppUpdateNotificationComponent } from './app-update-notification/app-update-notification.component';
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent }
@@ -18,7 +18,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    SnackbarComponent
+    AppUpdateNotificationComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +30,6 @@ const appRoutes: Routes = [
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [SnackbarComponent]
+  entryComponents: [AppUpdateNotificationComponent]
 })
 export class AppModule { }
