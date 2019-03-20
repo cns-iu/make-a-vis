@@ -51,6 +51,20 @@ describe('GraphicVariableIconComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should create icon on initialization', () => {
+    const spy  = spyOn(component, 'createIcon');
+    component.ngOnInit();
+    // To have been called test because createIcon has been tested as another test case
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('should create icon on changes', () => {
+    const spy  = spyOn(component, 'createIcon');
+    component.ngOnChanges(undefined);
+    // To have been called test because createIcon has been tested as another test case
+    expect(spy).toHaveBeenCalled();
+  });
+
   it('should create not create icon when visualization is not available', () => {
     component.visualization = undefined;
     component.createIcon();
