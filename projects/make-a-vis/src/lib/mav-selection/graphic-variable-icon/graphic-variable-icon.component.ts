@@ -70,7 +70,6 @@ export class GraphicVariableIconComponent implements OnInit, OnChanges {
     const graphicVariable: GraphicVariable = graphicSymbol.graphicVariables[this.graphicVariableOption.id ||
       this.graphicVariableOption.type];
     this.graphicVariable = graphicVariable;
-
     const template = this.isStaticVisualization ?
       (this.graphicVariableOption.staticVisualization || this.graphicVariableOption.visualization) :
       this.graphicVariableOption.visualization;
