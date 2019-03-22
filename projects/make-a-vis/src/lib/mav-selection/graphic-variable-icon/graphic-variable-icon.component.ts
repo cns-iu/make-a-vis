@@ -63,7 +63,7 @@ export class GraphicVariableIconComponent implements OnInit, OnChanges {
   /**
    * Creates the icon
    */
-  private createIcon() {
+  createIcon() {
     if (!this.visualization) { return; }
     const graphicSymbol: GraphicSymbol = this.visualization.graphicSymbols[this.graphicSymbolOption.id];
     if (!graphicSymbol) { return; }
