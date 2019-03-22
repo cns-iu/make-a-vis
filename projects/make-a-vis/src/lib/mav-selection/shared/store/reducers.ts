@@ -1,6 +1,12 @@
 import { MavSelectionActionTypes, MavSelectionActionUnion } from './actions';
 import { MavSelectionState, initialMavSelectionState } from './state';
 
+/**
+ * Mavs selection state reducer
+ * @param [state] instance of MavSelectionState
+ * @param action Union of all acceptable action type classes
+ * @returns the new state
+ */
 export function mavSelectionStateReducer(
   state: MavSelectionState = initialMavSelectionState,
   action: MavSelectionActionUnion

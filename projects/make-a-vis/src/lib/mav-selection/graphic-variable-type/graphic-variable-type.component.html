@@ -8,7 +8,8 @@
         </mat-expansion-panel-header>
 
         <div class="graphic-variable container">
-            <div class="inner-container" *ngFor="let graphicVariableOption of graphicSymbolOption.graphicVariableOptions"
+            <div class="inner-container"
+                *ngFor="let graphicVariableOption of graphicSymbolOption.graphicVariableOptions"
                 [ngClass]="{'selected': getGraphicVariableSelected(graphicVariableOption , graphicSymbolOption)}">
                 <mat-card class="card"
                     (mavDroppable)="dataVariableDropped($event, graphicVariableOption, graphicSymbolOption)"

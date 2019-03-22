@@ -2,9 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from
 import { select, Store } from '@ngrx/store';
 import { capitalize as loCapitalize, get } from 'lodash';
 
-import { DataVariable, GraphicSymbolOption, GraphicVariable,
-  GraphicVariableOption, RecordStream
-} from '@dvl-fw/core';
+import { DataVariable, GraphicSymbolOption, GraphicVariable, GraphicVariableOption, RecordStream } from '@dvl-fw/core';
 import { DragDropEvent } from '../../drag-drop';
 import { DataVariableHoverService } from '../../shared/services/hover/data-variable-hover.service';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
@@ -12,25 +10,70 @@ import { Vis } from '../../shared/types';
 import { getAvailableGraphicVariablesSelector } from '../../toolbar/shared/store';
 import { GVGroupPanelOpened, GVGroupPanelClosed } from '../shared/store';
 
+/**
+ * Mav Selection graphic-variable-type component declaration, responsible for showing graphic-variable-type options in mav-selection
+ */
 @Component({
   selector: 'mav-selection-graphic-variable-type',
   templateUrl: './graphic-variable-type.component.html',
   styleUrls: ['./graphic-variable-type.component.scss']
 })
 export class GraphicVariableTypeComponent implements OnChanges {
+  /**
+   * Input for the visualization currently active, or being viewed by the user
+   */
   @Input() activeVis: Vis;
-  @Input() recordStreamMapping: Map<string, RecordStream>; // i.e. Map<gsoId, RecordStream>
+  /**
+   * Input for the mappings from graphic-symbol-option-id to recordStream i.e. Map<gsoId, RecordStream>
+   */
+  @Input() recordStreamMapping: Map<string, RecordStream>;
+  /**
+   * Output event-emitter with boolean value indicating if a graphic-variable selection has been made
+   */
   @Output() gvSelectionMade = new EventEmitter<boolean>();
+  /**
+   * Available graphic symbol options
+   */
   graphicSymbolOptions: GraphicSymbolOption[] = [];
+  /**
+   * Selection class of graphic variable type component
+   */
   selectionClass = '';
+  /**
+   * Available graphic variables
+   */
   availableGraphicVariables: GraphicVariable[];
-  selectedDataVariablesMapping: Map<string, Map<string, DataVariable>>; // i.e. Map<gsoId, Map<gvId, DataVariable>
-  requiredGraphicVariablesMapping: Map<string, string[]>; // i.e. Map<gsoId, array of required gvIds>
+  /**
+   * Selected data variables mapping i.e. Map<graphic-symbol-option-id, Map<graphic-variable-id, data-variable>
+   */
+  selectedDataVariablesMapping: Map<string, Map<string, DataVariable>>;
+  /**
+   * Required graphic variables mapping i.e. Map<graphic-symbol-option-id, array of required graphic-variable Ids>
+   */
+  requiredGraphicVariablesMapping: Map<string, string[]>;
+  /**
+   * Allowed qualitative scale types
+   */
   qualitativeScaleTypes = ['interval', 'nominal'];
+  /**
+   * Allowed quantitative scale types
+   */
   quantitativeScaleTypes = ['ratio'];
+  /**
+   * Graphic variable id of the currently highlighted graphic variable
+   */
   currentHighlightId: string;
+  /**
+   * Record set id of the selected data-variable
+   */
   selectedDataVariableRecordSetId: string;
 
+  /**
+   * Creates an instance of graphic variable type component.
+   * @param store
+   * @param updateService instance of UpdateVisService, responsible for dispatching store actions for updating visualizations
+   * @param hoverService instance of DataVariableHoverService, responsible for hover actions on data-variables
+   */
   constructor(
     private store: Store<any>,
     private updateService: UpdateVisService,
@@ -50,6 +93,10 @@ export class GraphicVariableTypeComponent implements OnChanges {
     });
   }
 
+  /**
+   * on changes
+   * @param changes The changed properties object
+   */
   ngOnChanges(changes: SimpleChanges) {
     if ('activeVis' in changes || 'recordStreamMapping' in changes) {
       if (this.activeVis) {
@@ -63,6 +110,9 @@ export class GraphicVariableTypeComponent implements OnChanges {
     }
   }
 
+  /**
+   * Clears global variables and mappings
+   */
   clear() {
     // clear mapping
     if (this.selectedDataVariablesMapping && this.selectedDataVariablesMapping.size) {
@@ -78,6 +128,12 @@ export class GraphicVariableTypeComponent implements OnChanges {
     this.selectionClass = '';
   }
 
+  /**
+   * Updates mapping and done button status
+   * @param dataVariable The dropped data-variable
+   * @param graphicVariableOption the graphic-variable-option on which the data-variable was dropped
+   * @param graphicSymbolOption the graphic-symbol-option to which the graphic-variable-option belongs
+   */
   dataVariableDropped(dataVariable: DataVariable, graphicVariableOption: GraphicVariableOption, graphicSymbolOption: GraphicSymbolOption) {
     const mappableGraphicVariables = this.getMappableGraphicVariables(dataVariable, graphicVariableOption, graphicSymbolOption);
     if (mappableGraphicVariables.length) {
@@ -98,6 +154,13 @@ export class GraphicVariableTypeComponent implements OnChanges {
     this.updateActionButtonStatus();
   }
 
+  /**
+   * Gets graphic variables that can be mapped to the provided data-variable
+   * @param dataVariable the provided data-variable
+   * @param graphicVariableOption the graphic-variable-option used to create the mapping
+   * @param graphicSymbolOption the graphic-symbol-option-id to which the graphic-variabl-option belongs
+   * @returns mappable graphic variables
+   */
   getMappableGraphicVariables(
     dataVariable: DataVariable,
     graphicVariableOption: GraphicVariableOption,
@@ -106,16 +169,20 @@ export class GraphicVariableTypeComponent implements OnChanges {
     if (this.availableGraphicVariables.length) {
       const filteredGVs: GraphicVariable[] = this.availableGraphicVariables.filter((gv) => {
         return ((gv.type && gv.type === graphicVariableOption.type)
-        && (this.recordStreamMapping && this.recordStreamMapping.get(graphicSymbolOption.id))
-        && (gv.recordStream.id === this.recordStreamMapping.get(graphicSymbolOption.id).id)
-        && (dataVariable.recordSet.id === gv.recordSet.id)
-        && (gv.dataVariable.id === dataVariable.id));
+          && (this.recordStreamMapping && this.recordStreamMapping.get(graphicSymbolOption.id))
+          && (gv.recordStream.id === this.recordStreamMapping.get(graphicSymbolOption.id).id)
+          && (dataVariable.recordSet.id === gv.recordSet.id)
+          && (gv.dataVariable.id === dataVariable.id));
       });
       return filteredGVs;
     }
     return [];
   }
 
+  /**
+   * Gets graphic symbol options for the active visualization
+   * @returns graphic symbol options
+   */
   getGraphicSymbolOptions(): GraphicSymbolOption[] {
     const gvOption: GraphicSymbolOption[] = [];
     Object.keys(this.activeVis.data.graphicSymbols).forEach((gs) => {
@@ -124,6 +191,11 @@ export class GraphicVariableTypeComponent implements OnChanges {
     return gvOption;
   }
 
+  /**
+   * Gets graphic variable scale type
+   * @param graphicVariableOption the provided graphic-variable-option
+   * @returns graphic variable's scale type for the provided graphic-variable-option
+   */
   getVariableScaleType(graphicVariableOption: any): string {
     if (graphicVariableOption && graphicVariableOption.scaleType) {
       if (this.quantitativeScaleTypes.indexOf(graphicVariableOption.scaleType) !== -1) {
@@ -136,6 +208,12 @@ export class GraphicVariableTypeComponent implements OnChanges {
     }
   }
 
+  /**
+   * Gets the name of the data-variable that is mapped to the graphic-variable-option
+   * @param graphicVariableOption the provided graphic-variable-option
+   * @param graphicSymbolOption the provided graphic-symbol-option to which the graphic-variable-option belongs
+   * @returns name of the data-variable mapped to the graphic-variable-option
+   */
   getGraphicVariableSelected(graphicVariableOption, graphicSymbolOption): string {
     const graphicVariableOptionId = get(graphicVariableOption, 'id');
     const graphicVariableOptionType = get(graphicVariableOption, 'type');
@@ -150,26 +228,34 @@ export class GraphicVariableTypeComponent implements OnChanges {
     return '';
   }
 
+  /**
+   * Gets data variable mappings i.e. Map<graphic-symbol-option-id, Map<graphic-variable-id, data-variable>
+   * @returns data variable mappings
+   */
   getDataVariableMappings(): Map<string, Map<string, DataVariable>> {
     const dvMap = new Map();
     Object.keys(this.activeVis.data.graphicSymbols).forEach((gs: string) => {
       const gvs = Object.keys(this.activeVis.data.graphicSymbols[gs].graphicVariables);
       if (gvs.length) {
-       gvs.forEach((gv: string) => {
-        const dv = this.activeVis.data.graphicSymbols[gs].graphicVariables[gv].dataVariable;
-        const mapEntry = dvMap.get(gs);
-        if (mapEntry) {
-          mapEntry.set(gv, dv);
-        } else {
-          dvMap.set(gs, new Map().set(gv, dv));
-        }
-       });
+        gvs.forEach((gv: string) => {
+          const dv = this.activeVis.data.graphicSymbols[gs].graphicVariables[gv].dataVariable;
+          const mapEntry = dvMap.get(gs);
+          if (mapEntry) {
+            mapEntry.set(gv, dv);
+          } else {
+            dvMap.set(gs, new Map().set(gv, dv));
+          }
+        });
       }
     });
     return dvMap;
   }
 
-  getReqGVMappings (): Map<string, string[]> {
+  /**
+   * Gets req graphic-variablemappings i.e. Map<graphic-symbol-option-id, array of required graphic-variable Ids>
+   * @returns req graphic-variable mappings
+   */
+  getReqGVMappings(): Map<string, string[]> {
     const reqGVMap = new Map();
     if (this.graphicSymbolOptions.length) {
       this.graphicSymbolOptions.forEach((gso) => {
@@ -188,6 +274,10 @@ export class GraphicVariableTypeComponent implements OnChanges {
     return reqGVMap;
   }
 
+  /**
+   * Callback handler for drag-drop event that happens when a data-variable is dropped on the graphic-variable
+   * @param event instance of DragDropEvent object
+   */
   onDragDropEvent(event: DragDropEvent) {
     if (event.type === 'drag-start') {
       this.selectionClass = event.accepted ? 'selectable' : 'unselectable'; // 'rgba(0,255,0,0.1)' : 'rgba(255,0,0,0.1)';
@@ -196,12 +286,23 @@ export class GraphicVariableTypeComponent implements OnChanges {
     }
   }
 
+  /**
+   * Tells if the data-variable will be accepted by a graphic-variable dropzone
+   * @param graphicVariableOption the graphic-variable-option on which the data-variable is being dropped
+   * @param graphicSymbolOption the graphic-symbol-option to which the graphic-variable-option belongs
+   * @returns a function which given a data-variable returns a boolean telling if the data-variable can be mapped to a graphic-variable
+   */
   acceptsDrop(graphicVariableOption: GraphicVariableOption, graphicSymbolOption: GraphicSymbolOption) {
     return (dataVariable: DataVariable) => {
       return this.getMappableGraphicVariables(dataVariable, graphicVariableOption, graphicSymbolOption).length > 0;
     };
   }
 
+  /**
+   * Unsets graphic variable selection
+   * @param graphicSymbolOptionId id of graphic-symbol-option to which the graphic-variable-option belongs
+   * @param graphicVariableOptionIdOrType id or type of graphic-variable-option
+   */
   unsetGraphicVariable(graphicSymbolOptionId: string, graphicVariableOptionIdOrType: string) {
     this.updateService.unsetGraphicVariable(this.activeVis.data, graphicSymbolOptionId, graphicVariableOptionIdOrType);
     this.selectedDataVariablesMapping.get(graphicSymbolOptionId).delete(graphicVariableOptionIdOrType);
@@ -211,6 +312,9 @@ export class GraphicVariableTypeComponent implements OnChanges {
     this.updateActionButtonStatus();
   }
 
+  /**
+   * Updates done button status
+   */
   updateActionButtonStatus() {
     let result = true;
     this.requiredGraphicVariablesMapping.forEach((reqGVIds, gsoId) => {
@@ -226,6 +330,12 @@ export class GraphicVariableTypeComponent implements OnChanges {
     this.gvSelectionMade.emit(result);
   }
 
+  /**
+   * Highlights the graphic-variable-option which can be mapped for the dragged/hovered data-variable
+   * @param graphicVariableOption provided graphic-variable-option
+   * @param graphicSymbolOption graphic-symbol-option to which graphic-variable-option belongs
+   * @returns boolean if it can be highlighted
+   */
   shouldHighlight(graphicVariableOption: GraphicVariableOption, graphicSymbolOption: GraphicSymbolOption): boolean {
     return this.getMappableGraphicVariables(
       { id: this.currentHighlightId, recordSet: { id: this.selectedDataVariableRecordSetId } } as any,
@@ -233,14 +343,19 @@ export class GraphicVariableTypeComponent implements OnChanges {
     ).length !== 0;
   }
 
+  /**
+   * Callback handler for when hovering starts on the data-variable
+   * @param graphicVariableOption provided graphic-variable-option
+   * @param graphicSymbolOption graphic-symbol-option to which graphic-variable-option belongs
+   */
   startHover(
     graphicVariableOption: GraphicVariableOption,
     graphicSymbolOption: GraphicSymbolOption
-    ): void {
+  ): void {
     const filteredGraphicVariables = this.availableGraphicVariables.filter((gv) => {
       return ((gv.type && gv.type === graphicVariableOption.type)
-      && (this.recordStreamMapping && this.recordStreamMapping.get(graphicSymbolOption.id))
-      && (gv.recordStream.id === this.recordStreamMapping.get(graphicSymbolOption.id).id));
+        && (this.recordStreamMapping && this.recordStreamMapping.get(graphicSymbolOption.id))
+        && (gv.recordStream.id === this.recordStreamMapping.get(graphicSymbolOption.id).id));
     });
 
     if (filteredGraphicVariables.length) {
@@ -253,14 +368,26 @@ export class GraphicVariableTypeComponent implements OnChanges {
     }
   }
 
+  /**
+   * wrapper for end-hover function of hover-service
+   */
   endHover(): void {
     this.hoverService.endHover();
   }
 
+  /**
+   * Capitalizes the text in sentence case
+   * @param text provided string
+   * @returns capitalized string
+   */
   capitalize(text: string): string {
     return loCapitalize(text);
   }
 
+  /**
+   * Callback handler for when the graphic-variable-selection panel is opened
+   * @param gsOption the graphic-symbol-option whose panel is opened
+   */
   panelOpened(gsOption: GraphicSymbolOption): void {
     const gsId = gsOption.id;
     const mapping = this.recordStreamMapping;
@@ -269,6 +396,10 @@ export class GraphicVariableTypeComponent implements OnChanges {
     this.store.dispatch(new GVGroupPanelOpened({ gsId, streamId }));
   }
 
+  /**
+   * Callback handler for when the graphic-variable-selection panel is closed
+   * @param gsOption the graphic-symbol-option whose panel is closed
+   */
   panelClosed(gsOption: GraphicSymbolOption): void {
     const gsId = gsOption.id;
     const mapping = this.recordStreamMapping;
