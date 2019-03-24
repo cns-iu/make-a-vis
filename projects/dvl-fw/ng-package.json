@@ -3,6 +3,25 @@
   "dest": "../../dist/dvl-fw",
   "deleteDestPath": false,
   "lib": {
-    "entryFile": "src/public_api.ts"
+    "entryFile": "src/public_api.ts",
+    "umdModuleIds": {
+      "@ngx-dino/core": "@ngx-dino/core",
+      "@ngx-dino/geomap": "@ngx-dino/geomap",
+      "@ngx-dino/network": "@ngx-dino/network",
+      "@ngx-dino/legend": "@ngx-dino/legend",
+      "@ngx-dino/scatterplot": "@ngx-dino/scatterplot",
+      "@ngx-dino/science-map": "@ngx-dino/science-map",
+      "@ngx-dino/temporal-bargraph": "@ngx-dino/temporal-bargraph",
+      "d3-scale": "d3-scale",
+      "graphology": "graphology",
+      "graphology-layout-forceatlas2": "graphology-layout-forceatlas2",
+      "js-yaml": "js-yaml",
+      "lodash": "lodash",
+      "pako": "pako",
+      "papaparse": "papaparse",
+      "nano-sql": "nano-sql",
+      "typescript-logging": "typescript-logging",
+      "zipcodes": "zipcodes"
+    }
   }
 }

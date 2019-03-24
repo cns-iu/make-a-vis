@@ -3,6 +3,22 @@
   "dest": "../../dist/make-a-vis",
   "deleteDestPath": false,
   "lib": {
-    "entryFile": "src/public_api.ts"
+    "entryFile": "src/public_api.ts",
+    "umdModuleIds": {
+      "@dvl-fw/core": "@dvl-fw/core",
+      "@ngrx/effects": "@ngrx/effects",
+      "@ngrx/store": "@ngrx/store",
+      "@ngx-dino/core": "@ngx-dino/core",
+      "blob-stream-browserify": "blob-stream-browserify",
+      "file-saver": "file-saver",
+      "lodash": "lodash",
+      "ngx-clipboard": "ngx-clipboard",
+      "ngx-markdown": "ngx-markdown",
+      "papaparse": "papaparse",
+      "pdfkit-browserify": "pdfkit-browserify",
+      "save-svg-as-png": "save-svg-as-png",
+      "svg-to-pdfkit": "svg-to-pdfkit",
+      "typescript-logging": "typescript-logging"
+    }
   }
 }
