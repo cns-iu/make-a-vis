@@ -117,11 +117,15 @@ export class CSVTemplateProject extends DefaultProject {
     const mappings = { ...this.getNaiveMappings(dataVariables) };
     const predefinedMappings = this.getPredefinedMappings(mappingFields);
 
-    Object.entries(predefinedMappings).forEach((entry: [string, {}]) => {
-      if (entry[1] && mappings[entry[0]]) {
-        mappings[entry[0]][Object.keys(entry[1])[0]] = Object.values(entry[1])[0];
+    for (const field of Object.keys(predefinedMappings)) {
+      if (!mappings.hasOwnProperty(field)) {
+        mappings[field] = {};
       }
-    });
+      for (const type of Object.keys(predefinedMappings[field])) {
+        mappings[field][type] = predefinedMappings[field][type];
+      }
+    }
+
     return DefaultGraphicVariableMapping.fromJSON([
       {
         recordStream: 'csvData',
