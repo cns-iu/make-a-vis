@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
-import { AppUpdaterService } from '../services/app-updater.service';
+import { SwUpdate } from '@angular/service-worker';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'mav-app-update-notification',
@@ -9,6 +10,20 @@ import { AppUpdaterService } from '../services/app-updater.service';
 })
 export class AppUpdateNotificationComponent {
 
-  constructor(readonly appUpdaterService: AppUpdaterService) { }
+  constructor(private readonly updates: SwUpdate,
+    private readonly snackbar: MatSnackBar) { }
 
+  /**
+   * Closes snackbar.
+   */
+  closeSnackbar() {
+    this.snackbar.dismiss();
+  }
+
+  /**
+   * Updates app whenever there is an active update available
+   */
+  updateApp() {
+    this.updates.activateUpdate().then(() => document.location.reload());
+  }
 }
