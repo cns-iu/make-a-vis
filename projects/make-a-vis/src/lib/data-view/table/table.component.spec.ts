@@ -1,6 +1,9 @@
 import { Provider } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatCardModule, MatIconModule, MatPaginatorModule, MatTableModule } from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 import { By } from '@angular/platform-browser';
 import { DataVariable } from '@dvl-fw/core';
 import { Store } from '@ngrx/store';

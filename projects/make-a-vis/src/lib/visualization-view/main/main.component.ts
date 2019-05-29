@@ -1,6 +1,6 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Component, QueryList, ViewChild, ViewChildren, EventEmitter, Output } from '@angular/core';
-import { MatTabGroup } from '@angular/material';
+import { MatTabGroup } from '@angular/material/tabs';
 import { select, Store } from '@ngrx/store';
 import { find } from 'lodash';
 import { map } from 'rxjs/operators';

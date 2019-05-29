@@ -24,6 +24,7 @@ import { MapOfScienceIconComponent } from './icons/map-of-science/map-of-science
 import { NetworkIconComponent } from './icons/network/network-icon.component';
 import { ScatterGraphIconComponent } from './icons/scatter-graph/scatter-graph-icon.component';
 import { EditIconComponent } from './icons/edit/edit-icon.component';
+import { AddIconComponent } from './icons/add/add-icon.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { EditIconComponent } from './icons/edit/edit-icon.component';
     MenuComponent,
     MainComponent,
 
+    AddIconComponent,
     CancelIconComponent,
     HorizontalBarGraphIconComponent,
     GeomapIconComponent,

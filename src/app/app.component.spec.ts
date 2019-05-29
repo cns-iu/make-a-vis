@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatIcon, MatMenu } from '@angular/material';
+import { MatIcon } from '@angular/material/icon';
+import { MatMenu } from '@angular/material/menu';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { MakeAVisModule } from 'make-a-vis';

@@ -1,8 +1,9 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Component, ElementRef, Input, OnInit, ViewChild, QueryList, ViewChildren } from '@angular/core';
-import { MatAccordion, MatButtonToggleGroup } from '@angular/material';
+import { MatButtonToggleGroup } from '@angular/material/button-toggle';
+import { MatAccordion } from '@angular/material/expansion';
 import { ActivationEnd, Router } from '@angular/router';
-import {MatSnackBar} from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { get } from 'lodash';
 import { select, Store } from '@ngrx/store';
 import { ClipboardService } from 'ngx-clipboard';
