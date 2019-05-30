@@ -1,8 +1,9 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Component, ElementRef, Input, OnInit, ViewChild, QueryList, ViewChildren } from '@angular/core';
-import { MatAccordion, MatButtonToggleGroup } from '@angular/material';
+import { MatButtonToggleGroup } from '@angular/material/button-toggle';
+import { MatAccordion } from '@angular/material/expansion';
 import { ActivationEnd, Router } from '@angular/router';
-import {MatSnackBar} from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { get } from 'lodash';
 import { select, Store } from '@ngrx/store';
 import { ClipboardService } from 'ngx-clipboard';
@@ -23,11 +24,11 @@ export type ExportType = 'png' | 'svg' | 'pdf';
   styleUrls: ['./sidenav-content.component.scss']
 })
 export class SidenavContentComponent implements OnInit {
-  @ViewChild(MatAccordion) accordion: MatAccordion;
-  @ViewChild('clipboardTarget') clipboardTargetEl: ElementRef;
+  @ViewChild(MatAccordion, { static: false }) accordion: MatAccordion;
+  @ViewChild('clipboardTarget', { static: false }) clipboardTargetEl: ElementRef;
   @ViewChildren('sidenavFileInputTag') fileInputTags: QueryList<ElementRef>;
   @Input() set panelsOpenState(sidenavOpenState: boolean) {
-    if (!sidenavOpenState) {
+    if (!sidenavOpenState && this.accordion) {
       this.accordion.closeAll();
     } else {
       this.shareUrl = '';

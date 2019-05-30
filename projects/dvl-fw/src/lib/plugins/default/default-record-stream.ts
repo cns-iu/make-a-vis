@@ -14,7 +14,7 @@ export class DefaultRecordStream<T = any> implements RecordStream<T> {
     Object.assign(this, { id: data.id, label: data.label || data.id });
   }
   asObservable(): Observable<RawChangeSet<T>> {
-    return defer<T[]>(this.getData.bind(this)).pipe(map(RawChangeSet.fromArray));
+    return defer<Promise<T[]>>(this.getData.bind(this)).pipe(map(RawChangeSet.fromArray));
   }
   async getData(): Promise<T[]> {
     const data = await this.rawData.getData();

@@ -30,7 +30,7 @@ export class MainComponent {
   /**
    * View child of this component which refers to VisualizationTypeComponent
    */
-  @ViewChild('visType') visType: VisualizationTypeComponent;
+  @ViewChild('visType', { static: false }) visType: VisualizationTypeComponent;
   /**
    * Mapping from graphic-symbol-option-id to RecordStream
    */

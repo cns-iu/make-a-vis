@@ -23,7 +23,7 @@ export class GraphicVariableLegendComponent implements OnInit, OnChanges {
   graphicVariable: GraphicVariable;
   legendVisualizationType: string;
 
-  @ViewChild('visualization') legendComponent: DvlFwVisualizationComponent;
+  @ViewChild('visualization', { static: false }) legendComponent: DvlFwVisualizationComponent;
 
   constructor(private updateService: UpdateVisService, private legendService: LegendService) { }
 

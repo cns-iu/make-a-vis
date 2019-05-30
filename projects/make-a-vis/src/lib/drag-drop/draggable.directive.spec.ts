@@ -7,7 +7,7 @@ import { DraggableDirective } from './draggable.directive';
 
 describe('DraggableDirective', () => {
   let directive: DraggableDirective;
-  let fixture: ComponentFixture<void>;
+  let fixture: ComponentFixture<any>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({

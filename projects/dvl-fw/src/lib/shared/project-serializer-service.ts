@@ -21,12 +21,12 @@ export class ProjectSerializerService {
   }
 
   createProject(template: 'isi' | 'nsf' | 'csv' | 'json', fileContents: string, fileName?: string): Observable<Project> {
-    return defer<Project>(async () => {
+    return defer(async () => {
       switch (template) {
         case 'csv':
           // fall through NSFTemplateProject
         case 'nsf':
-        return await NSFTemplateProject.create(fileContents, fileName);
+          return await NSFTemplateProject.create(fileContents, fileName);
         case 'isi':
           return await ISITemplateProject.create(fileContents, fileName);
         default:
@@ -42,16 +42,16 @@ export class ProjectSerializerService {
   }
 
   toYAML(project: Project): Observable<string> {
-    return defer<string>(() => ProjectSerializer.toYAML(project, this.registry));
+    return defer(() => ProjectSerializer.toYAML(project, this.registry));
   }
   fromYAML(yaml: string): Observable<Project> {
-    return defer<Project>(() => ProjectSerializer.fromYAML(yaml, this.registry));
+    return defer(() => ProjectSerializer.fromYAML(yaml, this.registry));
   }
 
   toJSON(project: Project): Observable<any> {
-    return defer<any>(() => ProjectSerializer.toJSON(project, this.registry));
+    return defer(() => ProjectSerializer.toJSON(project, this.registry));
   }
   fromJSON(json: any): Observable<Project> {
-    return defer<Project>(() => ProjectSerializer.fromJSON(json, this.registry));
+    return defer(() => ProjectSerializer.fromJSON(json, this.registry));
   }
 }

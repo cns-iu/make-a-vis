@@ -1,6 +1,7 @@
 import { Provider, SimpleChange } from '@angular/core';
 import { async, TestBed } from '@angular/core/testing';
-import { MatCard, MatIcon } from '@angular/material';
+import { MatCard } from '@angular/material/card';
+import { MatIcon } from '@angular/material/icon';
 import { GraphicSymbol, GraphicSymbolOption, RecordStream } from '@dvl-fw/core';
 import { Store } from '@ngrx/store';
 import { MockStore } from '@ngrx/store/testing';
