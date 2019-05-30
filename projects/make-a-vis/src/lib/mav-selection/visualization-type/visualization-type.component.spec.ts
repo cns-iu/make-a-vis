@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatCard } from '@angular/material';
+import { MatCard } from '@angular/material/card';
 import { MockComponents } from 'ng-mocks';
 
 import { GeomapIconComponent } from './icons/geomap-icon/geomap-icon.component';

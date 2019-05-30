@@ -1,6 +1,7 @@
 import { Provider } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatDialog, MatIcon } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatIcon } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { MockComponent } from 'ng-mocks';

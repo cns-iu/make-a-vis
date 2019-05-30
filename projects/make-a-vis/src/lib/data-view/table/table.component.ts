@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild } from '@angular/core';
-import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { DataVariable } from '@dvl-fw/core';
 import { Store } from '@ngrx/store';
 import { every as loEvery, forEach as loForEach, get as loGet, includes as loIncludes, map as loMap } from 'lodash';
@@ -39,7 +40,7 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
   /**
    * Reference to the paginator element.
    */
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
 
   /**
    * Number of rows per table page.
@@ -286,7 +287,7 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
       rxMap(ids => loIncludes(ids, loGet(this.dataSource, 'streamId')))
     );
 
-    return rxCombineLatest(isGVPanelOpen, hasGVSubpanelWithIds).pipe(
+    return rxCombineLatest([isGVPanelOpen, hasGVSubpanelWithIds]).pipe(
       rxMap(conditions => loEvery(conditions)),
       rxDistinctUntilChanged()
     ).subscribe(hoverEnabled => setTimeout(() => this.hoverEnabled = hoverEnabled, 0));

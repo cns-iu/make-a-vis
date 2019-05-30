@@ -1,6 +1,6 @@
 {
     "name": "@dvl-fw/core",
-    "version": "0.15.0",
+    "version": "0.16.0",
     "bin": {
         "dvl-fw-import": "./dvl-fw-import",
         "dvl-fw-validate": "./dvl-fw-validate"
@@ -9,8 +9,8 @@
         "access": "public"
     },
     "peerDependencies": {
-        "@angular/common": "^7.0.0",
-        "@angular/core": "^7.0.0",
+        "@angular/common": "^8.0.0",
+        "@angular/core": "^8.0.0",
         "@ngx-dino/core": ">=0.9.1 <1.0.0",
         "@ngx-dino/geomap": ">=0.12.1 <1.0.0",
         "@ngx-dino/legend": ">=0.12.2 <1.0.0",
@@ -18,16 +18,16 @@
         "@ngx-dino/scatterplot": ">=0.11.0 <1.0.0",
         "@ngx-dino/science-map": ">=0.9.4 <1.0.0",
         "@ngx-dino/temporal-bargraph": ">=0.2.2 <1.0.0",
-        "@types/d3-geo": "^1.10.3",
-        "d3-geo": "^1.11.1",
-        "d3-scale": "^2.1.2",
-        "graphology": ">=0.13.1 <1.0.0",
+        "@types/d3-geo": "^1.11.1",
+        "d3-geo": "^1.11.3",
+        "d3-scale": "^2.2.2",
+        "graphology": "^0.14.1",
         "graphology-layout-forceatlas2": "^0.2.1",
-        "js-yaml": "^3.12.0",
-        "nano-sql": "^1.7.6",
-        "pako": "^1.0.6",
-        "papaparse": "^4.4.0",
-        "typescript-logging": "^0.6.2",
-        "zipcodes": ">=7.0.0"
+        "js-yaml": "^3.13.1",
+        "nano-sql": "^1.8.3",
+        "pako": "^1.0.8",
+        "papaparse": "~4.6.3",
+        "typescript-logging": "^0.6.3",
+        "zipcodes": "^8.0.0"
     }
 }
