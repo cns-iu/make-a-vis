@@ -113,7 +113,7 @@
     "tslib": "^1.9.3",
     "tslint": "~5.13.0",
     "typescript": "~3.2.4",
-    "webpack": "^4.29.5",
+    "webpack": "^4.32.2",
     "webpack-cli": "^3.2.3",
     "webpack-node-externals": "^1.7.2"
   }
