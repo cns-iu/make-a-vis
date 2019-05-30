@@ -30,7 +30,7 @@
     "@angular/material": "^7.3.3",
     "@angular/platform-browser": "^7.2.6",
     "@angular/platform-browser-dynamic": "^7.2.6",
-    "@angular/pwa": "^0.12.4",
+    "@angular/pwa": "^0.800.0",
     "@angular/router": "^7.2.6",
     "@angular/service-worker": "^7.2.6",
     "@ngrx/effects": "^7.2.0",
