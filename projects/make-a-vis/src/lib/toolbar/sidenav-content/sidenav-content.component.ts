@@ -28,7 +28,7 @@ export class SidenavContentComponent implements OnInit {
   @ViewChild('clipboardTarget', { static: false }) clipboardTargetEl: ElementRef;
   @ViewChildren('sidenavFileInputTag') fileInputTags: QueryList<ElementRef>;
   @Input() set panelsOpenState(sidenavOpenState: boolean) {
-    if (!sidenavOpenState) {
+    if (!sidenavOpenState && this.accordion) {
       this.accordion.closeAll();
     } else {
       this.shareUrl = '';
