@@ -40,7 +40,7 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
   /**
    * Reference to the paginator element.
    */
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
 
   /**
    * Number of rows per table page.

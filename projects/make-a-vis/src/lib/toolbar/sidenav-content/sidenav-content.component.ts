@@ -24,8 +24,8 @@ export type ExportType = 'png' | 'svg' | 'pdf';
   styleUrls: ['./sidenav-content.component.scss']
 })
 export class SidenavContentComponent implements OnInit {
-  @ViewChild(MatAccordion) accordion: MatAccordion;
-  @ViewChild('clipboardTarget') clipboardTargetEl: ElementRef;
+  @ViewChild(MatAccordion, { static: false }) accordion: MatAccordion;
+  @ViewChild('clipboardTarget', { static: false }) clipboardTargetEl: ElementRef;
   @ViewChildren('sidenavFileInputTag') fileInputTags: QueryList<ElementRef>;
   @Input() set panelsOpenState(sidenavOpenState: boolean) {
     if (!sidenavOpenState) {

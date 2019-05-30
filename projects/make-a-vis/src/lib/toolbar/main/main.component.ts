@@ -10,7 +10,7 @@ import { ToolbarContentComponent } from '../toolbar-content/toolbar-content.comp
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  @ViewChild('mavToolbarContent') toolbarContent: ToolbarContentComponent;
+  @ViewChild('mavToolbarContent', { static: false }) toolbarContent: ToolbarContentComponent;
 
   constructor(private store: Store<SidenavState>) {
     store.pipe(select(getLoadingProjectCompletedSelector)).subscribe((loaded) => {

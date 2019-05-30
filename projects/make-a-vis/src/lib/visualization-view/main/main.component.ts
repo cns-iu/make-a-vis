@@ -19,7 +19,7 @@ import { AddNewVisualization, getLoadedProjectSelector, RemoveVisualization,
 })
 export class MainComponent {
   @Output() toggleSelectionPanel = new EventEmitter<ToggleSelectionPanelType>();
-  @ViewChild('visGroup') visGroup: MatTabGroup;
+  @ViewChild('visGroup', { static: false }) visGroup: MatTabGroup;
   @ViewChildren('visualizations') visualizationComponents: QueryList<VisualizationComponent>;
 
   aboutEditMode = false;
