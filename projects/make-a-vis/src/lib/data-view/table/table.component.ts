@@ -287,7 +287,7 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
       rxMap(ids => loIncludes(ids, loGet(this.dataSource, 'streamId')))
     );
 
-    return rxCombineLatest(isGVPanelOpen, hasGVSubpanelWithIds).pipe(
+    return rxCombineLatest([isGVPanelOpen, hasGVSubpanelWithIds]).pipe(
       rxMap(conditions => loEvery(conditions)),
       rxDistinctUntilChanged()
     ).subscribe(hoverEnabled => setTimeout(() => this.hoverEnabled = hoverEnabled, 0));

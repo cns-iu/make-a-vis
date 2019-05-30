@@ -1,4 +1,4 @@
-import { Provider } from '@angular/core';
+import { Provider, Type } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -30,7 +30,7 @@ function createEmptyServices(...tokens: any[]): Provider[] {
   return loMap(tokens, t => ({ provide: t, useFactory: loConstant({ }) }));
 }
 
-function getServiceSpy(token: any, prop: string): jasmine.Spy {
+function getServiceSpy<T>(token: Type<T>, prop: string): jasmine.Spy {
   const service = TestBed.get(token);
   if (service[prop] == null) { service[prop] = jasmine.createSpy(prop); }
   return service[prop];
@@ -283,7 +283,7 @@ describe('TableComponent', () => {
     ): void {
       it(`reacts to ${eventName} on ${selector}`, () => {
         const element = fixture.debugElement.query(By.css(prefix + ' ' + selector));
-        const spy = spyOn(component, handlerName);
+        const spy = spyOn(component, handlerName as any);
         element.triggerEventHandler(eventName, eventData);
         expect(spy).toHaveBeenCalled();
       });
