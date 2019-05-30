@@ -22,7 +22,6 @@ describe('AppComponent', () => {
   };
   beforeEach(async(() => {
     const mockComponents = MockComponents(
-      MatMenu,
       MatIcon
     );
     TestBed.configureTestingModule({
