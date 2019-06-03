@@ -80,6 +80,8 @@
             padding: 0.5rem;
             min-width: 12rem;
             max-width: 12rem;
+            height: 4.5rem;
+            overflow: auto;
           }
 
           .header-row {
@@ -103,7 +105,7 @@
 
           .row {
             width: fit-content;
-            min-height: auto;
+            height: 4.5rem;
             align-items: start;
           }
         }
