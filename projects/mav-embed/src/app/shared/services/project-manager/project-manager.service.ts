@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Project, ProjectSerializerService } from '@dvl-fw/core';
-import { Observable, of } from 'rxjs';
-import { publishReplay, refCount, switchMap } from 'rxjs/operators';
+import { Project } from '@dvl-fw/core';
+import { Observable } from 'rxjs';
+import { publishReplay, refCount } from 'rxjs/operators';
 
-import { ResourceLoaderService, SourceType } from '../resource-loader/resource-loader.service';
+import { ProjectLoaderService, SourceType } from '../project-loader/project-loader.service';
 
 interface ManagedProject {
   refCount: number;
@@ -18,7 +18,7 @@ interface ManagedProject {
 export class ProjectManagerService {
   private projects: { [key: string]: ManagedProject } = { };
 
-  constructor(private loader: ResourceLoaderService, private serializer: ProjectSerializerService) { }
+  constructor(private loader: ProjectLoaderService) { }
 
   add(source: string, type: SourceType): Observable<Project> {
     const { projects } = this;
@@ -42,7 +42,6 @@ export class ProjectManagerService {
   private createManagedProject(source: string, type: SourceType): ManagedProject {
     const resource = this.loader.load(source, type);
     const project = resource.pipe(
-      switchMap(raw => typeof raw === 'string' ? this.serializer.fromYAML(raw) : of(raw)),
       publishReplay(1),
       refCount()
     );
