@@ -81,7 +81,12 @@
             min-width: 12rem;
             max-width: 12rem;
             height: 4.5rem;
-            overflow: auto;
+
+            .cell {
+              white-space: nowrap; 
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
           }
 
           .header-row {
