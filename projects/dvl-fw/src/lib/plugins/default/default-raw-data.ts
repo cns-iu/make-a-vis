@@ -1,4 +1,5 @@
-// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
+import { safeLoad } from 'js-yaml';
+
 import { ObjectFactory, ObjectFactoryRegistry } from '../../shared/object-factory';
 import { Project } from '../../shared/project';
 import { RawData } from '../../shared/raw-data';
@@ -28,10 +29,12 @@ export class DefaultRawData implements RawData {
       return this._url_data_;
     } else if (this.url) {
       const data = (await fetch(this.url));
-      if (this.template === 'string') {
-        this._url_data_ = await data.text();
-      } else {
-        this._url_data_ = await data.json();
+      if (!this._url_data_) {
+        if (this.template === 'string') {
+          this._url_data_ = await data.text();
+        } else {
+          this._url_data_ = safeLoad(await data.text());
+        }
       }
       return this._url_data_;
     } else {
