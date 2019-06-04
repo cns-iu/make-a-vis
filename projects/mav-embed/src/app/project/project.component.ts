@@ -1,11 +1,22 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
+
+import { ProjectManagerService } from '../shared/services/project-manager/project-manager.service';
 
 @Component({
   selector: 'mav-project',
-  templateUrl: './project.component.html',
-  styleUrls: ['./project.component.scss'],
+  template: '',
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class ProjectComponent {
-  // TODO href and data/var inputs
+export class ProjectComponent implements OnChanges {
+  @Input() id: string;
+  @Input() data: string;
+  @Input() href: string;
+
+  constructor(manager: ProjectManagerService) {
+    // TODO
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    // TODO
+  }
 }
