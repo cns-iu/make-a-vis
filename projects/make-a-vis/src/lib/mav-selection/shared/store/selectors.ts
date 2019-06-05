@@ -1,4 +1,5 @@
-import { createSelector, createFeatureSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+
 import { GVGroupPanelState, MavSelectionState } from './state';
 
 /**
@@ -27,3 +28,9 @@ export function getOpenGVGroupPanels(state: MavSelectionState): GVGroupPanelStat
  * selector for getOpenGVGroupPanels
  */
 export const getOpenGVGroupPanelsSelector = createSelector(selectSelf, getOpenGVGroupPanels);
+
+export const getAdvancedEnabled = (state: MavSelectionState): boolean => state.advanced;
+export const getAdvancedEnabledSelector = createSelector<MavSelectionState, MavSelectionState, boolean>(
+    selectSelf,
+    getAdvancedEnabled
+);

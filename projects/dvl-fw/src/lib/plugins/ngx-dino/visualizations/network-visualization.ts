@@ -14,17 +14,17 @@ export class NetworkVisualization extends DefaultVisualization {
       id: 'nodes', label: 'Nodes', type: 'area',
       graphicVariableOptions: [
         { type: 'identifier', label: 'Identifier', visualization: 'id', scaleType: 'ratio', required: true },
-        // { type: 'position', label: 'Position' },
+        { type: 'position', label: 'Position', advanced: true },
         { id: 'x', type: 'axis', label: 'X', visualization: 'x-axis', scaleType: 'ratio', required: true },
         { id: 'y', type: 'axis', label: 'Y', visualization: 'y-axis', scaleType: 'ratio', required: true },
         { type: 'color', label: 'Color Hue', visualization: 'color', scaleType: 'nominal', staticVisualization: 'color-area' },
-        // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
+        { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color', advanced: true },
         { type: 'areaSize', label: 'Size', visualization: 'node-size', scaleType: 'ratio', staticVisualization: 'area-size',
           required: true
         },
-        // { type: 'shape', label: 'Shape' },
-        // { type: 'transparency', label: 'Transparency'},
-        // { type: 'strokeTransparency', label: 'Stroke Transparency'},
+        { type: 'shape', label: 'Shape', advanced: true },
+        { type: 'transparency', label: 'Transparency', advanced: true},
+        { type: 'strokeTransparency', label: 'Stroke Transparency', advanced: true},
         { id: 'label', type: 'text', label: 'Label', visualization: 'label'},
         { id: 'tooltip', type: 'text', label: 'Tooltip', visualization: 'label'}
       ]
@@ -36,13 +36,13 @@ export class NetworkVisualization extends DefaultVisualization {
         { id: 'sourceY', type: 'axis', label: 'Source Y', visualization: 'source', scaleType: 'ratio', required: true },
         { id: 'targetX', type: 'axis', label: 'Target X', visualization: 'target', scaleType: 'ratio', required: true },
         { id: 'targetY', type: 'axis', label: 'Target Y', visualization: 'target', scaleType: 'ratio', required: true },
-        // { type: 'source', label: 'Source Position' },
-        // { type: 'target', label: 'Target Position' },
+        { type: 'source', label: 'Source Position', advanced: true },
+        { type: 'target', label: 'Target Position', advanced: true },
         { type: 'strokeColor', label: 'Color Hue', visualization: 'color', scaleType: 'nominal', staticVisualization: 'color-area' },
         { type: 'strokeWidth', label: 'Size', visualization: 'edge-size', scaleType: 'ratio', staticVisualization: 'thickness',
           required: true
         },
-        // { type: 'transparency', label: 'Transparency' }
+        { type: 'transparency', label: 'Transparency', advanced: true }
       ]
     }
   ];

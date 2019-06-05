@@ -43,6 +43,7 @@
     "@ngx-dino/temporal-bargraph": "^0.2.2",
     "@ngx-dino/vega-util": "^0.9.0",
     "blob-stream-browserify": "^0.1.3",
+    "cheet.js": "^0.3.3",
     "core-js": "^2.6.9",
     "d3": "^5.9.2",
     "d3-array": "^1.2.4",
@@ -72,7 +73,6 @@
     "svg-to-pdfkit": "^0.1.7",
     "topojson-client": "^3.0.0",
     "typescript-logging": "^0.6.3",
-    "unlockjs": "^1.1.3",
     "zipcodes": "^8.0.0",
     "zone.js": "~0.9.1"
   },

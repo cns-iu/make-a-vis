@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Store, select } from '@ngrx/store';
+import { Component, ViewChild } from '@angular/core';
+import { select, Store } from '@ngrx/store';
 
 import { getLoadingProjectCompletedSelector, SidenavState } from '../shared/store';
 import { ToolbarContentComponent } from '../toolbar-content/toolbar-content.component';
@@ -9,7 +9,7 @@ import { ToolbarContentComponent } from '../toolbar-content/toolbar-content.comp
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit {
+export class MainComponent {
   @ViewChild('mavToolbarContent', { static: false }) toolbarContent: ToolbarContentComponent;
 
   constructor(private store: Store<SidenavState>) {
@@ -20,8 +20,5 @@ export class MainComponent implements OnInit {
         }
       }
     });
-  }
-
-  ngOnInit() {
   }
 }
