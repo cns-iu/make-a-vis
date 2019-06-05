@@ -17,6 +17,7 @@ export class AdvancedService {
    * @param zone Angular zone to run cheet.js in Angular's zone
    */
   constructor(private readonly store: Store<MavSelectionState>, private readonly zone: NgZone) {
+    this.addAdvancedCheat();
     this.store.dispatch(new AdvancedToggle(this.advancedEnabled));
   }
 
@@ -31,7 +32,11 @@ export class AdvancedService {
    * Sets advanced enabled
    */
   set advancedEnabled(enabled: boolean) {
-    enabled ? localStorage[MAV_ADVANCED_KEY] = 'true' : localStorage.removeItem(MAV_ADVANCED_KEY);
+    if (enabled) {
+      localStorage[MAV_ADVANCED_KEY] = 'true';
+    } else {
+      localStorage.removeItem(MAV_ADVANCED_KEY);
+    }
     this.zone.run(() => {
       this.store.dispatch(new AdvancedToggle(enabled));
     });

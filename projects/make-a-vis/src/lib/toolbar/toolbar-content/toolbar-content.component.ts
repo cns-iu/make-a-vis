@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 import { getAdvancedEnabledSelector, MavSelectionState } from '../../mav-selection/shared/store';
 import { getLoadingShareUrlCompletedSelector, SidenavState } from '../shared/store';
@@ -10,7 +10,7 @@ import { getLoadingShareUrlCompletedSelector, SidenavState } from '../shared/sto
   templateUrl: './toolbar-content.component.html',
   styleUrls: ['./toolbar-content.component.scss']
 })
-export class ToolbarContentComponent {
+export class ToolbarContentComponent implements OnDestroy {
   isSidenavOpen = false;
 
   /**
@@ -18,16 +18,27 @@ export class ToolbarContentComponent {
    */
   advancedEnabled$: Observable<boolean>;
 
+  /**
+   * Loading share url subscription of toolbar content component
+   */
+  loadingShareUrlSubscription: Subscription;
+
   constructor(private store: Store<SidenavState>, private mavSelectionStore: Store<MavSelectionState>) {
     /*
     * close the toolbar if application is launched using
     * a share URL.
     */
-    store.pipe(select(getLoadingShareUrlCompletedSelector)).subscribe((loaded) => {
+    this.loadingShareUrlSubscription = store.pipe(select(getLoadingShareUrlCompletedSelector)).subscribe((loaded) => {
       if (loaded) {
         this.isSidenavOpen = false;
       }
     });
     this.advancedEnabled$ = mavSelectionStore.pipe(select(getAdvancedEnabledSelector));
+  }
+
+  ngOnDestroy(): void {
+    if (this.loadingShareUrlSubscription) {
+      this.loadingShareUrlSubscription.unsubscribe();
+    }
   }
 }

@@ -5,7 +5,7 @@ import { capitalize as loCapitalize, cloneDeep, get } from 'lodash';
 import { Subscription } from 'rxjs';
 
 import { DragDropEvent } from '../../drag-drop';
-import { AdvancedService, MAV_ADVANCED_KEY } from '../../shared/services/advance/advanced.service';
+import { AdvancedService } from '../../shared/services/advance/advanced.service';
 import { DataVariableHoverService } from '../../shared/services/hover/data-variable-hover.service';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import { Vis } from '../../shared/types';
@@ -96,7 +96,6 @@ export class GraphicVariableTypeComponent implements OnChanges, OnDestroy {
     private advancedService: AdvancedService,
     private mavSelectionStore: Store<MavSelectionState>
   ) {
-    this.advancedService.addAdvancedCheat();
     this.graphicVariableSubscription = store.pipe(select(getAvailableGraphicVariablesSelector)).subscribe((availableGraphicVariables) => {
       this.availableGraphicVariables = availableGraphicVariables;
     });
@@ -234,7 +233,7 @@ export class GraphicVariableTypeComponent implements OnChanges, OnDestroy {
       Object.keys(this.activeVis.data.graphicSymbols).forEach((gs) => {
         gvOption.push(gvOptions.filter((gso) => gso.id === gs)[0]);
       });
-      if (localStorage.getItem(MAV_ADVANCED_KEY) === null) {
+      if (!this.advancedService.advancedEnabled) {
         gvOption[0].graphicVariableOptions = gvOption[0].graphicVariableOptions.filter((gv) => !gv.advanced);
       }
       return gvOption;
@@ -371,7 +370,7 @@ export class GraphicVariableTypeComponent implements OnChanges, OnDestroy {
     this.requiredGraphicVariablesMapping.forEach((reqGVIds, gsoId) => {
       result = result && reqGVIds.every((gvId) => {
         if (this.selectedDataVariablesMapping.get(gsoId)) {
-          return Boolean(this.selectedDataVariablesMapping.get(gsoId).get(gvId));
+          return !!this.selectedDataVariablesMapping.get(gsoId).get(gvId);
         } else {
           return false;
         }

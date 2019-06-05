@@ -4,13 +4,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Store } from '@ngrx/store';
 import { MockComponents } from 'ng-mocks';
-
 import { InfoIconComponent } from '../icons/info-icon/info-icon.component';
 import { MenuIconComponent } from '../icons/menu/menu-icon.component';
 import { ToolbarContentComponent } from './toolbar-content.component';
+import { Unsubscribable } from 'rxjs';
 
 describe('ToolbarContentComponent', () => {
-  const mockedStore = { pipe: () => ({ subscribe: (): boolean => true}) };
+  const mockedStore = { pipe: () => ({ subscribe: (): Unsubscribable => ({ unsubscribe: () => undefined})})};
   let component: ToolbarContentComponent;
   let fixture: ComponentFixture<ToolbarContentComponent>;
 
