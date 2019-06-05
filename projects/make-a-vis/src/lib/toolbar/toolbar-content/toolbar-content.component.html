@@ -1,7 +1,7 @@
 <div class="toolbar-content wrapper">
   <mat-toolbar class="mav-toolbar z-depth-1-half">
     <mav-menu-icon (click)="isSidenavOpen = !isSidenavOpen"></mav-menu-icon>
-    <span class="toolbar-title">Make-a-Vis</span>
+    <span class="toolbar-title">Make-a-Vis <em *ngIf="advancedEnabled$ | async">Advanced</em></span>
     <div class="toolbar-spacer"></div>
     <mav-info-icon></mav-info-icon>
   </mat-toolbar>

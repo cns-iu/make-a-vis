@@ -1,14 +1,14 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
+import { ProjectSerializerService, RecordStream, Visualization } from '@dvl-fw/core';
 import { select, Store } from '@ngrx/store';
 import { uniqueId } from 'lodash';
 import { of } from 'rxjs';
 import { catchError, concatMap, take } from 'rxjs/operators';
 
-import { ProjectSerializerService, RecordStream, Visualization } from '@dvl-fw/core';
 import { ModeType, ToggleSelectionPanelType, Vis, VisType } from '../../shared/types';
 import { getLoadedProjectSelector } from '../../toolbar/shared/store';
+import { GVPanelClosed, GVPanelOpened } from '../shared/store';
 import { VisualizationTypeComponent } from '../visualization-type/visualization-type.component';
-import { GVPanelOpened, GVPanelClosed } from '../shared/store';
 
 /**
  * Mav Selection main component declaration, responsible for displaying the vis-type, graphic-symbol and graphic-variable selection panels
