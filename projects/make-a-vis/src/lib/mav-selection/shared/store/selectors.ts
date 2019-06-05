@@ -24,12 +24,20 @@ export const isGVPanelOpenSelector = createSelector(selectSelf, isGVPanelOpen);
  * @returns opened gvgroups
  */
 export function getOpenGVGroupPanels(state: MavSelectionState): GVGroupPanelState[] { return state.openedGVGroups; }
+
 /**
  * selector for getOpenGVGroupPanels
  */
 export const getOpenGVGroupPanelsSelector = createSelector(selectSelf, getOpenGVGroupPanels);
 
+/**
+ * For slicing the value from state that determines if the advance option is enabled or not.
+ */
 export const getAdvancedEnabled = (state: MavSelectionState): boolean => state.advanced;
+
+/**
+ * getAdvancedEnabledSelector for getting the value if the advance option is enabled or not.
+ */
 export const getAdvancedEnabledSelector = createSelector<MavSelectionState, MavSelectionState, boolean>(
     selectSelf,
     getAdvancedEnabled

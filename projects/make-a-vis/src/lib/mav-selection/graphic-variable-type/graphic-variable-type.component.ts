@@ -114,6 +114,10 @@ export class GraphicVariableTypeComponent implements OnChanges, OnDestroy {
     });
   }
 
+
+  /**
+   * Update the visualization with latest graphic variable.
+   */
   updateVisualization(): void {
     this.graphicSymbolOptions = this.getGraphicSymbolOptions();
     this.requiredGraphicVariablesMapping = this.getReqGVMappings();
@@ -121,6 +125,9 @@ export class GraphicVariableTypeComponent implements OnChanges, OnDestroy {
     this.updateActionButtonStatus();
   }
 
+  /**
+   * Angular life cycle hook, clear subscriptions here.
+   */
   ngOnDestroy(): void {
     this.hoverServiceSubscription.unsubscribe();
     this.advancedServiceSubscription.unsubscribe();

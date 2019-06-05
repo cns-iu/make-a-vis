@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -12,8 +12,13 @@ import { getLoadingShareUrlCompletedSelector, SidenavState } from '../shared/sto
 })
 export class ToolbarContentComponent {
   isSidenavOpen = false;
+
+  /**
+   * Advanced Enabled observable to that holds the value to determined if advanced options are enabled or not.
+   */
   advancedEnabled$: Observable<boolean>;
-  constructor(private store: Store<SidenavState>, private mavSelectionStore: Store<MavSelectionState>, private cdr: ChangeDetectorRef) {
+
+  constructor(private store: Store<SidenavState>, private mavSelectionStore: Store<MavSelectionState>) {
     /*
     * close the toolbar if application is launched using
     * a share URL.

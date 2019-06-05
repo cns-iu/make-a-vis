@@ -11,7 +11,7 @@ export enum MavSelectionActionTypes {
   GVGroupPanelOpened = '[MavSelection] Graphic Variable Group Panel Opened',
   GVGroupPanelClosed = '[MavSelection] Graphic Variable Group Panel Closed',
   GVGroupPanelStreamChange = '[MavSelection] Graphic Variable Group Panel Stream Changed',
-  AdvancedToggle = '[MavSelection] Advanced Options Toggle',
+  AdvancedToggle = '[MavSelection] Advanced Options Toggle'
 }
 
 export class AdvancedToggle implements Action {
