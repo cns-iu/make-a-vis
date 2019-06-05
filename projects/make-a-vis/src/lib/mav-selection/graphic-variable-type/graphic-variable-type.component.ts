@@ -129,9 +129,15 @@ export class GraphicVariableTypeComponent implements OnChanges, OnDestroy {
    * Angular life cycle hook, clear subscriptions here.
    */
   ngOnDestroy(): void {
-    this.hoverServiceSubscription.unsubscribe();
-    this.advancedServiceSubscription.unsubscribe();
-    this.graphicVariableSubscription.unsubscribe();
+    if (this.hoverServiceSubscription) {
+      this.hoverServiceSubscription.unsubscribe();
+    }
+    if (this.advancedServiceSubscription) {
+      this.advancedServiceSubscription.unsubscribe();
+    }
+    if (this.graphicVariableSubscription) {
+      this.graphicVariableSubscription.unsubscribe();
+    }
   }
 
   /**
