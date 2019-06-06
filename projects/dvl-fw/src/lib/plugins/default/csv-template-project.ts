@@ -33,8 +33,6 @@ export class CSVTemplateProject extends DefaultProject {
     this.dataSources = this.getDataSources();
     this.recordSets = this.getRecordSets(fileName);
     this.graphicVariables = this.getGraphicVariables();
-    this.graphicSymbols = this.getGraphicSymbols();
-    this.visualizations = this.getVisualizations();
   }
 
   getRawData(csvFileContent: string): RawData[] {
@@ -174,34 +172,5 @@ export class CSVTemplateProject extends DefaultProject {
     }
 
     return naiveMappings;
-  }
-
-  getGraphicSymbols(): GraphicSymbol[] {
-    return [
-      new DefaultGraphicSymbol({
-        id: 'csvDataPoints',
-        type: 'area',
-        recordStream: 'csvData',
-        graphicVariables: {}
-      }, this)
-    ];
-  }
-
-  getVisualizations(): Visualization[] {
-    return [
-      new ScatterplotVisualization({
-        id: 'SG01',
-        template: 'scattergraph',
-        properties: {
-          enableTooltip: true,
-          gridlines: true,
-          showAxisLabels: false,
-          showAxisIndicators: false
-        },
-        graphicSymbols: {
-          points: 'csvDataPoints'
-        }
-      }, this)
-    ];
   }
 }
