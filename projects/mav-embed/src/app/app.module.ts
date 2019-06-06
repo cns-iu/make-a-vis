@@ -26,13 +26,14 @@ import { VisualizationComponent } from './visualization/visualization.component'
   ]
 })
 export class AppModule implements DoBootstrap {
-  constructor(injector: Injector) {
+  constructor(private injector: Injector) { }
+
+  ngDoBootstrap() {
+    const { injector } = this;
     this.registerCustomElement('mav-legend', LegendComponent, injector);
     this.registerCustomElement('mav-project', ProjectComponent, injector);
     this.registerCustomElement('mav-visualization', VisualizationComponent, injector);
   }
-
-  ngDoBootstrap() { }
 
   private registerCustomElement<T>(selector: string, component: Type<T>, injector: Injector): void {
     const element = createCustomElement(component, { injector });
