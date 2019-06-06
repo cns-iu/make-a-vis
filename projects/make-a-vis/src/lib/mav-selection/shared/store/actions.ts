@@ -10,7 +10,13 @@ export enum MavSelectionActionTypes {
   GVPanelClosed = '[MavSelection] Graphic Variable Panel Closed',
   GVGroupPanelOpened = '[MavSelection] Graphic Variable Group Panel Opened',
   GVGroupPanelClosed = '[MavSelection] Graphic Variable Group Panel Closed',
-  GVGroupPanelStreamChange = '[MavSelection] Graphic Variable Group Panel Stream Changed'
+  GVGroupPanelStreamChange = '[MavSelection] Graphic Variable Group Panel Stream Changed',
+  AdvancedToggle = '[MavSelection] Advanced Options Toggle'
+}
+
+export class AdvancedToggle implements Action {
+  readonly type = MavSelectionActionTypes.AdvancedToggle;
+  constructor(readonly payload: boolean) {}
 }
 
 /**
@@ -59,4 +65,4 @@ export class GVGroupPanelStreamChange implements Action {
 export type MavSelectionActionUnion =
   GVPanelOpened | GVPanelClosed |
   GVGroupPanelOpened | GVGroupPanelClosed |
-  GVGroupPanelStreamChange;
+  GVGroupPanelStreamChange | AdvancedToggle;

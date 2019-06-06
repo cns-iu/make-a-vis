@@ -1,14 +1,16 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { select, Store } from '@ngrx/store';
-import { capitalize as loCapitalize, get } from 'lodash';
-
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, Output, SimpleChanges } from '@angular/core';
 import { DataVariable, GraphicSymbolOption, GraphicVariable, GraphicVariableOption, RecordStream } from '@dvl-fw/core';
+import { select, Store } from '@ngrx/store';
+import { capitalize as loCapitalize, cloneDeep, get } from 'lodash';
+import { Subscription } from 'rxjs';
+
 import { DragDropEvent } from '../../drag-drop';
+import { AdvancedService } from '../../shared/services/advance/advanced.service';
 import { DataVariableHoverService } from '../../shared/services/hover/data-variable-hover.service';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import { Vis } from '../../shared/types';
 import { getAvailableGraphicVariablesSelector } from '../../toolbar/shared/store';
-import { GVGroupPanelOpened, GVGroupPanelClosed } from '../shared/store';
+import { getAdvancedEnabledSelector, GVGroupPanelClosed, GVGroupPanelOpened, MavSelectionState } from '../shared/store';
 
 /**
  * Mav Selection graphic-variable-type component declaration, responsible for showing graphic-variable-type options in mav-selection
@@ -18,7 +20,7 @@ import { GVGroupPanelOpened, GVGroupPanelClosed } from '../shared/store';
   templateUrl: './graphic-variable-type.component.html',
   styleUrls: ['./graphic-variable-type.component.scss']
 })
-export class GraphicVariableTypeComponent implements OnChanges {
+export class GraphicVariableTypeComponent implements OnChanges, OnDestroy {
   /**
    * Input for the visualization currently active, or being viewed by the user
    */
@@ -67,6 +69,19 @@ export class GraphicVariableTypeComponent implements OnChanges {
    * Record set id of the selected data-variable
    */
   selectedDataVariableRecordSetId: string;
+  /**
+   * Hover service subscription
+   */
+  hoverServiceSubscription: Subscription;
+  /**
+   * Advanced service subscription
+   */
+  advancedServiceSubscription: Subscription;
+
+  /**
+   * Graphic variable subscription
+   */
+  graphicVariableSubscription: Subscription;
 
   /**
    * Creates an instance of graphic variable type component.
@@ -77,13 +92,18 @@ export class GraphicVariableTypeComponent implements OnChanges {
   constructor(
     private store: Store<any>,
     private updateService: UpdateVisService,
-    private hoverService: DataVariableHoverService
+    private hoverService: DataVariableHoverService,
+    private advancedService: AdvancedService,
+    private mavSelectionStore: Store<MavSelectionState>
   ) {
-    store.pipe(select(getAvailableGraphicVariablesSelector)).subscribe((availableGraphicVariables) => {
+    this.graphicVariableSubscription = store.pipe(select(getAvailableGraphicVariablesSelector)).subscribe((availableGraphicVariables) => {
       this.availableGraphicVariables = availableGraphicVariables;
     });
+    this.advancedServiceSubscription = mavSelectionStore.pipe(select(getAdvancedEnabledSelector)).subscribe(() => {
+      this.updateVisualization();
+    });
 
-    hoverService.hovers.subscribe(event => {
+    this.hoverServiceSubscription = hoverService.hovers.subscribe(event => {
       if (event.length === 0) {
         this.currentHighlightId = undefined;
       } else if (event.length === 3 && event[0] === 'table') {
@@ -93,6 +113,32 @@ export class GraphicVariableTypeComponent implements OnChanges {
     });
   }
 
+
+  /**
+   * Update the visualization with latest graphic variable.
+   */
+  updateVisualization(): void {
+    this.graphicSymbolOptions = this.getGraphicSymbolOptions();
+    this.requiredGraphicVariablesMapping = this.getReqGVMappings();
+    this.selectedDataVariablesMapping = this.getDataVariableMappings();
+    this.updateActionButtonStatus();
+  }
+
+  /**
+   * Angular life cycle hook, clear subscriptions here.
+   */
+  ngOnDestroy(): void {
+    if (this.hoverServiceSubscription) {
+      this.hoverServiceSubscription.unsubscribe();
+    }
+    if (this.advancedServiceSubscription) {
+      this.advancedServiceSubscription.unsubscribe();
+    }
+    if (this.graphicVariableSubscription) {
+      this.graphicVariableSubscription.unsubscribe();
+    }
+  }
+
   /**
    * on changes
    * @param changes The changed properties object
@@ -100,10 +146,7 @@ export class GraphicVariableTypeComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if ('activeVis' in changes || 'recordStreamMapping' in changes) {
       if (this.activeVis) {
-        this.graphicSymbolOptions = this.getGraphicSymbolOptions();
-        this.requiredGraphicVariablesMapping = this.getReqGVMappings();
-        this.selectedDataVariablesMapping = this.getDataVariableMappings();
-        this.updateActionButtonStatus();
+        this.updateVisualization();
       } else {
         this.clear();
       }
@@ -150,7 +193,6 @@ export class GraphicVariableTypeComponent implements OnChanges {
         );
       }
     }
-
     this.updateActionButtonStatus();
   }
 
@@ -180,15 +222,22 @@ export class GraphicVariableTypeComponent implements OnChanges {
   }
 
   /**
-   * Gets graphic symbol options for the active visualization
+   * Gets graphic symbol options for the active visualization.
+   * Also filtering the graphic variables if advanced is enabled or disabled.
    * @returns graphic symbol options
    */
   getGraphicSymbolOptions(): GraphicSymbolOption[] {
     const gvOption: GraphicSymbolOption[] = [];
-    Object.keys(this.activeVis.data.graphicSymbols).forEach((gs) => {
-      gvOption.push(this.activeVis.data.graphicSymbolOptions.filter((gso) => gso.id === gs)[0]);
-    });
-    return gvOption;
+    if (this.activeVis) {
+      const gvOptions = cloneDeep(this.activeVis.data.graphicSymbolOptions);
+      Object.keys(this.activeVis.data.graphicSymbols).forEach((gs) => {
+        gvOption.push(gvOptions.filter((gso) => gso.id === gs)[0]);
+      });
+      if (!this.advancedService.advancedEnabled) {
+        gvOption[0].graphicVariableOptions = gvOption[0].graphicVariableOptions.filter((gv) => !gv.advanced);
+      }
+      return gvOption;
+    }
   }
 
   /**
@@ -234,21 +283,23 @@ export class GraphicVariableTypeComponent implements OnChanges {
    */
   getDataVariableMappings(): Map<string, Map<string, DataVariable>> {
     const dvMap = new Map();
-    Object.keys(this.activeVis.data.graphicSymbols).forEach((gs: string) => {
-      const gvs = Object.keys(this.activeVis.data.graphicSymbols[gs].graphicVariables);
-      if (gvs.length) {
-        gvs.forEach((gv: string) => {
-          const dv = this.activeVis.data.graphicSymbols[gs].graphicVariables[gv].dataVariable;
-          const mapEntry = dvMap.get(gs);
-          if (mapEntry) {
-            mapEntry.set(gv, dv);
-          } else {
-            dvMap.set(gs, new Map().set(gv, dv));
-          }
-        });
-      }
-    });
-    return dvMap;
+    if (this.activeVis) {
+      Object.keys(this.activeVis.data.graphicSymbols).forEach((gs: string) => {
+        const gvs = Object.keys(this.activeVis.data.graphicSymbols[gs].graphicVariables);
+        if (gvs.length) {
+          gvs.forEach((gv: string) => {
+            const dv = this.activeVis.data.graphicSymbols[gs].graphicVariables[gv].dataVariable;
+            const mapEntry = dvMap.get(gs);
+            if (mapEntry) {
+              mapEntry.set(gv, dv);
+            } else {
+              dvMap.set(gs, new Map().set(gv, dv));
+            }
+          });
+        }
+      });
+      return dvMap;
+    }
   }
 
   /**
@@ -257,7 +308,7 @@ export class GraphicVariableTypeComponent implements OnChanges {
    */
   getReqGVMappings(): Map<string, string[]> {
     const reqGVMap = new Map();
-    if (this.graphicSymbolOptions.length) {
+    if (this.graphicSymbolOptions && this.graphicSymbolOptions.length) {
       this.graphicSymbolOptions.forEach((gso) => {
         gso.graphicVariableOptions.forEach((gvo: any) => {
           if (gvo && gvo.required) {
@@ -270,7 +321,6 @@ export class GraphicVariableTypeComponent implements OnChanges {
         });
       });
     }
-
     return reqGVMap;
   }
 
@@ -320,7 +370,7 @@ export class GraphicVariableTypeComponent implements OnChanges {
     this.requiredGraphicVariablesMapping.forEach((reqGVIds, gsoId) => {
       result = result && reqGVIds.every((gvId) => {
         if (this.selectedDataVariablesMapping.get(gsoId)) {
-          return this.selectedDataVariablesMapping.get(gsoId).get(gvId) ? true : false;
+          return !!this.selectedDataVariablesMapping.get(gsoId).get(gvId);
         } else {
           return false;
         }

@@ -6,13 +6,13 @@ export interface GVGroupPanelState {
   streamId: string;
 }
 
-
 /**
  * Mav selection state type
  */
 export interface MavSelectionState {
   gvPanelOpen: boolean;
   openedGVGroups: GVGroupPanelState[];
+  advanced: boolean;
 }
 
 /**
@@ -20,5 +20,6 @@ export interface MavSelectionState {
  */
 export const initialMavSelectionState: MavSelectionState = {
   gvPanelOpen: false,
-  openedGVGroups: []
+  openedGVGroups: [],
+  advanced: false
 };

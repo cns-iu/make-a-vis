@@ -14,9 +14,9 @@ export class GeomapVisualization extends DefaultVisualization {
       id: 'basemap', label: 'Basemap', type: 'area',
       graphicVariableOptions: [
         { type: 'color', label: 'Color Hue', visualization: 'color', scaleType: 'nominal', staticVisualization: 'color-area' },
-        // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
-        // { type: 'transparency', label: 'Transparency' },
-        // { type: 'strokeTransparency', label: 'Stroke Transparency' }
+        { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color', advanced: true },
+        { type: 'transparency', label: 'Transparency', advanced: true },
+        { type: 'strokeTransparency', label: 'Stroke Transparency', advanced: true }
       ]
     },
     {
@@ -26,13 +26,13 @@ export class GeomapVisualization extends DefaultVisualization {
         { type: 'latitude', label: 'Latitude', visualization: 'x-axis', scaleType: 'ratio', required: true },
         { type: 'longitude', label: 'Longitude', visualization: 'y-axis', scaleType: 'ratio', required: true },
         { type: 'color', label: 'Color Hue', visualization: 'color', scaleType: 'nominal', staticVisualization: 'color-area' },
-        // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
+        { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color', advanced: true },
         { type: 'areaSize', label: 'Size', visualization: 'node-size', scaleType: 'ratio', required: true,
           staticVisualization: 'area-size'
         },
-        // { type: 'shape', label: 'Shape' },
-        // { type: 'transparency', label: 'Transparency'},
-        // { type: 'strokeTransparency', label: 'Stroke Transparency'},
+        { type: 'shape', label: 'Shape', advanced: true },
+        { type: 'transparency', label: 'Transparency', advanced: true},
+        { type: 'strokeTransparency', label: 'Stroke Transparency', advanced: true},
         { id: 'label', type: 'text', label: 'Label', visualization: 'label', scaleType: 'nominal' },
         { id: 'tooltip', type: 'text', label: 'Tooltip', visualization: 'label' }
       ]
@@ -48,7 +48,7 @@ export class GeomapVisualization extends DefaultVisualization {
         { type: 'strokeWidth', label: 'Size', visualization: 'edge-size', scaleType: 'ratio', required: true,
           staticVisualization: 'thickness'
         },
-        // { type: 'transparency', label: 'Transparency' }
+        { type: 'transparency', label: 'Transparency', advanced: true }
       ]
     }
   ];

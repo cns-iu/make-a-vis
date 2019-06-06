@@ -11,6 +11,7 @@ export interface GraphicVariableOption {
   label: string;
   visualization?: string; // TODO
   staticVisualization?: string;
+  advanced?: boolean;
 }
 
 export interface GraphicSymbolOption {

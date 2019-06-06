@@ -17,11 +17,11 @@ export class ScatterplotVisualization extends DefaultVisualization {
       { type: 'axis', label: 'X-Axis', id: 'x', visualization: 'x-axis', required: true },
       { type: 'axis', label: 'Y-Axis', id: 'y', visualization: 'y-axis', required: true },
       { type: 'color', label: 'Color Hue', visualization: 'color', scaleType: 'nominal', staticVisualization: 'color-area' },
-      // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
+      { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color', advanced: true },
       { type: 'areaSize', label: 'Size', visualization: 'node-size', scaleType: 'ratio', staticVisualization: 'area-size' },
-      // { type: 'shape', label: 'Shape' },
-      // { type: 'transparency', label: 'Transparency' },
-      // { type: 'strokeTransparency', label: 'Stroke Transparency' },
+      { type: 'shape', label: 'Shape', advanced: true },
+      { type: 'transparency', label: 'Transparency', advanced: true },
+      { type: 'strokeTransparency', label: 'Stroke Transparency', advanced: true },
       { id: 'tooltip', type: 'text', label: 'Tooltip', visualization: 'label' }
     ]
   }];
