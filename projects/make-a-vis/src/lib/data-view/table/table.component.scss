@@ -80,9 +80,10 @@
             padding: 0.5rem;
             min-width: 12rem;
             max-width: 12rem;
-            height: 4.5rem;
+            max-height: 4.5rem;
 
             .cell {
+              max-height: 4.5rem;
               white-space: nowrap; 
               overflow: hidden;
               text-overflow: ellipsis;
@@ -110,7 +111,6 @@
 
           .row {
             width: fit-content;
-            height: 4.5rem;
             align-items: start;
           }
         }
