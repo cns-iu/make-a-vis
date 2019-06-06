@@ -8,8 +8,7 @@ import { DataLinkService, DataLinkTarget } from '../shared/services/data-link/da
 
 @Component({
   selector: 'mav-visualization',
-  templateUrl: './visualization.component.html',
-  styleUrls: ['./visualization.component.scss'],
+  template: '<dvl-visualization [data]="visualization$ | async"></dvl-visualization>',
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class VisualizationComponent implements DataLinkTarget<Project>, OnChanges, OnInit, OnDestroy {
