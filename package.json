@@ -63,6 +63,7 @@
     "lodash": "^4.17.11",
     "material-design-icons": "^3.0.1",
     "nano-sql": "^1.8.3",
+    "ngx-build-plus": "^8.0.3",
     "ngx-clipboard": "^12.1.0",
     "ngx-markdown": "^8.0.1",
     "pako": "^1.0.8",
