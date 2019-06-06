@@ -19,6 +19,11 @@ import { VisualizationComponent } from './visualization/visualization.component'
     ProjectComponent,
     VisualizationComponent
   ],
+  exports: [
+    LegendComponent,
+    ProjectComponent,
+    VisualizationComponent
+  ],
   entryComponents: [
     LegendComponent,
     ProjectComponent,
