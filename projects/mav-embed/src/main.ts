@@ -1,3 +1,4 @@
+import 'zone.js'; // Ensure the zone polyfill is included.
 import { enableProdMode, ViewEncapsulation } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
