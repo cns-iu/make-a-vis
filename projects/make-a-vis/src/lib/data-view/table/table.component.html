@@ -20,7 +20,7 @@
             <mat-header-cell *matHeaderCellDef class="header-cell" [class.hoverable]="hoverEnabled" [class.highlight]="shouldHighlight(column)"
                 [mavDraggable]="column" (mouseover)="startHover(column)" (mouseout)="endHover(column)">{{ column.label }}</mat-header-cell>
             <mat-cell *matCellDef="let element" class="row-cell">
-              <div class="cell" [title]="getTooltip(element[column.id])">{{ getDisplayValue(element[column.id]) }}</div>
+              <div class="cell" [title]="element[column.id + '__tooltip_value__']">{{ element[column.id + '__display_value__'] }}</div>
             </mat-cell>
           </ng-container>
         </mat-table>

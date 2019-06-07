@@ -11,6 +11,7 @@ import { ActionDispatcherService } from '../../shared/services/actionDispatcher/
 import { DataVariableHoverService } from '../../shared/services/hover/data-variable-hover.service';
 import { DataService, DataSource } from '../shared/data.service';
 import { ExportTableService } from '../shared/export-table.service';
+import { logging } from 'protractor';
 
 /**
  * A component for displaying a paginated, collapsible table with a label, description, and zero or more sub-tables.
@@ -293,46 +294,6 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
    * @param source The data to save.
    */
   exportTable(source: DataSource): void { this.exportService.save(source); }
-
-  /**
-   * Truncates table component
-   * @param entry table cell entry
-   * @returns truncated string
-   */
-  getDisplayValue(entry: string): string {
-    if (this.checkSize(entry)) {
-      return  entry.trim().slice(0, this.cellValueSize + 1) + '...';
-    } else {
-      return entry;
-    }
-  }
-
-  /**
-   * Checks size of the value to see if its greater than a certain number of characters
-   * @param entry The string value
-   * @returns true if size is greater than 64 characters
-   */
-  private checkSize(entry: string): boolean {
-    if ((entry || '').length > this.cellValueSize) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  /**
-   * Gets tooltip value
-   * @param entry table cell value
-   * @returns tooltip to display
-   */
-  getTooltip(entry: string): string {
-    const val = '' + entry;
-    if (this.checkSize(val)) {
-      return entry;
-    } else {
-      return '' + val.length;
-    }
-  }
 
   /**
    * Subscribes to hover events.
