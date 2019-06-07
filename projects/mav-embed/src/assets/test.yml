@@ -1159,7 +1159,7 @@ visualizations:
 rawData:
   - id: csvRawData
     template: json
-    url: http://localhost:4200/assets/raw-data.json
+    url: assets/raw-data.json
   - id: activityLog
     template: activityLog
     data:
