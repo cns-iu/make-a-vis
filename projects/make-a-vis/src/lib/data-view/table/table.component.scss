@@ -80,6 +80,10 @@
             padding: 0.5rem;
             min-width: 12rem;
             max-width: 12rem;
+
+            .cell {
+              height: 4rem;
+            }
           }
 
           .header-row {
@@ -103,7 +107,6 @@
 
           .row {
             width: fit-content;
-            min-height: auto;
             align-items: start;
           }
         }

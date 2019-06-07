@@ -10,14 +10,11 @@ import { LoadProjectService, ProjectExtensionType } from '../../shared/services/
   templateUrl: './start-project-options.component.html',
   styleUrls: ['./start-project-options.component.scss']
 })
-export class StartProjectOptionsComponent implements OnInit {
+export class StartProjectOptionsComponent {
   @ViewChildren('startProjectFileInputTag') fileInputTags: QueryList<ElementRef>;
   projectExtensions: ProjectExtensionType[] = ['yml', 'nsf', 'isi', 'csv'];
 
-  constructor( public loadProjectService: LoadProjectService, public snackBar: MatSnackBar) { }
-
-  ngOnInit() {
-  }
+  constructor(public loadProjectService: LoadProjectService, public snackBar: MatSnackBar) { }
 
   readNewFile(event: any, target: any, selectedExtension: ProjectExtensionType) {
     const filename = get(event, 'srcElement.files[0].name');
@@ -35,7 +32,7 @@ export class StartProjectOptionsComponent implements OnInit {
         verticalPosition: 'top',
         panelClass: 'mav-snackbar-wrapper'
       });
-      console.log(`${filename} has the wrong extension.`);
+      console.error(`${filename} has the wrong extension.`);
     }
     // clear the values of fileinput tags.
     if (this.fileInputTags) {

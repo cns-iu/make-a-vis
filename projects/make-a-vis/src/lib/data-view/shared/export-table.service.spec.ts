@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import * as fileSaver from 'file-saver';
 import * as papaparse from 'papaparse';
+import { of } from 'rxjs';
 
 import { DataSource } from './data.service';
 import { ExportTableService } from './export-table.service';
@@ -8,7 +9,17 @@ import { ExportTableService } from './export-table.service';
 describe('ExportTableService', () => {
   const dataSource = {
     columns: [{ id: 'a', label: 'foo' }, { id: 'b', label: 'bar' }],
-    data: [{ a: 1, b: 2 }, { a: 3, b: 4 }]
+    data: of([{ a: 1, b: 2 }, { a: 3, b: 4 }]),
+    id: 'id',
+    label: 'label',
+    parent: undefined,
+    children: [],
+    childrenHidden: false,
+    level: 0,
+    hidden: false,
+    hiddenData: false,
+    numRows: 0,
+    streamId: 'streamId'
   } as DataSource;
 
   let service: ExportTableService;
