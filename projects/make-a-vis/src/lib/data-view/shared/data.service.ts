@@ -39,7 +39,7 @@ export class DataService {
   /**
    * Allowed label size in the table cells (after which the label is truncated and an ellipsis is added)
    */
-  private allowedLabelSize = 64;
+  maxCellStringLength = 64;
   /**
    * Observable from the dataSourcesChange BehaviorSubject to emit an updated data-source
    */
@@ -74,17 +74,15 @@ export class DataService {
 
             const operator = this.getDataMappingOperator(recordSet.dataVariables, project.graphicVariables, recordSet.id);
             if (recordSet.defaultRecordStream) {
-              const data: any[] = [];
+              let data: any[] = [];
               dataSource.data = recordSet.defaultRecordStream.asObservable().pipe(
                 map((changeSet: RawChangeSet<any>) => {
-                  dataSource.numRows += (changeSet.insert.length || 0) - (changeSet.remove.length || 0);
-
-                  if (changeSet.insert.length > 1) {
+                  data = this.updateData(data, dataSource, changeSet);
+                  dataSource.numRows += data.length;
+                  if (data.length > 1) {
                     dataSource.label = recordSet.labelPlural;
                   }
-
-                  return this.updateData(data, dataSource, changeSet)
-                    .map(operator.getter)
+                  return data.map(operator.getter)
                     .map(this.injectDisplayVariables.bind(this));
                 }));
             }
@@ -100,51 +98,15 @@ export class DataService {
       });
   }
 
-  /**
-   * Truncates table component
-   * @param entry table cell entry
-   * @returns truncated string
-   */
-  private getDisplayValue(entry: string): string {
-    if (this.checkSize(entry)) {
-      return  entry.trim().slice(0, this.allowedLabelSize + 1) + '...';
-    } else {
-      return entry;
-    }
-  }
-
-  /**
-   * Checks size of the value to see if its greater than a certain number of characters
-   * @param entry The string value
-   * @returns true if size is greater than 64 characters
-   */
-  private checkSize(entry: string): boolean {
-    if ((entry || '').length > this.allowedLabelSize) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  /**
-   * Gets tooltip value
-   * @param entry table cell value
-   * @returns tooltip to display
-   */
-  private getTooltip(entry: string): string {
-    if (this.checkSize(entry)) {
-      return entry;
-    } else {
-      return '';
-    }
-  }
-
   private injectDisplayVariables(item: any): any {
     item = Object.assign({}, item);
     Object.keys(item).forEach((key: string) => {
       const value = '' + item[key];
-      item[key + '__display_value__'] = this.getDisplayValue(value);
-      item[key + '__tooltip_value__'] = this.getTooltip(value);
+      const isLongString = value.length > this.maxCellStringLength;
+      item[key + '__display_value__'] = isLongString ?
+        value.trim().slice(0, this.maxCellStringLength + 1) + '...' :
+        value;
+      item[key + '__tooltip_value__'] = isLongString ? value : '';
     });
     return item;
   }

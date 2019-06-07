@@ -23,8 +23,8 @@ export class MainComponent implements OnDestroy {
    */
   showDataViewMessage = true;
 
-  constructor(private dataService: DataService) {
-    this.dataSources = this.dataService.dataSourcesChanged;
+  constructor(dataService: DataService) {
+    this.dataSources = dataService.dataSourcesChanged;
     this.dataSubscription = this.dataSources.subscribe((d) => {
       if (d.length > 0) {
         this.showDataViewMessage = false;

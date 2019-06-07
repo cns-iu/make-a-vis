@@ -2,9 +2,10 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { saveAs } from 'file-saver';
 import { at as loAt, map as loMap } from 'lodash';
 import { unparse } from 'papaparse';
+import { Subscription } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 import { DataSource } from './data.service';
-import { Subscription } from 'rxjs';
 
 /**
  * Service for saving a table's data to a csv file.
@@ -24,7 +25,7 @@ export class ExportTableService implements OnDestroy {
    * @param source The table data.
    */
    save(source: DataSource): void {
-    this.dataSubscription = source.data.subscribe((data) => {
+    this.dataSubscription = source.data.pipe(take(1)).subscribe((data) => {
       const header = loMap(source.columns, 'label');
       const ids = loMap(source.columns, 'id');
       const values = loMap(data, item => loAt(item, ids));

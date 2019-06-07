@@ -11,7 +11,6 @@ import { ActionDispatcherService } from '../../shared/services/actionDispatcher/
 import { DataVariableHoverService } from '../../shared/services/hover/data-variable-hover.service';
 import { DataService, DataSource } from '../shared/data.service';
 import { ExportTableService } from '../shared/export-table.service';
-import { logging } from 'protractor';
 
 /**
  * A component for displaying a paginated, collapsible table with a label, description, and zero or more sub-tables.
@@ -36,11 +35,6 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
    * Vertical index of the table starting from the top.
    */
   @Input() tableIndex: number;
-
-  /**
-   * Size of cell value (after which cell value will be truncated and replaced with an ellipsis)
-   */
-  @Input() cellValueSize = 64;
 
   /**
    * Reference to the paginator element.
@@ -177,6 +171,9 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
   * Updates data
   */
   updateData(): void {
+    if (this.dataSubscription) {
+      this.dataSubscription.unsubscribe();
+    }
     this.dataSubscription = this.data$.subscribe((data) => {
       this.tableDataSource.data = data;
       if (this.paginator && this.tableDataSource.paginator !== this.paginator) {
