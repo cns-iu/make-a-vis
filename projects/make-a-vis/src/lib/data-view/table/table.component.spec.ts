@@ -7,6 +7,7 @@ import { MatTableModule } from '@angular/material/table';
 import { By } from '@angular/platform-browser';
 import { DataVariable } from '@dvl-fw/core';
 import { Store } from '@ngrx/store';
+import { map as dinoMap } from '@ngx-dino/core';
 import { assign as loAssign, constant as loConstant, map as loMap, memoize as loMemoize } from 'lodash';
 import { MockComponents, MockHelper, MockModule, MockRender } from 'ng-mocks';
 import { of, Subject } from 'rxjs';
@@ -19,6 +20,7 @@ import { TableIconComponent } from '../icons/table-icon/table-icon.component';
 import { DataService, DataSource } from '../shared/data.service';
 import { ExportTableService } from '../shared/export-table.service';
 import { TableComponent } from './table.component';
+
 
 interface MockContainer {
   data: DataSource;
@@ -45,6 +47,7 @@ describe('TableComponent', () => {
       { id: 'b', label: 'Col B', recordSet: { id: 'rsid2' } }
     ] as any,
     data: of([{ a: 1, b: 'foo' }, { a: 2, b: 'bar' }]), level: 0,
+    operator: dinoMap(x => x),
     hidden: false, hiddenData: false,
     numRows: 2, streamId: 'sid'
   };

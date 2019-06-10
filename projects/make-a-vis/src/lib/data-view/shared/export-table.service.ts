@@ -26,6 +26,9 @@ export class ExportTableService implements OnDestroy {
    */
    save(source: DataSource): void {
     this.dataSubscription = source.data.pipe(take(1)).subscribe((data) => {
+      // Render data as if it were in a table
+      data = data.map(source.operator.getter);
+
       const header = loMap(source.columns, 'label');
       const ids = loMap(source.columns, 'id');
       const values = loMap(data, item => loAt(item, ids));

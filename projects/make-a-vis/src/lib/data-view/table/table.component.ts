@@ -1,10 +1,10 @@
 import { AfterViewInit, Component, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild } from '@angular/core';
-import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { MatTable } from '@angular/material';
 import { DataVariable } from '@dvl-fw/core';
 import { Store } from '@ngrx/store';
 import { every as loEvery, forEach as loForEach, get as loGet, includes as loIncludes, map as loMap } from 'lodash';
-import { combineLatest as rxCombineLatest, Observable, of, Subscription } from 'rxjs';
-import { distinctUntilChanged as rxDistinctUntilChanged, map as rxMap } from 'rxjs/operators';
+import { combineLatest as rxCombineLatest, Observable, of, Subscription, BehaviorSubject } from 'rxjs';
+import { distinctUntilChanged as rxDistinctUntilChanged, map as rxMap, tap as rxTap } from 'rxjs/operators';
 
 import { getOpenGVGroupPanelsSelector, isGVPanelOpenSelector } from '../../mav-selection/shared/store';
 import { ActionDispatcherService } from '../../shared/services/actionDispatcher/action-dispatcher.service';
@@ -22,77 +22,87 @@ import { ExportTableService } from '../shared/export-table.service';
 })
 export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
   /**
-   * Table data.
+   * Table data
    */
   @Input() dataSource: DataSource;
 
   /**
-   * Columns to display.
+   * Columns to display
    */
   @Input() displayedColumns: DataVariable[] = [];
 
   /**
-   * Vertical index of the table starting from the top.
+   * Vertical index of the table starting from the top
    */
   @Input() tableIndex: number;
 
   /**
-   * Reference to the paginator element.
+   * A reference to the table being displayed
    */
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  @ViewChild(MatTable, { static: false}) table: MatTable<any>;
 
   /**
-   * Number of rows per table page.
+   * The current page of data to load
+   */
+  pageIndex = 0;
+
+  /**
+   * Number of rows per table page
    */
   readonly pageSize = 3;
 
   /**
-   * Gets column names as strings.
+   * Subject for sending page updates
+   */
+  private pageDataChange: BehaviorSubject<any[]> = new BehaviorSubject([]);
+
+  /**
+   * Page-sized data to display
+   */
+  readonly pageData$: Observable<any[]> = this.pageDataChange.asObservable();
+
+  /**
+   * The raw data to be paginated
+   */
+  private rawData: any[];
+
+  /**
+   * Gets column names as strings
    */
   get columnNames(): string[] { return loMap(this.displayedColumns, 'label'); }
 
   /**
-   * Gets the rows of data.
-   */
-  get data(): any[] { return loGet(this.tableDataSource, 'data', []); }
-
-  /**
-   * Gets the Obvervable that returns rows of data.
+   * Gets the Obvervable that returns rows of data
    */
   get data$(): Observable<any[]> { return loGet(this.dataSource, 'data', of([])); }
 
   /**
-   * Gets the table's description.
+   * Gets the table's description
    */
   get description(): string { return loGet(this.dataSource, 'description', ''); }
 
   /**
-   * Gets the table's label.
+   * Gets the table's label
    */
   get label(): string { return loGet(this.dataSource, 'label', ''); }
 
   /**
-   * Gets number of rows of data.
+   * Gets number of rows of data
    */
-  get numberOfRows(): number { return loGet(this.tableDataSource, ['data', 'length'], 0); }
+  get numberOfRows(): number { return loGet(this.dataSource, 'numRows', 0); }
 
   /**
-   * Whether hovering over a table header has any effect.
+   * Whether hovering over a table header has any effect
    */
   hoverEnabled = false;
 
   /**
-   * Data source for the table with pagination.
-   */
-  tableDataSource = new MatTableDataSource<any>();
-
-  /**
-   * Contains all columns that can be hovered over.
+   * Contains all columns that can be hovered over
    */
   private hoverableColumnIds: string[] = undefined;
 
   /**
-   * The record set that can be hovered over.
+   * The record set that can be hovered over
    */
   private hoverableRecordSetId: string = undefined;
 
@@ -102,23 +112,18 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
   private dataSubscription: Subscription;
 
   /**
-   * Pagination subscription
-   */
-  private paginatorSubscription: Subscription;
-
-  /**
-   * An array of all subscriptions that needs to be cleaned up during destroy.
+   * An array of all subscriptions that needs to be cleaned up during destroy
    */
   private subscriptions: Subscription[] = [];
 
   /**
-   * Creates an instance of table component.
+   * Creates an instance of table component
    *
-   * @param store The ngrx store.
-   * @param actionDispatcherService The service for emitting toggle events.
-   * @param dataService The service for emitting data changes.
-   * @param exportService The service used to save data as csv.
-   * @param hoverService The service for emitting hover events.
+   * @param store The ngrx store
+   * @param actionDispatcherService The service for emitting toggle events
+   * @param dataService The service for emitting data changes
+   * @param exportService The service used to save data as csv
+   * @param hoverService The service for emitting hover events
    */
   constructor(
     store: Store<any>,
@@ -132,7 +137,7 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   /**
-   * Angular's AfterViewInit lifecycle hook.
+   * Angular's AfterViewInit lifecycle hook
    */
   ngAfterViewInit() {
     this.updateData();
@@ -142,10 +147,10 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
    * Angular's OnChanges lifecycle hook.
    * Detects updates to `dataSource`.
    *
-   * @param changes The changed values.
+   * @param changes The changed values
    */
   ngOnChanges(changes: SimpleChanges) {
-    if ('dataSource' in changes || 'paginator' in changes) {
+    if ('dataSource' in changes) {
       this.updateData();
     }
   }
@@ -161,10 +166,6 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
     if (this.dataSubscription) {
       this.dataSubscription.unsubscribe();
     }
-
-    if (this.paginatorSubscription) {
-      this.paginatorSubscription.unsubscribe();
-    }
   }
 
   /**
@@ -174,68 +175,83 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
     if (this.dataSubscription) {
       this.dataSubscription.unsubscribe();
     }
+    this.rawData = [];
+    this.sendPage(0);
+
     this.dataSubscription = this.data$.subscribe((data) => {
-      this.tableDataSource.data = data;
-      if (this.paginator && this.tableDataSource.paginator !== this.paginator) {
-        this.paginatorSubscription = this.paginator.initialized.subscribe(_ => {
-          this.tableDataSource.paginator = this.paginator;
-        });
-      }
+      this.rawData = data;
+      this.sendPage();
     });
   }
 
   /**
-   * Determines whether the table is hidden.
+   * Set the current page index and send it to `pageDataChange` listeners
    *
-   * @returns True if the table should be hidden, else false.
+   * @param pageIndex the page to send (or the current page)
+   */
+  sendPage(pageIndex = this.pageIndex) {
+    this.pageIndex = pageIndex;
+    const { rawData, pageSize } = this;
+    const start = pageSize * pageIndex;
+    let page = (rawData || []).slice(start, start + pageSize);
+    if (this.dataSource && this.dataSource.operator) {
+      page = page.map(this.dataSource.operator.getter);
+    }
+    this.pageDataChange.next(page);
+  }
+
+  /**
+   * Determines whether the table is hidden
+   *
+   * @returns True if the table should be hidden, else false
    */
   isHidden(): boolean { return loGet(this.dataSource, 'hidden', true); }
 
   /**
-   * Determines whether the table is the top level in a hierarchy.
+   * Determines whether the table is the top level in a hierarchy
    *
-   * @returns True if the table is not a child of another table, else false.
+   * @returns True if the table is not a child of another table, else false
    */
   isFirst(): boolean { return this.tableIndex === 0; }
 
   /**
-   * Determines whether all sub-tables are hidden.
+   * Determines whether all sub-tables are hidden
    *
-   * @returns True if all sub-table should be hidden, else false.
+   * @returns True if all sub-table should be hidden, else false
    */
   isChildrenHidden(): boolean { return loGet(this.dataSource, 'childrenHidden', true); }
 
   /**
-   * Determines whether the table has any data rows.
+   * Determines whether the table has any data rows
    *
-   * @returns True if there exists at least one row of data, else false.
+   * @returns True if there exists at least one row of data, else false
    */
-  hasData(): boolean { return loGet(this.tableDataSource, ['data', 'length'], 0) !== 0; }
+  hasData(): boolean { return loGet(this.rawData, 'length', 0) !== 0; }
 
   /**
-   * Determines whether the table rows are hidden.
+   * Determines whether the table rows are hidden
    *
-   * @returns True if the table rows should be hidden, else false.
+   * @returns True if the table rows should be hidden, else false
    */
   hasHiddenData(): boolean { return loGet(this.dataSource, 'hiddenData', false); }
 
   /**
-   * Determines whether the table has any sub-tables.
+   * Determines whether the table has any sub-tables
    *
-   * @returns True if there exists at least one sub-table, else false.
+   * @returns True if there exists at least one sub-table, else false
    */
   hasChildren(): boolean { return loGet(this.dataSource, ['children', 'length'], 0) !== 0; }
 
   /**
-   * Gets the material expand more/less arrow icon string specifier/name.
+   * Gets the material expand more/less arrow icon string specifier/name
    *
-   * @param more Which of the two icons to get.
-   * @returns The string corresponding to the icon.
+   * @param more Which of the two icons to get
+   * @returns The string corresponding to the icon
    */
   getToggleIcon(more: boolean): string { return more ? 'expand_more' : 'expand_less'; }
 
   /**
-   * Toggles visibility of sub-tables on/off.
+   * Toggles visibility of sub-tables on/off
    */
   toggleChildTables(): void {
     const { actionDispatcherService, dataService, dataSource } = this;
@@ -247,7 +263,7 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   /**
-   * Toggles visibility of table rows on/off.
+   * Toggles visibility of table rows on/off
    */
   toggleRows(): void {
     const { actionDispatcherService, dataSource } = this;
@@ -259,10 +275,10 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   /**
-   * Determine if a specific column can be highlighted.
+   * Determine if a specific column can be highlighted
    *
-   * @param column The column to check.
-   * @returns True if the column allows highlighting, else false.
+   * @param column The column to check
+   * @returns True if the column allows highlighting, else false
    */
   shouldHighlight({ id, recordSet: { id: rsId } }: DataVariable): boolean {
     const { hoverableColumnIds, hoverableRecordSetId } = this;
@@ -270,32 +286,32 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   /**
-   * Emits a start hover event for a column.
+   * Emits a start hover event for a column
    *
-   * @param column The column that is being hovered over.
+   * @param column The column that is being hovered over
    */
   startHover({ id, recordSet: { id: rsId } }: DataVariable): void {
     this.hoverService.startHover(['table', id, rsId]);
   }
 
   /**
-   * Emits an end hover event for a column.
+   * Emits an end hover event for a column
    *
-   * @param column The column that is no longer being hovered over.
+   * @param column The column that is no longer being hovered over
    */
   endHover(_data: DataVariable): void { this.hoverService.endHover(); }
 
   /**
-   * Saves a table to a csv file.
+   * Saves a table to a csv file
    *
-   * @param source The data to save.
+   * @param source The data to save
    */
   exportTable(source: DataSource): void { this.exportService.save(source); }
 
   /**
-   * Subscribes to hover events.
+   * Subscribes to hover events
    *
-   * @returns The new subscription.
+   * @returns The new subscription
    */
   private subscribeToHoverEvents(): Subscription {
     return this.hoverService.hovers.subscribe(event => {
@@ -313,10 +329,10 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   /**
-   * Subscribes to hover enabled events.
+   * Subscribes to hover enabled events
    *
-   * @param store The ngrx store.
-   * @returns The new subscription.
+   * @param store The ngrx store
+   * @returns The new subscription
    */
   private subscribeToHoverEnabled(store: Store<any>): Subscription {
     const isGVPanelOpen = store.select(isGVPanelOpenSelector);

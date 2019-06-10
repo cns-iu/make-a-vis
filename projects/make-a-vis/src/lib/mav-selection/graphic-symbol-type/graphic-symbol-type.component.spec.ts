@@ -5,6 +5,7 @@ import { MatIcon } from '@angular/material/icon';
 import { GraphicSymbol, GraphicSymbolOption, RecordStream } from '@dvl-fw/core';
 import { Store } from '@ngrx/store';
 import { MockStore } from '@ngrx/store/testing';
+import { map as dinoMap } from '@ngx-dino/core';
 import { MockComponents } from 'ng-mocks';
 import { of } from 'rxjs';
 
@@ -103,6 +104,7 @@ describe('GraphicSymbolTypeComponent', () => {
       parent: undefined,
       label: undefined,
       data: undefined,
+      operator: dinoMap(x => x),
       hiddenData: undefined,
       numRows: undefined
     }];
