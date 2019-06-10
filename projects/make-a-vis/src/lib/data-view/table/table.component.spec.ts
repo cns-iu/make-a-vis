@@ -9,7 +9,7 @@ import { DataVariable } from '@dvl-fw/core';
 import { Store } from '@ngrx/store';
 import { assign as loAssign, constant as loConstant, map as loMap, memoize as loMemoize } from 'lodash';
 import { MockComponents, MockHelper, MockModule, MockRender } from 'ng-mocks';
-import { Subject } from 'rxjs';
+import { of, Subject } from 'rxjs';
 
 import { DragDropModule } from '../../drag-drop/drag-drop.module';
 import { getOpenGVGroupPanelsSelector, isGVPanelOpenSelector } from '../../mav-selection/shared/store';
@@ -44,7 +44,7 @@ describe('TableComponent', () => {
       { id: 'a', label: 'Col A', recordSet: { id: 'rsid1' } },
       { id: 'b', label: 'Col B', recordSet: { id: 'rsid2' } }
     ] as any,
-    data: [{ a: 1, b: 'foo' }, { a: 2, b: 'bar' }], level: 0,
+    data: of([{ a: 1, b: 'foo' }, { a: 2, b: 'bar' }]), level: 0,
     hidden: false, hiddenData: false,
     numRows: 2, streamId: 'sid'
   };

@@ -1,5 +1,5 @@
 import { MavSelectionActionTypes, MavSelectionActionUnion } from './actions';
-import { MavSelectionState, initialMavSelectionState } from './state';
+import { initialMavSelectionState, MavSelectionState } from './state';
 
 /**
  * Mavs selection state reducer
@@ -42,7 +42,10 @@ export function mavSelectionStateReducer(
         })
       };
     }
-  }
 
+    case MavSelectionActionTypes.AdvancedToggle: {
+      return { ...state, advanced: action.payload };
+    }
+  }
   return state;
 }

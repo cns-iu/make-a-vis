@@ -30,6 +30,9 @@
       ],
       "svg-to-pdfkit":[
         "node_modules/svg-to-pdfkit/source.js"
+      ],
+      "cheet.js":[
+        "node_modules/cheet.js/cheet.js"
       ]
     }
   }

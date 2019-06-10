@@ -1,7 +1,7 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { access, RawChangeSet } from '@ngx-dino/core';
 import { defer, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, delay } from 'rxjs/operators';
 
 import { RawData } from '../../shared/raw-data';
 import { RecordStream } from '../../shared/record-stream';
@@ -14,7 +14,8 @@ export class DefaultRecordStream<T = any> implements RecordStream<T> {
     Object.assign(this, { id: data.id, label: data.label || data.id });
   }
   asObservable(): Observable<RawChangeSet<T>> {
-    return defer<Promise<T[]>>(this.getData.bind(this)).pipe(map(RawChangeSet.fromArray));
+    // a delay was added to allow for pagination to initialize properly for async data
+    return defer<Promise<T[]>>(this.getData.bind(this)).pipe(map(RawChangeSet.fromArray), delay(10));
   }
   async getData(): Promise<T[]> {
     const data = await this.rawData.getData();

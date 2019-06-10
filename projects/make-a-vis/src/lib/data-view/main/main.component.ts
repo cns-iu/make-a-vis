@@ -1,6 +1,6 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnDestroy } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 
 import { DataService, DataSource } from '../shared/data.service';
 
@@ -9,13 +9,23 @@ import { DataService, DataSource } from '../shared/data.service';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnDestroy {
+  /**
+   * Data sources observable
+   */
   dataSources: Observable<DataSource[]>;
+  /**
+   * Data subscription for the data-sources
+   */
+  dataSubscription: Subscription;
+  /**
+   * Boolean to show initial info message in the data view
+   */
   showDataViewMessage = true;
 
-  constructor(private dataService: DataService) {
+  constructor(dataService: DataService) {
     this.dataSources = dataService.dataSourcesChanged;
-    this.dataSources.subscribe((d) => {
+    this.dataSubscription = this.dataSources.subscribe((d) => {
       if (d.length > 0) {
         this.showDataViewMessage = false;
       } else {
@@ -24,10 +34,19 @@ export class MainComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  /**
+   * Gets padding according to the level of hierarchy of the data table
+   * @param level level in hierarchy of the data table
+   * @returns a padding value in rems
+   */
+  getPadding(level: number): number {
+    return 2 * level;
   }
 
-  getPadding(level) {
-    return 2 * level;
+  /**
+   * on destroy lifecycle hook
+   */
+  ngOnDestroy() {
+    this.dataSubscription.unsubscribe();
   }
 }

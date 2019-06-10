@@ -1,10 +1,9 @@
 import { AfterViewInit, Component, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { DataVariable } from '@dvl-fw/core';
 import { Store } from '@ngrx/store';
 import { every as loEvery, forEach as loForEach, get as loGet, includes as loIncludes, map as loMap } from 'lodash';
-import { combineLatest as rxCombineLatest, Subscription } from 'rxjs';
+import { combineLatest as rxCombineLatest, Observable, of, Subscription } from 'rxjs';
 import { distinctUntilChanged as rxDistinctUntilChanged, map as rxMap } from 'rxjs/operators';
 
 import { getOpenGVGroupPanelsSelector, isGVPanelOpenSelector } from '../../mav-selection/shared/store';
@@ -55,7 +54,12 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
   /**
    * Gets the rows of data.
    */
-  get data(): any[] { return loGet(this.dataSource, 'data', []); }
+  get data(): any[] { return loGet(this.tableDataSource, 'data', []); }
+
+  /**
+   * Gets the Obvervable that returns rows of data.
+   */
+  get data$(): Observable<any[]> { return loGet(this.dataSource, 'data', of([])); }
 
   /**
    * Gets the table's description.
@@ -70,7 +74,7 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
   /**
    * Gets number of rows of data.
    */
-  get numberOfRows(): number { return loGet(this.dataSource, ['data', 'length'], 0); }
+  get numberOfRows(): number { return loGet(this.tableDataSource, ['data', 'length'], 0); }
 
   /**
    * Whether hovering over a table header has any effect.
@@ -93,6 +97,16 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
   private hoverableRecordSetId: string = undefined;
 
   /**
+   * Data subscription
+   */
+  private dataSubscription: Subscription;
+
+  /**
+   * Pagination subscription
+   */
+  private paginatorSubscription: Subscription;
+
+  /**
    * An array of all subscriptions that needs to be cleaned up during destroy.
    */
   private subscriptions: Subscription[] = [];
@@ -111,7 +125,7 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
     private actionDispatcherService: ActionDispatcherService,
     private dataService: DataService,
     private exportService: ExportTableService,
-    private hoverService: DataVariableHoverService,
+    private hoverService: DataVariableHoverService
   ) {
     this.subscriptions.push(this.subscribeToHoverEvents());
     this.subscriptions.push(this.subscribeToHoverEnabled(store));
@@ -121,9 +135,7 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
    * Angular's AfterViewInit lifecycle hook.
    */
   ngAfterViewInit() {
-    const { data, paginator, tableDataSource } = this;
-    tableDataSource.data = data;
-    tableDataSource.paginator = paginator;
+    this.updateData();
   }
 
   /**
@@ -133,8 +145,9 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
    * @param changes The changed values.
    */
   ngOnChanges(changes: SimpleChanges) {
-    const { data, tableDataSource } = this;
-    if ('dataSource' in changes) { tableDataSource.data = data; }
+    if ('dataSource' in changes || 'paginator' in changes) {
+      this.updateData();
+    }
   }
 
   /**
@@ -144,6 +157,31 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
   ngOnDestroy() {
     loForEach(this.subscriptions, sub => sub.unsubscribe());
     this.subscriptions = [];
+
+    if (this.dataSubscription) {
+      this.dataSubscription.unsubscribe();
+    }
+
+    if (this.paginatorSubscription) {
+      this.paginatorSubscription.unsubscribe();
+    }
+  }
+
+  /**
+  * Updates data
+  */
+  updateData(): void {
+    if (this.dataSubscription) {
+      this.dataSubscription.unsubscribe();
+    }
+    this.dataSubscription = this.data$.subscribe((data) => {
+      this.tableDataSource.data = data;
+      if (this.paginator && this.tableDataSource.paginator !== this.paginator) {
+        this.paginatorSubscription = this.paginator.initialized.subscribe(_ => {
+          this.tableDataSource.paginator = this.paginator;
+        });
+      }
+    });
   }
 
   /**
@@ -172,7 +210,7 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
    *
    * @returns True if there exists at least one row of data, else false.
    */
-  hasData(): boolean { return loGet(this.dataSource, ['data', 'length'], 0) !== 0; }
+  hasData(): boolean { return loGet(this.tableDataSource, ['data', 'length'], 0) !== 0; }
 
   /**
    * Determines whether the table rows are hidden.

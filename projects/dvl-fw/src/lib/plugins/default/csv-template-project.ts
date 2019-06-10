@@ -1,21 +1,17 @@
+import { isBoolean, isInteger, isNumber } from 'lodash';
 import { parse } from 'papaparse';
-import { isInteger, isNumber, isBoolean } from 'lodash';
 
-import { ActivityLogDataSource } from '../activity-log/log-data-source';
-import { DefaultGraphicVariableMapping } from './default-graphic-variable';
-import { DefaultProject } from './default-project';
+import { DataSource } from '../../shared/data-source';
+import { GraphicVariable } from '../../shared/graphic-variable';
 import { Project } from '../../shared/project';
 import { RawData } from '../../shared/raw-data';
-import { DefaultRawData } from './default-raw-data';
-import { DataSource } from '../../shared/data-source';
-import { DefaultDataSource } from './default-data-source';
-import { DefaultRecordSet } from './default-record-set';
 import { RecordSet } from '../../shared/record-set';
-import { GraphicVariable } from '../../shared/graphic-variable';
-import { GraphicSymbol } from '../../shared/graphic-symbol';
-import { Visualization } from '../../shared/visualization';
-import { ScatterplotVisualization } from '../ngx-dino/visualizations';
-import { DefaultGraphicSymbol } from './default-graphic-symbol';
+import { ActivityLogDataSource } from '../activity-log/log-data-source';
+import { DefaultDataSource } from './default-data-source';
+import { DefaultGraphicVariableMapping } from './default-graphic-variable';
+import { DefaultProject } from './default-project';
+import { DefaultRawData } from './default-raw-data';
+import { DefaultRecordSet } from './default-record-set';
 
 
 export class CSVTemplateProject extends DefaultProject {
@@ -33,8 +29,6 @@ export class CSVTemplateProject extends DefaultProject {
     this.dataSources = this.getDataSources();
     this.recordSets = this.getRecordSets(fileName);
     this.graphicVariables = this.getGraphicVariables();
-    this.graphicSymbols = this.getGraphicSymbols();
-    this.visualizations = this.getVisualizations();
   }
 
   getRawData(csvFileContent: string): RawData[] {
@@ -174,34 +168,5 @@ export class CSVTemplateProject extends DefaultProject {
     }
 
     return naiveMappings;
-  }
-
-  getGraphicSymbols(): GraphicSymbol[] {
-    return [
-      new DefaultGraphicSymbol({
-        id: 'csvDataPoints',
-        type: 'area',
-        recordStream: 'csvData',
-        graphicVariables: {}
-      }, this)
-    ];
-  }
-
-  getVisualizations(): Visualization[] {
-    return [
-      new ScatterplotVisualization({
-        id: 'SG01',
-        template: 'scattergraph',
-        properties: {
-          enableTooltip: true,
-          gridlines: true,
-          showAxisLabels: false,
-          showAxisIndicators: false
-        },
-        graphicSymbols: {
-          points: 'csvDataPoints'
-        }
-      }, this)
-    ];
   }
 }
