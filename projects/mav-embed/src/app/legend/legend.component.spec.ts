@@ -1,22 +1,20 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgModule, Type } from '@angular/core';
+import { Shallow } from 'shallow-render';
 
 import { LegendComponent } from './legend.component';
 
+@NgModule({ declarations: [LegendComponent], exports: [LegendComponent] })
+class TestModule { }
+
 describe('LegendComponent', () => {
+  let get: <T>(type: Type<T>) => T;
   let component: LegendComponent;
-  let fixture: ComponentFixture<LegendComponent>;
+  let shallow: Shallow<LegendComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ LegendComponent ]
-    })
-    .compileComponents();
-  }));
+  beforeEach(async () => {
+    shallow = new Shallow(LegendComponent, TestModule);
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(LegendComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    ({ instance: component, get } = await shallow.render());
   });
 
   it('should create', () => {

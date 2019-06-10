@@ -1,12 +1,30 @@
-import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Component, NgModule, Type } from '@angular/core';
+import { Shallow } from 'shallow-render';
 
 import { ProjectLoaderService } from './project-loader.service';
 
+@Component({ selector: 'mav-test', template: '' })
+class TestComponent { }
+
+@NgModule({ declarations: [TestComponent], exports: [TestComponent] })
+class TestModule { }
+
 describe('ProjectLoaderService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  let get: <T>(type: Type<T>) => T;
+  let service: ProjectLoaderService;
+  let shallow: Shallow<TestComponent>;
+
+  beforeEach(async () => {
+    shallow = new Shallow(TestComponent, TestModule)
+      .import(HttpClientTestingModule)
+      .dontMock(ProjectLoaderService);
+
+    ({ get } = await shallow.render());
+    service = get(ProjectLoaderService);
+  });
 
   it('should be created', () => {
-    const service: ProjectLoaderService = TestBed.get(ProjectLoaderService);
     expect(service).toBeTruthy();
   });
 });

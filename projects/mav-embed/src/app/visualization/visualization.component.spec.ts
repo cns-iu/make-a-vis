@@ -1,22 +1,20 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Type } from '@angular/core';
+import { DvlFwModule } from '@dvl-fw/core';
+import { Shallow } from 'shallow-render';
 
+import { AppModule } from '../app.module';
 import { VisualizationComponent } from './visualization.component';
 
 describe('VisualizationComponent', () => {
+  let get: <T>(type: Type<T>) => T;
+  let shallow: Shallow<VisualizationComponent>;
   let component: VisualizationComponent;
-  let fixture: ComponentFixture<VisualizationComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ VisualizationComponent ]
-    })
-    .compileComponents();
-  }));
+  beforeEach(async () => {
+    shallow = new Shallow(VisualizationComponent, AppModule)
+      .dontMock(DvlFwModule);
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(VisualizationComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    ({ instance: component, get } = await shallow.render({ bind: { project: '#foo' } }));
   });
 
   it('should create', () => {
