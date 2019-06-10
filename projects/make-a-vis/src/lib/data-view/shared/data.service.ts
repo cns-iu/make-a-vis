@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { DataVariable, GraphicVariable, Project, RecordSet } from '@dvl-fw/core';
 import { select, Store } from '@ngrx/store';
-import { access, combine, idSymbol, Operator, RawChangeSet } from '@ngx-dino/core';
+import { access, chain, combine, idSymbol, Operator, RawChangeSet, map as dinoMap } from '@ngx-dino/core';
 import { get } from 'lodash';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -21,6 +21,7 @@ export interface DataSource {
   childrenHidden: boolean;
   columns: DataVariable[];
   data: Observable<any[]>;
+  operator: Operator<any, any>;
   level: number;
   hidden: boolean;
   hiddenData: boolean;
@@ -71,20 +72,20 @@ export class DataService {
             dataSource.hiddenData = false;
             dataSource.numRows = 0;
             dataSource.streamId = get(recordSet.defaultRecordStream, 'id');
+            dataSource.operator = this.getDataMappingOperator(recordSet.dataVariables, project.graphicVariables, recordSet.id);
 
-            const operator = this.getDataMappingOperator(recordSet.dataVariables, project.graphicVariables, recordSet.id);
             if (recordSet.defaultRecordStream) {
               let data: any[] = [];
               dataSource.data = recordSet.defaultRecordStream.asObservable().pipe(
                 map((changeSet: RawChangeSet<any>) => {
                   data = this.updateData(data, dataSource, changeSet);
-                  dataSource.numRows += data.length;
+                  dataSource.numRows = data.length;
                   if (data.length > 1) {
                     dataSource.label = recordSet.labelPlural;
                   }
-                  return data.map(operator.getter)
-                    .map(this.injectDisplayVariables.bind(this));
-                }));
+                  return data;
+                })
+              );
             }
 
             return dataSource;
@@ -96,19 +97,6 @@ export class DataService {
           this.dataSourcesChange.next([]);
         }
       });
-  }
-
-  private injectDisplayVariables(item: any): any {
-    item = Object.assign({}, item);
-    Object.keys(item).forEach((key: string) => {
-      const value = '' + item[key];
-      const isLongString = value.length > this.maxCellStringLength;
-      item[key + '__display_value__'] = isLongString ?
-        value.trim().slice(0, this.maxCellStringLength + 1) + '...' :
-        value;
-      item[key + '__tooltip_value__'] = isLongString ? value : '';
-    });
-    return item;
   }
 
   private updateData(data: any[], dataSource: DataSource, changeSet: RawChangeSet<any>): any[] {
@@ -211,6 +199,27 @@ export class DataService {
     this.toggleChildren(dataSource.children);
   }
 
+
+  /**
+   * Function that adds display variables to be used in the table.
+   * This includes the value to display in the cell and the value to
+   * display in the tooltip (if any).
+   * @param item the source data to display in the table
+   * @returns a new item with additional display variables
+   */
+  private injectDisplayVariables(item: any): any {
+    item = Object.assign({}, item);
+    Object.keys(item).forEach((key: string) => {
+      const value = '' + item[key];
+      const isLongString = value.length > this.maxCellStringLength;
+      item[key + '__display_value__'] = isLongString ?
+        value.trim().slice(0, this.maxCellStringLength + 1) + '...' :
+        value;
+      item[key + '__tooltip_value__'] = isLongString ? value : '';
+    });
+    return item;
+  }
+
   /**
    * Gets data mapping operator
    * @param dataVariables array of data-variables
@@ -234,6 +243,6 @@ export class DataService {
       }
     });
 
-    return combine(mapping);
+    return chain(combine(mapping), dinoMap(this.injectDisplayVariables.bind(this)));
   }
 }

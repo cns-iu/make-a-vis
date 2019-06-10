@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { map as dinoMap } from '@ngx-dino/core';
 import * as fileSaver from 'file-saver';
 import * as papaparse from 'papaparse';
 import { of } from 'rxjs';
@@ -10,6 +11,7 @@ describe('ExportTableService', () => {
   const dataSource = {
     columns: [{ id: 'a', label: 'foo' }, { id: 'b', label: 'bar' }],
     data: of([{ a: 1, b: 2 }, { a: 3, b: 4 }]),
+    operator: dinoMap(x => x),
     id: 'id',
     label: 'label',
     parent: undefined,
