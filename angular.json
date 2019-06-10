@@ -215,6 +215,122 @@
           }
         }
       }
+    },
+    "mav-embed": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/mav-embed",
+      "sourceRoot": "projects/mav-embed/src",
+      "prefix": "mav",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/mav-embed",
+            "index": "projects/mav-embed/src/index.html",
+            "main": "projects/mav-embed/src/main.ts",
+            "polyfills": "projects/mav-embed/src/polyfills.ts",
+            "tsConfig": "projects/mav-embed/tsconfig.app.json",
+            "assets": [
+              "projects/mav-embed/src/favicon.ico",
+              "projects/mav-embed/src/assets"
+            ],
+            "styles": [
+              "projects/mav-embed/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/mav-embed/src/environments/environment.ts",
+                  "with": "projects/mav-embed/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "none",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "20mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "options": {
+            "browserTarget": "mav-embed:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "mav-embed:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "mav-embed:build"
+          }
+        },
+        "test": {
+          "builder": "ngx-build-plus:karma",
+          "options": {
+            "main": "projects/mav-embed/src/test.ts",
+            "polyfills": "projects/mav-embed/src/polyfills.ts",
+            "tsConfig": "projects/mav-embed/tsconfig.spec.json",
+            "karmaConfig": "projects/mav-embed/karma.conf.js",
+            "assets": [
+              "projects/mav-embed/src/favicon.ico",
+              "projects/mav-embed/src/assets"
+            ],
+            "styles": [
+              "projects/mav-embed/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/mav-embed/tsconfig.app.json",
+              "projects/mav-embed/tsconfig.spec.json",
+              "projects/mav-embed/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/mav-embed/e2e/protractor.conf.js",
+            "devServerTarget": "mav-embed:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "mav-embed:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "make-a-vis-demo"
