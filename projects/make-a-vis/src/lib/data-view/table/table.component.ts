@@ -1,5 +1,4 @@
-import { AfterViewInit, Component, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild } from '@angular/core';
-import { MatTable } from '@angular/material';
+import { Component, Input, OnChanges, OnDestroy, SimpleChanges, OnInit } from '@angular/core';
 import { DataVariable } from '@dvl-fw/core';
 import { Store } from '@ngrx/store';
 import { every as loEvery, forEach as loForEach, get as loGet, includes as loIncludes, map as loMap } from 'lodash';
@@ -20,7 +19,7 @@ import { ExportTableService } from '../shared/export-table.service';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
+export class TableComponent implements OnInit, OnChanges, OnDestroy {
   /**
    * Table data
    */
@@ -35,11 +34,6 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
    * Vertical index of the table starting from the top
    */
   @Input() tableIndex: number;
-
-  /**
-   * A reference to the table being displayed
-   */
-  @ViewChild(MatTable, { static: false}) table: MatTable<any>;
 
   /**
    * The current page of data to load
@@ -137,9 +131,9 @@ export class TableComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   /**
-   * Angular's AfterViewInit lifecycle hook
+   * Angular's OnInit lifecycle hook
    */
-  ngAfterViewInit() {
+  ngOnInit() {
     this.updateData();
   }
 
