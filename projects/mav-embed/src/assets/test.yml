@@ -1,0 +1,1308 @@
+apiVersion: 1
+metadata:
+  dateCreated: 2019-05-29T15:39:11.768Z
+  dateSaved: 2019-05-29T15:40:02.591Z
+dataSources:
+  - id: csvDataSource
+    template: default
+    properties:
+      rawData: csvRawData
+    recordStreams:
+      - id: csvData
+        label: CSV Data
+  - id: activityLog
+    template: activityLog
+    properties:
+      rawData: activityLog
+      keepPreviousActivity: true
+      freezeLogs: false
+    recordStreams:
+      - id: activityLog
+        label: Activity Log
+recordSets:
+  - id: csvData
+    label: CSV Data
+    labelPlural: CSV Data
+    description: AI.nsf
+    defaultRecordStream: csvData
+    dataVariables:
+      - id: BAwardNumber
+        label: BAwardNumber
+        dataType: integer
+        scaleType: '???'
+      - id: BTitle
+        label: BTitle
+        dataType: text
+        scaleType: '???'
+      - id: BNSFOrganization
+        label: BNSFOrganization
+        dataType: text
+        scaleType: '???'
+      - id: BProgram(s)
+        label: BProgram(s)
+        dataType: text
+        scaleType: '???'
+      - id: StartDate
+        label: StartDate
+        dataType: text
+        scaleType: '???'
+      - id: LastAmendmentDate
+        label: LastAmendmentDate
+        dataType: text
+        scaleType: '???'
+      - id: PrincipalInvestigator
+        label: PrincipalInvestigator
+        dataType: text
+        scaleType: '???'
+      - id: PI
+        label: PI
+        dataType: text
+        scaleType: '???'
+      - id: AllPI
+        label: AllPI
+        dataType: text
+        scaleType: '???'
+      - id: State
+        label: State
+        dataType: text
+        scaleType: '???'
+      - id: Organization
+        label: Organization
+        dataType: text
+        scaleType: '???'
+      - id: AwardInstrument
+        label: AwardInstrument
+        dataType: text
+        scaleType: '???'
+      - id: ProgramManager
+        label: ProgramManager
+        dataType: text
+        scaleType: '???'
+      - id: EndDate
+        label: EndDate
+        dataType: text
+        scaleType: '???'
+      - id: AwardedAmountToDate
+        label: AwardedAmountToDate
+        dataType: text
+        scaleType: '???'
+      - id: Co-PIName(s)
+        label: Co-PIName(s)
+        dataType: text
+        scaleType: '???'
+      - id: PIEmailAddress
+        label: PIEmailAddress
+        dataType: text
+        scaleType: '???'
+      - id: OrganizationStreet
+        label: OrganizationStreet
+        dataType: text
+        scaleType: '???'
+      - id: OrganizationCity
+        label: OrganizationCity
+        dataType: text
+        scaleType: '???'
+      - id: OrganizationState
+        label: OrganizationState
+        dataType: text
+        scaleType: '???'
+      - id: OrganizationZip
+        label: OrganizationZip
+        dataType: integer
+        scaleType: '???'
+      - id: OrganizationPhone
+        label: OrganizationPhone
+        dataType: integer
+        scaleType: '???'
+      - id: NSFDirectorate
+        label: NSFDirectorate
+        dataType: text
+        scaleType: '???'
+      - id: ProgramElementCode(s)
+        label: ProgramElementCode(s)
+        dataType: integer
+        scaleType: '???'
+      - id: ProgramReferenceCode(s)
+        label: ProgramReferenceCode(s)
+        dataType: integer
+        scaleType: '???'
+      - id: ARRAAmount
+        label: ARRAAmount
+        dataType: text
+        scaleType: '???'
+      - id: SELECTOR1
+        label: SELECTOR1
+        dataType: text
+        scaleType: '???'
+      - id: Abstract
+        label: Abstract
+        dataType: text
+        scaleType: '???'
+graphicVariableMappings:
+  - recordStream: csvData
+    mappings:
+      csvData:
+        BAwardNumber:
+          identifier:
+            - id: identifier
+              label: BAwardNumber
+              selector: BAwardNumber
+          axis:
+            - id: axis
+              label: BAwardNumber
+              selector: BAwardNumber
+          text:
+            - id: text
+              label: BAwardNumber
+              selector: BAwardNumber
+          tooltip:
+            - id: tooltip
+              label: BAwardNumber
+              selector: BAwardNumber
+          label:
+            - id: label
+              label: BAwardNumber
+              selector: BAwardNumber
+          input:
+            - id: input
+              label: BAwardNumber
+              selector: BAwardNumber
+          order:
+            - id: order
+              label: BAwardNumber
+              selector: BAwardNumber
+          areaSize:
+            - id: areaSize
+              label: BAwardNumber
+              selector: BAwardNumber
+          strokeWidth:
+            - id: strokeWidth
+              label: BAwardNumber
+              selector: BAwardNumber
+          fontSize:
+            - id: fontSize
+              label: BAwardNumber
+              selector: BAwardNumber
+          BAwardNumber:
+            - id: BAwardNumber
+              label: BAwardNumber
+              selector: BAwardNumber
+        BTitle:
+          identifier:
+            - id: identifier
+              label: BTitle
+              selector: BTitle
+          axis:
+            - id: axis
+              label: BTitle
+              selector: BTitle
+          text:
+            - id: text
+              label: BTitle
+              selector: BTitle
+          tooltip:
+            - id: tooltip
+              label: BTitle
+              selector: BTitle
+          label:
+            - id: label
+              label: BTitle
+              selector: BTitle
+          input:
+            - id: input
+              label: BTitle
+              selector: BTitle
+          order:
+            - id: order
+              label: BTitle
+              selector: BTitle
+          BTitle:
+            - id: BTitle
+              label: BTitle
+              selector: BTitle
+        BNSFOrganization:
+          identifier:
+            - id: identifier
+              label: BNSFOrganization
+              selector: BNSFOrganization
+          axis:
+            - id: axis
+              label: BNSFOrganization
+              selector: BNSFOrganization
+          text:
+            - id: text
+              label: BNSFOrganization
+              selector: BNSFOrganization
+          tooltip:
+            - id: tooltip
+              label: BNSFOrganization
+              selector: BNSFOrganization
+          label:
+            - id: label
+              label: BNSFOrganization
+              selector: BNSFOrganization
+          input:
+            - id: input
+              label: BNSFOrganization
+              selector: BNSFOrganization
+          order:
+            - id: order
+              label: BNSFOrganization
+              selector: BNSFOrganization
+          BNSFOrganization:
+            - id: BNSFOrganization
+              label: BNSFOrganization
+              selector: BNSFOrganization
+        BProgram(s):
+          identifier:
+            - id: identifier
+              label: BProgram(s)
+              selector: BProgram(s)
+          axis:
+            - id: axis
+              label: BProgram(s)
+              selector: BProgram(s)
+          text:
+            - id: text
+              label: BProgram(s)
+              selector: BProgram(s)
+          tooltip:
+            - id: tooltip
+              label: BProgram(s)
+              selector: BProgram(s)
+          label:
+            - id: label
+              label: BProgram(s)
+              selector: BProgram(s)
+          input:
+            - id: input
+              label: BProgram(s)
+              selector: BProgram(s)
+          order:
+            - id: order
+              label: BProgram(s)
+              selector: BProgram(s)
+          BProgram(s):
+            - id: BProgram(s)
+              label: BProgram(s)
+              selector: BProgram(s)
+        StartDate:
+          identifier:
+            - id: identifier
+              label: StartDate
+              selector: StartDate
+          axis:
+            - id: axis
+              label: StartDate
+              selector: StartDate
+          text:
+            - id: text
+              label: StartDate
+              selector: StartDate
+          tooltip:
+            - id: tooltip
+              label: StartDate
+              selector: StartDate
+          label:
+            - id: label
+              label: StartDate
+              selector: StartDate
+          input:
+            - id: input
+              label: StartDate
+              selector: StartDate
+          order:
+            - id: order
+              label: StartDate
+              selector: StartDate
+          StartDate:
+            - id: StartDate
+              label: StartDate
+              selector: StartDate
+        LastAmendmentDate:
+          identifier:
+            - id: identifier
+              label: LastAmendmentDate
+              selector: LastAmendmentDate
+          axis:
+            - id: axis
+              label: LastAmendmentDate
+              selector: LastAmendmentDate
+          text:
+            - id: text
+              label: LastAmendmentDate
+              selector: LastAmendmentDate
+          tooltip:
+            - id: tooltip
+              label: LastAmendmentDate
+              selector: LastAmendmentDate
+          label:
+            - id: label
+              label: LastAmendmentDate
+              selector: LastAmendmentDate
+          input:
+            - id: input
+              label: LastAmendmentDate
+              selector: LastAmendmentDate
+          order:
+            - id: order
+              label: LastAmendmentDate
+              selector: LastAmendmentDate
+          LastAmendmentDate:
+            - id: LastAmendmentDate
+              label: LastAmendmentDate
+              selector: LastAmendmentDate
+        PrincipalInvestigator:
+          identifier:
+            - id: identifier
+              label: PrincipalInvestigator
+              selector: PrincipalInvestigator
+          axis:
+            - id: axis
+              label: PrincipalInvestigator
+              selector: PrincipalInvestigator
+          text:
+            - id: text
+              label: PrincipalInvestigator
+              selector: PrincipalInvestigator
+          tooltip:
+            - id: tooltip
+              label: PrincipalInvestigator
+              selector: PrincipalInvestigator
+          label:
+            - id: label
+              label: PrincipalInvestigator
+              selector: PrincipalInvestigator
+          input:
+            - id: input
+              label: PrincipalInvestigator
+              selector: PrincipalInvestigator
+          order:
+            - id: order
+              label: PrincipalInvestigator
+              selector: PrincipalInvestigator
+          PrincipalInvestigator:
+            - id: PrincipalInvestigator
+              label: PrincipalInvestigator
+              selector: PrincipalInvestigator
+        PI:
+          identifier:
+            - id: identifier
+              label: PI
+              selector: PI
+          axis:
+            - id: axis
+              label: PI
+              selector: PI
+          text:
+            - id: text
+              label: PI
+              selector: PI
+          tooltip:
+            - id: tooltip
+              label: PI
+              selector: PI
+          label:
+            - id: label
+              label: PI
+              selector: PI
+          input:
+            - id: input
+              label: PI
+              selector: PI
+          order:
+            - id: order
+              label: PI
+              selector: PI
+          PI:
+            - id: PI
+              label: PI
+              selector: PI
+        AllPI:
+          identifier:
+            - id: identifier
+              label: AllPI
+              selector: AllPI
+          axis:
+            - id: axis
+              label: AllPI
+              selector: AllPI
+          text:
+            - id: text
+              label: AllPI
+              selector: AllPI
+          tooltip:
+            - id: tooltip
+              label: AllPI
+              selector: AllPI
+          label:
+            - id: label
+              label: AllPI
+              selector: AllPI
+          input:
+            - id: input
+              label: AllPI
+              selector: AllPI
+          order:
+            - id: order
+              label: AllPI
+              selector: AllPI
+          AllPI:
+            - id: AllPI
+              label: AllPI
+              selector: AllPI
+        State:
+          identifier:
+            - id: identifier
+              label: State
+              selector: State
+          axis:
+            - id: axis
+              label: State
+              selector: State
+          text:
+            - id: text
+              label: State
+              selector: State
+          tooltip:
+            - id: tooltip
+              label: State
+              selector: State
+          label:
+            - id: label
+              label: State
+              selector: State
+          input:
+            - id: input
+              label: State
+              selector: State
+          order:
+            - id: order
+              label: State
+              selector: State
+          State:
+            - id: State
+              label: State
+              selector: State
+        Organization:
+          identifier:
+            - id: identifier
+              label: Organization
+              selector: Organization
+          axis:
+            - id: axis
+              label: Organization
+              selector: Organization
+          text:
+            - id: text
+              label: Organization
+              selector: Organization
+          tooltip:
+            - id: tooltip
+              label: Organization
+              selector: Organization
+          label:
+            - id: label
+              label: Organization
+              selector: Organization
+          input:
+            - id: input
+              label: Organization
+              selector: Organization
+          order:
+            - id: order
+              label: Organization
+              selector: Organization
+          Organization:
+            - id: Organization
+              label: Organization
+              selector: Organization
+        AwardInstrument:
+          identifier:
+            - id: identifier
+              label: AwardInstrument
+              selector: AwardInstrument
+          axis:
+            - id: axis
+              label: AwardInstrument
+              selector: AwardInstrument
+          text:
+            - id: text
+              label: AwardInstrument
+              selector: AwardInstrument
+          tooltip:
+            - id: tooltip
+              label: AwardInstrument
+              selector: AwardInstrument
+          label:
+            - id: label
+              label: AwardInstrument
+              selector: AwardInstrument
+          input:
+            - id: input
+              label: AwardInstrument
+              selector: AwardInstrument
+          order:
+            - id: order
+              label: AwardInstrument
+              selector: AwardInstrument
+          AwardInstrument:
+            - id: AwardInstrument
+              label: AwardInstrument
+              selector: AwardInstrument
+        ProgramManager:
+          identifier:
+            - id: identifier
+              label: ProgramManager
+              selector: ProgramManager
+          axis:
+            - id: axis
+              label: ProgramManager
+              selector: ProgramManager
+          text:
+            - id: text
+              label: ProgramManager
+              selector: ProgramManager
+          tooltip:
+            - id: tooltip
+              label: ProgramManager
+              selector: ProgramManager
+          label:
+            - id: label
+              label: ProgramManager
+              selector: ProgramManager
+          input:
+            - id: input
+              label: ProgramManager
+              selector: ProgramManager
+          order:
+            - id: order
+              label: ProgramManager
+              selector: ProgramManager
+          ProgramManager:
+            - id: ProgramManager
+              label: ProgramManager
+              selector: ProgramManager
+        EndDate:
+          identifier:
+            - id: identifier
+              label: EndDate
+              selector: EndDate
+          axis:
+            - id: axis
+              label: EndDate
+              selector: EndDate
+          text:
+            - id: text
+              label: EndDate
+              selector: EndDate
+          tooltip:
+            - id: tooltip
+              label: EndDate
+              selector: EndDate
+          label:
+            - id: label
+              label: EndDate
+              selector: EndDate
+          input:
+            - id: input
+              label: EndDate
+              selector: EndDate
+          order:
+            - id: order
+              label: EndDate
+              selector: EndDate
+          EndDate:
+            - id: EndDate
+              label: EndDate
+              selector: EndDate
+        AwardedAmountToDate:
+          identifier:
+            - id: identifier
+              label: AwardedAmountToDate
+              selector: AwardedAmountToDate
+          axis:
+            - id: axis
+              label: AwardedAmountToDate
+              selector: AwardedAmountToDate
+          text:
+            - id: text
+              label: AwardedAmountToDate
+              selector: AwardedAmountToDate
+          tooltip:
+            - id: tooltip
+              label: AwardedAmountToDate
+              selector: AwardedAmountToDate
+          label:
+            - id: label
+              label: AwardedAmountToDate
+              selector: AwardedAmountToDate
+          input:
+            - id: input
+              label: AwardedAmountToDate
+              selector: AwardedAmountToDate
+          order:
+            - id: order
+              label: AwardedAmountToDate
+              selector: AwardedAmountToDate
+          AwardedAmountToDate:
+            - id: AwardedAmountToDate
+              label: AwardedAmountToDate
+              selector: AwardedAmountToDate
+        Co-PIName(s):
+          identifier:
+            - id: identifier
+              label: Co-PIName(s)
+              selector: Co-PIName(s)
+          axis:
+            - id: axis
+              label: Co-PIName(s)
+              selector: Co-PIName(s)
+          text:
+            - id: text
+              label: Co-PIName(s)
+              selector: Co-PIName(s)
+          tooltip:
+            - id: tooltip
+              label: Co-PIName(s)
+              selector: Co-PIName(s)
+          label:
+            - id: label
+              label: Co-PIName(s)
+              selector: Co-PIName(s)
+          input:
+            - id: input
+              label: Co-PIName(s)
+              selector: Co-PIName(s)
+          order:
+            - id: order
+              label: Co-PIName(s)
+              selector: Co-PIName(s)
+          Co-PIName(s):
+            - id: Co-PIName(s)
+              label: Co-PIName(s)
+              selector: Co-PIName(s)
+        PIEmailAddress:
+          identifier:
+            - id: identifier
+              label: PIEmailAddress
+              selector: PIEmailAddress
+          axis:
+            - id: axis
+              label: PIEmailAddress
+              selector: PIEmailAddress
+          text:
+            - id: text
+              label: PIEmailAddress
+              selector: PIEmailAddress
+          tooltip:
+            - id: tooltip
+              label: PIEmailAddress
+              selector: PIEmailAddress
+          label:
+            - id: label
+              label: PIEmailAddress
+              selector: PIEmailAddress
+          input:
+            - id: input
+              label: PIEmailAddress
+              selector: PIEmailAddress
+          order:
+            - id: order
+              label: PIEmailAddress
+              selector: PIEmailAddress
+          PIEmailAddress:
+            - id: PIEmailAddress
+              label: PIEmailAddress
+              selector: PIEmailAddress
+        OrganizationStreet:
+          identifier:
+            - id: identifier
+              label: OrganizationStreet
+              selector: OrganizationStreet
+          axis:
+            - id: axis
+              label: OrganizationStreet
+              selector: OrganizationStreet
+          text:
+            - id: text
+              label: OrganizationStreet
+              selector: OrganizationStreet
+          tooltip:
+            - id: tooltip
+              label: OrganizationStreet
+              selector: OrganizationStreet
+          label:
+            - id: label
+              label: OrganizationStreet
+              selector: OrganizationStreet
+          input:
+            - id: input
+              label: OrganizationStreet
+              selector: OrganizationStreet
+          order:
+            - id: order
+              label: OrganizationStreet
+              selector: OrganizationStreet
+          OrganizationStreet:
+            - id: OrganizationStreet
+              label: OrganizationStreet
+              selector: OrganizationStreet
+        OrganizationCity:
+          identifier:
+            - id: identifier
+              label: OrganizationCity
+              selector: OrganizationCity
+          axis:
+            - id: axis
+              label: OrganizationCity
+              selector: OrganizationCity
+          text:
+            - id: text
+              label: OrganizationCity
+              selector: OrganizationCity
+          tooltip:
+            - id: tooltip
+              label: OrganizationCity
+              selector: OrganizationCity
+          label:
+            - id: label
+              label: OrganizationCity
+              selector: OrganizationCity
+          input:
+            - id: input
+              label: OrganizationCity
+              selector: OrganizationCity
+          order:
+            - id: order
+              label: OrganizationCity
+              selector: OrganizationCity
+          OrganizationCity:
+            - id: OrganizationCity
+              label: OrganizationCity
+              selector: OrganizationCity
+        OrganizationState:
+          identifier:
+            - id: identifier
+              label: OrganizationState
+              selector: OrganizationState
+          axis:
+            - id: axis
+              label: OrganizationState
+              selector: OrganizationState
+          text:
+            - id: text
+              label: OrganizationState
+              selector: OrganizationState
+          tooltip:
+            - id: tooltip
+              label: OrganizationState
+              selector: OrganizationState
+          label:
+            - id: label
+              label: OrganizationState
+              selector: OrganizationState
+          input:
+            - id: input
+              label: OrganizationState
+              selector: OrganizationState
+          order:
+            - id: order
+              label: OrganizationState
+              selector: OrganizationState
+          OrganizationState:
+            - id: OrganizationState
+              label: OrganizationState
+              selector: OrganizationState
+        OrganizationZip:
+          identifier:
+            - id: identifier
+              label: OrganizationZip
+              selector: OrganizationZip
+          axis:
+            - id: axis
+              label: OrganizationZip
+              selector: OrganizationZip
+          text:
+            - id: text
+              label: OrganizationZip
+              selector: OrganizationZip
+          tooltip:
+            - id: tooltip
+              label: OrganizationZip
+              selector: OrganizationZip
+          label:
+            - id: label
+              label: OrganizationZip
+              selector: OrganizationZip
+          input:
+            - id: input
+              label: OrganizationZip
+              selector: OrganizationZip
+          order:
+            - id: order
+              label: OrganizationZip
+              selector: OrganizationZip
+          areaSize:
+            - id: areaSize
+              label: OrganizationZip
+              selector: OrganizationZip
+          strokeWidth:
+            - id: strokeWidth
+              label: OrganizationZip
+              selector: OrganizationZip
+          fontSize:
+            - id: fontSize
+              label: OrganizationZip
+              selector: OrganizationZip
+          OrganizationZip:
+            - id: OrganizationZip
+              label: OrganizationZip
+              selector: OrganizationZip
+        OrganizationPhone:
+          identifier:
+            - id: identifier
+              label: OrganizationPhone
+              selector: OrganizationPhone
+          axis:
+            - id: axis
+              label: OrganizationPhone
+              selector: OrganizationPhone
+          text:
+            - id: text
+              label: OrganizationPhone
+              selector: OrganizationPhone
+          tooltip:
+            - id: tooltip
+              label: OrganizationPhone
+              selector: OrganizationPhone
+          label:
+            - id: label
+              label: OrganizationPhone
+              selector: OrganizationPhone
+          input:
+            - id: input
+              label: OrganizationPhone
+              selector: OrganizationPhone
+          order:
+            - id: order
+              label: OrganizationPhone
+              selector: OrganizationPhone
+          areaSize:
+            - id: areaSize
+              label: OrganizationPhone
+              selector: OrganizationPhone
+          strokeWidth:
+            - id: strokeWidth
+              label: OrganizationPhone
+              selector: OrganizationPhone
+          fontSize:
+            - id: fontSize
+              label: OrganizationPhone
+              selector: OrganizationPhone
+          OrganizationPhone:
+            - id: OrganizationPhone
+              label: OrganizationPhone
+              selector: OrganizationPhone
+        NSFDirectorate:
+          identifier:
+            - id: identifier
+              label: NSFDirectorate
+              selector: NSFDirectorate
+          axis:
+            - id: axis
+              label: NSFDirectorate
+              selector: NSFDirectorate
+          text:
+            - id: text
+              label: NSFDirectorate
+              selector: NSFDirectorate
+          tooltip:
+            - id: tooltip
+              label: NSFDirectorate
+              selector: NSFDirectorate
+          label:
+            - id: label
+              label: NSFDirectorate
+              selector: NSFDirectorate
+          input:
+            - id: input
+              label: NSFDirectorate
+              selector: NSFDirectorate
+          order:
+            - id: order
+              label: NSFDirectorate
+              selector: NSFDirectorate
+          NSFDirectorate:
+            - id: NSFDirectorate
+              label: NSFDirectorate
+              selector: NSFDirectorate
+        ProgramElementCode(s):
+          identifier:
+            - id: identifier
+              label: ProgramElementCode(s)
+              selector: ProgramElementCode(s)
+          axis:
+            - id: axis
+              label: ProgramElementCode(s)
+              selector: ProgramElementCode(s)
+          text:
+            - id: text
+              label: ProgramElementCode(s)
+              selector: ProgramElementCode(s)
+          tooltip:
+            - id: tooltip
+              label: ProgramElementCode(s)
+              selector: ProgramElementCode(s)
+          label:
+            - id: label
+              label: ProgramElementCode(s)
+              selector: ProgramElementCode(s)
+          input:
+            - id: input
+              label: ProgramElementCode(s)
+              selector: ProgramElementCode(s)
+          order:
+            - id: order
+              label: ProgramElementCode(s)
+              selector: ProgramElementCode(s)
+          areaSize:
+            - id: areaSize
+              label: ProgramElementCode(s)
+              selector: ProgramElementCode(s)
+          strokeWidth:
+            - id: strokeWidth
+              label: ProgramElementCode(s)
+              selector: ProgramElementCode(s)
+          fontSize:
+            - id: fontSize
+              label: ProgramElementCode(s)
+              selector: ProgramElementCode(s)
+          ProgramElementCode(s):
+            - id: ProgramElementCode(s)
+              label: ProgramElementCode(s)
+              selector: ProgramElementCode(s)
+        ProgramReferenceCode(s):
+          identifier:
+            - id: identifier
+              label: ProgramReferenceCode(s)
+              selector: ProgramReferenceCode(s)
+          axis:
+            - id: axis
+              label: ProgramReferenceCode(s)
+              selector: ProgramReferenceCode(s)
+          text:
+            - id: text
+              label: ProgramReferenceCode(s)
+              selector: ProgramReferenceCode(s)
+          tooltip:
+            - id: tooltip
+              label: ProgramReferenceCode(s)
+              selector: ProgramReferenceCode(s)
+          label:
+            - id: label
+              label: ProgramReferenceCode(s)
+              selector: ProgramReferenceCode(s)
+          input:
+            - id: input
+              label: ProgramReferenceCode(s)
+              selector: ProgramReferenceCode(s)
+          order:
+            - id: order
+              label: ProgramReferenceCode(s)
+              selector: ProgramReferenceCode(s)
+          areaSize:
+            - id: areaSize
+              label: ProgramReferenceCode(s)
+              selector: ProgramReferenceCode(s)
+          strokeWidth:
+            - id: strokeWidth
+              label: ProgramReferenceCode(s)
+              selector: ProgramReferenceCode(s)
+          fontSize:
+            - id: fontSize
+              label: ProgramReferenceCode(s)
+              selector: ProgramReferenceCode(s)
+          ProgramReferenceCode(s):
+            - id: ProgramReferenceCode(s)
+              label: ProgramReferenceCode(s)
+              selector: ProgramReferenceCode(s)
+        ARRAAmount:
+          identifier:
+            - id: identifier
+              label: ARRAAmount
+              selector: ARRAAmount
+          axis:
+            - id: axis
+              label: ARRAAmount
+              selector: ARRAAmount
+          text:
+            - id: text
+              label: ARRAAmount
+              selector: ARRAAmount
+          tooltip:
+            - id: tooltip
+              label: ARRAAmount
+              selector: ARRAAmount
+          label:
+            - id: label
+              label: ARRAAmount
+              selector: ARRAAmount
+          input:
+            - id: input
+              label: ARRAAmount
+              selector: ARRAAmount
+          order:
+            - id: order
+              label: ARRAAmount
+              selector: ARRAAmount
+          ARRAAmount:
+            - id: ARRAAmount
+              label: ARRAAmount
+              selector: ARRAAmount
+        SELECTOR1:
+          identifier:
+            - id: identifier
+              label: SELECTOR1
+              selector: SELECTOR1
+          axis:
+            - id: axis
+              label: SELECTOR1
+              selector: SELECTOR1
+          text:
+            - id: text
+              label: SELECTOR1
+              selector: SELECTOR1
+          tooltip:
+            - id: tooltip
+              label: SELECTOR1
+              selector: SELECTOR1
+          label:
+            - id: label
+              label: SELECTOR1
+              selector: SELECTOR1
+          input:
+            - id: input
+              label: SELECTOR1
+              selector: SELECTOR1
+          order:
+            - id: order
+              label: SELECTOR1
+              selector: SELECTOR1
+          SELECTOR1:
+            - id: SELECTOR1
+              label: SELECTOR1
+              selector: SELECTOR1
+        Abstract:
+          identifier:
+            - id: identifier
+              label: Abstract
+              selector: Abstract
+          axis:
+            - id: axis
+              label: Abstract
+              selector: Abstract
+          text:
+            - id: text
+              label: Abstract
+              selector: Abstract
+          tooltip:
+            - id: tooltip
+              label: Abstract
+              selector: Abstract
+          label:
+            - id: label
+              label: Abstract
+              selector: Abstract
+          input:
+            - id: input
+              label: Abstract
+              selector: Abstract
+          order:
+            - id: order
+              label: Abstract
+              selector: Abstract
+          Abstract:
+            - id: Abstract
+              label: Abstract
+              selector: Abstract
+graphicSymbolMappings:
+  - id: csvDataPoints
+    type: area
+    recordStream: csvData
+    graphicVariables: {}
+  - id: points-1324
+    type: area
+    recordStream: csvData
+    graphicVariables:
+      identifier:
+        recordSet: csvData
+        dataVariable: BAwardNumber
+        graphicVariableType: identifier
+        graphicVariableId: identifier
+      'y':
+        recordSet: csvData
+        dataVariable: BNSFOrganization
+        graphicVariableType: axis
+        graphicVariableId: axis
+      x:
+        recordSet: csvData
+        dataVariable: State
+        graphicVariableType: axis
+        graphicVariableId: axis
+visualizations:
+  - id: visualization-1323
+    template: scattergraph
+    properties: {}
+    graphicSymbols:
+      points: points-1324
+rawData:
+  - id: csvRawData
+    template: json
+    url: assets/raw-data.json
+  - id: activityLog
+    template: activityLog
+    data:
+      activityLog:
+        - actionName: '[UI] Project Loaded'
+          date: '5/29/2019, 11:39:11 AM'
+          time: 1559144351886
+          logid: 1
+          loadingProject: false
+          fileName: AI.nsf
+          fileExtension: csv
+        - actionName: '[UI] Set Active Visualization'
+          date: '5/29/2019, 11:39:11 AM'
+          time: 1559144351887
+          logid: 2
+          visualizationIndex: 0
+          visualization:
+            id: SG01
+            template: scattergraph
+            properties:
+              enableTooltip: true
+              gridlines: true
+              showAxisLabels: false
+              showAxisIndicators: false
+            graphicSymbols:
+              points: csvDataPoints
+        - actionName: '[UI] Remove Visualization'
+          date: '5/29/2019, 11:39:23 AM'
+          time: 1559144363126
+          logid: 3
+          visualizationIndex: 0
+          visualization:
+            id: SG01
+            template: scattergraph
+            properties:
+              enableTooltip: true
+              gridlines: true
+              showAxisLabels: false
+              showAxisIndicators: false
+            graphicSymbols:
+              points: csvDataPoints
+        - actionName: '[UI] Set Active Visualization'
+          date: '5/29/2019, 11:39:23 AM'
+          time: 1559144363127
+          logid: 4
+          visualizationIndex: -1
+        - actionName: '[UI] Add New Visualization'
+          date: '5/29/2019, 11:39:29 AM'
+          time: 1559144369763
+          logid: 5
+          visualizationIndex: 0
+          visualization:
+            id: visualization-1323
+            template: scattergraph
+            properties: {}
+            graphicSymbols: {}
+        - actionName: '[UI] Set Active Visualization'
+          date: '5/29/2019, 11:39:29 AM'
+          time: 1559144369764
+          logid: 6
+          visualizationIndex: 0
+          visualization:
+            id: visualization-1323
+            template: scattergraph
+            properties: {}
+            graphicSymbols: {}
+        - actionName: '[UI] Set Record Stream'
+          date: '5/29/2019, 11:39:32 AM'
+          time: 1559144372291
+          logid: 7
+          slot: points
+          symbol:
+            id: points-1324
+            type: area
+            recordStream: csvData
+            graphicVariables: {}
+          visualization:
+            id: visualization-1323
+            template: scattergraph
+            properties: {}
+            graphicSymbols:
+              points: points-1324
+        - actionName: '[UI] Set Graphic Variable'
+          date: '5/29/2019, 11:39:36 AM'
+          time: 1559144376317
+          logid: 8
+          id: identifier
+          slot: points
+          variable:
+            id: identifier
+            label: BAwardNumber
+            type: identifier
+            selector: BAwardNumber
+            recordStream: csvData
+            recordSet: csvData
+            dataVariable: BAwardNumber
+          visualization:
+            id: visualization-1323
+            template: scattergraph
+            properties: {}
+            graphicSymbols:
+              points: points-1324
+        - actionName: '[UI] Set Graphic Variable'
+          date: '5/29/2019, 11:39:40 AM'
+          time: 1559144380734
+          logid: 9
+          id: 'y'
+          slot: points
+          variable:
+            id: axis
+            label: BNSFOrganization
+            type: axis
+            selector: BNSFOrganization
+            recordStream: csvData
+            recordSet: csvData
+            dataVariable: BNSFOrganization
+          visualization:
+            id: visualization-1323
+            template: scattergraph
+            properties: {}
+            graphicSymbols:
+              points: points-1324
+        - actionName: '[UI] Set Graphic Variable'
+          date: '5/29/2019, 11:39:48 AM'
+          time: 1559144388595
+          logid: 10
+          id: x
+          slot: points
+          variable:
+            id: axis
+            label: State
+            type: axis
+            selector: State
+            recordStream: csvData
+            recordSet: csvData
+            dataVariable: State
+          visualization:
+            id: visualization-1323
+            template: scattergraph
+            properties: {}
+            graphicSymbols:
+              points: points-1324
+        - actionName: '[UI] Save Project'
+          date: '5/29/2019, 11:40:02 AM'
+          time: 1559144402591
+          logid: 11
