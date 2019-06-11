@@ -1,0 +1,39 @@
+{
+  "name": "@dvl-fw/mav-embed",
+  "version": "0.1.0",
+  "description": "Web Components for embedding DVL-FW and Make-A-Vis visualizations",
+  "homepage": "https://github.com/cns-iu/make-a-vis",
+  "bugs": "https://github.com/cns-iu/make-a-vis/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cns-iu/make-a-vis.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "visualization",
+    "typescript",
+    "d3",
+    "vega",
+    "Web Components",
+    "Custom Elements"
+  ],
+  "author": "Cyberinfrastructure for Network Science Center at Indiana University (http://cns.iu.edu/)",
+  "contributors": [
+    "Bruce W. Herr II <bherr@indiana.edu> (https://github.com/bherr2)",
+    "Daniel Bolin <axbolin@iu.edu> (https://github.com/axdanbol)",
+    "Gagandeep Singh <singhgag@indiana.edu> (https://github.com/GagsdName)",
+    "Gurjaspal Singh Bedi <gbedi@iu.edu> (https://github.com/gurjaspalbedi)",
+    "Shashank Shekhar <shashekh@iu.edu> (https://github.com/KalaRaja)"
+  ],
+  "main": "main-es5.js",
+  "files": [
+    "main-es5.js",
+    "main-es2015.js",
+    "README.md",
+    "3rdpartylicenses.txt"
+  ],
+  "publishConfig": {
+      "access": "public"
+  }
+}
