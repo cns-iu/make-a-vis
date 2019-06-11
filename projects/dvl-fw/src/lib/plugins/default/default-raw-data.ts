@@ -1,3 +1,4 @@
+import { isArray } from 'lodash';
 import { parse } from 'papaparse';
 import { safeLoad } from 'js-yaml';
 
@@ -28,7 +29,7 @@ export class DefaultRawData implements RawData {
       if (this.data && this.template === 'csv') {
         this._parsed_data_ = this.getCSVData(this.data);
       } else if (this.data) {
-        this._parsed_data_ = this.data;
+        this._parsed_data_ = this.asObjectStore(this.data);
       } else if (this.url) {
         this._parsed_data_ = this.getRemoteData();
       }
@@ -44,16 +45,24 @@ export class DefaultRawData implements RawData {
       return this.getCSVData(text);
     } else {
       // Assumes either JSON or YAML
-      return safeLoad(text);
+      return this.asObjectStore(safeLoad(text));
     }
   }
 
   private getCSVData(text: string): any {
     const parseResults = parse(text, {header: true, dynamicTyping: true, skipEmptyLines: true});
-    const results = {};
-    // The data is stored in a property with the same string as the id
-    results[this.id] = parseResults.data;
-    return results;
+    return this.asObjectStore(parseResults.data);
+  }
+
+  private asObjectStore(data: unknown): any {
+    if (isArray(data)) {
+      const results = {};
+      // The data is stored in a property with the same string as the id
+      results[this.id] = data;
+      return results;
+    } else {
+      return data;
+    }
   }
 
   toJSON(): any {
