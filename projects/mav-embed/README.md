@@ -38,6 +38,10 @@ See the [ChangeLog](https://github.com/cns-iu/make-a-vis/blob/master/CHANGELOG.m
 </html>
 ```
 
+### Embedded using bl.ocks.org
+
+See <https://bl.ocks.org/bherr2/2e3e6c999575fe0fcd6cfaab42020e1b>.
+
 ## Credits
 
 Make-a-Vis is developed at the [Cyberinfrastructure for Network Science Center at Indiana University](http://cns.iu.edu/)
