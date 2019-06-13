@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
-import { find, forEach } from 'lodash';
+import { every, find, forEach, propertyOf, some } from 'lodash';
 import { BehaviorSubject, ObservableInput } from 'rxjs';
 import { catchError, switchAll, tap } from 'rxjs/operators';
 
@@ -7,7 +7,9 @@ import { GraphicSymbol } from '../../shared/graphic-symbol';
 import { GraphicVariable } from '../../shared/graphic-variable';
 import { Project } from '../../shared/project';
 import { ProjectSerializerService } from '../../shared/project-serializer-service';
-import { Visualization } from '../../shared/visualization';
+import { GraphicVariableOption, Visualization } from '../../shared/visualization';
+
+export type LegendType = 'dynamic-only' | 'static-only' | 'dynamic-preferred' | 'static-preferred';
 
 const EMPTY_VIS: ObservableInput<Visualization> = [undefined];
 
@@ -21,6 +23,8 @@ export class ItemComponent implements OnChanges, OnDestroy {
   @Input() visualization: Visualization;
   @Input() symbol: string;
   @Input() variable: string;
+  @Input() type: LegendType;
+  @Input() advanced: boolean;
 
   title: string = undefined;
   subtitle: string = undefined;
@@ -35,34 +39,19 @@ export class ItemComponent implements OnChanges, OnDestroy {
   constructor(private serializer: ProjectSerializerService) { }
 
   ngOnChanges(changes: SimpleChanges) {
-    const { project, symbol, variable } = this;
-    if (!project || !this.visualization || !symbol || !variable || !this.setValues()) {
+    const { project, visualization, symbol, variable } = this;
+    const checkedValues = [project, visualization, symbol, variable];
+    const checkedProperties = ['project', 'visualization', 'symbol', 'variable', 'type', 'advanced'];
+
+    if (!every(checkedValues) || !this.setValues()) {
       this.clear();
-    } else if ('project' in changes || 'visualization' in changes || 'symbol' in changes || 'variable' in changes) {
+    } else if (some(checkedProperties, propertyOf(changes))) {
       this.update();
     }
   }
 
   ngOnDestroy() {
     this.clear();
-  }
-
-  private setValues(): boolean {
-    const { visualization, symbol, variable } = this;
-    const symbolOpt = find(visualization.graphicSymbolOptions, ['id', symbol]);
-    const variableOpt = find(symbolOpt && symbolOpt.graphicVariableOptions, ['id', variable]);
-    const template = this.template = variableOpt && variableOpt.visualization; // TODO select static/dynamic
-    const symbolObj = this.symbolObj = visualization.graphicSymbols[symbol];
-    const variableObj = this.variableObj = symbolObj && symbolObj.graphicVariables[variable];
-
-    this.title = variableOpt && variableOpt.label;
-    this.subtitle = variableObj && `${ variableObj.recordSet.label }: ${ variableObj.label }`;
-
-    if (template && symbolObj && variableObj) { return true; }
-    // Clear internals for consistent state (all or nothing set)
-    this.title = this.subtitle = this.template = undefined;
-    this.symbolObj = this.variableObj = undefined;
-    return false;
   }
 
   private update(): void {
@@ -72,6 +61,41 @@ export class ItemComponent implements OnChanges, OnDestroy {
 
   private clear(): void {
     this.innerVisualization$.next(EMPTY_VIS);
+  }
+
+  private setValues(): boolean {
+    const { visualization, symbol, variable, advanced } = this;
+    const symbolOpt = find(visualization.graphicSymbolOptions, ['id', symbol]);
+    const variableOpt = find(symbolOpt && symbolOpt.graphicVariableOptions, ['id', variable]);
+    const template = this.template = variableOpt && this.selectTemplate(variableOpt);
+    const symbolObj = this.symbolObj = visualization.graphicSymbols[symbol];
+    const variableObj = this.variableObj = symbolObj && symbolObj.graphicVariables[variable];
+    const isDisabled = !advanced && variableOpt && variableOpt.advanced;
+
+    this.title = variableOpt && variableOpt.label;
+    this.subtitle = variableObj && `${ variableObj.recordSet.label }: ${ variableObj.label }`;
+
+    const checkedValues = [!isDisabled, template, symbolObj, variableObj];
+    if (every(checkedValues)) { return true; }
+    // Clear internals for consistent state (all or nothing set)
+    this.title = this.subtitle = this.template = undefined;
+    this.symbolObj = this.variableObj = undefined;
+    return false;
+  }
+
+  private selectTemplate(variableOpt: GraphicVariableOption): string {
+    const { visualization: dynamicVis, staticVisualization: staticVis } = variableOpt;
+    switch (this.type) {
+      default: /** Fallthrough */
+      case 'dynamic-only':
+        return dynamicVis;
+      case 'static-only':
+        return staticVis;
+      case 'dynamic-preferred':
+        return dynamicVis || staticVis;
+      case 'static-preferred':
+        return staticVis || dynamicVis;
+    }
   }
 
   private generateLegend(): ObservableInput<Visualization> {
