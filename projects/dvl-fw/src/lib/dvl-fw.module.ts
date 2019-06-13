@@ -2,13 +2,11 @@
 import { NgModule } from '@angular/core';
 
 import { LegendModule } from './legend/legend.module';
-import { NgxDinoModule } from './plugins/ngx-dino/ngx-dino.module';
-import { DvlFwVisualizationComponent } from './visualization/visualization.component';
+import { VisualizationModule } from './visualization/visualization.module';
 
 
 @NgModule({
-  imports: [NgxDinoModule, LegendModule],
-  declarations: [DvlFwVisualizationComponent],
-  exports: [DvlFwVisualizationComponent]
+  imports: [VisualizationModule, LegendModule],
+  exports: [VisualizationModule, LegendModule]
 })
 export class DvlFwModule { }
