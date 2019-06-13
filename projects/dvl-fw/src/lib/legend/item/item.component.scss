@@ -1,0 +1,29 @@
+.dvl-legend-item.container {
+  box-sizing: border-box;
+  height: 10rem;
+  min-width: 11rem;
+  border: 1px solid transparent;
+  text-align: center;
+  overflow-y: auto;
+
+  .title {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .subtitle {
+    margin-bottom: 0.5rem;
+  }
+
+  ::ng-deep .dvl-static-legend-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 4.375rem;
+
+    svg {
+      height: 3rem;
+    }
+  }
+  // TODO
+}

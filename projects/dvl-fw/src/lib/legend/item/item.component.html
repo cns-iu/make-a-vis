@@ -1,3 +1,7 @@
-<p>
-  item works!
-</p>
+<mat-card class="dvl-legend-item container">
+  <mat-card-title class="title">{{ title }}</mat-card-title>
+  <mat-card-subtitle class="subtitle">{{ subtitle }}</mat-card-subtitle>
+  <mat-card-content class="content">
+    <dvl-visualization [data]="visualization$ | async"></dvl-visualization>
+  </mat-card-content>
+</mat-card>
