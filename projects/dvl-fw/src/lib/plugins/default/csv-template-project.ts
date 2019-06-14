@@ -48,16 +48,13 @@ export class CSVTemplateProject extends DefaultProject {
   }
 
   getRawData(csvFileContents: string, suffix = 0): RawData[] {
-    const rawData = [];
     const parseResults = parse(csvFileContents, { header: true, dynamicTyping: true, skipEmptyLines: true });
     this.fields[suffix] = parseResults.meta.fields;
     this.fieldTypes[suffix] = this.inferDataTypes(parseResults.data);
 
-    rawData.push(
+    return [
       new DefaultRawData({ id: 'csvRawData' + suffix, template: 'json', data: { ['csvData' + suffix]: parseResults.data } })
-    );
-
-    return rawData;
+    ];
   }
 
   private getDataVariableNames(fields: string[]): string[] {
