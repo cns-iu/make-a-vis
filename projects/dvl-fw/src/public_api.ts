@@ -50,4 +50,4 @@ export * from './lib/encoding';
 export * from './lib/plugins/ngx-dino/visualizations';
 export * from './lib/plugins/ngx-dino/ngx-dino-plugin';
 export * from './lib/plugins/ngx-dino/ngx-dino.module';
-export * from './lib/plugins/ngx-dino/components/static-legend/static-legend.module';
+export * from './lib/plugins/ngx-dino/components/legend/static-legend.module';

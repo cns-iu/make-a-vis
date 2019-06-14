@@ -234,7 +234,9 @@ export class GraphicVariableTypeComponent implements OnChanges, OnDestroy {
         gvOption.push(gvOptions.filter((gso) => gso.id === gs)[0]);
       });
       if (!this.advancedService.advancedEnabled) {
-        gvOption[0].graphicVariableOptions = gvOption[0].graphicVariableOptions.filter((gv) => !gv.advanced);
+        for (const gvo of gvOptions) {
+          gvo.graphicVariableOptions = gvo.graphicVariableOptions.filter((gv) => !gv.advanced);
+        }
       }
       return gvOption;
     }

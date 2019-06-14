@@ -2,6 +2,20 @@
 
 Changelog for Make-a-Vis and DVL-FW.
 
+## 0.17.0 - 2019-06-14
+
+This is mostly a release to add some minor features and enhancements to be used in other projects.
+
+### Added in 0.17.0
+
+- Added mav-embed which allows people to embed MaV/DVL-FW visualizations (and their legends) in regular html pages (and even React). A couple simple examples are at <https://bl.ocks.org/bherr2>. Note: this feature is currently only supported on evergreen browsers (Chrome and Firefox, but NOT IE11).
+- Expanded RawData to support CSV and YAML loading
+- RawData can now pull data from external urls and be handled properly by MaV
+- CSV Template can now load multiple CSV files, for instance to make networks with Nodes and Edges CSV files.
+- Removed the blank scatterplot visualization that is created when normally loading CSV from MaV
+- Created a reusable component to DVL-FW that allows for creating legends (previously this was only in the MaV UI)
+- Added a super-secret way to enabled advanced functionality (MaV Advanced). Pressing 'a', then 'b' toggles it. This is currently a hidden/alpha feature that shows all the available graphic variables available to a visualization rather than the current limited set. This opens up opacity, stroke, and other advanced graphic variables for us. In the future, we may also have hidden/alpha visualizations that are accessible only via MaV Advanced.
+
 ## 0.15.0 - 2019-03-15
 
 ### Added in 0.15.0

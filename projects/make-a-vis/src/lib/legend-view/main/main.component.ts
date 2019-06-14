@@ -1,11 +1,16 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Store, select } from '@ngrx/store';
+import { cloneDeep } from 'lodash';
+import { Subscription } from 'rxjs';
 
 import { GraphicSymbolOption, GraphicVariable, GraphicVariableOption,
   Project, RecordStream, Visualization, GraphicSymbol } from '@dvl-fw/core';
+import { getAdvancedEnabledSelector, MavSelectionState } from '../../mav-selection/shared/store';
+import { AdvancedService } from '../../shared/services/advance/advanced.service';
 import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import { ApplicationState, getUiFeature } from '../../shared/store';
+
 
 export interface Group {
   option: GraphicSymbolOption;
@@ -17,7 +22,7 @@ export interface Group {
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent {
+export class MainComponent implements OnDestroy {
   streams: RecordStream[];
   groups: Group[] = [];
 
@@ -26,12 +31,36 @@ export class MainComponent {
   private lastActiveVisualizationIndex: number;
   private lastProject: Project;
 
-  constructor(private store: Store<ApplicationState>, private updateService: UpdateVisService) {
-    store.pipe(select(getUiFeature)).subscribe(({ activeVisualization, project }) => {
+  /**
+   * Active Project and Visualization subscription
+   */
+  activeProjectVisualizationSubscription: Subscription;
+  /**
+   * Advanced service subscription
+   */
+  advancedServiceSubscription: Subscription;
+
+  constructor(
+    store: Store<ApplicationState>,
+    mavSelectionStore: Store<MavSelectionState>,
+    private updateService: UpdateVisService,
+    private advancedService: AdvancedService
+  ) {
+    this.activeProjectVisualizationSubscription = store.pipe(select(getUiFeature)).subscribe(({ activeVisualization, project }) => {
       this.lastActiveVisualizationIndex = activeVisualization.visualizationIndex;
       this.lastProject = project;
       this.setState(project, activeVisualization.visualizationIndex);
     });
+    this.advancedServiceSubscription = mavSelectionStore.pipe(select(getAdvancedEnabledSelector)).subscribe(() => {
+      if (this.lastProject) {
+        this.setState(this.lastProject, this.lastActiveVisualizationIndex);
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.advancedServiceSubscription.unsubscribe();
+    this.activeProjectVisualizationSubscription.unsubscribe();
   }
 
   onStreamChange(group: Group, index: number) {
@@ -76,17 +105,32 @@ export class MainComponent {
     this.groups = [];
 
     if (options) {
-      options.forEach(option => {
-        const symbol = graphicSymbols[option.id];
-        const index = symbol ? this.streams.indexOf(symbol.recordStream) : -1;
-        if (symbol && this.hasSetGraphicVariables(symbol)) {
-          this.groups.push({ option, index });
-        }
+      options
+        .map<GraphicSymbolOption>(this.filterGraphicSymbolOptions.bind(this))
+        .forEach(option => {
+          const symbol = graphicSymbols[option.id];
+          const index = symbol ? this.streams.indexOf(symbol.recordStream) : -1;
+          if (symbol && this.hasSetGraphicVariables(symbol, option)) {
+            this.groups.push({ option, index });
+          }
       });
     }
   }
 
-  private hasSetGraphicVariables(graphicSymbol: GraphicSymbol): boolean {
-    return Object.entries(graphicSymbol.graphicVariables).length > 0;
+  private filterGraphicSymbolOptions(gsOptions: GraphicSymbolOption): GraphicSymbolOption {
+    if (!this.advancedService.advancedEnabled) {
+      gsOptions = cloneDeep(gsOptions);
+      gsOptions.graphicVariableOptions = gsOptions.graphicVariableOptions.filter((gv) => !gv.advanced);
+    }
+    return gsOptions;
+  }
+
+  private hasSetGraphicVariables(graphicSymbol: GraphicSymbol, gsOptions: GraphicSymbolOption): boolean {
+    const goodNames = {};
+    gsOptions.graphicVariableOptions.forEach((gv) => {
+      goodNames[gv.id] = true;
+      goodNames[gv.type] = true;
+    });
+    return Object.keys(graphicSymbol.graphicVariables).filter(gv => goodNames[gv]).length > 0;
   }
 }
