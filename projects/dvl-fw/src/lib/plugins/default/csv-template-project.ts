@@ -1,4 +1,4 @@
-import { isBoolean, isInteger, isNumber } from 'lodash';
+import { isArray, isBoolean, isInteger, isNumber } from 'lodash';
 import { parse } from 'papaparse';
 
 import { DataSource } from '../../shared/data-source';
@@ -15,30 +15,49 @@ import { DefaultRecordSet } from './default-record-set';
 
 
 export class CSVTemplateProject extends DefaultProject {
-  private fields: string[];
-  private fieldTypes: {[field: string]: string};
+  private fields: { [suffix: number]: string[] } = {};
+  private fieldTypes: { [suffix: number]: { [field: string]: string } } = {};
 
-  static async create(isiFileContent: string, fileName?: string): Promise<Project> {
-    const project = new CSVTemplateProject(isiFileContent, fileName);
+  static async create(csvFileContents: string[] | string, fileNames?: string[] | string): Promise<Project> {
+    const project = new CSVTemplateProject(csvFileContents, fileNames);
     return project;
   }
 
-  constructor(csvFileContent: string, fileName?: string) {
+  constructor(csvFileContents: string[] | string, fileNames?: string[] | string) {
     super();
-    this.rawData = this.getRawData(csvFileContent);
-    this.dataSources = this.getDataSources();
-    this.recordSets = this.getRecordSets(fileName);
-    this.graphicVariables = this.getGraphicVariables();
+    csvFileContents = isArray(csvFileContents) ? csvFileContents : [csvFileContents];
+    fileNames = isArray(fileNames) ? fileNames : [fileNames];
+    if (!fileNames) {
+      fileNames = csvFileContents.map(s => '');
+    }
+    csvFileContents.forEach((csvContent, i) => {
+      const suffix = i + 1;
+      this.rawData = this.rawData.concat(this.getRawData(csvContent, suffix));
+      this.dataSources = this.dataSources.concat(this.getDataSources(suffix));
+      this.recordSets = this.recordSets.concat(this.getRecordSets(fileNames[i], suffix));
+      this.graphicVariables = this.graphicVariables.concat(this.getGraphicVariables(suffix));
+    });
+
+    this.dataSources.push(
+      new ActivityLogDataSource({
+        id: 'activityLog',
+        properties: { rawData: 'activityLog', keepPreviousActivity: true, freezeLogs: false },
+        recordStreams: [{ id: 'activityLog', label: 'Activity Log' }]
+      }, this)
+    );
   }
 
-  getRawData(csvFileContent: string): RawData[] {
-    const parseResults = parse(csvFileContent, {header: true, dynamicTyping: true, skipEmptyLines: true});
-    this.fields = parseResults.meta.fields;
-    this.fieldTypes = this.inferDataTypes(parseResults.data);
+  getRawData(csvFileContents: string, suffix = 0): RawData[] {
+    const rawData = [];
+    const parseResults = parse(csvFileContents, { header: true, dynamicTyping: true, skipEmptyLines: true });
+    this.fields[suffix] = parseResults.meta.fields;
+    this.fieldTypes[suffix] = this.inferDataTypes(parseResults.data);
 
-    return [
-      new DefaultRawData({id: 'csvRawData', template: 'json', data: {csvData: parseResults.data}})
-    ];
+    rawData.push(
+      new DefaultRawData({ id: 'csvRawData' + suffix, template: 'json', data: { ['csvData' + suffix]: parseResults.data } })
+    );
+
+    return rawData;
   }
 
   private getDataVariableNames(fields: string[]): string[] {
@@ -52,8 +71,8 @@ export class CSVTemplateProject extends DefaultProject {
     return dataVariableNames;
   }
 
-  private inferDataTypes(data: any[]): {[field: string]: string} {
-    const types: {[field: string]: string} = {};
+  private inferDataTypes(data: any[]): { [field: string]: string } {
+    const types: { [field: string]: string } = {};
 
     data.forEach(item => Object.entries(item).forEach(([key, value]) => {
       if (isInteger(value)) {
@@ -71,31 +90,26 @@ export class CSVTemplateProject extends DefaultProject {
     return types;
   }
 
-  getDataSources(): DataSource[] {
+  getDataSources(suffix = 0): DataSource[] {
     return [
       new DefaultDataSource({
-        id: 'csvDataSource',
-        properties: { rawData: 'csvRawData' },
-        recordStreams: [{id: 'csvData', label: 'CSV Data'}]
-      }, this),
-      new ActivityLogDataSource({
-        id: 'activityLog',
-        properties: { rawData: 'activityLog', keepPreviousActivity: true, freezeLogs: false },
-        recordStreams: [{id: 'activityLog', label: 'Activity Log'}]
+        id: 'csvDataSource' + suffix,
+        properties: { rawData: 'csvRawData' + suffix },
+        recordStreams: [{ id: 'csvData' + suffix, label: 'CSV Data ' + suffix }]
       }, this)
     ];
   }
 
-  getRecordSets(fileName: string): RecordSet[] {
+  getRecordSets(fileName: string, suffix = 0): RecordSet[] {
     const recordSets = [
       new DefaultRecordSet({
-        id: 'csvData',
-        label: 'CSV Data',
-        labelPlural: 'CSV Data',
+        id: 'csvData' + suffix,
+        label: 'CSV Data ' + suffix,
+        labelPlural: 'CSV Data ' + suffix,
         description: fileName || undefined,
-        defaultRecordStream: 'csvData',
-        dataVariables: this.getDataVariableNames(this.fields).map(f => {
-          return {id: f, label: f, dataType: this.fieldTypes[f] || 'text', scaleType: '???'};
+        defaultRecordStream: 'csvData' + suffix,
+        dataVariables: this.getDataVariableNames(this.fields[suffix]).map(f => {
+          return { id: f, label: f, dataType: this.fieldTypes[suffix][f] || 'text', scaleType: '???' };
         })
       }, this)
     ];
@@ -103,12 +117,12 @@ export class CSVTemplateProject extends DefaultProject {
     return recordSets;
   }
 
-  getGraphicVariables(): GraphicVariable[] {
+  getGraphicVariables(suffix = 0): GraphicVariable[] {
     // Setup some default _naive_ graphic variable mappings.
-    const dataVariables = this.getDataVariableNames(this.fields);
-    const mappingFields = this.fields.filter((field: string) => field.trim().split('$$').length > 1);
+    const dataVariables = this.getDataVariableNames(this.fields[suffix]);
+    const mappingFields = this.fields[suffix].filter((field: string) => field.trim().split('$$').length > 1);
 
-    const mappings = { ...this.getNaiveMappings(dataVariables) };
+    const mappings = this.getNaiveMappings(dataVariables, suffix);
     const predefinedMappings = this.getPredefinedMappings(mappingFields);
 
     for (const dataVariableName of Object.keys(predefinedMappings)) {
@@ -117,9 +131,9 @@ export class CSVTemplateProject extends DefaultProject {
 
     return DefaultGraphicVariableMapping.fromJSON([
       {
-        recordStream: 'csvData',
+        recordStream: 'csvData' + suffix,
         mappings: {
-          csvData: mappings
+          ['csvData' + suffix]: mappings
         }
       }
     ], this);
@@ -134,25 +148,25 @@ export class CSVTemplateProject extends DefaultProject {
         if (!predefinedMappings[splitFields[0]]) {
           predefinedMappings[splitFields[0]] = {};
         }
-        predefinedMappings[splitFields[0]][splitFields[1]] = [{selector: field}];
+        predefinedMappings[splitFields[0]][splitFields[1]] = [{ selector: field }];
       }
     }
 
     return predefinedMappings;
   }
 
-  getNaiveMappings(dataVariables: string[]): {} {
+  getNaiveMappings(dataVariables: string[], suffix = 0): {} {
     const naiveMappings = {};
 
     for (const field of dataVariables) {
       let types = ['identifier', 'axis', 'text', 'tooltip', 'label', 'input', 'order'];
 
-      if (this.fieldTypes[field] === 'integer' || this.fieldTypes[field] === 'number') {
+      if (this.fieldTypes[suffix][field] === 'integer' || this.fieldTypes[suffix][field] === 'number') {
         // These are _guesses_ and not likely correct
         types = types.concat(['areaSize', 'strokeWidth', 'fontSize']);
       }
 
-      if (this.fieldTypes[field] === 'text' && field.toLowerCase().indexOf('color') !== -1) {
+      if (this.fieldTypes[suffix][field] === 'text' && field.toLowerCase().indexOf('color') !== -1) {
         // These are _guesses_ and not likely correct
         types = types.concat(['color', 'strokeColor']);
       }
@@ -164,7 +178,7 @@ export class CSVTemplateProject extends DefaultProject {
       }
 
       naiveMappings[field] = {};
-      types.forEach(t => naiveMappings[field][t] = [{selector: field}]);
+      types.forEach(t => naiveMappings[field][t] = [{ selector: field }]);
     }
 
     return naiveMappings;

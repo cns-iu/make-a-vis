@@ -1,4 +1,6 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
+import { isArray } from 'lodash';
+
 import { DataSource } from '../../shared/data-source';
 import { GraphicSymbol } from '../../shared/graphic-symbol';
 import { GraphicVariable } from '../../shared/graphic-variable';
@@ -25,15 +27,17 @@ import { isNSFCompatibleCSV } from './nsf-validator';
 
 
 export class NSFTemplateProject extends DefaultProject {
-  static async create(nsfFileContent: string, fileName?: string): Promise<Project> {
+  static async create(nsfFileContents: string[] | string, fileNames?: string[] | string): Promise<Project> {
+    nsfFileContents = isArray(nsfFileContents) ? nsfFileContents : [nsfFileContents];
+    fileNames = isArray(fileNames) ? fileNames : [fileNames];
     // if the csv file has nsf compatible headers,load the CSV data with NSF Template Project
-    if (isNSFCompatibleCSV(nsfFileContent)) {
-      const project = new NSFTemplateProject(nsfFileContent, fileName);
+    if (isNSFCompatibleCSV(nsfFileContents[0])) {
+      const project = new NSFTemplateProject(nsfFileContents[0], fileNames[0]);
       await project.prePopulateData();
       return project;
     } else {
       // Otherwise, load the CSV data with the default CSV Template Project.
-      return await CSVTemplateProject.create(nsfFileContent, fileName);
+      return await CSVTemplateProject.create(nsfFileContents, fileNames);
     }
   }
 

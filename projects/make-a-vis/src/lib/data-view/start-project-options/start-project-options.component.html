@@ -7,7 +7,8 @@
 
       <input class="get-data" [id]="'mav-start-project-options-' + fileExtension" type="file"
         [accept]="loadProjectService.getSupportedExtension(fileExtension)"
-        (change)="readNewFile($event, $event.target, fileExtension.toLowerCase())" #startProjectFileInputTag />
+        (change)="readNewFile($event, $event.target, fileExtension.toLowerCase())" [multiple] = "fileExtension === 'csv' ? 'multiple' : ''" #startProjectFileInputTag/>
+      <!-- <input *ngIf="fileExtension !== 'csv'; else csvInput" -->
     </span>
   </div>
 </div>

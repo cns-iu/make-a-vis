@@ -9,6 +9,7 @@ import { ObjectFactoryRegistry } from './object-factory';
 import { Project } from './project';
 import { ProjectSerializer } from './project-serializer';
 import { Visualization } from './visualization';
+import { isArray } from 'lodash';
 
 @Injectable({
   providedIn: 'root'
@@ -20,15 +21,17 @@ export class ProjectSerializerService {
     this.registry = ProjectSerializer.defaultRegistry;
   }
 
-  createProject(template: 'isi' | 'nsf' | 'csv' | 'json', fileContents: string, fileName?: string): Observable<Project> {
+  createProject(template: 'isi' | 'nsf' | 'csv' | 'json',
+    fileContents: string[] | string, fileNames?: string[] | string): Observable<Project> {
+    fileNames = isArray(fileNames) ? fileNames : [fileNames];
     return defer(async () => {
       switch (template) {
         case 'csv':
           // fall through NSFTemplateProject
         case 'nsf':
-          return await NSFTemplateProject.create(fileContents, fileName);
+          return await NSFTemplateProject.create(fileContents, fileNames);
         case 'isi':
-          return await ISITemplateProject.create(fileContents, fileName);
+          return await ISITemplateProject.create(fileContents[0], fileNames[0]);
         default:
           throw new Error(`Template: ${template} not supported.`);
       }
