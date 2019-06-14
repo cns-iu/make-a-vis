@@ -92,7 +92,7 @@ jobs:
     name: Build and publish mav-embed
     if: tag IS present
     script:
-    - npm run build:libs
+    - npm run build:dvl-fw
     - npm run build:mav-embed
     - cp projects/mav-embed/README.md dist/mav-embed
     - cp projects/mav-embed/package.json dist/mav-embed
