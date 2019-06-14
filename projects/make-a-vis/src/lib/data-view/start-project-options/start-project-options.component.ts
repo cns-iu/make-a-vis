@@ -38,7 +38,6 @@ export class StartProjectOptionsComponent {
         areValidExtensions = true;
       } else {
         areValidExtensions = false;
-        // TODO temporary, use logs
         this.snackBar.open(`${filename} has the wrong extension.`, null, {
           duration: 3000,
           verticalPosition: 'top',
