@@ -9,19 +9,28 @@ import { Project } from '../../shared/project';
 import { ProjectSerializerService } from '../../shared/project-serializer-service';
 import { GraphicVariableOption, Visualization } from '../../shared/visualization';
 
+/** The valid options for selecting static/dynamic legends */
 export type LegendType = 'dynamic-only' | 'static-only' | 'dynamic-preferred' | 'static-preferred';
 
+/** Data representing an empty visualization */
 const EMPTY_VIS: ObservableInput<Visualization> = [undefined];
 
+/**
+ * Renderes a single legend with a title and subtitle
+ */
 @Component({
   selector: 'dvl-legend-item',
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.scss']
 })
 export class ItemComponent implements OnChanges, OnDestroy {
+  /** The project to which the legend belongs */
   @Input() project: Project;
+  /** The visualization to which the legend belongs */
   @Input() visualization: Visualization;
+  /** The symbol for the legend */
   @Input() symbol: string;
+  /** The variable to display a legend for */
   @Input() variable: string;
   @Input() type: LegendType;
   @Input() advanced: boolean;
@@ -66,7 +75,9 @@ export class ItemComponent implements OnChanges, OnDestroy {
   private setValues(): boolean {
     const { visualization, symbol, variable, advanced } = this;
     const symbolOpt = find(visualization.graphicSymbolOptions, ['id', symbol]);
-    const variableOpt = find(symbolOpt && symbolOpt.graphicVariableOptions, ['id', variable]);
+    const variableOpt = symbolOpt && find(symbolOpt.graphicVariableOptions, ({ id, type }) => {
+      return id ? id === variable : type === variable;
+    });
     const template = this.template = variableOpt && this.selectTemplate(variableOpt);
     const symbolObj = this.symbolObj = visualization.graphicSymbols[symbol];
     const variableObj = this.variableObj = symbolObj && symbolObj.graphicVariables[variable];
@@ -87,14 +98,14 @@ export class ItemComponent implements OnChanges, OnDestroy {
     const { visualization: dynamicVis, staticVisualization: staticVis } = variableOpt;
     switch (this.type) {
       default: /** Fallthrough */
-      case 'dynamic-only':
-        return dynamicVis;
-      case 'static-only':
-        return staticVis;
       case 'dynamic-preferred':
         return dynamicVis || staticVis;
       case 'static-preferred':
         return staticVis || dynamicVis;
+      case 'dynamic-only':
+        return dynamicVis;
+      case 'static-only':
+        return staticVis;
     }
   }
 
