@@ -9,7 +9,8 @@ export interface GraphicVariableOption {
   id?: string;
   type: string;
   label: string;
-  visualization?: string; // TODO
+  scaleType?: string;
+  visualization?: string;
   staticVisualization?: string;
   advanced?: boolean;
 }

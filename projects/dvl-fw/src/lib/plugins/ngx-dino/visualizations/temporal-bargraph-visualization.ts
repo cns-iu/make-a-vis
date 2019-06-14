@@ -15,14 +15,15 @@ export class TemporalBargraphVisualization extends DefaultVisualization {
       { type: 'identifier', label: 'Identifier', visualization: 'id', scaleType: 'ratio', required: true },
       { id: 'x-start', type: 'axis', label: 'X-Axis Start', visualization: 'start', scaleType: 'ratio', required: true },
       { id: 'x-end', type: 'axis', label: 'X-Axis End', visualization: 'end', scaleType: 'ratio', required: true },
-      // { id: 'y-order', type: 'axis', label: 'Y-Axis Order' },
+      { id: 'y-order', type: 'axis', label: 'Y-Axis Order', advanced: true },
       { id: 'height', type: 'areaSize', label: 'Size', visualization: 'edge-size', scaleType: 'ratio', staticVisualization: 'thickness' },
       { type: 'color', label: 'Color Hue', visualization: 'color', scaleType: 'nominal', staticVisualization: 'color-area' },
-      // { type: 'transparency', label: 'Transparency'},
-      // { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color' },
-      // { type: 'strokeTransparency', label: 'Stroke Transparency'},
+      { id: 'strokeColor', type: 'color', label: 'Stroke Color Hue', visualization: 'color', advanced: true },
+      { type: 'transparency', label: 'Transparency', advanced: true },
+      { id: 'strokeTransparency', type: 'transparency', label: 'Stroke Transparency', advanced: true},
       { id: 'label', type: 'text', label: 'Label', visualization: 'label', scaleType: 'nominal' },
-      { id: 'tooltip', type: 'text', label: 'Tooltip', visualization: 'label' }
+      { id: 'tooltip', type: 'text', label: 'Tooltip', visualization: 'label' },
+      { type: 'labelPosition', label: 'Label Position', advanced: true },
     ]
   }];
 }

@@ -1,9 +1,9 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
-import { ObjectFactory, ObjectFactoryRegistry } from '../../../shared/object-factory';
-import { Project } from '../../../shared/project';
-import { Visualization } from '../../../shared/visualization';
-import { DefaultVisualization } from '../../default/default-visualization';
-import { AreaSizeComponent } from '../components/static-legend/area-size/area-size.component';
+import { ObjectFactory, ObjectFactoryRegistry } from '../../../../shared/object-factory';
+import { Project } from '../../../../shared/project';
+import { Visualization } from '../../../../shared/visualization';
+import { DefaultVisualization } from '../../../default/default-visualization';
+import { AreaSizeComponent } from '../../components/legend/area-size/area-size.component';
 
 export class AreaSizeVisualization extends DefaultVisualization {
   readonly component = AreaSizeComponent;

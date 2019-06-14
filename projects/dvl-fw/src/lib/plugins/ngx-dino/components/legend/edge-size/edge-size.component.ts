@@ -2,8 +2,8 @@
 import { Component } from '@angular/core';
 import { StrokeWidthLegendComponent } from '@ngx-dino/legend';
 
-import { BaseVisualizationComponent } from '../base-visualization-component';
-import { createDefaultFieldGroup, createFieldNameMapping } from '../utility';
+import { BaseVisualizationComponent } from '../../base-visualization-component';
+import { createDefaultFieldGroup, createFieldNameMapping } from '../../utility';
 
 export type Properties = null;
 

@@ -18,15 +18,18 @@ export class NetworkVisualization extends DefaultVisualization {
         { id: 'x', type: 'axis', label: 'X', visualization: 'x-axis', scaleType: 'ratio', required: true },
         { id: 'y', type: 'axis', label: 'Y', visualization: 'y-axis', scaleType: 'ratio', required: true },
         { type: 'color', label: 'Color Hue', visualization: 'color', scaleType: 'nominal', staticVisualization: 'color-area' },
-        { type: 'strokeColor', label: 'Stroke Color Hue', visualization: 'color', advanced: true },
+        { id: 'strokeColor', type: 'color', label: 'Stroke Color Hue', visualization: 'color', advanced: true },
+        { type: 'strokeWidth', label: 'Stroke Width', visualization: 'edge-size', staticVisualization: 'thickness', advanced: true },
         { type: 'areaSize', label: 'Size', visualization: 'node-size', scaleType: 'ratio', staticVisualization: 'area-size',
           required: true
         },
-        { type: 'shape', label: 'Shape', advanced: true },
         { type: 'transparency', label: 'Transparency', advanced: true},
-        { type: 'strokeTransparency', label: 'Stroke Transparency', advanced: true},
+        { id: 'strokeTransparency', type: 'transparency', label: 'Stroke Transparency', advanced: true},
         { id: 'label', type: 'text', label: 'Label', visualization: 'label'},
-        { id: 'tooltip', type: 'text', label: 'Tooltip', visualization: 'label'}
+        { id: 'tooltip', type: 'text', label: 'Tooltip', visualization: 'label'},
+        { type: 'labelPosition', label: 'Label Position', advanced: true },
+        { type: 'shape', label: 'Shape', advanced: true },
+        { type: 'pulse', label: 'Pulse', advanced: true },
       ]
     }, {
       id: 'edges', label: 'Edges', type: 'line',
@@ -38,9 +41,9 @@ export class NetworkVisualization extends DefaultVisualization {
         { id: 'targetY', type: 'axis', label: 'Target Y', visualization: 'target', scaleType: 'ratio', required: true },
         { type: 'source', label: 'Source Position', advanced: true },
         { type: 'target', label: 'Target Position', advanced: true },
-        { type: 'strokeColor', label: 'Color Hue', visualization: 'color', scaleType: 'nominal', staticVisualization: 'color-area' },
-        { type: 'strokeWidth', label: 'Size', visualization: 'edge-size', scaleType: 'ratio', staticVisualization: 'thickness',
-          required: true
+        { id: 'strokeColor', type: 'color', label: 'Color Hue', visualization: 'color', staticVisualization: 'color-area' },
+        { type: 'strokeWidth', label: 'Size', visualization: 'edge-size', scaleType: 'ratio', required: true,
+          staticVisualization: 'thickness'
         },
         { type: 'transparency', label: 'Transparency', advanced: true }
       ]
