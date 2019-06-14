@@ -1,3 +1,5 @@
+import { isArray } from 'lodash';
+import { parse } from 'papaparse';
 import { safeLoad } from 'js-yaml';
 
 import { ObjectFactory, ObjectFactoryRegistry } from '../../shared/object-factory';
@@ -10,7 +12,7 @@ export class DefaultRawData implements RawData {
   template = 'default';
   private data: any;
   private url: string;
-  private _url_data_: any;
+  private _parsed_data_: Promise<any>;
 
   constructor(data: {id: string, template: string, data?: any, url?: string}) {
     Object.assign(this, data);
@@ -19,28 +21,50 @@ export class DefaultRawData implements RawData {
   setData(data: any) {
     this.data = data;
     this.url = undefined;
-    this._url_data_ = undefined;
+    this._parsed_data_ = undefined;
   }
 
   async getData(): Promise<any> {
-    if (this.data) {
-      return this.data;
-    } else if (this._url_data_) {
-      return this._url_data_;
-    } else if (this.url) {
-      const data = (await fetch(this.url));
-      if (!this._url_data_) {
-        if (this.template === 'string') {
-          this._url_data_ = await data.text();
-        } else {
-          this._url_data_ = safeLoad(await data.text());
-        }
+    if (!this._parsed_data_) {
+      if (this.data && this.template === 'csv') {
+        this._parsed_data_ = this.getCSVData(this.data);
+      } else if (this.data) {
+        this._parsed_data_ = this.asObjectStore(this.data);
+      } else if (this.url) {
+        this._parsed_data_ = this.getRemoteData();
       }
-      return this._url_data_;
+    }
+    return await this._parsed_data_;
+  }
+
+  private async getRemoteData(): Promise<any> {
+    const text = await (await fetch(this.url)).text();
+    if (this.template === 'string') {
+      return text;
+    } else if (this.template === 'csv') {
+      return this.getCSVData(text);
     } else {
-      return {};
+      // Assumes either JSON or YAML
+      return this.asObjectStore(safeLoad(text));
     }
   }
+
+  private getCSVData(text: string): any {
+    const parseResults = parse(text, {header: true, dynamicTyping: true, skipEmptyLines: true});
+    return this.asObjectStore(parseResults.data);
+  }
+
+  private asObjectStore(data: unknown): any {
+    if (isArray(data)) {
+      const results = {};
+      // The data is stored in a property with the same string as the id
+      results[this.id] = data;
+      return results;
+    } else {
+      return data;
+    }
+  }
+
   toJSON(): any {
     return Object.assign({id: this.id, template: this.template, data: this.data, url: this.url});
   }
