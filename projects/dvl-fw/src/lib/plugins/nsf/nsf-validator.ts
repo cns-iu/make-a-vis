@@ -16,7 +16,6 @@ const missingHeadertolerance = 2; // number of missing headers allowed
  * @returns true of false
  */
 export function isNSFCompatibleCSV(fileContents: string): boolean {
-
     // get the first row
     const fileHeader = fileContents.substring(0, fileContents.indexOf('\n'));
     // get headers from first row
