@@ -17,6 +17,10 @@ For information on how to develop / contribute to Make-a-Vis and DVL-FW, see [DE
 
 <https://cns-iu.github.io/make-a-vis/>
 
+## Visualization Embedding (mav-embed) Demos
+
+<https://bl.ocks.org/bherr2>
+
 ## Change Log
 
 See the [ChangeLog](CHANGELOG.md) for the latest developments.

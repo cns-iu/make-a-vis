@@ -34,13 +34,16 @@ See the [ChangeLog](https://github.com/cns-iu/make-a-vis/blob/master/CHANGELOG.m
 
   <!-- Add a visualization referencing the project -->
   <mav-visualization project="#proj1" index="0"></mav-visualization>
+
+  <!-- Add a legend for the visualization -->
+  <mav-legend project="#proj1" index="0"></mav-legend>
 </body>
 </html>
 ```
 
 ### Embedded using bl.ocks.org
 
-See <https://bl.ocks.org/bherr2/2e3e6c999575fe0fcd6cfaab42020e1b>.
+See <https://bl.ocks.org/bherr2/2e3e6c999575fe0fcd6cfaab42020e1b>. More examples: <https://bl.ocks.org/bherr2>
 
 ## Credits
 
