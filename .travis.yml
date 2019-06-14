@@ -23,7 +23,7 @@ jobs:
   include:
   - stage: test
     name: Run Tests
-    if: NOT (tag IS present) 
+    if: NOT (tag IS present)
     script:
     - npm run build:build-info
     - npm run build:libs
@@ -92,6 +92,7 @@ jobs:
     name: Build and publish mav-embed
     if: tag IS present
     script:
+    - npm run build:libs
     - npm run build:mav-embed
     - cp projects/mav-embed/README.md dist/mav-embed
     - cp projects/mav-embed/package.json dist/mav-embed
@@ -106,7 +107,7 @@ jobs:
     - sonar-scanner -X
   - stage: test
     name: Run linter
-    if: NOT (tag IS present) 
+    if: NOT (tag IS present)
     script:
     - npm run lint
 notifications:
