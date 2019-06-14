@@ -16,7 +16,7 @@ export class StartProjectOptionsComponent {
   constructor(public loadProjectService: LoadProjectService, public snackBar: MatSnackBar) { }
 
   /**
-  * Reads new file/s
+  * Reads new file(s)
   * @param event the onload event object
   * @param selectedExtension the intended extension of files
   */
