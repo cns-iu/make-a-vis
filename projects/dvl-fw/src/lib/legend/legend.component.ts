@@ -27,8 +27,6 @@ export class LegendComponent implements OnChanges, OnDestroy {
 
   groups: ItemGroup[] = [];
 
-  constructor() { }
-
   ngOnChanges(changes: SimpleChanges) {
     const { project, visualization } = this;
     const checkedValues = [project, visualization];
@@ -61,7 +59,7 @@ export class LegendComponent implements OnChanges, OnDestroy {
 
   private createGroup(this: void, symbolOpt: GraphicSymbolOption): ItemGroup {
     const { id, label, graphicVariableOptions } = symbolOpt;
-    const items = filter(map(graphicVariableOptions, 'id'));
+    const items = filter(map(graphicVariableOptions, opt => opt.id || opt.type));
     return Object.assign(items, { id, label });
   }
 }
