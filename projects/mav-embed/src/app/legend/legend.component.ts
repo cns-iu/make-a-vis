@@ -19,7 +19,7 @@ export class LegendComponent extends VisualizationComponent {
 
   @Input() orientation: string;
   @Input() type: string;
-  @Input() advanced: boolean | string;
+  @Input() advanced: any;
 
   project$: Observable<Project>;
   symbolGroups: string | string[];
