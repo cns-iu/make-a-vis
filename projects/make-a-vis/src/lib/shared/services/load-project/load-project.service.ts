@@ -80,14 +80,14 @@ export class LoadProjectService {
 
   getProject(fileNames: string[], fileExtension: ProjectExtensionType, event: any) {
     this.store.dispatch(new sidenavStore.LoadProjectStarted({
-      loadingProject: true, fileName: fileNames.join(), fileExtension: fileExtension
+      loadingProject: true, fileName: fileNames.join('|'), fileExtension: fileExtension
     }));
 
     this.loadFile(fileExtension, event.srcElement.files, fileNames)
       .subscribe((project) => {
         if (project) { // success
           this.store.dispatch(new sidenavStore.LoadProjectCompleted(
-            { loadingProject: false, fileName: fileNames.join(), fileExtension: fileExtension, project: project }
+            { loadingProject: false, fileName: fileNames.join('|'), fileExtension: fileExtension, project: project }
           ));
         } else { // failure
           this.store.dispatch(new sidenavStore.LoadProjectError(
