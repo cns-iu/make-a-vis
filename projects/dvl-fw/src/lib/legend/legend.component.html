@@ -1,3 +1,10 @@
-<p>
-  legend works!
-</p>
+<div class="dvl-legend container" [attr.data-orientation]="orientation">
+  <mat-card *ngFor="let group of groups" class="group">
+    <mat-card-title class="title">{{ group.label }}</mat-card-title>
+    <mat-card-content class="content" [attr.data-orientation]="orientation">
+      <dvl-legend-item *ngFor="let variable of group" class="item" [project]="project" [visualization]="visualization"
+                       [symbol]="group.id" [variable]="variable" [type]="type" [advanced]="advanced">
+      </dvl-legend-item>
+    </mat-card-content>
+  </mat-card>
+</div>

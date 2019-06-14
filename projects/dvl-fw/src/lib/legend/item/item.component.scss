@@ -2,17 +2,21 @@
   box-sizing: border-box;
   height: 10rem;
   min-width: 11rem;
+  margin: 0.25rem;
+  background-color: #ffffff;
   border: 1px solid transparent;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
   text-align: center;
-  overflow-y: auto;
 
   .title {
     font-size: 1rem;
     font-weight: 700;
+    color: #212121;
   }
 
   .subtitle {
     margin-bottom: 0.5rem;
+    color: #757575;
   }
 
   ::ng-deep .dvl-static-legend-container {
@@ -25,5 +29,4 @@
       height: 3rem;
     }
   }
-  // TODO
 }
