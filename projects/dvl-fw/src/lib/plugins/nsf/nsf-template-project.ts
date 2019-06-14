@@ -29,7 +29,7 @@ import { isNSFCompatibleCSV } from './nsf-validator';
 export class NSFTemplateProject extends DefaultProject {
   static async create(nsfFileContents: string[] | string, fileNames?: string[] | string): Promise<Project> {
     nsfFileContents = isArray(nsfFileContents) ? nsfFileContents : [nsfFileContents];
-    fileNames = isArray(fileNames) ? fileNames : [fileNames];
+    fileNames = isArray(fileNames) || !fileNames ? fileNames : [fileNames];
     // if the csv file has nsf compatible headers,load the CSV data with NSF Template Project
     if (isNSFCompatibleCSV(nsfFileContents[0])) {
       const project = new NSFTemplateProject(nsfFileContents[0], fileNames[0]);

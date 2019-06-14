@@ -23,7 +23,7 @@ export class ProjectSerializerService {
 
   createProject(template: 'isi' | 'nsf' | 'csv' | 'json',
     fileContents: string[] | string, fileNames?: string[] | string): Observable<Project> {
-    fileNames = isArray(fileNames) ? fileNames : [fileNames];
+    fileNames = isArray(fileNames) || !fileNames ? fileNames : [fileNames];
     return defer(async () => {
       switch (template) {
         case 'csv':

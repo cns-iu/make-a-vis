@@ -26,7 +26,7 @@ export class CSVTemplateProject extends DefaultProject {
   constructor(csvFileContents: string[] | string, fileNames?: string[] | string) {
     super();
     csvFileContents = isArray(csvFileContents) ? csvFileContents : [csvFileContents];
-    fileNames = isArray(fileNames) ? fileNames : [fileNames];
+    fileNames = isArray(fileNames) || !fileNames ? fileNames : [fileNames];
     if (!fileNames) {
       fileNames = csvFileContents.map(s => '');
     }
