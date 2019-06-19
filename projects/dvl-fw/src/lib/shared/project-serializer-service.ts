@@ -23,24 +23,14 @@ export class ProjectSerializerService {
 
   createProject(template: 'isi' | 'nsf' | 'csv' | 'json',
     fileContents: string[] | string, fileNames?: string[] | string): Observable<Project> {
-    fileNames = isArray(fileNames) || !fileNames ? fileNames : [fileNames];
     return defer(async () => {
-      switch (template) {
-        case 'csv':
-          // fall through NSFTemplateProject
-        case 'nsf':
-          return await NSFTemplateProject.create(fileContents, fileNames);
-        case 'isi':
-          return await ISITemplateProject.create(fileContents[0], fileNames[0]);
-        default:
-          throw new Error(`Template: ${template} not supported.`);
-      }
+      return await ProjectSerializer.createProject(template, fileContents, fileNames);
     });
   }
 
   createVisualization(template: string, data: Partial<Visualization>, project: Project): Observable<Visualization> {
     return defer(async () => {
-      return await this.registry.fromJSON<Visualization, Project>('visualization', template, data, project);
+      return await ProjectSerializer.createVisualization(template, data, project, this.registry);
     });
   }
 

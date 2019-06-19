@@ -32,6 +32,7 @@ export * from './lib/plugins/default/default-raw-data';
 export * from './lib/plugins/default/default-record-set';
 export * from './lib/plugins/default/default-record-stream';
 export * from './lib/plugins/default/default-visualization';
+export * from './lib/plugins/default/csv-template-project';
 
 // Other Plugins/Implementations
 export * from './lib/plugins/activity-log/log-plugin';
