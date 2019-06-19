@@ -49,8 +49,8 @@ export class ProjectSerializer {
         throw new Error(`Template: ${template} not supported.`);
     }
   }
-  static async createVisualization(template: string, data: Partial<Visualization>, project: Project,
+  static createVisualization(template: string, data: Partial<Visualization>, project: Project,
       registry: ObjectFactoryRegistry = ProjectSerializer.defaultRegistry): Promise<Visualization> {
-    return await registry.fromJSON<Visualization, Project>('visualization', template, data, project);
+    return registry.fromJSON<Visualization, Project>('visualization', template, data, project);
   }
 }
