@@ -1,6 +1,6 @@
 {
     "name": "@dvl-fw/core",
-    "version": "0.17.0",
+    "version": "0.17.1",
     "bin": {
         "dvl-fw-import": "./dvl-fw-import",
         "dvl-fw-validate": "./dvl-fw-validate"
@@ -12,7 +12,7 @@
         "@angular/common": "^8.0.0",
         "@angular/core": "^8.0.0",
         "@ngx-dino/core": ">=0.9.1 <1.0.0",
-        "@ngx-dino/geomap": ">=0.12.1 <1.0.0",
+        "@ngx-dino/geomap": ">=0.12.2 <1.0.0",
         "@ngx-dino/legend": ">=0.12.2 <1.0.0",
         "@ngx-dino/network": ">=0.14.1 <1.0.0",
         "@ngx-dino/scatterplot": ">=0.11.0 <1.0.0",

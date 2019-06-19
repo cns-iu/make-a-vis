@@ -1,6 +1,6 @@
 {
   "name": "make-a-vis",
-  "version": "0.17.0",
+  "version": "0.17.1",
   "scripts": {
     "ng": "node --max_old_space_size=3000 ./node_modules/.bin/ng",
     "start": "npm run ng serve",
@@ -37,7 +37,7 @@
     "@ngrx/effects": "^7.4.0",
     "@ngrx/store": "^7.4.0",
     "@ngx-dino/core": "^0.9.1",
-    "@ngx-dino/geomap": "^0.12.1",
+    "@ngx-dino/geomap": "^0.12.2",
     "@ngx-dino/legend": "^0.12.3",
     "@ngx-dino/network": "^0.14.1",
     "@ngx-dino/scatterplot": "^0.11.1",
