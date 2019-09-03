@@ -136,6 +136,7 @@
     .visualization-group {
       .selected {
         border-bottom-color: $secondary !important;
+        background-color: $pink-a700-10pct-alpha !important;
       }
       .mat-tab-header {
         border-color: $gray-accent-1;
@@ -143,6 +144,7 @@
       }
       .tab:hover {
         border-bottom-color: $disabled-text !important;
+        background-color: $gray-400-20pct-alpha !important;
       }
       .label {
         color: $primary-text;
@@ -181,7 +183,7 @@
   border-right-color: $gray-accent-1 !important;
   .mat-expansion-panel-content {
     color: $secondary-text !important;
-    
+
     .edit-about-button {
       color : $secondary-text !important;
       border-color: $gray-accent-1 !important;
