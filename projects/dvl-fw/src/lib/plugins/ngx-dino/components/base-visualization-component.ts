@@ -99,7 +99,7 @@ implements VisualizationComponent, OnInit, OnChanges, OnPropertyChange, OnGraphi
         );
 
         if (currentValue && (!previousValue || currentStream !== previousStream || changed)) {
-          newStreams[key] = currentStream ? currentStream.asObservable() : emptyStream;
+          newStreams[key as keyof F] = currentStream ? currentStream.asObservable() : emptyStream;
           streamsChanged = true;
         }
 
