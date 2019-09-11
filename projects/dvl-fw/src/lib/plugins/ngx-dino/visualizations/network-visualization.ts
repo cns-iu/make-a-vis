@@ -13,10 +13,10 @@ export class NetworkVisualization extends DefaultVisualization {
     {
       id: 'nodes', label: 'Nodes', type: 'area',
       graphicVariableOptions: [
-        { type: 'identifier', label: 'Identifier', visualization: 'id', scaleType: 'ratio', required: true },
-        { type: 'position', label: 'Position', advanced: true },
         { id: 'x', type: 'axis', label: 'X', visualization: 'x-axis', scaleType: 'ratio', required: true },
         { id: 'y', type: 'axis', label: 'Y', visualization: 'y-axis', scaleType: 'ratio', required: true },
+        { type: 'identifier', label: 'Identifier', visualization: 'id', scaleType: 'ratio', required: true },
+        { type: 'position', label: 'Position', advanced: true },
         { type: 'color', label: 'Color Hue', visualization: 'color', scaleType: 'nominal', staticVisualization: 'color-area' },
         { id: 'strokeColor', type: 'color', label: 'Stroke Color Hue', visualization: 'color', advanced: true },
         { type: 'strokeWidth', label: 'Stroke Width', visualization: 'edge-size', staticVisualization: 'thickness', advanced: true },
@@ -34,11 +34,11 @@ export class NetworkVisualization extends DefaultVisualization {
     }, {
       id: 'edges', label: 'Edges', type: 'line',
       graphicVariableOptions: [
-        { type: 'identifier', label: 'Identifier', visualization: 'id', scaleType: 'ratio', required: true },
         { id: 'sourceX', type: 'axis', label: 'Source X', visualization: 'source', scaleType: 'ratio', required: true },
         { id: 'sourceY', type: 'axis', label: 'Source Y', visualization: 'source', scaleType: 'ratio', required: true },
         { id: 'targetX', type: 'axis', label: 'Target X', visualization: 'target', scaleType: 'ratio', required: true },
         { id: 'targetY', type: 'axis', label: 'Target Y', visualization: 'target', scaleType: 'ratio', required: true },
+        { type: 'identifier', label: 'Identifier', visualization: 'id', scaleType: 'ratio', required: true },
         { type: 'source', label: 'Source Position', advanced: true },
         { type: 'target', label: 'Target Position', advanced: true },
         { id: 'strokeColor', type: 'color', label: 'Color Hue', visualization: 'color', staticVisualization: 'color-area' },

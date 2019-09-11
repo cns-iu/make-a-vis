@@ -25,9 +25,9 @@ export class GeomapVisualization extends DefaultVisualization {
     {
       id: 'nodes', label: 'Nodes', type: 'area',
       graphicVariableOptions: [
-        { type: 'identifier', label: 'Identifier', visualization: 'id', scaleType: 'ratio', required: true },
         { type: 'latitude', label: 'Latitude', visualization: 'x-axis', scaleType: 'ratio', required: true },
         { type: 'longitude', label: 'Longitude', visualization: 'y-axis', scaleType: 'ratio', required: true },
+        { type: 'identifier', label: 'Identifier', visualization: 'id', scaleType: 'ratio', required: true },
         { type: 'color', label: 'Color Hue', visualization: 'color', scaleType: 'nominal', staticVisualization: 'color-area' },
         { id: 'strokeColor', type: 'color', label: 'Stroke Color Hue', visualization: 'color', advanced: true },
         { type: 'strokeWidth', label: 'Stroke Width', visualization: 'edge-size', staticVisualization: 'thickness', advanced: true },
@@ -45,11 +45,11 @@ export class GeomapVisualization extends DefaultVisualization {
     }, {
       id: 'edges', label: 'Edges', type: 'line',
       graphicVariableOptions: [
-        { type: 'identifier', label: 'Identifier', visualization: 'id', scaleType: 'ratio', required: true },
         { id: 'latitude1', type: 'latitude', label: 'Source Latitude', visualization: 'source', scaleType: 'ratio', required: true },
         { id: 'longitude1', type: 'longitude', label: 'Source Longitude', visualization: 'source', scaleType: 'ratio', required: true },
         { id: 'latitude2', type: 'latitude', label: 'Target Latitude', visualization: 'target', scaleType: 'ratio', required: true },
         { id: 'longitude2', type: 'longitude', label: 'Target Longitude', visualization: 'target', scaleType: 'ratio', required: true },
+        { type: 'identifier', label: 'Identifier', visualization: 'id', scaleType: 'ratio', required: true },
         { id: 'strokeColor', type: 'color', label: 'Color Hue', visualization: 'color', staticVisualization: 'color-edges' },
         { type: 'strokeWidth', label: 'Size', visualization: 'edge-size', scaleType: 'ratio', required: true,
           staticVisualization: 'thickness'
