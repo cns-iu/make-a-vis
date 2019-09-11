@@ -87,6 +87,7 @@
     "@types/blob-stream": "^0.1.29",
     "@types/d3-geo": "^1.11.1",
     "@types/d3-path": "^1.0.7",
+    "@types/d3-scale": "^2.1.1",
     "@types/file-saver": "^2.0.1",
     "@types/jasmine": "^3.4.0",
     "@types/jasminewd2": "~2.0.6",
