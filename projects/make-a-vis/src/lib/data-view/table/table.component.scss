@@ -15,7 +15,6 @@
       border-style: solid;
       margin-top: 0.625rem;
       padding-top: 0.5rem;
-      padding-left: 2.5rem;
       border-color: transparent;
 
       &:not(.with-children) {
@@ -121,7 +120,6 @@
 
       .footer {
         display: flex;
-        justify-content: flex-end;
 
         .paginator ::ng-deep .mat-paginator-container {
           min-height: 0;
@@ -143,6 +141,10 @@
             top: 0;
             padding: 0.5rem;
           }
+        }
+
+        .flex-row-filler {
+          flex: 1 1 auto;
         }
       }
     }

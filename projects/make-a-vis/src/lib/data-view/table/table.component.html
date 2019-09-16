@@ -3,7 +3,6 @@
     <mat-card class="card" [class.first-table]="isFirst()" [class.with-children]="hasChildren()">
       <mat-card-header class="header">
         <mat-card-title>
-          <mat-icon *ngIf="hasChildren()" class="interactive-icon toggle-icon" (click)="toggleChildTables()">{{ getToggleIcon(!isChildrenHidden()) }}</mat-icon>
           <mav-table-icon></mav-table-icon>
           <span class="label">{{ label }}{{ description ? ':' : '' }}</span>
           <span class="description" *ngIf="description">&nbsp;({{ description }})</span>
@@ -27,7 +26,11 @@
       </mat-card-content>
 
       <mat-card-footer class="footer">
-        <mat-paginator class="paginator" [hidePageSize]="true" [showFirstLastButtons]="false" [length]="numberOfRows" [pageSize]="pageSize" 
+        <div class="record-toggle-group">
+          <mat-icon *ngIf="hasChildren()" class="interactive-icon toggle-icon" (click)="toggleChildTables()">{{ getToggleIcon(!isChildrenHidden()) }}</mat-icon>
+        </div>
+        <div class="flex-row-filler"></div>
+        <mat-paginator class="paginator" [hidePageSize]="true" [showFirstLastButtons]="false" [length]="numberOfRows" [pageSize]="pageSize"
           [pageIndex]="pageIndex" (page)="sendPage($event.pageIndex)"></mat-paginator>
         <div class="record-toggle-group" (click)="toggleRows()">
           <mat-icon class="interactive-icon toggle-icon">{{ getToggleIcon(hasHiddenData()) }}</mat-icon>
