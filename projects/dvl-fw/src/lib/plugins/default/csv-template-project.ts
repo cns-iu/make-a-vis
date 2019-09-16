@@ -1,24 +1,8 @@
-import { DataVariable } from 'dist/dvl-fw/public_api';
-import {
-  castArray,
-  filter,
-  find,
-  includes,
-  isBoolean,
-  isInteger,
-  isNumber,
-  map,
-  partition,
-  some,
-  toLower,
-  trim,
-  uniqBy,
-  zipWith
-} from 'lodash';
+import { castArray, filter, find, includes, map, partition, some, toLower, trim, uniqBy, zipWith } from 'lodash';
 
 import { parse, ParseMeta, ParseResult } from '../../shared/csv-parser';
 import { DataSource } from '../../shared/data-source';
-import { DataType } from '../../shared/data-variable';
+import { DataType, DataVariable } from '../../shared/data-variable';
 import { GraphicVariable, GraphicVariableType } from '../../shared/graphic-variable';
 import { Project } from '../../shared/project';
 import { RawData } from '../../shared/raw-data';
