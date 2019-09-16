@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-- '10'
+- 'node'
 sudo: required
 dist: trusty
 addons:
@@ -9,15 +9,12 @@ addons:
     organization: "$SONAR_KEY"
     token:
       secure: "$SONAR_TOKEN"
-
 cache: npm
 branches:
   only:
   - master
   - develop
   - "/^v\\d+\\.\\d+(\\.\\d+)?(-\\S*)?$/"
-install:
-  - npm ci
 script: skip
 jobs:
   include:
@@ -112,4 +109,4 @@ jobs:
     - npm run lint
 notifications:
   slack:
-    secure: kmHjR6duu+E+c+JEBLjECE5mSboVOrz599dOubVU7eqwVNUGvbe3YDGIKAc0S6akqsW0q9bVUWM2Zi+J4ROHrlMi1A+VQRJAW+2DG+6wu8fmdZiA0u/fK2w9IMRPFDDk80mMZN7TzSPMu5nRv6UGbVqpNeqRWotd2XtyLOu3+KRYKggUjKKz5D3oiYYGaHZWj6foDG7u42q33RQ55LlWff0GmAUuYVSfOUlxAYevOTuV9QF8NfFRnlQAfIYucM9177dd9cfWUdRgWPL7VGDUrANF2NtrfTUcWMM/zl6Vk7KMTxcCr1Oy0osxPE4DlpD8Mdz+i54tqKtcopJirBUnogZx+6MoMqMpTu7mU9pmB1H5rhAqlddYUMxiiyUvAvsScm3G5tY7azvqB0i6qalveTXuZWTa3CZUKHHTkDaDd0tnCvnLqWUaxZ2TeS//67q4EvreTfIdD4hD4phXjqfS+x0Ha8w7MpjwNln651svxsnpv+Ak6ET8N/NVRY61LhzAocMHitqMZMycTgyf8l5rciUtWE2cIuDiH86SBF+KeDYnoCCBwN8qXUTktVie37PeBX2drO84wNc8tmzjpIguXyCQUCBN/t0BodC4BIH+/oasfsYtKpXj6LQaV4/brf+t+hZX2FYssS44UZAKn3CQ92Mp7YurngUMHBqaMC6wPu4=
+    secure: mDjJjSgHV82ZjLFFqx9PbMiVHXZ+BpIKvO/YIaYn2w0O08OFoDQaen4qMl61sjXC8Ow4RQVb07n7jgpo4UDaQJA66gRDblR4J1/HjUB2NrgWV0qSm8U5FjHQXF6dw6oruvMlD6Zi98KfY2/5Sf5KnH9zvRqi8hxMm+LtVwk5LaeV4w4OFZzrr3Grb33YUK8UiSZ5Zd4eA2X2Ln23Lu53J46b8I017rq9EqiNYh87dfkoePIsDAQtIc7AAOegyd/HrzvFcIN+joVtcIGjkP1A19GH4ZxaA28uIHlKwIFVebJDatMDEFzg4CM8f2EJYFG1suDb2PTZIRC5pg5VPGSD1bxmr/vKsHR/wtYs1e6zGuS/tonS4wo32GnGaFlo1+c5AzNqX7MelVf5Oc814Kowgdpku7J+RQq80HQOt1IximPfHZ4sUDbNinvYcrl+ptSYJ/jDWlrKSxwzdLGiUl2PGasxG9OnWU0+CRe0qm1rijpGjYEwJwbYnJMFAOso0jV6+OPuBqjo9RipaXx85wRP8fkpO2zkBsGl3Ant1R9P8WoNw+8A+y82S0lauYoCVLd8QVBA5HLDWuGjkV1lwnk1DBBjLP+Erri2PmImW+qujOkfpOgplzhh+b12wh34FkieXOylxKV+j3UaHMnhrA2gXHnkdr+dPAGPDR1frZWkTp8=
