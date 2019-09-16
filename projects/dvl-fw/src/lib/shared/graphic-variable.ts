@@ -14,6 +14,7 @@ export enum GraphicVariableType {
   INPUT = 'input',
   LABEL = 'label',
   LABEL_POSITION = 'labelPosition',
+  FONT_SIZE = 'fontSize',
   ORDER = 'order',
 
   LATITUDE = 'latitude',
