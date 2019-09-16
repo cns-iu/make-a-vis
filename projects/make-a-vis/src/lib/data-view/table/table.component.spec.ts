@@ -323,12 +323,10 @@ describe('TableComponent', () => {
         eventName: string, eventData?: any
       ): void { itReactsTo(selector, handlerName, eventName, eventData, '.header'); }
 
-      itHasHeaderElement('.toggle-icon', 'sub-tables', { children: [] });
       itHasHeaderElement('.label', 'always');
       itHasHeaderElement('.description', 'non-empty description', { description: undefined });
       itHasHeaderElement('.export-to-csv-icon', 'always');
 
-      itHeaderReactsTo('.toggle-icon', 'toggleChildTables', 'click');
       itHeaderReactsTo('.export-to-csv-icon', 'exportTable', 'click');
     });
 
@@ -358,10 +356,12 @@ describe('TableComponent', () => {
         eventName: string, eventData?: any
       ): void { itReactsTo(selector, handlerName, eventName, eventData, '.footer'); }
 
+      itHasFooterElement('.sub-table-toggle', 'sub-tables', { children: [] });
       itHasFooterElement('.paginator', 'always');
       itHasFooterElement('.toggle-icon', 'always');
 
-      itFooterReactsTo('.record-toggle-group', 'toggleRows', 'click');
+      itFooterReactsTo('.sub-table-toggle', 'toggleChildTables', 'click');
+      itFooterReactsTo('.data-toggle', 'toggleRows', 'click');
     });
   });
 });
