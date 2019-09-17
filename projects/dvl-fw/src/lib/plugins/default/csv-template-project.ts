@@ -1,4 +1,4 @@
-import { castArray, filter, find, includes, map, partition, some, toLower, trim, uniqBy, zipWith } from 'lodash';
+import { castArray, filter, find, includes, map, partition, reverse, some, toLower, trim, uniqBy, zipWith, range } from 'lodash';
 
 import { parse, ParseMeta, ParseResult } from '../../shared/csv-parser';
 import { DataSource } from '../../shared/data-source';
@@ -30,8 +30,12 @@ class NormalizedField {
   get selectorObj(): { selector: string } { return { selector: this.selector }; }
   get isMapping(): boolean { return this.variableType !== undefined; }
 
-  constructor(private field: string, readonly dataType: DataType) {
+  constructor(private field: string, readonly dataType: DataType, columnNumber: number) {
     const normalized = this.key = trim(toLower(field));
+    if (normalized === '') {
+      this.field = `Column ${columnNumber}`;
+      this.key = toLower(this.field);
+    }
     const index = normalized.indexOf(NormalizedField.splitSequence);
     if (index !== -1) {
       const type = normalized.slice(index + NormalizedField.splitSequence.length);
@@ -49,7 +53,6 @@ export class CSVTemplateProject extends DefaultProject {
 
   constructor(csvFileContents: string[] | string, fileNames?: string[] | string) {
     super();
-    console.log(this); // Remove me
 
     const names = castArray(fileNames);
     const contents = castArray(csvFileContents);
@@ -85,15 +88,19 @@ export class CSVTemplateProject extends DefaultProject {
   }
 
   private normalizeFields(meta: ParseMeta): [NormalizedField[], NormalizedField[]] {
-    const normalized = zipWith(meta.fields, meta.typings, (field, dataType) => new NormalizedField(field, dataType));
+    const normalized = zipWith(
+      meta.fields, meta.typings, range(meta.fields.length),
+      (field, dataType, columnNumber) => new NormalizedField(field, dataType, columnNumber)
+    );
     const [mapping, regular] = partition(normalized, 'isMapping');
-    const regularUniq = uniqBy(regular, 'key');
-    const mappingUniq = uniqBy(mapping, 'fullKey');
+
+    const regularUniq = reverse(uniqBy(reverse(regular), 'key'));
+    const mappingUniq = reverse(uniqBy(reverse(mapping), 'fullKey'));
 
     // Add missing regular fields
     for (const field of mappingUniq) {
       if (!some(regularUniq, ['key', field.key])) {
-        regularUniq.push(new NormalizedField(field.key, DataType.UNKNOWN));
+        regularUniq.push(new NormalizedField(field.key, DataType.UNKNOWN, 0));
       }
     }
 
