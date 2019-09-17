@@ -179,7 +179,7 @@ export class CSVTemplateProject extends DefaultProject {
     // Use Case: User formats their csv to have color in color column, etc.
     const type = find(GraphicVariableType, value => toLower(value) === field.key);
     if (type) {
-      mappingFields[type] = defaultSelector;
+      mapping[type] = defaultSelector;
     }
 
     // Override with predefined mappings
