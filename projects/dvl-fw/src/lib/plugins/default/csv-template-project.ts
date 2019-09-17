@@ -49,7 +49,7 @@ export class CSVTemplateProject extends DefaultProject {
 
   constructor(csvFileContents: string[] | string, fileNames?: string[] | string) {
     super();
-    console.log(this);
+    console.log(this); // Remove me
 
     const names = castArray(fileNames);
     const contents = castArray(csvFileContents);
@@ -87,11 +87,7 @@ export class CSVTemplateProject extends DefaultProject {
   private normalizeFields(meta: ParseMeta): [NormalizedField[], NormalizedField[]] {
     const normalized = zipWith(meta.fields, meta.typings, (field, dataType) => new NormalizedField(field, dataType));
     const [mapping, regular] = partition(normalized, 'isMapping');
-
-    regular.reverse(); // Reverse to keep the last values after uniqueness checking
     const regularUniq = uniqBy(regular, 'key');
-
-    mapping.reverse(); // Same as above
     const mappingUniq = uniqBy(mapping, 'fullKey');
 
     // Add missing regular fields
@@ -153,33 +149,33 @@ export class CSVTemplateProject extends DefaultProject {
     field: NormalizedField,
     mappingFields: NormalizedField[]
   ): { [T in GraphicVariableType]?: [{ selector: string }] } {
-    const defaultSelector: [{ selector: string }] = [field.selectorObj];
+    const defaultSelector: () => [{ selector: string }] = () => [field.selectorObj];
     const mapping: { [T in GraphicVariableType]?: [{ selector: string }] } = {
-      [GraphicVariableType.IDENTIFIER]: defaultSelector,
-      [GraphicVariableType.AXIS]: defaultSelector,
-      [GraphicVariableType.TEXT]: defaultSelector,
-      [GraphicVariableType.TOOLTIP]: defaultSelector,
-      [GraphicVariableType.LABEL]: defaultSelector,
-      [GraphicVariableType.INPUT]: defaultSelector,
-      [GraphicVariableType.ORDER]: defaultSelector
+      [GraphicVariableType.IDENTIFIER]: defaultSelector(),
+      [GraphicVariableType.AXIS]: defaultSelector(),
+      [GraphicVariableType.TEXT]: defaultSelector(),
+      [GraphicVariableType.TOOLTIP]: defaultSelector(),
+      [GraphicVariableType.LABEL]: defaultSelector(),
+      [GraphicVariableType.INPUT]: defaultSelector(),
+      [GraphicVariableType.ORDER]: defaultSelector()
     };
 
     // The following are guesses and likely not correct
     if (field.dataType === DataType.NUMBER || field.dataType === DataType.INTEGER) {
-      mapping[GraphicVariableType.AREA_SIZE] = defaultSelector;
-      mapping[GraphicVariableType.STROKE_WIDTH] = defaultSelector;
-      mapping[GraphicVariableType.FONT_SIZE] = defaultSelector;
+      mapping[GraphicVariableType.AREA_SIZE] = defaultSelector();
+      mapping[GraphicVariableType.STROKE_WIDTH] = defaultSelector();
+      mapping[GraphicVariableType.FONT_SIZE] = defaultSelector();
     }
     if (field.dataType === DataType.STRING && includes(field.key, 'color')) {
-      mapping[GraphicVariableType.COLOR] = defaultSelector;
-      mapping[GraphicVariableType.STROKE_COLOR] = defaultSelector;
+      mapping[GraphicVariableType.COLOR] = defaultSelector();
+      mapping[GraphicVariableType.STROKE_COLOR] = defaultSelector();
     }
 
     // Use the field name as a graphic variable type.
     // Use Case: User formats their csv to have color in color column, etc.
     const type = find(GraphicVariableType, value => toLower(value) === field.key);
     if (type) {
-      mappingFields[type] = defaultSelector;
+      mapping[type] = defaultSelector();
     }
 
     // Override with predefined mappings
