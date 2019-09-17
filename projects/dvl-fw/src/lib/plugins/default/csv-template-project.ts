@@ -48,6 +48,7 @@ class NormalizedField {
 export class CSVTemplateProject extends DefaultProject {
   static async create(csvFileContents: string[] | string, fileNames?: string[] | string): Promise<Project> {
     const project = new CSVTemplateProject(csvFileContents, fileNames);
+    await project.prePopulateData();
     return project;
   }
 
@@ -76,6 +77,10 @@ export class CSVTemplateProject extends DefaultProject {
         recordStreams: [{ id: 'activityLog', label: 'Activity Log' }]
       }, this)
     );
+  }
+
+  async prePopulateData() {
+    await Promise.all(this.rawData.map(r => r.getData()));
   }
 
   private getParsedData(raw: string): ParseResult {
