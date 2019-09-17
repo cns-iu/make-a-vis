@@ -74,6 +74,7 @@
     "save-svg-as-png": "^1.4.14",
     "svg-to-pdfkit": "^0.1.7",
     "topojson-client": "^3.0.1",
+    "tslib": "^1.10.0",
     "typescript-logging": "^0.6.3",
     "zipcodes": "^8.0.0",
     "zone.js": "^0.9.1"

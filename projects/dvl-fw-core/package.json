@@ -1,0 +1,12 @@
+{
+  "name": "@dvl-fw/core",
+  "version": "0.0.1",
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "papaparse": "^5.0.2"
+  },
+  "peerDependencies": {
+    "@ngx-dino/core": "^0.10.0",
+    "rxjs": "^6.5.3"
+  }
+}
