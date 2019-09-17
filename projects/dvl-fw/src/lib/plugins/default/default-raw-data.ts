@@ -1,7 +1,7 @@
-import { isArray } from 'lodash';
-import { parse } from 'papaparse';
 import { safeLoad } from 'js-yaml';
+import { isArray } from 'lodash';
 
+import { parse } from '../../shared/csv-parser';
 import { ObjectFactory, ObjectFactoryRegistry } from '../../shared/object-factory';
 import { Project } from '../../shared/project';
 import { RawData } from '../../shared/raw-data';

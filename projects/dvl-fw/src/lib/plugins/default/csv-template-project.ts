@@ -53,7 +53,6 @@ export class CSVTemplateProject extends DefaultProject {
 
   constructor(csvFileContents: string[] | string, fileNames?: string[] | string) {
     super();
-
     const names = castArray(fileNames);
     const contents = castArray(csvFileContents);
     for (let index = 0; index < contents.length; index++) {
@@ -64,7 +63,7 @@ export class CSVTemplateProject extends DefaultProject {
       const [regularFields, mappingFields] = this.normalizeFields(parsed.meta);
 
       // Order is very important here!
-      this.rawData.push(this.createRawData(parsed.data, suffixer));
+      this.rawData.push(this.createRawData(contents[index], suffixer));
       this.dataSources.push(this.createDataSource(suffixer));
       this.recordSets.push(this.createRecordSet(name, regularFields, suffixer));
       this.graphicVariables.push(...this.createGraphicVariables(regularFields, mappingFields, suffixer));
@@ -107,13 +106,11 @@ export class CSVTemplateProject extends DefaultProject {
     return [regularUniq, mappingUniq];
   }
 
-  private createRawData(data: any[], suffixer: StringTransform): RawData {
+  private createRawData(csvData: string, suffixer: StringTransform): RawData {
     return new DefaultRawData({
-      id: suffixer('csvRawData'),
-      template: 'json',
-      data: {
-        [suffixer('csvData')]: data
-      }
+      id: suffixer('csvData'),
+      template: 'csv',
+      data: csvData
     });
   }
 
@@ -121,7 +118,7 @@ export class CSVTemplateProject extends DefaultProject {
     return new DefaultDataSource({
       id: suffixer('csvDataSource'),
       properties: {
-        rawData: suffixer('csvRawData')
+        rawData: suffixer('csvData')
       },
       recordStreams: [{
         id: suffixer('csvData'),
