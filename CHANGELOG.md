@@ -2,6 +2,14 @@
 
 Changelog for Make-a-Vis and DVL-FW.
 
+## 0.18.0 - 2019-09-17
+
+### Added in 0.18.0
+
+- Improved CSV parsing
+- Minor graphical updates
+- Updated dependencies
+
 ## 0.17.0 - 2019-06-14
 
 This is mostly a release to add some minor features and enhancements to be used in other projects.
