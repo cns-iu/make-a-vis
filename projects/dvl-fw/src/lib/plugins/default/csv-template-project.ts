@@ -1,4 +1,4 @@
-import { castArray, filter, find, includes, map, partition, some, toLower, trim, uniqBy, zipWith } from 'lodash';
+import { castArray, filter, find, includes, map, partition, reverse, some, toLower, trim, uniqBy, zipWith, range } from 'lodash';
 
 import { parse, ParseMeta, ParseResult } from '../../shared/csv-parser';
 import { DataSource } from '../../shared/data-source';
@@ -30,8 +30,12 @@ class NormalizedField {
   get selectorObj(): { selector: string } { return { selector: this.selector }; }
   get isMapping(): boolean { return this.variableType !== undefined; }
 
-  constructor(private field: string, readonly dataType: DataType) {
+  constructor(private field: string, readonly dataType: DataType, columnNumber: number) {
     const normalized = this.key = trim(toLower(field));
+    if (normalized === '') {
+      this.field = `Column ${columnNumber}`;
+      this.key = toLower(this.field);
+    }
     const index = normalized.indexOf(NormalizedField.splitSequence);
     if (index !== -1) {
       const type = normalized.slice(index + NormalizedField.splitSequence.length);
@@ -44,13 +48,12 @@ class NormalizedField {
 export class CSVTemplateProject extends DefaultProject {
   static async create(csvFileContents: string[] | string, fileNames?: string[] | string): Promise<Project> {
     const project = new CSVTemplateProject(csvFileContents, fileNames);
+    await project.prePopulateData();
     return project;
   }
 
   constructor(csvFileContents: string[] | string, fileNames?: string[] | string) {
     super();
-    console.log(this); // Remove me
-
     const names = castArray(fileNames);
     const contents = castArray(csvFileContents);
     for (let index = 0; index < contents.length; index++) {
@@ -61,7 +64,7 @@ export class CSVTemplateProject extends DefaultProject {
       const [regularFields, mappingFields] = this.normalizeFields(parsed.meta);
 
       // Order is very important here!
-      this.rawData.push(this.createRawData(parsed.data, suffixer));
+      this.rawData.push(this.createRawData(contents[index], suffixer));
       this.dataSources.push(this.createDataSource(suffixer));
       this.recordSets.push(this.createRecordSet(name, regularFields, suffixer));
       this.graphicVariables.push(...this.createGraphicVariables(regularFields, mappingFields, suffixer));
@@ -76,6 +79,10 @@ export class CSVTemplateProject extends DefaultProject {
     );
   }
 
+  async prePopulateData() {
+    await Promise.all(this.rawData.map(r => r.getData()));
+  }
+
   private getParsedData(raw: string): ParseResult {
     return parse(raw, {
       header: true,
@@ -85,28 +92,30 @@ export class CSVTemplateProject extends DefaultProject {
   }
 
   private normalizeFields(meta: ParseMeta): [NormalizedField[], NormalizedField[]] {
-    const normalized = zipWith(meta.fields, meta.typings, (field, dataType) => new NormalizedField(field, dataType));
+    const normalized = zipWith(
+      meta.fields, meta.typings, range(meta.fields.length),
+      (field, dataType, columnNumber) => new NormalizedField(field, dataType, columnNumber)
+    );
     const [mapping, regular] = partition(normalized, 'isMapping');
-    const regularUniq = uniqBy(regular, 'key');
-    const mappingUniq = uniqBy(mapping, 'fullKey');
+
+    const regularUniq = reverse(uniqBy(reverse(regular), 'key'));
+    const mappingUniq = reverse(uniqBy(reverse(mapping), 'fullKey'));
 
     // Add missing regular fields
     for (const field of mappingUniq) {
       if (!some(regularUniq, ['key', field.key])) {
-        regularUniq.push(new NormalizedField(field.key, DataType.UNKNOWN));
+        regularUniq.push(new NormalizedField(field.key, DataType.UNKNOWN, 0));
       }
     }
 
     return [regularUniq, mappingUniq];
   }
 
-  private createRawData(data: any[], suffixer: StringTransform): RawData {
+  private createRawData(csvData: string, suffixer: StringTransform): RawData {
     return new DefaultRawData({
-      id: suffixer('csvRawData'),
-      template: 'json',
-      data: {
-        [suffixer('csvData')]: data
-      }
+      id: suffixer('csvData'),
+      template: 'csv',
+      data: csvData
     });
   }
 
@@ -114,7 +123,7 @@ export class CSVTemplateProject extends DefaultProject {
     return new DefaultDataSource({
       id: suffixer('csvDataSource'),
       properties: {
-        rawData: suffixer('csvRawData')
+        rawData: suffixer('csvData')
       },
       recordStreams: [{
         id: suffixer('csvData'),

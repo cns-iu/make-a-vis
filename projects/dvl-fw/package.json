@@ -1,6 +1,6 @@
 {
     "name": "@dvl-fw/core",
-    "version": "0.17.3",
+    "version": "0.18.0",
     "bin": {
         "dvl-fw-import": "./dvl-fw-import",
         "dvl-fw-validate": "./dvl-fw-validate"
