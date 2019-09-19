@@ -2,8 +2,10 @@
   "name": "@dvl-fw/core",
   "version": "0.0.1",
   "dependencies": {
+    "d3-scale": "^3.1.0",
     "lodash": "^4.17.15",
-    "papaparse": "^5.0.2"
+    "papaparse": "^5.0.2",
+    "zipcodes": "^8.0.0"
   },
   "peerDependencies": {
     "@ngx-dino/core": "^0.10.0",

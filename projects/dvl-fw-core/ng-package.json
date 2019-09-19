@@ -5,13 +5,17 @@
     "entryFile": "src/public-api.ts",
     "umdModuleIds": {
       "@ngx-dino/core": "@ngx-dino/core",
+      "d3-scale": "d3-scale",
       "js-yaml": "js-yaml",
       "lodash": "lodash",
-      "papaparse": "papaparse"
+      "papaparse": "papaparse",
+      "zipcodes": "zipcodes"
     }
   },
   "whitelistedNonPeerDependencies": [
+    "d3-scale",
     "lodash",
-    "papaparse"
+    "papaparse",
+    "zipcodes"
   ]
 }
