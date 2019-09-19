@@ -1,13 +1,4 @@
-import {
-  DataSource,
-  GraphicSymbol,
-  GraphicVariable,
-  Project,
-  RawData,
-  RecordSet,
-  RecordStream,
-  Visualization,
-} from '../../interfaces';
+import { DataSource, GraphicSymbol, GraphicVariable, Project, RawData, RecordSet, RecordStream, Visualization } from '../../interfaces';
 import { ObjectFactory, ObjectFactoryRegistry } from '../object-factory';
 
 export type DefaultProjectArg = any; // FIXME: This is likely incorrect
