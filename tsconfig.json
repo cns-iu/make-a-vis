@@ -39,6 +39,12 @@
       ],
       "dvl-fw-core/*": [
         "dist/dvl-fw-core/*"
+      ],
+      "dvl-fw-isi": [
+        "dist/dvl-fw-isi"
+      ],
+      "dvl-fw-isi/*": [
+        "dist/dvl-fw-isi/*"
       ]
     }
   }
