@@ -19,7 +19,8 @@ export class ProjectSerializer {
   }
 
   static async toYAML(project: Project, registry: ObjectFactoryRegistry = ProjectSerializer.defaultRegistry): Promise<string> {
-    return safeDump(await ProjectSerializer.toJSON(project, registry), { skipInvalid: true });
+    const data = await ProjectSerializer.toJSON(project, registry);
+    return safeDump(data, { skipInvalid: true });
   }
 
   static async fromYAML(yaml: string, registry: ObjectFactoryRegistry = ProjectSerializer.defaultRegistry): Promise<Project> {
