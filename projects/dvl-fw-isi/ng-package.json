@@ -2,6 +2,19 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/dvl-fw-isi",
   "lib": {
-    "entryFile": "src/public-api.ts"
-  }
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "@ngx-dino/core": "@ngx-dino/core",
+      "@ngx-dino/science-map": "@ngx-dino/science-map",
+      "@dvl-fw/core": "@dvl-fw/core",
+      "graphology": "graphology",
+      "graphology-layout-forceatlas2": "graphology-layout-forceatlas2",
+      "lodash": "lodash"
+    }
+  },
+  "whitelistedNonPeerDependencies": [
+    "graphology",
+    "graphology-layout-forceatlas2",
+    "lodash"
+  ]
 }

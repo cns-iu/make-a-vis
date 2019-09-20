@@ -1,8 +1,16 @@
 {
   "name": "dvl-fw-isi",
   "version": "0.0.1",
+  "dependencies": {
+    "graphology": "^0.14.1",
+    "graphology-layout-forceatlas2": "^0.3.1",
+    "lodash": "^4.17.15"
+  },
   "peerDependencies": {
     "@angular/common": "^8.2.4",
-    "@angular/core": "^8.2.4"
+    "@angular/core": "^8.2.4",
+    "@ngx-dino/core": "^0.10.0",
+    "@ngx-dino/science-map": "^0.10.1",
+    "@dvl-fw/core": "^0.20.0"
   }
 }

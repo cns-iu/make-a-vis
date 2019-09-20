@@ -1,6 +1,6 @@
 {
   "name": "@dvl-fw/core",
-  "version": "0.0.1",
+  "version": "0.20.0",
   "dependencies": {
     "d3-scale": "^3.1.0",
     "lodash": "^4.17.15",

@@ -22,29 +22,19 @@
       "make-a-vis": [
         "dist/make-a-vis"
       ],
-      "make-a-vis/*": [
-        "dist/make-a-vis/*"
-      ],
+
       "@dvl-fw/core": [
-        "dist/dvl-fw"
+        "dist/dvl-fw-core"
       ],
+      "@dvl-fw/isi": [
+        "dist/dvl-fw-isi"
+      ],
+
       "svg-to-pdfkit": [
         "node_modules/svg-to-pdfkit/source.js"
       ],
       "cheet.js": [
         "node_modules/cheet.js/cheet.js"
-      ],
-      "dvl-fw-core": [
-        "dist/dvl-fw-core"
-      ],
-      "dvl-fw-core/*": [
-        "dist/dvl-fw-core/*"
-      ],
-      "dvl-fw-isi": [
-        "dist/dvl-fw-isi"
-      ],
-      "dvl-fw-isi/*": [
-        "dist/dvl-fw-isi/*"
       ]
     }
   }
