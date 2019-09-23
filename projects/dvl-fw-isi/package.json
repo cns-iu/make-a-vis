@@ -1,5 +1,5 @@
 {
-  "name": "dvl-fw-isi",
+  "name": "@dvl-fw/isi",
   "version": "0.0.1",
   "dependencies": {
     "graphology": "^0.14.1",

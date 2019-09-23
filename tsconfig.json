@@ -22,14 +22,15 @@
       "make-a-vis": [
         "dist/make-a-vis"
       ],
-
       "@dvl-fw/core": [
         "dist/dvl-fw-core"
       ],
       "@dvl-fw/isi": [
         "dist/dvl-fw-isi"
       ],
-
+      "@dvl-fw/ngx-dino": [
+        "dist/dvl-fw-ngx-dino"
+      ],
       "svg-to-pdfkit": [
         "node_modules/svg-to-pdfkit/source.js"
       ],
