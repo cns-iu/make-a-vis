@@ -1,8 +1,14 @@
-import { castArray, filter, find, includes, map, partition, range, reverse, some, toLower, trim, uniqBy, zipWith } from 'lodash';
+import {
+  castArray, filter, find, includes, map, partition, range, reverse, some, toLower, trim, uniqBy, zipWith,
+} from 'lodash';
 
 import { parse, ParseMeta, ParseResult } from '../csv';
-import { DataSource, DataType, DataVariable, GraphicVariable, GraphicVariableType, Project, RawData, RecordSet } from '../interfaces';
-import { DefaultDataSource, DefaultGraphicVariableMapping, DefaultProject, DefaultRawData, DefaultRecordSet } from '../plugin';
+import {
+  DataSource, DataType, DataVariable, GraphicVariable, GraphicVariableType, Project, RawData, RecordSet,
+} from '../interfaces';
+import {
+  ActivityLogDataSource, DefaultDataSource, DefaultGraphicVariableMapping, DefaultProject, DefaultRawData, DefaultRecordSet,
+} from '../plugin';
 
 type StringTransform = (value: string) => string;
 
@@ -59,6 +65,14 @@ export class CSVTemplateProject extends DefaultProject {
       this.recordSets.push(this.createRecordSet(name, regularFields, suffixer));
       this.graphicVariables.push(...this.createGraphicVariables(regularFields, mappingFields, suffixer));
     }
+
+    this.dataSources.push(
+      new ActivityLogDataSource({
+        id: 'activityLog',
+        properties: { rawData: 'activityLog', keepPreviousActivity: true, freezeLogs: false },
+        recordStreams: [{ id: 'activityLog', label: 'Activity Log' }]
+      }, this)
+    );
   }
 
   async prePopulateData() {

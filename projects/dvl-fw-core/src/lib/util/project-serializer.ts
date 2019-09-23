@@ -1,11 +1,11 @@
 import { safeDump, safeLoad } from 'js-yaml';
 
 import { Project, Visualization } from '../interfaces';
-import { DefaultPlugin, ObjectFactoryPlugin, ObjectFactoryRegistry } from '../plugin';
+import { ActivityLogPlugin, DefaultPlugin, ObjectFactoryPlugin, ObjectFactoryRegistry } from '../plugin';
 
 export class ProjectSerializer {
   static defaultPlugins: ObjectFactoryPlugin[] = [
-    new DefaultPlugin()
+    new DefaultPlugin(), new ActivityLogPlugin()
   ];
 
   static defaultRegistry = new ObjectFactoryRegistry(ProjectSerializer.defaultPlugins);
