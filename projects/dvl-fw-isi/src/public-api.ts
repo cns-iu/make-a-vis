@@ -1,5 +1,5 @@
 /*
- * Public API Surface of dvl-fw-isi
+ * Public API Surface of @dvl-fw/isi
  */
 
 export * from './lib/plugin';
