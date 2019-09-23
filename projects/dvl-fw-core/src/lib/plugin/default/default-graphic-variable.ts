@@ -62,8 +62,7 @@ export interface DefaultGraphicVariableMappingArg {
     [recordSetId: string]: {
       [dataVariableId: string]: {
         [type: string]:
-          [PartialDefaultGraphicVariableArg] |
-          (PartialDefaultGraphicVariableArg & Pick<DefaultGraphicVariableArg, 'id'>)[]
+          PartialDefaultGraphicVariableArg[]
       }
     }
   };

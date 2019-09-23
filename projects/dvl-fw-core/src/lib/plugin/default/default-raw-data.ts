@@ -68,7 +68,7 @@ export class DefaultRawData implements RawData {
   }
 
   toJSON(): any {
-    return Object.assign({id: this.id, template: this.template, data: this.data, url: this.url});
+    return { id: this.id, template: this.template, data: this.data, url: this.url };
   }
 }
 
