@@ -4,9 +4,10 @@
   "lib": {
     "entryFile": "src/public-api.ts",
     "umdModuleIds": {
+      "@dvl-fw/core": "@dvl-fw/core",
+      "@dvl-fw/ngx-dino": "@dvl-fw/ngx-dino",
       "@ngx-dino/core": "@ngx-dino/core",
       "@ngx-dino/science-map": "@ngx-dino/science-map",
-      "@dvl-fw/core": "@dvl-fw/core",
       "graphology": "graphology",
       "graphology-layout-forceatlas2": "graphology-layout-forceatlas2",
       "lodash": "lodash"
