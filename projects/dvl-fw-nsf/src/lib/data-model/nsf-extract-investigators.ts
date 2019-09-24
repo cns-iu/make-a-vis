@@ -28,7 +28,7 @@ export function extractInvestigators(awards: Award[]): Investigator[] {
       if (award.location && index === 0) {
         // Give each investigator a unique location object.
         // Not totally necessary but makes debugging easier.
-        investigator.location = Object.assign({}, award.location);
+        investigator.location = Object.assign({}, award.location) as any;
       }
 
       investigator.awardedAmountToDate += award.awardedAmountToDate;
