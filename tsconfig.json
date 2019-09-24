@@ -31,6 +31,9 @@
       "@dvl-fw/ngx-dino": [
         "dist/dvl-fw-ngx-dino"
       ],
+      "@dvl-fw/nsf": [
+        "dist/dvl-fw-nsf"
+      ],
       "svg-to-pdfkit": [
         "node_modules/svg-to-pdfkit/source.js"
       ],

@@ -1,0 +1,20 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/dvl-fw-nsf",
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "@dvl-fw/core": "@dvl-fw/core",
+      "@dvl-fw/ngx-dino": "@dvl-fw/ngx-dino",
+      "@ngx-dino/core": "@ngx-dino/core",
+      "graphology": "graphology",
+      "graphology-layout-forceatlas2": "graphology-layout-forceatlas2",
+      "lodash": "lodash"
+    }
+  },
+  "whitelistedNonPeerDependencies": [
+    "graphology",
+    "graphology-layout-forceatlas2",
+    "lodash"
+  ]
+}
