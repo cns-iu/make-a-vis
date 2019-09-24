@@ -471,6 +471,41 @@
           }
         }
       }
+    },
+    "dvl-fw-angular": {
+      "projectType": "library",
+      "root": "projects/dvl-fw-angular",
+      "sourceRoot": "projects/dvl-fw-angular/src",
+      "prefix": "dvl",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/dvl-fw-angular/tsconfig.lib.json",
+            "project": "projects/dvl-fw-angular/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dvl-fw-angular/src/test.ts",
+            "tsConfig": "projects/dvl-fw-angular/tsconfig.spec.json",
+            "karmaConfig": "projects/dvl-fw-angular/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/dvl-fw-angular/tsconfig.lib.json",
+              "projects/dvl-fw-angular/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "make-a-vis-demo"

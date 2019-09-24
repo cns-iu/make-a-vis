@@ -1,0 +1,17 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/dvl-fw-angular",
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "@dvl-fw/core": "@dvl-fw/core",
+      "@dvl-fw/isi": "@dvl-fw/isi",
+      "@dvl-fw/nsf": "@dvl-fw/nsf",
+      "lodash": "lodash",
+      "rxjs": "rxjs"
+    }
+  },
+  "whitelistedNonPeerDependencies": [
+    "lodash"
+  ]
+}

@@ -22,6 +22,9 @@
       "make-a-vis": [
         "dist/make-a-vis"
       ],
+      "@dvl-fw/angular": [
+        "dist/dvl-fw-angular"
+      ],
       "@dvl-fw/core": [
         "dist/dvl-fw-core"
       ],
