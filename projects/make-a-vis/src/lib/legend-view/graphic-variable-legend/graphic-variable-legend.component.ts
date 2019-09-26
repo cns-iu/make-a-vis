@@ -1,12 +1,9 @@
-// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { DvlFwVisualizationComponent } from '@dvl-fw/angular';
+import { GraphicSymbol, GraphicSymbolOption, GraphicVariable, GraphicVariableOption, Visualization } from '@dvl-fw/core';
 
-import {
-  DvlFwVisualizationComponent, GraphicSymbol, GraphicSymbolOption,
-  GraphicVariable, GraphicVariableOption, Visualization
-} from '@dvl-fw/core';
-import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 import { LegendService } from '../../shared/services/legend/legend.service';
+import { UpdateVisService } from '../../shared/services/update-vis/update-vis.service';
 
 @Component({
   selector: 'mav-graphic-variable-legend',

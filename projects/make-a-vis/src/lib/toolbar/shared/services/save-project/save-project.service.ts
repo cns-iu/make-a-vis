@@ -1,10 +1,10 @@
-// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Injectable } from '@angular/core';
+import { ProjectSerializerService } from '@dvl-fw/angular';
+import { Project } from '@dvl-fw/core';
 import { Store } from '@ngrx/store';
 import { saveAs } from 'file-saver';
 
-import { Project, ProjectSerializerService } from '@dvl-fw/core';
-import { SidenavState,  SaveProjectCompleted, SaveProjectStarted } from '../../store';
+import { SaveProjectCompleted, SaveProjectStarted, SidenavState } from '../../store';
 
 @Injectable({
   providedIn: 'root'

@@ -1,31 +1,22 @@
-import { NgModule, Optional, Self, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Logger, LoggerConfig, LoggerFactory, LogLevel, TypescriptLoggerFactory } from '@ngx-dino/core';
-
-// Store
+import { NgModule } from '@angular/core';
+import { ProjectSerializer } from '@dvl-fw/core';
+import { NgxDinoPlugin } from '@dvl-fw/ngx-dino';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
+import { Logger } from '@ngx-dino/core';
 
-// Submodules
 import { DataViewModule } from './data-view/data-view.module';
 import { DragDropModule } from './drag-drop/drag-drop.module';
 import { LegendViewModule } from './legend-view/legend-view.module';
+import { LightThemeComponent } from './light-theme/light-theme.component';
+import { MakeAVisComponent } from './make-a-vis.component';
 import { MavSelectionModule } from './mav-selection/mav-selection.module';
+import { LogActions } from './shared/logging/log';
+import { LoggingControlService } from './shared/logging/logging-control.service';
+import { reducers } from './shared/store/reducer';
 import { ToolbarModule } from './toolbar/toolbar.module';
 import { VisualizationViewModule } from './visualization-view/visualization-view.module';
-
-// Services
-import { LoggingControlService } from './shared/logging/logging-control.service';
-
-// Themes
-import { LightThemeComponent } from './light-theme/light-theme.component';
-
-// Main component
-import { MakeAVisComponent } from './make-a-vis.component';
-
-// Reducers
-import { reducers } from './shared/store/reducer';
-import { EffectsModule } from '@ngrx/effects';
-import { LogActions } from './shared/logging/log';
 
 @NgModule({
   imports: [
@@ -49,5 +40,8 @@ export class MakeAVisModule {
   constructor(loggingControl: LoggingControlService, logger: Logger) {
     // For unknown reasons logger is undefined in --prod mode! A temporary workaround has been implemented in log.ts
     // logger.setLevel(LogLevel.Trace);
+
+    // Register plugins - This should really be done through injection but that part hasn't been figured out yet
+    ProjectSerializer.defaultRegistry.registerPlugin(new  NgxDinoPlugin());
   }
 }

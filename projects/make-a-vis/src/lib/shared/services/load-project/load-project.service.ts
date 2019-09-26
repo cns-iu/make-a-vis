@@ -1,6 +1,6 @@
-// refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
 import { Injectable } from '@angular/core';
-import { ActivityLogRawData, Project, ProjectSerializerService } from '@dvl-fw/core';
+import { ProjectSerializerService } from '@dvl-fw/angular';
+import { ActivityLogRawData, Project } from '@dvl-fw/core';
 import { Store } from '@ngrx/store';
 import { BehaviorSubject } from 'rxjs';
 

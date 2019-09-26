@@ -18,6 +18,12 @@ import { TemporalBargraphModule } from './components/temporal-bargraph/temporal-
     ScatterplotModule, GeomapModule, NetworkModule,
     SciencemapModule, TemporalBargraphModule,
     NodeSizeModule, EdgeSizeModule, ColorModule
+  ],
+  exports: [
+    CommonModule, StaticLegendModule,
+    ScatterplotModule, GeomapModule, NetworkModule,
+    SciencemapModule, TemporalBargraphModule,
+    NodeSizeModule, EdgeSizeModule, ColorModule
   ]
 })
 export class NgxDinoModule { }

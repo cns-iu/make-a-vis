@@ -4,7 +4,7 @@ import { every, find, forEach, propertyOf, some } from 'lodash';
 import { BehaviorSubject, ObservableInput } from 'rxjs';
 import { catchError, switchAll, tap } from 'rxjs/operators';
 
-import { ProjectSerializerService } from '../../services';
+import { ProjectSerializerService } from '../../services/project-serializer-service';
 
 /** The valid options for selecting static/dynamic legends */
 export type LegendType = 'dynamic-only' | 'static-only' | 'dynamic-preferred' | 'static-preferred';

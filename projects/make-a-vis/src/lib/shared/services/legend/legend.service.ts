@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
+import { ProjectSerializerService } from '@dvl-fw/angular';
+import { DefaultGraphicSymbol, GraphicSymbol, GraphicVariable, Project, Visualization } from '@dvl-fw/core';
 import { select, Store } from '@ngrx/store';
-import { DefaultGraphicSymbol, GraphicSymbol, GraphicVariable, ProjectSerializerService, Project, Visualization } from '@dvl-fw/core';
-import { Subject, Observable } from 'rxjs';
 import { uniqueId } from 'lodash';
+import { Observable, Subject } from 'rxjs';
 
 import { getLoadedProjectSelector, SidenavState } from '../../../toolbar/shared/store';
 

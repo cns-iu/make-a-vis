@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
-import { ProjectSerializerService, RecordStream, Visualization } from '@dvl-fw/core';
+import { ProjectSerializerService } from '@dvl-fw/angular';
+import { RecordStream, Visualization } from '@dvl-fw/core';
 import { select, Store } from '@ngrx/store';
 import { uniqueId } from 'lodash';
 import { of } from 'rxjs';

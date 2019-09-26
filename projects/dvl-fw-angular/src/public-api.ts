@@ -3,6 +3,6 @@
  */
 
 export { DvlFwAngularModule } from './lib/dvl-fw-angular.module';
-export * from './lib/legend';
-export * from './lib/services';
-export * from './lib/visualization';
+export { LegendComponent } from './lib/legend/legend.component';
+export { ProjectSerializerService } from './lib/services/project-serializer-service';
+export { DvlFwVisualizationComponent } from './lib/visualization/visualization.component';
