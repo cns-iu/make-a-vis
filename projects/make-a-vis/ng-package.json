@@ -5,11 +5,16 @@
   "lib": {
     "entryFile": "src/public_api.ts",
     "umdModuleIds": {
+      "@dvl-fw/angular": "@dvl-fw/angular",
       "@dvl-fw/core": "@dvl-fw/core",
+      "@dvl-fw/isi": "@dvl-fw/isi",
+      "@dvl-fw/ngx-dino": "@dvl-fw/ngx-dino",
+      "@dvl-fw/nsf": "@dvl-fw/nsf",
       "@ngrx/effects": "@ngrx/effects",
       "@ngrx/store": "@ngrx/store",
       "@ngx-dino/core": "@ngx-dino/core",
       "blob-stream-browserify": "blob-stream-browserify",
+      "cheet.js": "cheet",
       "file-saver": "file-saver",
       "lodash": "lodash",
       "ngx-clipboard": "ngx-clipboard",
@@ -20,5 +25,19 @@
       "svg-to-pdfkit": "svg-to-pdfkit",
       "typescript-logging": "typescript-logging"
     }
-  }
+  },
+  "whitelistedNonPeerDependencies": [
+    "blob-stream-browserify",
+    "cheet.js",
+    "file-saver",
+    "hammerjs",
+    "lodash",
+    "ngx-clipboard",
+    "papaparse",
+    "pdfkit-browserify",
+    "rxjs",
+    "save-svg-as-png",
+    "svg-to-pdfkit",
+    "typescript-logging"
+  ]
 }

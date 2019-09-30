@@ -1,31 +1,37 @@
 {
-    "name": "make-a-vis",
-    "version": "0.18.0",
-    "publishConfig": {
-        "access": "public"
-    },
-    "peerDependencies": {
-        "@angular/animations": "^8.2.5",
-        "@angular/cdk": "^8.2.0",
-        "@angular/common": "^8.2.5",
-        "@angular/core": "^8.2.5",
-        "@angular/material": "^8.2.0",
-        "@angular/router": "^8.2.5",
-        "@dvl-fw/core": ">=0.9.0 <1.0.0",
-        "@ngrx/effects": "^8.3.0",
-        "@ngrx/store": "^8.3.0",
-        "@ngx-dino/core": "^0.10.0",
-        "blob-stream-browserify": "^0.1.3",
-        "cheet.js": "^0.3.3",
-        "file-saver": "^2.0.2",
-        "hammerjs": "^2.0.8",
-        "lodash": "^4.17.15",
-        "ngx-clipboard": "^12.2.1",
-        "papaparse": "^5.0.2",
-        "pdfkit-browserify": "^0.8.3-R2",
-        "rxjs": "^6.5.3",
-        "save-svg-as-png": "^1.4.14",
-        "svg-to-pdfkit": "^0.1.7",
-        "typescript-logging": "^0.6.3"
-    }
+  "name": "make-a-vis",
+  "version": "0.18.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "blob-stream-browserify": "^0.1.3",
+    "cheet.js": "^0.3.3",
+    "file-saver": "^2.0.2",
+    "hammerjs": "^2.0.8",
+    "lodash": "^4.17.15",
+    "ngx-clipboard": "^12.2.1",
+    "papaparse": "^5.0.2",
+    "pdfkit-browserify": "^0.8.3-R2",
+    "rxjs": "^6.5.3",
+    "save-svg-as-png": "^1.4.14",
+    "svg-to-pdfkit": "^0.1.7",
+    "typescript-logging": "^0.6.3"
+  },
+  "peerDependencies": {
+    "@angular/animations": "^8.2.5",
+    "@angular/cdk": "^8.2.0",
+    "@angular/common": "^8.2.5",
+    "@angular/core": "^8.2.5",
+    "@angular/material": "^8.2.0",
+    "@angular/router": "^8.2.5",
+    "@dvl-fw/angular": "^0.20.0",
+    "@dvl-fw/core": "^0.20.0",
+    "@dvl-fw/isi": "^0.20.0",
+    "@dvl-fw/ngx-dino": "^0.20.0",
+    "@dvl-fw/nsf": "^0.20.0",
+    "@ngrx/effects": "^8.3.0",
+    "@ngrx/store": "^8.3.0",
+    "@ngx-dino/core": "^0.10.0"
+  }
 }
