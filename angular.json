@@ -174,48 +174,6 @@
         }
       }
     },
-    "dvl-fw": {
-      "root": "projects/dvl-fw",
-      "sourceRoot": "projects/dvl-fw/src",
-      "projectType": "library",
-      "prefix": "dvl",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/dvl-fw/tsconfig.lib.json",
-            "project": "projects/dvl-fw/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "projects/dvl-fw/ng-package.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/dvl-fw/src/test.ts",
-            "tsConfig": "projects/dvl-fw/tsconfig.spec.json",
-            "karmaConfig": "projects/dvl-fw/karma.conf.js",
-            "watch": false,
-            "codeCoverage": true
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/dvl-fw/tsconfig.lib.json",
-              "projects/dvl-fw/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
     "mav-embed": {
       "projectType": "application",
       "schematics": {
@@ -343,6 +301,11 @@
           "options": {
             "tsConfig": "projects/dvl-fw-core/tsconfig.lib.json",
             "project": "projects/dvl-fw-core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/dvl-fw-core/ng-package.json"
+            }
           }
         },
         "test": {
@@ -378,6 +341,11 @@
           "options": {
             "tsConfig": "projects/dvl-fw-isi/tsconfig.lib.json",
             "project": "projects/dvl-fw-isi/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/dvl-fw-isi/ng-package.json"
+            }
           }
         },
         "test": {
@@ -413,6 +381,11 @@
           "options": {
             "tsConfig": "projects/dvl-fw-ngx-dino/tsconfig.lib.json",
             "project": "projects/dvl-fw-ngx-dino/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/dvl-fw-ngx-dino/ng-package.json"
+            }
           }
         },
         "test": {
@@ -448,6 +421,11 @@
           "options": {
             "tsConfig": "projects/dvl-fw-nsf/tsconfig.lib.json",
             "project": "projects/dvl-fw-nsf/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/dvl-fw-nsf/ng-package.json"
+            }
           }
         },
         "test": {
@@ -483,6 +461,11 @@
           "options": {
             "tsConfig": "projects/dvl-fw-angular/tsconfig.lib.json",
             "project": "projects/dvl-fw-angular/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/dvl-fw-angular/ng-package.json"
+            }
           }
         },
         "test": {

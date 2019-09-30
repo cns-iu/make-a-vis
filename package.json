@@ -2,11 +2,11 @@
   "name": "make-a-vis",
   "version": "0.18.0",
   "scripts": {
-    "ng": "node --max_old_space_size=3000 ./node_modules/.bin/ng",
+    "ng": "node --max_old_space_size=3000 ./node_modules/@angular/cli/bin/ng",
     "start": "npm run ng serve",
     "serve:build": "http-server -p 4200 -c-1 dist/make-a-vis-demo",
     "build": "npm run ng -- build --prod",
-    "build:dvl-fw": "npm-run-all build:dvl-fw-angular build:dvl-fw-cli build:dvl-fw-core build:dvl-fw-isi build:dvl-fw-ngx-dino build:dvl-fw-nsf",
+    "build:dvl-fw": "npm-run-all -s build:dvl-fw-core build:dvl-fw-ngx-dino build:dvl-fw-isi build:dvl-fw-nsf build:dvl-fw-angular build:dvl-fw-cli",
     "build:dvl-fw-angular": "npm run build dvl-fw-angular",
     "build:dvl-fw-cli": "npm run build:cli",
     "build:dvl-fw-core": "npm run build dvl-fw-core",

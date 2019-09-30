@@ -2,7 +2,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { DoBootstrap, Injector, NgModule, Type } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 import { BrowserModule } from '@angular/platform-browser';
-import { DvlFwModule } from '@dvl-fw/core';
+import { DvlFwAngularModule } from '@dvl-fw/angular';
+import { ProjectSerializer } from '@dvl-fw/core';
+import { NgxDinoModule, NgxDinoPlugin } from '@dvl-fw/ngx-dino';
 
 import { LegendComponent } from './legend/legend.component';
 import { ProjectComponent } from './project/project.component';
@@ -12,7 +14,8 @@ import { VisualizationComponent } from './visualization/visualization.component'
   imports: [
     BrowserModule,
     HttpClientModule,
-    DvlFwModule
+    DvlFwAngularModule,
+    NgxDinoModule
   ],
   declarations: [
     LegendComponent,
@@ -31,7 +34,9 @@ import { VisualizationComponent } from './visualization/visualization.component'
   ]
 })
 export class AppModule implements DoBootstrap {
-  constructor(private injector: Injector) { }
+  constructor(private injector: Injector) {
+    ProjectSerializer.defaultRegistry.registerPlugin(new NgxDinoPlugin());
+  }
 
   ngDoBootstrap() {
     const { injector } = this;

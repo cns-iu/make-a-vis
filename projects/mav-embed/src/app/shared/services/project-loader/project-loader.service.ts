@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Project, ProjectSerializerService } from '@dvl-fw/core';
+import { ProjectSerializerService } from '@dvl-fw/angular';
+import { Project } from '@dvl-fw/core';
 import { defer, Observable, of, throwError } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
