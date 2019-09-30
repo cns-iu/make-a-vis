@@ -1,6 +1,6 @@
 {
   "name": "make-a-vis",
-  "version": "0.18.0",
+  "version": "0.20.0",
   "scripts": {
     "ng": "node --max_old_space_size=3000 ./node_modules/@angular/cli/bin/ng",
     "start": "npm run ng serve",

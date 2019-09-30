@@ -19,5 +19,19 @@
       "svg-to-pdfkit": "svg-to-pdfkit",
       "typescript-logging": "typescript-logging"
     }
-  }
+  },
+  "whitelistedNonPeerDependencies": [
+    "blob-stream-browserify",
+    "cheet.js",
+    "file-saver",
+    "hammerjs",
+    "lodash",
+    "ngx-clipboard",
+    "papaparse",
+    "pdfkit-browserify",
+    "rxjs",
+    "save-svg-as-png",
+    "svg-to-pdfkit",
+    "typescript-logging"
+  ]
 }
