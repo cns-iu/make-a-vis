@@ -77,12 +77,70 @@ jobs:
         tags: true
         repo: cns-iu/make-a-vis
   - stage: deploy
-    name: Build and publish dvl-fw
+    name: Build and publish dvl-fw-core
     if: tag IS present
     script:
-    - npm run build:dvl-fw
+    - npm run build:dvl-fw-core
     before_deploy:
-    - cd dist/dvl-fw
+    - cd dist/dvl-fw-core
+    after_deploy: *1
+    deploy: *2
+  - stage: deploy
+    name: Build and publish dvl-fw-ngx-dino
+    if: tag IS present
+    script:
+    - npm run build:dvl-fw-core
+    - npm run build:dvl-fw-ngx-dino
+    before_deploy:
+    - cd dist/dvl-fw-ngx-dino
+    after_deploy: *1
+    deploy: *2
+  - stage: deploy
+    name: Build and publish dvl-fw-isi
+    if: tag IS present
+    script:
+    - npm run build:dvl-fw-core
+    - npm run build:dvl-fw-ngx-dino
+    - npm run build:dvl-fw-isi
+    before_deploy:
+    - cd dist/dvl-fw-isi
+    after_deploy: *1
+    deploy: *2
+  - stage: deploy
+    name: Build and publish dvl-fw-nsf
+    if: tag IS present
+    script:
+    - npm run build:dvl-fw-core
+    - npm run build:dvl-fw-ngx-dino
+    - npm run build:dvl-fw-nsf
+    before_deploy:
+    - cd dist/dvl-fw-nsf
+    after_deploy: *1
+    deploy: *2
+  - stage: deploy
+    name: Build and publish dvl-fw-angular
+    if: tag IS present
+    script:
+    - npm run build:dvl-fw-core
+    - npm run build:dvl-fw-ngx-dino
+    - npm run build:dvl-fw-isi
+    - npm run build:dvl-fw-nsf
+    - npm run build:dvl-fw-angular
+    before_deploy:
+    - cd dist/dvl-fw-angular
+    after_deploy: *1
+    deploy: *2
+  - stage: deploy
+    name: Build and publish dvl-fw-cli
+    if: tag IS present
+    script:
+    - npm run build:dvl-fw-core
+    - npm run build:dvl-fw-ngx-dino
+    - npm run build:dvl-fw-isi
+    - npm run build:dvl-fw-nsf
+    - npm run build:dvl-fw-cli
+    before_deploy:
+    - cd dist/dvl-fw-cli
     after_deploy: *1
     deploy: *2
   - stage: deploy

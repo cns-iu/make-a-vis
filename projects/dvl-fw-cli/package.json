@@ -1,6 +1,6 @@
 {
-  "name": "dvl-fw-cli",
-  "version": "0.0.1",
+  "name": "@dvl-fw/cli",
+  "version": "0.20.0",
   "peerDependencies": {
     "@angular/common": "^8.2.4",
     "@angular/core": "^8.2.4"
