@@ -1,15 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatCard, MatCardTitle } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatExpansionPanel, MatExpansionPanelHeader, MatExpansionPanelTitle } from '@angular/material/expansion';
 import { MatIcon } from '@angular/material/icon';
-import { MatHeaderCell, MatHeaderRow } from '@angular/material/table';
-import { MatChipsModule } from '@angular/material/chips';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatHeaderCell, MatHeaderRow } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
-import { DvlFwVisualizationComponent } from '@dvl-fw/core';
+import { DvlFwVisualizationComponent } from '@dvl-fw/angular';
 import { StoreModule } from '@ngrx/store';
-import { MockComponents, MockPipe } from 'ng-mocks';
+import { MockComponents } from 'ng-mocks';
 
 import { AddIconComponent } from '../icons/add/add-icon.component';
 import { CancelIconComponent } from '../icons/cancel/cancel-icon.component';

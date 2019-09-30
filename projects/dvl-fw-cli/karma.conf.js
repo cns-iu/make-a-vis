@@ -18,7 +18,13 @@ module.exports = function (config) {
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, '../../coverage/dvl-fw-cli'),
       reports: ['html', 'lcovonly', 'text-summary'],
-      fixWebpackSourcePaths: true
+      fixWebpackSourcePaths: true,
+      thresholds: {
+        emitWarning: true,
+        global: {
+          lines: 80
+        },
+      }
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
@@ -26,7 +32,6 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['ChromeHeadless'],
-    singleRun: false,
-    restartOnFileChange: true
+    singleRun: true
   });
 };

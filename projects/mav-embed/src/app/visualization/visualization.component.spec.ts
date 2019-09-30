@@ -1,10 +1,10 @@
 import { NgModule, Type } from '@angular/core';
-import { DvlFwModule } from '@dvl-fw/core';
+import { DvlFwAngularModule } from '@dvl-fw/angular';
 import { Shallow } from 'shallow-render';
 
 import { VisualizationComponent } from './visualization.component';
 
-@NgModule({ imports: [DvlFwModule], declarations: [VisualizationComponent], exports: [VisualizationComponent] })
+@NgModule({ imports: [DvlFwAngularModule], declarations: [VisualizationComponent], exports: [VisualizationComponent] })
 class TestModule { }
 
 describe('VisualizationComponent', () => {

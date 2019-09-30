@@ -1,6 +1,7 @@
 import { Provider } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { DvlFwVisualizationComponent, GraphicSymbol, GraphicVariable } from '@dvl-fw/core';
+import { DvlFwVisualizationComponent } from '@dvl-fw/angular';
+import { GraphicSymbol, GraphicVariable } from '@dvl-fw/core';
 import { Store } from '@ngrx/store';
 import { MockComponents } from 'ng-mocks';
 
