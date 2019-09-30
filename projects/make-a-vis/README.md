@@ -9,7 +9,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?branch=master&project=cns-iu_make-a-vis&metric=alert_status)](https://sonarcloud.io/dashboard?id=cns-iu_make-a-vis&branch=master)
 [![Documentation Status](https://make-a-vis.netlify.com/docs/images/coverage-badge-documentation.svg)](https://cns-iu.github.io/make-a-vis/docs/)
 
-dvl-fw library for using dvl-fw with Angular.
+An online tool for creating visualizations
 
 ## Demo site
 

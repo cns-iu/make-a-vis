@@ -1,6 +1,9 @@
 {
   "name": "@dvl-fw/nsf",
   "version": "0.20.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "graphology": "^0.14.1",
     "graphology-layout-forceatlas2": "^0.3.1",
