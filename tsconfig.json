@@ -25,6 +25,9 @@
       "@dvl-fw/angular": [
         "dist/dvl-fw-angular"
       ],
+      "@dvl-fw/cli": [
+        "dist/dvl-fw-cli"
+      ],
       "@dvl-fw/core": [
         "dist/dvl-fw-core"
       ],
