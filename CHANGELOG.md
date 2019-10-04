@@ -2,6 +2,16 @@
 
 Changelog for Make-a-Vis and DVL-FW.
 
+## 0.20.0 - 2019-10-04
+
+### Added in 0.20.0
+
+- Split out @dvl-fw into multiple packages to lower the footprint for new projects that don't necessarily need all of the things available
+
+### Breaking changes in 0.20.0
+
+- @dvl-fw has been split out into multiple packages. The API is the same, but you may have to import from different packages to get the code needed from before.
+
 ## 0.18.0 - 2019-09-17
 
 ### Added in 0.18.0
