@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { ProjectSerializerService } from '@dvl-fw/angular';
 import { ActivityLogRawData, Project } from '@dvl-fw/core';
+import { ISIPlugin } from '@dvl-fw/isi';
+import { NgxDinoPlugin } from '@dvl-fw/ngx-dino';
+import { NSFPlugin } from '@dvl-fw/nsf';
 import { Store } from '@ngrx/store';
 import { BehaviorSubject } from 'rxjs';
 
 import { LoggingControlService } from '../../../shared/logging/logging-control.service';
 import * as sidenavStore from '../../../toolbar/shared/store';
 import { GetLinkService } from '../get-link/get-link.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -22,10 +26,16 @@ export class LoadProjectService {
   ];
 
   constructor(
-    private serializer: ProjectSerializerService,
-    private loggingControlService: LoggingControlService,
-    private store: Store<sidenavStore.SidenavState>,
-    private getLinkService: GetLinkService) { }
+      private serializer: ProjectSerializerService,
+      private loggingControlService: LoggingControlService,
+      private store: Store<sidenavStore.SidenavState>,
+      private getLinkService: GetLinkService) {
+    const registry = this.serializer.registry;
+
+    registry.registerPlugin(new NgxDinoPlugin());
+    registry.registerPlugin(new ISIPlugin());
+    registry.registerPlugin(new NSFPlugin());
+  }
 
   setSaveActivityLog(project) {
     const activityLogRawData = project.rawData.find(obj => obj instanceof ActivityLogRawData) as ActivityLogRawData;
