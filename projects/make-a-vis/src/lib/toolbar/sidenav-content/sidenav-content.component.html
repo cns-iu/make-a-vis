@@ -18,8 +18,8 @@
             {{extension === 'yml' ? 'Open Project' : extension.toUpperCase()}}
           </label>
           <input #sidenavFileInputTag [id]="'mav-sidenav-start-project-' + extension" type="file" class="get-data"
-            (change)="readNewFile($event, $event.target, extension.toLowerCase())"
-            [accept]="loadProjectService.getSupportedExtension(extension)" />
+            (change)="readNewFile($event, extension.toLowerCase())"
+            [accept]="loadProjectService.getSupportedExtension(extension)" [multiple] = "extension === 'csv' ? 'multiple' : ''" />
         </span>
       </p>
     </mat-expansion-panel>
