@@ -5,13 +5,13 @@ import { ActivationEnd, Router } from '@angular/router';
 import { ProjectSerializerService } from '@dvl-fw/angular';
 import { Project } from '@dvl-fw/core';
 import { select, Store } from '@ngrx/store';
-import { get } from 'lodash';
 import { ClipboardService } from 'ngx-clipboard';
 
 import { LoggingControlService } from '../../shared/logging/logging-control.service';
 import { ExportService } from '../../shared/services/export/export.service';
 import { GetLinkService } from '../../shared/services/get-link/get-link.service';
 import { LoadProjectService, ProjectExtensionType } from '../../shared/services/load-project/load-project.service';
+import { ReadNewFileService } from '../../shared/services/read-new-file/read-new-file.service';
 import { SaveProjectService } from '../shared/services/save-project/save-project.service';
 import * as sidenavStore from '../shared/store';
 
@@ -55,7 +55,8 @@ export class SidenavContentComponent implements OnInit {
     private getLinkService: GetLinkService,
     private router: Router,
     private clipboardService: ClipboardService,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    private readNewFileService: ReadNewFileService
   ) {
       loggingControlService.enableLogging();
       this.isLoggingEnabled = loggingControlService.isLoggingEnabled();
@@ -100,30 +101,13 @@ export class SidenavContentComponent implements OnInit {
     return this.loadProjectService.getSupportedExtension(selectedExtensionOnButton).split(',').indexOf('.' + fileExtensionFromFile) !== -1;
   }
 
-  readNewFile(event: any, target: any, selectedExtension: ProjectExtensionType) {
-    const filename = get(event, 'srcElement.files[0].name');
-    if (!filename) {
-      return;
-    }
-    const fileExtension = filename && filename.split('.').slice(-1).toString().toLowerCase();
-    if (this.isValidFileExtension(selectedExtension , fileExtension)) {
-      this.loadProjectService.getProject(filename, selectedExtension, event);
-    } else {
-      // TODO temporary, use logs
-      // alert(`${filename} has the wrong extension.`);
-      this.snackBar.open(`${filename} has the wrong extension.`, null, {
-        duration: 3000,
-        verticalPosition: 'top',
-        panelClass: 'mav-snackbar-wrapper'
-      });
-      console.log(`${filename} has the wrong extension.`);
-    }
-    // clear the values of fileinput tags.
-    if (this.fileInputTags) {
-      this.fileInputTags.forEach((elementRef: ElementRef) => {
-          elementRef.nativeElement.value = null;
-      });
-    }
+  /**
+   * Reads the project file
+   * @param event : File selection JavaScript event
+   * @param selectedExtension The project file type selected by the user for opening the new project
+   */
+  readNewFile(event: any, selectedExtension: ProjectExtensionType) {
+    this.readNewFileService.load(event, selectedExtension, this.fileInputTags);
   }
 
   /*

@@ -2,8 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ProjectSerializerService } from '@dvl-fw/angular';
 import { Project } from '@dvl-fw/core';
+import { ISIPlugin } from '@dvl-fw/isi';
+import { NgxDinoPlugin } from '@dvl-fw/ngx-dino';
+import { NSFPlugin } from '@dvl-fw/nsf';
 import { defer, Observable, of, throwError } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+
 
 /**
  * Type of data source
@@ -25,7 +29,14 @@ export class ProjectLoaderService {
    * @param http The http client
    * @param serializer The project serializer/deserializer
    */
-  constructor(private http: HttpClient, private serializer: ProjectSerializerService) { }
+  constructor(private http: HttpClient, private serializer: ProjectSerializerService) {
+    const registry = this.serializer.registry;
+
+    // TODO: Add a way to register plugins on the fly
+    registry.registerPlugin(new NgxDinoPlugin());
+    registry.registerPlugin(new ISIPlugin());
+    registry.registerPlugin(new NSFPlugin());
+  }
 
   /**
    * Loads a project from a source

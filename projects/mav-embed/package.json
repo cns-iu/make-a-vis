@@ -1,6 +1,6 @@
 {
   "name": "@dvl-fw/mav-embed",
-  "version": "0.20.0",
+  "version": "0.20.1",
   "description": "Web Components for embedding DVL-FW and Make-A-Vis visualizations",
   "homepage": "https://github.com/cns-iu/make-a-vis",
   "bugs": "https://github.com/cns-iu/make-a-vis/issues",
