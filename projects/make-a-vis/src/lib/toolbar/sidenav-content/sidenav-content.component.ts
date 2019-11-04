@@ -5,16 +5,15 @@ import { ActivationEnd, Router } from '@angular/router';
 import { ProjectSerializerService } from '@dvl-fw/angular';
 import { Project } from '@dvl-fw/core';
 import { select, Store } from '@ngrx/store';
-import { get } from 'lodash';
 import { ClipboardService } from 'ngx-clipboard';
 
 import { LoggingControlService } from '../../shared/logging/logging-control.service';
 import { ExportService } from '../../shared/services/export/export.service';
 import { GetLinkService } from '../../shared/services/get-link/get-link.service';
 import { LoadProjectService, ProjectExtensionType } from '../../shared/services/load-project/load-project.service';
+import { ReadNewFileService } from '../../shared/services/read-new-file/read-new-file.service';
 import { SaveProjectService } from '../shared/services/save-project/save-project.service';
 import * as sidenavStore from '../shared/store';
-import { ReadNewFileService } from '../../shared/services/read-new-file/read-new-file.service';
 
 export type ExportType = 'png' | 'svg' | 'pdf';
 

@@ -1,6 +1,5 @@
 import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { get } from 'lodash';
 
 import { LoadProjectService, ProjectExtensionType } from '../../shared/services/load-project/load-project.service';
 import { ReadNewFileService } from '../../shared/services/read-new-file/read-new-file.service';
