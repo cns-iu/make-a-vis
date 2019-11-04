@@ -34,7 +34,6 @@ export class ReadNewFileService {
       if (!filename) {
         return;
       }
-
       filenames.push(filename);
       const fileExtension = filename && filename.split('.').slice(-1).toString().toLowerCase();
       if (this.isValidFileExtension(selectedExtension, fileExtension)) {
@@ -46,7 +45,6 @@ export class ReadNewFileService {
           verticalPosition: 'top',
           panelClass: 'mav-snackbar-wrapper'
         });
-
         console.error(`${filename} has the wrong extension.`);
       }
     }

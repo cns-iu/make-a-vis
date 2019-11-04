@@ -7,7 +7,6 @@ import { Store } from '@ngrx/store';
 import { ReadNewFileService } from './read-new-file.service';
 
 describe('ReadNewFileService', () => {
-
   const mockedStore = { pipe: () => ({ subscribe: (): void => undefined}) };
   const mockedSnackBar = {dismiss: () => undefined };
   const mockedProviders: Provider[] = [
