@@ -1,0 +1,196 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>make-a-vis documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	      <link rel="stylesheet" href="./styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">make-a-vis documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<h1 id="changelog">Changelog</h1>
+<p>Changelog for Make-a-Vis and DVL-FW.</p>
+<h2 id="0200---2019-10-04">0.20.0 - 2019-10-04</h2>
+<h3 id="added-in-0200">Added in 0.20.0</h3>
+<ul>
+<li>Split out @dvl-fw into multiple packages to lower the footprint for new projects that don&#39;t necessarily need all of the things available</li>
+</ul>
+<h3 id="breaking-changes-in-0200">Breaking changes in 0.20.0</h3>
+<ul>
+<li>@dvl-fw has been split out into multiple packages. The API is the same, but you may have to import from different packages to get the code needed from before.</li>
+</ul>
+<h2 id="0180---2019-09-17">0.18.0 - 2019-09-17</h2>
+<h3 id="added-in-0180">Added in 0.18.0</h3>
+<ul>
+<li>Improved CSV parsing</li>
+<li>Minor graphical updates</li>
+<li>Updated dependencies</li>
+</ul>
+<h2 id="0170---2019-06-14">0.17.0 - 2019-06-14</h2>
+<p>This is mostly a release to add some minor features and enhancements to be used in other projects.</p>
+<h3 id="added-in-0170">Added in 0.17.0</h3>
+<ul>
+<li>Added mav-embed which allows people to embed MaV/DVL-FW visualizations (and their legends) in regular html pages (and even React). A couple simple examples are at <a href="https://bl.ocks.org/bherr2">https://bl.ocks.org/bherr2</a>. Note: this feature is currently only supported on evergreen browsers (Chrome and Firefox, but NOT IE11).</li>
+<li>Expanded RawData to support CSV and YAML loading</li>
+<li>RawData can now pull data from external urls and be handled properly by MaV</li>
+<li>The MaV data table can now properly handle streaming data</li>
+<li>The MaV UI responsiveness should be slightly improved</li>
+<li>CSV Template can now load multiple CSV files, for instance to make networks with Nodes and Edges CSV files.</li>
+<li>Removed the blank scatterplot visualization that is created when normally loading CSV from MaV</li>
+<li>Created a reusable component to DVL-FW that allows for creating legends (previously this was only in the MaV UI)</li>
+<li>Added a super-secret way to enabled advanced functionality (MaV Advanced). Pressing &#39;a&#39;, then &#39;b&#39; toggles it. This is currently a hidden/alpha feature that shows all the available graphic variables available to a visualization rather than the current limited set. This opens up opacity, stroke, and other advanced graphic variables for us. In the future, we may also have hidden/alpha visualizations that are accessible only via MaV Advanced.</li>
+</ul>
+<h2 id="0150---2019-03-15">0.15.0 - 2019-03-15</h2>
+<h3 id="added-in-0150">Added in 0.15.0</h3>
+<ul>
+<li>Added a a download button to the data tables for downloading as .csv</li>
+<li>Added paging to the data tables so that all data can be seen</li>
+<li>Added an offline mode. All features work offline except for sharing. A check is made every two hours to see if there are new updates. If so, a prompt is shown to allow the user to upgrade to latest version.</li>
+<li>An initial documentation site was created. It is available <a href="https://make-a-vis.netlify.com/docs/">here</a>.</li>
+<li>Improved appearance of record streams in the middle column add/edit visualization feature.</li>
+<li>Improved CSS structure of the app.</li>
+<li>ISI and NSF files no longer have to be named .isi or .nsf (respectively) and can remain as .txt or .csv (respectively).</li>
+<li>CSV files can now accept columns formatted as &quot;xxx$$yyy&quot; to create custom DataVariable (xxx) to GraphicVariable (yyy) mappings.</li>
+<li>Bug fixes, unit tests added, and documentation added. Testing and Documentation is a work in progress. Our eventual goal is to get to &gt;90% coverage on both.</li>
+</ul>
+<h2 id="0141---2019-01-17">0.14.1 - 2019-01-17</h2>
+<h3 id="added-in-0141">Added in 0.14.1</h3>
+<ul>
+<li>Minor Bug Fixes</li>
+</ul>
+<h2 id="0140---2019-01-16">0.14.0 - 2019-01-16</h2>
+<h3 id="added-in-0140">Added in 0.14.0</h3>
+<ul>
+<li>Bug Fixes, UI Tweaks, and Stabilization</li>
+</ul>
+<h2 id="0130---2019-01-11">0.13.0 - 2019-01-11</h2>
+<h3 id="added-in-0130">Added in 0.13.0</h3>
+<ul>
+<li>A lot of Bug Fixes, UI Tweaks, and Stabilization</li>
+</ul>
+<h2 id="0100---2019-01-04">0.10.0 - 2019-01-04</h2>
+<h3 id="added-in-0100">Added in 0.10.0</h3>
+<ul>
+<li>Refined legend styling and in general</li>
+<li>Graphic Variable hovering feature added</li>
+<li>Bug fixes, stabilization</li>
+</ul>
+<h3 id="known-issues-in-0100">Known issues in 0.10.0</h3>
+<ul>
+<li>There are still some bugs/QA to be worked out next week</li>
+</ul>
+<h2 id="091---2019-01-02">0.9.1 - 2019-01-02</h2>
+<h3 id="added-in-091">Added in 0.9.1</h3>
+<ul>
+<li>Happy New Year!</li>
+<li>Better functioning add/edit visualization featue</li>
+<li>Bug fixes, stabilization</li>
+</ul>
+<h3 id="known-issues-in-091">Known issues in 0.9.1</h3>
+<ul>
+<li>Legend styling needs refined</li>
+<li>Graphic Variable hovering feature is not yet working</li>
+<li>Some styling options are still in process for the add/edit visualization feature</li>
+</ul>
+<h2 id="090---2018-12-21">0.9.0 - 2018-12-21</h2>
+<h3 id="added-in-090">Added in 0.9.0</h3>
+<ul>
+<li>A completely redesigned UI</li>
+<li>New Temporal Bar Graph Visualization</li>
+<li>CSV Data Loading Support</li>
+</ul>
+<h2 id="050---2018-10-22">0.5.0 - 2018-10-22</h2>
+<h3 id="added-in-050">Added in 0.5.0</h3>
+<ul>
+<li>First release of make-a-vis and dvl-fw!</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'changelog.html';
+       </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="./js/menu-wc.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

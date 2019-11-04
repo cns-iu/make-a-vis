@@ -1,0 +1,461 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>make-a-vis documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">make-a-vis documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>NetworkIconComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>projects/make-a-vis/src/lib/mav-selection/visualization-type/icons/network-icon/network-icon.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Network Icon component declaration, responsible for displaying the icon for network in vis-type selection</p>
+
+    </p>
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>mav-network-icon</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./network-icon.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./network-icon.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+/**
+ * Network Icon component declaration, responsible for displaying the icon for network in vis-type selection
+ */
+@Component({
+  selector: &#x27;mav-network-icon&#x27;,
+  templateUrl: &#x27;./network-icon.component.html&#x27;,
+  styleUrls: [&#x27;./network-icon.component.scss&#x27;]
+})
+export class NetworkIconComponent { }
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;network-icon wrapper&quot;&gt;
+	&lt;svg version&#x3D;&quot;1.1&quot; id&#x3D;&quot;Layer_1&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink&#x3D;&quot;http://www.w3.org/1999/xlink&quot; x&#x3D;&quot;0px&quot;
+		y&#x3D;&quot;0px&quot; viewBox&#x3D;&quot;0 0 126.5 61.5&quot; style&#x3D;&quot;enable-background:new 0 0 126.5 61.5;&quot; xml:space&#x3D;&quot;preserve&quot;&gt;
+		&lt;g id&#x3D;&quot;network_copy&quot;&gt;
+			&lt;g id&#x3D;&quot;edges_copy&quot;&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;75.3&quot; y1&#x3D;&quot;58.9&quot; x2&#x3D;&quot;75.5&quot; y2&#x3D;&quot;52.4&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;75.4&quot; y1&#x3D;&quot;52.7&quot; x2&#x3D;&quot;70.8&quot; y2&#x3D;&quot;57.2&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;70.7&quot; y1&#x3D;&quot;57&quot; x2&#x3D;&quot;71&quot; y2&#x3D;&quot;52.2&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;71.1&quot; y1&#x3D;&quot;52.5&quot; x2&#x3D;&quot;75.3&quot; y2&#x3D;&quot;52.5&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;80.1&quot; y1&#x3D;&quot;51.8&quot; x2&#x3D;&quot;75.7&quot; y2&#x3D;&quot;52.5&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;80.2&quot; y1&#x3D;&quot;52.1&quot; x2&#x3D;&quot;79.5&quot; y2&#x3D;&quot;56.6&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;79.2&quot; y1&#x3D;&quot;56.8&quot; x2&#x3D;&quot;75.4&quot; y2&#x3D;&quot;58.7&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;79.4&quot; y1&#x3D;&quot;56.3&quot; x2&#x3D;&quot;75.7&quot; y2&#x3D;&quot;53&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;75.2&quot; y1&#x3D;&quot;58.9&quot; x2&#x3D;&quot;70.6&quot; y2&#x3D;&quot;57.2&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;75.5&quot; y1&#x3D;&quot;52.6&quot; x2&#x3D;&quot;75.4&quot; y2&#x3D;&quot;45.9&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;71&quot; y1&#x3D;&quot;52.6&quot; x2&#x3D;&quot;69.7&quot; y2&#x3D;&quot;45.7&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;75.4&quot; y1&#x3D;&quot;45.9&quot; x2&#x3D;&quot;69&quot; y2&#x3D;&quot;45.7&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;60.4&quot; y1&#x3D;&quot;49.3&quot; x2&#x3D;&quot;69.2&quot; y2&#x3D;&quot;45.7&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;63&quot; y1&#x3D;&quot;41.8&quot; x2&#x3D;&quot;69.3&quot; y2&#x3D;&quot;45.6&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;62.8&quot; y1&#x3D;&quot;41.9&quot; x2&#x3D;&quot;60.3&quot; y2&#x3D;&quot;49.4&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;81.5&quot; y1&#x3D;&quot;30.4&quot; x2&#x3D;&quot;64.2&quot; y2&#x3D;&quot;31.6&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;72.7&quot; y1&#x3D;&quot;34.2&quot; x2&#x3D;&quot;62.9&quot; y2&#x3D;&quot;31.9&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;43.5&quot; y1&#x3D;&quot;41.8&quot; x2&#x3D;&quot;61.9&quot; y2&#x3D;&quot;31.4&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;44&quot; y1&#x3D;&quot;47.1&quot; x2&#x3D;&quot;43.9&quot; y2&#x3D;&quot;42.7&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;44.2&quot; y1&#x3D;&quot;46.9&quot; x2&#x3D;&quot;49.1&quot; y2&#x3D;&quot;43.2&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;43.4&quot; y1&#x3D;&quot;47.1&quot; x2&#x3D;&quot;39&quot; y2&#x3D;&quot;45.6&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;39&quot; y1&#x3D;&quot;45.3&quot; x2&#x3D;&quot;38.5&quot; y2&#x3D;&quot;41.1&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;38.6&quot; y1&#x3D;&quot;40.6&quot; x2&#x3D;&quot;41.5&quot; y2&#x3D;&quot;37&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;41.7&quot; y1&#x3D;&quot;37.4&quot; x2&#x3D;&quot;43.6&quot; y2&#x3D;&quot;41.9&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;39.5&quot; y1&#x3D;&quot;45.5&quot; x2&#x3D;&quot;43.6&quot; y2&#x3D;&quot;42.2&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;39&quot; y1&#x3D;&quot;41.1&quot; x2&#x3D;&quot;43.5&quot; y2&#x3D;&quot;41.9&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;48.9&quot; y1&#x3D;&quot;43.1&quot; x2&#x3D;&quot;44.1&quot; y2&#x3D;&quot;42&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;61.5&quot; y1&#x3D;&quot;31.4&quot; x2&#x3D;&quot;43.7&quot; y2&#x3D;&quot;29.2&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;61.5&quot; y1&#x3D;&quot;31.1&quot; x2&#x3D;&quot;61.4&quot; y2&#x3D;&quot;21.1&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;61.9&quot; y1&#x3D;&quot;31.5&quot; x2&#x3D;&quot;68.8&quot; y2&#x3D;&quot;28.9&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;86.5&quot; y1&#x3D;&quot;41.6&quot; x2&#x3D;&quot;83.2&quot; y2&#x3D;&quot;36.9&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;83.1&quot; y1&#x3D;&quot;36.9&quot; x2&#x3D;&quot;82&quot; y2&#x3D;&quot;30.8&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;86.9&quot; y1&#x3D;&quot;41.3&quot; x2&#x3D;&quot;99.7&quot; y2&#x3D;&quot;43.7&quot; /&gt;
+				&lt;path class&#x3D;&quot;st0&quot; d&#x3D;&quot;M81.7,30&quot; /&gt;
+				&lt;path class&#x3D;&quot;st0&quot; d&#x3D;&quot;M85.5,29.8&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;83.8&quot; y1&#x3D;&quot;30.6&quot; x2&#x3D;&quot;94&quot; y2&#x3D;&quot;33.4&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;99.9&quot; y1&#x3D;&quot;43.4&quot; x2&#x3D;&quot;82.3&quot; y2&#x3D;&quot;30.7&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;81.5&quot; y1&#x3D;&quot;29.3&quot; x2&#x3D;&quot;80.8&quot; y2&#x3D;&quot;24.6&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;89.9&quot; y1&#x3D;&quot;28.4&quot; x2&#x3D;&quot;82.9&quot; y2&#x3D;&quot;30&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;94.3&quot; y1&#x3D;&quot;20.5&quot; x2&#x3D;&quot;82&quot; y2&#x3D;&quot;29.7&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;94.5&quot; y1&#x3D;&quot;20.4&quot; x2&#x3D;&quot;99.1&quot; y2&#x3D;&quot;22.4&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;97.4&quot; y1&#x3D;&quot;14.4&quot; x2&#x3D;&quot;99.2&quot; y2&#x3D;&quot;22.1&quot; /&gt;
+				&lt;path class&#x3D;&quot;st0&quot; d&#x3D;&quot;M99.5,22.5&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;104.2&quot; y1&#x3D;&quot;18.4&quot; x2&#x3D;&quot;99.1&quot; y2&#x3D;&quot;22.1&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;108.7&quot; y1&#x3D;&quot;15.4&quot; x2&#x3D;&quot;104.7&quot; y2&#x3D;&quot;18.6&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;103&quot; y1&#x3D;&quot;12.1&quot; x2&#x3D;&quot;104.6&quot; y2&#x3D;&quot;18.1&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;102.9&quot; y1&#x3D;&quot;12&quot; x2&#x3D;&quot;97.4&quot; y2&#x3D;&quot;14.4&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;102.6&quot; y1&#x3D;&quot;13.2&quot; x2&#x3D;&quot;100.3&quot; y2&#x3D;&quot;21.2&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;108.5&quot; y1&#x3D;&quot;25.6&quot; x2&#x3D;&quot;99.8&quot; y2&#x3D;&quot;22.9&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;109&quot; y1&#x3D;&quot;25.6&quot; x2&#x3D;&quot;105.9&quot; y2&#x3D;&quot;20.7&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;111.5&quot; y1&#x3D;&quot;21.5&quot; x2&#x3D;&quot;108.7&quot; y2&#x3D;&quot;26.1&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;116.6&quot; y1&#x3D;&quot;12.2&quot; x2&#x3D;&quot;112&quot; y2&#x3D;&quot;21.5&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;111.6&quot; y1&#x3D;&quot;21&quot; x2&#x3D;&quot;110.1&quot; y2&#x3D;&quot;15.5&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;101.2&quot; y1&#x3D;&quot;21&quot; x2&#x3D;&quot;83.8&quot; y2&#x3D;&quot;28.9&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;105.9&quot; y1&#x3D;&quot;18.8&quot; x2&#x3D;&quot;111&quot; y2&#x3D;&quot;21&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;109.8&quot; y1&#x3D;&quot;8.8&quot; x2&#x3D;&quot;110.1&quot; y2&#x3D;&quot;13.7&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;103&quot; y1&#x3D;&quot;11.7&quot; x2&#x3D;&quot;110&quot; y2&#x3D;&quot;14.5&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;104.1&quot; y1&#x3D;&quot;13.6&quot; x2&#x3D;&quot;110.9&quot; y2&#x3D;&quot;20.6&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;103.8&quot; y1&#x3D;&quot;17.9&quot; x2&#x3D;&quot;97.4&quot; y2&#x3D;&quot;14.4&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;103.2&quot; y1&#x3D;&quot;18.8&quot; x2&#x3D;&quot;94.4&quot; y2&#x3D;&quot;20.4&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;110.4&quot; y1&#x3D;&quot;21.2&quot; x2&#x3D;&quot;100.4&quot; y2&#x3D;&quot;21.2&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;97.4&quot; y1&#x3D;&quot;14.4&quot; x2&#x3D;&quot;95.1&quot; y2&#x3D;&quot;19.4&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;91.3&quot; y1&#x3D;&quot;11.2&quot; x2&#x3D;&quot;94.2&quot; y2&#x3D;&quot;20&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;81.1&quot; y1&#x3D;&quot;10.6&quot; x2&#x3D;&quot;93.7&quot; y2&#x3D;&quot;19.1&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;69.3&quot; y1&#x3D;&quot;16.4&quot; x2&#x3D;&quot;70.8&quot; y2&#x3D;&quot;21.9&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;67.5&quot; y1&#x3D;&quot;24.4&quot; x2&#x3D;&quot;69.2&quot; y2&#x3D;&quot;16.3&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;70.7&quot; y1&#x3D;&quot;21.9&quot; x2&#x3D;&quot;67.9&quot; y2&#x3D;&quot;24.5&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;61.6&quot; y1&#x3D;&quot;21.3&quot; x2&#x3D;&quot;66.9&quot; y2&#x3D;&quot;24.5&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;63.6&quot; y1&#x3D;&quot;15.7&quot; x2&#x3D;&quot;67.4&quot; y2&#x3D;&quot;24.4&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;63.8&quot; y1&#x3D;&quot;15.4&quot; x2&#x3D;&quot;69.3&quot; y2&#x3D;&quot;15.7&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;48.6&quot; y1&#x3D;&quot;19.1&quot; x2&#x3D;&quot;43.5&quot; y2&#x3D;&quot;9.3&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;55.3&quot; y1&#x3D;&quot;9.8&quot; x2&#x3D;&quot;44&quot; y2&#x3D;&quot;9&quot; /&gt;
+				&lt;path class&#x3D;&quot;st0&quot; d&#x3D;&quot;M55,9.8&quot; /&gt;
+				&lt;path class&#x3D;&quot;st0&quot; d&#x3D;&quot;M63.6,15.5&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;48.2&quot; y1&#x3D;&quot;19.1&quot; x2&#x3D;&quot;41.8&quot; y2&#x3D;&quot;21.3&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;61.8&quot; y1&#x3D;&quot;31.2&quot; x2&#x3D;&quot;41.6&quot; y2&#x3D;&quot;21.5&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;44&quot; y1&#x3D;&quot;29.4&quot; x2&#x3D;&quot;15.2&quot; y2&#x3D;&quot;30.5&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;25.9&quot; y1&#x3D;&quot;33.1&quot; x2&#x3D;&quot;15.2&quot; y2&#x3D;&quot;31.1&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;25.9&quot; y1&#x3D;&quot;26.1&quot; x2&#x3D;&quot;16.2&quot; y2&#x3D;&quot;30.9&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;26.1&quot; y1&#x3D;&quot;33.1&quot; x2&#x3D;&quot;26.1&quot; y2&#x3D;&quot;26.7&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;16.6&quot; y1&#x3D;&quot;38.4&quot; x2&#x3D;&quot;15.5&quot; y2&#x3D;&quot;31.1&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;11.5&quot; y1&#x3D;&quot;39.3&quot; x2&#x3D;&quot;15.6&quot; y2&#x3D;&quot;31.2&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;6.8&quot; y1&#x3D;&quot;37.3&quot; x2&#x3D;&quot;15.2&quot; y2&#x3D;&quot;31.1&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;15.1&quot; y1&#x3D;&quot;30.7&quot; x2&#x3D;&quot;3&quot; y2&#x3D;&quot;31.7&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;15.5&quot; y1&#x3D;&quot;30.8&quot; x2&#x3D;&quot;7.1&quot; y2&#x3D;&quot;29.2&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;15.3&quot; y1&#x3D;&quot;30.4&quot; x2&#x3D;&quot;6.4&quot; y2&#x3D;&quot;24.1&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;15.8&quot; y1&#x3D;&quot;30.5&quot; x2&#x3D;&quot;12.9&quot; y2&#x3D;&quot;22.7&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;67.1&quot; y1&#x3D;&quot;25.8&quot; x2&#x3D;&quot;63.3&quot; y2&#x3D;&quot;30.2&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;69.5&quot; y1&#x3D;&quot;45.5&quot; x2&#x3D;&quot;70&quot; y2&#x3D;&quot;39.2&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;61.8&quot; y1&#x3D;&quot;32&quot; x2&#x3D;&quot;69.3&quot; y2&#x3D;&quot;45.6&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;39.3&quot; y1&#x3D;&quot;45.6&quot; x2&#x3D;&quot;28.3&quot; y2&#x3D;&quot;50.8&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;116.4&quot; y1&#x3D;&quot;32.1&quot; x2&#x3D;&quot;112&quot; y2&#x3D;&quot;21.6&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;123.4&quot; y1&#x3D;&quot;23.2&quot; x2&#x3D;&quot;112.2&quot; y2&#x3D;&quot;21.5&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;54.4&quot; y1&#x3D;&quot;24.1&quot; x2&#x3D;&quot;48.8&quot; y2&#x3D;&quot;18.9&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;104.9&quot; y1&#x3D;&quot;18.8&quot; x2&#x3D;&quot;102.2&quot; y2&#x3D;&quot;28.1&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;102.4&quot; y1&#x3D;&quot;10.2&quot; x2&#x3D;&quot;101.9&quot; y2&#x3D;&quot;8.4&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;100.4&quot; y1&#x3D;&quot;6.7&quot; x2&#x3D;&quot;95.7&quot; y2&#x3D;&quot;2.8&quot; /&gt;
+				&lt;line class&#x3D;&quot;st0&quot; x1&#x3D;&quot;63.6&quot; y1&#x3D;&quot;15.5&quot; x2&#x3D;&quot;48.8&quot; y2&#x3D;&quot;18.8&quot; /&gt;
+			&lt;/g&gt;
+			&lt;g id&#x3D;&quot;Nodes_copy&quot;&gt;
+				&lt;circle class&#x3D;&quot;st1&quot; cx&#x3D;&quot;62&quot; cy&#x3D;&quot;31.5&quot; r&#x3D;&quot;2.4&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st1&quot; cx&#x3D;&quot;43.6&quot; cy&#x3D;&quot;41.8&quot; r&#x3D;&quot;2.3&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st1&quot; cx&#x3D;&quot;72.8&quot; cy&#x3D;&quot;34.2&quot; r&#x3D;&quot;1.2&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st1&quot; cx&#x3D;&quot;69.4&quot; cy&#x3D;&quot;16&quot; r&#x3D;&quot;1.2&quot; /&gt;
+				&lt;path class&#x3D;&quot;st1&quot; d&#x3D;&quot;M69.7,29.8c-0.2,0.2-0.5,0.4-0.8,0.4c-0.7,0-1.2-0.5-1.2-1.2s0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2
+			C70,29.3,69.9,29.6,69.7,29.8&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;80.5&quot; cy&#x3D;&quot;23.5&quot; r&#x3D;&quot;1.2&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;102.9&quot; cy&#x3D;&quot;12&quot; r&#x3D;&quot;2.3&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;110.1&quot; cy&#x3D;&quot;14.5&quot; r&#x3D;&quot;2.3&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;111.6&quot; cy&#x3D;&quot;21.4&quot; r&#x3D;&quot;2.3&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st1&quot; cx&#x3D;&quot;67.6&quot; cy&#x3D;&quot;25.1&quot; r&#x3D;&quot;1.6&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;81.7&quot; cy&#x3D;&quot;30.3&quot; r&#x3D;&quot;2.8&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;108.8&quot; cy&#x3D;&quot;25.9&quot; r&#x3D;&quot;1.9&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;116.5&quot; cy&#x3D;&quot;32&quot; r&#x3D;&quot;1.9&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;123.8&quot; cy&#x3D;&quot;23.3&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;95.5&quot; cy&#x3D;&quot;2.8&quot; r&#x3D;&quot;1.6&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;102.1&quot; cy&#x3D;&quot;28.2&quot; r&#x3D;&quot;1.6&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;104.7&quot; cy&#x3D;&quot;18.5&quot; r&#x3D;&quot;3.4&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;97.4&quot; cy&#x3D;&quot;14.4&quot; r&#x3D;&quot;1.6&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;94.3&quot; cy&#x3D;&quot;20.4&quot; r&#x3D;&quot;1.9&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;99.2&quot; cy&#x3D;&quot;22.4&quot; r&#x3D;&quot;1.9&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st3&quot; cx&#x3D;&quot;15.3&quot; cy&#x3D;&quot;30.6&quot; r&#x3D;&quot;2.8&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st3&quot; cx&#x3D;&quot;16.5&quot; cy&#x3D;&quot;38.4&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st3&quot; cx&#x3D;&quot;11.3&quot; cy&#x3D;&quot;39.6&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st3&quot; cx&#x3D;&quot;6.7&quot; cy&#x3D;&quot;37.4&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st3&quot; cx&#x3D;&quot;3&quot; cy&#x3D;&quot;31.6&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st3&quot; cx&#x3D;&quot;7.3&quot; cy&#x3D;&quot;29.1&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st3&quot; cx&#x3D;&quot;6.1&quot; cy&#x3D;&quot;24&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st3&quot; cx&#x3D;&quot;12.7&quot; cy&#x3D;&quot;22.6&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st1&quot; cx&#x3D;&quot;41.6&quot; cy&#x3D;&quot;21.4&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st1&quot; cx&#x3D;&quot;44&quot; cy&#x3D;&quot;9.2&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st1&quot; cx&#x3D;&quot;54.5&quot; cy&#x3D;&quot;24&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st1&quot; cx&#x3D;&quot;55.1&quot; cy&#x3D;&quot;9.7&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st1&quot; cx&#x3D;&quot;61.4&quot; cy&#x3D;&quot;21.2&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st1&quot; cx&#x3D;&quot;63.5&quot; cy&#x3D;&quot;15.5&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;91.1&quot; cy&#x3D;&quot;11&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;80.7&quot; cy&#x3D;&quot;10.4&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st1&quot; cx&#x3D;&quot;70.8&quot; cy&#x3D;&quot;22&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st4&quot; cx&#x3D;&quot;70&quot; cy&#x3D;&quot;39.2&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st4&quot; cx&#x3D;&quot;63&quot; cy&#x3D;&quot;41.8&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st4&quot; cx&#x3D;&quot;60.2&quot; cy&#x3D;&quot;49.3&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;101.1&quot; cy&#x3D;&quot;7.1&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;109.8&quot; cy&#x3D;&quot;8.5&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;116.6&quot; cy&#x3D;&quot;12.1&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;100&quot; cy&#x3D;&quot;43.6&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st1&quot; cx&#x3D;&quot;28.4&quot; cy&#x3D;&quot;50.8&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st1&quot; cx&#x3D;&quot;39.3&quot; cy&#x3D;&quot;45.6&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st1&quot; cx&#x3D;&quot;43.9&quot; cy&#x3D;&quot;47&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st1&quot; cx&#x3D;&quot;38.5&quot; cy&#x3D;&quot;41&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st3&quot; cx&#x3D;&quot;26.3&quot; cy&#x3D;&quot;33.1&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;90.1&quot; cy&#x3D;&quot;28.3&quot; r&#x3D;&quot;1.9&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;94.1&quot; cy&#x3D;&quot;33.5&quot; r&#x3D;&quot;1.9&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;86.5&quot; cy&#x3D;&quot;41.5&quot; r&#x3D;&quot;1.9&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st4&quot; cx&#x3D;&quot;79.4&quot; cy&#x3D;&quot;56.6&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st4&quot; cx&#x3D;&quot;80.1&quot; cy&#x3D;&quot;51.9&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st4&quot; cx&#x3D;&quot;75.5&quot; cy&#x3D;&quot;52.6&quot; r&#x3D;&quot;1.9&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st4&quot; cx&#x3D;&quot;71&quot; cy&#x3D;&quot;52.6&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st4&quot; cx&#x3D;&quot;70.8&quot; cy&#x3D;&quot;57.2&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st4&quot; cx&#x3D;&quot;75.3&quot; cy&#x3D;&quot;58.8&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st4&quot; cx&#x3D;&quot;75.3&quot; cy&#x3D;&quot;46.1&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st4&quot; cx&#x3D;&quot;69.8&quot; cy&#x3D;&quot;45.6&quot; r&#x3D;&quot;1.5&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st2&quot; cx&#x3D;&quot;83.1&quot; cy&#x3D;&quot;37&quot; r&#x3D;&quot;1.9&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st3&quot; cx&#x3D;&quot;26&quot; cy&#x3D;&quot;26.4&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st1&quot; cx&#x3D;&quot;48.5&quot; cy&#x3D;&quot;18.9&quot; r&#x3D;&quot;1.9&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st1&quot; cx&#x3D;&quot;41.5&quot; cy&#x3D;&quot;37&quot; r&#x3D;&quot;1.7&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st1&quot; cx&#x3D;&quot;43.6&quot; cy&#x3D;&quot;29.2&quot; r&#x3D;&quot;1.9&quot; /&gt;
+				&lt;circle class&#x3D;&quot;st1&quot; cx&#x3D;&quot;49.1&quot; cy&#x3D;&quot;43.2&quot; r&#x3D;&quot;1.7&quot; /&gt;
+			&lt;/g&gt;
+		&lt;/g&gt;
+	&lt;/svg&gt;
+
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./network-icon.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.network-icon {
+  &amp;.wrapper {
+    .st0 {
+      fill: none;
+      stroke: #000000;
+      stroke-width: 0.5;
+      stroke-miterlimit: 10;
+    }
+    .st1 {
+      fill: #004d40;
+      stroke: #000000;
+      stroke-width: 0.5;
+      stroke-miterlimit: 10;
+    }
+    .st2 {
+      fill: #00897b;
+      stroke: #000000;
+      stroke-width: 0.5;
+      stroke-miterlimit: 10;
+    }
+    .st3 {
+      fill: #b2dfdb;
+      stroke: #000000;
+      stroke-width: 0.5;
+      stroke-miterlimit: 10;
+    }
+    .st4 {
+      fill: #4db6ac;
+      stroke: #000000;
+      stroke-width: 0.5;
+      stroke-miterlimit: 10;
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="network-icon wrapper">	<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"		y="0px" viewBox="0 0 126.5 61.5" style="enable-background:new 0 0 126.5 61.5;" xml:space="preserve">		<g id="network_copy">			<g id="edges_copy">				<line class="st0" x1="75.3" y1="58.9" x2="75.5" y2="52.4" />				<line class="st0" x1="75.4" y1="52.7" x2="70.8" y2="57.2" />				<line class="st0" x1="70.7" y1="57" x2="71" y2="52.2" />				<line class="st0" x1="71.1" y1="52.5" x2="75.3" y2="52.5" />				<line class="st0" x1="80.1" y1="51.8" x2="75.7" y2="52.5" />				<line class="st0" x1="80.2" y1="52.1" x2="79.5" y2="56.6" />				<line class="st0" x1="79.2" y1="56.8" x2="75.4" y2="58.7" />				<line class="st0" x1="79.4" y1="56.3" x2="75.7" y2="53" />				<line class="st0" x1="75.2" y1="58.9" x2="70.6" y2="57.2" />				<line class="st0" x1="75.5" y1="52.6" x2="75.4" y2="45.9" />				<line class="st0" x1="71" y1="52.6" x2="69.7" y2="45.7" />				<line class="st0" x1="75.4" y1="45.9" x2="69" y2="45.7" />				<line class="st0" x1="60.4" y1="49.3" x2="69.2" y2="45.7" />				<line class="st0" x1="63" y1="41.8" x2="69.3" y2="45.6" />				<line class="st0" x1="62.8" y1="41.9" x2="60.3" y2="49.4" />				<line class="st0" x1="81.5" y1="30.4" x2="64.2" y2="31.6" />				<line class="st0" x1="72.7" y1="34.2" x2="62.9" y2="31.9" />				<line class="st0" x1="43.5" y1="41.8" x2="61.9" y2="31.4" />				<line class="st0" x1="44" y1="47.1" x2="43.9" y2="42.7" />				<line class="st0" x1="44.2" y1="46.9" x2="49.1" y2="43.2" />				<line class="st0" x1="43.4" y1="47.1" x2="39" y2="45.6" />				<line class="st0" x1="39" y1="45.3" x2="38.5" y2="41.1" />				<line class="st0" x1="38.6" y1="40.6" x2="41.5" y2="37" />				<line class="st0" x1="41.7" y1="37.4" x2="43.6" y2="41.9" />				<line class="st0" x1="39.5" y1="45.5" x2="43.6" y2="42.2" />				<line class="st0" x1="39" y1="41.1" x2="43.5" y2="41.9" />				<line class="st0" x1="48.9" y1="43.1" x2="44.1" y2="42" />				<line class="st0" x1="61.5" y1="31.4" x2="43.7" y2="29.2" />				<line class="st0" x1="61.5" y1="31.1" x2="61.4" y2="21.1" />				<line class="st0" x1="61.9" y1="31.5" x2="68.8" y2="28.9" />				<line class="st0" x1="86.5" y1="41.6" x2="83.2" y2="36.9" />				<line class="st0" x1="83.1" y1="36.9" x2="82" y2="30.8" />				<line class="st0" x1="86.9" y1="41.3" x2="99.7" y2="43.7" />				<path class="st0" d="M81.7,30" />				<path class="st0" d="M85.5,29.8" />				<line class="st0" x1="83.8" y1="30.6" x2="94" y2="33.4" />				<line class="st0" x1="99.9" y1="43.4" x2="82.3" y2="30.7" />				<line class="st0" x1="81.5" y1="29.3" x2="80.8" y2="24.6" />				<line class="st0" x1="89.9" y1="28.4" x2="82.9" y2="30" />				<line class="st0" x1="94.3" y1="20.5" x2="82" y2="29.7" />				<line class="st0" x1="94.5" y1="20.4" x2="99.1" y2="22.4" />				<line class="st0" x1="97.4" y1="14.4" x2="99.2" y2="22.1" />				<path class="st0" d="M99.5,22.5" />				<line class="st0" x1="104.2" y1="18.4" x2="99.1" y2="22.1" />				<line class="st0" x1="108.7" y1="15.4" x2="104.7" y2="18.6" />				<line class="st0" x1="103" y1="12.1" x2="104.6" y2="18.1" />				<line class="st0" x1="102.9" y1="12" x2="97.4" y2="14.4" />				<line class="st0" x1="102.6" y1="13.2" x2="100.3" y2="21.2" />				<line class="st0" x1="108.5" y1="25.6" x2="99.8" y2="22.9" />				<line class="st0" x1="109" y1="25.6" x2="105.9" y2="20.7" />				<line class="st0" x1="111.5" y1="21.5" x2="108.7" y2="26.1" />				<line class="st0" x1="116.6" y1="12.2" x2="112" y2="21.5" />				<line class="st0" x1="111.6" y1="21" x2="110.1" y2="15.5" />				<line class="st0" x1="101.2" y1="21" x2="83.8" y2="28.9" />				<line class="st0" x1="105.9" y1="18.8" x2="111" y2="21" />				<line class="st0" x1="109.8" y1="8.8" x2="110.1" y2="13.7" />				<line class="st0" x1="103" y1="11.7" x2="110" y2="14.5" />				<line class="st0" x1="104.1" y1="13.6" x2="110.9" y2="20.6" />				<line class="st0" x1="103.8" y1="17.9" x2="97.4" y2="14.4" />				<line class="st0" x1="103.2" y1="18.8" x2="94.4" y2="20.4" />				<line class="st0" x1="110.4" y1="21.2" x2="100.4" y2="21.2" />				<line class="st0" x1="97.4" y1="14.4" x2="95.1" y2="19.4" />				<line class="st0" x1="91.3" y1="11.2" x2="94.2" y2="20" />				<line class="st0" x1="81.1" y1="10.6" x2="93.7" y2="19.1" />				<line class="st0" x1="69.3" y1="16.4" x2="70.8" y2="21.9" />				<line class="st0" x1="67.5" y1="24.4" x2="69.2" y2="16.3" />				<line class="st0" x1="70.7" y1="21.9" x2="67.9" y2="24.5" />				<line class="st0" x1="61.6" y1="21.3" x2="66.9" y2="24.5" />				<line class="st0" x1="63.6" y1="15.7" x2="67.4" y2="24.4" />				<line class="st0" x1="63.8" y1="15.4" x2="69.3" y2="15.7" />				<line class="st0" x1="48.6" y1="19.1" x2="43.5" y2="9.3" />				<line class="st0" x1="55.3" y1="9.8" x2="44" y2="9" />				<path class="st0" d="M55,9.8" />				<path class="st0" d="M63.6,15.5" />				<line class="st0" x1="48.2" y1="19.1" x2="41.8" y2="21.3" />				<line class="st0" x1="61.8" y1="31.2" x2="41.6" y2="21.5" />				<line class="st0" x1="44" y1="29.4" x2="15.2" y2="30.5" />				<line class="st0" x1="25.9" y1="33.1" x2="15.2" y2="31.1" />				<line class="st0" x1="25.9" y1="26.1" x2="16.2" y2="30.9" />				<line class="st0" x1="26.1" y1="33.1" x2="26.1" y2="26.7" />				<line class="st0" x1="16.6" y1="38.4" x2="15.5" y2="31.1" />				<line class="st0" x1="11.5" y1="39.3" x2="15.6" y2="31.2" />				<line class="st0" x1="6.8" y1="37.3" x2="15.2" y2="31.1" />				<line class="st0" x1="15.1" y1="30.7" x2="3" y2="31.7" />				<line class="st0" x1="15.5" y1="30.8" x2="7.1" y2="29.2" />				<line class="st0" x1="15.3" y1="30.4" x2="6.4" y2="24.1" />				<line class="st0" x1="15.8" y1="30.5" x2="12.9" y2="22.7" />				<line class="st0" x1="67.1" y1="25.8" x2="63.3" y2="30.2" />				<line class="st0" x1="69.5" y1="45.5" x2="70" y2="39.2" />				<line class="st0" x1="61.8" y1="32" x2="69.3" y2="45.6" />				<line class="st0" x1="39.3" y1="45.6" x2="28.3" y2="50.8" />				<line class="st0" x1="116.4" y1="32.1" x2="112" y2="21.6" />				<line class="st0" x1="123.4" y1="23.2" x2="112.2" y2="21.5" />				<line class="st0" x1="54.4" y1="24.1" x2="48.8" y2="18.9" />				<line class="st0" x1="104.9" y1="18.8" x2="102.2" y2="28.1" />				<line class="st0" x1="102.4" y1="10.2" x2="101.9" y2="8.4" />				<line class="st0" x1="100.4" y1="6.7" x2="95.7" y2="2.8" />				<line class="st0" x1="63.6" y1="15.5" x2="48.8" y2="18.8" />			</g>			<g id="Nodes_copy">				<circle class="st1" cx="62" cy="31.5" r="2.4" />				<circle class="st1" cx="43.6" cy="41.8" r="2.3" />				<circle class="st1" cx="72.8" cy="34.2" r="1.2" />				<circle class="st1" cx="69.4" cy="16" r="1.2" />				<path class="st1" d="M69.7,29.8c-0.2,0.2-0.5,0.4-0.8,0.4c-0.7,0-1.2-0.5-1.2-1.2s0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2			C70,29.3,69.9,29.6,69.7,29.8" />				<circle class="st2" cx="80.5" cy="23.5" r="1.2" />				<circle class="st2" cx="102.9" cy="12" r="2.3" />				<circle class="st2" cx="110.1" cy="14.5" r="2.3" />				<circle class="st2" cx="111.6" cy="21.4" r="2.3" />				<circle class="st1" cx="67.6" cy="25.1" r="1.6" />				<circle class="st2" cx="81.7" cy="30.3" r="2.8" />				<circle class="st2" cx="108.8" cy="25.9" r="1.9" />				<circle class="st2" cx="116.5" cy="32" r="1.9" />				<circle class="st2" cx="123.8" cy="23.3" r="1.7" />				<circle class="st2" cx="95.5" cy="2.8" r="1.6" />				<circle class="st2" cx="102.1" cy="28.2" r="1.6" />				<circle class="st2" cx="104.7" cy="18.5" r="3.4" />				<circle class="st2" cx="97.4" cy="14.4" r="1.6" />				<circle class="st2" cx="94.3" cy="20.4" r="1.9" />				<circle class="st2" cx="99.2" cy="22.4" r="1.9" />				<circle class="st3" cx="15.3" cy="30.6" r="2.8" />				<circle class="st3" cx="16.5" cy="38.4" r="1.7" />				<circle class="st3" cx="11.3" cy="39.6" r="1.7" />				<circle class="st3" cx="6.7" cy="37.4" r="1.7" />				<circle class="st3" cx="3" cy="31.6" r="1.7" />				<circle class="st3" cx="7.3" cy="29.1" r="1.7" />				<circle class="st3" cx="6.1" cy="24" r="1.7" />				<circle class="st3" cx="12.7" cy="22.6" r="1.7" />				<circle class="st1" cx="41.6" cy="21.4" r="1.7" />				<circle class="st1" cx="44" cy="9.2" r="1.7" />				<circle class="st1" cx="54.5" cy="24" r="1.7" />				<circle class="st1" cx="55.1" cy="9.7" r="1.7" />				<circle class="st1" cx="61.4" cy="21.2" r="1.7" />				<circle class="st1" cx="63.5" cy="15.5" r="1.7" />				<circle class="st2" cx="91.1" cy="11" r="1.7" />				<circle class="st2" cx="80.7" cy="10.4" r="1.7" />				<circle class="st1" cx="70.8" cy="22" r="1.7" />				<circle class="st4" cx="70" cy="39.2" r="1.7" />				<circle class="st4" cx="63" cy="41.8" r="1.7" />				<circle class="st4" cx="60.2" cy="49.3" r="1.7" />				<circle class="st2" cx="101.1" cy="7.1" r="1.7" />				<circle class="st2" cx="109.8" cy="8.5" r="1.7" />				<circle class="st2" cx="116.6" cy="12.1" r="1.7" />				<circle class="st2" cx="100" cy="43.6" r="1.7" />				<circle class="st1" cx="28.4" cy="50.8" r="1.7" />				<circle class="st1" cx="39.3" cy="45.6" r="1.7" />				<circle class="st1" cx="43.9" cy="47" r="1.7" />				<circle class="st1" cx="38.5" cy="41" r="1.7" />				<circle class="st3" cx="26.3" cy="33.1" r="1.7" />				<circle class="st2" cx="90.1" cy="28.3" r="1.9" />				<circle class="st2" cx="94.1" cy="33.5" r="1.9" />				<circle class="st2" cx="86.5" cy="41.5" r="1.9" />				<circle class="st4" cx="79.4" cy="56.6" r="1.7" />				<circle class="st4" cx="80.1" cy="51.9" r="1.7" />				<circle class="st4" cx="75.5" cy="52.6" r="1.9" />				<circle class="st4" cx="71" cy="52.6" r="1.7" />				<circle class="st4" cx="70.8" cy="57.2" r="1.7" />				<circle class="st4" cx="75.3" cy="58.8" r="1.7" />				<circle class="st4" cx="75.3" cy="46.1" r="1.7" />				<circle class="st4" cx="69.8" cy="45.6" r="1.5" />				<circle class="st2" cx="83.1" cy="37" r="1.9" />				<circle class="st3" cx="26" cy="26.4" r="1.7" />				<circle class="st1" cx="48.5" cy="18.9" r="1.9" />				<circle class="st1" cx="41.5" cy="37" r="1.7" />				<circle class="st1" cx="43.6" cy="29.2" r="1.9" />				<circle class="st1" cx="49.1" cy="43.2" r="1.7" />			</g>		</g>	</svg></div></div>'
+    var COMPONENTS = [{'name': 'AddIconComponent', 'selector': 'mav-add-icon'},{'name': 'AppComponent', 'selector': 'mav-root'},{'name': 'AppUpdateNotificationComponent', 'selector': 'mav-app-update-notification'},{'name': 'AreaSizeComponent', 'selector': 'dvl-area-size'},{'name': 'CancelIconComponent', 'selector': 'mav-cancel-icon'},{'name': 'CnsLogoComponent', 'selector': 'mav-cns-logo'},{'name': 'CnsLogoIconComponent', 'selector': 'mav-cns-logo-icon'},{'name': 'ColorAreaComponent', 'selector': 'dvl-color-area'},{'name': 'ColorComponent', 'selector': 'dvl-vis-color'},{'name': 'ColorEdgesComponent', 'selector': 'dvl-color-edges'},{'name': 'DataVariableDropzoneComponent', 'selector': 'mav-data-variable-dropzone'},{'name': 'DvlFwVisualizationComponent', 'selector': 'dvl-visualization'},{'name': 'EdgeSizeComponent', 'selector': 'dvl-vis-edge-size'},{'name': 'EditIconComponent', 'selector': 'mav-edit-icon'},{'name': 'EndComponent', 'selector': 'dvl-end'},{'name': 'GeomapComponent', 'selector': 'dvl-vis-geomap'},{'name': 'GeomapIconComponent', 'selector': 'mav-geomap-icon'},{'name': 'GeomapIconComponent', 'selector': 'mav-geomap-icon'},{'name': 'GithubIconComponent', 'selector': 'mav-github-icon'},{'name': 'GradientComponent', 'selector': 'dvl-gradient'},{'name': 'GraphicSymbolTypeComponent', 'selector': 'mav-selection-graphic-symbol-type'},{'name': 'GraphicVariableIconComponent', 'selector': 'mav-graphic-variable-icon'},{'name': 'GraphicVariableLegendComponent', 'selector': 'mav-graphic-variable-legend'},{'name': 'GraphicVariableTypeComponent', 'selector': 'mav-selection-graphic-variable-type'},{'name': 'HorizontalBarGraphIconComponent', 'selector': 'mav-horizontal-bar-graph-icon'},{'name': 'IdentifierComponent', 'selector': 'dvl-identifier'},{'name': 'InfoDialogComponent', 'selector': 'mav-info-dialog'},{'name': 'InfoIconComponent', 'selector': 'mav-info-icon'},{'name': 'ItemComponent', 'selector': 'dvl-legend-item'},{'name': 'LabelComponent', 'selector': 'dvl-label'},{'name': 'LegendComponent', 'selector': 'dvl-legend'},{'name': 'LegendComponent', 'selector': 'mav-legend'},{'name': 'LightThemeComponent', 'selector': 'mav-light-theme'},{'name': 'MainComponent', 'selector': 'mav-data-view'},{'name': 'MainComponent', 'selector': 'mav-legend-view'},{'name': 'MainComponent', 'selector': 'mav-selection'},{'name': 'MainComponent', 'selector': 'mav-toolbar'},{'name': 'MainComponent', 'selector': 'mav-visualization-view'},{'name': 'MakeAVisComponent', 'selector': 'mav-main'},{'name': 'MapOfScienceIconComponent', 'selector': 'mav-map-of-science-icon'},{'name': 'MenuComponent', 'selector': 'mav-visualization-menu'},{'name': 'MenuIconComponent', 'selector': 'mav-menu-icon'},{'name': 'NetworkComponent', 'selector': 'dvl-vis-network'},{'name': 'NetworkIconComponent', 'selector': 'mav-network-icon'},{'name': 'NetworkIconComponent', 'selector': 'mav-network-icon'},{'name': 'NodeSizeComponent', 'selector': 'dvl-vis-node-size'},{'name': 'NsfLogoComponent', 'selector': 'mav-nsf-logo'},{'name': 'ProjectComponent', 'selector': 'mav-project'},{'name': 'ScatterGraphIconComponent', 'selector': 'mav-scatter-graph-icon'},{'name': 'ScatterGraphIconComponent', 'selector': 'mav-scatter-graph-icon'},{'name': 'ScatterplotComponent', 'selector': 'dvl-vis-scatterplot'},{'name': 'SciencemapComponent', 'selector': 'dvl-vis-science-map'},{'name': 'ScienceMapIconComponent', 'selector': 'mav-science-map-icon'},{'name': 'ShapeComponent', 'selector': 'dvl-shape'},{'name': 'SiceLogoComponent', 'selector': 'mav-sice-logo'},{'name': 'SidenavContentComponent', 'selector': 'mav-sidenav-content'},{'name': 'SourceComponent', 'selector': 'dvl-source'},{'name': 'StartComponent', 'selector': 'dvl-start'},{'name': 'StartProjectIconComponent', 'selector': 'mav-start-project-icon'},{'name': 'StartProjectOptionsComponent', 'selector': 'mav-start-project-options'},{'name': 'TableComponent', 'selector': 'mav-table'},{'name': 'TableIconComponent', 'selector': 'mav-table-icon'},{'name': 'TargetComponent', 'selector': 'dvl-target'},{'name': 'TemporalBargraphComponent', 'selector': 'dvl-vis-temporal-bargraph'},{'name': 'TemporalBargraphIconComponent', 'selector': 'mav-temporal-bargraph-icon'},{'name': 'ThicknessComponent', 'selector': 'dvl-thickness'},{'name': 'ToolbarContentComponent', 'selector': 'mav-toolbar-content'},{'name': 'VisualizationComponent', 'selector': 'mav-visualization'},{'name': 'VisualizationTypeComponent', 'selector': 'mav-selection-visualization-type'},{'name': 'XAxisComponent', 'selector': 'dvl-x-axis'},{'name': 'YAxisComponent', 'selector': 'dvl-y-axis'}];
+    var DIRECTIVES = [{'name': 'DraggableDirective', 'selector': '[mavDraggable]'},{'name': 'DroppableDirective', 'selector': '[mavDroppable]'}];
+    var ACTUAL_COMPONENT = {'name': 'NetworkIconComponent-1'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'NetworkIconComponent-1.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

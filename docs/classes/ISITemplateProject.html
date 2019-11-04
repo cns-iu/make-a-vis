@@ -1,0 +1,2736 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>make-a-vis documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">make-a-vis documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Classes</li>
+  <li>ISITemplateProject</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>projects/dvl-fw-isi/src/lib/plugin/isi-template-project.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code><a href="../interfaces/Project.html" target="_self" >DefaultProject</a></code>
+            </p>
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#apiVersion">apiVersion</a>
+                            </li>
+                            <li>
+                                <a href="#dataSources">dataSources</a>
+                            </li>
+                            <li>
+                                <a href="#graphicSymbols">graphicSymbols</a>
+                            </li>
+                            <li>
+                                <a href="#graphicVariables">graphicVariables</a>
+                            </li>
+                            <li>
+                                <a href="#metadata">metadata</a>
+                            </li>
+                            <li>
+                                <a href="#rawData">rawData</a>
+                            </li>
+                            <li>
+                                <a href="#recordSets">recordSets</a>
+                            </li>
+                            <li>
+                                <a href="#visualizations">visualizations</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#create">create</a>
+                            </li>
+                            <li>
+                                <a href="#getDataSources">getDataSources</a>
+                            </li>
+                            <li>
+                                <a href="#getGraphicSymbols">getGraphicSymbols</a>
+                            </li>
+                            <li>
+                                <a href="#getGraphicVariables">getGraphicVariables</a>
+                            </li>
+                            <li>
+                                <a href="#getRawData">getRawData</a>
+                            </li>
+                            <li>
+                                <a href="#getRecordSets">getRecordSets</a>
+                            </li>
+                            <li>
+                                <a href="#getVisualizations">getVisualizations</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#prePopulateData">prePopulateData</a>
+                            </li>
+                            <li>
+                                <a href="#findObjects">findObjects</a>
+                            </li>
+                            <li>
+                                <a href="#getRecordStream">getRecordStream</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(isiFileContent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fileName?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/dvl-fw-isi/src/lib/plugin/isi-template-project.ts:18</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>isiFileContent</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>fileName</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="apiVersion"></a>
+                        <span class="name">
+                            <b>
+                            apiVersion</b>
+                            <a href="#apiVersion"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;1&#x27;</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../interfaces/Project.html" target="_self" >DefaultProject</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../interfaces/Project.html#source" target="_self" >DefaultProject:7</a></code>
+</div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dataSources"></a>
+                        <span class="name">
+                            <b>
+                            dataSources</b>
+                            <a href="#dataSources"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>DataSource[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../interfaces/Project.html" target="_self" >DefaultProject</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../interfaces/Project.html#source" target="_self" >DefaultProject:9</a></code>
+</div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="graphicSymbols"></a>
+                        <span class="name">
+                            <b>
+                            graphicSymbols</b>
+                            <a href="#graphicSymbols"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/GraphicSymbol.html" target="_self" >GraphicSymbol[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../interfaces/Project.html" target="_self" >DefaultProject</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../interfaces/Project.html#source" target="_self" >DefaultProject:12</a></code>
+</div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="graphicVariables"></a>
+                        <span class="name">
+                            <b>
+                            graphicVariables</b>
+                            <a href="#graphicVariables"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/GraphicVariable.html" target="_self" >GraphicVariable[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../interfaces/Project.html" target="_self" >DefaultProject</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../interfaces/Project.html#source" target="_self" >DefaultProject:11</a></code>
+</div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="metadata"></a>
+                        <span class="name">
+                            <b>
+                            metadata</b>
+                            <a href="#metadata"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{ dateCreated: new Date() }</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../interfaces/Project.html" target="_self" >DefaultProject</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../interfaces/Project.html#source" target="_self" >DefaultProject:8</a></code>
+</div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rawData"></a>
+                        <span class="name">
+                            <b>
+                            rawData</b>
+                            <a href="#rawData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/RawData.html" target="_self" >RawData[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../interfaces/Project.html" target="_self" >DefaultProject</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../interfaces/Project.html#source" target="_self" >DefaultProject:14</a></code>
+</div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="recordSets"></a>
+                        <span class="name">
+                            <b>
+                            recordSets</b>
+                            <a href="#recordSets"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/RecordSet.html" target="_self" >RecordSet[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../interfaces/Project.html" target="_self" >DefaultProject</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../interfaces/Project.html#source" target="_self" >DefaultProject:10</a></code>
+</div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="visualizations"></a>
+                        <span class="name">
+                            <b>
+                            visualizations</b>
+                            <a href="#visualizations"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Visualization[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../interfaces/Project.html" target="_self" >DefaultProject</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../interfaces/Project.html#source" target="_self" >DefaultProject:13</a></code>
+</div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Async</span>
+                            create
+                        </b>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>create(isiFileContent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fileName?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">projects/dvl-fw-isi/src/lib/plugin/isi-template-project.ts:14</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>isiFileContent</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>fileName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/Project.html" target="_self" >Promise&lt;Project&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDataSources"></a>
+                    <span class="name">
+                        <b>
+                            getDataSources
+                        </b>
+                        <a href="#getDataSources"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getDataSources()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">projects/dvl-fw-isi/src/lib/plugin/isi-template-project.ts:40</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>DataSource[]</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getGraphicSymbols"></a>
+                    <span class="name">
+                        <b>
+                            getGraphicSymbols
+                        </b>
+                        <a href="#getGraphicSymbols"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getGraphicSymbols()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="1088"
+                            class="link-to-prism">projects/dvl-fw-isi/src/lib/plugin/isi-template-project.ts:1088</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/GraphicSymbol.html" target="_self" >GraphicSymbol[]</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getGraphicVariables"></a>
+                    <span class="name">
+                        <b>
+                            getGraphicVariables
+                        </b>
+                        <a href="#getGraphicVariables"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getGraphicVariables()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="162"
+                            class="link-to-prism">projects/dvl-fw-isi/src/lib/plugin/isi-template-project.ts:162</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/GraphicVariable.html" target="_self" >GraphicVariable[]</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRawData"></a>
+                    <span class="name">
+                        <b>
+                            getRawData
+                        </b>
+                        <a href="#getRawData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getRawData(isiFileContent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">projects/dvl-fw-isi/src/lib/plugin/isi-template-project.ts:30</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>isiFileContent</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/RawData.html" target="_self" >RawData[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRecordSets"></a>
+                    <span class="name">
+                        <b>
+                            getRecordSets
+                        </b>
+                        <a href="#getRecordSets"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getRecordSets(fileName?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">projects/dvl-fw-isi/src/lib/plugin/isi-template-project.ts:61</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>fileName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/RecordSet.html" target="_self" >RecordSet[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getVisualizations"></a>
+                    <span class="name">
+                        <b>
+                            getVisualizations
+                        </b>
+                        <a href="#getVisualizations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getVisualizations()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="1464"
+                            class="link-to-prism">projects/dvl-fw-isi/src/lib/plugin/isi-template-project.ts:1464</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Visualization[]</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prePopulateData"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            prePopulateData
+                        </b>
+                        <a href="#prePopulateData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>prePopulateData()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">projects/dvl-fw-isi/src/lib/plugin/isi-template-project.ts:36</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findObjects"></a>
+                    <span class="name">
+                        <b>
+                            findObjects
+                        </b>
+                        <a href="#findObjects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>findObjects(data: T[], search: literal type)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../interfaces/Project.html" target="_self" >DefaultProject</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../interfaces/Project.html#source" target="_self" >DefaultProject:31</a></code>
+</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                            <code>T[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>search</td>
+                                    <td>
+                                            <code>literal type</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>T[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRecordStream"></a>
+                    <span class="name">
+                        <b>
+                            getRecordStream
+                        </b>
+                        <a href="#getRecordStream"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getRecordStream(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../interfaces/Project.html" target="_self" >DefaultProject</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../interfaces/Project.html#source" target="_self" >DefaultProject:20</a></code>
+</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/RecordStream.html" target="_self" >RecordStream&lt;T&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  ActivityLogDataSource, DataSource, DefaultGraphicSymbol, DefaultGraphicVariableMapping, DefaultProject, DefaultRawData,
+  DefaultRecordSet, GraphicSymbol, GraphicVariable, Project, RawData, RecordSet, Visualization,
+} from &#x27;@dvl-fw/core&#x27;;
+import {
+  GeomapVisualization, NetworkVisualization, ScatterplotVisualization, SciencemapVisualization,
+} from &#x27;@dvl-fw/ngx-dino&#x27;;
+
+import { ISIDataSource } from &#x27;./isi-data-source&#x27;;
+import { ISIParsedRawData } from &#x27;./isi-parsed-raw-data&#x27;;
+
+
+export class ISITemplateProject extends DefaultProject {
+  static async create(isiFileContent: string, fileName?: string): Promise&lt;Project&gt; {
+    const project &#x3D; new ISITemplateProject(isiFileContent, fileName);
+    await project.prePopulateData();
+    return project;
+  }
+
+  constructor(isiFileContent: string, fileName?: string) {
+    super();
+    this.rawData &#x3D; this.getRawData(isiFileContent);
+    this.dataSources &#x3D; this.getDataSources();
+    this.recordSets &#x3D; this.getRecordSets(fileName);
+    this.graphicVariables &#x3D; this.getGraphicVariables();
+    this.graphicSymbols &#x3D; this.getGraphicSymbols();
+    this.visualizations &#x3D; this.getVisualizations();
+  }
+
+  getRawData(isiFileContent: string): RawData[] {
+    const rawData &#x3D; new DefaultRawData({id: &#x27;isiFile&#x27;, template: &#x27;string&#x27;, data: isiFileContent});
+    const parsedData &#x3D; new ISIParsedRawData(&#x27;isiRawData&#x27;, rawData);
+    return [parsedData, rawData];
+  }
+
+  async prePopulateData() {
+    await this.rawData[0].getData();
+  }
+
+  getDataSources(): DataSource[] {
+    return [
+      new ISIDataSource({
+        id: &#x27;isiDataSource&#x27;,
+        properties: { rawData: &#x27;isiFile&#x27;, parsedData: &#x27;isiRawData&#x27;, saveParsedData: true },
+        recordStreams: [
+          {id: &#x27;publications&#x27;, label: &#x27;ISI Publications&#x27;},
+          {id: &#x27;journals&#x27;, label: &#x27;Journals&#x27;},
+          {id: &#x27;authors&#x27;, label: &#x27;Authors&#x27;},
+          {id: &#x27;coAuthorLinks&#x27;, label: &#x27;Co-Author Links&#x27;},
+          {id: &#x27;subdisciplines&#x27;, label: &#x27;Subdisciplines&#x27;}
+        ]
+      }, this),
+      new ActivityLogDataSource({
+        id: &#x27;activityLog&#x27;,
+        properties: { rawData: &#x27;activityLog&#x27;, keepPreviousActivity: true, freezeLogs: false },
+        recordStreams: [{id: &#x27;activityLog&#x27;, label: &#x27;Activity Log&#x27;}]
+      }, this)
+    ];
+  }
+
+  getRecordSets(fileName?: string): RecordSet[] {
+    const recordSets &#x3D; [
+      new DefaultRecordSet({
+        id: &#x27;publication&#x27;,
+        label: &#x27;ISI Publication&#x27;,
+        labelPlural: &#x27;ISI Publications&#x27;,
+        description: fileName || undefined,
+        defaultRecordStream: &#x27;publications&#x27;,
+        dataVariables: [
+          {id: &#x27;title&#x27;, label: &#x27;Title&#x27;, dataType: &#x27;text&#x27;, scaleType: &#x27;nominal&#x27;},
+          {id: &#x27;authors&#x27;, label: &#x27;Authors&#x27;, dataType: &#x27;text&#x27;, scaleType: &#x27;nominal&#x27;},
+          {id: &#x27;journalName&#x27;, label: &#x27;Journal&#x27;, dataType: &#x27;text&#x27;, scaleType: &#x27;nominal&#x27;},
+          {id: &#x27;publicationYear&#x27;, label: &#x27;Publication Year&#x27;, dataType: &#x27;integer&#x27;, scaleType: &#x27;interval&#x27;},
+          {id: &#x27;numCites&#x27;, label: &#x27;# Citations&#x27;, dataType: &#x27;integer&#x27;, scaleType: &#x27;ratio&#x27;},
+          {id: &#x27;discipline&#x27;, label: &#x27;Discipline&#x27;, dataType: &#x27;text&#x27;, scaleType: &#x27;nominal&#x27;},
+          {id: &#x27;subdiscipline&#x27;, label: &#x27;Subdiscipline&#x27;, dataType: &#x27;text&#x27;, scaleType: &#x27;nominal&#x27;},
+          {id: &#x27;id&#x27;, label: &#x27;WoS ID&#x27;, dataType: &#x27;text&#x27;, scaleType: &#x27;nominal&#x27;}
+        ]
+      }, this),
+      new DefaultRecordSet({
+        id: &#x27;journal&#x27;,
+        label: &#x27;Journal&#x27;,
+        labelPlural: &#x27;Journals&#x27;,
+        parent: &#x27;publication&#x27;,
+        description: &#x27;from ISI Publications&#x27;,
+        defaultRecordStream: &#x27;journals&#x27;,
+        dataVariables: [
+          {id: &#x27;name&#x27;, label: &#x27;Name&#x27;, dataType: &#x27;text&#x27;, scaleType: &#x27;nominal&#x27;},
+          {id: &#x27;numPapers&#x27;, label: &#x27;# Publications&#x27;, dataType: &#x27;integer&#x27;, scaleType: &#x27;ratio&#x27;},
+          {id: &#x27;numCites&#x27;, label: &#x27;# Citations&#x27;, dataType: &#x27;integer&#x27;, scaleType: &#x27;ratio&#x27;},
+          {id: &#x27;firstYear&#x27;, label: &#x27;First Year&#x27;, dataType: &#x27;integer&#x27;, scaleType: &#x27;interval&#x27;},
+          {id: &#x27;lastYear&#x27;, label: &#x27;Last Year&#x27;, dataType: &#x27;integer&#x27;, scaleType: &#x27;interval&#x27;},
+        ]
+      }, this),
+      new DefaultRecordSet({
+        id: &#x27;author&#x27;,
+        label: &#x27;Author&#x27;,
+        labelPlural: &#x27;Authors&#x27;,
+        parent: &#x27;publication&#x27;,
+        description: &#x27;from ISI Publications&#x27;,
+        defaultRecordStream: &#x27;authors&#x27;,
+        dataVariables: [
+          {id: &#x27;name&#x27;, label: &#x27;Name&#x27;, dataType: &#x27;text&#x27;, scaleType: &#x27;nominal&#x27;},
+          {id: &#x27;numPapers&#x27;, label: &#x27;# Publications&#x27;, dataType: &#x27;integer&#x27;, scaleType: &#x27;ratio&#x27;},
+          {id: &#x27;numCites&#x27;, label: &#x27;# Citations&#x27;, dataType: &#x27;integer&#x27;, scaleType: &#x27;ratio&#x27;},
+          {id: &#x27;firstYear&#x27;, label: &#x27;First Year&#x27;, dataType: &#x27;integer&#x27;, scaleType: &#x27;interval&#x27;},
+          {id: &#x27;lastYear&#x27;, label: &#x27;Last Year&#x27;, dataType: &#x27;integer&#x27;, scaleType: &#x27;interval&#x27;},
+          {id: &#x27;fullname&#x27;, label: &#x27;Full Name&#x27;, dataType: &#x27;text&#x27;, scaleType: &#x27;nominal&#x27;},
+          {id: &#x27;x&#x27;, label: &#x27;X&#x27;, dataType: &#x27;number&#x27;, scaleType: &#x27;interval&#x27;},
+          {id: &#x27;y&#x27;, label: &#x27;Y&#x27;, dataType: &#x27;number&#x27;, scaleType: &#x27;interval&#x27;},
+          {id: &#x27;latitude&#x27;, label: &#x27;Latitude&#x27;, dataType: &#x27;number&#x27;, scaleType: &#x27;interval&#x27;},
+          {id: &#x27;longitude&#x27;, label: &#x27;Longitude&#x27;, dataType: &#x27;number&#x27;, scaleType: &#x27;interval&#x27;}
+        ]
+      }, this),
+      new DefaultRecordSet({
+        id: &#x27;coAuthorLink&#x27;,
+        label: &#x27;Co-Author Link&#x27;,
+        labelPlural: &#x27;Co-Author Links&#x27;,
+        parent: &#x27;publication&#x27;,
+        description: &#x27;from ISI Publications&#x27;,
+        defaultRecordStream: &#x27;coAuthorLinks&#x27;,
+        dataVariables: [
+          {id: &#x27;author1&#x27;, label: &#x27;Author 1&#x27;, dataType: &#x27;text&#x27;, scaleType: &#x27;nominal&#x27;},
+          {id: &#x27;author2&#x27;, label: &#x27;Author 2&#x27;, dataType: &#x27;text&#x27;, scaleType: &#x27;nominal&#x27;},
+          {id: &#x27;numPapers&#x27;, label: &#x27;# Joint Publications&#x27;, dataType: &#x27;integer&#x27;, scaleType: &#x27;ratio&#x27;},
+          {id: &#x27;numCites&#x27;, label: &#x27;# Joint Citations&#x27;, dataType: &#x27;integer&#x27;, scaleType: &#x27;ratio&#x27;},
+          {id: &#x27;firstYear&#x27;, label: &#x27;First Year&#x27;, dataType: &#x27;integer&#x27;, scaleType: &#x27;interval&#x27;},
+          {id: &#x27;lastYear&#x27;, label: &#x27;Last Year&#x27;, dataType: &#x27;integer&#x27;, scaleType: &#x27;interval&#x27;},
+          {id: &#x27;identifier&#x27;, label: &#x27;Identifier&#x27;, dataType: &#x27;text&#x27;, scaleType: &#x27;nominal&#x27;},
+          {id: &#x27;sourceX&#x27;, label: &#x27;Author 1 X&#x27;, dataType: &#x27;number&#x27;, scaleType: &#x27;interval&#x27;},
+          {id: &#x27;sourceY&#x27;, label: &#x27;Author 1 Y&#x27;, dataType: &#x27;number&#x27;, scaleType: &#x27;interval&#x27;},
+          {id: &#x27;targetX&#x27;, label: &#x27;Author 2 X&#x27;, dataType: &#x27;number&#x27;, scaleType: &#x27;interval&#x27;},
+          {id: &#x27;targetY&#x27;, label: &#x27;Author 2 Y&#x27;, dataType: &#x27;number&#x27;, scaleType: &#x27;interval&#x27;},
+          {id: &#x27;latitude1&#x27;, label: &#x27;Author 1 Latitude&#x27;, dataType: &#x27;number&#x27;, scaleType: &#x27;interval&#x27;},
+          {id: &#x27;longitude1&#x27;, label: &#x27;Author 1 Longitude&#x27;, dataType: &#x27;number&#x27;, scaleType: &#x27;interval&#x27;},
+          {id: &#x27;latitude2&#x27;, label: &#x27;Author 2 Latitude&#x27;, dataType: &#x27;number&#x27;, scaleType: &#x27;interval&#x27;},
+          {id: &#x27;longitude2&#x27;, label: &#x27;Author 2 Longitude&#x27;, dataType: &#x27;number&#x27;, scaleType: &#x27;interval&#x27;},
+        ]
+      }, this),
+      new DefaultRecordSet({
+        id: &#x27;subdiscipline&#x27;,
+        label: &#x27;Subdiscipline&#x27;,
+        labelPlural: &#x27;Subdisciplines&#x27;,
+        parent: &#x27;publication&#x27;,
+        description: &#x27;from ISI Publications&#x27;,
+        defaultRecordStream: &#x27;subdisciplines&#x27;,
+        dataVariables: [
+          {id: &#x27;name&#x27;, label: &#x27;Name&#x27;, dataType: &#x27;text&#x27;, scaleType: &#x27;nominal&#x27;},
+          {id: &#x27;numPapers&#x27;, label: &#x27;# Publications&#x27;, dataType: &#x27;integer&#x27;, scaleType: &#x27;ratio&#x27;},
+          {id: &#x27;numCites&#x27;, label: &#x27;# Citations&#x27;, dataType: &#x27;integer&#x27;, scaleType: &#x27;ratio&#x27;},
+          {id: &#x27;firstYear&#x27;, label: &#x27;First Year&#x27;, dataType: &#x27;integer&#x27;, scaleType: &#x27;interval&#x27;},
+          {id: &#x27;lastYear&#x27;, label: &#x27;Last Year&#x27;, dataType: &#x27;integer&#x27;, scaleType: &#x27;interval&#x27;},
+          {id: &#x27;discipline&#x27;, label: &#x27;Discipline&#x27;, dataType: &#x27;text&#x27;, scaleType: &#x27;nominal&#x27;},
+          {id: &#x27;id&#x27;, label: &#x27;ID&#x27;, dataType: &#x27;text&#x27;, scaleType: &#x27;nominal&#x27;},
+        ]
+      }, this)
+    ];
+    recordSets.forEach(rs &#x3D;&gt; rs.resolveParent(recordSets));
+    return recordSets;
+  }
+
+  getGraphicVariables(): GraphicVariable[] {
+    return DefaultGraphicVariableMapping.fromJSON([
+      {
+        recordStream: &#x27;publications&#x27;,
+        mappings: {
+          publication: {
+            id: {
+              identifier: [
+                {selector: &#x27;id&#x27;}
+              ],
+              transparency: [
+                {id: &#x27;fixed&#x27;, selector: &#x27;defaultStyles.transparency&#x27;, label: &#x27;Default&#x27;}
+              ],
+              strokeColor: [
+                {id: &#x27;fixed&#x27;, selector: &#x27;defaultStyles.strokeColor&#x27;, label: &#x27;Default&#x27;}
+              ],
+              strokeWidth: [
+                {id: &#x27;fixed&#x27;, selector: &#x27;defaultStyles.strokeWidth&#x27;, label: &#x27;Default&#x27;}
+              ],
+              strokeTransparency: [
+                {id: &#x27;fixed&#x27;, selector: &#x27;defaultStyles.strokeTransparency&#x27;, label: &#x27;Default&#x27;}
+              ]
+            },
+            title: {
+              axis: [
+                {selector: &#x27;title&#x27;}
+              ],
+              text: [
+                {selector: &#x27;title&#x27;}
+              ]
+            },
+            authors: {
+              text: [
+                {selector: &#x27;authorsLabel&#x27;}
+              ]
+            },
+            discipline: {
+              text: [
+                {selector: &#x27;Journal.Subdiscipline.Discipline.name&#x27;}
+              ],
+              axis: [
+                {selector: &#x27;Journal.Subdiscipline.Discipline.name&#x27;}
+              ],
+              input: [
+                {selector: &#x27;Journal.Subdiscipline.Discipline.name&#x27;}
+              ],
+              label: [
+                {selector: &#x27;Journal.Subdiscipline.Discipline.name&#x27;}
+              ],
+              order: [
+                {selector: &#x27;Journal.Subdiscipline.Discipline.id&#x27;},
+              ],
+              color: [
+                {selector: &#x27;Journal.Subdiscipline.Discipline.color&#x27;}
+              ]
+            },
+            subdiscipline: {
+              text: [
+                {selector: &#x27;Journal.Subdiscipline.name&#x27;}
+              ],
+              axis: [
+                {selector: &#x27;Journal.Subdiscipline.name&#x27;}
+              ]
+            },
+            numCites: {
+              axis: [
+                {selector: &#x27;numCitesLabel&#x27;}
+              ],
+              text: [
+                {selector: &#x27;numCitesLabel&#x27;}
+              ],
+              input: [
+                {selector: &#x27;numCites&#x27;}
+              ],
+              label: [
+                {selector: &#x27;numCitesLabel&#x27;}
+              ],
+              order: [
+                {selector: &#x27;numCites&#x27;},
+              ],
+              areaSize: [
+                {selector: &#x27;numCitesAreaSize&#x27;}
+              ],
+              fontSize: [
+                {selector: &#x27;numCitesFontSize&#x27;}
+              ],
+              color: [
+                {selector: &#x27;numCitesColor&#x27;}
+              ],
+              strokeColor: [
+                {selector: &#x27;numCitesStrokeColor&#x27;}
+              ],
+              transparency: [
+                {selector: &#x27;numCitesTransparency&#x27;}
+              ],
+              strokeTransparency: [
+                {selector: &#x27;numCitesTransparency&#x27;}
+              ],
+            },
+            publicationYear: {
+              axis: [
+                {selector: &#x27;publicationYearLabel&#x27;}
+              ],
+              text: [
+                {selector: &#x27;publicationYearLabel&#x27;}
+              ],
+              input: [
+                {selector: &#x27;publicationYear&#x27;}
+              ],
+              label: [
+                {selector: &#x27;publicationYearLabel&#x27;}
+              ],
+              order: [
+                {selector: &#x27;publicationYear&#x27;},
+              ],
+              areaSize: [
+                {selector: &#x27;publicationYearAreaSize&#x27;}
+              ],
+              fontSize: [
+                {selector: &#x27;publicationYearFontSize&#x27;}
+              ],
+              color: [
+                {selector: &#x27;publicationYearColor&#x27;}
+              ],
+              strokeColor: [
+                {selector: &#x27;publicationYearStrokeColor&#x27;}
+              ]
+            },
+          }
+        }
+      },
+      {
+        recordStream: &#x27;journals&#x27;,
+        mappings: {
+          journal: {
+            name: {
+              identifier: [
+                {selector: &#x27;name&#x27;}
+              ],
+              axis: [
+                {selector: &#x27;name&#x27;}
+              ],
+              text: [
+                {selector: &#x27;name&#x27;}
+              ],
+              transparency: [
+                {id: &#x27;fixed&#x27;, selector: &#x27;defaultStyles.transparency&#x27;, label: &#x27;Default&#x27;}
+              ],
+              strokeColor: [
+                {id: &#x27;fixed&#x27;, selector: &#x27;defaultStyles.strokeColor&#x27;, label: &#x27;Default&#x27;}
+              ],
+              strokeWidth: [
+                {id: &#x27;fixed&#x27;, selector: &#x27;defaultStyles.strokeWidth&#x27;, label: &#x27;Default&#x27;}
+              ],
+              strokeTransparency: [
+                {id: &#x27;fixed&#x27;, selector: &#x27;defaultStyles.strokeTransparency&#x27;, label: &#x27;Default&#x27;}
+              ]
+            },
+            numCites: {
+              axis: [
+                {selector: &#x27;numCitesLabel&#x27;}
+              ],
+              text: [
+                {selector: &#x27;numCitesLabel&#x27;}
+              ],
+              input: [
+                {selector: &#x27;numCites&#x27;}
+              ],
+              label: [
+                {selector: &#x27;numCitesLabel&#x27;}
+              ],
+              order: [
+                {selector: &#x27;numCites&#x27;},
+              ],
+              areaSize: [
+                {selector: &#x27;numCitesAreaSize&#x27;}
+              ],
+              fontSize: [
+                {selector: &#x27;numCitesFontSize&#x27;}
+              ],
+              color: [
+                {selector: &#x27;numCitesColor&#x27;}
+              ],
+              strokeColor: [
+                {selector: &#x27;numCitesStrokeColor&#x27;}
+              ]
+            },
+            numPapers: {
+              axis: [
+                {selector: &#x27;numPapersLabel&#x27;}
+              ],
+              text: [
+                {selector: &#x27;numPapersLabel&#x27;}
+              ],
+              input: [
+                {selector: &#x27;numPapers&#x27;}
+              ],
+              label: [
+                {selector: &#x27;numPapersLabel&#x27;}
+              ],
+              order: [
+                {selector: &#x27;numPapers&#x27;},
+              ],
+              areaSize: [
+                {selector: &#x27;numPapersAreaSize&#x27;}
+              ],
+              fontSize: [
+                {selector: &#x27;numPapersFontSize&#x27;}
+              ],
+              color: [
+                {selector: &#x27;numPapersColor&#x27;}
+              ],
+              transparency: [
+                {selector: &#x27;numPapersTransparency&#x27;}
+              ],
+              strokeTransparency: [
+                {selector: &#x27;numPapersTransparency&#x27;}
+              ],
+              strokeColor: [
+                {selector: &#x27;numPapersStrokeColor&#x27;}
+              ]
+            },
+            firstYear: {
+              axis: [
+                {selector: &#x27;firstYearLabel&#x27;}
+              ],
+              text: [
+                {selector: &#x27;firstYearLabel&#x27;}
+              ],
+              input: [
+                {selector: &#x27;firstYear&#x27;}
+              ],
+              label: [
+                {selector: &#x27;firstYearLabel&#x27;}
+              ],
+              order: [
+                {selector: &#x27;firstYear&#x27;},
+              ],
+              areaSize: [
+                {selector: &#x27;firstYearAreaSize&#x27;}
+              ],
+              fontSize: [
+                {selector: &#x27;firstYearFontSize&#x27;}
+              ],
+              color: [
+                {selector: &#x27;firstYearColor&#x27;}
+              ],
+              strokeColor: [
+                {selector: &#x27;firstYearStrokeColor&#x27;}
+              ]
+            },
+            lastYear: {
+              axis: [
+                {selector: &#x27;lastYearLabel&#x27;}
+              ],
+              text: [
+                {selector: &#x27;lastYearLabel&#x27;}
+              ],
+              input: [
+                {selector: &#x27;lastYear&#x27;}
+              ],
+              label: [
+                {selector: &#x27;lastYearLabel&#x27;}
+              ],
+              order: [
+                {selector: &#x27;lastYear&#x27;},
+              ],
+              areaSize: [
+                {selector: &#x27;lastYearAreaSize&#x27;}
+              ],
+              fontSize: [
+                {selector: &#x27;lastYearFontSize&#x27;}
+              ],
+              color: [
+                {selector: &#x27;lastYearColor&#x27;}
+              ],
+              strokeColor: [
+                {selector: &#x27;lastYearStrokeColor&#x27;}
+              ]
+            }
+          }
+        }
+      },
+      {
+        recordStream: &#x27;subdisciplines&#x27;,
+        mappings: {
+          subdiscipline: {
+            id: {
+              identifier: [
+                {selector: &#x27;id&#x27;}
+              ],
+              axis: [
+                {selector: &#x27;id&#x27;}
+              ],
+              text: [
+                {selector: &#x27;id&#x27;}
+              ],
+              transparency: [
+                {id: &#x27;fixed&#x27;, selector: &#x27;defaultStyles.transparency&#x27;, label: &#x27;Default&#x27;}
+              ],
+              strokeColor: [
+                {id: &#x27;fixed&#x27;, selector: &#x27;defaultStyles.strokeColor&#x27;, label: &#x27;Default&#x27;}
+              ],
+              strokeWidth: [
+                {id: &#x27;fixed&#x27;, selector: &#x27;defaultStyles.strokeWidth&#x27;, label: &#x27;Default&#x27;}
+              ],
+              strokeTransparency: [
+                {id: &#x27;fixed&#x27;, selector: &#x27;defaultStyles.strokeTransparency&#x27;, label: &#x27;Default&#x27;}
+              ]
+            },
+            name: {
+              axis: [
+                {selector: &#x27;name&#x27;}
+              ],
+              text: [
+                {selector: &#x27;name&#x27;},
+                {id: &#x27;tooltip&#x27;, selector: &#x27;id&#x27;}, // FIXME: should be name, but @ngx-din/science-map&#x27;s &quot;tooltip&quot; has to be id
+              ]
+            },
+            discipline: {
+              text: [
+                {selector: &#x27;Discipline.name&#x27;}
+              ],
+              axis: [
+                {selector: &#x27;Discipline.name&#x27;}
+              ],
+              input: [
+                {selector: &#x27;Discipline.name&#x27;}
+              ],
+              label: [
+                {selector: &#x27;Discipline.name&#x27;}
+              ],
+              order: [
+                {selector: &#x27;Discipline.id&#x27;},
+              ],
+              color: [
+                {selector: &#x27;Discipline.color&#x27;}
+              ]
+            },
+            numCites: {
+              axis: [
+                {selector: &#x27;numCitesLabel&#x27;}
+              ],
+              text: [
+                {selector: &#x27;numCitesLabel&#x27;}
+              ],
+              input: [
+                {selector: &#x27;numCites&#x27;}
+              ],
+              label: [
+                {selector: &#x27;numCitesLabel&#x27;}
+              ],
+              order: [
+                {selector: &#x27;numCites&#x27;},
+              ],
+              areaSize: [
+                {selector: &#x27;numCitesAreaSize&#x27;}
+              ],
+              fontSize: [
+                {selector: &#x27;numCitesFontSize&#x27;}
+              ],
+              color: [
+                {selector: &#x27;numCitesColor&#x27;}
+              ],
+              strokeColor: [
+                {selector: &#x27;numCitesStrokeColor&#x27;}
+              ]
+            },
+            numPapers: {
+              axis: [
+                {selector: &#x27;numPapersLabel&#x27;}
+              ],
+              text: [
+                {selector: &#x27;numPapersLabel&#x27;}
+              ],
+              input: [
+                {selector: &#x27;numPapers&#x27;}
+              ],
+              label: [
+                {selector: &#x27;numPapersLabel&#x27;}
+              ],
+              order: [
+                {selector: &#x27;numPapers&#x27;},
+              ],
+              areaSize: [
+                {selector: &#x27;numPapersAreaSize&#x27;}
+              ],
+              fontSize: [
+                {selector: &#x27;numPapersFontSize&#x27;}
+              ],
+              color: [
+                {selector: &#x27;numPapersColor&#x27;}
+              ],
+              transparency: [
+                {selector: &#x27;numPapersTransparency&#x27;}
+              ],
+              strokeTransparency: [
+                {selector: &#x27;numPapersTransparency&#x27;}
+              ],
+              strokeColor: [
+                {selector: &#x27;numPapersStrokeColor&#x27;}
+              ]
+            },
+            firstYear: {
+              axis: [
+                {selector: &#x27;firstYearLabel&#x27;}
+              ],
+              text: [
+                {selector: &#x27;firstYearLabel&#x27;}
+              ],
+              input: [
+                {selector: &#x27;firstYear&#x27;}
+              ],
+              label: [
+                {selector: &#x27;firstYearLabel&#x27;}
+              ],
+              order: [
+                {selector: &#x27;firstYear&#x27;},
+              ],
+              areaSize: [
+                {selector: &#x27;firstYearAreaSize&#x27;}
+              ],
+              fontSize: [
+                {selector: &#x27;firstYearFontSize&#x27;}
+              ],
+              color: [
+                {selector: &#x27;firstYearColor&#x27;}
+              ],
+              strokeColor: [
+                {selector: &#x27;firstYearStrokeColor&#x27;}
+              ]
+            },
+            lastYear: {
+              axis: [
+                {selector: &#x27;lastYearLabel&#x27;}
+              ],
+              text: [
+                {selector: &#x27;lastYearLabel&#x27;}
+              ],
+              input: [
+                {selector: &#x27;lastYear&#x27;}
+              ],
+              label: [
+                {selector: &#x27;lastYearLabel&#x27;}
+              ],
+              order: [
+                {selector: &#x27;lastYear&#x27;},
+              ],
+              areaSize: [
+                {selector: &#x27;lastYearAreaSize&#x27;}
+              ],
+              fontSize: [
+                {selector: &#x27;lastYearFontSize&#x27;}
+              ],
+              color: [
+                {selector: &#x27;lastYearColor&#x27;}
+              ],
+              strokeColor: [
+                {selector: &#x27;lastYearStrokeColor&#x27;}
+              ]
+            }
+          }
+        }
+      },
+      {
+        recordStream: &#x27;authors&#x27;,
+        mappings: {
+          author: {
+            name: {
+              identifier: [
+                {selector: &#x27;name&#x27;}
+              ],
+              axis: [
+                {selector: &#x27;name&#x27;}
+              ],
+              text: [
+                {selector: &#x27;name&#x27;}
+              ],
+              transparency: [
+                {id: &#x27;fixed&#x27;, selector: &#x27;defaultStyles.transparency&#x27;, label: &#x27;Default&#x27;}
+              ],
+              strokeColor: [
+                {id: &#x27;fixed&#x27;, selector: &#x27;defaultStyles.strokeColor&#x27;, label: &#x27;Default&#x27;}
+              ],
+              strokeWidth: [
+                {id: &#x27;fixed&#x27;, selector: &#x27;defaultStyles.strokeWidth&#x27;, label: &#x27;Default&#x27;}
+              ],
+              strokeTransparency: [
+                {id: &#x27;fixed&#x27;, selector: &#x27;defaultStyles.strokeTransparency&#x27;, label: &#x27;Default&#x27;}
+              ],
+              labelPosition: [
+                {id: &#x27;fixed&#x27;, selector: &#x27;defaultStyles.labelPosition&#x27;, label: &#x27;Default&#x27;},
+                {id: &#x27;fixedCenter&#x27;, selector: &#x27;defaultStyles.labelPositionCenter&#x27;, label: &#x27;Centered Label&#x27;}
+              ]
+            },
+            latitude: {
+              text: [
+                {selector: &#x27;latlng[0]&#x27;}
+              ],
+              axis: [
+                {selector: &#x27;latlng[0]&#x27;}
+              ],
+              latitude: [
+                {selector: &#x27;latlng[0]&#x27;}
+              ]
+            },
+            longitude: {
+              text: [
+                {selector: &#x27;latlng[1]&#x27;}
+              ],
+              axis: [
+                {selector: &#x27;latlng[1]&#x27;}
+              ],
+              longitude: [
+                {selector: &#x27;latlng[1]&#x27;}
+              ]
+            },
+            x: {
+              text: [
+                {selector: &#x27;positionLabel[0]&#x27;}
+              ],
+              axis: [
+                {selector: &#x27;position[0]&#x27;}
+              ]
+            },
+            y: {
+              text: [
+                {selector: &#x27;positionLabel[1]&#x27;}
+              ],
+              axis: [
+                {selector: &#x27;position[1]&#x27;}
+              ]
+            },
+            fullname: {
+              axis: [
+                {selector: &#x27;fullname&#x27;}
+              ],
+              text: [
+                {selector: &#x27;fullname&#x27;}
+              ]
+            },
+            numCites: {
+              axis: [
+                {selector: &#x27;numCitesLabel&#x27;}
+              ],
+              text: [
+                {selector: &#x27;numCitesLabel&#x27;}
+              ],
+              input: [
+                {selector: &#x27;numCites&#x27;}
+              ],
+              label: [
+                {selector: &#x27;numCitesLabel&#x27;},
+                {id: &#x27;topLabels&#x27;, selector: &#x27;numCitesTopLabel&#x27;}
+              ],
+              order: [
+                {selector: &#x27;numCites&#x27;},
+              ],
+              areaSize: [
+                {selector: &#x27;numCitesAreaSize&#x27;}
+              ],
+              fontSize: [
+                {selector: &#x27;numCitesFontSize&#x27;}
+              ],
+              color: [
+                {selector: &#x27;numCitesColor&#x27;}
+              ],
+              strokeColor: [
+                {selector: &#x27;numCitesStrokeColor&#x27;}
+              ]
+            },
+            numPapers: {
+              axis: [
+                {selector: &#x27;numPapersLabel&#x27;}
+              ],
+              text: [
+                {selector: &#x27;numPapersLabel&#x27;}
+              ],
+              input: [
+                {selector: &#x27;numPapers&#x27;}
+              ],
+              label: [
+                {selector: &#x27;numPapersLabel&#x27;}
+              ],
+              order: [
+                {selector: &#x27;numPapers&#x27;},
+              ],
+              areaSize: [
+                {selector: &#x27;numPapersAreaSize&#x27;}
+              ],
+              fontSize: [
+                {selector: &#x27;numPapersFontSize&#x27;}
+              ],
+              color: [
+                {selector: &#x27;numPapersColor&#x27;}
+              ],
+              strokeColor: [
+                {selector: &#x27;numPapersStrokeColor&#x27;}
+              ],
+              transparency: [
+                {selector: &#x27;numPapersTransparency&#x27;}
+              ],
+              strokeTransparency: [
+                {selector: &#x27;numPapersTransparency&#x27;}
+              ]
+            },
+            firstYear: {
+              axis: [
+                {selector: &#x27;firstYearLabel&#x27;}
+              ],
+              text: [
+                {selector: &#x27;firstYearLabel&#x27;}
+              ],
+              input: [
+                {selector: &#x27;firstYear&#x27;}
+              ],
+              label: [
+                {selector: &#x27;firstYearLabel&#x27;}
+              ],
+              order: [
+                {selector: &#x27;firstYear&#x27;},
+              ],
+              areaSize: [
+                {selector: &#x27;firstYearAreaSize&#x27;}
+              ],
+              fontSize: [
+                {selector: &#x27;firstYearFontSize&#x27;}
+              ],
+              color: [
+                {selector: &#x27;firstYearColor&#x27;}
+              ],
+              strokeColor: [
+                {selector: &#x27;firstYearStrokeColor&#x27;}
+              ]
+            },
+            lastYear: {
+              axis: [
+                {selector: &#x27;lastYearLabel&#x27;}
+              ],
+              text: [
+                {selector: &#x27;lastYearLabel&#x27;}
+              ],
+              input: [
+                {selector: &#x27;lastYear&#x27;}
+              ],
+              label: [
+                {selector: &#x27;lastYearLabel&#x27;}
+              ],
+              order: [
+                {selector: &#x27;lastYear&#x27;},
+              ],
+              areaSize: [
+                {selector: &#x27;lastYearAreaSize&#x27;}
+              ],
+              fontSize: [
+                {selector: &#x27;lastYearFontSize&#x27;}
+              ],
+              color: [
+                {selector: &#x27;lastYearColor&#x27;}
+              ],
+              strokeColor: [
+                {selector: &#x27;lastYearStrokeColor&#x27;}
+              ]
+            }
+          }
+        }
+      },
+      {
+        recordStream: &#x27;coAuthorLinks&#x27;,
+        mappings: {
+          coAuthorLink: {
+            author1: {
+              identifier: [
+                {selector: &#x27;author1&#x27;}
+              ],
+              axis: [
+                {selector: &#x27;author1&#x27;}
+              ],
+              text: [
+                {selector: &#x27;author1&#x27;}
+              ]
+            },
+            author2: {
+              identifier: [
+                {selector: &#x27;author2&#x27;}
+              ],
+              axis: [
+                {selector: &#x27;author2&#x27;}
+              ],
+              text: [
+                {selector: &#x27;author2&#x27;}
+              ]
+            },
+            identifier: {
+              identifier: [
+                {selector: &#x27;identifier&#x27;}
+              ],
+              transparency: [
+                {id: &#x27;fixed&#x27;, selector: &#x27;defaultStyles.transparency&#x27;, label: &#x27;Default&#x27;}
+              ],
+              strokeColor: [
+                {id: &#x27;fixed&#x27;, selector: &#x27;defaultStyles.strokeColor&#x27;, label: &#x27;Default&#x27;}
+              ],
+              strokeWidth: [
+                {id: &#x27;fixed&#x27;, selector: &#x27;defaultStyles.strokeWidth&#x27;, label: &#x27;Default&#x27;}
+              ],
+              strokeTransparency: [
+                {id: &#x27;fixed&#x27;, selector: &#x27;defaultStyles.strokeTransparency&#x27;, label: &#x27;Default&#x27;}
+              ]
+            },
+            sourceX: {
+              text: [
+                {selector: &#x27;Author1.positionLabel[0]&#x27;}
+              ],
+              axis: [
+                {selector: &#x27;Author1.position[0]&#x27;}
+              ]
+            },
+            sourceY: {
+              text: [
+                {selector: &#x27;Author1.positionLabel[1]&#x27;}
+              ],
+              axis: [
+                {selector: &#x27;Author1.position[1]&#x27;}
+              ]
+            },
+            targetX: {
+              text: [
+                {selector: &#x27;Author2.positionLabel[0]&#x27;}
+              ],
+              axis: [
+                {selector: &#x27;Author2.position[0]&#x27;}
+              ]
+            },
+            targetY: {
+              text: [
+                {selector: &#x27;Author2.positionLabel[1]&#x27;}
+              ],
+              axis: [
+                {selector: &#x27;Author2.position[1]&#x27;}
+              ]
+            },
+            latitude1: {
+              text: [
+                {selector: &#x27;Author1.latlng[0]&#x27;}
+              ],
+              axis: [
+                {selector: &#x27;Author1.latlng[0]&#x27;}
+              ],
+              latitude: [
+                {selector: &#x27;Author1.latlng[0]&#x27;}
+              ]
+            },
+            longitude1: {
+              text: [
+                {selector: &#x27;Author1.latlng[1]&#x27;}
+              ],
+              axis: [
+                {selector: &#x27;Author1.latlng[1]&#x27;}
+              ],
+              longitude: [
+                {selector: &#x27;Author1.latlng[1]&#x27;}
+              ]
+            },
+            latitude2: {
+              text: [
+                {selector: &#x27;Author2.latlng[0]&#x27;}
+              ],
+              axis: [
+                {selector: &#x27;Author2.latlng[0]&#x27;}
+              ],
+              latitude: [
+                {selector: &#x27;Author2.latlng[0]&#x27;}
+              ]
+            },
+            longitude2: {
+              text: [
+                {selector: &#x27;Author2.latlng[1]&#x27;}
+              ],
+              axis: [
+                {selector: &#x27;Author2.latlng[1]&#x27;}
+              ],
+              longitude: [
+                {selector: &#x27;Author2.latlng[1]&#x27;}
+              ]
+            },
+            numCites: {
+              axis: [
+                {selector: &#x27;numCitesLabel&#x27;}
+              ],
+              text: [
+                {selector: &#x27;numCitesLabel&#x27;}
+              ],
+              input: [
+                {selector: &#x27;numCites&#x27;}
+              ],
+              label: [
+                {selector: &#x27;numCitesLabel&#x27;}
+              ],
+              order: [
+                {selector: &#x27;numCites&#x27;},
+              ],
+              areaSize: [
+                {selector: &#x27;numCitesAreaSize&#x27;}
+              ],
+              strokeWidth: [
+                {selector: &#x27;numCitesStrokeWidth&#x27;}
+              ],
+              fontSize: [
+                {selector: &#x27;numCitesFontSize&#x27;}
+              ],
+              color: [
+                {selector: &#x27;numCitesColor&#x27;}
+              ],
+              strokeColor: [
+                {selector: &#x27;numCitesStrokeColor&#x27;}
+              ]
+            },
+            numPapers: {
+              axis: [
+                {selector: &#x27;numPapersLabel&#x27;}
+              ],
+              text: [
+                {selector: &#x27;numPapersLabel&#x27;}
+              ],
+              input: [
+                {selector: &#x27;numPapers&#x27;}
+              ],
+              label: [
+                {selector: &#x27;numPapersLabel&#x27;}
+              ],
+              order: [
+                {selector: &#x27;numPapers&#x27;},
+              ],
+              areaSize: [
+                {selector: &#x27;numPapersAreaSize&#x27;}
+              ],
+              strokeWidth: [
+                {selector: &#x27;numPapersStrokeWidth&#x27;}
+              ],
+              fontSize: [
+                {selector: &#x27;numPapersFontSize&#x27;}
+              ],
+              color: [
+                {selector: &#x27;numPapersColor&#x27;}
+              ],
+              transparency: [
+                {selector: &#x27;numPapersTransparency&#x27;}
+              ],
+              strokeTransparency: [
+                {selector: &#x27;numPapersTransparency&#x27;}
+              ],
+              strokeColor: [
+                {selector: &#x27;numPapersStrokeColor&#x27;}
+              ]
+            },
+            firstYear: {
+              axis: [
+                {selector: &#x27;firstYearLabel&#x27;}
+              ],
+              text: [
+                {selector: &#x27;firstYearLabel&#x27;}
+              ],
+              input: [
+                {selector: &#x27;firstYear&#x27;}
+              ],
+              label: [
+                {selector: &#x27;firstYearLabel&#x27;}
+              ],
+              order: [
+                {selector: &#x27;firstYear&#x27;},
+              ],
+              areaSize: [
+                {selector: &#x27;firstYearAreaSize&#x27;}
+              ],
+              strokeWidth: [
+                {selector: &#x27;firstYearStrokeWidth&#x27;}
+              ],
+              fontSize: [
+                {selector: &#x27;firstYearFontSize&#x27;}
+              ],
+              color: [
+                {selector: &#x27;firstYearColor&#x27;}
+              ],
+              strokeColor: [
+                {selector: &#x27;firstYearStrokeColor&#x27;}
+              ]
+            },
+            lastYear: {
+              axis: [
+                {selector: &#x27;lastYearLabel&#x27;}
+              ],
+              text: [
+                {selector: &#x27;lastYearLabel&#x27;}
+              ],
+              input: [
+                {selector: &#x27;lastYear&#x27;}
+              ],
+              label: [
+                {selector: &#x27;lastYearLabel&#x27;}
+              ],
+              order: [
+                {selector: &#x27;lastYear&#x27;},
+              ],
+              areaSize: [
+                {selector: &#x27;lastYearAreaSize&#x27;}
+              ],
+              strokeWidth: [
+                {selector: &#x27;lastYearStrokeWidth&#x27;}
+              ],
+              fontSize: [
+                {selector: &#x27;lastYearFontSize&#x27;}
+              ],
+              color: [
+                {selector: &#x27;lastYearColor&#x27;}
+              ],
+              strokeColor: [
+                {selector: &#x27;lastYearStrokeColor&#x27;}
+              ]
+            }
+          }
+        }
+      }
+    ], this);
+  }
+
+  getGraphicSymbols(): GraphicSymbol[] {
+    return [
+      new DefaultGraphicSymbol({
+        id: &#x27;publicationPoints&#x27;,
+        type: &#x27;area&#x27;,
+        recordStream: &#x27;publications&#x27;,
+        graphicVariables: {
+          identifier: {
+            recordSet: &#x27;publication&#x27;,
+            dataVariable: &#x27;id&#x27;,
+            graphicVariableType: &#x27;identifier&#x27;,
+            graphicVariableId: &#x27;identifier&#x27;
+          },
+          x: {
+            recordSet: &#x27;publication&#x27;,
+            dataVariable: &#x27;publicationYear&#x27;,
+            graphicVariableType: &#x27;axis&#x27;,
+            graphicVariableId: &#x27;axis&#x27;
+          },
+          y: {
+            recordSet: &#x27;publication&#x27;,
+            dataVariable: &#x27;numCites&#x27;,
+            graphicVariableType: &#x27;axis&#x27;,
+            graphicVariableId: &#x27;axis&#x27;
+          },
+          areaSize: {
+            recordSet: &#x27;publication&#x27;,
+            dataVariable: &#x27;numCites&#x27;,
+            graphicVariableType: &#x27;areaSize&#x27;,
+            graphicVariableId: &#x27;areaSize&#x27;
+          },
+          color: {
+            recordSet: &#x27;publication&#x27;,
+            dataVariable: &#x27;discipline&#x27;,
+            graphicVariableType: &#x27;color&#x27;,
+            graphicVariableId: &#x27;color&#x27;
+          },
+          tooltip: {
+            recordSet: &#x27;publication&#x27;,
+            dataVariable: &#x27;title&#x27;,
+            graphicVariableType: &#x27;text&#x27;,
+            graphicVariableId: &#x27;text&#x27;
+          },
+          transparency: {
+            recordSet: &#x27;publication&#x27;,
+            dataVariable: &#x27;id&#x27;,
+            graphicVariableType: &#x27;transparency&#x27;,
+            graphicVariableId: &#x27;fixed&#x27;
+          },
+          strokeTransparency: {
+            recordSet: &#x27;publication&#x27;,
+            dataVariable: &#x27;id&#x27;,
+            graphicVariableType: &#x27;strokeTransparency&#x27;,
+            graphicVariableId: &#x27;fixed&#x27;
+          },
+          strokeWidth: {
+            recordSet: &#x27;publication&#x27;,
+            dataVariable: &#x27;id&#x27;,
+            graphicVariableType: &#x27;strokeWidth&#x27;,
+            graphicVariableId: &#x27;fixed&#x27;
+          },
+          strokeColor: {
+            recordSet: &#x27;publication&#x27;,
+            dataVariable: &#x27;id&#x27;,
+            graphicVariableType: &#x27;strokeColor&#x27;,
+            graphicVariableId: &#x27;fixed&#x27;
+          }
+        }
+      }, this),
+      new DefaultGraphicSymbol({
+        id: &#x27;journalPoints&#x27;,
+        type: &#x27;area&#x27;,
+        recordStream: &#x27;journals&#x27;,
+        graphicVariables: {
+          identifier: {
+            recordSet: &#x27;journal&#x27;,
+            dataVariable: &#x27;name&#x27;,
+            graphicVariableType: &#x27;identifier&#x27;,
+            graphicVariableId: &#x27;identifier&#x27;
+          },
+          x: {
+            recordSet: &#x27;journal&#x27;,
+            dataVariable: &#x27;firstYear&#x27;,
+            graphicVariableType: &#x27;axis&#x27;,
+            graphicVariableId: &#x27;axis&#x27;
+          },
+          y: {
+            recordSet: &#x27;journal&#x27;,
+            dataVariable: &#x27;numPapers&#x27;,
+            graphicVariableType: &#x27;axis&#x27;,
+            graphicVariableId: &#x27;axis&#x27;
+          },
+          areaSize: {
+            recordSet: &#x27;journal&#x27;,
+            dataVariable: &#x27;numCites&#x27;,
+            graphicVariableType: &#x27;areaSize&#x27;,
+            graphicVariableId: &#x27;areaSize&#x27;
+          },
+          color: {
+            recordSet: &#x27;journal&#x27;,
+            dataVariable: &#x27;numCites&#x27;,
+            graphicVariableType: &#x27;color&#x27;,
+            graphicVariableId: &#x27;color&#x27;
+          },
+          label: {
+            recordSet: &#x27;journal&#x27;,
+            dataVariable: &#x27;name&#x27;,
+            graphicVariableType: &#x27;text&#x27;,
+            graphicVariableId: &#x27;text&#x27;
+          },
+          labelSize: {
+            recordSet: &#x27;journal&#x27;,
+            dataVariable: &#x27;numCites&#x27;,
+            graphicVariableType: &#x27;fontSize&#x27;,
+            graphicVariableId: &#x27;fontSize&#x27;
+          },
+          tooltip: {
+            recordSet: &#x27;journal&#x27;,
+            dataVariable: &#x27;name&#x27;,
+            graphicVariableType: &#x27;text&#x27;,
+            graphicVariableId: &#x27;text&#x27;
+          },
+          transparency: {
+            recordSet: &#x27;journal&#x27;,
+            dataVariable: &#x27;name&#x27;,
+            graphicVariableType: &#x27;transparency&#x27;,
+            graphicVariableId: &#x27;fixed&#x27;
+          },
+          strokeTransparency: {
+            recordSet: &#x27;journal&#x27;,
+            dataVariable: &#x27;name&#x27;,
+            graphicVariableType: &#x27;strokeTransparency&#x27;,
+            graphicVariableId: &#x27;fixed&#x27;
+          },
+          strokeWidth: {
+            recordSet: &#x27;journal&#x27;,
+            dataVariable: &#x27;name&#x27;,
+            graphicVariableType: &#x27;strokeWidth&#x27;,
+            graphicVariableId: &#x27;fixed&#x27;
+          },
+          strokeColor: {
+            recordSet: &#x27;journal&#x27;,
+            dataVariable: &#x27;name&#x27;,
+            graphicVariableType: &#x27;strokeColor&#x27;,
+            graphicVariableId: &#x27;fixed&#x27;
+          }
+        }
+      }, this),
+      new DefaultGraphicSymbol({
+        id: &#x27;subdisciplinePoints&#x27;,
+        type: &#x27;area&#x27;,
+        recordStream: &#x27;subdisciplines&#x27;,
+        graphicVariables: {
+          identifier: {
+            recordSet: &#x27;subdiscipline&#x27;,
+            dataVariable: &#x27;id&#x27;,
+            graphicVariableType: &#x27;identifier&#x27;,
+            graphicVariableId: &#x27;identifier&#x27;
+          },
+          areaSize: {
+            recordSet: &#x27;subdiscipline&#x27;,
+            dataVariable: &#x27;numCites&#x27;,
+            graphicVariableType: &#x27;areaSize&#x27;,
+            graphicVariableId: &#x27;areaSize&#x27;
+          },
+          color: {
+            recordSet: &#x27;subdiscipline&#x27;,
+            dataVariable: &#x27;discipline&#x27;,
+            graphicVariableType: &#x27;color&#x27;,
+            graphicVariableId: &#x27;color&#x27;
+          },
+          tooltip: {
+            recordSet: &#x27;subdiscipline&#x27;,
+            dataVariable: &#x27;name&#x27;,
+            graphicVariableType: &#x27;text&#x27;,
+            graphicVariableId: &#x27;tooltip&#x27;
+          },
+          transparency: {
+            recordSet: &#x27;subdiscipline&#x27;,
+            dataVariable: &#x27;id&#x27;,
+            graphicVariableType: &#x27;transparency&#x27;,
+            graphicVariableId: &#x27;fixed&#x27;
+          },
+          strokeTransparency: {
+            recordSet: &#x27;subdiscipline&#x27;,
+            dataVariable: &#x27;id&#x27;,
+            graphicVariableType: &#x27;strokeTransparency&#x27;,
+            graphicVariableId: &#x27;fixed&#x27;
+          },
+          strokeWidth: {
+            recordSet: &#x27;subdiscipline&#x27;,
+            dataVariable: &#x27;id&#x27;,
+            graphicVariableType: &#x27;strokeWidth&#x27;,
+            graphicVariableId: &#x27;fixed&#x27;
+          },
+          strokeColor: {
+            recordSet: &#x27;subdiscipline&#x27;,
+            dataVariable: &#x27;id&#x27;,
+            graphicVariableType: &#x27;strokeColor&#x27;,
+            graphicVariableId: &#x27;fixed&#x27;
+          }
+        }
+      }, this),
+      new DefaultGraphicSymbol({
+        id: &#x27;authorPoints&#x27;,
+        type: &#x27;area&#x27;,
+        recordStream: &#x27;authors&#x27;,
+        graphicVariables: {
+          identifier: {
+            recordSet: &#x27;author&#x27;,
+            dataVariable: &#x27;name&#x27;,
+            graphicVariableType: &#x27;identifier&#x27;,
+            graphicVariableId: &#x27;identifier&#x27;
+          },
+          latitude: {
+            recordSet: &#x27;author&#x27;,
+            dataVariable: &#x27;latitude&#x27;,
+            graphicVariableType: &#x27;latitude&#x27;,
+            graphicVariableId: &#x27;latitude&#x27;
+          },
+          longitude: {
+            recordSet: &#x27;author&#x27;,
+            dataVariable: &#x27;longitude&#x27;,
+            graphicVariableType: &#x27;longitude&#x27;,
+            graphicVariableId: &#x27;longitude&#x27;
+          },
+          x: {
+            recordSet: &#x27;author&#x27;,
+            dataVariable: &#x27;x&#x27;,
+            graphicVariableType: &#x27;axis&#x27;,
+            graphicVariableId: &#x27;axis&#x27;
+          },
+          y: {
+            recordSet: &#x27;author&#x27;,
+            dataVariable: &#x27;y&#x27;,
+            graphicVariableType: &#x27;axis&#x27;,
+            graphicVariableId: &#x27;axis&#x27;
+          },
+          areaSize: {
+            recordSet: &#x27;author&#x27;,
+            dataVariable: &#x27;numCites&#x27;,
+            graphicVariableType: &#x27;areaSize&#x27;,
+            graphicVariableId: &#x27;areaSize&#x27;
+          },
+          color: {
+            recordSet: &#x27;author&#x27;,
+            dataVariable: &#x27;firstYear&#x27;,
+            graphicVariableType: &#x27;color&#x27;,
+            graphicVariableId: &#x27;color&#x27;
+          },
+          tooltip: {
+            recordSet: &#x27;author&#x27;,
+            dataVariable: &#x27;name&#x27;,
+            graphicVariableType: &#x27;text&#x27;,
+            graphicVariableId: &#x27;text&#x27;
+          },
+          transparency: {
+            recordSet: &#x27;author&#x27;,
+            dataVariable: &#x27;name&#x27;,
+            graphicVariableType: &#x27;transparency&#x27;,
+            graphicVariableId: &#x27;fixed&#x27;
+          },
+          strokeTransparency: {
+            recordSet: &#x27;author&#x27;,
+            dataVariable: &#x27;name&#x27;,
+            graphicVariableType: &#x27;strokeTransparency&#x27;,
+            graphicVariableId: &#x27;fixed&#x27;
+          },
+          strokeWidth: {
+            recordSet: &#x27;author&#x27;,
+            dataVariable: &#x27;name&#x27;,
+            graphicVariableType: &#x27;strokeWidth&#x27;,
+            graphicVariableId: &#x27;fixed&#x27;
+          },
+          strokeColor: {
+            recordSet: &#x27;author&#x27;,
+            dataVariable: &#x27;name&#x27;,
+            graphicVariableType: &#x27;strokeColor&#x27;,
+            graphicVariableId: &#x27;fixed&#x27;
+          }
+        }
+      }, this),
+      new DefaultGraphicSymbol({
+        id: &#x27;coAuthorLinks&#x27;,
+        type: &#x27;line&#x27;,
+        recordStream: &#x27;coAuthorLinks&#x27;,
+        graphicVariables: {
+          identifier: {
+            recordSet: &#x27;coAuthorLink&#x27;,
+            dataVariable: &#x27;identifier&#x27;,
+            graphicVariableType: &#x27;identifier&#x27;,
+            graphicVariableId: &#x27;identifier&#x27;
+          },
+          sourceX: {
+            recordSet: &#x27;coAuthorLink&#x27;,
+            dataVariable: &#x27;sourceX&#x27;,
+            graphicVariableType: &#x27;axis&#x27;,
+            graphicVariableId: &#x27;axis&#x27;
+          },
+          sourceY: {
+            recordSet: &#x27;coAuthorLink&#x27;,
+            dataVariable: &#x27;sourceY&#x27;,
+            graphicVariableType: &#x27;axis&#x27;,
+            graphicVariableId: &#x27;axis&#x27;
+          },
+          targetX: {
+            recordSet: &#x27;coAuthorLink&#x27;,
+            dataVariable: &#x27;targetX&#x27;,
+            graphicVariableType: &#x27;axis&#x27;,
+            graphicVariableId: &#x27;axis&#x27;
+          },
+          targetY: {
+            recordSet: &#x27;coAuthorLink&#x27;,
+            dataVariable: &#x27;targetY&#x27;,
+            graphicVariableType: &#x27;axis&#x27;,
+            graphicVariableId: &#x27;axis&#x27;
+          },
+          latitude1: {
+            recordSet: &#x27;coAuthorLink&#x27;,
+            dataVariable: &#x27;latitude1&#x27;,
+            graphicVariableType: &#x27;latitude&#x27;,
+            graphicVariableId: &#x27;latitude&#x27;
+          },
+          longitude1: {
+            recordSet: &#x27;coAuthorLink&#x27;,
+            dataVariable: &#x27;longitude1&#x27;,
+            graphicVariableType: &#x27;longitude&#x27;,
+            graphicVariableId: &#x27;longitude&#x27;
+          },
+          latitude2: {
+            recordSet: &#x27;coAuthorLink&#x27;,
+            dataVariable: &#x27;latitude2&#x27;,
+            graphicVariableType: &#x27;latitude&#x27;,
+            graphicVariableId: &#x27;latitude&#x27;
+          },
+          longitude2: {
+            recordSet: &#x27;coAuthorLink&#x27;,
+            dataVariable: &#x27;longitude2&#x27;,
+            graphicVariableType: &#x27;longitude&#x27;,
+            graphicVariableId: &#x27;longitude&#x27;
+          },
+          strokeWidth: {
+            recordSet: &#x27;coAuthorLink&#x27;,
+            dataVariable: &#x27;numPapers&#x27;,
+            graphicVariableType: &#x27;strokeWidth&#x27;,
+            graphicVariableId: &#x27;strokeWidth&#x27;
+          },
+          strokeColor: {
+            recordSet: &#x27;coAuthorLink&#x27;,
+            dataVariable: &#x27;firstYear&#x27;,
+            graphicVariableType: &#x27;color&#x27;,
+            graphicVariableId: &#x27;color&#x27;
+          },
+          tooltip: {
+            recordSet: &#x27;coAuthorLink&#x27;,
+            dataVariable: &#x27;identifier&#x27;,
+            graphicVariableType: &#x27;identifier&#x27;,
+            graphicVariableId: &#x27;identifier&#x27;
+          },
+          transparency: {
+            recordSet: &#x27;coAuthorLink&#x27;,
+            dataVariable: &#x27;identifier&#x27;,
+            graphicVariableType: &#x27;transparency&#x27;,
+            graphicVariableId: &#x27;fixed&#x27;
+          },
+          strokeTransparency: {
+            recordSet: &#x27;coAuthorLink&#x27;,
+            dataVariable: &#x27;identifier&#x27;,
+            graphicVariableType: &#x27;strokeTransparency&#x27;,
+            graphicVariableId: &#x27;fixed&#x27;
+          }
+        }
+      }, this)
+    ];
+  }
+
+  getVisualizations(): Visualization[] {
+    return [
+      new ScatterplotVisualization({
+        id: &#x27;SG01&#x27;,
+        template: &#x27;scattergraph&#x27;,
+        properties: {
+          enableTooltip: true,
+          gridlines: true,
+          showAxisLabels: false,
+          showAxisIndicators: false
+        },
+        graphicSymbols: {
+          points: &#x27;publicationPoints&#x27;
+        }
+      }, this),
+      new GeomapVisualization({
+        id: &#x27;GM01&#x27;,
+        template: &#x27;geomap&#x27;,
+        properties: {
+          basemapSelectedZoomLevel: 1,
+          basemapDefaultColor: &#x27;white&#x27;,
+          basemapDefaultStrokeColor: &#x27;#bebebe&#x27;
+        },
+        graphicSymbols: {
+          edges: &#x27;coAuthorLinks&#x27;,
+          nodes: &#x27;authorPoints&#x27;
+        }
+      }, this),
+      new SciencemapVisualization({
+        id: &#x27;SM01&#x27;,
+        template: &#x27;science-map&#x27;,
+        properties: {},
+        graphicSymbols: {
+          subdisciplinePoints: &#x27;subdisciplinePoints&#x27;
+        }
+      }, this),
+      new NetworkVisualization({
+        id: &#x27;NW01&#x27;,
+        template: &#x27;network&#x27;,
+        properties: {},
+        graphicSymbols: {
+          edges: &#x27;coAuthorLinks&#x27;,
+          nodes: &#x27;authorPoints&#x27;
+        }
+      }, this)
+    ];
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'ISITemplateProject.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

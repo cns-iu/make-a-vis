@@ -1,0 +1,1429 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>make-a-vis documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">make-a-vis documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>GraphicSymbolTypeComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>projects/make-a-vis/src/lib/mav-selection/graphic-symbol-type/graphic-symbol-type.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>mav-selection-graphic-symbol-type component declaration, responsible for showing graphic-symbol selection options in mav-selection</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>mav-selection-graphic-symbol-type</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./graphic-symbol-type.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./graphic-symbol-type.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#graphicSymbolOptions">graphicSymbolOptions</a>
+                            </li>
+                            <li>
+                                <a href="#heirarchicalRecordStreams">heirarchicalRecordStreams</a>
+                            </li>
+                            <li>
+                                <a href="#selectedRecordStreamMapping">selectedRecordStreamMapping</a>
+                            </li>
+                            <li>
+                                <a href="#selectionClass">selectionClass</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#capitalize">capitalize</a>
+                            </li>
+                            <li>
+                                <a href="#clear">clear</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnChanges">ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#onDragDropEvent">onDragDropEvent</a>
+                            </li>
+                            <li>
+                                <a href="#recordStreamDropped">recordStreamDropped</a>
+                            </li>
+                            <li>
+                                <a href="#setRecordStreams">setRecordStreams</a>
+                            </li>
+                            <li>
+                                <a href="#unsetRecordStream">unsetRecordStream</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activeVis">activeVis</a>
+                            </li>
+                            <li>
+                                <a href="#mode">mode</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#recordStreamChange">recordStreamChange</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(updateService: <a href="../injectables/UpdateVisService.html">UpdateVisService</a>, store: <a href="../interfaces/SidenavState.html">Store<SidenavState></a>, dataService: <a href="../injectables/DataService.html">DataService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-symbol-type/graphic-symbol-type.component.ts:57</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of graphic symbol type component.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>updateService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UpdateVisService.html" target="_self" >UpdateVisService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>instance of UpdateVisService</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>store</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/SidenavState.html" target="_self" >Store&lt;SidenavState&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>instance of Store</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>dataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DataService.html" target="_self" >DataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>instance of DataService</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="activeVis"></a>
+                        <b>activeVis</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Vis.html" target="_self" >Vis</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-symbol-type/graphic-symbol-type.component.ts:33</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Input of active visualization</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="mode"></a>
+                        <b>mode</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#ModeType" target="_self" >ModeType</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-symbol-type/graphic-symbol-type.component.ts:37</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Input of mode - add/edit</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="recordStreamChange"></a>
+                        <b>recordStreamChange</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-symbol-type/graphic-symbol-type.component.ts:41</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Output event-emitter of selected record-stream mapping i.e. Map&lt;graphic-symbol-option-id, RecordStream&gt;</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="capitalize"></a>
+                    <span class="name">
+                        <b>
+                            capitalize
+                        </b>
+                        <a href="#capitalize"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>capitalize(text: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="175"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-symbol-type/graphic-symbol-type.component.ts:175</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Wrapper for lodash&#39;s capitalize in sentence case</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>text</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>provided string</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>capitalized string</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clear"></a>
+                    <span class="name">
+                        <b>
+                            clear
+                        </b>
+                        <a href="#clear"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>clear()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="143"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-symbol-type/graphic-symbol-type.component.ts:143</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Clears global variables in graphic symbol type component</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <b>
+                            ngOnChanges
+                        </b>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges(changes: <a href="https://angular.io/api/core/SimpleChanges" target="_blank">SimpleChanges</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="88"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-symbol-type/graphic-symbol-type.component.ts:88</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>on changes life-cycle hook for this component</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>changes</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The changed properties object</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDragDropEvent"></a>
+                    <span class="name">
+                        <b>
+                            onDragDropEvent
+                        </b>
+                        <a href="#onDragDropEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onDragDropEvent(event: <a href="../undefineds/DragDropEvent.html">DragDropEvent</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="162"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-symbol-type/graphic-symbol-type.component.ts:162</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Callback for when any drag-drop event takes place</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#DragDropEvent" target="_self" >DragDropEvent</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>instance of DragDropEvent</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="recordStreamDropped"></a>
+                    <span class="name">
+                        <b>
+                            recordStreamDropped
+                        </b>
+                        <a href="#recordStreamDropped"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>recordStreamDropped(recordStream: <a href="../interfaces/RecordStream.html">RecordStream</a>, graphicSymbolOption: <a href="../interfaces/GraphicSymbolOption.html">GraphicSymbolOption</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="124"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-symbol-type/graphic-symbol-type.component.ts:124</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Callback for when records stream is dropped</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>recordStream</td>
+                                    <td>
+                                                <code><a href="../interfaces/RecordStream.html" target="_self" >RecordStream</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>dropped record-stream</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>graphicSymbolOption</td>
+                                    <td>
+                                                <code><a href="../interfaces/GraphicSymbolOption.html" target="_self" >GraphicSymbolOption</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>graphic-symbol-option on which the record-stream was dropped</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setRecordStreams"></a>
+                    <span class="name">
+                        <b>
+                            setRecordStreams
+                        </b>
+                        <a href="#setRecordStreams"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setRecordStreams()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="112"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-symbol-type/graphic-symbol-type.component.ts:112</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Sets record streams and makes mappings in edit mode</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="unsetRecordStream"></a>
+                    <span class="name">
+                        <b>
+                            unsetRecordStream
+                        </b>
+                        <a href="#unsetRecordStream"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>unsetRecordStream(graphicSymbolOptionId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="134"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-symbol-type/graphic-symbol-type.component.ts:134</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Unsets record stream when the cancel button is clicked</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>graphicSymbolOptionId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>id of the graphic-symbol-option whose record-stream is unset</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="graphicSymbolOptions"></a>
+                        <span class="name">
+                            <b>
+                            graphicSymbolOptions</b>
+                            <a href="#graphicSymbolOptions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>GraphicSymbolOption[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-symbol-type/graphic-symbol-type.component.ts:45</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Available graphic symbol options</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="heirarchicalRecordStreams"></a>
+                        <span class="name">
+                            <b>
+                            heirarchicalRecordStreams</b>
+                            <a href="#heirarchicalRecordStreams"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>HeirarchicalRecordStream[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-symbol-type/graphic-symbol-type.component.ts:49</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Available heirarchical record streams</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedRecordStreamMapping"></a>
+                        <span class="name">
+                            <b>
+                            selectedRecordStreamMapping</b>
+                            <a href="#selectedRecordStreamMapping"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/RecordStream.html" target="_self" >Map&lt;string | RecordStream&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-symbol-type/graphic-symbol-type.component.ts:53</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Mapping of selected record streams i.e. Map&lt;graphic-symbol-option-id, RecordStream&gt;</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectionClass"></a>
+                        <span class="name">
+                            <b>
+                            selectionClass</b>
+                            <a href="#selectionClass"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-symbol-type/graphic-symbol-type.component.ts:57</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>css class to be applied to selectable record-streams</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from &#x27;@angular/core&#x27;;
+import { GraphicSymbolOption, RecordStream } from &#x27;@dvl-fw/core&#x27;;
+import { select, Store } from &#x27;@ngrx/store&#x27;;
+import { capitalize as loCapitalize } from &#x27;lodash&#x27;;
+
+import { DataService } from &#x27;../../data-view/shared/data.service&#x27;;
+import { DragDropEvent } from &#x27;../../drag-drop&#x27;;
+import { UpdateVisService } from &#x27;../../shared/services/update-vis/update-vis.service&#x27;;
+import { ModeType, Vis } from &#x27;../../shared/types&#x27;;
+import { getRecordStreamsSelector, SidenavState } from &#x27;../../toolbar/shared/store&#x27;;
+
+/**
+ * Heirarchical record stream type for showing parent-child relationships between record-streams
+ */
+interface HeirarchicalRecordStream {
+  recordStream: RecordStream;
+  level: number;
+}
+
+
+/**
+ * mav-selection-graphic-symbol-type component declaration, responsible for showing graphic-symbol selection options in mav-selection
+ */
+@Component({
+  selector: &#x27;mav-selection-graphic-symbol-type&#x27;,
+  templateUrl: &#x27;./graphic-symbol-type.component.html&#x27;,
+  styleUrls: [&#x27;./graphic-symbol-type.component.scss&#x27;]
+})
+export class GraphicSymbolTypeComponent implements OnChanges {
+  /**
+   * Input of active visualization
+   */
+  @Input() activeVis: Vis;
+  /**
+   * Input of mode - add/edit
+   */
+  @Input() mode: ModeType;
+  /**
+   * Output event-emitter of selected record-stream mapping i.e. Map&lt;graphic-symbol-option-id, RecordStream&gt;
+   */
+  @Output() recordStreamChange &#x3D; new EventEmitter&lt;Map&lt;string, RecordStream&gt;&gt;();
+  /**
+   * Available graphic symbol options
+   */
+  graphicSymbolOptions: GraphicSymbolOption[] &#x3D; [];
+  /**
+   * Available heirarchical record streams
+   */
+  heirarchicalRecordStreams: HeirarchicalRecordStream[] &#x3D; [];
+  /**
+   * Mapping of selected record streams i.e. Map&lt;graphic-symbol-option-id, RecordStream&gt;
+   */
+  selectedRecordStreamMapping: Map&lt;string, RecordStream&gt;;
+  /**
+   * css class to be applied to selectable record-streams
+   */
+  selectionClass &#x3D; &#x27;&#x27;;
+
+  /**
+   * Creates an instance of graphic symbol type component.
+   * @param updateService instance of UpdateVisService
+   * @param store instance of Store
+   * @param dataService instance of DataService
+   */
+  constructor(private updateService: UpdateVisService, private store: Store&lt;SidenavState&gt;, private dataService: DataService) {
+    this.store.pipe(select(getRecordStreamsSelector)).subscribe((recordStreams: RecordStream[]) &#x3D;&gt; {
+      const heirarchicalRecordStreams: HeirarchicalRecordStream[] &#x3D; [];
+      if (recordStreams) {
+        recordStreams.forEach((record) &#x3D;&gt; {
+          const dataScource &#x3D; dataService.dataSources.find(dataSource &#x3D;&gt; dataSource.streamId &#x3D;&#x3D;&#x3D; record.id);
+          if (dataScource) {
+            const heirarchicalRecordStream &#x3D; {
+              recordStream: record,
+              level: dataScource.level
+            };
+            heirarchicalRecordStreams.push(heirarchicalRecordStream);
+          }
+        });
+      }
+      this.heirarchicalRecordStreams &#x3D; heirarchicalRecordStreams;
+    });
+  }
+
+  /**
+   * on changes life-cycle hook for this component
+   * @param changes The changed properties object
+   */
+  ngOnChanges(changes: SimpleChanges) {
+    if (&#x27;activeVis&#x27; in changes) {
+      if (this.activeVis &amp;&amp; this.activeVis.data) {
+        this.selectedRecordStreamMapping &#x3D; new Map();
+        this.graphicSymbolOptions &#x3D; this.activeVis.data.graphicSymbolOptions;
+
+        if (this.mode &#x3D;&#x3D;&#x3D; &#x27;edit&#x27;) {
+          this.setRecordStreams();
+        }
+      }
+    }
+
+    if (&#x27;mode&#x27; in changes &amp;&amp; this.mode &#x3D;&#x3D;&#x3D; &#x27;edit&#x27;) {
+      if (this.activeVis &amp;&amp; this.activeVis.data) {
+        this.setRecordStreams();
+      } else {
+        this.clear();
+      }
+    }
+  }
+
+  /**
+   * Sets record streams and makes mappings in edit mode
+   */
+  setRecordStreams() {
+    Object.keys(this.activeVis.data.graphicSymbols).forEach((gso) &#x3D;&gt; {
+      this.selectedRecordStreamMapping.set(gso, this.activeVis.data.graphicSymbols[gso].recordStream);
+    });
+    this.recordStreamChange.emit(this.selectedRecordStreamMapping);
+  }
+
+  /**
+   * Callback for when records stream is dropped
+   * @param recordStream dropped record-stream
+   * @param graphicSymbolOption graphic-symbol-option on which the record-stream was dropped
+   */
+  recordStreamDropped(recordStream: RecordStream, graphicSymbolOption: GraphicSymbolOption) {
+    this.updateService.updateGraphicSymbol(this.activeVis.data, graphicSymbolOption.id, graphicSymbolOption.type, recordStream);
+    this.selectedRecordStreamMapping.set(graphicSymbolOption.id, recordStream);
+    this.recordStreamChange.emit(this.selectedRecordStreamMapping);
+  }
+
+  /**
+   * Unsets record stream when the cancel button is clicked
+   * @param graphicSymbolOptionId id of the graphic-symbol-option whose record-stream is unset
+   */
+  unsetRecordStream(graphicSymbolOptionId: string) {
+    this.updateService.unsetRecordStream(graphicSymbolOptionId, this.activeVis.data);
+    this.selectedRecordStreamMapping.delete(graphicSymbolOptionId);
+    this.recordStreamChange.emit(this.selectedRecordStreamMapping);
+  }
+
+  /**
+   * Clears global variables in graphic symbol type component
+   */
+  clear() {
+    // clear record-streams
+    this.heirarchicalRecordStreams &#x3D; [];
+
+    // clear mapping
+    if (this.selectedRecordStreamMapping &amp;&amp; this.selectedRecordStreamMapping.size) {
+      this.selectedRecordStreamMapping.clear();
+      this.recordStreamChange.emit(this.selectedRecordStreamMapping);
+    }
+
+    // clear graphic-symbol-options and selectionClass
+    this.graphicSymbolOptions &#x3D; [];
+    this.selectionClass &#x3D; &#x27;&#x27;;
+  }
+
+  /**
+   * Callback for when any drag-drop event takes place
+   * @param event instance of DragDropEvent
+   */
+  onDragDropEvent(event: DragDropEvent) {
+    if (event.type &#x3D;&#x3D;&#x3D; &#x27;drag-start&#x27;) {
+      this.selectionClass &#x3D; event.accepted ? &#x27;selectable&#x27; : &#x27;unselectable&#x27;; // &#x27;rgba(0,255,0,0.1)&#x27; : &#x27;rgba(255,0,0,0.1)&#x27;;
+    } else if (event.type &#x3D;&#x3D;&#x3D; &#x27;drag-end&#x27;) {
+      this.selectionClass &#x3D; &#x27;&#x27;;
+    }
+  }
+
+  /**
+   * Wrapper for lodash&#x27;s capitalize in sentence case
+   * @param text provided string
+   * @returns capitalized string
+   */
+  capitalize(text: string): string {
+    return loCapitalize(text);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;graphic-symbol-type wrapper&quot;&gt;
+    &lt;div class&#x3D;&quot;graphic-symbol-selection container&quot;&gt;
+        &lt;div *ngFor&#x3D;&quot;let symbolType of graphicSymbolOptions&quot; class&#x3D;&quot;inner-container&quot;&gt;
+            &lt;mat-card (mavDroppable)&#x3D;&quot;recordStreamDropped($event, symbolType)&quot;
+                (dragDropEvents)&#x3D;&quot;onDragDropEvent($event)&quot;
+                [ngClass]&#x3D;&quot;{&#x27;record-stream-selected&#x27;: selectedRecordStreamMapping.get(symbolType.id)?true:false}&quot;
+                class&#x3D;&quot;graphic-symbol-card&quot;&gt;
+                &lt;div class&#x3D;&quot;content&quot;&gt;
+                    &lt;div class&#x3D;&quot;graphic-symbol-type&quot;&gt;{{symbolType?.label}} ({{capitalize(symbolType?.type)}})&lt;/div&gt;
+                    &lt;div class&#x3D;&quot;record-stream&quot;&gt;{{selectedRecordStreamMapping.get(symbolType.id)?.label}}&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/mat-card&gt;
+            &lt;mat-icon class&#x3D;&quot;cancel-icon&quot; *ngIf&#x3D;&quot;selectedRecordStreamMapping.get(symbolType.id)?true:false&quot;
+                (click)&#x3D;&quot;unsetRecordStream(symbolType.id)&quot;&gt;cancel&lt;/mat-icon&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;record-stream container&quot;&gt;
+        &lt;div *ngFor&#x3D;&quot;let heirarchicalRecord of heirarchicalRecordStreams&quot; class&#x3D;&quot;inner-container&quot;
+            [mavDraggable]&#x3D;&quot;heirarchicalRecord.recordStream&quot; [style.margin-left.rem]&#x3D;&quot;heirarchicalRecord.level&quot;&gt;
+            {{heirarchicalRecord.recordStream?.label}}
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./graphic-symbol-type.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.graphic-symbol-type {
+  &amp;.wrapper {
+    .graphic-symbol-selection {
+      &amp;.container {
+        display: grid;
+        grid-template-columns: 48.25% 48.25%;
+        gap: 0.625rem 3%;
+
+        .inner-container {
+          display: flex;
+          position: relative;
+
+          .cancel-icon {
+            position: absolute;
+            right: -5px;
+            z-index: 10;
+            top: -5px;
+            cursor: pointer;
+          }
+
+          .graphic-symbol-card {
+            width: 100%;
+            cursor: pointer;
+            display: flex;
+            flex-flow: column;
+            text-align: center;
+            justify-content: center;
+
+            .content {
+              white-space: pre-wrap;
+            }
+
+            &amp;:active {
+              background: #1e88e5;
+              color: #ffffff;
+            }
+          }
+
+          .record-stream-selected {
+            background: #1e88e5;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+
+            .graphic-symbol-type {
+              color: #e0e0e0;
+            }
+          }
+        }
+      }
+    }
+
+    .record-stream {
+      &amp;.container {
+        display: flex;
+        flex-flow: column;
+        margin-top: 1rem;
+
+        .inner-container {
+          padding: 0.5rem;
+          margin: 0.25rem;
+          border: 1px solid transparent;
+          cursor: move;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="graphic-symbol-type wrapper">    <div class="graphic-symbol-selection container">        <div *ngFor="let symbolType of graphicSymbolOptions" class="inner-container">            <mat-card (mavDroppable)="recordStreamDropped($event, symbolType)"                (dragDropEvents)="onDragDropEvent($event)"                [ngClass]="{\'record-stream-selected\': selectedRecordStreamMapping.get(symbolType.id)?true:false}"                class="graphic-symbol-card">                <div class="content">                    <div class="graphic-symbol-type">{{symbolType?.label}} ({{capitalize(symbolType?.type)}})</div>                    <div class="record-stream">{{selectedRecordStreamMapping.get(symbolType.id)?.label}}</div>                </div>            </mat-card>            <mat-icon class="cancel-icon" *ngIf="selectedRecordStreamMapping.get(symbolType.id)?true:false"                (click)="unsetRecordStream(symbolType.id)">cancel</mat-icon>        </div>    </div>    <div class="record-stream container">        <div *ngFor="let heirarchicalRecord of heirarchicalRecordStreams" class="inner-container"            [mavDraggable]="heirarchicalRecord.recordStream" [style.margin-left.rem]="heirarchicalRecord.level">            {{heirarchicalRecord.recordStream?.label}}        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AddIconComponent', 'selector': 'mav-add-icon'},{'name': 'AppComponent', 'selector': 'mav-root'},{'name': 'AppUpdateNotificationComponent', 'selector': 'mav-app-update-notification'},{'name': 'AreaSizeComponent', 'selector': 'dvl-area-size'},{'name': 'CancelIconComponent', 'selector': 'mav-cancel-icon'},{'name': 'CnsLogoComponent', 'selector': 'mav-cns-logo'},{'name': 'CnsLogoIconComponent', 'selector': 'mav-cns-logo-icon'},{'name': 'ColorAreaComponent', 'selector': 'dvl-color-area'},{'name': 'ColorComponent', 'selector': 'dvl-vis-color'},{'name': 'ColorEdgesComponent', 'selector': 'dvl-color-edges'},{'name': 'DataVariableDropzoneComponent', 'selector': 'mav-data-variable-dropzone'},{'name': 'DvlFwVisualizationComponent', 'selector': 'dvl-visualization'},{'name': 'EdgeSizeComponent', 'selector': 'dvl-vis-edge-size'},{'name': 'EditIconComponent', 'selector': 'mav-edit-icon'},{'name': 'EndComponent', 'selector': 'dvl-end'},{'name': 'GeomapComponent', 'selector': 'dvl-vis-geomap'},{'name': 'GeomapIconComponent', 'selector': 'mav-geomap-icon'},{'name': 'GeomapIconComponent', 'selector': 'mav-geomap-icon'},{'name': 'GithubIconComponent', 'selector': 'mav-github-icon'},{'name': 'GradientComponent', 'selector': 'dvl-gradient'},{'name': 'GraphicSymbolTypeComponent', 'selector': 'mav-selection-graphic-symbol-type'},{'name': 'GraphicVariableIconComponent', 'selector': 'mav-graphic-variable-icon'},{'name': 'GraphicVariableLegendComponent', 'selector': 'mav-graphic-variable-legend'},{'name': 'GraphicVariableTypeComponent', 'selector': 'mav-selection-graphic-variable-type'},{'name': 'HorizontalBarGraphIconComponent', 'selector': 'mav-horizontal-bar-graph-icon'},{'name': 'IdentifierComponent', 'selector': 'dvl-identifier'},{'name': 'InfoDialogComponent', 'selector': 'mav-info-dialog'},{'name': 'InfoIconComponent', 'selector': 'mav-info-icon'},{'name': 'ItemComponent', 'selector': 'dvl-legend-item'},{'name': 'LabelComponent', 'selector': 'dvl-label'},{'name': 'LegendComponent', 'selector': 'dvl-legend'},{'name': 'LegendComponent', 'selector': 'mav-legend'},{'name': 'LightThemeComponent', 'selector': 'mav-light-theme'},{'name': 'MainComponent', 'selector': 'mav-data-view'},{'name': 'MainComponent', 'selector': 'mav-legend-view'},{'name': 'MainComponent', 'selector': 'mav-selection'},{'name': 'MainComponent', 'selector': 'mav-toolbar'},{'name': 'MainComponent', 'selector': 'mav-visualization-view'},{'name': 'MakeAVisComponent', 'selector': 'mav-main'},{'name': 'MapOfScienceIconComponent', 'selector': 'mav-map-of-science-icon'},{'name': 'MenuComponent', 'selector': 'mav-visualization-menu'},{'name': 'MenuIconComponent', 'selector': 'mav-menu-icon'},{'name': 'NetworkComponent', 'selector': 'dvl-vis-network'},{'name': 'NetworkIconComponent', 'selector': 'mav-network-icon'},{'name': 'NetworkIconComponent', 'selector': 'mav-network-icon'},{'name': 'NodeSizeComponent', 'selector': 'dvl-vis-node-size'},{'name': 'NsfLogoComponent', 'selector': 'mav-nsf-logo'},{'name': 'ProjectComponent', 'selector': 'mav-project'},{'name': 'ScatterGraphIconComponent', 'selector': 'mav-scatter-graph-icon'},{'name': 'ScatterGraphIconComponent', 'selector': 'mav-scatter-graph-icon'},{'name': 'ScatterplotComponent', 'selector': 'dvl-vis-scatterplot'},{'name': 'SciencemapComponent', 'selector': 'dvl-vis-science-map'},{'name': 'ScienceMapIconComponent', 'selector': 'mav-science-map-icon'},{'name': 'ShapeComponent', 'selector': 'dvl-shape'},{'name': 'SiceLogoComponent', 'selector': 'mav-sice-logo'},{'name': 'SidenavContentComponent', 'selector': 'mav-sidenav-content'},{'name': 'SourceComponent', 'selector': 'dvl-source'},{'name': 'StartComponent', 'selector': 'dvl-start'},{'name': 'StartProjectIconComponent', 'selector': 'mav-start-project-icon'},{'name': 'StartProjectOptionsComponent', 'selector': 'mav-start-project-options'},{'name': 'TableComponent', 'selector': 'mav-table'},{'name': 'TableIconComponent', 'selector': 'mav-table-icon'},{'name': 'TargetComponent', 'selector': 'dvl-target'},{'name': 'TemporalBargraphComponent', 'selector': 'dvl-vis-temporal-bargraph'},{'name': 'TemporalBargraphIconComponent', 'selector': 'mav-temporal-bargraph-icon'},{'name': 'ThicknessComponent', 'selector': 'dvl-thickness'},{'name': 'ToolbarContentComponent', 'selector': 'mav-toolbar-content'},{'name': 'VisualizationComponent', 'selector': 'mav-visualization'},{'name': 'VisualizationTypeComponent', 'selector': 'mav-selection-visualization-type'},{'name': 'XAxisComponent', 'selector': 'dvl-x-axis'},{'name': 'YAxisComponent', 'selector': 'dvl-y-axis'}];
+    var DIRECTIVES = [{'name': 'DraggableDirective', 'selector': '[mavDraggable]'},{'name': 'DroppableDirective', 'selector': '[mavDroppable]'}];
+    var ACTUAL_COMPONENT = {'name': 'GraphicSymbolTypeComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'GraphicSymbolTypeComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

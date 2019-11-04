@@ -1,0 +1,3195 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>make-a-vis documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">make-a-vis documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>GraphicVariableTypeComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Mav Selection graphic-variable-type component declaration, responsible for showing graphic-variable-type options in mav-selection</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>mav-selection-graphic-variable-type</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./graphic-variable-type.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./graphic-variable-type.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#advancedServiceSubscription">advancedServiceSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#availableGraphicVariables">availableGraphicVariables</a>
+                            </li>
+                            <li>
+                                <a href="#currentHighlightId">currentHighlightId</a>
+                            </li>
+                            <li>
+                                <a href="#graphicSymbolOptions">graphicSymbolOptions</a>
+                            </li>
+                            <li>
+                                <a href="#graphicVariableSubscription">graphicVariableSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#hoverServiceSubscription">hoverServiceSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#qualitativeScaleTypes">qualitativeScaleTypes</a>
+                            </li>
+                            <li>
+                                <a href="#quantitativeScaleTypes">quantitativeScaleTypes</a>
+                            </li>
+                            <li>
+                                <a href="#requiredGraphicVariablesMapping">requiredGraphicVariablesMapping</a>
+                            </li>
+                            <li>
+                                <a href="#selectedDataVariableRecordSetId">selectedDataVariableRecordSetId</a>
+                            </li>
+                            <li>
+                                <a href="#selectedDataVariablesMapping">selectedDataVariablesMapping</a>
+                            </li>
+                            <li>
+                                <a href="#selectionClass">selectionClass</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#acceptsDrop">acceptsDrop</a>
+                            </li>
+                            <li>
+                                <a href="#capitalize">capitalize</a>
+                            </li>
+                            <li>
+                                <a href="#clear">clear</a>
+                            </li>
+                            <li>
+                                <a href="#dataVariableDropped">dataVariableDropped</a>
+                            </li>
+                            <li>
+                                <a href="#endHover">endHover</a>
+                            </li>
+                            <li>
+                                <a href="#getDataVariableMappings">getDataVariableMappings</a>
+                            </li>
+                            <li>
+                                <a href="#getGraphicSymbolOptions">getGraphicSymbolOptions</a>
+                            </li>
+                            <li>
+                                <a href="#getGraphicVariableSelected">getGraphicVariableSelected</a>
+                            </li>
+                            <li>
+                                <a href="#getMappableGraphicVariables">getMappableGraphicVariables</a>
+                            </li>
+                            <li>
+                                <a href="#getReqGVMappings">getReqGVMappings</a>
+                            </li>
+                            <li>
+                                <a href="#getVariableScaleType">getVariableScaleType</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnChanges">ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#onDragDropEvent">onDragDropEvent</a>
+                            </li>
+                            <li>
+                                <a href="#panelClosed">panelClosed</a>
+                            </li>
+                            <li>
+                                <a href="#panelOpened">panelOpened</a>
+                            </li>
+                            <li>
+                                <a href="#shouldHighlight">shouldHighlight</a>
+                            </li>
+                            <li>
+                                <a href="#startHover">startHover</a>
+                            </li>
+                            <li>
+                                <a href="#unsetGraphicVariable">unsetGraphicVariable</a>
+                            </li>
+                            <li>
+                                <a href="#updateActionButtonStatus">updateActionButtonStatus</a>
+                            </li>
+                            <li>
+                                <a href="#updateVisualization">updateVisualization</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activeVis">activeVis</a>
+                            </li>
+                            <li>
+                                <a href="#recordStreamMapping">recordStreamMapping</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#gvSelectionMade">gvSelectionMade</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(store: Store<any>, updateService: <a href="../injectables/UpdateVisService.html">UpdateVisService</a>, hoverService: <a href="../injectables/DataVariableHoverService.html">DataVariableHoverService</a>, advancedService: <a href="../injectables/AdvancedService.html">AdvancedService</a>, mavSelectionStore: <a href="../interfaces/MavSelectionState.html">Store<MavSelectionState></a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:84</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of graphic variable type component.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>store</td>
+                                                  
+                                                        <td>
+                                                                    <code>Store&lt;any&gt;</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>updateService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UpdateVisService.html" target="_self" >UpdateVisService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>instance of UpdateVisService, responsible for dispatching store actions for updating visualizations</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>hoverService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DataVariableHoverService.html" target="_self" >DataVariableHoverService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>instance of DataVariableHoverService, responsible for hover actions on data-variables</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>advancedService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AdvancedService.html" target="_self" >AdvancedService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>mavSelectionStore</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/MavSelectionState.html" target="_self" >Store&lt;MavSelectionState&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="activeVis"></a>
+                        <b>activeVis</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Vis.html" target="_self" >Vis</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:27</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Input for the visualization currently active, or being viewed by the user</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="recordStreamMapping"></a>
+                        <b>recordStreamMapping</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/RecordStream.html" target="_self" >Map&lt;string | RecordStream&gt;</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:31</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Input for the mappings from graphic-symbol-option-id to recordStream i.e. Map&lt;gsoId, RecordStream&gt;</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="gvSelectionMade"></a>
+                        <b>gvSelectionMade</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:35</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Output event-emitter with boolean value indicating if a graphic-variable selection has been made</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="acceptsDrop"></a>
+                    <span class="name">
+                        <b>
+                            acceptsDrop
+                        </b>
+                        <a href="#acceptsDrop"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>acceptsDrop(graphicVariableOption: <a href="../interfaces/GraphicVariableOption.html">GraphicVariableOption</a>, graphicSymbolOption: <a href="../interfaces/GraphicSymbolOption.html">GraphicSymbolOption</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="347"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:347</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Tells if the data-variable will be accepted by a graphic-variable dropzone</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>graphicVariableOption</td>
+                                    <td>
+                                                <code><a href="../interfaces/GraphicVariableOption.html" target="_self" >GraphicVariableOption</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the graphic-variable-option on which the data-variable is being dropped</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>graphicSymbolOption</td>
+                                    <td>
+                                                <code><a href="../interfaces/GraphicSymbolOption.html" target="_self" >GraphicSymbolOption</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the graphic-symbol-option to which the graphic-variable-option belongs</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>(dataVariable: any) &#x3D;&gt; boolean</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>a function which given a data-variable returns a boolean telling if the data-variable can be mapped to a graphic-variable</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="capitalize"></a>
+                    <span class="name">
+                        <b>
+                            capitalize
+                        </b>
+                        <a href="#capitalize"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>capitalize(text: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="435"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:435</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Capitalizes the text in sentence case</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>text</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>provided string</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>capitalized string</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clear"></a>
+                    <span class="name">
+                        <b>
+                            clear
+                        </b>
+                        <a href="#clear"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>clear()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="159"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:159</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Clears global variables and mappings</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dataVariableDropped"></a>
+                    <span class="name">
+                        <b>
+                            dataVariableDropped
+                        </b>
+                        <a href="#dataVariableDropped"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>dataVariableDropped(dataVariable: <a href="../interfaces/DataVariable.html">DataVariable</a>, graphicVariableOption: <a href="../interfaces/GraphicVariableOption.html">GraphicVariableOption</a>, graphicSymbolOption: <a href="../interfaces/GraphicSymbolOption.html">GraphicSymbolOption</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="180"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:180</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Updates mapping and done button status</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>dataVariable</td>
+                                    <td>
+                                                <code><a href="../interfaces/DataVariable.html" target="_self" >DataVariable</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The dropped data-variable</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>graphicVariableOption</td>
+                                    <td>
+                                                <code><a href="../interfaces/GraphicVariableOption.html" target="_self" >GraphicVariableOption</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the graphic-variable-option on which the data-variable was dropped</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>graphicSymbolOption</td>
+                                    <td>
+                                                <code><a href="../interfaces/GraphicSymbolOption.html" target="_self" >GraphicSymbolOption</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the graphic-symbol-option to which the graphic-variable-option belongs</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="endHover"></a>
+                    <span class="name">
+                        <b>
+                            endHover
+                        </b>
+                        <a href="#endHover"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>endHover()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="426"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:426</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>wrapper for end-hover function of hover-service</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDataVariableMappings"></a>
+                    <span class="name">
+                        <b>
+                            getDataVariableMappings
+                        </b>
+                        <a href="#getDataVariableMappings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getDataVariableMappings()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="286"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:286</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets data variable mappings i.e. Map&lt;graphic-symbol-option-id, Map&lt;graphic-variable-id, data-variable&gt;</p>
+</div>
+
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/DataVariable.html" target="_self" >Map&lt;string, Map&lt;string, DataVariable&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>data variable mappings</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getGraphicSymbolOptions"></a>
+                    <span class="name">
+                        <b>
+                            getGraphicSymbolOptions
+                        </b>
+                        <a href="#getGraphicSymbolOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getGraphicSymbolOptions()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="229"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:229</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets graphic symbol options for the active visualization.
+Also filtering the graphic variables if advanced is enabled or disabled.</p>
+</div>
+
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>GraphicSymbolOption[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>graphic symbol options</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getGraphicVariableSelected"></a>
+                    <span class="name">
+                        <b>
+                            getGraphicVariableSelected
+                        </b>
+                        <a href="#getGraphicVariableSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getGraphicVariableSelected(graphicVariableOption, graphicSymbolOption)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="268"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:268</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets the name of the data-variable that is mapped to the graphic-variable-option</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>graphicVariableOption</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the provided graphic-variable-option</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>graphicSymbolOption</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the provided graphic-symbol-option to which the graphic-variable-option belongs</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>name of the data-variable mapped to the graphic-variable-option</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMappableGraphicVariables"></a>
+                    <span class="name">
+                        <b>
+                            getMappableGraphicVariables
+                        </b>
+                        <a href="#getMappableGraphicVariables"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getMappableGraphicVariables(dataVariable: <a href="../interfaces/DataVariable.html">DataVariable</a>, graphicVariableOption: <a href="../interfaces/GraphicVariableOption.html">GraphicVariableOption</a>, graphicSymbolOption: <a href="../interfaces/GraphicSymbolOption.html">GraphicSymbolOption</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="206"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:206</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets graphic variables that can be mapped to the provided data-variable</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>dataVariable</td>
+                                    <td>
+                                                <code><a href="../interfaces/DataVariable.html" target="_self" >DataVariable</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the provided data-variable</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>graphicVariableOption</td>
+                                    <td>
+                                                <code><a href="../interfaces/GraphicVariableOption.html" target="_self" >GraphicVariableOption</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the graphic-variable-option used to create the mapping</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>graphicSymbolOption</td>
+                                    <td>
+                                                <code><a href="../interfaces/GraphicSymbolOption.html" target="_self" >GraphicSymbolOption</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the graphic-symbol-option-id to which the graphic-variabl-option belongs</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/GraphicVariable.html" target="_self" >GraphicVariable[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>mappable graphic variables</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getReqGVMappings"></a>
+                    <span class="name">
+                        <b>
+                            getReqGVMappings
+                        </b>
+                        <a href="#getReqGVMappings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getReqGVMappings()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="311"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:311</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets req graphic-variablemappings i.e. Map&lt;graphic-symbol-option-id, array of required graphic-variable Ids&gt;</p>
+</div>
+
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Map&lt;string, string[]&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>req graphic-variable mappings</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getVariableScaleType"></a>
+                    <span class="name">
+                        <b>
+                            getVariableScaleType
+                        </b>
+                        <a href="#getVariableScaleType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getVariableScaleType(graphicVariableOption: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="250"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:250</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets graphic variable scale type</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>graphicVariableOption</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the provided graphic-variable-option</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>graphic variable&#39;s scale type for the provided graphic-variable-option</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <b>
+                            ngOnChanges
+                        </b>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges(changes: <a href="https://angular.io/api/core/SimpleChanges" target="_blank">SimpleChanges</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="146"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:146</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>on changes</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>changes</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The changed properties object</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="130"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:130</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Angular life cycle hook, clear subscriptions here.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDragDropEvent"></a>
+                    <span class="name">
+                        <b>
+                            onDragDropEvent
+                        </b>
+                        <a href="#onDragDropEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onDragDropEvent(event: <a href="../undefineds/DragDropEvent.html">DragDropEvent</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="333"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:333</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Callback handler for drag-drop event that happens when a data-variable is dropped on the graphic-variable</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#DragDropEvent" target="_self" >DragDropEvent</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>instance of DragDropEvent object</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="panelClosed"></a>
+                    <span class="name">
+                        <b>
+                            panelClosed
+                        </b>
+                        <a href="#panelClosed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>panelClosed(gsOption: <a href="../interfaces/GraphicSymbolOption.html">GraphicSymbolOption</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="455"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:455</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Callback handler for when the graphic-variable-selection panel is closed</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>gsOption</td>
+                                    <td>
+                                                <code><a href="../interfaces/GraphicSymbolOption.html" target="_self" >GraphicSymbolOption</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the graphic-symbol-option whose panel is closed</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="panelOpened"></a>
+                    <span class="name">
+                        <b>
+                            panelOpened
+                        </b>
+                        <a href="#panelOpened"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>panelOpened(gsOption: <a href="../interfaces/GraphicSymbolOption.html">GraphicSymbolOption</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="443"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:443</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Callback handler for when the graphic-variable-selection panel is opened</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>gsOption</td>
+                                    <td>
+                                                <code><a href="../interfaces/GraphicSymbolOption.html" target="_self" >GraphicSymbolOption</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the graphic-symbol-option whose panel is opened</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="shouldHighlight"></a>
+                    <span class="name">
+                        <b>
+                            shouldHighlight
+                        </b>
+                        <a href="#shouldHighlight"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>shouldHighlight(graphicVariableOption: <a href="../interfaces/GraphicVariableOption.html">GraphicVariableOption</a>, graphicSymbolOption: <a href="../interfaces/GraphicSymbolOption.html">GraphicSymbolOption</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="391"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:391</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Highlights the graphic-variable-option which can be mapped for the dragged/hovered data-variable</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>graphicVariableOption</td>
+                                    <td>
+                                                <code><a href="../interfaces/GraphicVariableOption.html" target="_self" >GraphicVariableOption</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>provided graphic-variable-option</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>graphicSymbolOption</td>
+                                    <td>
+                                                <code><a href="../interfaces/GraphicSymbolOption.html" target="_self" >GraphicSymbolOption</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>graphic-symbol-option to which graphic-variable-option belongs</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>boolean if it can be highlighted</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="startHover"></a>
+                    <span class="name">
+                        <b>
+                            startHover
+                        </b>
+                        <a href="#startHover"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>startHover(graphicVariableOption: <a href="../interfaces/GraphicVariableOption.html">GraphicVariableOption</a>, graphicSymbolOption: <a href="../interfaces/GraphicSymbolOption.html">GraphicSymbolOption</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="403"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:403</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Callback handler for when hovering starts on the data-variable</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>graphicVariableOption</td>
+                                    <td>
+                                                <code><a href="../interfaces/GraphicVariableOption.html" target="_self" >GraphicVariableOption</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>provided graphic-variable-option</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>graphicSymbolOption</td>
+                                    <td>
+                                                <code><a href="../interfaces/GraphicSymbolOption.html" target="_self" >GraphicSymbolOption</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>graphic-symbol-option to which graphic-variable-option belongs</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="unsetGraphicVariable"></a>
+                    <span class="name">
+                        <b>
+                            unsetGraphicVariable
+                        </b>
+                        <a href="#unsetGraphicVariable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>unsetGraphicVariable(graphicSymbolOptionId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, graphicVariableOptionIdOrType: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="358"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:358</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Unsets graphic variable selection</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>graphicSymbolOptionId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>id of graphic-symbol-option to which the graphic-variable-option belongs</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>graphicVariableOptionIdOrType</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>id or type of graphic-variable-option</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateActionButtonStatus"></a>
+                    <span class="name">
+                        <b>
+                            updateActionButtonStatus
+                        </b>
+                        <a href="#updateActionButtonStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateActionButtonStatus()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="370"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:370</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Updates done button status</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateVisualization"></a>
+                    <span class="name">
+                        <b>
+                            updateVisualization
+                        </b>
+                        <a href="#updateVisualization"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateVisualization()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="120"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:120</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Update the visualization with latest graphic variable.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="advancedServiceSubscription"></a>
+                        <span class="name">
+                            <b>
+                            advancedServiceSubscription</b>
+                            <a href="#advancedServiceSubscription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subscription</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:79</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Advanced service subscription</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="availableGraphicVariables"></a>
+                        <span class="name">
+                            <b>
+                            availableGraphicVariables</b>
+                            <a href="#availableGraphicVariables"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/GraphicVariable.html" target="_self" >GraphicVariable[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:47</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Available graphic variables</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="currentHighlightId"></a>
+                        <span class="name">
+                            <b>
+                            currentHighlightId</b>
+                            <a href="#currentHighlightId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:67</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Graphic variable id of the currently highlighted graphic variable</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="graphicSymbolOptions"></a>
+                        <span class="name">
+                            <b>
+                            graphicSymbolOptions</b>
+                            <a href="#graphicSymbolOptions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>GraphicSymbolOption[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Available graphic symbol options</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="graphicVariableSubscription"></a>
+                        <span class="name">
+                            <b>
+                            graphicVariableSubscription</b>
+                            <a href="#graphicVariableSubscription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subscription</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:84</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Graphic variable subscription</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hoverServiceSubscription"></a>
+                        <span class="name">
+                            <b>
+                            hoverServiceSubscription</b>
+                            <a href="#hoverServiceSubscription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subscription</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:75</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Hover service subscription</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="qualitativeScaleTypes"></a>
+                        <span class="name">
+                            <b>
+                            qualitativeScaleTypes</b>
+                            <a href="#qualitativeScaleTypes"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;interval&#x27;, &#x27;nominal&#x27;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:59</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Allowed qualitative scale types</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="quantitativeScaleTypes"></a>
+                        <span class="name">
+                            <b>
+                            quantitativeScaleTypes</b>
+                            <a href="#quantitativeScaleTypes"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;ratio&#x27;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:63</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Allowed quantitative scale types</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="requiredGraphicVariablesMapping"></a>
+                        <span class="name">
+                            <b>
+                            requiredGraphicVariablesMapping</b>
+                            <a href="#requiredGraphicVariablesMapping"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Map&lt;string | string[]&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:55</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Required graphic variables mapping i.e. Map&lt;graphic-symbol-option-id, array of required graphic-variable Ids&gt;</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedDataVariableRecordSetId"></a>
+                        <span class="name">
+                            <b>
+                            selectedDataVariableRecordSetId</b>
+                            <a href="#selectedDataVariableRecordSetId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:71</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Record set id of the selected data-variable</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedDataVariablesMapping"></a>
+                        <span class="name">
+                            <b>
+                            selectedDataVariablesMapping</b>
+                            <a href="#selectedDataVariablesMapping"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/DataVariable.html" target="_self" >Map&lt;string | Map&lt;string, DataVariable&gt;&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:51</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Selected data variables mapping i.e. Map&lt;graphic-symbol-option-id, Map&lt;graphic-variable-id, data-variable&gt;</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectionClass"></a>
+                        <span class="name">
+                            <b>
+                            selectionClass</b>
+                            <a href="#selectionClass"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/graphic-variable-type/graphic-variable-type.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Selection class of graphic variable type component</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Input, OnChanges, OnDestroy, Output, SimpleChanges } from &#x27;@angular/core&#x27;;
+import { DataVariable, GraphicSymbolOption, GraphicVariable, GraphicVariableOption, RecordStream } from &#x27;@dvl-fw/core&#x27;;
+import { select, Store } from &#x27;@ngrx/store&#x27;;
+import { capitalize as loCapitalize, cloneDeep, get } from &#x27;lodash&#x27;;
+import { Subscription } from &#x27;rxjs&#x27;;
+
+import { DragDropEvent } from &#x27;../../drag-drop&#x27;;
+import { AdvancedService } from &#x27;../../shared/services/advance/advanced.service&#x27;;
+import { DataVariableHoverService } from &#x27;../../shared/services/hover/data-variable-hover.service&#x27;;
+import { UpdateVisService } from &#x27;../../shared/services/update-vis/update-vis.service&#x27;;
+import { Vis } from &#x27;../../shared/types&#x27;;
+import { getAvailableGraphicVariablesSelector } from &#x27;../../toolbar/shared/store&#x27;;
+import { getAdvancedEnabledSelector, GVGroupPanelClosed, GVGroupPanelOpened, MavSelectionState } from &#x27;../shared/store&#x27;;
+
+/**
+ * Mav Selection graphic-variable-type component declaration, responsible for showing graphic-variable-type options in mav-selection
+ */
+@Component({
+  selector: &#x27;mav-selection-graphic-variable-type&#x27;,
+  templateUrl: &#x27;./graphic-variable-type.component.html&#x27;,
+  styleUrls: [&#x27;./graphic-variable-type.component.scss&#x27;]
+})
+export class GraphicVariableTypeComponent implements OnChanges, OnDestroy {
+  /**
+   * Input for the visualization currently active, or being viewed by the user
+   */
+  @Input() activeVis: Vis;
+  /**
+   * Input for the mappings from graphic-symbol-option-id to recordStream i.e. Map&lt;gsoId, RecordStream&gt;
+   */
+  @Input() recordStreamMapping: Map&lt;string, RecordStream&gt;;
+  /**
+   * Output event-emitter with boolean value indicating if a graphic-variable selection has been made
+   */
+  @Output() gvSelectionMade &#x3D; new EventEmitter&lt;boolean&gt;();
+  /**
+   * Available graphic symbol options
+   */
+  graphicSymbolOptions: GraphicSymbolOption[] &#x3D; [];
+  /**
+   * Selection class of graphic variable type component
+   */
+  selectionClass &#x3D; &#x27;&#x27;;
+  /**
+   * Available graphic variables
+   */
+  availableGraphicVariables: GraphicVariable[];
+  /**
+   * Selected data variables mapping i.e. Map&lt;graphic-symbol-option-id, Map&lt;graphic-variable-id, data-variable&gt;
+   */
+  selectedDataVariablesMapping: Map&lt;string, Map&lt;string, DataVariable&gt;&gt;;
+  /**
+   * Required graphic variables mapping i.e. Map&lt;graphic-symbol-option-id, array of required graphic-variable Ids&gt;
+   */
+  requiredGraphicVariablesMapping: Map&lt;string, string[]&gt;;
+  /**
+   * Allowed qualitative scale types
+   */
+  qualitativeScaleTypes &#x3D; [&#x27;interval&#x27;, &#x27;nominal&#x27;];
+  /**
+   * Allowed quantitative scale types
+   */
+  quantitativeScaleTypes &#x3D; [&#x27;ratio&#x27;];
+  /**
+   * Graphic variable id of the currently highlighted graphic variable
+   */
+  currentHighlightId: string;
+  /**
+   * Record set id of the selected data-variable
+   */
+  selectedDataVariableRecordSetId: string;
+  /**
+   * Hover service subscription
+   */
+  hoverServiceSubscription: Subscription;
+  /**
+   * Advanced service subscription
+   */
+  advancedServiceSubscription: Subscription;
+
+  /**
+   * Graphic variable subscription
+   */
+  graphicVariableSubscription: Subscription;
+
+  /**
+   * Creates an instance of graphic variable type component.
+   * @param store
+   * @param updateService instance of UpdateVisService, responsible for dispatching store actions for updating visualizations
+   * @param hoverService instance of DataVariableHoverService, responsible for hover actions on data-variables
+   */
+  constructor(
+    private store: Store&lt;any&gt;,
+    private updateService: UpdateVisService,
+    private hoverService: DataVariableHoverService,
+    private advancedService: AdvancedService,
+    private mavSelectionStore: Store&lt;MavSelectionState&gt;
+  ) {
+    this.graphicVariableSubscription &#x3D; store.pipe(select(getAvailableGraphicVariablesSelector)).subscribe((availableGraphicVariables) &#x3D;&gt; {
+      this.availableGraphicVariables &#x3D; availableGraphicVariables;
+    });
+    this.advancedServiceSubscription &#x3D; mavSelectionStore.pipe(select(getAdvancedEnabledSelector)).subscribe(() &#x3D;&gt; {
+      this.updateVisualization();
+    });
+
+    this.hoverServiceSubscription &#x3D; hoverService.hovers.subscribe(event &#x3D;&gt; {
+      if (event.length &#x3D;&#x3D;&#x3D; 0) {
+        this.currentHighlightId &#x3D; undefined;
+      } else if (event.length &#x3D;&#x3D;&#x3D; 3 &amp;&amp; event[0] &#x3D;&#x3D;&#x3D; &#x27;table&#x27;) {
+        this.currentHighlightId &#x3D; event[1];
+        this.selectedDataVariableRecordSetId &#x3D; event[2];
+      }
+    });
+  }
+
+
+  /**
+   * Update the visualization with latest graphic variable.
+   */
+  updateVisualization(): void {
+    this.graphicSymbolOptions &#x3D; this.getGraphicSymbolOptions();
+    this.requiredGraphicVariablesMapping &#x3D; this.getReqGVMappings();
+    this.selectedDataVariablesMapping &#x3D; this.getDataVariableMappings();
+    this.updateActionButtonStatus();
+  }
+
+  /**
+   * Angular life cycle hook, clear subscriptions here.
+   */
+  ngOnDestroy(): void {
+    if (this.hoverServiceSubscription) {
+      this.hoverServiceSubscription.unsubscribe();
+    }
+    if (this.advancedServiceSubscription) {
+      this.advancedServiceSubscription.unsubscribe();
+    }
+    if (this.graphicVariableSubscription) {
+      this.graphicVariableSubscription.unsubscribe();
+    }
+  }
+
+  /**
+   * on changes
+   * @param changes The changed properties object
+   */
+  ngOnChanges(changes: SimpleChanges) {
+    if (&#x27;activeVis&#x27; in changes || &#x27;recordStreamMapping&#x27; in changes) {
+      if (this.activeVis) {
+        this.updateVisualization();
+      } else {
+        this.clear();
+      }
+    }
+  }
+
+  /**
+   * Clears global variables and mappings
+   */
+  clear() {
+    // clear mapping
+    if (this.selectedDataVariablesMapping &amp;&amp; this.selectedDataVariablesMapping.size) {
+      this.selectedDataVariablesMapping.clear();
+    }
+
+    // clear graphic-symbol-options
+    this.graphicSymbolOptions &#x3D; [];
+
+    // clear other variables
+    this.currentHighlightId &#x3D; &#x27;&#x27;;
+    this.selectedDataVariableRecordSetId &#x3D; &#x27;&#x27;;
+    this.selectionClass &#x3D; &#x27;&#x27;;
+  }
+
+  /**
+   * Updates mapping and done button status
+   * @param dataVariable The dropped data-variable
+   * @param graphicVariableOption the graphic-variable-option on which the data-variable was dropped
+   * @param graphicSymbolOption the graphic-symbol-option to which the graphic-variable-option belongs
+   */
+  dataVariableDropped(dataVariable: DataVariable, graphicVariableOption: GraphicVariableOption, graphicSymbolOption: GraphicSymbolOption) {
+    const mappableGraphicVariables &#x3D; this.getMappableGraphicVariables(dataVariable, graphicVariableOption, graphicSymbolOption);
+    if (mappableGraphicVariables.length) {
+      this.updateService.updateGraphicVariable(this.activeVis.data, graphicSymbolOption.id,
+        graphicVariableOption.id || graphicVariableOption.type, mappableGraphicVariables[0]);
+
+      if (this.selectedDataVariablesMapping.get(graphicSymbolOption.id)) {
+        this.selectedDataVariablesMapping.get(graphicSymbolOption.id)
+          .set(graphicVariableOption.id || graphicVariableOption.type, dataVariable);
+      } else {
+        this.selectedDataVariablesMapping.set(
+          graphicSymbolOption.id,
+          new Map().set(graphicVariableOption.id || graphicVariableOption.type, dataVariable)
+        );
+      }
+    }
+    this.updateActionButtonStatus();
+  }
+
+  /**
+   * Gets graphic variables that can be mapped to the provided data-variable
+   * @param dataVariable the provided data-variable
+   * @param graphicVariableOption the graphic-variable-option used to create the mapping
+   * @param graphicSymbolOption the graphic-symbol-option-id to which the graphic-variabl-option belongs
+   * @returns mappable graphic variables
+   */
+  getMappableGraphicVariables(
+    dataVariable: DataVariable,
+    graphicVariableOption: GraphicVariableOption,
+    graphicSymbolOption: GraphicSymbolOption
+  ): GraphicVariable[] {
+    if (this.availableGraphicVariables.length) {
+      const filteredGVs: GraphicVariable[] &#x3D; this.availableGraphicVariables.filter((gv) &#x3D;&gt; {
+        return ((gv.type &amp;&amp; gv.type &#x3D;&#x3D;&#x3D; graphicVariableOption.type)
+          &amp;&amp; (this.recordStreamMapping &amp;&amp; this.recordStreamMapping.get(graphicSymbolOption.id))
+          &amp;&amp; (gv.recordStream.id &#x3D;&#x3D;&#x3D; this.recordStreamMapping.get(graphicSymbolOption.id).id)
+          &amp;&amp; (dataVariable.recordSet.id &#x3D;&#x3D;&#x3D; gv.recordSet.id)
+          &amp;&amp; (gv.dataVariable.id &#x3D;&#x3D;&#x3D; dataVariable.id));
+      });
+      return filteredGVs;
+    }
+    return [];
+  }
+
+  /**
+   * Gets graphic symbol options for the active visualization.
+   * Also filtering the graphic variables if advanced is enabled or disabled.
+   * @returns graphic symbol options
+   */
+  getGraphicSymbolOptions(): GraphicSymbolOption[] {
+    const gvOption: GraphicSymbolOption[] &#x3D; [];
+    if (this.activeVis) {
+      const gvOptions &#x3D; cloneDeep(this.activeVis.data.graphicSymbolOptions);
+      Object.keys(this.activeVis.data.graphicSymbols).forEach((gs) &#x3D;&gt; {
+        gvOption.push(gvOptions.filter((gso) &#x3D;&gt; gso.id &#x3D;&#x3D;&#x3D; gs)[0]);
+      });
+      if (!this.advancedService.advancedEnabled) {
+        for (const gvo of gvOptions) {
+          gvo.graphicVariableOptions &#x3D; gvo.graphicVariableOptions.filter((gv) &#x3D;&gt; !gv.advanced);
+        }
+      }
+      return gvOption;
+    }
+  }
+
+  /**
+   * Gets graphic variable scale type
+   * @param graphicVariableOption the provided graphic-variable-option
+   * @returns graphic variable&#x27;s scale type for the provided graphic-variable-option
+   */
+  getVariableScaleType(graphicVariableOption: any): string {
+    if (graphicVariableOption &amp;&amp; graphicVariableOption.scaleType) {
+      if (this.quantitativeScaleTypes.indexOf(graphicVariableOption.scaleType) !&#x3D;&#x3D; -1) {
+        return &#x27;Quantitative&#x27;;
+      } else if (this.qualitativeScaleTypes.indexOf(graphicVariableOption.scaleType) !&#x3D;&#x3D; -1) {
+        return &#x27;Qualitative&#x27;;
+      } else {
+        return &#x27;&#x27;;
+      }
+    }
+  }
+
+  /**
+   * Gets the name of the data-variable that is mapped to the graphic-variable-option
+   * @param graphicVariableOption the provided graphic-variable-option
+   * @param graphicSymbolOption the provided graphic-symbol-option to which the graphic-variable-option belongs
+   * @returns name of the data-variable mapped to the graphic-variable-option
+   */
+  getGraphicVariableSelected(graphicVariableOption, graphicSymbolOption): string {
+    const graphicVariableOptionId &#x3D; get(graphicVariableOption, &#x27;id&#x27;);
+    const graphicVariableOptionType &#x3D; get(graphicVariableOption, &#x27;type&#x27;);
+    const graphicSymbolOptionId &#x3D; get(graphicSymbolOption, &#x27;id&#x27;);
+    const option &#x3D; graphicVariableOptionId || graphicVariableOptionType;
+    if (this.selectedDataVariablesMapping &amp;&amp; graphicSymbolOptionId &amp;&amp;
+      this.selectedDataVariablesMapping.get(graphicSymbolOptionId) &amp;&amp;
+      this.selectedDataVariablesMapping.get(graphicSymbolOptionId).get(option)
+    ) {
+      return this.selectedDataVariablesMapping.get(graphicSymbolOptionId).get(option).label;
+    }
+    return &#x27;&#x27;;
+  }
+
+  /**
+   * Gets data variable mappings i.e. Map&lt;graphic-symbol-option-id, Map&lt;graphic-variable-id, data-variable&gt;
+   * @returns data variable mappings
+   */
+  getDataVariableMappings(): Map&lt;string, Map&lt;string, DataVariable&gt;&gt; {
+    const dvMap &#x3D; new Map();
+    if (this.activeVis) {
+      Object.keys(this.activeVis.data.graphicSymbols).forEach((gs: string) &#x3D;&gt; {
+        const gvs &#x3D; Object.keys(this.activeVis.data.graphicSymbols[gs].graphicVariables);
+        if (gvs.length) {
+          gvs.forEach((gv: string) &#x3D;&gt; {
+            const dv &#x3D; this.activeVis.data.graphicSymbols[gs].graphicVariables[gv].dataVariable;
+            const mapEntry &#x3D; dvMap.get(gs);
+            if (mapEntry) {
+              mapEntry.set(gv, dv);
+            } else {
+              dvMap.set(gs, new Map().set(gv, dv));
+            }
+          });
+        }
+      });
+      return dvMap;
+    }
+  }
+
+  /**
+   * Gets req graphic-variablemappings i.e. Map&lt;graphic-symbol-option-id, array of required graphic-variable Ids&gt;
+   * @returns req graphic-variable mappings
+   */
+  getReqGVMappings(): Map&lt;string, string[]&gt; {
+    const reqGVMap &#x3D; new Map();
+    if (this.graphicSymbolOptions &amp;&amp; this.graphicSymbolOptions.length) {
+      this.graphicSymbolOptions.forEach((gso) &#x3D;&gt; {
+        gso.graphicVariableOptions.forEach((gvo: any) &#x3D;&gt; {
+          if (gvo &amp;&amp; gvo.required) {
+            if (reqGVMap.get(gso.id)) {
+              reqGVMap.get(gso.id).push(gvo.id ? gvo.id : gvo.type);
+            } else {
+              reqGVMap.set(gso.id, Array.of(gvo.id ? gvo.id : gvo.type));
+            }
+          }
+        });
+      });
+    }
+    return reqGVMap;
+  }
+
+  /**
+   * Callback handler for drag-drop event that happens when a data-variable is dropped on the graphic-variable
+   * @param event instance of DragDropEvent object
+   */
+  onDragDropEvent(event: DragDropEvent) {
+    if (event.type &#x3D;&#x3D;&#x3D; &#x27;drag-start&#x27;) {
+      this.selectionClass &#x3D; event.accepted ? &#x27;selectable&#x27; : &#x27;unselectable&#x27;; // &#x27;rgba(0,255,0,0.1)&#x27; : &#x27;rgba(255,0,0,0.1)&#x27;;
+    } else if (event.type &#x3D;&#x3D;&#x3D; &#x27;drag-end&#x27;) {
+      this.selectionClass &#x3D; &#x27;&#x27;;
+    }
+  }
+
+  /**
+   * Tells if the data-variable will be accepted by a graphic-variable dropzone
+   * @param graphicVariableOption the graphic-variable-option on which the data-variable is being dropped
+   * @param graphicSymbolOption the graphic-symbol-option to which the graphic-variable-option belongs
+   * @returns a function which given a data-variable returns a boolean telling if the data-variable can be mapped to a graphic-variable
+   */
+  acceptsDrop(graphicVariableOption: GraphicVariableOption, graphicSymbolOption: GraphicSymbolOption) {
+    return (dataVariable: DataVariable) &#x3D;&gt; {
+      return this.getMappableGraphicVariables(dataVariable, graphicVariableOption, graphicSymbolOption).length &gt; 0;
+    };
+  }
+
+  /**
+   * Unsets graphic variable selection
+   * @param graphicSymbolOptionId id of graphic-symbol-option to which the graphic-variable-option belongs
+   * @param graphicVariableOptionIdOrType id or type of graphic-variable-option
+   */
+  unsetGraphicVariable(graphicSymbolOptionId: string, graphicVariableOptionIdOrType: string) {
+    this.updateService.unsetGraphicVariable(this.activeVis.data, graphicSymbolOptionId, graphicVariableOptionIdOrType);
+    this.selectedDataVariablesMapping.get(graphicSymbolOptionId).delete(graphicVariableOptionIdOrType);
+    if (!this.selectedDataVariablesMapping.get(graphicSymbolOptionId).size) {
+      this.selectedDataVariablesMapping.delete(graphicSymbolOptionId);
+    }
+    this.updateActionButtonStatus();
+  }
+
+  /**
+   * Updates done button status
+   */
+  updateActionButtonStatus() {
+    let result &#x3D; true;
+    this.requiredGraphicVariablesMapping.forEach((reqGVIds, gsoId) &#x3D;&gt; {
+      result &#x3D; result &amp;&amp; reqGVIds.every((gvId) &#x3D;&gt; {
+        if (this.selectedDataVariablesMapping.get(gsoId)) {
+          return !!this.selectedDataVariablesMapping.get(gsoId).get(gvId);
+        } else {
+          return false;
+        }
+      });
+    });
+
+    this.gvSelectionMade.emit(result);
+  }
+
+  /**
+   * Highlights the graphic-variable-option which can be mapped for the dragged/hovered data-variable
+   * @param graphicVariableOption provided graphic-variable-option
+   * @param graphicSymbolOption graphic-symbol-option to which graphic-variable-option belongs
+   * @returns boolean if it can be highlighted
+   */
+  shouldHighlight(graphicVariableOption: GraphicVariableOption, graphicSymbolOption: GraphicSymbolOption): boolean {
+    return this.getMappableGraphicVariables(
+      { id: this.currentHighlightId, recordSet: { id: this.selectedDataVariableRecordSetId } } as any,
+      graphicVariableOption, graphicSymbolOption
+    ).length !&#x3D;&#x3D; 0;
+  }
+
+  /**
+   * Callback handler for when hovering starts on the data-variable
+   * @param graphicVariableOption provided graphic-variable-option
+   * @param graphicSymbolOption graphic-symbol-option to which graphic-variable-option belongs
+   */
+  startHover(
+    graphicVariableOption: GraphicVariableOption,
+    graphicSymbolOption: GraphicSymbolOption
+  ): void {
+    const filteredGraphicVariables &#x3D; this.availableGraphicVariables.filter((gv) &#x3D;&gt; {
+      return ((gv.type &amp;&amp; gv.type &#x3D;&#x3D;&#x3D; graphicVariableOption.type)
+        &amp;&amp; (this.recordStreamMapping &amp;&amp; this.recordStreamMapping.get(graphicSymbolOption.id))
+        &amp;&amp; (gv.recordStream.id &#x3D;&#x3D;&#x3D; this.recordStreamMapping.get(graphicSymbolOption.id).id));
+    });
+
+    if (filteredGraphicVariables.length) {
+      const ids &#x3D; filteredGraphicVariables.map(gv &#x3D;&gt; gv.dataVariable.id);
+
+      this.hoverService.startHover([
+        &#x27;selector&#x27;,
+        filteredGraphicVariables[0].dataVariable.recordSet.id
+      ].concat(ids));
+    }
+  }
+
+  /**
+   * wrapper for end-hover function of hover-service
+   */
+  endHover(): void {
+    this.hoverService.endHover();
+  }
+
+  /**
+   * Capitalizes the text in sentence case
+   * @param text provided string
+   * @returns capitalized string
+   */
+  capitalize(text: string): string {
+    return loCapitalize(text);
+  }
+
+  /**
+   * Callback handler for when the graphic-variable-selection panel is opened
+   * @param gsOption the graphic-symbol-option whose panel is opened
+   */
+  panelOpened(gsOption: GraphicSymbolOption): void {
+    const gsId &#x3D; gsOption.id;
+    const mapping &#x3D; this.recordStreamMapping;
+    const stream &#x3D; mapping &amp;&amp; mapping.get(gsId);
+    const streamId &#x3D; stream &amp;&amp; stream.id;
+    this.store.dispatch(new GVGroupPanelOpened({ gsId, streamId }));
+  }
+
+  /**
+   * Callback handler for when the graphic-variable-selection panel is closed
+   * @param gsOption the graphic-symbol-option whose panel is closed
+   */
+  panelClosed(gsOption: GraphicSymbolOption): void {
+    const gsId &#x3D; gsOption.id;
+    const mapping &#x3D; this.recordStreamMapping;
+    const stream &#x3D; mapping &amp;&amp; mapping.get(gsId);
+    const streamId &#x3D; stream &amp;&amp; stream.id;
+    this.store.dispatch(new GVGroupPanelClosed({ gsId, streamId }));
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;graphic-variable-type wrapper&quot;&gt;
+    &lt;mat-expansion-panel *ngFor&#x3D;&quot;let graphicSymbolOption of graphicSymbolOptions; index as i&quot; class&#x3D;&quot;container&quot;
+        [expanded]&#x3D;&quot;i&#x3D;&#x3D;&#x3D;0&quot; (opened)&#x3D;&quot;panelOpened(graphicSymbolOption)&quot; (closed)&#x3D;&quot;panelClosed(graphicSymbolOption)&quot;&gt;
+        &lt;mat-expansion-panel-header [expandedHeight]&#x3D;&quot;&#x27;3rem&#x27;&quot;&gt;
+            &lt;mat-panel-title class&#x3D;&quot;title&quot;&gt;
+                {{graphicSymbolOption?.label}} ({{capitalize(graphicSymbolOption?.type)}})
+            &lt;/mat-panel-title&gt;
+        &lt;/mat-expansion-panel-header&gt;
+
+        &lt;div class&#x3D;&quot;graphic-variable container&quot;&gt;
+            &lt;div class&#x3D;&quot;inner-container&quot;
+                *ngFor&#x3D;&quot;let graphicVariableOption of graphicSymbolOption.graphicVariableOptions&quot;
+                [ngClass]&#x3D;&quot;{&#x27;selected&#x27;: getGraphicVariableSelected(graphicVariableOption , graphicSymbolOption)}&quot;&gt;
+                &lt;mat-card class&#x3D;&quot;card&quot;
+                    (mavDroppable)&#x3D;&quot;dataVariableDropped($event, graphicVariableOption, graphicSymbolOption)&quot;
+                    (dragDropEvents)&#x3D;&quot;onDragDropEvent($event)&quot;
+                    [ngClass]&#x3D;&quot;{&#x27;data-variable-selected&#x27;: getGraphicVariableSelected(graphicVariableOption , graphicSymbolOption), &#x27;highlight&#x27;: shouldHighlight(graphicVariableOption, graphicSymbolOption)}&quot;
+                    [acceptsDrop]&#x3D;&quot;acceptsDrop(graphicVariableOption, graphicSymbolOption)&quot;
+                    (mouseenter)&#x3D;&quot;startHover(graphicVariableOption, graphicSymbolOption)&quot; (mouseleave)&#x3D;&quot;endHover()&quot;&gt;
+                    &lt;div class&#x3D;&quot;variable-type&quot;&gt;
+                        &lt;mav-graphic-variable-icon [visualization]&#x3D;&quot;activeVis?.data&quot;
+                            [graphicSymbolOption]&#x3D;&quot;graphicSymbolOption&quot; [graphicVariableOption]&#x3D;&quot;graphicVariableOption&quot;&gt;
+                        &lt;/mav-graphic-variable-icon&gt;
+                        &lt;span class&#x3D;&quot;graphic-variable-label&quot;&gt;{{graphicVariableOption?.label}}&lt;/span&gt;
+                        &lt;div class&#x3D;&quot;data-variable&quot;
+                            *ngIf&#x3D;&quot;getGraphicVariableSelected(graphicVariableOption , graphicSymbolOption)&quot;&gt;
+                            &lt;span&gt;{{recordStreamMapping?.get(graphicSymbolOption?.id)?.label}}: &lt;/span&gt;
+                            &lt;span&gt;{{getGraphicVariableSelected(graphicVariableOption , graphicSymbolOption)}}&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;variable-category&quot;
+                        [ngClass]&#x3D;&quot;{&#x27;selected-variable-category&#x27;: getGraphicVariableSelected(graphicVariableOption , graphicSymbolOption),
+                        &#x27;variable-category-qualitative&#x27; : getVariableScaleType(graphicVariableOption) &#x3D;&#x3D; &#x27;Qualitative&#x27;,
+                        &#x27;variable-category-quantitative&#x27; : getVariableScaleType(graphicVariableOption) &#x3D;&#x3D; &#x27;Quantitative&#x27;}&quot;&gt;
+                        {{ getVariableScaleType(graphicVariableOption) }}
+                    &lt;/div&gt;
+                &lt;/mat-card&gt;
+                &lt;mat-icon class&#x3D;&quot;cancel-icon&quot;
+                    (click)&#x3D;&quot;unsetGraphicVariable(graphicSymbolOption?.id, graphicVariableOption?.id || graphicVariableOption?.type)&quot;&gt;
+                    cancel
+                &lt;/mat-icon&gt;
+                &lt;span class&#x3D;&quot;required-dot&quot; *ngIf&#x3D;&quot;graphicVariableOption?.required&quot;&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/mat-expansion-panel&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./graphic-variable-type.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.graphic-variable-type {
+  &amp;.wrapper {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 0.625rem 3%;
+
+    .container {
+      ::ng-deep .mat-expansion-panel-header {
+        padding: 0 1rem;
+      }
+
+      .graphic-variable {
+        &amp;.container {
+          display: grid;
+          grid-template-columns: 48.25% 48.25%;
+          gap: 0.5rem 3%;
+
+          .selected {
+            .required-dot {
+              display: none;
+            }
+
+            .cancel-icon {
+              position: absolute;
+              right: -5px;
+              z-index: 10;
+              top: -5px;
+              cursor: pointer;
+              display: inline-block !important;
+            }
+          }
+
+          .inner-container {
+            display: flex;
+            position: relative;
+
+            ::ng-deep .data-variable-selected {
+              .dvl-static-legend-container {
+                display: none;
+              }
+
+              .variable-type {
+                flex-flow: column !important;
+                text-align: center;
+                width: 100%;
+              }
+
+              .graphic-variable-label {
+                color: #e0e0e0 !important;
+                margin-left: 0 !important;
+              }
+            }
+
+            ::ng-deep .highlight {
+              background-color: rgba(255, 255, 0, 0.2) !important;
+              border-color: rgba(255, 255, 0, 1) !important;
+              border-width: 0.125rem !important;
+
+              .graphic-variable-label,
+              .data-variable {
+                color: #212121 !important;
+              }
+            }
+
+            .required-dot {
+              height: 0.625rem;
+              width: 0.625rem;
+              background-color: #bf360c;
+              border-radius: 10px;
+              position: absolute;
+              right: 0.5rem;
+              top: 0.5rem;
+            }
+
+            .card {
+              width: 100%;
+              padding: 0;
+              cursor: pointer;
+              display: flex;
+              border-width: 0.125rem;
+              border-color: transparent;
+
+              &amp;:active {
+                background: #1e88e5;
+                color: #ffffff;
+              }
+
+              .variable-type {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                padding: 0.625rem 0.625rem 1.875rem;
+
+                .graphic-variable-label {
+                  color: #212121;
+                  margin-left: 0.5rem;
+                }
+
+                ::ng-deep .dvl-static-legend-container {
+                  width: 1.875rem;
+                  height: 1.875rem;
+                }
+
+                .data-variable {
+                  color: #ffffff;
+                }
+              }
+
+              .variable-category {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                padding: 0 0.5rem;
+                font-size: 0.625rem;
+                border-bottom-left-radius: 4px;
+                border-bottom-right-radius: 4px;
+                text-align: center;
+              }
+
+              .variable-category-qualitative {
+                background: #bf360c;
+                color: #fff;
+              }
+
+              .variable-category-quantitative {
+                background: #bdbdbd;
+                color: #212121;
+              }
+            }
+
+            .cancel-icon {
+              position: absolute;
+              right: -5px;
+              z-index: 10;
+              top: -5px;
+              cursor: pointer;
+              display: none;
+            }
+
+            .data-variable-selected {
+              background: #1e88e5;
+              color: #ffffff;
+              border-width: 0.125rem;
+              border-style: solid;
+
+              .selected-variable-category {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .graphic-symbol-wrapper ::ng-deep .mat-expansion-panel-body {
+    padding: 0;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="graphic-variable-type wrapper">    <mat-expansion-panel *ngFor="let graphicSymbolOption of graphicSymbolOptions; index as i" class="container"        [expanded]="i===0" (opened)="panelOpened(graphicSymbolOption)" (closed)="panelClosed(graphicSymbolOption)">        <mat-expansion-panel-header [expandedHeight]="\'3rem\'">            <mat-panel-title class="title">                {{graphicSymbolOption?.label}} ({{capitalize(graphicSymbolOption?.type)}})            </mat-panel-title>        </mat-expansion-panel-header>        <div class="graphic-variable container">            <div class="inner-container"                *ngFor="let graphicVariableOption of graphicSymbolOption.graphicVariableOptions"                [ngClass]="{\'selected\': getGraphicVariableSelected(graphicVariableOption , graphicSymbolOption)}">                <mat-card class="card"                    (mavDroppable)="dataVariableDropped($event, graphicVariableOption, graphicSymbolOption)"                    (dragDropEvents)="onDragDropEvent($event)"                    [ngClass]="{\'data-variable-selected\': getGraphicVariableSelected(graphicVariableOption , graphicSymbolOption), \'highlight\': shouldHighlight(graphicVariableOption, graphicSymbolOption)}"                    [acceptsDrop]="acceptsDrop(graphicVariableOption, graphicSymbolOption)"                    (mouseenter)="startHover(graphicVariableOption, graphicSymbolOption)" (mouseleave)="endHover()">                    <div class="variable-type">                        <mav-graphic-variable-icon [visualization]="activeVis?.data"                            [graphicSymbolOption]="graphicSymbolOption" [graphicVariableOption]="graphicVariableOption">                        </mav-graphic-variable-icon>                        <span class="graphic-variable-label">{{graphicVariableOption?.label}}</span>                        <div class="data-variable"                            *ngIf="getGraphicVariableSelected(graphicVariableOption , graphicSymbolOption)">                            <span>{{recordStreamMapping?.get(graphicSymbolOption?.id)?.label}}: </span>                            <span>{{getGraphicVariableSelected(graphicVariableOption , graphicSymbolOption)}}</span>                        </div>                    </div>                    <div class="variable-category"                        [ngClass]="{\'selected-variable-category\': getGraphicVariableSelected(graphicVariableOption , graphicSymbolOption),                        \'variable-category-qualitative\' : getVariableScaleType(graphicVariableOption) == \'Qualitative\',                        \'variable-category-quantitative\' : getVariableScaleType(graphicVariableOption) == \'Quantitative\'}">                        {{ getVariableScaleType(graphicVariableOption) }}                    </div>                </mat-card>                <mat-icon class="cancel-icon"                    (click)="unsetGraphicVariable(graphicSymbolOption?.id, graphicVariableOption?.id || graphicVariableOption?.type)">                    cancel                </mat-icon>                <span class="required-dot" *ngIf="graphicVariableOption?.required"></span>            </div>        </div>    </mat-expansion-panel></div></div>'
+    var COMPONENTS = [{'name': 'AddIconComponent', 'selector': 'mav-add-icon'},{'name': 'AppComponent', 'selector': 'mav-root'},{'name': 'AppUpdateNotificationComponent', 'selector': 'mav-app-update-notification'},{'name': 'AreaSizeComponent', 'selector': 'dvl-area-size'},{'name': 'CancelIconComponent', 'selector': 'mav-cancel-icon'},{'name': 'CnsLogoComponent', 'selector': 'mav-cns-logo'},{'name': 'CnsLogoIconComponent', 'selector': 'mav-cns-logo-icon'},{'name': 'ColorAreaComponent', 'selector': 'dvl-color-area'},{'name': 'ColorComponent', 'selector': 'dvl-vis-color'},{'name': 'ColorEdgesComponent', 'selector': 'dvl-color-edges'},{'name': 'DataVariableDropzoneComponent', 'selector': 'mav-data-variable-dropzone'},{'name': 'DvlFwVisualizationComponent', 'selector': 'dvl-visualization'},{'name': 'EdgeSizeComponent', 'selector': 'dvl-vis-edge-size'},{'name': 'EditIconComponent', 'selector': 'mav-edit-icon'},{'name': 'EndComponent', 'selector': 'dvl-end'},{'name': 'GeomapComponent', 'selector': 'dvl-vis-geomap'},{'name': 'GeomapIconComponent', 'selector': 'mav-geomap-icon'},{'name': 'GeomapIconComponent', 'selector': 'mav-geomap-icon'},{'name': 'GithubIconComponent', 'selector': 'mav-github-icon'},{'name': 'GradientComponent', 'selector': 'dvl-gradient'},{'name': 'GraphicSymbolTypeComponent', 'selector': 'mav-selection-graphic-symbol-type'},{'name': 'GraphicVariableIconComponent', 'selector': 'mav-graphic-variable-icon'},{'name': 'GraphicVariableLegendComponent', 'selector': 'mav-graphic-variable-legend'},{'name': 'GraphicVariableTypeComponent', 'selector': 'mav-selection-graphic-variable-type'},{'name': 'HorizontalBarGraphIconComponent', 'selector': 'mav-horizontal-bar-graph-icon'},{'name': 'IdentifierComponent', 'selector': 'dvl-identifier'},{'name': 'InfoDialogComponent', 'selector': 'mav-info-dialog'},{'name': 'InfoIconComponent', 'selector': 'mav-info-icon'},{'name': 'ItemComponent', 'selector': 'dvl-legend-item'},{'name': 'LabelComponent', 'selector': 'dvl-label'},{'name': 'LegendComponent', 'selector': 'dvl-legend'},{'name': 'LegendComponent', 'selector': 'mav-legend'},{'name': 'LightThemeComponent', 'selector': 'mav-light-theme'},{'name': 'MainComponent', 'selector': 'mav-data-view'},{'name': 'MainComponent', 'selector': 'mav-legend-view'},{'name': 'MainComponent', 'selector': 'mav-selection'},{'name': 'MainComponent', 'selector': 'mav-toolbar'},{'name': 'MainComponent', 'selector': 'mav-visualization-view'},{'name': 'MakeAVisComponent', 'selector': 'mav-main'},{'name': 'MapOfScienceIconComponent', 'selector': 'mav-map-of-science-icon'},{'name': 'MenuComponent', 'selector': 'mav-visualization-menu'},{'name': 'MenuIconComponent', 'selector': 'mav-menu-icon'},{'name': 'NetworkComponent', 'selector': 'dvl-vis-network'},{'name': 'NetworkIconComponent', 'selector': 'mav-network-icon'},{'name': 'NetworkIconComponent', 'selector': 'mav-network-icon'},{'name': 'NodeSizeComponent', 'selector': 'dvl-vis-node-size'},{'name': 'NsfLogoComponent', 'selector': 'mav-nsf-logo'},{'name': 'ProjectComponent', 'selector': 'mav-project'},{'name': 'ScatterGraphIconComponent', 'selector': 'mav-scatter-graph-icon'},{'name': 'ScatterGraphIconComponent', 'selector': 'mav-scatter-graph-icon'},{'name': 'ScatterplotComponent', 'selector': 'dvl-vis-scatterplot'},{'name': 'SciencemapComponent', 'selector': 'dvl-vis-science-map'},{'name': 'ScienceMapIconComponent', 'selector': 'mav-science-map-icon'},{'name': 'ShapeComponent', 'selector': 'dvl-shape'},{'name': 'SiceLogoComponent', 'selector': 'mav-sice-logo'},{'name': 'SidenavContentComponent', 'selector': 'mav-sidenav-content'},{'name': 'SourceComponent', 'selector': 'dvl-source'},{'name': 'StartComponent', 'selector': 'dvl-start'},{'name': 'StartProjectIconComponent', 'selector': 'mav-start-project-icon'},{'name': 'StartProjectOptionsComponent', 'selector': 'mav-start-project-options'},{'name': 'TableComponent', 'selector': 'mav-table'},{'name': 'TableIconComponent', 'selector': 'mav-table-icon'},{'name': 'TargetComponent', 'selector': 'dvl-target'},{'name': 'TemporalBargraphComponent', 'selector': 'dvl-vis-temporal-bargraph'},{'name': 'TemporalBargraphIconComponent', 'selector': 'mav-temporal-bargraph-icon'},{'name': 'ThicknessComponent', 'selector': 'dvl-thickness'},{'name': 'ToolbarContentComponent', 'selector': 'mav-toolbar-content'},{'name': 'VisualizationComponent', 'selector': 'mav-visualization'},{'name': 'VisualizationTypeComponent', 'selector': 'mav-selection-visualization-type'},{'name': 'XAxisComponent', 'selector': 'dvl-x-axis'},{'name': 'YAxisComponent', 'selector': 'dvl-y-axis'}];
+    var DIRECTIVES = [{'name': 'DraggableDirective', 'selector': '[mavDraggable]'},{'name': 'DroppableDirective', 'selector': '[mavDroppable]'}];
+    var ACTUAL_COMPONENT = {'name': 'GraphicVariableTypeComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'GraphicVariableTypeComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
