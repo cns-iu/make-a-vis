@@ -1,14 +1,27 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StartProjectOptionsComponent } from './start-project-options.component';
+import { Provider } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 describe('StartProjectOptionsComponent', () => {
   let component: StartProjectOptionsComponent;
   let fixture: ComponentFixture<StartProjectOptionsComponent>;
+  const mockedStore = { pipe: () => ({ subscribe: (): void => undefined}) };
+  const mockedSnackBar = {dismiss: () => undefined };
+  const mockedProviders: Provider[] = [
+    { provide: Store, useValue: mockedStore},
+    { provide: MatSnackBar, useValue: mockedSnackBar}
+
+  ];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StartProjectOptionsComponent ]
+      imports: [HttpClientTestingModule],
+      declarations: [ StartProjectOptionsComponent ],
+      providers: [mockedProviders]
     })
     .compileComponents();
   }));
@@ -19,8 +32,7 @@ describe('StartProjectOptionsComponent', () => {
     fixture.detectChanges();
   });
 
-  // FIXME: To be fixed after test coverage setup in SONAR
-  xit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });
