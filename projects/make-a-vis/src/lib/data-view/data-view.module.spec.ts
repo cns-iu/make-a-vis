@@ -9,7 +9,7 @@ describe('DataViewModule', () => {
   });
 
   // FIXME: To be fixed after test coverage setup in SONAR
-  xit('should create an instance', () => {
+  it('should create an instance', () => {
     expect(dataViewModule).toBeTruthy();
   });
 });

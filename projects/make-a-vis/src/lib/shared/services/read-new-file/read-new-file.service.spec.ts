@@ -25,4 +25,14 @@ describe('ReadNewFileService', () => {
     const service: ReadNewFileService = TestBed.get(ReadNewFileService);
     expect(service).toBeTruthy();
   });
+
+  it('should check if the extension is valid', () => {
+    const service: ReadNewFileService = TestBed.get(ReadNewFileService);
+    expect(service.isValidFileExtension('csv', 'csv')).toBeTruthy();
+  });
+
+  it('should check if the extension is not allowd', () => {
+    const service: ReadNewFileService = TestBed.get(ReadNewFileService);
+    expect(service.isValidFileExtension('csv', 'yml')).toBeFalsy();
+  });
 });

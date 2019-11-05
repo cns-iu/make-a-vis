@@ -1,14 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatIcon } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MockComponents } from 'ng-mocks';
 
+import { StartProjectOptionsComponent } from '../../start-project-options/start-project-options.component';
 import { StartProjectIconComponent } from './start-project-icon.component';
 
 describe('StartProjectIconComponent', () => {
   let component: StartProjectIconComponent;
   let fixture: ComponentFixture<StartProjectIconComponent>;
-
+  const mockComponents = MockComponents(
+    MatIcon,
+    StartProjectOptionsComponent
+  );
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StartProjectIconComponent ]
+      imports: [MatMenuModule],
+      declarations: [ StartProjectIconComponent ].concat(mockComponents)
     })
     .compileComponents();
   }));
@@ -19,8 +27,7 @@ describe('StartProjectIconComponent', () => {
     fixture.detectChanges();
   });
 
-  // FIXME: To be fixed after test coverage setup in SONAR
-  xit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

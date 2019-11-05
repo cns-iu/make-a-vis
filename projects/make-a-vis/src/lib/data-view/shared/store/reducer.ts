@@ -1,8 +1,8 @@
-import { createSelector, createFeatureSelector, MemoizedSelector } from '@ngrx/store';
-import { assign, pick } from 'lodash';
+import { createFeatureSelector, createSelector, MemoizedSelector } from '@ngrx/store';
+import { assign } from 'lodash';
 
-import { INITIAL_DATATABLE_STATE, DataTableState } from './state';
-import { DataViewActionTypes, DataTableActionsUnion } from './actions';
+import { DataTableActionsUnion, DataViewActionTypes } from './actions';
+import { DataTableState, INITIAL_DATATABLE_STATE } from './state';
 
 export function dataTableStateReducer (state: DataTableState = INITIAL_DATATABLE_STATE, action: DataTableActionsUnion) {
     const newState: DataTableState = assign({}, state);
