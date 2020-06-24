@@ -14,7 +14,7 @@ describe('LegendService', () => {
 
   // FIXME: To be fixed after test coverage setup in SONAR
   xit('should be created', () => {
-    const service: LegendService = TestBed.get(LegendService);
+    const service: LegendService = TestBed.inject(LegendService);
     expect(service).toBeTruthy();
   });
 });

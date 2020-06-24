@@ -33,7 +33,7 @@ function createEmptyServices(...tokens: any[]): Provider[] {
 }
 
 function getServiceSpy<T>(token: Type<T>, prop: string): jasmine.Spy {
-  const service = TestBed.get(token);
+  const service = TestBed.inject(token);
   if (service[prop] == null) { service[prop] = jasmine.createSpy(prop); }
   return service[prop];
 }
@@ -195,7 +195,8 @@ describe('TableComponent', () => {
 
     describe(':hover-event', () => {
       function emitHoverEvent(event: string[]): void {
-        const subject: Subject<string[]> = TestBed.get(DataVariableHoverService)['hovers'];
+        const subject: Subject<string[]> =
+          TestBed.inject(DataVariableHoverService)['hovers'] as unknown as Subject<string[]>;
         subject.next(event);
       }
 

@@ -81,9 +81,9 @@ describe('GraphicSymbolTypeComponent', () => {
       ].concat(mockComponents)
     })
     .compileComponents();
-    store = TestBed.get(Store);
-    dataService = TestBed.get(DataService);
-    updateService = TestBed.get(UpdateVisService);
+    store = TestBed.inject(Store) as unknown as typeof store;
+    dataService = TestBed.inject(DataService);
+    updateService = TestBed.inject(UpdateVisService);
   }));
 
   it('should create', async () => {

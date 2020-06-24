@@ -7,7 +7,7 @@ describe('UpdateVisService', () => {
 
   // FIXME: To be fixed after test coverage setup in SONAR
   xit('should be created', () => {
-    const service: UpdateVisService = TestBed.get(UpdateVisService);
+    const service: UpdateVisService = TestBed.inject(UpdateVisService);
     expect(service).toBeTruthy();
   });
 });

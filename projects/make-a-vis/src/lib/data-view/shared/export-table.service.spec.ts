@@ -33,7 +33,7 @@ describe('ExportTableService', () => {
   });
 
   beforeEach(() => {
-    service = TestBed.get(ExportTableService);
+    service = TestBed.inject(ExportTableService);
     saveAsSpy = spyOn(fileSaver, 'saveAs');
     unparseSpy = spyOn(papaparse, 'unparse').and.returnValue('');
   });
