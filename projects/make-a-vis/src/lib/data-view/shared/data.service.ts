@@ -106,7 +106,14 @@ export class DataService {
       });
       data = filtered.concat(changeSet.insert);
     } else if (changeSet.insert.length) {
-      data = data.concat(changeSet.insert);
+      // A non-optimal way to get export CSV to work due to reusing observables
+      const dataSet = new Set(data);
+      data = data.concat();
+      for (const d of changeSet.insert) {
+        if (!dataSet.has(d)) {
+          data.push(d);
+        }
+      }
     }
 
     if (changeSet.update.length) {
