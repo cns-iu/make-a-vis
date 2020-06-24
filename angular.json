@@ -10,13 +10,14 @@
       "prefix": "mav",
       "schematics": {
         "@schematics/angular:component": {
-          "styleext": "scss"
+          "style": "scss"
         }
       },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/make-a-vis-demo",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -34,6 +35,12 @@
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -147,7 +154,8 @@
           "configurations": {
             "production": {
               "project": "projects/make-a-vis/ng-package.prod.json"
-            }
+            ,              "tsConfig": "projects/make-a-vis/tsconfig.lib.prod.json"
+}
           }
         },
         "test": {
@@ -305,7 +313,8 @@
           "configurations": {
             "production": {
               "project": "projects/dvl-fw-core/ng-package.json"
-            }
+            ,              "tsConfig": "projects/dvl-fw-core/tsconfig.lib.prod.json"
+}
           }
         },
         "test": {
@@ -345,7 +354,8 @@
           "configurations": {
             "production": {
               "project": "projects/dvl-fw-isi/ng-package.json"
-            }
+            ,              "tsConfig": "projects/dvl-fw-isi/tsconfig.lib.prod.json"
+}
           }
         },
         "test": {
@@ -385,7 +395,8 @@
           "configurations": {
             "production": {
               "project": "projects/dvl-fw-ngx-dino/ng-package.json"
-            }
+            ,              "tsConfig": "projects/dvl-fw-ngx-dino/tsconfig.lib.prod.json"
+}
           }
         },
         "test": {
@@ -425,7 +436,8 @@
           "configurations": {
             "production": {
               "project": "projects/dvl-fw-nsf/ng-package.json"
-            }
+            ,              "tsConfig": "projects/dvl-fw-nsf/tsconfig.lib.prod.json"
+}
           }
         },
         "test": {
@@ -465,7 +477,8 @@
           "configurations": {
             "production": {
               "project": "projects/dvl-fw-angular/ng-package.json"
-            }
+            ,              "tsConfig": "projects/dvl-fw-angular/tsconfig.lib.prod.json"
+}
           }
         },
         "test": {
@@ -502,7 +515,12 @@
             "tsConfig": "projects/dvl-fw-cli/tsconfig.lib.json",
             "project": "projects/dvl-fw-cli/ng-package.json"
           }
-        },
+        ,          "configurations": {
+            "production": {
+              "tsConfig": "projects/dvl-fw-cli/tsconfig.lib.prod.json"
+            }
+          }
+},
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
