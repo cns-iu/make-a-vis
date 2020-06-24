@@ -19,7 +19,7 @@ export class ReadNewFileService {
   * @param fileExtension the uploaded file's extension
   * @returns true if valid file extension
   */
-  isValidFileExtension(selectedExtensionOnButton: ProjectExtensionType, fileExtensionFromFile: ProjectExtensionType) {
+  isValidFileExtension(selectedExtensionOnButton: ProjectExtensionType, fileExtensionFromFile: ProjectExtensionType): boolean {
     return this.loadProjectService.getSupportedExtension(selectedExtensionOnButton).split(',').indexOf('.' + fileExtensionFromFile) !== -1;
   }
 
