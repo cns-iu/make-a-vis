@@ -107,6 +107,7 @@ export class DataService {
       data = filtered.concat(changeSet.insert);
     } else if (changeSet.insert.length) {
       data = data.concat(changeSet.insert);
+      data = [...(new Set(data))]; // get rid of duplicates
     }
 
     if (changeSet.update.length) {
