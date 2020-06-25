@@ -45,6 +45,12 @@
       ],
       "cheet.js": [
         "node_modules/cheet.js/cheet.js"
+      ],
+      "ngx-vega": [
+        "dist/ngx-vega"
+      ],
+      "ngx-vega/*": [
+        "dist/ngx-vega/*"
       ]
     }
   }
