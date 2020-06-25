@@ -22,7 +22,16 @@ import { VisualizationViewModule } from './visualization-view/visualization-view
   imports: [
     CommonModule,
     DataViewModule, DragDropModule, LegendViewModule, MavSelectionModule, ToolbarModule, VisualizationViewModule,
-    StoreModule.forRoot(reducers),
+    StoreModule.forRoot(reducers, {
+      runtimeChecks: {
+        strictStateImmutability: false,
+        strictActionImmutability: false,
+        strictStateSerializability: false,
+        strictActionSerializability: false,
+        strictActionWithinNgZone: false,
+        strictActionTypeUniqueness: false,
+      }
+    }),
     EffectsModule.forRoot([LogActions])
   ],
   declarations: [LightThemeComponent, MakeAVisComponent],

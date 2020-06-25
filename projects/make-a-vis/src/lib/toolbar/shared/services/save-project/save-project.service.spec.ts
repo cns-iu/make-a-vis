@@ -19,7 +19,7 @@ describe('SaveProjectService', () => {
   });
 
   beforeEach(() => {
-    service = TestBed.get(SaveProjectService);
+    service = TestBed.inject(SaveProjectService);
   });
 
   it('should be created', () => {

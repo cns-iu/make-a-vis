@@ -14,7 +14,7 @@ describe('AdvanceService', () => {
   }));
 
   it('should be created', () => {
-    const service: AdvancedService = TestBed.get(AdvancedService);
+    const service: AdvancedService = TestBed.inject(AdvancedService);
     expect(service).toBeTruthy();
   });
 });

@@ -14,7 +14,7 @@ describe('DroppableDirective', () => {
   });
 
   beforeEach(() => {
-    directive = TestBed.get(DroppableDirective);
+    directive = TestBed.inject(DroppableDirective);
   });
 
   // FIXME: To be fixed after test coverage setup in SONAR

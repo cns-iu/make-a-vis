@@ -36,7 +36,7 @@ describe('MainComponent', () => {
     })
     .compileComponents();
 
-    store = TestBed.get(Store);
+    store = TestBed.inject(Store) as unknown as typeof store;
   }));
 
   beforeEach(() => {

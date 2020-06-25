@@ -7,7 +7,7 @@ export { ParseConfig, ParseError };
 export interface ParseMeta extends BaseMeta {
   typings: DataType[];
 }
-export interface ParseResult extends BaseResult {
+export interface ParseResult extends BaseResult<Record<string, number | boolean | string>> {
   meta: ParseMeta;
 }
 

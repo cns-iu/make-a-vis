@@ -7,7 +7,7 @@ describe('GetLinkService', () => {
 
   // FIXME: To be fixed after test coverage setup in SONAR
   xit('should be created', () => {
-    const service: GetLinkService = TestBed.get(GetLinkService);
+    const service: GetLinkService = TestBed.inject(GetLinkService);
     expect(service).toBeTruthy();
   });
 });
