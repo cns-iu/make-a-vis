@@ -45,6 +45,12 @@
       ],
       "cheet.js": [
         "node_modules/cheet.js/cheet.js"
+      ],
+      "geocoder-ts": [
+        "dist/geocoder-ts"
+      ],
+      "geocoder-ts/*": [
+        "dist/geocoder-ts/*"
       ]
     }
   }
