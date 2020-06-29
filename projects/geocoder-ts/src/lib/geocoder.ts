@@ -13,6 +13,7 @@ export interface Location {
 const STATES = Object.keys(zipcodes.states.abbr);
 
 export class Geocoder {
+
   readonly lookupUSLocationOp: Operator<string, Location>;
 
   addressCache: any = {};

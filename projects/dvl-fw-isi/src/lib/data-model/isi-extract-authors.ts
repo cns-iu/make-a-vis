@@ -1,4 +1,4 @@
-import { Geocoder } from '@dvl-fw/core';
+import { Geocoder } from 'geocoder-ts';
 
 import { Author, AuthorStats } from './isi-author';
 import { Publication } from './isi-publication';

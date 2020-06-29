@@ -34,7 +34,8 @@ module.exports = {
       '@dvl-fw/core': path.resolve('dist/dvl-fw-core'),
       '@dvl-fw/isi': path.resolve('dist/dvl-fw-isi'),
       '@dvl-fw/ngx-dino': path.resolve('dist/dvl-fw-ngx-dino'),
-      '@dvl-fw/nsf': path.resolve('dist/dvl-fw-nsf')
+      '@dvl-fw/nsf': path.resolve('dist/dvl-fw-nsf'),
+      'geocoder-ts': path.resolve('dist/geocoder-ts')
     },
     extensions: [ '.tsx', '.ts', '.js' ]
   },

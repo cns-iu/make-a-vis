@@ -2,6 +2,7 @@
  * Public API Surface of geocoder-ts
  */
 
-export * from './lib/geocoder-ts.service';
-export * from './lib/geocoder-ts.component';
-export * from './lib/geocoder-ts.module';
+export * from './lib/geocoder.service';
+export * from './lib/geocoder.component';
+export * from './lib/geocoder.module';
+export * from './lib/geocoder';
