@@ -80,6 +80,9 @@
     "topojson-client": "^3.1.0",
     "tslib": "^1.10.0",
     "typescript-logging": "^0.6.4",
+    "vega": "^5.13.0",
+    "vega-embed": "^6.9.0",
+    "vega-lite": "^4.13.1",
     "zipcodes": "^8.0.0",
     "zone.js": "~0.10.2"
   },

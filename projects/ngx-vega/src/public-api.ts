@@ -2,6 +2,5 @@
  * Public API Surface of ngx-vega
  */
 
-export * from './lib/ngx-vega.service';
-export * from './lib/ngx-vega.component';
-export * from './lib/ngx-vega.module';
+export * from './lib/vega.component';
+export * from './lib/vega.module';
