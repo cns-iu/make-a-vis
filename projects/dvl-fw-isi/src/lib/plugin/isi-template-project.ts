@@ -1,11 +1,9 @@
 import {
   ActivityLogDataSource, DataSource, DefaultGraphicSymbol, DefaultGraphicVariableMapping, DefaultProject, DefaultRawData,
-  DefaultRecordSet, GraphicSymbol, GraphicVariable, Project, RawData, RecordSet, Visualization,
+  DefaultRecordSet, GraphicSymbol, GraphicVariable, Project, RawData, RecordSet, Visualization
 } from '@dvl-fw/core';
-import {
-  GeomapVisualization, NetworkVisualization, ScatterplotVisualization, SciencemapVisualization,
-} from '@dvl-fw/ngx-dino';
-
+import { GeomapVisualization, NetworkVisualization, ScatterplotVisualization } from '@dvl-fw/ngx-dino';
+import { ScienceMapVisualization } from '@dvl-fw/science-map';
 import { ISIDataSource } from './isi-data-source';
 import { ISIParsedRawData } from './isi-parsed-raw-data';
 
@@ -1489,7 +1487,7 @@ export class ISITemplateProject extends DefaultProject {
           nodes: 'authorPoints'
         }
       }, this),
-      new SciencemapVisualization({
+      new ScienceMapVisualization({
         id: 'SM01',
         template: 'science-map',
         properties: {},

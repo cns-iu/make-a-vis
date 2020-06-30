@@ -4,6 +4,7 @@ import { ActivityLogRawData, Project } from '@dvl-fw/core';
 import { ISIPlugin } from '@dvl-fw/isi';
 import { NgxDinoPlugin } from '@dvl-fw/ngx-dino';
 import { NSFPlugin } from '@dvl-fw/nsf';
+import { ScienceMapPlugin } from '@dvl-fw/science-map';
 import { Store } from '@ngrx/store';
 import { BehaviorSubject } from 'rxjs';
 
@@ -33,6 +34,7 @@ export class LoadProjectService {
     const registry = this.serializer.registry;
 
     registry.registerPlugin(new NgxDinoPlugin());
+    registry.registerPlugin(new ScienceMapPlugin());
     registry.registerPlugin(new ISIPlugin());
     registry.registerPlugin(new NSFPlugin());
   }
