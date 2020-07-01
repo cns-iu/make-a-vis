@@ -5,9 +5,6 @@
     "target": "es2015",
     "declaration": true,
     "inlineSources": true,
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
     "types": [],
     "lib": [
       "dom",
