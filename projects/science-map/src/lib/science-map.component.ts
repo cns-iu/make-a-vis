@@ -46,9 +46,9 @@ export class ScienceMapComponent implements VisualizationComponent,
   }
 
   async doLayout(): Promise<void> {
-      await this.embedVisualization({
-        nodes: this.nodes || []
-      });
+    await this.embedVisualization({
+      nodes: this.nodes || []
+    });
   }
 
   refreshData(): void {
