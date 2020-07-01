@@ -1,8 +1,11 @@
 import { VisualizationSpec } from 'vega-embed';
+
+import { VisualizationNode } from './interfaces';
 import { scienceMapData } from './science-map.data';
 
+
 export interface ScienceMapSpecOptions {
-  nodes?: unknown[];
+  nodes?: VisualizationNode[];
 }
 
 export function scienceMapSpec(options: ScienceMapSpecOptions = {}): VisualizationSpec {

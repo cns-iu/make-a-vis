@@ -6,8 +6,8 @@ import { EMPTY, Observable, of, Subscription } from 'rxjs';
 import { View } from 'vega';
 import embed from 'vega-embed';
 
+import { VisualizationNode } from './interfaces';
 import { scienceMapSpec, ScienceMapSpecOptions } from './science-map.vega';
-import { VisualizationNode } from './shared/visualization-node';
 
 
 @Component({
@@ -28,7 +28,7 @@ export class ScienceMapComponent implements VisualizationComponent,
     strokeWidth: 1
   };
 
-  nodes$: Observable<TDatum<VisualizationNode>[]> = EMPTY;
+  private nodes: TDatum<VisualizationNode>[] = [];
   private nodesSubscription: Subscription;
   private view: View;
 
@@ -45,30 +45,19 @@ export class ScienceMapComponent implements VisualizationComponent,
     this.view = results.view;
   }
 
-  async layout(nodes: TDatum<VisualizationNode>[]): Promise<void> {
-      await this.embedVisualization({nodes});
-      // if (!this.view) {
-      //   this.embedVisualization();
-      // }
-      // this.view.data('nodes', nodes);
-      // await this.view.runAsync();
+  async doLayout(): Promise<void> {
+      await this.embedVisualization({
+        nodes: this.nodes || []
+      });
   }
 
-  async refreshSpec(): Promise<void> {
-    await this.embedVisualization();
-    this.refreshNodes();
-  }
-
-  refreshNodes(): void {
-    if (this.data) {
-      this.nodes$ = this.getGraphicSymbolData<VisualizationNode>('subdisciplinePoints', this.nodeDefaults);
-    } else {
-      this.nodes$ = of([]);
-    }
+  refreshData(): void {
     if (this.nodesSubscription) {
       this.nodesSubscription.unsubscribe();
     }
-    this.nodesSubscription = this.nodes$.subscribe(nodes => this.layout(nodes));
+    this.nodes = [];
+    const nodes$ = this.getGraphicSymbolData<VisualizationNode>('subdisciplinePoints', this.nodeDefaults);
+    this.nodesSubscription = nodes$.subscribe(nodes => { this.nodes = nodes; this.doLayout(); });
   }
 
   ngAfterViewInit(): void {
@@ -76,23 +65,23 @@ export class ScienceMapComponent implements VisualizationComponent,
       this.nodeDefaults = this.data.properties.nodeDefaults;
     }
     if (this.data) {
-      this.refreshNodes();
+      this.refreshData();
     }
   }
   ngOnChanges(changes: SimpleChanges): void {
-    if ('data' in changes) { this.refreshNodes(); }
+    if ('data' in changes) { this.refreshData(); }
   }
   dvlOnGraphicSymbolChange(changes: SimpleChanges): void {
-    if ('subdisciplinePoints' in changes) { this.refreshNodes(); }
+    if ('subdisciplinePoints' in changes) { this.refreshData(); }
   }
   dvlOnPropertyChange(changes: SimpleChanges): void {
     if ('nodeDefaults' in changes) {
       this.nodeDefaults = this.data.properties.nodeDefaults;
-      this.refreshNodes();
+      this.refreshData();
     }
   }
   getGraphicSymbolData<T>(slot: string, defaults: { [gvName: string]: any } = {}): Observable<TDatum<T>[]> {
-    if (!this.data?.graphicSymbols?.subdisciplinePoints?.graphicVariables?.identifier) {
+    if (!this.data?.graphicSymbols[slot]?.graphicVariables?.identifier) {
       return of([]);
     } else {
       return new GraphicSymbolData(this.dataProcessorService, this.data, slot, defaults).asDataArray();

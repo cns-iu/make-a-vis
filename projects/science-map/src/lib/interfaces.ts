@@ -1,10 +1,7 @@
 export interface VisualizationNode {
   identifier: any;
-  latitude?: number;
-  longitude?: number;
-  x?: any;
-  y?: any;
-  position?: [number, number];
+  x: any;
+  y: any;
 
   color: string;
   strokeColor: string;
