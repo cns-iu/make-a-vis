@@ -47,6 +47,7 @@ export class ScienceMapComponent implements VisualizationComponent,
       await this.embedVisualization();
     }
     this.view.data('nodes', nodes);
+    await this.view.runAsync();
   }
 
   async refreshSpec(): Promise<void> {
@@ -78,7 +79,7 @@ export class ScienceMapComponent implements VisualizationComponent,
     if ('data' in changes) { this.refreshNodes(); }
   }
   dvlOnGraphicSymbolChange(changes: SimpleChanges): void {
-    if ('nodes' in changes) { this.refreshNodes(); }
+    if ('subdisciplinePoints' in changes) { this.refreshNodes(); }
   }
   dvlOnPropertyChange(changes: SimpleChanges): void {
     if ('nodeDefaults' in changes) {
