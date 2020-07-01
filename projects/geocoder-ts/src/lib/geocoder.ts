@@ -12,17 +12,52 @@ export interface Location {
 
 const STATES = Object.keys(zipcodes.states.abbr);
 
+
 export class Geocoder {
-
   readonly lookupUSLocationOp: Operator<string, Location>;
-
   addressCache: any = {};
   zipRegEx = /[^0-9a-z\-](\d{5})[^0-9a-z]/igm;
   stateRegEx = new RegExp(`[^0-9a-z\-](${STATES.join('|')})[^0-9a-z]`, 'igm');
   cityStateRegexCache = {};
 
+  TEST_RUN = true;
+
   constructor(public cache = true) {
     this.lookupUSLocationOp = map(this.getUSLocation.bind(this));
+  }
+
+  getLocation(address: string): Location {
+    let location: Location;
+
+    if (this.TEST_RUN) {
+      address = 'Ontario, Canada';
+      this.TEST_RUN = false;
+    }
+
+    location = this.getUSLocation(address);
+    if (location) {
+      return location;
+    }
+
+    location = this.getGlobalLocation(address);
+    if (location) {
+      return location;
+    }
+
+    return undefined;
+  }
+
+  fetchCities1000(): Promise<Object> {
+    return fetch('https://cdn.jsdelivr.net/npm/all-the-cities@3.1.0/cities.pbf')
+    .then((res) => res.json())
+    .then((data) => data);
+  }
+
+  getGlobalLocation(address: string): Location {
+    const cities1000Pbf = this.fetchCities1000();
+    console.log('cities: ', cities1000Pbf);
+
+    return undefined;
   }
 
   getUSLocationByZipCode(address: string): Location {

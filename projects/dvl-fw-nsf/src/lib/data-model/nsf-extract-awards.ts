@@ -1,4 +1,5 @@
 import { Geocoder } from 'geocoder-ts';
+import { GeocoderService } from 'geocoder-ts';
 
 import { Award, AwardStats } from './nsf-award';
 import { NSFRecord } from './nsf-record';
@@ -10,7 +11,7 @@ export function extractAwards(records: NSFRecord[]): Award[] {
 
   for (const record of records) {
     const org = record.organization;
-    const location = geocoder.getUSLocation(`${org.city}, ${org.state} ${org.zip5} USA.`);
+    const location = geocoder.getLocation(`${org.city}, ${org.state} ${org.zip5} USA.`);
     const award = new Award(Object.assign({}, record, {location, globalStats}));
     awardList.push(award);
 

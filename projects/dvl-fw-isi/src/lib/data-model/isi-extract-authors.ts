@@ -30,7 +30,7 @@ export function extractAuthors(publications: Publication[]): Author[] {
       }
 
       if (!author.location && address) {
-        author.location = geocoder.getUSLocation(address.split(/\,/).slice(-4).join(','));
+        author.location = geocoder.getLocation(address.split(/\,/).slice(-4).join(','));
         if (author.location) {
           // Replace address with the more 'accurate' version.
           author.address = address;
