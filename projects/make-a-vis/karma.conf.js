@@ -31,6 +31,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     browsers: ['ChromeHeadless'],
-    singleRun: true
+    singleRun: true,
+    captureTimeout: 60 * 1000
   });
 };
