@@ -9,20 +9,10 @@ export interface NetworkSpecOptions {
 }
 
 export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec {
-  const xAxis = {minExtent: -1000, maxExtent: 1000, grid: false, ticks: false, labels: false, domain: false, title: null};
-  const yAxis = {minExtent: -1000, maxExtent: 1000, grid: false, ticks: false, labels: false, domain: false, title: null};
-  const xScale = {domain: [xAxis.minExtent, xAxis.maxExtent]};
-  const yScale = {domain: [yAxis.minExtent, yAxis.maxExtent]};
-
   return {
     '$schema': 'https://vega.github.io/schema/vega-lite/v4.json',
     description: 'This network visualization presents nodes connected by links. ForceAtlas2, a force-directed layout algorithm, is used to position nodes in two-dimensional space. The algorithm aims to minimize edge crossings and to place nodes so that all edges are of more or less equal length. Nodes can be size and color coded, and edges can be thickness and color coded. An additional data variable can be presented through tooltips on the nodes.',
-    autosize: {
-      type: 'fit',
-      resize: true,
-      contains: 'padding'
-    },
-    padding: 8,
+    autosize: {type: 'fit', resize: true},
     width: 'container',
     height: 'container',
     config: {view: {strokeOpacity: 0}},
@@ -46,8 +36,8 @@ export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec
           },
         ],
         encoding: {
-          x: {field: 'sourceX', type: 'quantitative'},
-          y: {field: 'sourceY', type: 'quantitative'},
+          x: {field: 'sourceX', type: 'quantitative', axis: null},
+          y: {field: 'sourceY', type: 'quantitative', axis: null},
           x2: {field: 'targetX', type: 'quantitative'},
           y2: {field: 'targetY', type: 'quantitative'},
           color: {field: 'strokeColor', type: 'nominal', scale: null},
@@ -80,8 +70,8 @@ export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec
           },
         ],
         encoding: {
-          x: {field: 'x', type: 'quantitative'},
-          y: {field: 'y', type: 'quantitative'},
+          x: {field: 'x', type: 'quantitative', axis: null},
+          y: {field: 'y', type: 'quantitative', axis: null},
           shape: {field: 'shape', type: 'nominal', scale: null},
           fill: {field: 'color', type: 'nominal', scale: null},
           fillOpacity: {field: 'opacity', type: 'quantitative', scale: null},

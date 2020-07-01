@@ -1,7 +1,7 @@
 export interface VisualizationNode {
   identifier: any;
-  x: any;
-  y: any;
+  x: number;
+  y: number;
 
   color: string;
   strokeColor: string;
@@ -18,8 +18,10 @@ export interface VisualizationNode {
 
 export interface VisualizationEdge {
   identifier: any;
-  x: any;
-  y: any;
+  sourceX: number;
+  sourceY: number;
+  targetX: number;
+  targetY: number;
 
   color: string;
   strokeColor: string;

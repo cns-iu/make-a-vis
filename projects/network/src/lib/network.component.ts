@@ -73,7 +73,7 @@ export class NetworkComponent implements VisualizationComponent,
     this.nodes = [];
     this.edges = [];
     const nodes$ = this.getGraphicSymbolData<VisualizationNode>('nodes', this.nodeDefaults);
-    const edges$ = this.getGraphicSymbolData<VisualizationNode>('edges', this.edgeDefaults);
+    const edges$ = this.getGraphicSymbolData<VisualizationEdge>('edges', this.edgeDefaults);
     this.nodesSubscription = nodes$.subscribe(nodes => { this.nodes = nodes; this.doLayout(); });
     this.edgesSubscription = edges$.subscribe(edges => { this.edges = edges; this.doLayout(); });
   }
