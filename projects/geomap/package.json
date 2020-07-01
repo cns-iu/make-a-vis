@@ -1,0 +1,9 @@
+{
+  "name": "@dvl-fw/geomap",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^9.0.0",
+    "@angular/core": "^9.0.0",
+    "@ngx-dino/core": ">=0.10.0 <1.0.0"
+  }
+}

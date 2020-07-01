@@ -43,6 +43,12 @@
       "@dvl-fw/nsf": [
         "dist/dvl-fw-nsf"
       ],
+      "@dvl-fw/geomap": [
+        "dist/geomap"
+      ],
+      "@dvl-fw/geomap/*": [
+        "dist/geomap/*"
+      ],
       "@dvl-fw/network": [
         "dist/network"
       ],
