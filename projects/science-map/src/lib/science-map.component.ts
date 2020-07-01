@@ -5,7 +5,8 @@ import { DataProcessorService } from '@ngx-dino/core';
 import { EMPTY, Observable, of, Subscription } from 'rxjs';
 import { View } from 'vega';
 import embed from 'vega-embed';
-import { scienceMapSpec } from './science-map.vega';
+
+import { scienceMapSpec, ScienceMapSpecOptions } from './science-map.vega';
 import { VisualizationNode } from './shared/visualization-node';
 
 
@@ -21,7 +22,10 @@ export class ScienceMapComponent implements VisualizationComponent,
     shape: 'circle',
     areaSize: 16,
     color: '#000',
-    transparency: 0
+    strokeColor: '#000007',
+    transparency: 0,
+    strokeTransparency: 0.25,
+    strokeWidth: 1
   };
 
   nodes$: Observable<TDatum<VisualizationNode>[]> = EMPTY;
@@ -32,22 +36,22 @@ export class ScienceMapComponent implements VisualizationComponent,
 
   constructor(private dataProcessorService: DataProcessorService) { }
 
-  async embedVisualization(): Promise<void> {
+  async embedVisualization(options: ScienceMapSpecOptions = {}): Promise<void> {
     if (this.view) {
       this.view.finalize();
     }
-    const spec = scienceMapSpec({});
+    const spec = scienceMapSpec(options);
     const results = await embed(this.vizContainer.nativeElement, spec, {renderer: 'svg'});
     this.view = results.view;
   }
 
   async layout(nodes: TDatum<VisualizationNode>[]): Promise<void> {
-    console.log(nodes);
-    if (!this.view) {
-      await this.embedVisualization();
-    }
-    this.view.data('nodes', nodes);
-    await this.view.runAsync();
+      await this.embedVisualization({nodes});
+      // if (!this.view) {
+      //   this.embedVisualization();
+      // }
+      // this.view.data('nodes', nodes);
+      // await this.view.runAsync();
   }
 
   async refreshSpec(): Promise<void> {
@@ -88,7 +92,11 @@ export class ScienceMapComponent implements VisualizationComponent,
     }
   }
   getGraphicSymbolData<T>(slot: string, defaults: { [gvName: string]: any } = {}): Observable<TDatum<T>[]> {
-    return new GraphicSymbolData(this.dataProcessorService, this.data, slot, defaults).asDataArray();
+    if (!this.data?.graphicSymbols?.subdisciplinePoints?.graphicVariables?.identifier) {
+      return of([]);
+    } else {
+      return new GraphicSymbolData(this.dataProcessorService, this.data, slot, defaults).asDataArray();
+    }
   }
   ngOnDestroy(): void {
     if (this.nodesSubscription) {

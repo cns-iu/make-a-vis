@@ -1,7 +1,5 @@
 import { DefaultVisualization, ObjectFactory, ObjectFactoryRegistry, Project, Visualization } from '@dvl-fw/core';
-
 import { ScienceMapComponent } from './science-map.component';
-
 
 export class ScienceMapVisualization extends DefaultVisualization {
   // tslint:disable-next-line: max-line-length
