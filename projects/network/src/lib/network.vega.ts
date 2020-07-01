@@ -1,13 +1,16 @@
 import { VisualizationSpec } from 'vega-embed';
 
+import { VisualizationNode, VisualizationEdge } from './interfaces';
+
+
 export interface NetworkSpecOptions {
-  nodes?: unknown[];
-  edges?: unknown[];
+  nodes?: VisualizationNode[];
+  edges?: VisualizationEdge[];
 }
 
 export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec {
-  const xAxis = {minExtent: 90, maxExtent: 515, grid: false, ticks: false, labels: false, domain: false, title: null};
-  const yAxis = {minExtent: 0, maxExtent: 275, grid: false, ticks: false, labels: false, domain: false, title: null};
+  const xAxis = {minExtent: -1000, maxExtent: 1000, grid: false, ticks: false, labels: false, domain: false, title: null};
+  const yAxis = {minExtent: -1000, maxExtent: 1000, grid: false, ticks: false, labels: false, domain: false, title: null};
   const xScale = {domain: [xAxis.minExtent, xAxis.maxExtent]};
   const yScale = {domain: [yAxis.minExtent, yAxis.maxExtent]};
 
@@ -24,7 +27,37 @@ export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec
     height: 'container',
     config: {view: {strokeOpacity: 0}},
     layer: [
-      // Drawn nodes
+      // Draw edges
+      {
+        mark: 'rule',
+        data: {name: 'edges', values: options.edges as any[] || undefined},
+        transform: [
+          {
+            calculate: '!isValid(datum.tooltip) ? \'\' : datum.tooltip',
+            as: 'tooltip'
+          },
+          {
+            calculate: '!isValid(datum.strokeWidth) ? 1 : datum.strokeWidth',
+            as: 'strokeWidth'
+          },
+          {
+            calculate: '!isValid(datum.transparency) ? 1 : 1 - datum.transparency',
+            as: 'opacity'
+          },
+        ],
+        encoding: {
+          x: {field: 'sourceX', type: 'quantitative'},
+          y: {field: 'sourceY', type: 'quantitative'},
+          x2: {field: 'targetX', type: 'quantitative'},
+          y2: {field: 'targetY', type: 'quantitative'},
+          color: {field: 'strokeColor', type: 'nominal', scale: null},
+          strokeWidth: {field: 'strokeWidth', type: 'quantitative', scale: null},
+          opacity: {field: 'strokeOpacity', type: 'quantitative', scale: null},
+          tooltip: {field: 'tooltip', type: 'nominal'}
+        }
+      },
+
+      // Draw nodes
       {
         mark: 'point',
         data: {name: 'nodes', values: options.nodes as any[] || undefined},

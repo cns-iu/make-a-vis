@@ -2,11 +2,11 @@ import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnDestroy, Simp
 import { GraphicSymbolData, TDatum, Visualization, VisualizationComponent } from '@dvl-fw/core';
 import { OnGraphicSymbolChange, OnPropertyChange } from '@dvl-fw/ngx-dino';
 import { DataProcessorService } from '@ngx-dino/core';
-import { EMPTY, Observable, of, Subscription } from 'rxjs';
+import { Observable, of, Subscription } from 'rxjs';
 import { View } from 'vega';
 import embed from 'vega-embed';
 
-import { VisualizationNode, VisualizationEdge } from './interfaces';
+import { VisualizationEdge, VisualizationNode } from './interfaces';
 import { networkSpec, NetworkSpecOptions } from './network.vega';
 
 
@@ -37,8 +37,10 @@ export class NetworkComponent implements VisualizationComponent,
     strokeWidth: 1
   };
 
-  nodes$: Observable<TDatum<VisualizationNode>[]> = EMPTY;
+  private nodes: TDatum<VisualizationNode>[] = [];
+  private edges: TDatum<VisualizationEdge>[] = [];
   private nodesSubscription: Subscription;
+  private edgesSubscription: Subscription;
   private view: View;
 
   @ViewChild('visualization', { read: ElementRef }) vizContainer: ElementRef<HTMLElement>;
@@ -54,54 +56,58 @@ export class NetworkComponent implements VisualizationComponent,
     this.view = results.view;
   }
 
-  async layout(nodes: TDatum<VisualizationNode>[]): Promise<void> {
-      await this.embedVisualization({nodes});
-      // if (!this.view) {
-      //   this.embedVisualization();
-      // }
-      // this.view.data('nodes', nodes);
-      // await this.view.runAsync();
+  async doLayout(): Promise<void> {
+    await this.embedVisualization({
+      nodes: this.nodes || [],
+      edges: this.edges || []
+    });
   }
 
-  async refreshSpec(): Promise<void> {
-    await this.embedVisualization();
-    this.refreshNodes();
-  }
-
-  refreshNodes(): void {
-    if (this.data) {
-      this.nodes$ = this.getGraphicSymbolData<VisualizationNode>('nodes', this.nodeDefaults);
-    } else {
-      this.nodes$ = of([]);
-    }
+  refreshData(): void {
     if (this.nodesSubscription) {
       this.nodesSubscription.unsubscribe();
     }
-    this.nodesSubscription = this.nodes$.subscribe(nodes => this.layout(nodes));
+    if (this.edgesSubscription) {
+      this.edgesSubscription.unsubscribe();
+    }
+    this.nodes = [];
+    this.edges = [];
+    const nodes$ = this.getGraphicSymbolData<VisualizationNode>('nodes', this.nodeDefaults);
+    const edges$ = this.getGraphicSymbolData<VisualizationNode>('edges', this.edgeDefaults);
+    this.nodesSubscription = nodes$.subscribe(nodes => { this.nodes = nodes; this.doLayout(); });
+    this.edgesSubscription = edges$.subscribe(edges => { this.edges = edges; this.doLayout(); });
   }
 
   ngAfterViewInit(): void {
     if (this.data?.properties?.nodeDefaults) {
       this.nodeDefaults = this.data.properties.nodeDefaults;
     }
+    if (this.data?.properties?.edgeDefaults) {
+      this.edgeDefaults = this.data.properties.edgeDefaults;
+    }
     if (this.data) {
-      this.refreshNodes();
+      this.refreshData();
     }
   }
   ngOnChanges(changes: SimpleChanges): void {
-    if ('data' in changes) { this.refreshNodes(); }
+    if ('data' in changes) { this.refreshData(); }
   }
   dvlOnGraphicSymbolChange(changes: SimpleChanges): void {
-    if ('nodes' in changes) { this.refreshNodes(); }
+    if ('nodes' in changes || 'edges' in changes) { this.refreshData(); }
   }
   dvlOnPropertyChange(changes: SimpleChanges): void {
     if ('nodeDefaults' in changes) {
       this.nodeDefaults = this.data.properties.nodeDefaults;
-      this.refreshNodes();
+    }
+    if ('edgeDefaults' in changes) {
+      this.edgeDefaults = this.data.properties.edgeDefaults;
+    }
+    if ('nodeDefaults' in changes || 'edgeDefaults' in changes) {
+      this.refreshData();
     }
   }
   getGraphicSymbolData<T>(slot: string, defaults: { [gvName: string]: any } = {}): Observable<TDatum<T>[]> {
-    if (!this.data?.graphicSymbols?.nodes?.graphicVariables?.identifier) {
+    if (!this.data?.graphicSymbols[slot]?.graphicVariables?.identifier) {
       return of([]);
     } else {
       return new GraphicSymbolData(this.dataProcessorService, this.data, slot, defaults).asDataArray();
@@ -110,6 +116,9 @@ export class NetworkComponent implements VisualizationComponent,
   ngOnDestroy(): void {
     if (this.nodesSubscription) {
       this.nodesSubscription.unsubscribe();
+    }
+    if (this.edgesSubscription) {
+      this.edgesSubscription.unsubscribe();
     }
     if (this.view) {
       this.view.finalize();
