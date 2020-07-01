@@ -2,8 +2,10 @@ import {
   ActivityLogDataSource, DataSource, DefaultGraphicSymbol, DefaultGraphicVariableMapping, DefaultProject, DefaultRawData,
   DefaultRecordSet, GraphicSymbol, GraphicVariable, Project, RawData, RecordSet, Visualization
 } from '@dvl-fw/core';
-import { GeomapVisualization, NetworkVisualization, ScatterplotVisualization } from '@dvl-fw/ngx-dino';
+import { NetworkVisualization } from '@dvl-fw/network';
+import { GeomapVisualization, ScatterplotVisualization } from '@dvl-fw/ngx-dino';
 import { ScienceMapVisualization } from '@dvl-fw/science-map';
+
 import { ISIDataSource } from './isi-data-source';
 import { ISIParsedRawData } from './isi-parsed-raw-data';
 

@@ -34,7 +34,9 @@ module.exports = {
       '@dvl-fw/core': path.resolve('dist/dvl-fw-core'),
       '@dvl-fw/isi': path.resolve('dist/dvl-fw-isi'),
       '@dvl-fw/ngx-dino': path.resolve('dist/dvl-fw-ngx-dino'),
-      '@dvl-fw/nsf': path.resolve('dist/dvl-fw-nsf')
+      '@dvl-fw/nsf': path.resolve('dist/dvl-fw-nsf'),
+      '@dvl-fw/network': path.resolve('dist/network'),
+      '@dvl-fw/science-map': path.resolve('dist/science-map'),
     },
     extensions: [ '.tsx', '.ts', '.js' ]
   },

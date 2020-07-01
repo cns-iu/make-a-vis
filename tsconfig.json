@@ -43,6 +43,12 @@
       "@dvl-fw/nsf": [
         "dist/dvl-fw-nsf"
       ],
+      "@dvl-fw/network": [
+        "dist/network"
+      ],
+      "@dvl-fw/network/*": [
+        "dist/network/*"
+      ],
       "@dvl-fw/science-map": [
         "dist/science-map"
       ],
