@@ -17,10 +17,21 @@ export function geomapSpec(options: GeomapSpecOptions = {}): VisualizationSpec {
     height: 'container',
     config: {view: {strokeOpacity: 0}},
     layer: [
+      // Draw states
+      {
+        mark: {type: 'geoshape', fill: 'white', stroke: '#bebebe', strokeWidth: 0.5},
+        data: {
+          url: 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json',
+          format: {type: 'topojson', feature: 'states'}
+        },
+        projection: {type: 'albersUsa'}
+      },
+
       // Draw edges
       {
         mark: 'rule',
         data: {name: 'edges', values: options.edges as any[] || undefined},
+        projection: {type: 'albersUsa'},
         transform: [
           {
             calculate: '!isValid(datum.tooltip) ? \'\' : datum.tooltip',
@@ -36,10 +47,10 @@ export function geomapSpec(options: GeomapSpecOptions = {}): VisualizationSpec {
           },
         ],
         encoding: {
-          x: {field: 'longitude1', type: 'quantitative', axis: null},
-          y: {field: 'latitude1', type: 'quantitative', axis: null},
-          x2: {field: 'longitude2', type: 'quantitative'},
-          y2: {field: 'latitude2', type: 'quantitative'},
+          longitude: {field: 'longitude1', type: 'quantitative'},
+          latitude: {field: 'latitude1', type: 'quantitative'},
+          longitude2: {field: 'longitude2', type: 'quantitative'},
+          latitude2: {field: 'latitude2', type: 'quantitative'},
           color: {field: 'strokeColor', type: 'nominal', scale: null},
           strokeWidth: {field: 'strokeWidth', type: 'quantitative', scale: null},
           opacity: {field: 'strokeOpacity', type: 'quantitative', scale: null},
@@ -51,6 +62,7 @@ export function geomapSpec(options: GeomapSpecOptions = {}): VisualizationSpec {
       {
         mark: 'point',
         data: {name: 'nodes', values: options.nodes as any[] || undefined},
+        projection: {type: 'albersUsa'},
         transform: [
           {
             calculate: '!isValid(datum.tooltip) ? \'\' : datum.tooltip',
@@ -70,8 +82,8 @@ export function geomapSpec(options: GeomapSpecOptions = {}): VisualizationSpec {
           },
         ],
         encoding: {
-          x: {field: 'longitude', type: 'quantitative', axis: null},
-          y: {field: 'latitude', type: 'quantitative', axis: null},
+          longitude: {field: 'longitude', type: 'quantitative'},
+          latitude: {field: 'latitude', type: 'quantitative'},
           shape: {field: 'shape', type: 'nominal', scale: null},
           fill: {field: 'color', type: 'nominal', scale: null},
           fillOpacity: {field: 'opacity', type: 'quantitative', scale: null},
