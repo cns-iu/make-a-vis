@@ -24,14 +24,7 @@ export class ScatterplotComponent implements VisualizationComponent,
     color: '#000',
     strokeColor: '#000007',
     transparency: 0,
-    strokeTransparency: 0.25,
-    strokeWidth: 1.5,
-    gridlines: true,
-    gridlinesColor: 'lightGray',
-    gridlinesOpacity: 1,
-    tickLabelColor: 'gray',
-    showTicks: false,
-    showAxisLabels: false,
+    strokeTransparency: 0.25
   };
 
   private nodes: TDatum<VisualizationNode>[] = [];

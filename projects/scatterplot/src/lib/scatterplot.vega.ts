@@ -5,6 +5,13 @@ import { VisualizationNode } from './interfaces';
 
 export interface ScatterplotSpecOptions {
   nodes?: VisualizationNode[];
+  strokeWidth?: 1.5;
+  gridlines?: true;
+  gridlinesColor?: 'lightGray';
+  gridlinesOpacity?: 1;
+  tickLabelColor?: 'gray';
+  showTicks?: false;
+  showAxisLabels?: false;
 }
 
 export function scatterplotSpec(options: ScatterplotSpecOptions = {}): VisualizationSpec {
@@ -40,29 +47,31 @@ export function scatterplotSpec(options: ScatterplotSpecOptions = {}): Visualiza
           }
         ],
         encoding: {
-          x: {field: 'x', type: 'ordinal', scale: {zero: false}, title: null,
+          x: {field: 'x', type: 'quantitative', scale: {zero: false}, title: null,
             axis: {
-              grid: true,
-              gridColor: 'lightGray',
-              gridOpacity: 1,
-              ticks: false,
-              tickColor: 'gray',
+              grid: options.gridlines,
+              gridColor: options.gridlinesColor,
+              gridOpacity: options.gridlinesOpacity,
+              ticks: options.showTicks,
+              tickColor: options.tickLabelColor,
               domainWidth: 1,
               domainColor: 'black',
               tickMinStep: 2,
-              labelAngle: 0
+              labelAngle: 0,
+              format: '1d'
             }
           },
-          y: {field: 'y', type: 'ordinal', scale: {reverse: true, zero: false}, title: null,
+          y: {field: 'y', type: 'quantitative', scale: {zero: false}, title: null,
             axis: {
-              grid: true,
-              gridColor: 'lightGray',
-              gridOpacity: 1,
-              ticks: false,
-              tickColor: 'gray',
+              grid: options.gridlines,
+              gridColor: options.gridlinesColor,
+              gridOpacity: options.gridlinesOpacity,
+              ticks: options.showTicks,
+              tickColor: options.tickLabelColor,
               domainWidth: 1,
               domainColor: 'black',
-              tickMinStep: 2
+              tickMinStep: 2,
+              format: '1d'
             }
           },
           shape: {field: 'shape', type: 'nominal', scale: null},
