@@ -2,8 +2,9 @@ import {
   ActivityLogDataSource, CSVTemplateProject, DataSource, DefaultGraphicSymbol, DefaultGraphicVariableMapping, DefaultProject,
   DefaultRawData, DefaultRecordSet, GraphicSymbol, GraphicVariable, Project, RawData, RecordSet, Visualization
 } from '@dvl-fw/core';
+import { GeomapVisualization } from '@dvl-fw/geomap';
 import { NetworkVisualization } from '@dvl-fw/network';
-import { GeomapVisualization, ScatterplotVisualization, TemporalBargraphVisualization } from '@dvl-fw/ngx-dino';
+import { ScatterplotVisualization, TemporalBargraphVisualization } from '@dvl-fw/ngx-dino';
 import { isArray } from 'lodash';
 
 import { NSFDataSource } from './nsf-data-source';

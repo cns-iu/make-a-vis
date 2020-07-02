@@ -597,7 +597,7 @@
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/science-map/tsconfig.lib.prod.json"
+              "tsConfig": "projects/network/tsconfig.lib.prod.json"
             }
           }
         },
@@ -615,6 +615,46 @@
             "tsConfig": [
               "projects/network/tsconfig.lib.json",
               "projects/network/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "geomap": {
+      "projectType": "library",
+      "root": "projects/geomap",
+      "sourceRoot": "projects/geomap/src",
+      "prefix": "dvl",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/geomap/tsconfig.lib.json",
+            "project": "projects/geomap/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/geomap/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/geomap/src/test.ts",
+            "tsConfig": "projects/geomap/tsconfig.spec.json",
+            "karmaConfig": "projects/geomap/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/geomap/tsconfig.lib.json",
+              "projects/geomap/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

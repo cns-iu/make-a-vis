@@ -7,16 +7,16 @@ import { map, tap } from 'rxjs/operators';
 import { View } from 'vega';
 import embed from 'vega-embed';
 
+import { geomapSpec, GeomapSpecOptions } from './geomap.vega';
 import { VisualizationEdge, VisualizationNode } from './interfaces';
-import { networkSpec, NetworkSpecOptions } from './network.vega';
 
 
 @Component({
-  selector: 'dvl-network',
-  templateUrl: './network.component.html',
-  styleUrls: ['./network.component.scss']
+  selector: 'dvl-geomap',
+  templateUrl: './geomap.component.html',
+  styleUrls: ['./geomap.component.scss']
 })
-export class NetworkComponent implements VisualizationComponent,
+export class GeomapComponent implements VisualizationComponent,
     AfterViewInit, OnChanges, OnDestroy, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
   @Input() nodeDefaults: Partial<VisualizationNode> = {
@@ -48,11 +48,11 @@ export class NetworkComponent implements VisualizationComponent,
 
   constructor(private dataProcessorService: DataProcessorService) { }
 
-  async embedVisualization(options: NetworkSpecOptions = {}): Promise<void> {
+  async embedVisualization(options: GeomapSpecOptions = {}): Promise<void> {
     if (this.view) {
       this.view.finalize();
     }
-    const spec = networkSpec(options);
+    const spec = geomapSpec(options);
     const results = await embed(this.vizContainer.nativeElement, spec, {renderer: 'svg'});
     this.view = results.view;
   }
@@ -76,7 +76,7 @@ export class NetworkComponent implements VisualizationComponent,
     this.nodesSubscription = this.getGraphicSymbolData<VisualizationNode>('nodes', this.nodeDefaults)
       .pipe(
         map(nodes => nodes.filter(
-          n => isFinite(n.x) && isFinite(n.y)
+          n => isFinite(n.latitude) && isFinite(n.longitude)
         )),
         tap(nodes => this.nodes = nodes)
       )
@@ -85,7 +85,7 @@ export class NetworkComponent implements VisualizationComponent,
     this.edgesSubscription = this.getGraphicSymbolData<VisualizationEdge>('edges', this.edgeDefaults)
       .pipe(
         map(edges => edges.filter(
-          e => isFinite(e.sourceX) && isFinite(e.sourceY) && isFinite(e.targetX) && isFinite(e.targetY)
+          e => isFinite(e.latitude1) && isFinite(e.longitude1) && isFinite(e.latitude2) && isFinite(e.longitude2)
         )),
         tap(edges => this.edges = edges)
       )
