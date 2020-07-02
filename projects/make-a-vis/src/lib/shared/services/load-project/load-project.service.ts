@@ -3,17 +3,19 @@ import { ProjectSerializerService } from '@dvl-fw/angular';
 import { ActivityLogRawData, Project } from '@dvl-fw/core';
 import { GeomapPlugin } from '@dvl-fw/geomap';
 import { ISIPlugin, ISITemplateProject } from '@dvl-fw/isi';
-import { NetworkPlugin } from '@dvl-fw/network';
 import { LegendsPlugin } from '@dvl-fw/legends';
+import { NetworkPlugin } from '@dvl-fw/network';
 import { NSFPlugin, NSFTemplateProject } from '@dvl-fw/nsf';
+import { ScatterplotPlugin } from '@dvl-fw/scatterplot';
 import { ScienceMapPlugin } from '@dvl-fw/science-map';
+import { TemporalBargraphPlugin } from '@dvl-fw/temporal-bargraph';
 import { Store } from '@ngrx/store';
+import { isArray } from 'lodash';
 import { BehaviorSubject, defer, Observable } from 'rxjs';
 
 import { LoggingControlService } from '../../../shared/logging/logging-control.service';
 import * as sidenavStore from '../../../toolbar/shared/store';
 import { GetLinkService } from '../get-link/get-link.service';
-import { isArray } from 'lodash';
 
 
 @Injectable({
@@ -39,7 +41,9 @@ export class LoadProjectService {
     registry.registerPlugin(new LegendsPlugin());
     registry.registerPlugin(new GeomapPlugin());
     registry.registerPlugin(new NetworkPlugin());
+    registry.registerPlugin(new ScatterplotPlugin());
     registry.registerPlugin(new ScienceMapPlugin());
+    registry.registerPlugin(new TemporalBargraphPlugin());
     registry.registerPlugin(new ISIPlugin());
     registry.registerPlugin(new NSFPlugin());
   }
