@@ -14,4 +14,11 @@ export interface VisualizationNode {
   labelPosition: string;
   shape: string;
   pulse: boolean;
+
+  gridlines: boolean;
+  gridlinesColor: string;
+  gridlinesOpacity: number;
+  tickLabelColor: string;
+  showTicks: boolean;
+  showAxisLabels: boolean;
 }

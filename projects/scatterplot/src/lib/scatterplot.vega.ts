@@ -15,6 +15,7 @@ export function scatterplotSpec(options: ScatterplotSpecOptions = {}): Visualiza
     width: 'container',
     height: 'container',
     config: {view: {strokeOpacity: 0}},
+    padding: 16,
     layer: [
       // Draw nodes
       {
@@ -36,11 +37,34 @@ export function scatterplotSpec(options: ScatterplotSpecOptions = {}): Visualiza
           {
             calculate: '!isValid(datum.transparency) ? 0.75 : 1 - datum.transparency',
             as: 'opacity'
-          },
+          }
         ],
         encoding: {
-          x: {field: 'x', type: 'ordinal'},
-          y: {field: 'y', type: 'ordinal'},
+          x: {field: 'x', type: 'ordinal', scale: {zero: false}, title: null,
+            axis: {
+              grid: true,
+              gridColor: 'lightGray',
+              gridOpacity: 1,
+              ticks: false,
+              tickColor: 'gray',
+              domainWidth: 1,
+              domainColor: 'black',
+              tickMinStep: 2,
+              labelAngle: 0
+            }
+          },
+          y: {field: 'y', type: 'ordinal', scale: {reverse: true, zero: false}, title: null,
+            axis: {
+              grid: true,
+              gridColor: 'lightGray',
+              gridOpacity: 1,
+              ticks: false,
+              tickColor: 'gray',
+              domainWidth: 1,
+              domainColor: 'black',
+              tickMinStep: 2
+            }
+          },
           shape: {field: 'shape', type: 'nominal', scale: null},
           fill: {field: 'color', type: 'nominal', scale: null},
           fillOpacity: {field: 'opacity', type: 'quantitative', scale: null},
