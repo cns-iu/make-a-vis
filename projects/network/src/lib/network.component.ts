@@ -3,6 +3,7 @@ import { GraphicSymbolData, TDatum, Visualization, VisualizationComponent } from
 import { OnGraphicSymbolChange, OnPropertyChange } from '@dvl-fw/ngx-dino';
 import { DataProcessorService } from '@ngx-dino/core';
 import { Observable, of, Subscription } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { View } from 'vega';
 import embed from 'vega-embed';
 
@@ -72,10 +73,23 @@ export class NetworkComponent implements VisualizationComponent,
     }
     this.nodes = [];
     this.edges = [];
-    const nodes$ = this.getGraphicSymbolData<VisualizationNode>('nodes', this.nodeDefaults);
-    const edges$ = this.getGraphicSymbolData<VisualizationEdge>('edges', this.edgeDefaults);
-    this.nodesSubscription = nodes$.subscribe(nodes => { this.nodes = nodes; this.doLayout(); });
-    this.edgesSubscription = edges$.subscribe(edges => { this.edges = edges; this.doLayout(); });
+    this.nodesSubscription = this.getGraphicSymbolData<VisualizationNode>('nodes', this.nodeDefaults)
+      .pipe(
+        map(nodes => nodes.filter(
+          n => isFinite(n.x) && isFinite(n.y)
+        )),
+        tap(nodes => this.nodes = nodes)
+      )
+      .subscribe(nodes => this.doLayout());
+
+    this.edgesSubscription = this.getGraphicSymbolData<VisualizationEdge>('edges', this.edgeDefaults)
+      .pipe(
+        map(edges => edges.filter(
+          e => isFinite(e.sourceX) && isFinite(e.sourceY) && isFinite(e.targetX) && isFinite(e.targetY)
+        )),
+        tap(edges => this.edges = edges)
+      )
+      .subscribe(edges => this.doLayout());
   }
 
   ngAfterViewInit(): void {

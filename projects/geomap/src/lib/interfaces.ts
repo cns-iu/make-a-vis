@@ -18,10 +18,10 @@ export interface VisualizationNode {
 
 export interface VisualizationEdge {
   identifier: any;
-  sourceX: number;
-  sourceY: number;
-  targetX: number;
-  targetY: number;
+  latitude1: number;
+  longitude1: number;
+  latitude2: number;
+  longitude2: number;
 
   color: string;
   strokeColor: string;

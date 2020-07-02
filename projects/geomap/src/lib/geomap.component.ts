@@ -3,11 +3,12 @@ import { GraphicSymbolData, TDatum, Visualization, VisualizationComponent } from
 import { OnGraphicSymbolChange, OnPropertyChange } from '@dvl-fw/ngx-dino';
 import { DataProcessorService } from '@ngx-dino/core';
 import { Observable, of, Subscription } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { View } from 'vega';
 import embed from 'vega-embed';
 
-import { VisualizationEdge, VisualizationNode } from './interfaces';
 import { geomapSpec, GeomapSpecOptions } from './geomap.vega';
+import { VisualizationEdge, VisualizationNode } from './interfaces';
 
 
 @Component({
@@ -72,10 +73,23 @@ export class GeomapComponent implements VisualizationComponent,
     }
     this.nodes = [];
     this.edges = [];
-    const nodes$ = this.getGraphicSymbolData<VisualizationNode>('nodes', this.nodeDefaults);
-    const edges$ = this.getGraphicSymbolData<VisualizationEdge>('edges', this.edgeDefaults);
-    this.nodesSubscription = nodes$.subscribe(nodes => { this.nodes = nodes; this.doLayout(); });
-    this.edgesSubscription = edges$.subscribe(edges => { this.edges = edges; this.doLayout(); });
+    this.nodesSubscription = this.getGraphicSymbolData<VisualizationNode>('nodes', this.nodeDefaults)
+      .pipe(
+        map(nodes => nodes.filter(
+          n => isFinite(n.latitude) && isFinite(n.longitude)
+        )),
+        tap(nodes => this.nodes = nodes)
+      )
+      .subscribe(nodes => this.doLayout());
+
+    this.edgesSubscription = this.getGraphicSymbolData<VisualizationEdge>('edges', this.edgeDefaults)
+      .pipe(
+        map(edges => edges.filter(
+          e => isFinite(e.latitude1) && isFinite(e.longitude1) && isFinite(e.latitude2) && isFinite(e.longitude2)
+        )),
+        tap(edges => this.edges = edges)
+      )
+      .subscribe(edges => this.doLayout());
   }
 
   ngAfterViewInit(): void {
