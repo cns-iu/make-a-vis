@@ -55,11 +55,23 @@
       "@dvl-fw/network/*": [
         "dist/network/*"
       ],
+      "@dvl-fw/scatterplot": [
+        "dist/scatterplot"
+      ],
+      "@dvl-fw/scatterplot/*": [
+        "dist/scatterplot/*"
+      ],
       "@dvl-fw/science-map": [
         "dist/science-map"
       ],
       "@dvl-fw/science-map/*": [
         "dist/science-map/*"
+      ],
+      "@dvl-fw/temporal-bargraph": [
+        "dist/temporal-bargraph"
+      ],
+      "@dvl-fw/temporal-bargraph/*": [
+        "dist/temporal-bargraph/*"
       ],
       "svg-to-pdfkit": [
         "node_modules/svg-to-pdfkit/source.js"

@@ -662,6 +662,86 @@
           }
         }
       }
+    },
+    "temporal-bargraph": {
+      "projectType": "library",
+      "root": "projects/temporal-bargraph",
+      "sourceRoot": "projects/temporal-bargraph/src",
+      "prefix": "dvl",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/temporal-bargraph/tsconfig.lib.json",
+            "project": "projects/temporal-bargraph/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/geomap/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/temporal-bargraph/src/test.ts",
+            "tsConfig": "projects/temporal-bargraph/tsconfig.spec.json",
+            "karmaConfig": "projects/temporal-bargraph/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/temporal-bargraph/tsconfig.lib.json",
+              "projects/temporal-bargraph/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "scatterplot": {
+      "projectType": "library",
+      "root": "projects/scatterplot",
+      "sourceRoot": "projects/scatterplot/src",
+      "prefix": "dvl",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/scatterplot/tsconfig.lib.json",
+            "project": "projects/scatterplot/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/geomap/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/scatterplot/src/test.ts",
+            "tsConfig": "projects/scatterplot/tsconfig.spec.json",
+            "karmaConfig": "projects/scatterplot/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/scatterplot/tsconfig.lib.json",
+              "projects/scatterplot/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "make-a-vis-demo",
