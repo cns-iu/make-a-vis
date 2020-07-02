@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ProjectSerializer } from '@dvl-fw/core';
-import { NgxDinoPlugin } from '@dvl-fw/ngx-dino';
+import { LegendsPlugin } from '@dvl-fw/legends';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { Logger } from '@ngx-dino/core';
@@ -51,6 +51,6 @@ export class MakeAVisModule {
     // logger.setLevel(LogLevel.Trace);
 
     // Register plugins - This should really be done through injection but that part hasn't been figured out yet
-    ProjectSerializer.defaultRegistry.registerPlugin(new  NgxDinoPlugin());
+    ProjectSerializer.defaultRegistry.registerPlugin(new  LegendsPlugin());
   }
 }

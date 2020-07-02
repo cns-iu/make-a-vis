@@ -4,7 +4,7 @@ import { ActivityLogRawData, Project } from '@dvl-fw/core';
 import { GeomapPlugin } from '@dvl-fw/geomap';
 import { ISIPlugin, ISITemplateProject } from '@dvl-fw/isi';
 import { NetworkPlugin } from '@dvl-fw/network';
-import { NgxDinoPlugin } from '@dvl-fw/ngx-dino';
+import { LegendsPlugin } from '@dvl-fw/legends';
 import { NSFPlugin, NSFTemplateProject } from '@dvl-fw/nsf';
 import { ScienceMapPlugin } from '@dvl-fw/science-map';
 import { Store } from '@ngrx/store';
@@ -36,7 +36,7 @@ export class LoadProjectService {
       private getLinkService: GetLinkService) {
     const registry = this.serializer.registry;
 
-    registry.registerPlugin(new NgxDinoPlugin());
+    registry.registerPlugin(new LegendsPlugin());
     registry.registerPlugin(new GeomapPlugin());
     registry.registerPlugin(new NetworkPlugin());
     registry.registerPlugin(new ScienceMapPlugin());

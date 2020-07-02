@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { ProjectSerializerService } from '@dvl-fw/angular';
 import { Project } from '@dvl-fw/core';
 import { ISIPlugin } from '@dvl-fw/isi';
-import { NgxDinoPlugin } from '@dvl-fw/ngx-dino';
+import { LegendsPlugin } from '@dvl-fw/legends';
 import { NSFPlugin } from '@dvl-fw/nsf';
 import { defer, Observable, of, throwError } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -33,7 +33,7 @@ export class ProjectLoaderService {
     const registry = this.serializer.registry;
 
     // TODO: Add a way to register plugins on the fly
-    registry.registerPlugin(new NgxDinoPlugin());
+    registry.registerPlugin(new LegendsPlugin());
     registry.registerPlugin(new ISIPlugin());
     registry.registerPlugin(new NSFPlugin());
   }

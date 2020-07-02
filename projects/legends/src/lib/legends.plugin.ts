@@ -7,9 +7,9 @@ import {
   NodeSizeVisualizationFactory, ShapeVisualizationFactory, SourceVisualizationFactory,
   StartVisualizationFactory, TargetVisualizationFactory, ThicknessVisualizationFactory,
   XAxisVisualizationFactory, YAxisVisualizationFactory,
-} from './visualizations';
+} from './legends';
 
-export class NgxDinoPlugin implements ObjectFactoryPlugin {
+export class LegendsPlugin implements ObjectFactoryPlugin {
   register(registry: ObjectFactoryRegistry) {
     registry.registerObjectFactory(new NodeSizeVisualizationFactory());
     registry.registerObjectFactory(new EdgeSizeVisualizationFactory());

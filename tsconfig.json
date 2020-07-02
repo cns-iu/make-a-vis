@@ -37,9 +37,6 @@
       "@dvl-fw/isi": [
         "dist/dvl-fw-isi"
       ],
-      "@dvl-fw/ngx-dino": [
-        "dist/dvl-fw-ngx-dino"
-      ],
       "@dvl-fw/nsf": [
         "dist/dvl-fw-nsf"
       ],
@@ -48,6 +45,12 @@
       ],
       "@dvl-fw/geomap/*": [
         "dist/geomap/*"
+      ],
+      "@dvl-fw/legends": [
+        "dist/legends"
+      ],
+      "@dvl-fw/legends/*": [
+        "dist/legends/*"
       ],
       "@dvl-fw/network": [
         "dist/network"
