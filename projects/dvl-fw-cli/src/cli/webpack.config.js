@@ -37,7 +37,9 @@ module.exports = {
       '@dvl-fw/nsf': path.resolve('dist/dvl-fw-nsf'),
       '@dvl-fw/geomap': path.resolve('dist/geomap'),
       '@dvl-fw/network': path.resolve('dist/network'),
+      '@dvl-fw/scatterplot': path.resolve('dist/scatterplot'),
       '@dvl-fw/science-map': path.resolve('dist/science-map'),
+      '@dvl-fw/temporal-bargraph': path.resolve('dist/temporal-bargraph')
     },
     extensions: [ '.tsx', '.ts', '.js' ]
   },

@@ -4,7 +4,7 @@ import {
 } from '@dvl-fw/core';
 import { GeomapVisualization } from '@dvl-fw/geomap';
 import { NetworkVisualization } from '@dvl-fw/network';
-import { ScatterplotVisualization } from '@dvl-fw/ngx-dino';
+import { ScatterplotVisualization } from '@dvl-fw/scatterplot';
 import { ScienceMapVisualization } from '@dvl-fw/science-map';
 
 import { ISIDataSource } from './isi-data-source';

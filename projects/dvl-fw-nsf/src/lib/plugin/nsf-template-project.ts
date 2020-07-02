@@ -4,7 +4,8 @@ import {
 } from '@dvl-fw/core';
 import { GeomapVisualization } from '@dvl-fw/geomap';
 import { NetworkVisualization } from '@dvl-fw/network';
-import { ScatterplotVisualization, TemporalBargraphVisualization } from '@dvl-fw/ngx-dino';
+import { ScatterplotVisualization } from '@dvl-fw/scatterplot';
+import { TemporalBargraphVisualization } from '@dvl-fw/temporal-bargraph';
 import { isArray } from 'lodash';
 
 import { NSFDataSource } from './nsf-data-source';

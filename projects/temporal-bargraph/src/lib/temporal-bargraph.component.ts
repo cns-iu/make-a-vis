@@ -7,15 +7,15 @@ import { View } from 'vega';
 import embed from 'vega-embed';
 
 import { VisualizationNode } from './interfaces';
-import { scienceMapSpec, ScienceMapSpecOptions } from './science-map.vega';
+import { temporalBargraphSpec, TemporalBargraphSpecOptions } from './temporal-bargraph.vega';
 
 
 @Component({
-  selector: 'dvl-science-map',
-  templateUrl: './science-map.component.html',
-  styleUrls: ['./science-map.component.scss']
+  selector: 'dvl-temporal-bargraph',
+  templateUrl: './temporal-bargraph.component.html',
+  styleUrls: ['./temporal-bargraph.component.scss']
 })
-export class ScienceMapComponent implements VisualizationComponent,
+export class TemporalBargraphComponent implements VisualizationComponent,
     AfterViewInit, OnChanges, OnDestroy, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
   @Input() nodeDefaults: Partial<VisualizationNode> = {
@@ -36,11 +36,11 @@ export class ScienceMapComponent implements VisualizationComponent,
 
   constructor(private dataProcessorService: DataProcessorService) { }
 
-  async embedVisualization(options: ScienceMapSpecOptions = {}): Promise<void> {
+  async embedVisualization(options: TemporalBargraphSpecOptions = {}): Promise<void> {
     if (this.view) {
       this.view.finalize();
     }
-    const spec = scienceMapSpec(options);
+    const spec = temporalBargraphSpec(options);
     const results = await embed(this.vizContainer.nativeElement, spec, {renderer: 'svg'});
     this.view = results.view;
   }
@@ -56,7 +56,7 @@ export class ScienceMapComponent implements VisualizationComponent,
       this.nodesSubscription.unsubscribe();
     }
     this.nodes = [];
-    const nodes$ = this.getGraphicSymbolData<VisualizationNode>('subdisciplinePoints', this.nodeDefaults);
+    const nodes$ = this.getGraphicSymbolData<VisualizationNode>('bars', this.nodeDefaults);
     this.nodesSubscription = nodes$.subscribe(nodes => { this.nodes = nodes; this.doLayout(); });
   }
 
@@ -72,7 +72,7 @@ export class ScienceMapComponent implements VisualizationComponent,
     if ('data' in changes) { this.refreshData(); }
   }
   dvlOnGraphicSymbolChange(changes: SimpleChanges): void {
-    if ('subdisciplinePoints' in changes) { this.refreshData(); }
+    if ('bars' in changes) { this.refreshData(); }
   }
   dvlOnPropertyChange(changes: SimpleChanges): void {
     if ('nodeDefaults' in changes) {
