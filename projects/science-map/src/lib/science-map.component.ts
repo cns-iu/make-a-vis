@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnDestroy, Simp
 import { GraphicSymbolData, TDatum, Visualization, VisualizationComponent } from '@dvl-fw/core';
 import { OnGraphicSymbolChange, OnPropertyChange } from '@dvl-fw/ngx-dino';
 import { DataProcessorService } from '@ngx-dino/core';
-import { EMPTY, Observable, of, Subscription } from 'rxjs';
+import { Observable, of, Subscription } from 'rxjs';
 import { View } from 'vega';
 import embed from 'vega-embed';
 
