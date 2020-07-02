@@ -24,12 +24,7 @@ jobs:
     script:
     - npm run build:build-info
     - npm run build:libs
-    - npm run test -- dvl-fw-core
-    - npm run test -- dvl-fw-angular
-    - npm run test -- network
-    - npm run test -- science-map
-    - npm run test -- dvl-fw-isi
-    - npm run test -- dvl-fw-nsf
+    - npm run build
     - npm run test
   - stage: deploy
     name: Deploy staging to Netlify
