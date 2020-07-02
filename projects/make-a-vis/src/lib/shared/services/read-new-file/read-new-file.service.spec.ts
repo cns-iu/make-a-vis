@@ -22,17 +22,17 @@ describe('ReadNewFileService', () => {
   }));
 
   it('should be created', () => {
-    const service: ReadNewFileService = TestBed.get(ReadNewFileService);
+    const service: ReadNewFileService = TestBed.inject(ReadNewFileService);
     expect(service).toBeTruthy();
   });
 
   it('should check if the extension is valid', () => {
-    const service: ReadNewFileService = TestBed.get(ReadNewFileService);
+    const service: ReadNewFileService = TestBed.inject(ReadNewFileService);
     expect(service.isValidFileExtension('csv', 'csv')).toBeTruthy();
   });
 
   it('should check if the extension is not allowd', () => {
-    const service: ReadNewFileService = TestBed.get(ReadNewFileService);
+    const service: ReadNewFileService = TestBed.inject(ReadNewFileService);
     expect(service.isValidFileExtension('csv', 'yml')).toBeFalsy();
   });
 });

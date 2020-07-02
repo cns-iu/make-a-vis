@@ -6,7 +6,7 @@ describe('AppUpdaterService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   xit('should be created', () => {
-    const service: AppUpdaterService = TestBed.get(AppUpdaterService);
+    const service: AppUpdaterService = TestBed.inject(AppUpdaterService);
     expect(service).toBeTruthy();
   });
 });

@@ -2,9 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ProjectSerializerService } from '@dvl-fw/angular';
 import { Project } from '@dvl-fw/core';
+import { GeomapPlugin } from '@dvl-fw/geomap';
 import { ISIPlugin } from '@dvl-fw/isi';
-import { NgxDinoPlugin } from '@dvl-fw/ngx-dino';
+import { LegendsPlugin } from '@dvl-fw/legends';
+import { NetworkPlugin } from '@dvl-fw/network';
 import { NSFPlugin } from '@dvl-fw/nsf';
+import { ScatterplotPlugin } from '@dvl-fw/scatterplot';
+import { ScienceMapPlugin } from '@dvl-fw/science-map';
+import { TemporalBargraphPlugin } from '@dvl-fw/temporal-bargraph';
 import { defer, Observable, of, throwError } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
@@ -33,7 +38,12 @@ export class ProjectLoaderService {
     const registry = this.serializer.registry;
 
     // TODO: Add a way to register plugins on the fly
-    registry.registerPlugin(new NgxDinoPlugin());
+    registry.registerPlugin(new LegendsPlugin());
+    registry.registerPlugin(new GeomapPlugin());
+    registry.registerPlugin(new NetworkPlugin());
+    registry.registerPlugin(new ScatterplotPlugin());
+    registry.registerPlugin(new ScienceMapPlugin());
+    registry.registerPlugin(new TemporalBargraphPlugin());
     registry.registerPlugin(new ISIPlugin());
     registry.registerPlugin(new NSFPlugin());
   }

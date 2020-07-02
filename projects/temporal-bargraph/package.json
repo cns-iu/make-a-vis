@@ -1,0 +1,12 @@
+{
+  "name": "@dvl-fw/temporal-bargraph",
+  "version": "0.0.1",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@angular/common": "^9.0.0",
+    "@angular/core": "^9.0.0",
+    "@ngx-dino/core": ">=0.10.0 <1.0.0"
+  }
+}

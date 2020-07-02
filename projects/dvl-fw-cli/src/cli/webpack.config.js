@@ -33,8 +33,13 @@ module.exports = {
     alias: {
       '@dvl-fw/core': path.resolve('dist/dvl-fw-core'),
       '@dvl-fw/isi': path.resolve('dist/dvl-fw-isi'),
-      '@dvl-fw/ngx-dino': path.resolve('dist/dvl-fw-ngx-dino'),
       '@dvl-fw/nsf': path.resolve('dist/dvl-fw-nsf'),
+      '@dvl-fw/legends': path.resolve('dist/legends'),
+      '@dvl-fw/geomap': path.resolve('dist/geomap'),
+      '@dvl-fw/network': path.resolve('dist/network'),
+      '@dvl-fw/scatterplot': path.resolve('dist/scatterplot'),
+      '@dvl-fw/science-map': path.resolve('dist/science-map'),
+      '@dvl-fw/temporal-bargraph': path.resolve('dist/temporal-bargraph'),
       'geocoder-ts': path.resolve('dist/geocoder-ts')
     },
     extensions: [ '.tsx', '.ts', '.js' ]

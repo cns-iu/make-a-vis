@@ -6,7 +6,6 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { DvlFwAngularModule } from '@dvl-fw/angular';
-import { NgxDinoModule } from '@dvl-fw/ngx-dino';
 import { StoreModule } from '@ngrx/store';
 
 import { DragDropModule } from '../drag-drop/drag-drop.module';
@@ -37,7 +36,6 @@ export function reduceWrapper(state: any, action: any): any { return mavSelectio
     MatExpansionModule,
     MatIconModule,
     MatSidenavModule,
-    NgxDinoModule,
     StoreModule.forFeature('mavSelection', reduceWrapper)
   ],
   declarations: [

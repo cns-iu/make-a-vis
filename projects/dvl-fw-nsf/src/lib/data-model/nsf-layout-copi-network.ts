@@ -1,4 +1,4 @@
-import { Graph } from 'graphology';
+import Graph from 'graphology';
 import forceAtlas2 from 'graphology-layout-forceatlas2';
 
 import { CoPiLink } from './nsf-copi-link';

@@ -7,7 +7,7 @@ describe('LoadProjectService', () => {
 
   // FIXME: To be fixed after test coverage setup in SONAR
   xit('should be created', () => {
-    const service: LoadProjectService = TestBed.get(LoadProjectService);
+    const service: LoadProjectService = TestBed.inject(LoadProjectService);
     expect(service).toBeTruthy();
   });
 });

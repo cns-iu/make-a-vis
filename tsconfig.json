@@ -10,6 +10,9 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "target": "es2015",
     "typeRoots": [
       "node_modules/@types"
@@ -34,11 +37,44 @@
       "@dvl-fw/isi": [
         "dist/dvl-fw-isi"
       ],
-      "@dvl-fw/ngx-dino": [
-        "dist/dvl-fw-ngx-dino"
-      ],
       "@dvl-fw/nsf": [
         "dist/dvl-fw-nsf"
+      ],
+      "@dvl-fw/geomap": [
+        "dist/geomap"
+      ],
+      "@dvl-fw/geomap/*": [
+        "dist/geomap/*"
+      ],
+      "@dvl-fw/legends": [
+        "dist/legends"
+      ],
+      "@dvl-fw/legends/*": [
+        "dist/legends/*"
+      ],
+      "@dvl-fw/network": [
+        "dist/network"
+      ],
+      "@dvl-fw/network/*": [
+        "dist/network/*"
+      ],
+      "@dvl-fw/scatterplot": [
+        "dist/scatterplot"
+      ],
+      "@dvl-fw/scatterplot/*": [
+        "dist/scatterplot/*"
+      ],
+      "@dvl-fw/science-map": [
+        "dist/science-map"
+      ],
+      "@dvl-fw/science-map/*": [
+        "dist/science-map/*"
+      ],
+      "@dvl-fw/temporal-bargraph": [
+        "dist/temporal-bargraph"
+      ],
+      "@dvl-fw/temporal-bargraph/*": [
+        "dist/temporal-bargraph/*"
       ],
       "svg-to-pdfkit": [
         "node_modules/svg-to-pdfkit/source.js"
