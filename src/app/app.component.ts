@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
     const geocoder = new Geocoder();
 
     console.log('location location: ', geocoder.getLocation('ontario, canada'));
-    // console.log('location location: ', geocoder.getLocation('paris, france'));
+    console.log('location location: ', geocoder.getLocation('paris, france'));
     // console.log('location location: ', geocoder.getLocation('edinburgh, IN 46124'));
     // console.log('location location: ', geocoder.getLocation('not a location test'));
   }
