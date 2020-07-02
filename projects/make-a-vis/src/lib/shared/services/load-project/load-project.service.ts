@@ -2,17 +2,18 @@ import { Injectable } from '@angular/core';
 import { ProjectSerializerService } from '@dvl-fw/angular';
 import { ActivityLogRawData, Project } from '@dvl-fw/core';
 import { GeomapPlugin } from '@dvl-fw/geomap';
-import { ISIPlugin } from '@dvl-fw/isi';
+import { ISIPlugin, ISITemplateProject } from '@dvl-fw/isi';
 import { NetworkPlugin } from '@dvl-fw/network';
 import { NgxDinoPlugin } from '@dvl-fw/ngx-dino';
-import { NSFPlugin } from '@dvl-fw/nsf';
+import { NSFPlugin, NSFTemplateProject } from '@dvl-fw/nsf';
 import { ScienceMapPlugin } from '@dvl-fw/science-map';
 import { Store } from '@ngrx/store';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, defer, Observable } from 'rxjs';
 
 import { LoggingControlService } from '../../../shared/logging/logging-control.service';
 import * as sidenavStore from '../../../toolbar/shared/store';
 import { GetLinkService } from '../get-link/get-link.service';
+import { isArray } from 'lodash';
 
 
 @Injectable({
@@ -49,6 +50,31 @@ export class LoadProjectService {
     return project;
   }
 
+  createProject(
+    template: 'isi' | 'nsf' | 'csv' | 'json',
+    fileContents: string[] | string, fileNames?: string[] | string
+  ): Observable<Project> {
+    return defer(() => this.asyncCreateProject(template, fileContents, fileNames));
+  }
+
+  private async asyncCreateProject(
+    template: 'isi' | 'nsf' | 'csv' | 'json',
+    fileContents: string[] | string, fileNames?: string[] | string
+  ): Promise<Project> {
+    fileNames = isArray(fileNames) || !fileNames ? fileNames : [fileNames];
+    switch (template) {
+      case 'csv':
+        // fall through NSFTemplateProject
+      case 'nsf':
+        return await NSFTemplateProject.create(fileContents, fileNames);
+      case 'isi':
+        return await ISITemplateProject.create(fileContents[0], fileNames[0]);
+      default:
+        throw new Error(`Template: ${template} not supported.`);
+    }
+  }
+
+
   loadFile(
     fileExtension: 'isi' | 'nsf' | 'csv' | 'json' | 'yml',
     files: Blob[],
@@ -76,7 +102,7 @@ export class LoadProjectService {
     }
 
     Promise.all(promises).then((fileContents: string[]) => {
-      this.serializer.createProject(<any>fileExtension, fileContents, fileNames)
+      this.createProject(<any>fileExtension, fileContents, fileNames)
         .subscribe((project: Project) => {
           projectSubject.next(this.setSaveActivityLog(project));
         });

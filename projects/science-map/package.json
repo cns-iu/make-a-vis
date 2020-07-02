@@ -1,6 +1,9 @@
 {
   "name": "@dvl-fw/science-map",
   "version": "0.0.1",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "preprocess-data": "ts-node --project tsconfig.cli.json src/lib/data/preprocess-raw-science-map-data.ts"
   },

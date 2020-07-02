@@ -1,4 +1,4 @@
-import { issnLookup, journalIdSubdLookup, journalNameLookup } from '@ngx-dino/science-map';
+import { issnLookup, journalIdSubdLookup, journalNameLookup } from '@dvl-fw/science-map';
 
 import { Journal, JournalStats } from './isi-journal';
 import { Publication } from './isi-publication';

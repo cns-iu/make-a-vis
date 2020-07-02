@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild } from '@angular/core';
+import { OnGraphicSymbolChange, OnPropertyChange } from '@dvl-fw/angular';
 import { GraphicSymbolData, TDatum, Visualization, VisualizationComponent } from '@dvl-fw/core';
-import { OnGraphicSymbolChange, OnPropertyChange } from '@dvl-fw/ngx-dino';
 import { DataProcessorService } from '@ngx-dino/core';
 import { Observable, of, Subscription } from 'rxjs';
 import { View } from 'vega';

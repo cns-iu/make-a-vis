@@ -1,21 +1,16 @@
 import { ObjectFactoryPlugin, ObjectFactoryRegistry } from '@dvl-fw/core';
 
 import {
-  AreaSizeVisualizationFactory, ColorAreaVisualizationFactory, ColorEdgesVisualizationFactory, ColorVisualizationFactory,
-  EdgeSizeVisualizationFactory, EndVisualizationFactory, GeomapVisualizationFactory, GradientVisualizationFactory,
-  IdentifierVisualizationFactory, LabelVisualizationFactory, NetworkVisualizationFactory, NodeSizeVisualizationFactory,
-  ScatterplotVisualizationFactory, SciencemapVisualizationFactory, ShapeVisualizationFactory, SourceVisualizationFactory,
-  StartVisualizationFactory, TargetVisualizationFactory, TemporalBargraphVisualizationFactory, ThicknessVisualizationFactory,
+  AreaSizeVisualizationFactory, ColorAreaVisualizationFactory, ColorEdgesVisualizationFactory,
+  ColorVisualizationFactory, EdgeSizeVisualizationFactory, EndVisualizationFactory,
+  GradientVisualizationFactory, IdentifierVisualizationFactory, LabelVisualizationFactory,
+  NodeSizeVisualizationFactory, ShapeVisualizationFactory, SourceVisualizationFactory,
+  StartVisualizationFactory, TargetVisualizationFactory, ThicknessVisualizationFactory,
   XAxisVisualizationFactory, YAxisVisualizationFactory,
 } from './visualizations';
 
 export class NgxDinoPlugin implements ObjectFactoryPlugin {
   register(registry: ObjectFactoryRegistry) {
-    registry.registerObjectFactory(new ScatterplotVisualizationFactory());
-    registry.registerObjectFactory(new GeomapVisualizationFactory());
-    registry.registerObjectFactory(new NetworkVisualizationFactory());
-    registry.registerObjectFactory(new SciencemapVisualizationFactory());
-    registry.registerObjectFactory(new TemporalBargraphVisualizationFactory());
     registry.registerObjectFactory(new NodeSizeVisualizationFactory());
     registry.registerObjectFactory(new EdgeSizeVisualizationFactory());
     registry.registerObjectFactory(new ColorVisualizationFactory());

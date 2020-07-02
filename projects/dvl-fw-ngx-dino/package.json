@@ -8,15 +8,9 @@
     "lodash": "^4.17.15"
   },
   "peerDependencies": {
-    "@angular/common": "^8.2.4",
-    "@angular/core": "^8.2.4",
+    "@angular/common": "^9.0.0",
+    "@angular/core": "^9.0.0",
     "@dvl-fw/core": "^0.20.0",
-    "@ngx-dino/geomap": "^0.12.2",
-    "@ngx-dino/legend": "^0.12.3",
-    "@ngx-dino/network": "^0.15.2",
-    "@ngx-dino/scatterplot": "^0.11.1",
-    "@ngx-dino/science-map": "^0.10.1",
-    "@ngx-dino/temporal-bargraph": "^0.2.2",
-    "rxjs": "^6.5.3"
+    "@ngx-dino/legend": "^0.12.3"
   }
 }
