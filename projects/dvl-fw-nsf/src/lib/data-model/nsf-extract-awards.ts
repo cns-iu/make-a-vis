@@ -1,5 +1,4 @@
 import { Geocoder } from 'geocoder-ts';
-import { GeocoderService } from 'geocoder-ts';
 
 import { Award, AwardStats } from './nsf-award';
 import { NSFRecord } from './nsf-record';

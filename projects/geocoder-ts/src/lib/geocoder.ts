@@ -1,5 +1,6 @@
 import { map, Operator } from '@ngx-dino/core';
 import zipcodes from 'zipcodes';
+import { buffer } from 'rxjs/operators';
 
 export interface Location {
   city: string;
@@ -20,44 +21,60 @@ export class Geocoder {
   stateRegEx = new RegExp(`[^0-9a-z\-](${STATES.join('|')})[^0-9a-z]`, 'igm');
   cityStateRegexCache = {};
 
-  TEST_RUN = true;
-
-  constructor(public cache = true) {
+  constructor(public cache = true, private accessToken = 'pk.eyJ1IjoiYWRwaGlsbGlwczIwMTciLCJhIjoiY2s1NDNvaHdrMGZidDNobHFkdHB5MG1wcCJ9.NG8JyVzQuA6pP9UfZhlubg') {
     this.lookupUSLocationOp = map(this.getUSLocation.bind(this));
   }
 
   getLocation(address: string): Location {
     let location: Location;
 
-    if (this.TEST_RUN) {
-      address = 'Ontario, Canada';
-      this.TEST_RUN = false;
-    }
-
     location = this.getUSLocation(address);
     if (location) {
       return location;
     }
 
-    location = this.getGlobalLocation(address);
-    if (location) {
-      return location;
-    }
-
-    return undefined;
+    this.getGlobalLocation(address)
+      .then(result => result);
+    return location || undefined;
   }
 
-  fetchCities1000(): Promise<Object> {
-    return fetch('https://cdn.jsdelivr.net/npm/all-the-cities@3.1.0/cities.pbf')
-    .then((res) => res.json())
-    .then((data) => data);
+  async getGlobalLocation(address: string): Promise<Location> {
+    const url = this.buildLookupUrl(address);
+    const result = await fetch(url)
+      .then(response => response.json())
+      .then(json => json);
+
+    console.log('result: ', result);
+    const locationResult: Location = this.buildLocation(result);
+    console.log('locationResult: ', locationResult);
+    return locationResult;
   }
 
-  getGlobalLocation(address: string): Location {
-    const cities1000Pbf = this.fetchCities1000();
-    console.log('cities: ', cities1000Pbf);
+  buildLocation(resultObject: any): Location {
+    const result = resultObject.features[0];
+    console.log('result: ', result);
 
-    return undefined;
+    const city = '';
+    const country = '';
+    const latitude = result.center[0];
+    const longitude = result.center[1];
+    const state = '';
+    const zip = '';
+
+    return {
+      city,
+      country,
+      latitude,
+      longitude,
+      state,
+      zip
+    } as Location;
+  }
+
+  buildLookupUrl(address: string): string {
+    const searchTermString = encodeURI(address);
+    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchTermString}.json?access_token=${this.accessToken}`;
+    return url;
   }
 
   getUSLocationByZipCode(address: string): Location {
@@ -115,5 +132,13 @@ export class Geocoder {
       this.addressCache[address] = location;
     }
     return location || undefined;
+  }
+
+  getCities1000() {
+    fetch('https://cdn.jsdelivr.net/npm/all-the-cities@3.1.0/cities.pbf')
+    .then((res) => res.json())
+    .then(json => console.log('json: ', json));
+
+    return undefined;
   }
 }
