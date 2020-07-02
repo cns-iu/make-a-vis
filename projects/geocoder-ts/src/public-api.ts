@@ -7,3 +7,4 @@ export * from './lib/geocoder-cache';
 export * from './lib/geocoder-us';
 export * from './lib/geocoder-global';
 export * from './lib/geocoder-global-cities';
+export * from './lib/Location';
