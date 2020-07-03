@@ -1,20 +1,28 @@
 import { map, Operator } from '@ngx-dino/core';
-import { Location } from './Location';
-import { GeocoderCache } from './geocoder-cache';
+import { Geocoder } from './models/Geocoder';
+import { Location } from './models/Location';
 import zipcodes from 'zipcodes';
 
 const STATES = Object.keys(zipcodes.states.abbr);
 
 
-export class GeocoderUS {
+export class USGeocoder implements Geocoder {
     readonly lookupUSLocationOp: Operator<string, Location>;
-    locationCache = new GeocoderCache();
     zipRegEx = /[^0-9a-z\-](\d{5})[^0-9a-z]/igm;
     stateRegEx = new RegExp(`[^0-9a-z\-](${STATES.join('|')})[^0-9a-z]`, 'igm');
     cityStateRegexCache = {};
 
-    constructor(public cache = true) {
-        this.lookupUSLocationOp = map(this.getUSLocation.bind(this));
+    constructor() {
+        this.lookupUSLocationOp = map(this.getLocation.bind(this));
+    }
+
+    getLocation(address: string): Location {
+        let location = this.getUSLocationByZipCode(address);
+        if (!location) {
+            location = this.getUSLocationByCityState(address);
+        }
+
+        return location || undefined;
     }
 
     getUSLocationByZipCode(address: string): Location {
@@ -56,20 +64,6 @@ export class GeocoderUS {
                     location = locations[0];
                 }
             }
-        }
-        return location || undefined;
-    }
-
-    getUSLocation(address: string): Location {
-        if (this.cache && this.locationCache.contains(address)) {
-            return this.locationCache.lookup(address);
-        }
-        let location = this.getUSLocationByZipCode(address);
-        if (!location) {
-            location = this.getUSLocationByCityState(address);
-        }
-        if (this.cache && location) {
-            this.locationCache.store(address, location);
         }
         return location || undefined;
     }
