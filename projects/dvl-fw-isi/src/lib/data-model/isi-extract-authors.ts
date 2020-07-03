@@ -29,7 +29,8 @@ export function extractAuthors(publications: Publication[]): Author[] {
       }
 
       if (!author.location && address) {
-        author.location = await geocoder.getLocation(address.split(/\,/).slice(-4).join(','));
+        console.log('author location: ', address.split(/\,/).slice(-4).join(','));
+        // author.location = await geocoder.getLocation(address.split(/\,/).slice(-4).join(','));
         if (author.location) {
           // Replace address with the more 'accurate' version.
           author.address = address;

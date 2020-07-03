@@ -67,6 +67,7 @@
     "ngx-clipboard": "^13.0.1",
     "ngx-markdown": "^9.1.1",
     "papaparse": "^5.2.0",
+    "pbf": "^3.2.1",
     "pdfkit-browserify": "^0.8.3-R2",
     "rxjs": "^6.5.5",
     "save-svg-as-png": "^1.4.17",
