@@ -37,16 +37,10 @@ export class ScatterplotComponent implements VisualizationComponent,
   constructor(private dataProcessorService: DataProcessorService) { }
 
   async embedVisualization(options: ScatterplotSpecOptions = {}): Promise<void> {
-    const templateOptions = this.data.properties;
-
-    Object.keys(templateOptions).forEach((key) => {
-      options[key] = templateOptions[key] !== undefined ? templateOptions[key] : options[key];
-    });
-
     if (this.view) {
       this.view.finalize();
     }
-    const spec = scatterplotSpec(options);
+    const spec = scatterplotSpec({ ...this.data.properties, ...options});
     const results = await embed(this.vizContainer.nativeElement, spec, {renderer: 'svg'});
     this.view = results.view;
   }
