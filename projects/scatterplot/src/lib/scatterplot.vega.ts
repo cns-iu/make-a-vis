@@ -5,23 +5,21 @@ import { VisualizationNode } from './interfaces';
 
 export interface ScatterplotSpecOptions {
   nodes?: VisualizationNode[];
-  enableTooltip?: true;
-  strokeWidth?: 1.5;
-  gridlines?: true;
-  gridlinesColor?: 'lightGray';
-  gridlinesOpacity?: 1;
-  tickLabelColor?: 'gray';
-  showTicks?: false;
-  showAxisLabels?: false;
-  shape?: 'circle';
-  areaSize?: 16;
-  color?: '#000';
-  strokeColor?: '#000007';
-  transparency?: 0;
-  strokeTransparency?: 0.25;
+  enableTooltip?: boolean;
+  strokeWidth?: number;
+  gridlines?: boolean;
+  gridlinesColor?: string;
+  gridlinesOpacity?: number;
+  tickLabelColor?: string;
+  showTicks?: boolean;
+  showAxisLabels?: boolean;
+  shape?: string;
+  areaSize?: number;
+  color?: string;
+  strokeColor?: string;
+  transparency?: number;
+  strokeTransparency?: number;
 }
-
-
 
 export function scatterplotSpec(options: ScatterplotSpecOptions = {}): VisualizationSpec {
   return {

@@ -37,19 +37,19 @@ export class ScatterplotComponent implements VisualizationComponent,
   constructor(private dataProcessorService: DataProcessorService) { }
 
   async embedVisualization(options: ScatterplotSpecOptions = {}): Promise<void> {
-    options.strokeWidth = this.data.properties.strokeWidth;
-    options.gridlines = this.data.properties.gridlines;
-    options.gridlinesColor = this.data.properties.gridlinesColor;
-    options.gridlinesOpacity = this.data.properties.gridlinesOpacity;
-    options.tickLabelColor = this.data.properties.tickLabelColor;
-    options.showTicks = this.data.properties.showTicks;
-    options.showAxisLabels = this.data.properties.showAxisLabels;
-    options.shape = this.data.properties.shape;
-    options.areaSize = this.data.properties.areaSize;
-    options.color = this.data.properties.color;
-    options.strokeColor = this.data.properties.strokeColor;
-    options.transparency = this.data.properties.transparency;
-    options.strokeTransparency = this.data.properties.strokeTransparency;
+    options.strokeWidth = options.strokeWidth !== undefined ? options.strokeWidth : this.data.properties.strokeWidth;
+    options.gridlines = options.gridlines !== undefined ? options.gridlines : this.data.properties.gridlines;
+    options.gridlinesColor = options.gridlinesColor !== undefined ? options.gridlinesColor : this.data.properties.gridlinesColor;
+    options.gridlinesOpacity = options.gridlinesOpacity !== undefined ? options.gridlinesOpacity : this.data.properties.gridlinesOpacity;
+    options.tickLabelColor = options.tickLabelColor !== undefined ? options.tickLabelColor : this.data.properties.tickLabelColor;
+    options.showTicks = options.showTicks !== undefined ? options.showTicks : this.data.properties.showTicks;
+    options.showAxisLabels = options.showAxisLabels !== undefined ? options.showAxisLabels : this.data.properties.showAxisLabels;
+    options.shape = options.shape ? options.shape !== undefined : this.data.properties.shape;
+    options.areaSize = options.areaSize !== undefined ? options.areaSize : this.data.properties.areaSize;
+    options.color = options.color !== undefined ? options.color : this.data.properties.color;
+    options.strokeColor = options.strokeColor !== undefined ? options.strokeColor : this.data.properties.strokeColor;
+    options.transparency = options.transparency !== undefined ? options.transparency : this.data.properties.transparency;
+    options.strokeTransparency = options.strokeTransparency !== undefined ? options.strokeTransparency : this.data.properties.strokeTransparency;
 
     if (this.view) {
       this.view.finalize();
@@ -61,7 +61,21 @@ export class ScatterplotComponent implements VisualizationComponent,
 
   async doLayout(): Promise<void> {
     await this.embedVisualization({
-      nodes: this.nodes || []
+      nodes: this.nodes || [],
+      enableTooltip: true,
+      strokeWidth: 1.5,
+      gridlines: true,
+      gridlinesColor: 'lightGray',
+      gridlinesOpacity: 1,
+      tickLabelColor: 'gray',
+      showTicks: false,
+      showAxisLabels: false,
+      shape: 'circle',
+      areaSize: 16,
+      color: '#000',
+      strokeColor: '#000007',
+      transparency: 0,
+      strokeTransparency: 0.25,
     });
   }
 
