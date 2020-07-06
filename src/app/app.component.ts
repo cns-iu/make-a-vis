@@ -2,7 +2,7 @@ import { Component, isDevMode, OnInit } from '@angular/core';
 
 import { AppUpdaterService } from './services/app-updater.service';
 
-import { GlobalGeocoder, GlobalCitiesGeocoder } from 'geocoder-ts';
+import { GlobalGeocoder, GlobalCitiesGeocoder, DefaultGeocoder } from 'geocoder-ts';
 
 @Component({
   selector: 'mav-root',
@@ -20,17 +20,22 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    // const geocoder = new Geocoder();
-    // const geocoderGlobal = new GlobalGeocoder();
-    const cityGeocoder = new GlobalCitiesGeocoder();
+    const defaultGeocoder = new DefaultGeocoder();
+
 
     const locations = [
-      'ontario, canada',
-      'paris, france',
+      'Caprara,IT',
+      'Paris, France',
       'Minneapolis, MN 55418 USA',
-      '14 Avenue Pablo Picasso, 92000 Nanterre, France'
+      '14 Avenue Pablo Picasso, 92000 Nanterre, France',
+      'Caprara,IT',
     ];
 
-    cityGeocoder.getLocation(locations[3]).then(console.log);
+    locations.forEach(location => {
+      defaultGeocoder.getLocation(location)
+        .then(result => {
+          // console.log('location search: ', location, '\nresult: ', result);
+        });
+    });
   }
 }

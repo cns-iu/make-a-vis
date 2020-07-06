@@ -8,9 +8,9 @@ export function extractAwards(records: NSFRecord[]): Award[] {
   const globalStats = new AwardStats();
   const geocoder = new DefaultGeocoder();
 
-  records.forEach(async record => {
+  for (const record of records) {
     const org = record.organization;
-    const location = await geocoder.getLocation(`${org.city}, ${org.state} ${org.zip5} USA.`);
+    const location = geocoder.getLocation(`${org.city}, ${org.state} ${org.zip5} USA.`);
     const award = new Award(Object.assign({}, record, {location, globalStats}));
     awardList.push(award);
 
@@ -19,7 +19,7 @@ export function extractAwards(records: NSFRecord[]): Award[] {
       // Not totally necessary but makes debugging easier.
       award.location = Object.assign({}, award.location);
     }
-  });
+  }
 
   awardList.forEach(a => globalStats.count(a));
   return awardList;

@@ -10,11 +10,13 @@ export class CachedGeocoder implements Geocoder {
         let location: Location;
 
         if (this.contains(address)) {
+            console.log('cached result.');
             return this.lookup(address);
         }
 
         location = await this.geocoder.getLocation(address);
         this.store(address, location);
+        console.log('cached geocoder cache: ', this.addressCache);
         return location;
     }
 

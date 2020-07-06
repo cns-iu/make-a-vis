@@ -7,12 +7,12 @@ import { Geocoder } from './models/Geocoder';
 import { Location } from './models/Location';
 
 export class DefaultGeocoder implements Geocoder {
-    // usGeocoder = new USGeocoder();
+    usGeocoder = new USGeocoder();
     globalGeocoder = new GlobalGeocoder();
     pipedGeocoder = new PipedGeocoder([this.globalGeocoder]);
-    // cachedGeocoder = new CachedGeocoder(this.pipedGeocoder);
+    cachedGeocoder = new CachedGeocoder(this.pipedGeocoder);
 
     async getLocation(address: string): Promise<Location> {
-        return await this.pipedGeocoder.getLocation(address);
+        return await this.cachedGeocoder.getLocation(address);
     }
 }

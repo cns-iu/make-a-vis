@@ -3,19 +3,36 @@ import { Geocoder } from './models/Geocoder';
 import Pbf from 'pbf';
 
 export class GlobalCitiesGeocoder implements Geocoder {
-  addressCache: any = {};
   cities = [];
-
-  constructor(public cache = true) { }
 
   async getLocation(address: string): Promise<Location> {
     if (!this.cities.length) {
-      const response = await this.getCities1000();
-      this.cities = this.parsePbf(response);
+      const citiesFile = await this.getCities1000();
+      this.cities = this.parsePbf(citiesFile);
     }
 
-    
-    return undefined;
+    const searchTerms = address.split(',');
+    console.log('search terms: ', searchTerms);
+    const result = this.cities.find(term =>
+      term.name.toLowerCase() === searchTerms[0].toLowerCase() && term.country.toLowerCase() === searchTerms[1].trim().toLowerCase()
+    );
+
+    if (!result) {
+      return undefined;
+    }
+
+    const results = {
+      city: searchTerms[0],
+      country: searchTerms[1],
+      latitude: result.loc.coordinates[1],
+      longitude: result.loc.coordinates[0],
+      state: '',
+      zip: ''
+    } as Location;
+
+    console.log('results: ', results);
+
+    return results;
   }
 
   async getCities1000() {
@@ -25,28 +42,61 @@ export class GlobalCitiesGeocoder implements Geocoder {
 
   parsePbf(pbfFile: ArrayBuffer) {
     const pbf = new Pbf(new Uint8Array(pbfFile));
-    const cities = []
-    let lastLat = 0
-    let lastLon = 0
+    const cities = [];
+    let lastLat = 0;
+    let lastLon = 0;
 
-    function readCity(tag, city, pbf) {
-      if (tag === 1) {city.cityId = pbf.readSVarint() }
-      else if (tag === 2) { city.name = pbf.readString() }
-      else if (tag === 3) { city.country = pbf.readString() }
-      else if (tag === 4) { city.altName = pbf.readString() }
-      else if (tag === 5) { city.muni = pbf.readString() }
-      else if (tag === 6) { city.muniSub = pbf.readString() }
-      else if (tag === 7) { city.featureCode = pbf.readString() }
-      else if (tag === 8) { city.adminCode = pbf.readString() }
-      else if (tag === 9) { city.population = pbf.readVarint() }
-      else if (tag === 10) {
-        lastLon += pbf.readSVarint()
-        city.loc.coordinates[0] = lastLon / 1e5
-      } else if (tag === 11) {
-        lastLat += pbf.readSVarint()
-        city.loc.coordinates[1] = lastLat / 1e5
+    const readCity = (tag: number, city: any, _pbf: Pbf) => {
+      switch (tag) {
+        case(1): {
+          city.cityId = _pbf.readSVarint();
+          break;
+        }
+        case(2): {
+          city.name = _pbf.readString();
+          break;
+        }
+        case(3): {
+          city.country = _pbf.readString();
+          break;
+        }
+        case(4): {
+          city.altName = _pbf.readString();
+          break;
+        }
+        case(5): {
+          city.muni = _pbf.readString();
+          break;
+        }
+        case(6): {
+          city.muniSub = _pbf.readString();
+          break;
+        }
+        case(7): {
+          city.featureCode = _pbf.readString();
+          break;
+        }
+        case(8): {
+          city.adminCode = _pbf.readString();
+          break;
+        }
+        case(9): {
+          city.population = _pbf.readVarint();
+          break;
+        }
+        case(10): {
+          lastLon += _pbf.readSVarint();
+          city.loc.coordinates[0] = lastLon / 1e5;
+          break;
+        }
+        case(11): {
+          lastLat += _pbf.readSVarint();
+          city.loc.coordinates[1] = lastLat / 1e5;
+          break;
+        }
       }
-    }
+    };
+
     while (pbf.pos < pbf.length) {
       cities.push(pbf.readMessage(readCity, {
         cityId: '',
@@ -58,11 +108,12 @@ export class GlobalCitiesGeocoder implements Geocoder {
         population: 0,
         loc: {
           type: 'Point',
-          coordinates: [0, 0] //[lon,lat]
+          coordinates: [0, 0] // [lon,lat]
         }
       }));
     }
 
+    console.log('cities: ', cities);
     return cities;
   }
 }
