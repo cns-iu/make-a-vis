@@ -1,4 +1,5 @@
 import { VisualizationSpec } from 'vega-embed';
+import type { Align, TextBaseline } from 'vega';
 
 import { VisualizationNode } from './interfaces';
 import { scienceMapData } from './science-map.data';
@@ -6,6 +7,15 @@ import { scienceMapData } from './science-map.data';
 
 export interface ScienceMapSpecOptions {
   nodes?: VisualizationNode[];
+  subdiscColor?: string;
+  subdiscStrokeOpacity?: number;
+  labelStrokeOpacity?: number;
+  labelFillOpacity?: number;
+  labelFontSize?: number;
+  labelStroke?: string;
+  labelStrokeWidth?: number;
+  labelAlign?: Align;
+  labelBaseline?: TextBaseline;
 }
 
 export function scienceMapSpec(options: ScienceMapSpecOptions = {}): VisualizationSpec {
@@ -25,7 +35,7 @@ export function scienceMapSpec(options: ScienceMapSpecOptions = {}): Visualizati
     layer: [
       // Draw subdiscipline <-> subdiscipline edges
       {
-        mark: {type: 'rule', color: '#9b9b9b', strokeOpacity: 0.25},
+        mark: {type: 'rule', color: options.subdiscColor, strokeOpacity: options.subdiscStrokeOpacity},
         data: {name: 'subdisciplineEdges'},
         transform: [
           {
@@ -111,8 +121,8 @@ export function scienceMapSpec(options: ScienceMapSpecOptions = {}): Visualizati
       // Draw Discipline Labels
       {
         mark: {
-          type: 'text', fontSize: 17, fillOpacity: 0.75, strokeOpacity: 0.9,
-          stroke: '#000007', strokeWidth: 1, align: 'left', baseline: 'middle'
+          type: 'text', fontSize: options.labelFontSize, fillOpacity: options.labelFillOpacity, strokeOpacity: options.labelStrokeOpacity,
+          stroke: options.labelStroke, strokeWidth: options.labelStrokeWidth, align: options.labelAlign, baseline: options.labelBaseline
         },
         data: {name: 'disciplineLabels'},
         encoding: {

@@ -40,14 +40,23 @@ export class ScienceMapComponent implements VisualizationComponent,
     if (this.view) {
       this.view.finalize();
     }
-    const spec = scienceMapSpec(options);
+    const spec = scienceMapSpec({ ...this.data.properties, ...options});
     const results = await embed(this.vizContainer.nativeElement, spec, {renderer: 'svg'});
     this.view = results.view;
   }
 
   async doLayout(): Promise<void> {
     await this.embedVisualization({
-      nodes: this.nodes || []
+      nodes: this.nodes || [],
+      subdiscColor: '#9b9b9b',
+      subdiscStrokeOpacity: 0.25,
+      labelStrokeOpacity: 0.9,
+      labelFillOpacity: 0.75,
+      labelFontSize: 17,
+      labelStroke: '#000007',
+      labelStrokeWidth: 1,
+      labelAlign: 'left',
+      labelBaseline: 'middle'
     });
   }
 
