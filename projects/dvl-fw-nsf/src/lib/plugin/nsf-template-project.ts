@@ -1,15 +1,17 @@
 import {
   ActivityLogDataSource, CSVTemplateProject, DataSource, DefaultGraphicSymbol, DefaultGraphicVariableMapping, DefaultProject,
-  DefaultRawData, DefaultRecordSet, GraphicSymbol, GraphicVariable, Project, RawData, RecordSet, Visualization,
+  DefaultRawData, DefaultRecordSet, GraphicSymbol, GraphicVariable, Project, RawData, RecordSet, Visualization
 } from '@dvl-fw/core';
-import {
-  GeomapVisualization, NetworkVisualization, ScatterplotVisualization, TemporalBargraphVisualization,
-} from '@dvl-fw/ngx-dino';
+import { GeomapVisualization } from '@dvl-fw/geomap';
+import { NetworkVisualization } from '@dvl-fw/network';
+import { ScatterplotVisualization } from '@dvl-fw/scatterplot';
+import { TemporalBargraphVisualization } from '@dvl-fw/temporal-bargraph';
 import { isArray } from 'lodash';
 
 import { NSFDataSource } from './nsf-data-source';
 import { NSFParsedRawData } from './nsf-parsed-raw-data';
 import { isNSFCompatibleCSV } from './nsf-validator';
+
 
 export class NSFTemplateProject extends DefaultProject {
   static async create(nsfFileContents: string[] | string, fileNames?: string[] | string): Promise<Project> {

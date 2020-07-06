@@ -13,6 +13,14 @@ interface VisualizationChange {
   firstChange: boolean;
 }
 
+export interface OnPropertyChange {
+  dvlOnPropertyChange(changes: SimpleChanges): void;
+}
+
+export interface OnGraphicSymbolChange {
+  dvlOnGraphicSymbolChange(changes: SimpleChanges): void;
+}
+
 @Component({
   selector: 'dvl-visualization',
   templateUrl: './visualization.component.html',

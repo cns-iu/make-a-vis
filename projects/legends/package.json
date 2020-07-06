@@ -1,0 +1,13 @@
+{
+  "name": "legends",
+  "version": "0.0.1",
+  "dependencies": {
+    "lodash": "^4.17.15"
+  },
+  "peerDependencies": {
+    "@angular/common": "^9.0.0",
+    "@angular/core": "^9.0.0",
+    "@dvl-fw/core": "^0.20.0",
+    "@ngx-dino/legend": "^0.12.3"
+  }
+}

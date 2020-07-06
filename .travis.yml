@@ -86,21 +86,10 @@ jobs:
     after_deploy: *1
     deploy: *2
   - stage: deploy
-    name: Build and publish dvl-fw-ngx-dino
-    if: tag IS present
-    script:
-    - npm run build:dvl-fw-core
-    - npm run build:dvl-fw-ngx-dino
-    before_deploy:
-    - cd dist/dvl-fw-ngx-dino
-    after_deploy: *1
-    deploy: *2
-  - stage: deploy
     name: Build and publish dvl-fw-isi
     if: tag IS present
     script:
     - npm run build:dvl-fw-core
-    - npm run build:dvl-fw-ngx-dino
     - npm run build:dvl-fw-isi
     before_deploy:
     - cd dist/dvl-fw-isi
@@ -111,7 +100,6 @@ jobs:
     if: tag IS present
     script:
     - npm run build:dvl-fw-core
-    - npm run build:dvl-fw-ngx-dino
     - npm run build:dvl-fw-nsf
     before_deploy:
     - cd dist/dvl-fw-nsf
@@ -122,7 +110,6 @@ jobs:
     if: tag IS present
     script:
     - npm run build:dvl-fw-core
-    - npm run build:dvl-fw-ngx-dino
     - npm run build:dvl-fw-isi
     - npm run build:dvl-fw-nsf
     - npm run build:dvl-fw-angular
@@ -135,7 +122,6 @@ jobs:
     if: tag IS present
     script:
     - npm run build:dvl-fw-core
-    - npm run build:dvl-fw-ngx-dino
     - npm run build:dvl-fw-isi
     - npm run build:dvl-fw-nsf
     - npm run build:dvl-fw-cli

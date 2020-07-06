@@ -1,7 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ProjectSerializer } from '@dvl-fw/core';
-import { NgxDinoPlugin } from '@dvl-fw/ngx-dino';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { Logger } from '@ngx-dino/core';
@@ -17,6 +15,7 @@ import { LoggingControlService } from './shared/logging/logging-control.service'
 import { reducers } from './shared/store/reducer';
 import { ToolbarModule } from './toolbar/toolbar.module';
 import { VisualizationViewModule } from './visualization-view/visualization-view.module';
+
 
 @NgModule({
   imports: [
@@ -49,8 +48,5 @@ export class MakeAVisModule {
   constructor(loggingControl: LoggingControlService, logger: Logger) {
     // For unknown reasons logger is undefined in --prod mode! A temporary workaround has been implemented in log.ts
     // logger.setLevel(LogLevel.Trace);
-
-    // Register plugins - This should really be done through injection but that part hasn't been figured out yet
-    ProjectSerializer.defaultRegistry.registerPlugin(new  NgxDinoPlugin());
   }
 }

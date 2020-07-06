@@ -3,19 +3,17 @@ import { DoBootstrap, Injector, NgModule, Type } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 import { BrowserModule } from '@angular/platform-browser';
 import { DvlFwAngularModule } from '@dvl-fw/angular';
-import { ProjectSerializer } from '@dvl-fw/core';
-import { NgxDinoModule, NgxDinoPlugin } from '@dvl-fw/ngx-dino';
 
 import { LegendComponent } from './legend/legend.component';
 import { ProjectComponent } from './project/project.component';
 import { VisualizationComponent } from './visualization/visualization.component';
 
+
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
-    DvlFwAngularModule,
-    NgxDinoModule
+    DvlFwAngularModule
   ],
   declarations: [
     LegendComponent,
@@ -34,9 +32,7 @@ import { VisualizationComponent } from './visualization/visualization.component'
   ]
 })
 export class AppModule implements DoBootstrap {
-  constructor(private injector: Injector) {
-    ProjectSerializer.defaultRegistry.registerPlugin(new NgxDinoPlugin());
-  }
+  constructor(private injector: Injector) { }
 
   ngDoBootstrap() {
     const { injector } = this;

@@ -7,9 +7,6 @@
   "peerDependencies": {
     "@angular/common": "^8.2.4",
     "@angular/core": "^8.2.4",
-    "@dvl-fw/core": "^0.20.0",
-    "@dvl-fw/isi": "^0.20.0",
-    "@dvl-fw/nsf": "^0.20.0",
-    "rxjs": "^6.5.3"
+    "@dvl-fw/core": "^0.20.0"
   }
 }

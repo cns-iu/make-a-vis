@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
 import { ProjectSerializerService } from '@dvl-fw/angular';
 import { ActivityLogRawData, Project } from '@dvl-fw/core';
-import { ISIPlugin } from '@dvl-fw/isi';
-import { NgxDinoPlugin } from '@dvl-fw/ngx-dino';
-import { NSFPlugin } from '@dvl-fw/nsf';
+import { GeomapPlugin } from '@dvl-fw/geomap';
+import { ISIPlugin, ISITemplateProject } from '@dvl-fw/isi';
+import { LegendsPlugin } from '@dvl-fw/legends';
+import { NetworkPlugin } from '@dvl-fw/network';
+import { NSFPlugin, NSFTemplateProject } from '@dvl-fw/nsf';
+import { ScatterplotPlugin } from '@dvl-fw/scatterplot';
+import { ScienceMapPlugin } from '@dvl-fw/science-map';
+import { TemporalBargraphPlugin } from '@dvl-fw/temporal-bargraph';
 import { Store } from '@ngrx/store';
-import { BehaviorSubject } from 'rxjs';
+import { isArray } from 'lodash';
+import { BehaviorSubject, defer, Observable } from 'rxjs';
 
 import { LoggingControlService } from '../../../shared/logging/logging-control.service';
 import * as sidenavStore from '../../../toolbar/shared/store';
@@ -32,7 +38,12 @@ export class LoadProjectService {
       private getLinkService: GetLinkService) {
     const registry = this.serializer.registry;
 
-    registry.registerPlugin(new NgxDinoPlugin());
+    registry.registerPlugin(new LegendsPlugin());
+    registry.registerPlugin(new GeomapPlugin());
+    registry.registerPlugin(new NetworkPlugin());
+    registry.registerPlugin(new ScatterplotPlugin());
+    registry.registerPlugin(new ScienceMapPlugin());
+    registry.registerPlugin(new TemporalBargraphPlugin());
     registry.registerPlugin(new ISIPlugin());
     registry.registerPlugin(new NSFPlugin());
   }
@@ -42,6 +53,31 @@ export class LoadProjectService {
     activityLogRawData.saveActivityLog = this.loggingControlService.isLoggingEnabled();
     return project;
   }
+
+  createProject(
+    template: 'isi' | 'nsf' | 'csv' | 'json',
+    fileContents: string[] | string, fileNames?: string[] | string
+  ): Observable<Project> {
+    return defer(() => this.asyncCreateProject(template, fileContents, fileNames));
+  }
+
+  private async asyncCreateProject(
+    template: 'isi' | 'nsf' | 'csv' | 'json',
+    fileContents: string[] | string, fileNames?: string[] | string
+  ): Promise<Project> {
+    fileNames = isArray(fileNames) || !fileNames ? fileNames : [fileNames];
+    switch (template) {
+      case 'csv':
+        // fall through NSFTemplateProject
+      case 'nsf':
+        return await NSFTemplateProject.create(fileContents, fileNames);
+      case 'isi':
+        return await ISITemplateProject.create(fileContents[0], fileNames[0]);
+      default:
+        throw new Error(`Template: ${template} not supported.`);
+    }
+  }
+
 
   loadFile(
     fileExtension: 'isi' | 'nsf' | 'csv' | 'json' | 'yml',
@@ -70,7 +106,7 @@ export class LoadProjectService {
     }
 
     Promise.all(promises).then((fileContents: string[]) => {
-      this.serializer.createProject(<any>fileExtension, fileContents, fileNames)
+      this.createProject(<any>fileExtension, fileContents, fileNames)
         .subscribe((project: Project) => {
           projectSubject.next(this.setSaveActivityLog(project));
         });
