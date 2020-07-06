@@ -5,13 +5,20 @@ import { VisualizationNode } from './interfaces';
 
 export interface ScatterplotSpecOptions {
   nodes?: VisualizationNode[];
-  strokeWidth?: 1.5;
-  gridlines?: true;
-  gridlinesColor?: 'lightGray';
-  gridlinesOpacity?: 1;
-  tickLabelColor?: 'gray';
-  showTicks?: false;
-  showAxisLabels?: false;
+  enableTooltip?: boolean;
+  strokeWidth?: number;
+  gridlines?: boolean;
+  gridlinesColor?: string;
+  gridlinesOpacity?: number;
+  tickLabelColor?: string;
+  showTicks?: boolean;
+  showAxisLabels?: boolean;
+  shape?: string;
+  areaSize?: number;
+  color?: string;
+  strokeColor?: string;
+  transparency?: number;
+  strokeTransparency?: number;
 }
 
 export function scatterplotSpec(options: ScatterplotSpecOptions = {}): VisualizationSpec {
@@ -26,15 +33,15 @@ export function scatterplotSpec(options: ScatterplotSpecOptions = {}): Visualiza
     layer: [
       // Draw nodes
       {
-        mark: 'point',
-        data: {name: 'nodes', values: options.nodes as any[] || undefined},
+        mark: {type: 'point', strokeWidth: options.strokeWidth},
+        data: {name: 'nodes'},
         transform: [
           {
             calculate: '!isValid(datum.tooltip) ? \'\' : datum.tooltip',
             as: 'tooltip'
           },
           {
-            calculate: '!isValid(datum.strokeWidth) ? 1 : datum.strokeWidth',
+            calculate: '!isValid(datum.strokeWidth) ? 1.5 : datum.strokeWidth',
             as: 'strokeWidth'
           },
           {
@@ -84,6 +91,9 @@ export function scatterplotSpec(options: ScatterplotSpecOptions = {}): Visualiza
           tooltip: {field: 'tooltip', type: 'nominal'}
         }
       }
-    ]
+    ],
+    datasets: {
+      nodes: options.nodes as any[] || undefined
+    }
   };
 }
