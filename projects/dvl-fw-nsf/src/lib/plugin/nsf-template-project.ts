@@ -1021,18 +1021,8 @@ export class NSFTemplateProject extends DefaultProject {
         properties: {
           enableTooltip: true,
           gridlines: true,
-          strokeWidth: 1.5,
-          gridlinesColor: 'lightGray',
-          gridlinesOpacity: 1,
-          tickLabelColor: 'gray',
-          showTicks: false,
           showAxisLabels: false,
-          shape: 'circle',
-          areaSize: 16,
-          color: '#000',
-          strokeColor: '#000007',
-          transparency: 0,
-          strokeTransparency: 0.25,
+          showAxisIndicators: false
         },
         graphicSymbols: {
           points: 'awardPoints'
