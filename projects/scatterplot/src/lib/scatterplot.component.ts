@@ -20,12 +20,6 @@ export class ScatterplotComponent implements VisualizationComponent,
   @Input() data: Visualization;
   @Input() nodeDefaults: Partial<VisualizationNode> = {
     strokeWidth: 1.5,
-    gridlines: true,
-    gridlinesColor: 'lightGray',
-    gridlinesOpacity: 1,
-    tickLabelColor: 'gray',
-    showTicks: false,
-    showAxisLabels: false,
     shape: 'circle',
     areaSize: 16,
     color: '#000',
