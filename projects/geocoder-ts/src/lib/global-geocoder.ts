@@ -19,10 +19,12 @@ export class GlobalGeocoder implements Geocoder {
         const latitude = result.center[0];
         const longitude = result.center[1];
 
-        // check top level object as well
+        // Adding top level feature to the context list to parse all at once.
+        const resultContext = result.context;
+        resultContext.push({ id: result.id, text: result.text });
 
-        let city, country, state, zip, feature = '';
-        result.context.forEach(featureObject => {
+        let city: string, country: string, state: string, zip: string, feature = '';
+        resultContext.forEach(featureObject => {
             feature = featureObject.id.split('.')[0];
             switch (feature) {
                 case('postcode'): {

@@ -12,27 +12,25 @@ export class GlobalCitiesGeocoder implements Geocoder {
     }
 
     const searchTerms = address.split(',');
-    console.log('search terms: ', searchTerms);
+    const city = searchTerms[0];
+    const country = searchTerms[1].trim();
+
     const result = this.cities.find(term =>
-      term.name.toLowerCase() === searchTerms[0].toLowerCase() && term.country.toLowerCase() === searchTerms[1].trim().toLowerCase()
+      term.name.toLowerCase() === city.toLowerCase() && term.country.trim().toLowerCase() === country.toLowerCase()
     );
 
     if (!result) {
       return undefined;
     }
 
-    const results = {
-      city: searchTerms[0],
-      country: searchTerms[1],
+    return {
+      city,
+      country,
       latitude: result.loc.coordinates[1],
       longitude: result.loc.coordinates[0],
       state: '',
       zip: ''
     } as Location;
-
-    console.log('results: ', results);
-
-    return results;
   }
 
   async getCities1000() {
@@ -113,7 +111,6 @@ export class GlobalCitiesGeocoder implements Geocoder {
       }));
     }
 
-    console.log('cities: ', cities);
     return cities;
   }
 }
