@@ -37,19 +37,11 @@ export class ScatterplotComponent implements VisualizationComponent,
   constructor(private dataProcessorService: DataProcessorService) { }
 
   async embedVisualization(options: ScatterplotSpecOptions = {}): Promise<void> {
-    options.strokeWidth = options.strokeWidth !== undefined ? options.strokeWidth : this.data.properties.strokeWidth;
-    options.gridlines = options.gridlines !== undefined ? options.gridlines : this.data.properties.gridlines;
-    options.gridlinesColor = options.gridlinesColor !== undefined ? options.gridlinesColor : this.data.properties.gridlinesColor;
-    options.gridlinesOpacity = options.gridlinesOpacity !== undefined ? options.gridlinesOpacity : this.data.properties.gridlinesOpacity;
-    options.tickLabelColor = options.tickLabelColor !== undefined ? options.tickLabelColor : this.data.properties.tickLabelColor;
-    options.showTicks = options.showTicks !== undefined ? options.showTicks : this.data.properties.showTicks;
-    options.showAxisLabels = options.showAxisLabels !== undefined ? options.showAxisLabels : this.data.properties.showAxisLabels;
-    options.shape = options.shape ? options.shape !== undefined : this.data.properties.shape;
-    options.areaSize = options.areaSize !== undefined ? options.areaSize : this.data.properties.areaSize;
-    options.color = options.color !== undefined ? options.color : this.data.properties.color;
-    options.strokeColor = options.strokeColor !== undefined ? options.strokeColor : this.data.properties.strokeColor;
-    options.transparency = options.transparency !== undefined ? options.transparency : this.data.properties.transparency;
-    options.strokeTransparency = options.strokeTransparency !== undefined ? options.strokeTransparency : this.data.properties.strokeTransparency;
+    const templateOptions = this.data.properties;
+
+    Object.keys(templateOptions).forEach((key) => {
+      options[key] = templateOptions[key] !== undefined ? templateOptions[key] : options[key];
+    });
 
     if (this.view) {
       this.view.finalize();
