@@ -9,10 +9,8 @@ export interface ScienceMapSpecOptions {
 }
 
 export function scienceMapSpec(options: ScienceMapSpecOptions = {}): VisualizationSpec {
-  const xAxis = {minExtent: 90, maxExtent: 515, grid: false, ticks: false, labels: false, domain: false, title: null};
-  const yAxis = {minExtent: 0, maxExtent: 275, grid: false, ticks: false, labels: false, domain: false, title: null};
-  const xScale = {domain: [xAxis.minExtent, xAxis.maxExtent]};
-  const yScale = {domain: [yAxis.minExtent, yAxis.maxExtent]};
+  const xScale = {domain: [100, 500]};
+  const yScale = {domain: [0, 275]};
 
   return {
     '$schema': 'https://vega.github.io/schema/vega-lite/v4.json',
@@ -47,8 +45,8 @@ export function scienceMapSpec(options: ScienceMapSpecOptions = {}): Visualizati
           }
         ],
         encoding: {
-          x: {field: 'x', type: 'quantitative', scale: xScale, axis: xAxis},
-          y: {field: 'y', type: 'quantitative', scale: yScale, axis: yAxis},
+          x: {field: 'x', type: 'quantitative', scale: xScale, axis: null},
+          y: {field: 'y', type: 'quantitative', scale: yScale, axis: null},
           x2: {field: 'x2', type: 'quantitative'},
           y2: {field: 'y2', type: 'quantitative'},
           strokeWidth: {field: 'weight', type: 'quantitative', scale: null}
@@ -95,8 +93,8 @@ export function scienceMapSpec(options: ScienceMapSpecOptions = {}): Visualizati
           },
         ],
         encoding: {
-          x: {field: 'x', type: 'quantitative', scale: xScale, axis: xAxis},
-          y: {field: 'y', type: 'quantitative', scale: yScale, axis: yAxis},
+          x: {field: 'x', type: 'quantitative', scale: xScale, axis: null},
+          y: {field: 'y', type: 'quantitative', scale: yScale, axis: null},
           shape: {field: 'shape', type: 'nominal', scale: null},
           fill: {field: 'color', type: 'nominal', scale: null},
           fillOpacity: {field: 'opacity', type: 'quantitative', scale: null},
@@ -116,8 +114,8 @@ export function scienceMapSpec(options: ScienceMapSpecOptions = {}): Visualizati
         },
         data: {name: 'disciplineLabels'},
         encoding: {
-          x: {field: 'x', type: 'quantitative', scale: xScale, axis: xAxis},
-          y: {field: 'y', type: 'quantitative', scale: yScale, axis: yAxis},
+          x: {field: 'x', type: 'quantitative', scale: xScale, axis: null},
+          y: {field: 'y', type: 'quantitative', scale: yScale, axis: null},
           color: {field: 'color', type: 'nominal', scale: null},
           text: {field: 'disc_name', type: 'nominal'}
         }
