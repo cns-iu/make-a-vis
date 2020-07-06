@@ -56,7 +56,9 @@ export class ScienceMapComponent implements VisualizationComponent,
       labelStroke: '#000007',
       labelStrokeWidth: 1,
       labelAlign: 'left',
-      labelBaseline: 'middle'
+      labelBaseline: 'middle',
+      xScale: [100, 500],
+      yScale: [0, 275]
     });
   }
 
