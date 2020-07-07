@@ -2,13 +2,15 @@ import { Author, AuthorStats } from './isi-author';
 import { Publication } from './isi-publication';
 import { DefaultGeocoder } from 'geocoder-ts';
 
-export function extractAuthors(publications: Publication[]): Author[] {
+export async function extractAuthors(publications: Publication[]): Promise<Author[]> {
   const authors: any = {}, authorList: Author[] = [];
   const globalStats = new AuthorStats();
-  const geocoder = new DefaultGeocoder();
+  const geocoder = new DefaultGeocoder(
+    'pk.eyJ1IjoiYWRwaGlsbGlwczIwMTciLCJhIjoiY2s1NDNvaHdrMGZidDNobHFkdHB5MG1wcCJ9.NG8JyVzQuA6pP9UfZhlubg'
+  );
 
   for (const pub of publications) {
-    pub.authors.forEach((name, index) => {
+    pub.authors.forEach(async (name, index) => {
       let author: Author = authors[name];
 
       // Address also includes name in [brackets]. Strip those out.
@@ -29,8 +31,7 @@ export function extractAuthors(publications: Publication[]): Author[] {
       }
 
       if (!author.location && address) {
-        console.log('the location is: ', address, '\nand after: ', address.split(/\,/).slice(-4).join(','));
-        // author.location = geocoder.getLocation(address.split(/\,/).slice(-4).join(','));
+        author.location = await geocoder.getLocation(address.split(/\,/).slice(-4).join(','));
         if (author.location) {
           // Replace address with the more 'accurate' version.
           author.address = address;

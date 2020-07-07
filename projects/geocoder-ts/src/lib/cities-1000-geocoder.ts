@@ -2,20 +2,33 @@ import { Location } from './models/Location';
 import { Geocoder } from './models/Geocoder';
 import Pbf from 'pbf';
 
+interface PointLocation {
+  type: 'Point';
+  coordinates: [number, number]; // [lon,lat]
+}
+interface City {
+  cityId: number | string;
+  name: string;
+  altName: string;
+  country: string;
+  featureCode: string;
+  population: number;
+  loc: PointLocation;
+}
+
 export class GlobalCitiesGeocoder implements Geocoder {
-  cities = [];
+  cities: Promise<City[]>;
+
+  constructor() {
+    this.cities = this.getCities1000();
+  }
 
   async getLocation(address: string): Promise<Location> {
-    if (!this.cities.length) {
-      const citiesFile = await this.getCities1000();
-      this.cities = this.parsePbf(citiesFile);
-    }
-
     const searchTerms = address.split(',');
     const city = searchTerms[0];
     const country = searchTerms[1].trim();
 
-    const result = this.cities.find(term =>
+    const result = (await this.cities).find(term =>
       term.name.toLowerCase() === city.toLowerCase() && term.country.trim().toLowerCase() === country.toLowerCase()
     );
 
@@ -33,12 +46,17 @@ export class GlobalCitiesGeocoder implements Geocoder {
     } as Location;
   }
 
-  async getCities1000() {
+  async getCities1000(): Promise<City[]> {
+    const citiesFile = await this.getPbf();
+    return this.pbfToJson(citiesFile);
+  }
+
+  async getPbf() {
     return fetch('https://cdn.jsdelivr.net/npm/all-the-cities@3.1.0/cities.pbf')
       .then((res) => res.arrayBuffer());
   }
 
-  parsePbf(pbfFile: ArrayBuffer) {
+  pbfToJson(pbfFile: ArrayBuffer) {
     const pbf = new Pbf(new Uint8Array(pbfFile));
     const cities = [];
     let lastLat = 0;
@@ -108,7 +126,7 @@ export class GlobalCitiesGeocoder implements Geocoder {
           type: 'Point',
           coordinates: [0, 0] // [lon,lat]
         }
-      }));
+      } as City ));
     }
 
     return cities;

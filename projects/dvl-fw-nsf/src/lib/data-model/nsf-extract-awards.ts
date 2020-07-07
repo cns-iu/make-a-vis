@@ -6,7 +6,9 @@ import { NSFRecord } from './nsf-record';
 export function extractAwards(records: NSFRecord[]): Award[] {
   const awardList: Award[] = [];
   const globalStats = new AwardStats();
-  const geocoder = new DefaultGeocoder();
+  const geocoder = new DefaultGeocoder(
+    'pk.eyJ1IjoiYWRwaGlsbGlwczIwMTciLCJhIjoiY2s1NDNvaHdrMGZidDNobHFkdHB5MG1wcCJ9.NG8JyVzQuA6pP9UfZhlubg',
+  );
 
   for (const record of records) {
     const org = record.organization;

@@ -1,20 +1,23 @@
 import { Geocoder } from './models/Geocoder';
 import { Location } from './models/Location';
 
-export class GlobalGeocoder implements Geocoder {
-    constructor(
-        private accessToken = 'pk.eyJ1IjoiYWRwaGlsbGlwczIwMTciLCJhIjoiY2s1NDNvaHdrMGZidDNobHFkdHB5MG1wcCJ9.NG8JyVzQuA6pP9UfZhlubg'
-    ) { }
+export class MapBoxGeocoder implements Geocoder {
+    constructor(private accessToken: string) { }
 
     async getLocation(address: string): Promise<Location> {
         const url = this.buildLookupUrl(address);
         const result = await fetch(url)
-            .then(response => response.json());
+            .then(response => response.json())
+            .catch(error => { console.warn(error); });
 
         return this.buildLocation(result) as Location;
     }
 
     buildLocation(resultObject: any): Location {
+        if (!resultObject.features) {
+            return undefined as Location;
+        }
+
         const result = resultObject.features[0];
         const latitude = result.center[0];
         const longitude = result.center[1];
