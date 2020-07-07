@@ -64,7 +64,6 @@ export class VegaComponent implements OnChanges, OnDestroy {
       view.height(height);
       view.runAsync();
     });
-    console.log(view); // TODO remove me
   }
 
   private createView(): void {

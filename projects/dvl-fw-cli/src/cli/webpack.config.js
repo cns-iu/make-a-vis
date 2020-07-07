@@ -39,7 +39,8 @@ module.exports = {
       '@dvl-fw/network': path.resolve('dist/network'),
       '@dvl-fw/scatterplot': path.resolve('dist/scatterplot'),
       '@dvl-fw/science-map': path.resolve('dist/science-map'),
-      '@dvl-fw/temporal-bargraph': path.resolve('dist/temporal-bargraph')
+      '@dvl-fw/temporal-bargraph': path.resolve('dist/temporal-bargraph'),
+      'ngx-vega': path.resolve('dist/ngx-vega')
     },
     extensions: [ '.tsx', '.ts', '.js' ]
   },
