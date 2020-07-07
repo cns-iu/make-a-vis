@@ -19,6 +19,9 @@ import { networkSpec, NetworkSpecOptions } from './network.vega';
 export class NetworkComponent implements VisualizationComponent,
     AfterViewInit, OnChanges, OnDestroy, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
+  @Input() propertyDefaults: Partial<NetworkSpecOptions> = {
+
+  };
   @Input() nodeDefaults: Partial<VisualizationNode> = {
     shape: 'circle',
     areaSize: 16,
@@ -52,7 +55,7 @@ export class NetworkComponent implements VisualizationComponent,
     if (this.view) {
       this.view.finalize();
     }
-    const spec = networkSpec(options);
+    const spec = networkSpec({ ...this.propertyDefaults, ...this.data.properties, ...options});
     const results = await embed(this.vizContainer.nativeElement, spec, {renderer: 'svg'});
     this.view = results.view;
   }
@@ -118,6 +121,8 @@ export class NetworkComponent implements VisualizationComponent,
     }
     if ('nodeDefaults' in changes || 'edgeDefaults' in changes) {
       this.refreshData();
+    } else {
+      this.doLayout();
     }
   }
   getGraphicSymbolData<T>(slot: string, defaults: { [gvName: string]: any } = {}): Observable<TDatum<T>[]> {

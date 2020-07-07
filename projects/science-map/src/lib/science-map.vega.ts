@@ -7,8 +7,8 @@ import { scienceMapData } from './science-map.data';
 
 export interface ScienceMapSpecOptions {
   nodes?: VisualizationNode[];
-  subdiscColor?: string;
-  subdiscStrokeOpacity?: number;
+  subdisciplineColor?: string;
+  subdisciplineStrokeOpacity?: number;
   labelStrokeOpacity?: number;
   labelFillOpacity?: number;
   labelFontSize?: number;
@@ -35,7 +35,7 @@ export function scienceMapSpec(options: ScienceMapSpecOptions = {}): Visualizati
     layer: [
       // Draw subdiscipline <-> subdiscipline edges
       {
-        mark: {type: 'rule', color: options.subdiscColor, strokeOpacity: options.subdiscStrokeOpacity},
+        mark: {type: 'rule', color: options.subdisciplineColor, strokeOpacity: options.subdisciplineStrokeOpacity},
         data: {name: 'subdisciplineEdges'},
         transform: [
           {

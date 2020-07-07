@@ -18,14 +18,30 @@ import { scatterplotSpec, ScatterplotSpecOptions } from './scatterplot.vega';
 export class ScatterplotComponent implements VisualizationComponent,
     AfterViewInit, OnChanges, OnDestroy, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
-  @Input() nodeDefaults: Partial<VisualizationNode> = {
-    strokeWidth: 1.5,
+  @Input() propertyDefaults: Partial<ScatterplotSpecOptions> = {
+    enableTooltip: true,
+    gridlines: true,
+    gridlinesColor: 'lightGray',
+    gridlinesOpacity: 1,
+    tickLabelColor: 'gray',
+    showTicks: false,
+    showAxisLabels: false,
     shape: 'circle',
     areaSize: 16,
     color: '#000',
     strokeColor: '#000007',
     transparency: 0,
-    strokeTransparency: 0.25
+    strokeTransparency: 0.25,
+    strokeWidth: 1.5
+  };
+  @Input() nodeDefaults: Partial<VisualizationNode> = {
+    shape: 'circle',
+    areaSize: 16,
+    color: '#000',
+    strokeColor: '#000007',
+    transparency: 0,
+    strokeTransparency: 0.25,
+    strokeWidth: 1.5,
   };
 
   private nodes: TDatum<VisualizationNode>[] = [];
@@ -40,28 +56,14 @@ export class ScatterplotComponent implements VisualizationComponent,
     if (this.view) {
       this.view.finalize();
     }
-    const spec = scatterplotSpec({ ...this.data.properties, ...options});
+    const spec = scatterplotSpec({ ...this.propertyDefaults, ...this.data.properties, ...options});
     const results = await embed(this.vizContainer.nativeElement, spec, {renderer: 'svg'});
     this.view = results.view;
   }
 
   async doLayout(): Promise<void> {
     await this.embedVisualization({
-      nodes: this.nodes || [],
-      enableTooltip: true,
-      strokeWidth: 1.5,
-      gridlines: true,
-      gridlinesColor: 'lightGray',
-      gridlinesOpacity: 1,
-      tickLabelColor: 'gray',
-      showTicks: false,
-      showAxisLabels: false,
-      shape: 'circle',
-      areaSize: 16,
-      color: '#000',
-      strokeColor: '#000007',
-      transparency: 0,
-      strokeTransparency: 0.25,
+      nodes: this.nodes || []
     });
   }
 
@@ -92,6 +94,8 @@ export class ScatterplotComponent implements VisualizationComponent,
     if ('nodeDefaults' in changes) {
       this.nodeDefaults = this.data.properties.nodeDefaults;
       this.refreshData();
+    } else {
+      this.doLayout();
     }
   }
   getGraphicSymbolData<T>(slot: string, defaults: { [gvName: string]: any } = {}): Observable<TDatum<T>[]> {

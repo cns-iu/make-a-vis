@@ -18,6 +18,9 @@ import { temporalBargraphSpec, TemporalBargraphSpecOptions } from './temporal-ba
 export class TemporalBargraphComponent implements VisualizationComponent,
     AfterViewInit, OnChanges, OnDestroy, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
+  @Input() propertyDefaults: Partial<TemporalBargraphSpecOptions> = {
+
+  };
   @Input() nodeDefaults: Partial<VisualizationNode> = {
     shape: 'circle',
     areaSize: 16,
@@ -40,7 +43,7 @@ export class TemporalBargraphComponent implements VisualizationComponent,
     if (this.view) {
       this.view.finalize();
     }
-    const spec = temporalBargraphSpec(options);
+    const spec = temporalBargraphSpec({ ...this.propertyDefaults, ...this.data.properties, ...options});
     const results = await embed(this.vizContainer.nativeElement, spec, {renderer: 'svg'});
     this.view = results.view;
   }
@@ -78,6 +81,8 @@ export class TemporalBargraphComponent implements VisualizationComponent,
     if ('nodeDefaults' in changes) {
       this.nodeDefaults = this.data.properties.nodeDefaults;
       this.refreshData();
+    } else {
+      this.doLayout();
     }
   }
   getGraphicSymbolData<T>(slot: string, defaults: { [gvName: string]: any } = {}): Observable<TDatum<T>[]> {

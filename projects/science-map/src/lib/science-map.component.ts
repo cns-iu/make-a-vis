@@ -18,6 +18,19 @@ import { scienceMapSpec, ScienceMapSpecOptions } from './science-map.vega';
 export class ScienceMapComponent implements VisualizationComponent,
     AfterViewInit, OnChanges, OnDestroy, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
+  @Input() propertyDefaults: Partial<ScienceMapSpecOptions> = {
+    subdisciplineColor: '#9b9b9b',
+    subdisciplineStrokeOpacity: 0.25,
+    labelStrokeOpacity: 0.9,
+    labelFillOpacity: 0.75,
+    labelFontSize: 17,
+    labelStroke: '#000007',
+    labelStrokeWidth: 1,
+    labelAlign: 'left',
+    labelBaseline: 'middle',
+    xScale: [100, 500],
+    yScale: [0, 275]
+  };
   @Input() nodeDefaults: Partial<VisualizationNode> = {
     shape: 'circle',
     areaSize: 16,
@@ -40,25 +53,14 @@ export class ScienceMapComponent implements VisualizationComponent,
     if (this.view) {
       this.view.finalize();
     }
-    const spec = scienceMapSpec({ ...this.data.properties, ...options});
+    const spec = scienceMapSpec({ ...this.propertyDefaults, ...this.data.properties, ...options});
     const results = await embed(this.vizContainer.nativeElement, spec, {renderer: 'svg'});
     this.view = results.view;
   }
 
   async doLayout(): Promise<void> {
     await this.embedVisualization({
-      nodes: this.nodes || [],
-      subdiscColor: '#9b9b9b',
-      subdiscStrokeOpacity: 0.25,
-      labelStrokeOpacity: 0.9,
-      labelFillOpacity: 0.75,
-      labelFontSize: 17,
-      labelStroke: '#000007',
-      labelStrokeWidth: 1,
-      labelAlign: 'left',
-      labelBaseline: 'middle',
-      xScale: [100, 500],
-      yScale: [0, 275]
+      nodes: this.nodes || []
     });
   }
 
@@ -89,6 +91,8 @@ export class ScienceMapComponent implements VisualizationComponent,
     if ('nodeDefaults' in changes) {
       this.nodeDefaults = this.data.properties.nodeDefaults;
       this.refreshData();
+    } else {
+      this.doLayout();
     }
   }
   getGraphicSymbolData<T>(slot: string, defaults: { [gvName: string]: any } = {}): Observable<TDatum<T>[]> {

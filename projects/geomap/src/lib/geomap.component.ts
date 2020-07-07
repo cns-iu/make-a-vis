@@ -19,6 +19,9 @@ import { VisualizationEdge, VisualizationNode } from './interfaces';
 export class GeomapComponent implements VisualizationComponent,
     AfterViewInit, OnChanges, OnDestroy, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
+  @Input() propertyDefaults: Partial<GeomapSpecOptions> = {
+
+  };
   @Input() nodeDefaults: Partial<VisualizationNode> = {
     shape: 'circle',
     areaSize: 16,
@@ -52,7 +55,7 @@ export class GeomapComponent implements VisualizationComponent,
     if (this.view) {
       this.view.finalize();
     }
-    const spec = geomapSpec(options);
+    const spec = geomapSpec({ ...this.propertyDefaults, ...this.data.properties, ...options});
     const results = await embed(this.vizContainer.nativeElement, spec, {renderer: 'svg'});
     this.view = results.view;
   }
@@ -118,6 +121,8 @@ export class GeomapComponent implements VisualizationComponent,
     }
     if ('nodeDefaults' in changes || 'edgeDefaults' in changes) {
       this.refreshData();
+    } else {
+      this.doLayout();
     }
   }
   getGraphicSymbolData<T>(slot: string, defaults: { [gvName: string]: any } = {}): Observable<TDatum<T>[]> {
