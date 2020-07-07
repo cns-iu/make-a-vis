@@ -6,19 +6,15 @@ import { VisualizationNode } from './interfaces';
 export interface ScatterplotSpecOptions {
   nodes?: VisualizationNode[];
   enableTooltip?: boolean;
-  strokeWidth?: number;
+  xAxisArrow?: boolean; // TODO: Create X-Axis Arrow
+  yAxisArrow?: boolean; // TODO: Create Y-Axis Arrow
   gridlines?: boolean;
   gridlinesColor?: string;
   gridlinesOpacity?: number;
   tickLabelColor?: string;
+  showAxisIndicators?: boolean; // TODO: Toggle texts over axes indicating the type of axis.
+  showAxisLabels?: boolean; // TODO: allow axis labels to be used/passed in
   showTicks?: boolean;
-  showAxisLabels?: boolean;
-  shape?: string;
-  areaSize?: number;
-  color?: string;
-  strokeColor?: string;
-  transparency?: number;
-  strokeTransparency?: number;
 }
 
 export function scatterplotSpec(options: ScatterplotSpecOptions = {}): VisualizationSpec {
@@ -33,7 +29,7 @@ export function scatterplotSpec(options: ScatterplotSpecOptions = {}): Visualiza
     layer: [
       // Draw nodes
       {
-        mark: {type: 'point', strokeWidth: options.strokeWidth},
+        mark: {type: 'point'},
         data: {name: 'nodes'},
         transform: [
           {
@@ -54,32 +50,37 @@ export function scatterplotSpec(options: ScatterplotSpecOptions = {}): Visualiza
           }
         ],
         encoding: {
-          x: {field: 'x', type: 'quantitative', scale: {zero: false}, title: null,
+          x: {field: 'x', type: 'quantitative', scale: {zero: false},
+            title: options.showAxisLabels === true ? undefined : null,
             axis: {
-              grid: options.gridlines,
-              gridColor: options.gridlinesColor,
-              gridOpacity: options.gridlinesOpacity,
-              ticks: options.showTicks,
-              tickColor: options.tickLabelColor,
+              grid: !!options.gridlines,
+              gridColor: options.gridlinesColor || undefined,
+              gridOpacity: options.gridlinesOpacity || undefined,
+              ticks: !!options.showTicks,
+              tickColor: options.tickLabelColor || undefined,
               domainWidth: 1,
               domainColor: 'black',
-              tickMinStep: 2,
               labelAngle: 0,
-              format: '1d',
-              tickCount: 13
+              labelPadding: 8,
+              tickMinStep: 2,
+              // poor man's way to format 'year' correctly
+              labelExpr: 'datum.value < 3000 && datum.value > 1000 ? datum.value : datum.label'
             }
           },
-          y: {field: 'y', type: 'quantitative', scale: {zero: false}, title: null,
+          y: {field: 'y', type: 'quantitative', scale: {zero: false},
+            title: options.showAxisLabels === true ? undefined : null,
             axis: {
-              grid: options.gridlines,
-              gridColor: options.gridlinesColor,
-              gridOpacity: options.gridlinesOpacity,
-              ticks: options.showTicks,
-              tickColor: options.tickLabelColor,
+              grid: !!options.gridlines,
+              gridColor: options.gridlinesColor || undefined,
+              gridOpacity: options.gridlinesOpacity || undefined,
+              ticks: !!options.showTicks,
+              tickColor: options.tickLabelColor || undefined,
               domainWidth: 1,
               domainColor: 'black',
+              labelPadding: 8,
               tickMinStep: 2,
-              format: '1d'
+              // poor man's way to format 'year' correctly
+              labelExpr: 'datum.value < 3000 && datum.value > 1000 ? datum.value : datum.label'
             }
           },
           shape: {field: 'shape', type: 'nominal', scale: null},
@@ -89,7 +90,7 @@ export function scatterplotSpec(options: ScatterplotSpecOptions = {}): Visualiza
           strokeWidth: {field: 'strokeWidth', type: 'quantitative', scale: null},
           strokeOpacity: {field: 'strokeOpacity', type: 'quantitative', scale: null},
           size: {field: 'areaSize', type: 'quantitative', scale: null},
-          tooltip: {field: 'tooltip', type: 'nominal'}
+          tooltip: options.enableTooltip !== false ? {field: 'tooltip', type: 'nominal'} : undefined
         }
       }
     ],

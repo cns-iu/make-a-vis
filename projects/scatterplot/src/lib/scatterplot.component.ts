@@ -19,19 +19,14 @@ export class ScatterplotComponent implements VisualizationComponent,
   @Input() data: Visualization;
   @Input() propertyDefaults: Partial<ScatterplotSpecOptions> = {
     enableTooltip: true,
+    xAxisArrow: true,
+    yAxisArrow: true,
     gridlines: true,
-    gridlinesColor: 'lightGray',
-    gridlinesOpacity: 1,
-    tickLabelColor: 'gray',
-    showTicks: false,
-    showAxisLabels: false,
-    shape: 'circle',
-    areaSize: 16,
-    color: '#000',
-    strokeColor: '#000007',
-    transparency: 0,
-    strokeTransparency: 0.25,
-    strokeWidth: 1.5
+    gridlinesColor: 'lightgrey',
+    gridlinesOpacity: 0.7,
+    tickLabelColor: 'lightblack',
+    showAxisIndicators: false,
+    showAxisLabels: false
   };
   @Input() nodeDefaults: Partial<VisualizationNode> = {
     shape: 'circle',
