@@ -1,9 +1,9 @@
-import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
 import { OnGraphicSymbolChange, OnPropertyChange } from '@dvl-fw/angular';
 import { GraphicSymbolData, TDatum, Visualization, VisualizationComponent } from '@dvl-fw/core';
 import { DataProcessorService } from '@ngx-dino/core';
+import { Options, Spec } from 'ngx-vega';
 import { Observable, of, Subscription } from 'rxjs';
-import { View } from 'vega';
 import embed from 'vega-embed';
 
 import { VisualizationNode } from './interfaces';
@@ -28,25 +28,17 @@ export class ScienceMapComponent implements VisualizationComponent,
     strokeWidth: 1
   };
 
+  spec: Spec;
+  options: Options = { renderer: 'svg' };
+
   private nodes: TDatum<VisualizationNode>[] = [];
   private nodesSubscription: Subscription;
-  private view: View;
 
-  @ViewChild('visualization', { read: ElementRef }) vizContainer: ElementRef<HTMLElement>;
 
   constructor(private dataProcessorService: DataProcessorService) { }
 
-  async embedVisualization(options: ScienceMapSpecOptions = {}): Promise<void> {
-    if (this.view) {
-      this.view.finalize();
-    }
-    const spec = scienceMapSpec(options);
-    const results = await embed(this.vizContainer.nativeElement, spec, {renderer: 'svg'});
-    this.view = results.view;
-  }
-
-  async doLayout(): Promise<void> {
-    await this.embedVisualization({
+  updateSpec(): void {
+    this.spec = scienceMapSpec({
       nodes: this.nodes || []
     });
   }
@@ -57,7 +49,10 @@ export class ScienceMapComponent implements VisualizationComponent,
     }
     this.nodes = [];
     const nodes$ = this.getGraphicSymbolData<VisualizationNode>('subdisciplinePoints', this.nodeDefaults);
-    this.nodesSubscription = nodes$.subscribe(nodes => { this.nodes = nodes; this.doLayout(); });
+    this.nodesSubscription = nodes$.subscribe(nodes => {
+      this.nodes = nodes;
+      this.updateSpec();
+    });
   }
 
   ngAfterViewInit(): void {
@@ -90,9 +85,6 @@ export class ScienceMapComponent implements VisualizationComponent,
   ngOnDestroy(): void {
     if (this.nodesSubscription) {
       this.nodesSubscription.unsubscribe();
-    }
-    if (this.view) {
-      this.view.finalize();
     }
   }
 }

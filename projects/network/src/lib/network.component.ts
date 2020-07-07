@@ -1,14 +1,13 @@
-import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
 import { OnGraphicSymbolChange, OnPropertyChange } from '@dvl-fw/angular';
 import { GraphicSymbolData, TDatum, Visualization, VisualizationComponent } from '@dvl-fw/core';
 import { DataProcessorService } from '@ngx-dino/core';
+import { Options, Spec } from 'ngx-vega';
 import { Observable, of, Subscription } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
-import { View } from 'vega';
-import embed from 'vega-embed';
 
 import { VisualizationEdge, VisualizationNode } from './interfaces';
-import { networkSpec, NetworkSpecOptions } from './network.vega';
+import { networkSpec } from './network.vega';
 
 
 @Component({
@@ -38,27 +37,18 @@ export class NetworkComponent implements VisualizationComponent,
     strokeWidth: 1
   };
 
+  spec: Spec;
+  options: Options = { renderer: 'svg' };
+
   private nodes: TDatum<VisualizationNode>[] = [];
   private edges: TDatum<VisualizationEdge>[] = [];
   private nodesSubscription: Subscription;
   private edgesSubscription: Subscription;
-  private view: View;
-
-  @ViewChild('visualization', { read: ElementRef }) vizContainer: ElementRef<HTMLElement>;
 
   constructor(private dataProcessorService: DataProcessorService) { }
 
-  async embedVisualization(options: NetworkSpecOptions = {}): Promise<void> {
-    if (this.view) {
-      this.view.finalize();
-    }
-    const spec = networkSpec(options);
-    const results = await embed(this.vizContainer.nativeElement, spec, {renderer: 'svg'});
-    this.view = results.view;
-  }
-
-  async doLayout(): Promise<void> {
-    await this.embedVisualization({
+  updateSpec(): void {
+    this.spec = networkSpec({
       nodes: this.nodes || [],
       edges: this.edges || []
     });
@@ -80,7 +70,7 @@ export class NetworkComponent implements VisualizationComponent,
         )),
         tap(nodes => this.nodes = nodes)
       )
-      .subscribe(nodes => this.doLayout());
+      .subscribe(nodes => this.updateSpec());
 
     this.edgesSubscription = this.getGraphicSymbolData<VisualizationEdge>('edges', this.edgeDefaults)
       .pipe(
@@ -89,7 +79,7 @@ export class NetworkComponent implements VisualizationComponent,
         )),
         tap(edges => this.edges = edges)
       )
-      .subscribe(edges => this.doLayout());
+      .subscribe(edges => this.updateSpec());
   }
 
   ngAfterViewInit(): void {
@@ -133,9 +123,6 @@ export class NetworkComponent implements VisualizationComponent,
     }
     if (this.edgesSubscription) {
       this.edgesSubscription.unsubscribe();
-    }
-    if (this.view) {
-      this.view.finalize();
     }
   }
 }
