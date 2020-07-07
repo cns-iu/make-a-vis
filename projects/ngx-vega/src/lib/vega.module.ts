@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
-
-import { VegaComponent } from './vega.component';
+import { VegaComponent } from './components/vega/vega.component';
 
 
 @NgModule({
-  imports: [],
   declarations: [VegaComponent],
   exports: [VegaComponent]
 })
-export class VegaModule { }
+export class NgxVegaModule { }
