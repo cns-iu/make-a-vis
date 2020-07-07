@@ -513,6 +513,11 @@
           "options": {
             "tsConfig": "projects/ngx-vega/tsconfig.lib.json",
             "project": "projects/ngx-vega/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-vega/tsconfig.lib.prod.json"
+            }
           }
         },
         "test": {
