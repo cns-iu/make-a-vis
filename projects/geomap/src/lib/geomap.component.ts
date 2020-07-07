@@ -6,7 +6,7 @@ import { Options, Spec } from 'ngx-vega';
 import { Observable, of, Subscription } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
-import { geomapSpec } from './geomap.vega';
+import { geomapSpec, GeomapSpecOptions } from './geomap.vega';
 import { VisualizationEdge, VisualizationNode } from './interfaces';
 
 

@@ -7,7 +7,7 @@ import { Observable, of, Subscription } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
 import { VisualizationEdge, VisualizationNode } from './interfaces';
-import { networkSpec } from './network.vega';
+import { networkSpec, NetworkSpecOptions } from './network.vega';
 
 
 @Component({
@@ -114,7 +114,7 @@ export class NetworkComponent implements VisualizationComponent,
     if ('nodeDefaults' in changes || 'edgeDefaults' in changes) {
       this.refreshData();
     } else {
-      this.doLayout();
+      this.updateSpec();
     }
   }
   getGraphicSymbolData<T>(slot: string, defaults: { [gvName: string]: any } = {}): Observable<TDatum<T>[]> {

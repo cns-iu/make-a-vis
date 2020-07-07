@@ -4,7 +4,6 @@ import { GraphicSymbolData, TDatum, Visualization, VisualizationComponent } from
 import { DataProcessorService } from '@ngx-dino/core';
 import { Options, Spec } from 'ngx-vega';
 import { Observable, of, Subscription } from 'rxjs';
-import embed from 'vega-embed';
 
 import { VisualizationNode } from './interfaces';
 import { scienceMapSpec, ScienceMapSpecOptions } from './science-map.vega';

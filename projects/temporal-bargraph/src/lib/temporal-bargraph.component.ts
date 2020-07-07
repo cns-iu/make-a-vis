@@ -6,7 +6,7 @@ import { Options, Spec } from 'ngx-vega';
 import { Observable, of, Subscription } from 'rxjs';
 
 import { VisualizationNode } from './interfaces';
-import { temporalBargraphSpec } from './temporal-bargraph.vega';
+import { temporalBargraphSpec, TemporalBargraphSpecOptions } from './temporal-bargraph.vega';
 
 
 @Component({

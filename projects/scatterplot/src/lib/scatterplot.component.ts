@@ -6,7 +6,7 @@ import { Options, Spec } from 'ngx-vega';
 import { Observable, of, Subscription } from 'rxjs';
 
 import { VisualizationNode } from './interfaces';
-import { scatterplotSpec } from './scatterplot.vega';
+import { scatterplotSpec, ScatterplotSpecOptions } from './scatterplot.vega';
 
 
 @Component({
