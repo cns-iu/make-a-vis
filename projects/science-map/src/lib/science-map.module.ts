@@ -1,11 +1,13 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { NgxVegaModule } from 'ngx-vega';
+
 import { ScienceMapComponent } from './science-map.component';
 
+
 @NgModule({
+  imports: [CommonModule, NgxVegaModule],
   declarations: [ScienceMapComponent],
-  imports: [
-    CommonModule
-  ]
+  exports: [ScienceMapComponent]
 })
 export class ScienceMapModule { }

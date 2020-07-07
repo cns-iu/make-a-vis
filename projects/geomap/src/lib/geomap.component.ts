@@ -1,11 +1,10 @@
-import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
 import { OnGraphicSymbolChange, OnPropertyChange } from '@dvl-fw/angular';
 import { GraphicSymbolData, TDatum, Visualization, VisualizationComponent } from '@dvl-fw/core';
 import { DataProcessorService } from '@ngx-dino/core';
+import { Options, Spec } from 'ngx-vega';
 import { Observable, of, Subscription } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
-import { View } from 'vega';
-import embed from 'vega-embed';
 
 import { geomapSpec, GeomapSpecOptions } from './geomap.vega';
 import { VisualizationEdge, VisualizationNode } from './interfaces';
@@ -41,27 +40,20 @@ export class GeomapComponent implements VisualizationComponent,
     strokeWidth: 1
   };
 
+  spec: Spec;
+  options: Options = { renderer: 'svg' };
+
   private nodes: TDatum<VisualizationNode>[] = [];
   private edges: TDatum<VisualizationEdge>[] = [];
   private nodesSubscription: Subscription;
   private edgesSubscription: Subscription;
-  private view: View;
-
-  @ViewChild('visualization', { read: ElementRef }) vizContainer: ElementRef<HTMLElement>;
 
   constructor(private dataProcessorService: DataProcessorService) { }
 
-  async embedVisualization(options: GeomapSpecOptions = {}): Promise<void> {
-    if (this.view) {
-      this.view.finalize();
-    }
-    const spec = geomapSpec({ ...this.propertyDefaults, ...this.data.properties, ...options});
-    const results = await embed(this.vizContainer.nativeElement, spec, {renderer: 'svg'});
-    this.view = results.view;
-  }
-
-  async doLayout(): Promise<void> {
-    await this.embedVisualization({
+  updateSpec(): void {
+    this.spec = geomapSpec({
+      ...this.propertyDefaults,
+      ...this.data.properties,
       nodes: this.nodes || [],
       edges: this.edges || []
     });
@@ -83,7 +75,7 @@ export class GeomapComponent implements VisualizationComponent,
         )),
         tap(nodes => this.nodes = nodes)
       )
-      .subscribe(nodes => this.doLayout());
+      .subscribe(nodes => this.updateSpec());
 
     this.edgesSubscription = this.getGraphicSymbolData<VisualizationEdge>('edges', this.edgeDefaults)
       .pipe(
@@ -92,7 +84,7 @@ export class GeomapComponent implements VisualizationComponent,
         )),
         tap(edges => this.edges = edges)
       )
-      .subscribe(edges => this.doLayout());
+      .subscribe(edges => this.updateSpec());
   }
 
   ngAfterViewInit(): void {
@@ -122,7 +114,7 @@ export class GeomapComponent implements VisualizationComponent,
     if ('nodeDefaults' in changes || 'edgeDefaults' in changes) {
       this.refreshData();
     } else {
-      this.doLayout();
+      this.updateSpec();
     }
   }
   getGraphicSymbolData<T>(slot: string, defaults: { [gvName: string]: any } = {}): Observable<TDatum<T>[]> {
@@ -138,9 +130,6 @@ export class GeomapComponent implements VisualizationComponent,
     }
     if (this.edgesSubscription) {
       this.edgesSubscription.unsubscribe();
-    }
-    if (this.view) {
-      this.view.finalize();
     }
   }
 }
