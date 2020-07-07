@@ -3,4 +3,4 @@
  */
 
 export * from './lib/vega.module';
-export * from './lib/components/vega/vega.component';
+export * from './lib/vega.component';

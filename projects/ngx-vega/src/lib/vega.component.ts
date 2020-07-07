@@ -1,20 +1,21 @@
 import {
   ChangeDetectionStrategy, Component, ElementRef, Input, OnChanges, OnDestroy, Output, Renderer2, SimpleChanges,
 } from '@angular/core';
+import { ResizeSensor } from 'css-element-queries';
 import { Subscription } from 'rxjs';
 import { View } from 'vega';
-import embed from 'vega-embed';
+import { EmbedOptions, VisualizationSpec } from 'vega-embed';
 
-import { ViewManagerService } from '../../services/view-manager/view-manager.service';
+import { ViewManagerService } from './view-manager.service';
 
 
-type EmbedParameters = Parameters<typeof embed>;
-export type Spec = EmbedParameters[1];
-export type Options = NonNullable<EmbedParameters[2]>;
+export type Spec = VisualizationSpec | string;
+export type Options = EmbedOptions;
 
 @Component({
   selector: 'ngx-vega',
   template: '',
+  styleUrls: ['./vega.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ViewManagerService]
 })
@@ -54,9 +55,16 @@ export class VegaComponent implements OnChanges, OnDestroy {
     const viewEl = view.container();
 
     this.clearContainer();
-
     this.viewEl = viewEl;
+
     renderer.appendChild(container, viewEl);
+    // tslint:disable-next-line: no-unused-expression
+    new ResizeSensor(viewEl, ({width, height}) => {
+      view.width(width);
+      view.height(height);
+      view.runAsync();
+    });
+    console.log(view); // TODO remove me
   }
 
   private createView(): void {
@@ -70,6 +78,7 @@ export class VegaComponent implements OnChanges, OnDestroy {
   private clearContainer(): void {
     const { container, viewEl, renderer } = this;
     if (viewEl) {
+      ResizeSensor.detach(viewEl);
       renderer.removeChild(container, viewEl);
       this.viewEl = undefined;
     }

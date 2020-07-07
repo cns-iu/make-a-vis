@@ -6,7 +6,7 @@ describe('ViewManagerService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: ViewManagerService = TestBed.get(ViewManagerService);
+    const service: ViewManagerService = TestBed.inject(ViewManagerService);
     expect(service).toBeTruthy();
   });
 });

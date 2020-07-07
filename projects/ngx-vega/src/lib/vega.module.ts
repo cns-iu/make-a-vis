@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { VegaComponent } from './components/vega/vega.component';
+import { VegaComponent } from './vega.component';
 
 
 @NgModule({
