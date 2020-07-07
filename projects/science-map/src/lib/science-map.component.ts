@@ -18,18 +18,7 @@ export class ScienceMapComponent implements VisualizationComponent,
     AfterViewInit, OnChanges, OnDestroy, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
   @Input() propertyDefaults: Partial<ScienceMapSpecOptions> = {
-    enableTooltip: true,
-    subdisciplineColor: '#9b9b9b',
-    subdisciplineStrokeOpacity: 0.25,
-    labelStrokeOpacity: 0.9,
-    labelFillOpacity: 0.75,
-    labelFontSize: 17,
-    labelStroke: '#000007',
-    labelStrokeWidth: 1,
-    labelAlign: 'left',
-    labelBaseline: 'middle',
-    xScale: [100, 500],
-    yScale: [0, 275]
+    enableTooltip: true
   };
   @Input() nodeDefaults: Partial<VisualizationNode> = {
     shape: 'circle',
