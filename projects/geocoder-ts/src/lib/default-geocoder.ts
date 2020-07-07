@@ -19,7 +19,7 @@ export class DefaultGeocoder implements Geocoder {
     time: number;
     requestCount = 0;
 
-    constructor(private mapboxAccessToken: string, private mapboxRateLimit: number = 200) {
+    constructor(private mapboxAccessToken: string, private mapboxRateLimit: number = 10) {
         this.time = Date.now();
     }
 

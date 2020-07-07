@@ -14,7 +14,7 @@ export class MapBoxGeocoder implements Geocoder {
     }
 
     buildLocation(resultObject: any): Location {
-        if (!resultObject.features) {
+        if (!resultObject || !resultObject?.features || resultObject?.features?.length < 1) {
             return undefined as Location;
         }
 
@@ -23,8 +23,13 @@ export class MapBoxGeocoder implements Geocoder {
         const longitude = result.center[1];
 
         // Adding top level feature to the context list to parse all at once.
-        const resultContext = result.context;
-        resultContext.push({ id: result.id, text: result.text });
+        let resultContext = [];
+        if (result.context) {
+            resultContext = result.context;
+        }
+        if (result.id && result.text) {
+            resultContext.push({ id: result.id, text: result.text });
+        }
 
         let city: string, country: string, state: string, zip: string, feature = '';
         resultContext.forEach(featureObject => {

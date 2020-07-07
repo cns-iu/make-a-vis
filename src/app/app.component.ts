@@ -37,11 +37,11 @@ export class AppComponent implements OnInit {
     //   'New York, US'
     // ];
 
-    locations.forEach(location => {
-      defaultGeocoder.getLocation(location)
-        .then(result => {
-          console.log('location search: ', location, '\nresult: ', result);
-        });
-    });
+    // locations.forEach(location => {
+    //   defaultGeocoder.getLocation(location)
+    //     .then(result => {
+    //       console.log('location search: ', location, '\nresult: ', result);
+    //     });
+    // });
   }
 }

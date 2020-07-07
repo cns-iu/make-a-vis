@@ -10,7 +10,8 @@ export async function extractAuthors(publications: Publication[]): Promise<Autho
   );
 
   for (const pub of publications) {
-    pub.authors.forEach(async (name, index) => {
+    // pub.authors.forEach(async (name, index) => {
+    for (const [index, name] of pub.authors.entries()) {
       let author: Author = authors[name];
 
       // Address also includes name in [brackets]. Strip those out.
@@ -52,7 +53,7 @@ export async function extractAuthors(publications: Publication[]): Promise<Autho
           author.lastYear = pub.publicationYear;
         }
       }
-    });
+    }
     pub.Authors = pub.authors.map(a => authors[a]);
   }
   authorList.forEach(a => globalStats.count(a));
