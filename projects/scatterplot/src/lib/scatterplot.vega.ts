@@ -5,6 +5,20 @@ import { VisualizationNode } from './interfaces';
 
 export interface ScatterplotSpecOptions {
   nodes?: VisualizationNode[];
+  enableTooltip?: boolean;
+  strokeWidth?: number;
+  gridlines?: boolean;
+  gridlinesColor?: string;
+  gridlinesOpacity?: number;
+  tickLabelColor?: string;
+  showTicks?: boolean;
+  showAxisLabels?: boolean;
+  shape?: string;
+  areaSize?: number;
+  color?: string;
+  strokeColor?: string;
+  transparency?: number;
+  strokeTransparency?: number;
 }
 
 export function scatterplotSpec(options: ScatterplotSpecOptions = {}): VisualizationSpec {
@@ -15,18 +29,19 @@ export function scatterplotSpec(options: ScatterplotSpecOptions = {}): Visualiza
     width: 'container',
     height: 'container',
     config: {view: {strokeOpacity: 0}},
+    padding: 16,
     layer: [
       // Draw nodes
       {
-        mark: 'point',
-        data: {name: 'nodes', values: options.nodes as any[] || undefined},
+        mark: {type: 'point', strokeWidth: options.strokeWidth},
+        data: {name: 'nodes'},
         transform: [
           {
             calculate: '!isValid(datum.tooltip) ? \'\' : datum.tooltip',
             as: 'tooltip'
           },
           {
-            calculate: '!isValid(datum.strokeWidth) ? 1 : datum.strokeWidth',
+            calculate: '!isValid(datum.strokeWidth) ? 1.5 : datum.strokeWidth',
             as: 'strokeWidth'
           },
           {
@@ -36,11 +51,37 @@ export function scatterplotSpec(options: ScatterplotSpecOptions = {}): Visualiza
           {
             calculate: '!isValid(datum.transparency) ? 0.75 : 1 - datum.transparency',
             as: 'opacity'
-          },
+          }
         ],
         encoding: {
-          x: {field: 'x', type: 'ordinal'},
-          y: {field: 'y', type: 'ordinal'},
+          x: {field: 'x', type: 'quantitative', scale: {zero: false}, title: null,
+            axis: {
+              grid: options.gridlines,
+              gridColor: options.gridlinesColor,
+              gridOpacity: options.gridlinesOpacity,
+              ticks: options.showTicks,
+              tickColor: options.tickLabelColor,
+              domainWidth: 1,
+              domainColor: 'black',
+              tickMinStep: 2,
+              labelAngle: 0,
+              format: '1d',
+              tickCount: 13
+            }
+          },
+          y: {field: 'y', type: 'quantitative', scale: {zero: false}, title: null,
+            axis: {
+              grid: options.gridlines,
+              gridColor: options.gridlinesColor,
+              gridOpacity: options.gridlinesOpacity,
+              ticks: options.showTicks,
+              tickColor: options.tickLabelColor,
+              domainWidth: 1,
+              domainColor: 'black',
+              tickMinStep: 2,
+              format: '1d'
+            }
+          },
           shape: {field: 'shape', type: 'nominal', scale: null},
           fill: {field: 'color', type: 'nominal', scale: null},
           fillOpacity: {field: 'opacity', type: 'quantitative', scale: null},
@@ -51,6 +92,9 @@ export function scatterplotSpec(options: ScatterplotSpecOptions = {}): Visualiza
           tooltip: {field: 'tooltip', type: 'nominal'}
         }
       }
-    ]
+    ],
+    datasets: {
+      nodes: options.nodes as any[] || undefined
+    }
   };
 }
