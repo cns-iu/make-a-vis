@@ -17,6 +17,22 @@ import { scatterplotSpec } from './scatterplot.vega';
 export class ScatterplotComponent implements VisualizationComponent,
     AfterViewInit, OnChanges, OnDestroy, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
+  @Input() propertyDefaults: Partial<ScatterplotSpecOptions> = {
+    enableTooltip: true,
+    gridlines: true,
+    gridlinesColor: 'lightGray',
+    gridlinesOpacity: 1,
+    tickLabelColor: 'gray',
+    showTicks: false,
+    showAxisLabels: false,
+    shape: 'circle',
+    areaSize: 16,
+    color: '#000',
+    strokeColor: '#000007',
+    transparency: 0,
+    strokeTransparency: 0.25,
+    strokeWidth: 1.5
+  };
   @Input() nodeDefaults: Partial<VisualizationNode> = {
     shape: 'circle',
     areaSize: 16,
@@ -24,7 +40,7 @@ export class ScatterplotComponent implements VisualizationComponent,
     strokeColor: '#000007',
     transparency: 0,
     strokeTransparency: 0.25,
-    strokeWidth: 1
+    strokeWidth: 1.5,
   };
 
   spec: Spec;
@@ -37,6 +53,8 @@ export class ScatterplotComponent implements VisualizationComponent,
 
   updateSpec(): void {
     this.spec = scatterplotSpec({
+      ...this.propertyDefaults,
+      ...this.data.properties,
       nodes: this.nodes || []
     });
   }
@@ -49,7 +67,6 @@ export class ScatterplotComponent implements VisualizationComponent,
     const nodes$ = this.getGraphicSymbolData<VisualizationNode>('points', this.nodeDefaults);
     this.nodesSubscription = nodes$.subscribe(nodes => {
       this.nodes = nodes;
-      // this.doLayout();
       this.updateSpec();
     });
   }
@@ -72,6 +89,8 @@ export class ScatterplotComponent implements VisualizationComponent,
     if ('nodeDefaults' in changes) {
       this.nodeDefaults = this.data.properties.nodeDefaults;
       this.refreshData();
+    } else {
+      this.updateSpec();
     }
   }
   getGraphicSymbolData<T>(slot: string, defaults: { [gvName: string]: any } = {}): Observable<TDatum<T>[]> {

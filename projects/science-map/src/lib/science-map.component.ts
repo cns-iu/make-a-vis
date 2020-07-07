@@ -18,6 +18,19 @@ import { scienceMapSpec, ScienceMapSpecOptions } from './science-map.vega';
 export class ScienceMapComponent implements VisualizationComponent,
     AfterViewInit, OnChanges, OnDestroy, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
+  @Input() propertyDefaults: Partial<ScienceMapSpecOptions> = {
+    subdisciplineColor: '#9b9b9b',
+    subdisciplineStrokeOpacity: 0.25,
+    labelStrokeOpacity: 0.9,
+    labelFillOpacity: 0.75,
+    labelFontSize: 17,
+    labelStroke: '#000007',
+    labelStrokeWidth: 1,
+    labelAlign: 'left',
+    labelBaseline: 'middle',
+    xScale: [100, 500],
+    yScale: [0, 275]
+  };
   @Input() nodeDefaults: Partial<VisualizationNode> = {
     shape: 'circle',
     areaSize: 16,
@@ -39,6 +52,8 @@ export class ScienceMapComponent implements VisualizationComponent,
 
   updateSpec(): void {
     this.spec = scienceMapSpec({
+      ...this.propertyDefaults,
+      ...this.data.properties,
       nodes: this.nodes || []
     });
   }
@@ -73,6 +88,8 @@ export class ScienceMapComponent implements VisualizationComponent,
     if ('nodeDefaults' in changes) {
       this.nodeDefaults = this.data.properties.nodeDefaults;
       this.refreshData();
+    } else {
+      this.updateSpec();
     }
   }
   getGraphicSymbolData<T>(slot: string, defaults: { [gvName: string]: any } = {}): Observable<TDatum<T>[]> {

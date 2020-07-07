@@ -17,6 +17,9 @@ import { temporalBargraphSpec } from './temporal-bargraph.vega';
 export class TemporalBargraphComponent implements VisualizationComponent,
     AfterViewInit, OnChanges, OnDestroy, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
+  @Input() propertyDefaults: Partial<TemporalBargraphSpecOptions> = {
+
+  };
   @Input() nodeDefaults: Partial<VisualizationNode> = {
     shape: 'circle',
     areaSize: 16,
@@ -37,6 +40,8 @@ export class TemporalBargraphComponent implements VisualizationComponent,
 
   updateSpec(): void {
     this.spec = temporalBargraphSpec({
+      ...this.propertyDefaults,
+      ...this.data.properties,
       nodes: this.nodes || []
     });
   }
@@ -71,6 +76,8 @@ export class TemporalBargraphComponent implements VisualizationComponent,
     if ('nodeDefaults' in changes) {
       this.nodeDefaults = this.data.properties.nodeDefaults;
       this.refreshData();
+    } else {
+      this.updateSpec();
     }
   }
   getGraphicSymbolData<T>(slot: string, defaults: { [gvName: string]: any } = {}): Observable<TDatum<T>[]> {
