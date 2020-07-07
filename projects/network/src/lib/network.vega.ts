@@ -6,6 +6,7 @@ import { VisualizationNode, VisualizationEdge } from './interfaces';
 export interface NetworkSpecOptions {
   nodes?: VisualizationNode[];
   edges?: VisualizationEdge[];
+  enableTooltip?: boolean;
 }
 
 export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec {
@@ -43,7 +44,7 @@ export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec
           color: {field: 'strokeColor', type: 'nominal', scale: null},
           strokeWidth: {field: 'strokeWidth', type: 'quantitative', scale: null},
           opacity: {field: 'strokeOpacity', type: 'quantitative', scale: null},
-          tooltip: {field: 'tooltip', type: 'nominal'}
+          tooltip: options.enableTooltip !== false ? {field: 'tooltip', type: 'nominal'} : undefined
         }
       },
 
@@ -79,7 +80,7 @@ export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec
           strokeWidth: {field: 'strokeWidth', type: 'quantitative', scale: null},
           strokeOpacity: {field: 'strokeOpacity', type: 'quantitative', scale: null},
           size: {field: 'areaSize', type: 'quantitative', scale: null},
-          tooltip: {field: 'tooltip', type: 'nominal'}
+          tooltip: options.enableTooltip !== false ? {field: 'tooltip', type: 'nominal'} : undefined
         }
       }
     ]

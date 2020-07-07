@@ -7,6 +7,7 @@ import { scienceMapData } from './science-map.data';
 
 export interface ScienceMapSpecOptions {
   nodes?: VisualizationNode[];
+  enableTooltip?: boolean;
   subdisciplineColor?: string;
   subdisciplineStrokeOpacity?: number;
   labelStrokeOpacity?: number;
@@ -114,7 +115,7 @@ export function scienceMapSpec(options: ScienceMapSpecOptions = {}): Visualizati
           strokeWidth: {field: 'strokeWidth', type: 'quantitative', scale: null},
           strokeOpacity: {field: 'strokeOpacity', type: 'quantitative', scale: null},
           size: {field: 'areaSize', type: 'quantitative', scale: null},
-          tooltip: {field: 'tooltip', type: 'nominal'}
+          tooltip: options.enableTooltip !== false ? {field: 'tooltip', type: 'nominal'} : undefined
         }
       },
 
