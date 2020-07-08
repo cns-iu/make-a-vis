@@ -6,9 +6,9 @@ import { registerProjectionIfExists } from './register-projection';
 /**
  * Geographical zoom configuration.
  *
- * @type center - Center longitude/latitude pair.
- * @type zoomLevels - Min/max pair of zoom levels.
- * @type [initialZoom] - Initial zoom level.
+ * center - Center longitude/latitude pair.
+ * zoomLevels - Min/max pair of zoom levels.
+ * initialZoom - Initial zoom level.
  */
 export interface GeoZoomOptions {
   center: [number, number];
