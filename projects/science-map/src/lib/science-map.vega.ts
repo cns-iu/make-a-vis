@@ -22,9 +22,6 @@ export interface ScienceMapSpecOptions {
 }
 
 export function scienceMapSpec(options: ScienceMapSpecOptions = {}): VisualizationSpec {
-  const xScale = {domain: options.xScale};
-  const yScale = {domain: options.yScale};
-
   // Apply default styling options
   options = {
     ...{
@@ -76,8 +73,8 @@ export function scienceMapSpec(options: ScienceMapSpecOptions = {}): Visualizati
           }
         ],
         encoding: {
-          x: {field: 'x', type: 'quantitative', scale: xScale, axis: null},
-          y: {field: 'y', type: 'quantitative', scale: yScale, axis: null},
+          x: {field: 'x', type: 'quantitative', scale: {domain: options.xScale}, axis: null},
+          y: {field: 'y', type: 'quantitative', scale: {domain: options.yScale}, axis: null},
           x2: {field: 'x2', type: 'quantitative'},
           y2: {field: 'y2', type: 'quantitative'},
           strokeWidth: {field: 'weight', type: 'quantitative', scale: null}
@@ -124,8 +121,8 @@ export function scienceMapSpec(options: ScienceMapSpecOptions = {}): Visualizati
           },
         ],
         encoding: {
-          x: {field: 'x', type: 'quantitative', scale: xScale, axis: null},
-          y: {field: 'y', type: 'quantitative', scale: yScale, axis: null},
+          x: {field: 'x', type: 'quantitative', scale: {domain: options.xScale}, axis: null},
+          y: {field: 'y', type: 'quantitative', scale: {domain: options.yScale}, axis: null},
           shape: {field: 'shape', type: 'nominal', scale: null},
           fill: {field: 'color', type: 'nominal', scale: null},
           fillOpacity: {field: 'opacity', type: 'quantitative', scale: null},
@@ -145,8 +142,8 @@ export function scienceMapSpec(options: ScienceMapSpecOptions = {}): Visualizati
         },
         data: {name: 'disciplineLabels'},
         encoding: {
-          x: {field: 'x', type: 'quantitative', scale: xScale, axis: null},
-          y: {field: 'y', type: 'quantitative', scale: yScale, axis: null},
+          x: {field: 'x', type: 'quantitative', scale: {domain: options.xScale}, axis: null},
+          y: {field: 'y', type: 'quantitative', scale: {domain: options.yScale}, axis: null},
           color: {field: 'color', type: 'nominal', scale: null},
           text: {field: 'disc_name', type: 'nominal'}
         }
