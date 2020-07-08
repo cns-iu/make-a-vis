@@ -54,6 +54,7 @@ export class GeomapComponent implements VisualizationComponent,
   spec: Spec;
   options: Options;
 
+  readonly basemaps = ['usa', 'world'];
   readonly projections = PROJECTIONS;
   readonly states$ = this.geomapDataService.getStates();
   readonly countries$ = this.geomapDataService.getCountries();
