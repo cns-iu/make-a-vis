@@ -21,7 +21,7 @@ export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec
       // Draw edges
       {
         mark: 'rule',
-        data: {name: 'edges', values: options.edges as any[] || undefined},
+        data: {name: 'edges'},
         transform: [
           {
             calculate: '!isValid(datum.tooltip) ? \'\' : datum.tooltip',
@@ -51,7 +51,7 @@ export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec
       // Draw nodes
       {
         mark: 'point',
-        data: {name: 'nodes', values: options.nodes as any[] || undefined},
+        data: {name: 'nodes'},
         transform: [
           {
             calculate: '!isValid(datum.tooltip) ? \'\' : datum.tooltip',
@@ -83,6 +83,10 @@ export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec
           tooltip: options.enableTooltip !== false ? {field: 'tooltip', type: 'nominal'} : undefined
         }
       }
-    ]
+    ],
+    datasets: {
+      nodes: options.nodes as any[] || undefined,
+      edges: options.edges as any[] || undefined
+    }
   };
 }

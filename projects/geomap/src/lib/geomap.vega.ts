@@ -72,7 +72,7 @@ export function geomapSpec(options: GeomapSpecOptions = {}): VisualizationSpec {
           format: {type: 'topojson', feature: 'states'}
         },
         transform: [
-          { 'filter': options.country === undefined ? 'true' :  `datum.id == '${options.state}' || datum.properties.name == '${options.state}'` } // United States of America
+          { 'filter': options.state === undefined ? 'true' :  `datum.id == '${options.state}' || datum.properties.name == '${options.state}'` } // United States of America
         ],
         projection: {type: options.projection as ProjectionType}
       },
