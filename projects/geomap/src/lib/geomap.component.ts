@@ -4,8 +4,8 @@ import { GraphicSymbolData, TDatum, Visualization, VisualizationComponent } from
 import { DataProcessorService } from '@ngx-dino/core';
 import { Options, Spec } from 'ngx-vega';
 import { Observable, of, Subscription } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
 
+import { patchUsaGeoZoom } from './utils/geomap-zoom-patch';
 import { geomapSpec, GeomapSpecOptions } from './geomap.vega';
 import { VisualizationEdge, VisualizationNode } from './interfaces';
 
@@ -41,7 +41,7 @@ export class GeomapComponent implements VisualizationComponent,
   };
 
   spec: Spec;
-  options: Options = { renderer: 'svg' };
+  options: Options = { renderer: 'svg', patch: patchUsaGeoZoom };
 
   private nodes: TDatum<VisualizationNode>[] = [];
   private edges: TDatum<VisualizationEdge>[] = [];
@@ -67,24 +67,21 @@ export class GeomapComponent implements VisualizationComponent,
       this.edgesSubscription.unsubscribe();
     }
     this.nodes = [];
+    const nodes$ = this.getGraphicSymbolData<VisualizationNode>('nodes', this.nodeDefaults);
+    this.nodesSubscription = nodes$.subscribe(nodes => {
+      this.nodes = nodes.filter(
+        n => isFinite(n.latitude) && isFinite(n.longitude)
+      );
+      this.updateSpec();
+    });
     this.edges = [];
-    this.nodesSubscription = this.getGraphicSymbolData<VisualizationNode>('nodes', this.nodeDefaults)
-      .pipe(
-        map(nodes => nodes.filter(
-          n => isFinite(n.latitude) && isFinite(n.longitude)
-        )),
-        tap(nodes => this.nodes = nodes)
-      )
-      .subscribe(nodes => this.updateSpec());
-
-    this.edgesSubscription = this.getGraphicSymbolData<VisualizationEdge>('edges', this.edgeDefaults)
-      .pipe(
-        map(edges => edges.filter(
-          e => isFinite(e.latitude1) && isFinite(e.longitude1) && isFinite(e.latitude2) && isFinite(e.longitude2)
-        )),
-        tap(edges => this.edges = edges)
-      )
-      .subscribe(edges => this.updateSpec());
+    const edges$ = this.getGraphicSymbolData<VisualizationEdge>('edges', this.edgeDefaults);
+    this.edgesSubscription = edges$.subscribe(edges => {
+      this.edges = edges.filter(
+        e => isFinite(e.latitude1) && isFinite(e.longitude1) && isFinite(e.latitude2) && isFinite(e.longitude2)
+      );
+      this.updateSpec();
+    });
   }
 
   ngAfterViewInit(): void {
