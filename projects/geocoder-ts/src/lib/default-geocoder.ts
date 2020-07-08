@@ -25,7 +25,7 @@ export class DefaultGeocoder implements Geocoder {
 
     async getLocation(address: string): Promise<Location> {
         this.requestCount++;
-        console.log('Time: ', Date.now() - this.time, '\nRequest #', this.requestCount);
+        // console.log('Time: ', Date.now() - this.time, '\nRequest #', this.requestCount);
         return await this.cachedGeocoder.getLocation(address);
     }
 }

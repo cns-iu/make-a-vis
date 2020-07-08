@@ -1,5 +1,7 @@
 import { Location } from './models/Location';
 import { Geocoder } from './models/Geocoder';
+
+import { isoToCountry } from './iso-to-country';
 import Pbf from 'pbf';
 
 interface PointLocation {
@@ -16,6 +18,11 @@ interface City {
   loc: PointLocation;
 }
 
+interface SearchTerms {
+  city: string;
+  country: string;
+}
+
 export class GlobalCitiesGeocoder implements Geocoder {
   cities: Promise<City[]>;
 
@@ -24,21 +31,30 @@ export class GlobalCitiesGeocoder implements Geocoder {
   }
 
   async getLocation(address: string): Promise<Location> {
-    const searchTerms = address.split(',');
-    const city = searchTerms[0];
-    const country = searchTerms[1].trim();
+    const searchTerms: SearchTerms[] = this.getSearchTerms(address);
+    let result;
+    let resultIndex;
 
-    const result = (await this.cities).find(term =>
-      term.name.toLowerCase() === city.toLowerCase() && term.country.trim().toLowerCase() === country.toLowerCase()
-    );
+    for (const [index, terms] of searchTerms.entries()) {
+      const { city, country } = terms;
+      result = (await this.cities).find(term =>
+        this.formatSearch(city).includes(this.formatSearch(term.name)) &&
+        this.formatSearch(term.country) === this.formatSearch(country)
+      );
+      if (result) {
+        resultIndex = index;
+        break;
+      }
+    }
+
 
     if (!result) {
       return undefined;
     }
 
     return {
-      city,
-      country,
+      city: searchTerms[resultIndex].city,
+      country: searchTerms[resultIndex].country,
       latitude: result.loc.coordinates[1],
       longitude: result.loc.coordinates[0],
       state: '',
@@ -46,9 +62,63 @@ export class GlobalCitiesGeocoder implements Geocoder {
     } as Location;
   }
 
+  formatSearch(search: string): string {
+    const normalizedSearch = search.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const deHyphenatedSearch = normalizedSearch.replace(/-/g, ' ');
+    const lowerCaseSearch = deHyphenatedSearch.toLowerCase();
+    const trimmedSearch = lowerCaseSearch.trim();
+
+    return trimmedSearch;
+  }
+
+  getSearchTerms(address: string): SearchTerms[] {
+    const searchTerms: SearchTerms[] = [];
+    const termsArray = address.split(',');
+
+    if (!address || termsArray.length < 2) {
+      return searchTerms;
+    }
+
+    if (termsArray.length === 2) {
+      searchTerms.push({
+        city: termsArray[0],
+        country: termsArray[1]
+      });
+    } else {
+      searchTerms.push({
+        city: termsArray[termsArray.length - 2],
+        country: termsArray[termsArray.length - 1]
+      });
+      searchTerms.push({
+        city: termsArray[termsArray.length - 3],
+        country: termsArray[termsArray.length - 1]
+      });
+    }
+
+    searchTerms.forEach(term => {
+      if (term.country.includes('USA')) {
+        term.country = 'United States';
+      } else if (term.country.includes('Wales')) {
+        term.country = 'United Kingdom';
+      }
+
+      term.city = term.city.trim();
+      term.country = term.country.trim();
+
+      // If the country ends with a period, remove it.
+      if (term.country[term.country.length - 1] === '.') {
+        term.country = term.country.slice(0, -1);
+      }
+    });
+
+    return searchTerms;
+  }
+
   async getCities1000(): Promise<City[]> {
     const citiesFile = await this.getPbf();
-    return this.pbfToJson(citiesFile);
+    const citiesObjects = this.pbfToJson(citiesFile);
+    const city = this.parseIsoToCountry(citiesObjects);
+    return city;
   }
 
   async getPbf() {
@@ -131,4 +201,12 @@ export class GlobalCitiesGeocoder implements Geocoder {
 
     return cities;
   }
+
+  parseIsoToCountry(cities: City[]): City[] {
+    return cities.map(city => {
+      return {...city, country: isoToCountry(city.country)} as City;
+    });
+  }
 }
+
+
