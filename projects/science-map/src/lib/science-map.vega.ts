@@ -8,6 +8,7 @@ import { scienceMapData } from './science-map.data';
 export interface ScienceMapSpecOptions {
   nodes?: VisualizationNode[];
   enableTooltip?: boolean;
+  enableZoomPan?: boolean;
   subdisciplineColor?: string;
   subdisciplineStrokeOpacity?: number;
   labelStrokeOpacity?: number;
@@ -25,6 +26,7 @@ export function scienceMapSpec(options: ScienceMapSpecOptions = {}): Visualizati
   // Apply default styling options
   options = {
     ...{
+      enableTooltip: true,
       subdisciplineColor: '#9b9b9b',
       subdisciplineStrokeOpacity: 0.25,
       labelStrokeOpacity: 0.9,
@@ -53,6 +55,7 @@ export function scienceMapSpec(options: ScienceMapSpecOptions = {}): Visualizati
       {
         mark: {type: 'rule', color: options.subdisciplineColor, strokeOpacity: options.subdisciplineStrokeOpacity},
         data: {name: 'subdisciplineEdges'},
+        selection: options.enableZoomPan ? {grid: {type: 'interval', bind: 'scales'}} : undefined,
         transform: [
           {
             lookup: 'subd_id1',

@@ -19,7 +19,7 @@ export class NetworkComponent implements VisualizationComponent,
     AfterViewInit, OnChanges, OnDestroy, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
   @Input() propertyDefaults: Partial<NetworkSpecOptions> = {
-    enableTooltip: true
+    enableZoomPan: false
   };
   @Input() nodeDefaults: Partial<VisualizationNode> = {
     shape: 'circle',

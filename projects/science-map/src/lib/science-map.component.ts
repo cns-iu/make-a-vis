@@ -18,7 +18,7 @@ export class ScienceMapComponent implements VisualizationComponent,
     AfterViewInit, OnChanges, OnDestroy, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
   @Input() propertyDefaults: Partial<ScienceMapSpecOptions> = {
-    enableTooltip: true
+    enableZoomPan: false
   };
   @Input() nodeDefaults: Partial<VisualizationNode> = {
     shape: 'circle',
@@ -35,7 +35,6 @@ export class ScienceMapComponent implements VisualizationComponent,
 
   private nodes: TDatum<VisualizationNode>[] = [];
   private nodesSubscription: Subscription;
-
 
   constructor(private dataProcessorService: DataProcessorService) { }
 

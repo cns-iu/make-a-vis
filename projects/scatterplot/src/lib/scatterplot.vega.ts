@@ -6,6 +6,7 @@ import { VisualizationNode } from './interfaces';
 export interface ScatterplotSpecOptions {
   nodes?: VisualizationNode[];
   enableTooltip?: boolean;
+  enableZoomPan?: boolean;
   xAxisArrow?: boolean; // TODO: Create X-Axis Arrow
   yAxisArrow?: boolean; // TODO: Create Y-Axis Arrow
   gridlines?: boolean;
@@ -18,6 +19,21 @@ export interface ScatterplotSpecOptions {
 }
 
 export function scatterplotSpec(options: ScatterplotSpecOptions = {}): VisualizationSpec {
+  options = {
+    ...{
+      enableTooltip: true,
+      xAxisArrow: true,
+      yAxisArrow: true,
+      gridlines: true,
+      gridlinesColor: 'lightgrey',
+      gridlinesOpacity: 0.7,
+      tickLabelColor: 'lightblack',
+      showAxisIndicators: false,
+      showAxisLabels: false
+    },
+    ...options
+  };
+
   return {
     '$schema': 'https://vega.github.io/schema/vega-lite/v4.json',
     description: 'A scatter graph visualization uses Cartesian coordinates as a reference system. In the current MAV, records are represented by circles. Circles are placed based on values for two data variables: one plotted along the x-axis, the other along the y-axis. Circles can be size coded and color coded to represent additional data variables. A third data variable can be added to the graph using tooltips for circles.',
@@ -31,6 +47,7 @@ export function scatterplotSpec(options: ScatterplotSpecOptions = {}): Visualiza
       {
         mark: {type: 'point'},
         data: {name: 'nodes'},
+        selection: options.enableZoomPan ? {grid: {type: 'interval', bind: 'scales'}} : undefined,
         transform: [
           {
             calculate: '!isValid(datum.tooltip) ? \'\' : datum.tooltip',

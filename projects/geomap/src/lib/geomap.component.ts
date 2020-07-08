@@ -19,7 +19,7 @@ export class GeomapComponent implements VisualizationComponent,
     AfterViewInit, OnChanges, OnDestroy, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
   @Input() propertyDefaults: Partial<GeomapSpecOptions> = {
-
+    enableZoomPan: false
   };
   @Input() nodeDefaults: Partial<VisualizationNode> = {
     shape: 'circle',
@@ -41,7 +41,7 @@ export class GeomapComponent implements VisualizationComponent,
   };
 
   spec: Spec;
-  options: Options = { renderer: 'svg', patch: patchUsaGeoZoom };
+  options: Options;
 
   private nodes: TDatum<VisualizationNode>[] = [];
   private edges: TDatum<VisualizationEdge>[] = [];
@@ -51,12 +51,18 @@ export class GeomapComponent implements VisualizationComponent,
   constructor(private dataProcessorService: DataProcessorService) { }
 
   updateSpec(): void {
-    this.spec = geomapSpec({
+    const options = {
       ...this.propertyDefaults,
       ...this.data.properties,
       nodes: this.nodes || [],
       edges: this.edges || []
-    });
+    };
+    this.spec = geomapSpec(options);
+    if (options.enableZoomPan) {
+      this.options = {renderer: 'svg', patch: patchUsaGeoZoom};
+    } else {
+      this.options = {renderer: 'svg'};
+    }
   }
 
   refreshData(): void {

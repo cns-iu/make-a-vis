@@ -11,6 +11,7 @@ export interface GeomapSpecOptions {
   country?: string | number;
   state?: string | number;
   projection?: ProjectionType | 'eckert4' | string;
+  enableZoomPan?: boolean;
   basemapZoomLevels?: unknown[];
   basemapSelectedZoomLevel?: number;
   basemapDefaultColor?: string;

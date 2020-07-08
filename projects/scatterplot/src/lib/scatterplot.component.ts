@@ -18,15 +18,7 @@ export class ScatterplotComponent implements VisualizationComponent,
     AfterViewInit, OnChanges, OnDestroy, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
   @Input() propertyDefaults: Partial<ScatterplotSpecOptions> = {
-    enableTooltip: true,
-    xAxisArrow: true,
-    yAxisArrow: true,
-    gridlines: true,
-    gridlinesColor: 'lightgrey',
-    gridlinesOpacity: 0.7,
-    tickLabelColor: 'lightblack',
-    showAxisIndicators: false,
-    showAxisLabels: false
+    enableZoomPan: false
   };
   @Input() nodeDefaults: Partial<VisualizationNode> = {
     shape: 'circle',

@@ -7,9 +7,17 @@ export interface NetworkSpecOptions {
   nodes?: VisualizationNode[];
   edges?: VisualizationEdge[];
   enableTooltip?: boolean;
+  enableZoomPan?: boolean;
 }
 
 export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec {
+  options = {
+    ...{
+      enableTooltip: true
+    },
+    ...options
+  };
+
   return {
     '$schema': 'https://vega.github.io/schema/vega-lite/v4.json',
     description: 'This network visualization presents nodes connected by links. ForceAtlas2, a force-directed layout algorithm, is used to position nodes in two-dimensional space. The algorithm aims to minimize edge crossings and to place nodes so that all edges are of more or less equal length. Nodes can be size and color coded, and edges can be thickness and color coded. An additional data variable can be presented through tooltips on the nodes.',
@@ -22,6 +30,7 @@ export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec
       {
         mark: 'rule',
         data: {name: 'edges'},
+        selection: options.enableZoomPan ? {grid: {type: 'interval', bind: 'scales'}} : undefined,
         transform: [
           {
             calculate: '!isValid(datum.tooltip) ? \'\' : datum.tooltip',
