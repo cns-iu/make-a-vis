@@ -4,33 +4,6 @@ import { VisualizationSpec } from 'vega-embed';
 import { VisualizationEdge, VisualizationNode } from './interfaces';
 
 
-export interface ZoomLevel {
-  selector?: string[]; // FeatureSelector;
-  source: string;
-  projection: string; // | GeoProjection;
-  label: string;
-  class?: string;
-}
-
-const defaultZoomLevels = [
-  {
-    id: 'world',
-    label: 'World',
-    selector: ['world', 'countries'],
-    source: 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-10m.json',
-    feature: 'countries',
-    projection: 'eckert4'
-  },
-  {
-    id: 'usa',
-    label: 'United States',
-    selector: [],
-    source: 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json',
-    feature: 'states',
-    projection: 'albersUsa'
-  }
-];
-
 export interface GeomapSpecOptions {
   nodes?: VisualizationNode[];
   edges?: VisualizationEdge[];
