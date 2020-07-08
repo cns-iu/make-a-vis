@@ -1,7 +1,9 @@
 :host {
   div {
-    width: 100%;
+    top: 4px;
+    width: calc(100% - 12px);
     height: 100%;
     margin: auto;
+    padding-right: 12px;
   }
 }
