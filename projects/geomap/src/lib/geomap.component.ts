@@ -67,18 +67,26 @@ export class GeomapComponent implements VisualizationComponent,
   constructor(private dataProcessorService: DataProcessorService, private geomapDataService: GeomapDataService) { }
 
   updateSpec(): void {
-    const options = {
-      ...this.propertyDefaults,
-      ...this.data.properties,
+    const options = {...this.propertyDefaults, ...this.data.properties};
+
+    this.spec = geomapSpec({
+      ...options,
       nodes: this.nodes || [],
       edges: this.edges || []
-    };
-    this.spec = geomapSpec(options);
+    });
+
     if (options.enableZoomPan) {
       this.options = {renderer: 'svg', patch: patchUsaGeoZoom};
     } else {
       this.options = {renderer: 'svg'};
     }
+
+    // FIXME: Mother Mary, forgive me my sins
+    const originalVisualization = (this.data as unknown as {original: Visualization}).original;
+    if (originalVisualization) {
+      originalVisualization.properties = options;
+    }
+    this.data.properties = options;
   }
 
   async refreshData(): Promise<void> {
