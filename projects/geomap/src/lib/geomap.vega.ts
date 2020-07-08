@@ -22,19 +22,16 @@ export interface GeomapSpecOptions {
   basemapDefaultStrokeTransparency?: number;
 }
 
-export function geomapSpec(options: GeomapSpecOptions = {}): VisualizationSpec {
-  options = {
-    ...{
-      basemapDefaultColor: 'white',
-      basemapDefaultStrokeColor: '#bebebe',
-      basemapDefaultStrokeWidth: 0.85,
-      basemap: 'usa',
-      projection: 'albersUsa',
-      // country: 'United Kingdom',
-      // state: 'Indiana'
-    },
-    ...options
-  };
+export const DEFAULT_GEOMAP_SPEC_OPTIONS: GeomapSpecOptions = {
+  basemapDefaultColor: 'white',
+  basemapDefaultStrokeColor: '#bebebe',
+  basemapDefaultStrokeWidth: 0.85,
+  basemap: 'usa',
+  projection: 'albersUsa'
+};
+
+export function geomapSpec(options: GeomapSpecOptions = {}, defaultOptions = DEFAULT_GEOMAP_SPEC_OPTIONS): VisualizationSpec {
+  options = {...defaultOptions, ...options}; // Merge options
 
   return {
     '$schema': 'https://vega.github.io/schema/vega-lite/v4.json',

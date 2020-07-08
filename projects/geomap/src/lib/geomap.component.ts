@@ -2,12 +2,16 @@ import { AfterViewInit, Component, Input, OnChanges, OnDestroy, SimpleChanges } 
 import { OnGraphicSymbolChange, OnPropertyChange } from '@dvl-fw/angular';
 import { GraphicSymbolData, TDatum, Visualization, VisualizationComponent } from '@dvl-fw/core';
 import { DataProcessorService } from '@ngx-dino/core';
+import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
+import { Feature, MultiPolygon, Polygon } from '@turf/helpers';
 import { Options, Spec } from 'ngx-vega';
 import { Observable, of, Subscription } from 'rxjs';
 
-import { patchUsaGeoZoom } from './utils/geomap-zoom-patch';
-import { geomapSpec, GeomapSpecOptions } from './geomap.vega';
+import { GeomapDataService } from './geomap-data.service';
+import { DEFAULT_GEOMAP_SPEC_OPTIONS, geomapSpec, GeomapSpecOptions } from './geomap.vega';
 import { VisualizationEdge, VisualizationNode } from './interfaces';
+import { patchUsaGeoZoom } from './utils/geomap-zoom-patch';
+import { PROJECTIONS } from './utils/projections';
 
 
 @Component({
@@ -19,7 +23,14 @@ export class GeomapComponent implements VisualizationComponent,
     AfterViewInit, OnChanges, OnDestroy, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
   @Input() propertyDefaults: Partial<GeomapSpecOptions> = {
-    enableZoomPan: false
+    ...DEFAULT_GEOMAP_SPEC_OPTIONS,
+    ...{
+      enableZoomPan: false,
+      basemap: 'usa',
+      // country: 'United States of America',
+      // state: 'Indiana',
+      // projection: 'mercator'
+    }
   };
   @Input() nodeDefaults: Partial<VisualizationNode> = {
     shape: 'circle',
@@ -43,12 +54,16 @@ export class GeomapComponent implements VisualizationComponent,
   spec: Spec;
   options: Options;
 
+  readonly projections = PROJECTIONS;
+  readonly states$ = this.geomapDataService.getStates();
+  readonly countries$ = this.geomapDataService.getCountries();
+
   private nodes: TDatum<VisualizationNode>[] = [];
   private edges: TDatum<VisualizationEdge>[] = [];
   private nodesSubscription: Subscription;
   private edgesSubscription: Subscription;
 
-  constructor(private dataProcessorService: DataProcessorService) { }
+  constructor(private dataProcessorService: DataProcessorService, private geomapDataService: GeomapDataService) { }
 
   updateSpec(): void {
     const options = {
@@ -65,19 +80,36 @@ export class GeomapComponent implements VisualizationComponent,
     }
   }
 
-  refreshData(): void {
+  async refreshData(): Promise<void> {
     if (this.nodesSubscription) {
       this.nodesSubscription.unsubscribe();
     }
     if (this.edgesSubscription) {
       this.edgesSubscription.unsubscribe();
     }
+
+    const baseOptions = {
+      ...this.propertyDefaults,
+      ...this.data.properties
+    };
+    let country: Feature<Polygon|MultiPolygon> | undefined;
+    if (baseOptions.country) {
+      country = (await this.geomapDataService.countries).find(c =>
+        c.id === baseOptions.country || c.properties.name === baseOptions.country
+      );
+    }
+
     this.nodes = [];
     const nodes$ = this.getGraphicSymbolData<VisualizationNode>('nodes', this.nodeDefaults);
     this.nodesSubscription = nodes$.subscribe(nodes => {
       this.nodes = nodes.filter(
         n => isFinite(n.latitude) && isFinite(n.longitude)
       );
+      if (country) {
+        this.nodes = nodes.filter(n =>
+          booleanPointInPolygon([n.longitude, n.latitude], country)
+        );
+      }
       this.updateSpec();
     });
     this.edges = [];
@@ -86,6 +118,11 @@ export class GeomapComponent implements VisualizationComponent,
       this.edges = edges.filter(
         e => isFinite(e.latitude1) && isFinite(e.longitude1) && isFinite(e.latitude2) && isFinite(e.longitude2)
       );
+      if (country) {
+        this.edges = edges.filter(e =>
+          booleanPointInPolygon([e.longitude1, e.latitude1], country) && booleanPointInPolygon([e.longitude2, e.latitude2], country)
+        );
+      }
       this.updateSpec();
     });
   }

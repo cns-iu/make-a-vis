@@ -49,6 +49,8 @@
     "@ngrx/store": "^9.2.0",
     "@ngx-dino/core": "^0.11.0",
     "@ngx-dino/legend": "^0.13.0",
+    "@turf/boolean-point-in-polygon": "^6.0.1",
+    "@turf/helpers": "^6.1.4",
     "blob-stream-browserify": "^0.1.3",
     "cheet.js": "^0.3.3",
     "core-js": "^3.6.5",
