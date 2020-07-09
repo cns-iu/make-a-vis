@@ -1,8 +1,13 @@
 import { CSVTemplateProject, ProjectSerializer } from '@dvl-fw/core';
 import { ISITemplateProject } from '@dvl-fw/isi';
 import { NSFTemplateProject } from '@dvl-fw/nsf';
+import fetch from 'node-fetch';
 import * as fs from 'fs';
 import * as path from 'path';
+
+if (!globalThis.fetch) {
+  globalThis.fetch = fetch;
+}
 
 async function importProject(template, inData, outYAML) {
   if (template === 'isi') {

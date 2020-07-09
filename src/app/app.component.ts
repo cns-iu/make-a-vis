@@ -14,6 +14,5 @@ export class AppComponent {
       appUpdaterService.checkForUpdates();
       appUpdaterService.askToUpdate();
     }
-
   }
 }

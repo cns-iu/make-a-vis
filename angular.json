@@ -778,10 +778,50 @@
           }
         }
       }
+    },
+    "geocoder-ts": {
+      "projectType": "library",
+      "root": "projects/geocoder-ts",
+      "sourceRoot": "projects/geocoder-ts/src",
+      "prefix": "geo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/geocoder-ts/tsconfig.lib.json",
+            "project": "projects/geocoder-ts/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/geocoder-ts/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/geocoder-ts/src/test.ts",
+            "tsConfig": "projects/geocoder-ts/tsconfig.spec.json",
+            "karmaConfig": "projects/geocoder-ts/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/geocoder-ts/tsconfig.lib.json",
+              "projects/geocoder-ts/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "make-a-vis-demo",
   "cli": {
-    "analytics": "3e27642d-9fa2-4c8e-9683-eed04f6d8bdf"
+    "analytics": true
   }
 }

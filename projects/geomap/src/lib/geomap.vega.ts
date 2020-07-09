@@ -22,19 +22,23 @@ export interface GeomapSpecOptions {
   basemapDefaultStrokeTransparency?: number;
 }
 
-export function geomapSpec(options: GeomapSpecOptions = {}): VisualizationSpec {
-  options = {
-    ...{
-      basemapDefaultColor: 'white',
-      basemapDefaultStrokeColor: '#bebebe',
-      basemapDefaultStrokeWidth: 0.85,
-      basemap: 'usa',
-      projection: 'albersUsa',
-      // country: 'United Kingdom',
-      // state: 'Indiana'
-    },
-    ...options
-  };
+export const DEFAULT_GEOMAP_SPEC_OPTIONS: GeomapSpecOptions = {
+  basemapDefaultColor: 'white',
+  basemapDefaultStrokeColor: '#bebebe',
+  basemapDefaultStrokeWidth: 0.85,
+  basemap: 'usa',
+  projection: 'albersUsa'
+};
+
+export function geomapSpec(options: GeomapSpecOptions = {}, defaultOptions = DEFAULT_GEOMAP_SPEC_OPTIONS): VisualizationSpec {
+  options = {...defaultOptions, ...options}; // Merge options
+
+  if (options.projection === 'albersUsa') {
+    options.basemap = 'usa';
+    if (options.enableZoomPan) {
+      options.projection = 'albers';
+    }
+  }
 
   return {
     '$schema': 'https://vega.github.io/schema/vega-lite/v4.json',
@@ -56,14 +60,15 @@ export function geomapSpec(options: GeomapSpecOptions = {}): VisualizationSpec {
           format: {type: 'topojson', feature: 'countries'}
         },
         transform: [
-          { 'filter': options.country === undefined ? 'true' :  `datum.id == '${options.country}' || datum.properties.name == '${options.country}'` } // United States of America
+          { 'filter': !options.enableZoomPan && options.country ? `datum.id == '${options.country}' || datum.properties.name == '${options.country}'` : 'true' }
         ],
         projection: {type: options.projection as ProjectionType}
       },
 
       // Draw states
       {
-        name: 'us-states',
+        name: options.projection !== 'albersUsa' &&
+            ((options.country && options.country !== 'United States of America') || (options.basemap !== 'usa' && !options.state)) ? 'delete-me' : 'us-states',
         mark: {
           type: 'geoshape',
           fill: options.basemapDefaultColor, stroke: options.basemapDefaultStrokeColor, strokeWidth: options.basemapDefaultStrokeWidth
@@ -73,7 +78,7 @@ export function geomapSpec(options: GeomapSpecOptions = {}): VisualizationSpec {
           format: {type: 'topojson', feature: 'states'}
         },
         transform: [
-          { 'filter': options.state === undefined ? 'true' :  `datum.id == '${options.state}' || datum.properties.name == '${options.state}'` } // United States of America
+          { 'filter': options.state ? `datum.id == '${options.state}' || datum.properties.name == '${options.state}'` : 'true' }
         ],
         projection: {type: options.projection as ProjectionType}
       },

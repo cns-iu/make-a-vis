@@ -64,8 +64,9 @@ export function temporalBargraphSpec(options: TemporalBargraphSpecOptions = {}):
         type: 'ordinal',
         axis: {
           title: null,
-          labelAngle: 0,
+          ticks: false,
           tickBand: 'extent',
+          labelAngle: 0,
           grid: true,
         }
       },

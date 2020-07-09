@@ -1,7 +1,8 @@
 import {
   areaSizeScaleNormQuantitative, colorScaleNormQuantitative, colorScaleNormQuantitativeStroke, defaultStyles, extractPoint,
-  fontSizeScaleNormQuantitative, formatNumber, formatYear, Location, norm0to100, quantitativeTransparency,
+  fontSizeScaleNormQuantitative, formatNumber, formatYear, norm0to100, quantitativeTransparency,
 } from '@dvl-fw/core';
+import { Location } from 'geocoder-ts';
 import { access, chain, constant, map, Operand } from '@ngx-dino/core';
 
 export class InvestigatorStats {

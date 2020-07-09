@@ -1,0 +1,10 @@
+{
+  "name": "geocoder-ts",
+  "version": "0.50.0",
+  "dependencies": {
+    "pbf": "^3.2.1"
+  },
+  "devDependencies": {
+    "@types/pbf": "^3.0.2"
+  }
+}

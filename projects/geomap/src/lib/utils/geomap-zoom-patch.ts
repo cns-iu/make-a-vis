@@ -128,22 +128,23 @@ export function addGeoZoom(spec: Spec, opts: GeoZoomOptions): void {
   delete projection.size;
 }
 
+export function createGeoZoomPatch(opts: GeoZoomOptions): (spec: Spec) => Spec {
+  return (spec) => {
+    addGeoZoom(spec, opts);
+    return spec;
+  };
+}
+
 /**
  * Patches a vega specification to add geographical zooming focused on Indiana.
  *
  * @param spec - The vega specification object.
  */
-export function patchIndianaGeoZoom(spec: Spec): Spec {
-  addGeoZoom(spec, INDIANA_ZOOM_CONFIG);
-  return spec;
-}
+export const patchIndianaGeoZoom = createGeoZoomPatch(INDIANA_ZOOM_CONFIG);
 
 /**
  * Patches a vega specification to add geographical zooming focused on USA.
  *
  * @param spec - The vega specification object.
  */
-export function patchUsaGeoZoom(spec: Spec): Spec {
-  addGeoZoom(spec, USA_ZOOM_CONFIG);
-  return spec;
-}
+export const patchUsaGeoZoom = createGeoZoomPatch(USA_ZOOM_CONFIG);

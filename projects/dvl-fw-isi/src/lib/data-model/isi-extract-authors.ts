@@ -1,15 +1,15 @@
-import { Geocoder } from '@dvl-fw/core';
-
 import { Author, AuthorStats } from './isi-author';
 import { Publication } from './isi-publication';
+import { DefaultGeocoder } from 'geocoder-ts';
 
-export function extractAuthors(publications: Publication[]): Author[] {
+export async function extractAuthors(publications: Publication[]): Promise<Author[]> {
   const authors: any = {}, authorList: Author[] = [];
   const globalStats = new AuthorStats();
-  const geocoder = new Geocoder();
+  const geocoder = new DefaultGeocoder();
 
   for (const pub of publications) {
-    pub.authors.forEach((name, index) => {
+    // pub.authors.forEach(async (name, index) => {
+    for (const [index, name] of pub.authors.entries()) {
       let author: Author = authors[name];
 
       // Address also includes name in [brackets]. Strip those out.
@@ -30,7 +30,7 @@ export function extractAuthors(publications: Publication[]): Author[] {
       }
 
       if (!author.location && address) {
-        author.location = geocoder.getUSLocation(address.split(/\,/).slice(-4).join(','));
+        author.location = await geocoder.getLocation(address.split(/\,/).slice(-4).join(','));
         if (author.location) {
           // Replace address with the more 'accurate' version.
           author.address = address;
@@ -51,7 +51,7 @@ export function extractAuthors(publications: Publication[]): Author[] {
           author.lastYear = pub.publicationYear;
         }
       }
-    });
+    }
     pub.Authors = pub.authors.map(a => authors[a]);
   }
   authorList.forEach(a => globalStats.count(a));

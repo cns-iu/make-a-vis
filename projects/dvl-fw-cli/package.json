@@ -1,11 +1,17 @@
 {
   "name": "@dvl-fw/cli",
-  "version": "0.20.0",
+  "version": "0.50.0",
   "publishConfig": {
     "access": "public"
   },
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  },
   "peerDependencies": {
-    "@angular/common": "^8.2.4",
-    "@angular/core": "^8.2.4"
+    "@angular/common": "^9.0.0",
+    "@angular/core": "^9.0.0",
+    "@dvl-fw/core": "^0.50.0",
+    "@dvl-fw/isi": "^0.50.0",
+    "@dvl-fw/nsf": "^0.50.0"
   }
 }
