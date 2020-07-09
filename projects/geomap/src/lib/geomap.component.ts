@@ -78,7 +78,6 @@ export class GeomapComponent implements VisualizationComponent,
       if (country) {
         const center = centroid(country) as Feature<Point>;
         const coords = center.geometry.coordinates as [number, number];
-        console.log(coords, country);
         patch = createGeoZoomPatch({
           center: [0 - coords[0], coords[1]],
           zoomLevels: [10, 250000],

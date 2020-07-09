@@ -22,7 +22,6 @@ export class GeomapSettingsComponent implements OnChanges {
   @Input() enableZoomPan: boolean;
 
   optionsHidden = true;
-  usaSelected = true;
 
   togglePanel() {
     this.optionsHidden = !this.optionsHidden;
@@ -30,10 +29,6 @@ export class GeomapSettingsComponent implements OnChanges {
 
   basemapChange(value: 'usa' | 'world') {
     this.basemap = value;
-    this.usaSelected = !this.usaSelected;
-    if (this.usaSelected) {
-      this.country = 'United States of America';
-    }
     this.options = {...this.options, basemap: this.basemap, country: this.country};
     this.optionsChange.emit(this.options);
   }
@@ -56,8 +51,8 @@ export class GeomapSettingsComponent implements OnChanges {
     this.optionsChange.emit(this.options);
   }
 
-  zoomChange() {
-    this.enableZoomPan = !this.enableZoomPan;
+  zoomChange(value: boolean) {
+    this.enableZoomPan = value;
     this.options = {...this.options, enableZoomPan: this.enableZoomPan};
     this.optionsChange.emit(this.options);
   }
