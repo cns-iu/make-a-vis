@@ -2,6 +2,24 @@
 
 Changelog for Make-a-Vis and DVL-FW.
 
+## 0.5.0 - 2020-07-10
+
+### Added in 0.50.0
+
+- Upgraded to Angular 9
+- Replaced all @ngx-dino visualizations with vega-lite based visualizations
+- Geographic map now supports multiple basemaps, projections, zooming/panning, and more
+- All visualizations can be opened directly in vega-editor for additional customization
+- Added world-wide geocoding (Advanced mode includes even more advanced geocoding with an external service)
+- Fixed a bug where exporting data from tables caused the number of rows to double, see Issue #271
+- Fixed a bug where extra long text in the visualization description concealed the save button when editing, see Issue #270
+
+### Breaking changes in 0.50.0
+
+- @dvl-fw/ngx-dino has been removed and no longer supported
+- Temporal Bar Graph has some unresolved graphical differences from the previous version
+- 'star' and 'wye' shapes are no longer supported, but could be implemented with custom paths, see the vega-lite [docs](https://vega.github.io/vega-lite/docs/point.html#properties)
+
 ## 0.20.0 - 2019-10-04
 
 ### Added in 0.20.0
