@@ -2,15 +2,17 @@
   position: absolute;
   top: 0px;
   z-index: 1;
-  
+
   .geomap-settings-icon {
     position: absolute;
     left: 12px;
     top: 12px;
     cursor: pointer;
+    color: #1e88ff;
 
     &.active {
       color: #1e88ff;
+      opacity: 0.9;
     }
   }
 
@@ -21,7 +23,7 @@
     display: flex;
     flex-direction: column;
     background: white;
-    
+
     &.hidden {
       display: none;
     }
