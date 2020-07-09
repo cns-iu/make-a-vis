@@ -7,7 +7,6 @@ import { RateLimitedGeocoder } from './rate-limited-geocoder';
 
 import { Geocoder } from './models/Geocoder';
 import { Location } from './models/Location';
-import { OnInit } from '@angular/core';
 
 export class DefaultGeocoder implements Geocoder {
     usGeocoder = new USGeocoder();
