@@ -51,12 +51,17 @@ export function temporalBargraphSpec(options: TemporalBargraphSpecOptions = {}):
     ],
 
     encoding: {
-      x: { field: 'x-start', type: 'ordinal' },
+      x: {
+        field: 'x-start',
+        type: 'ordinal',
+        axis: {domain: false, ticks: false, grid: true, labelAngle: 0}
+      },
       y: {
         field: 'order',
         type: 'ordinal',
         sort: '-x',
-        axis: null
+        axis: null,
+        title: null
       }
     },
 
@@ -71,7 +76,7 @@ export function temporalBargraphSpec(options: TemporalBargraphSpecOptions = {}):
           stroke: { field: 'strokeColor', type: 'nominal', scale: null },
           strokeWidth: { field: 'strokeWidth', type: 'quantitative', scale: null },
           strokeOpacity: { field: 'strokeOpacity', type: 'quantitative', scale: null },
-          size: { field: 'areaSize', type: 'quantitative' /*, scale: null */ },
+          size: { field: 'areaSize', type: 'quantitative', legend: null /*, scale: null */ },
           tooltip: { field: 'tooltip', type: 'nominal' }
         }
       },
