@@ -68,9 +68,8 @@ export class GeomapComponent implements VisualizationComponent,
 
   constructor(private dataProcessorService: DataProcessorService, private geomapDataService: GeomapDataService) { }
 
-<<<<<<< HEAD
-  async updateSpec(): Promise<void> {
-    const options = {...this.propertyDefaults, ...this.data.properties};
+  async updateSpec(newOptions?: GeomapSpecOptions): Promise<void> {
+    const options = {...this.propertyDefaults, ...this.data.properties, ...newOptions};
     let patch = patchUsaGeoZoom;
 
     if (options.country && options.enableZoomPan) {
@@ -86,10 +85,6 @@ export class GeomapComponent implements VisualizationComponent,
         });
       }
     }
-=======
-  updateSpec(newOptions?: GeomapSpecOptions): void {
-    const options = {...this.propertyDefaults, ...this.data.properties, ...this.userOptions, ...newOptions};
->>>>>>> 733b409428d20a10f663b3b9f8a41d69292b6ed7
 
     this.spec = geomapSpec({
       ...options,
