@@ -27,12 +27,12 @@ export class ISIDatabase {
     }
   }
 
-  static fromISIFile(isiFileContents: string): ISIDatabase {
+  static async fromISIFile(isiFileContents: string): Promise<ISIDatabase> {
     const records = parseISIFile(isiFileContents);
     const publications = extractPublications(records);
     const journals = extractJournals(publications);
     const subdisciplines = extractSubdisciplines(journals);
-    const authors = extractAuthors(publications);
+    const authors = await extractAuthors(publications);
     const coAuthorLinks = extractCoAuthorLinks(publications);
     layoutCoAuthorNetwork(authors, coAuthorLinks);
 
