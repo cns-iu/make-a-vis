@@ -88,10 +88,15 @@ export class GeomapSettingsComponent implements OnChanges {
 
   @HostListener('document:click', ['$event.target']) // tslint:disable-line:no-unsafe-any
   close(target: HTMLElement): void {
-    const optionsPanel = document.getElementsByClassName('selectionPanel')[0];
+    const optionsPanels = Array.from(document.getElementsByClassName('selectionPanel'));
     const { contentElement: { nativeElement: content } = { nativeElement: undefined } } = this;
-    if (content?.contains(target) || optionsPanel?.contains(target)) {
+    if (content?.contains(target)) {
       return;
+    }
+    for (const element of optionsPanels) {
+      if (element?.contains(target)) {
+        return;
+      }
     }
     this.optionsHidden = true;
   }
