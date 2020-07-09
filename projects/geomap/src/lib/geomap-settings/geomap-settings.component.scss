@@ -1,0 +1,33 @@
+.geomap-settings-container {
+  position: absolute;
+  top: 0px;
+  z-index: 1;
+  
+  .geomap-settings-icon {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    cursor: pointer;
+
+    &.active {
+      color: #1e88ff;
+    }
+  }
+
+  .geomap-options-panel {
+    position: absolute;
+    top: 50px;
+    left: 12px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    
+    &.hidden {
+      display: none;
+    }
+  }
+}
+
+mat-form-field {
+  opacity: 1
+}

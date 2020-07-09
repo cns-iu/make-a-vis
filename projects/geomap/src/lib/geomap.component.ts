@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Component, Input, Output, OnChanges, OnDestroy, SimpleChanges, EventEmitter } from '@angular/core';
 import { OnGraphicSymbolChange, OnPropertyChange } from '@dvl-fw/angular';
 import { GraphicSymbolData, TDatum, Visualization, VisualizationComponent } from '@dvl-fw/core';
 import { DataProcessorService } from '@ngx-dino/core';
@@ -27,9 +27,9 @@ export class GeomapComponent implements VisualizationComponent,
     ...{
       enableZoomPan: false,
       basemap: 'usa',
-      // country: 'United States of America',
-      // state: 'Indiana',
-      // projection: 'mercator'
+      country: 'United States of America',
+      state: 'Indiana',
+      projection: 'mercator'
     }
   };
   @Input() nodeDefaults: Partial<VisualizationNode> = {
@@ -50,6 +50,7 @@ export class GeomapComponent implements VisualizationComponent,
     strokeTransparency: 0.25,
     strokeWidth: 1
   };
+  @Input() userOptions: GeomapSpecOptions = this.propertyDefaults;
 
   spec: Spec;
   options: Options;
@@ -66,8 +67,8 @@ export class GeomapComponent implements VisualizationComponent,
 
   constructor(private dataProcessorService: DataProcessorService, private geomapDataService: GeomapDataService) { }
 
-  updateSpec(): void {
-    const options = {...this.propertyDefaults, ...this.data.properties};
+  updateSpec(newOptions?: GeomapSpecOptions): void {
+    const options = {...this.propertyDefaults, ...this.data.properties, ...this.userOptions, ...newOptions};
 
     this.spec = geomapSpec({
       ...options,
@@ -144,11 +145,17 @@ export class GeomapComponent implements VisualizationComponent,
       this.edgeDefaults = this.data.properties.edgeDefaults;
     }
     if (this.data) {
+      if (!this.userOptions) {
+        const options = {...this.propertyDefaults, ...this.data.properties, ...this.userOptions};
+        this.userOptions = options;
+      }
       this.refreshData();
     }
   }
   ngOnChanges(changes: SimpleChanges): void {
-    if ('data' in changes) { this.refreshData(); }
+    if ('data' in changes || 'userOptions' in changes) {
+      this.refreshData();
+    }
   }
   dvlOnGraphicSymbolChange(changes: SimpleChanges): void {
     if ('nodes' in changes || 'edges' in changes) { this.refreshData(); }
