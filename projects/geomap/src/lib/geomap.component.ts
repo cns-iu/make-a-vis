@@ -3,14 +3,15 @@ import { OnGraphicSymbolChange, OnPropertyChange } from '@dvl-fw/angular';
 import { GraphicSymbolData, TDatum, Visualization, VisualizationComponent } from '@dvl-fw/core';
 import { DataProcessorService } from '@ngx-dino/core';
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
-import { Feature, MultiPolygon, Polygon } from '@turf/helpers';
+import centroid from '@turf/centroid';
+import { Feature, MultiPolygon, Point, Polygon } from '@turf/helpers';
 import { Options, Spec } from 'ngx-vega';
 import { Observable, of, Subscription } from 'rxjs';
 
 import { GeomapDataService } from './geomap-data.service';
 import { DEFAULT_GEOMAP_SPEC_OPTIONS, geomapSpec, GeomapSpecOptions } from './geomap.vega';
 import { VisualizationEdge, VisualizationNode } from './interfaces';
-import { patchUsaGeoZoom } from './utils/geomap-zoom-patch';
+import { createGeoZoomPatch, patchUsaGeoZoom } from './utils/geomap-zoom-patch';
 import { PROJECTIONS } from './utils/projections';
 
 
@@ -66,8 +67,23 @@ export class GeomapComponent implements VisualizationComponent,
 
   constructor(private dataProcessorService: DataProcessorService, private geomapDataService: GeomapDataService) { }
 
-  updateSpec(): void {
+  async updateSpec(): Promise<void> {
     const options = {...this.propertyDefaults, ...this.data.properties};
+    let patch = patchUsaGeoZoom;
+
+    if (options.country && options.enableZoomPan) {
+      const country = await this.geomapDataService.getCountry(options.country);
+      if (country) {
+        const center = centroid(country) as Feature<Point>;
+        const coords = center.geometry.coordinates as [number, number];
+        console.log(coords, country);
+        patch = createGeoZoomPatch({
+          center: [0 - coords[0], coords[1]],
+          zoomLevels: [10, 250000],
+          initialZoom: 400
+        });
+      }
+    }
 
     this.spec = geomapSpec({
       ...options,
@@ -75,8 +91,8 @@ export class GeomapComponent implements VisualizationComponent,
       edges: this.edges || []
     });
 
-    if (options.enableZoomPan) {
-      this.options = {renderer: 'svg', patch: patchUsaGeoZoom};
+    if (options.enableZoomPan || patch !== patchUsaGeoZoom) {
+      this.options = {renderer: 'svg', patch};
     } else {
       this.options = {renderer: 'svg'};
     }
@@ -102,10 +118,8 @@ export class GeomapComponent implements VisualizationComponent,
       ...this.data.properties
     };
     let country: Feature<Polygon|MultiPolygon> | undefined;
-    if (baseOptions.country) {
-      country = (await this.geomapDataService.countries).find(c =>
-        c.id === baseOptions.country || c.properties.name === baseOptions.country
-      );
+    if (baseOptions.country && !baseOptions.enableZoomPan) {
+      country = await this.geomapDataService.getCountry(baseOptions.country);
     }
 
     this.nodes = [];

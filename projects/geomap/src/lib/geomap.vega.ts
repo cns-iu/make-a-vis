@@ -53,14 +53,14 @@ export function geomapSpec(options: GeomapSpecOptions = {}, defaultOptions = DEF
           format: {type: 'topojson', feature: 'countries'}
         },
         transform: [
-          { 'filter': options.country === undefined ? 'true' :  `datum.id == '${options.country}' || datum.properties.name == '${options.country}'` } // United States of America
+          { 'filter': options.enableZoomPan || options.country === undefined ? 'true' :  `datum.id == '${options.country}' || datum.properties.name == '${options.country}'` } // United States of America
         ],
         projection: {type: options.projection as ProjectionType}
       },
 
       // Draw states
       {
-        name: 'us-states',
+        name: !options.enableZoomPan && (options.country !== 'United States of America' || options.basemap !== 'usa') ? 'delete-me' : 'us-states',
         mark: {
           type: 'geoshape',
           fill: options.basemapDefaultColor, stroke: options.basemapDefaultStrokeColor, strokeWidth: options.basemapDefaultStrokeWidth
@@ -70,7 +70,7 @@ export function geomapSpec(options: GeomapSpecOptions = {}, defaultOptions = DEF
           format: {type: 'topojson', feature: 'states'}
         },
         transform: [
-          { 'filter': options.state === undefined ? 'true' :  `datum.id == '${options.state}' || datum.properties.name == '${options.state}'` } // United States of America
+          { 'filter': options.enableZoomPan || options.state === undefined ? 'true' :  `datum.id == '${options.state}' || datum.properties.name == '${options.state}'` } // United States of America
         ],
         projection: {type: options.projection as ProjectionType}
       },

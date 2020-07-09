@@ -35,6 +35,18 @@ export class GeomapDataService {
     return this._states;
   }
 
+  async getCountry(country: string | number): Promise<Feature<Polygon|MultiPolygon> | undefined> {
+    return (await this.countries).find(c =>
+      c.id === country || c.properties.name === country
+    );
+  }
+
+  async getState(state: string | number): Promise<Feature<Polygon|MultiPolygon> | undefined> {
+    return (await this.states).find(c =>
+      c.id === state || c.properties.name === state
+    );
+  }
+
   getCountries(): Observable<Feature<Polygon|MultiPolygon>[]> {
     return defer(() => this.countries);
   }
