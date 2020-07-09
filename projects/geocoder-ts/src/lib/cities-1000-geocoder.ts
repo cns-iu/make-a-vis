@@ -32,6 +32,7 @@ export class GlobalCitiesGeocoder implements Geocoder {
 
   async getLocation(address: string): Promise<Location> {
     const searchTerms: SearchTerms[] = this.getSearchTerms(address);
+    const cities = (await this.cities);
     let result;
     let resultIndex;
     let possibleResults;
@@ -39,13 +40,13 @@ export class GlobalCitiesGeocoder implements Geocoder {
     for (const [index, terms] of searchTerms.entries()) {
       const { city, country } = terms;
       if (country !== '') {
-        result = (await this.cities).find(term =>
+        result = cities.find(term =>
           this.formatSearch(city).includes(this.formatSearch(term.name)) &&
           this.formatSearch(term.country) === this.formatSearch(country)
         );
       } else {
         // If searching by only city, return only if there's only one match to ensure accuracy.
-        possibleResults = (await this.cities).filter(term =>
+        possibleResults = cities.filter(term =>
           this.formatSearch(city) === this.formatSearch(term.name)
         );
         if (possibleResults.length === 1) {
@@ -225,5 +226,3 @@ export class GlobalCitiesGeocoder implements Geocoder {
     });
   }
 }
-
-
