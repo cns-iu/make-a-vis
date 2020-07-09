@@ -2,7 +2,7 @@ import { Author, AuthorStats } from './isi-author';
 import { Publication } from './isi-publication';
 import { DefaultGeocoder } from 'geocoder-ts';
 
-export async function extractAuthors(publications: Publication[]): Promise<Author[]> {
+export async function extractAuthors(publications: Publication[], maboxGeocodingEnabled: boolean): Promise<Author[]> {
   const authors: any = {}, authorList: Author[] = [];
   const globalStats = new AuthorStats();
   const geocoder = new DefaultGeocoder();

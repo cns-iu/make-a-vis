@@ -2,6 +2,6 @@ export interface RawData {
   id: string;
   template: string;
 
-  getData(): any | Promise<any>;
+  getData(arg0?: any): any | Promise<any>;
   toJSON(): any;
 }
