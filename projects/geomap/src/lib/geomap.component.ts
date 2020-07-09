@@ -13,6 +13,7 @@ import { DEFAULT_GEOMAP_SPEC_OPTIONS, geomapSpec, GeomapSpecOptions } from './ge
 import { VisualizationEdge, VisualizationNode } from './interfaces';
 import { createGeoZoomPatch, patchUsaGeoZoom } from './utils/geomap-zoom-patch';
 import { PROJECTIONS } from './utils/projections';
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -58,8 +59,8 @@ export class GeomapComponent implements VisualizationComponent,
 
   readonly basemaps = ['usa', 'world'];
   readonly projections = PROJECTIONS;
-  readonly states$ = this.geomapDataService.getStates();
-  readonly countries$ = this.geomapDataService.getCountries();
+  readonly states$: Observable<string[]> = this.geomapDataService.getStates().pipe(map(l => l.map(s => s.properties.name)));
+  readonly countries$: Observable<string[]> = this.geomapDataService.getCountries().pipe(map(l => l.map(s => s.properties.name)));
 
   private nodes: TDatum<VisualizationNode>[] = [];
   private edges: TDatum<VisualizationEdge>[] = [];

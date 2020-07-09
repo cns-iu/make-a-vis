@@ -7,10 +7,10 @@ import { GeomapSpecOptions } from '../geomap.vega';
   styleUrls: ['./geomap-settings.component.scss']
 })
 export class GeomapSettingsComponent implements OnChanges {
-  @Input() states = ['Indiana', 'New York', 'California', 'Texas'];
-  @Input() countries = ['United States of America', 'Canada', 'China'];
-  @Input() projections: string[];
-  @Input() basemaps: string[];
+  @Input() states = [];
+  @Input() countries = [];
+  @Input() projections: string[] = [];
+  @Input() basemaps: string[] = [];
   @Input() options: GeomapSpecOptions;
 
   @Output() optionsChange = new EventEmitter<GeomapSpecOptions>();

@@ -1,7 +1,9 @@
-<dvl-geomap-settings 
-  (optionsChange)="updateSpec($event)" 
-  [basemaps]="basemaps" 
-  [projections]="projections" 
+<dvl-geomap-settings
+  (optionsChange)="updateSpec($event)"
+  [basemaps]="basemaps"
+  [projections]="projections"
+  [countries]="countries$ | async"
+  [states]="states$ | async"
   [(options)]="userOptions">
 </dvl-geomap-settings>
 
