@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnChanges, SimpleChanges, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { GeomapSpecOptions } from '../geomap.vega';
 
 @Component({
@@ -20,6 +20,8 @@ export class GeomapSettingsComponent implements OnChanges {
   @Input() country: string | number;
   @Input() projection: string;
   @Input() enableZoomPan: boolean;
+
+  @ViewChild('settings', { static: true, read: ElementRef }) contentElement: ElementRef<HTMLElement>;
 
   optionsHidden = true;
 
@@ -81,5 +83,14 @@ export class GeomapSettingsComponent implements OnChanges {
       this.state = this.options?.state;
       this.projection = this.options?.projection;
     }
+  }
+
+  @HostListener('document:click', ['$event.target']) // tslint:disable-line:no-unsafe-any
+  close(target: HTMLElement): void {
+    const { contentElement: { nativeElement: content } = { nativeElement: undefined } } = this;
+    if (content?.contains(target)) {
+      return;
+    }
+    this.optionsHidden = true;
   }
 }
