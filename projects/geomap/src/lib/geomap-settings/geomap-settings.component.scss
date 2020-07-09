@@ -11,7 +11,7 @@
     color: #1e88ff;
 
     &.active {
-      color: #1e88ff;
+      color: #757575;
       opacity: 0.9;
     }
   }
@@ -22,7 +22,14 @@
     left: 12px;
     display: flex;
     flex-direction: column;
-    background: white;
+    border: 1px solid transparent;
+    padding: 8px;
+    border-radius: 4px;
+    opacity: 0.9;
+
+    // TODO: put colors in theme
+    border-color: #e0e0e0;
+    background-color: white;
 
     &.hidden {
       display: none;
