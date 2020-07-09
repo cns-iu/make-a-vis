@@ -1,0 +1,44 @@
+<div class="geomap-settings-container">
+  <mat-icon class="geomap-settings-icon" [class.active]="!optionsHidden" 
+    aria-hidden="false" (click)="togglePanel()">settings</mat-icon>
+
+  <div class="geomap-options-panel" [class.hidden]="optionsHidden">
+    <mat-form-field appearance="fill">
+      <mat-label>Basemap</mat-label>
+      <mat-select (selectionChange)="basemapChange($event.value)" [(value)]="basemap">
+        <mat-option *ngFor="let basemap of basemaps" [value]="basemap">
+          {{basemap}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Projection</mat-label>
+      <mat-select (selectionChange)="projectionChange($event.value)" [(value)]="projection">
+        <mat-option *ngFor="let projection of projections" [value]="projection">
+          {{projection}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Country</mat-label>
+      <mat-select [disabled]="usaSelected" (selectionChange)="countryChange($event.value)" [(value)]="country">
+        <mat-option *ngFor="let country of countries" [value]="country">
+          {{country}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>State</mat-label>
+      <mat-select [disabled]="!usaSelected" (selectionChange)="stateChange($event.value)" [(value)]="state">
+        <mat-option *ngFor="let state of states" [value]="state">
+          {{state}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-checkbox (change)="zoomChange()" class="example-margin">Enable Zoom/Pan</mat-checkbox>
+  </div>
+</div>
