@@ -117,6 +117,7 @@
     "ng-mocks": "^9.6.4",
     "ng-packagr": "^10.0.0",
     "ngx-build-plus": "^9.0.6",
+    "node-fetch": "^2.6.0",
     "npm-run-all": "^4.1.5",
     "protractor": "^7.0.0",
     "shallow-render": "^9.0.5",
