@@ -1,10 +1,9 @@
-import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
 import { OnGraphicSymbolChange, OnPropertyChange } from '@dvl-fw/angular';
 import { GraphicSymbolData, TDatum, Visualization, VisualizationComponent } from '@dvl-fw/core';
 import { DataProcessorService } from '@ngx-dino/core';
+import { Options, Spec } from 'ngx-vega';
 import { Observable, of, Subscription } from 'rxjs';
-import { View } from 'vega';
-import embed from 'vega-embed';
 
 import { VisualizationNode } from './interfaces';
 import { temporalBargraphSpec, TemporalBargraphSpecOptions } from './temporal-bargraph.vega';
@@ -18,6 +17,9 @@ import { temporalBargraphSpec, TemporalBargraphSpecOptions } from './temporal-ba
 export class TemporalBargraphComponent implements VisualizationComponent,
     AfterViewInit, OnChanges, OnDestroy, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
+  @Input() propertyDefaults: Partial<TemporalBargraphSpecOptions> = {
+
+  };
   @Input() nodeDefaults: Partial<VisualizationNode> = {
     shape: 'circle',
     areaSize: 16,
@@ -28,25 +30,18 @@ export class TemporalBargraphComponent implements VisualizationComponent,
     strokeWidth: 1
   };
 
+  spec: Spec;
+  options: Options = { renderer: 'svg' };
+
   private nodes: TDatum<VisualizationNode>[] = [];
   private nodesSubscription: Subscription;
-  private view: View;
-
-  @ViewChild('visualization', { read: ElementRef }) vizContainer: ElementRef<HTMLElement>;
 
   constructor(private dataProcessorService: DataProcessorService) { }
 
-  async embedVisualization(options: TemporalBargraphSpecOptions = {}): Promise<void> {
-    if (this.view) {
-      this.view.finalize();
-    }
-    const spec = temporalBargraphSpec(options);
-    const results = await embed(this.vizContainer.nativeElement, spec, {renderer: 'svg'});
-    this.view = results.view;
-  }
-
-  async doLayout(): Promise<void> {
-    await this.embedVisualization({
+  updateSpec(): void {
+    this.spec = temporalBargraphSpec({
+      ...this.propertyDefaults,
+      ...this.data.properties,
       nodes: this.nodes || []
     });
   }
@@ -57,7 +52,10 @@ export class TemporalBargraphComponent implements VisualizationComponent,
     }
     this.nodes = [];
     const nodes$ = this.getGraphicSymbolData<VisualizationNode>('bars', this.nodeDefaults);
-    this.nodesSubscription = nodes$.subscribe(nodes => { this.nodes = nodes; this.doLayout(); });
+    this.nodesSubscription = nodes$.subscribe(nodes => {
+      this.nodes = nodes;
+      this.updateSpec();
+    });
   }
 
   ngAfterViewInit(): void {
@@ -78,6 +76,8 @@ export class TemporalBargraphComponent implements VisualizationComponent,
     if ('nodeDefaults' in changes) {
       this.nodeDefaults = this.data.properties.nodeDefaults;
       this.refreshData();
+    } else {
+      this.updateSpec();
     }
   }
   getGraphicSymbolData<T>(slot: string, defaults: { [gvName: string]: any } = {}): Observable<TDatum<T>[]> {
@@ -90,9 +90,6 @@ export class TemporalBargraphComponent implements VisualizationComponent,
   ngOnDestroy(): void {
     if (this.nodesSubscription) {
       this.nodesSubscription.unsubscribe();
-    }
-    if (this.view) {
-      this.view.finalize();
     }
   }
 }

@@ -1,14 +1,45 @@
+import { ProjectionType } from 'vega';
 import { VisualizationSpec } from 'vega-embed';
 
-import { VisualizationNode, VisualizationEdge } from './interfaces';
+import { VisualizationEdge, VisualizationNode } from './interfaces';
 
 
 export interface GeomapSpecOptions {
   nodes?: VisualizationNode[];
   edges?: VisualizationEdge[];
+  basemap?: 'usa' | 'world';
+  country?: string | number;
+  state?: string | number;
+  projection?: ProjectionType | 'eckert4' | string;
+  enableZoomPan?: boolean;
+  basemapZoomLevels?: unknown[];
+  basemapSelectedZoomLevel?: number;
+  basemapDefaultColor?: string;
+  basemapDefaultTransparency?: number;
+  basemapDefaultStrokeColor?: string;
+  basemapDefaultStrokeWidth?: number;
+  basemapDefaultStrokeDashArray?: string;
+  basemapDefaultStrokeTransparency?: number;
 }
 
-export function geomapSpec(options: GeomapSpecOptions = {}): VisualizationSpec {
+export const DEFAULT_GEOMAP_SPEC_OPTIONS: GeomapSpecOptions = {
+  basemapDefaultColor: 'white',
+  basemapDefaultStrokeColor: '#bebebe',
+  basemapDefaultStrokeWidth: 0.85,
+  basemap: 'usa',
+  projection: 'albersUsa'
+};
+
+export function geomapSpec(options: GeomapSpecOptions = {}, defaultOptions = DEFAULT_GEOMAP_SPEC_OPTIONS): VisualizationSpec {
+  options = {...defaultOptions, ...options}; // Merge options
+
+  if (options.projection === 'albersUsa') {
+    options.basemap = 'usa';
+    if (options.enableZoomPan) {
+      options.projection = 'albers';
+    }
+  }
+
   return {
     '$schema': 'https://vega.github.io/schema/vega-lite/v4.json',
     description: 'US Map: This proportional symbol map shows 50 US states and other jurisdictions using the Albers equal-area conic projection (Alaska and Hawaii are inset). Each dataset record is represented by a circle centered at its geolocation. The area, interior color, and exterior color of each circle may represent numeric attribute values. Minimum and maximum data values are given in the legend.<br><br>World Map: This proportional symbol map shows 252 countries of the world using the equal-area Eckert IV projection. Each dataset record is represented by a circle centered at its geolocation. The area, interior color, and exterior color of each circle may represent numeric attribute values. Minimum and maximum data values are given in the legend.',
@@ -17,22 +48,52 @@ export function geomapSpec(options: GeomapSpecOptions = {}): VisualizationSpec {
     height: 'container',
     config: {view: {strokeOpacity: 0}},
     layer: [
+      // Draw countries
+      {
+        name: options.projection === 'albersUsa' ? 'delete-me' : 'countries',
+        mark: {
+          type: 'geoshape',
+          fill: options.basemapDefaultColor, stroke: options.basemapDefaultStrokeColor, strokeWidth: options.basemapDefaultStrokeWidth
+        },
+        data: {
+          url: `https://cdn.jsdelivr.net/npm/world-atlas@2/countries-${options.basemap === 'usa' ? 110 : 50}m.json`,
+          format: {type: 'topojson', feature: 'countries'}
+        },
+        transform: [
+          { 'filter': !options.enableZoomPan && options.country ? `datum.id == '${options.country}' || datum.properties.name == '${options.country}'` : 'true' }
+        ],
+        projection: {type: options.projection as ProjectionType}
+      },
+
       // Draw states
       {
-        mark: {type: 'geoshape', fill: 'white', stroke: '#bebebe', strokeWidth: 0.5},
+        name: options.projection !== 'albersUsa' &&
+            ((options.country && options.country !== 'United States of America') || (options.basemap !== 'usa' && !options.state)) ? 'delete-me' : 'us-states',
+        mark: {
+          type: 'geoshape',
+          fill: options.basemapDefaultColor, stroke: options.basemapDefaultStrokeColor, strokeWidth: options.basemapDefaultStrokeWidth
+        },
         data: {
           url: 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json',
           format: {type: 'topojson', feature: 'states'}
         },
-        projection: {type: 'albersUsa'}
+        transform: [
+          { 'filter': options.state ? `datum.id == '${options.state}' || datum.properties.name == '${options.state}'` : 'true' }
+        ],
+        projection: {type: options.projection as ProjectionType}
       },
 
       // Draw edges
       {
+        name: 'edges',
         mark: 'rule',
-        data: {name: 'edges', values: options.edges as any[] || undefined},
-        projection: {type: 'albersUsa'},
+        data: {name: 'edges'},
+        projection: {type: options.projection as ProjectionType},
         transform: [
+          {
+            filter: 'isValid(datum.latitude1) && isValid(datum.latitude2) && isValid(datum.longitude1) && isValid(datum.longitude2)'
+              + (options.projection === 'albersUsa' ? ' && datum.latitude1 > 18.8 && datum.latitude2 > 18.8' : '')
+          },
           {
             calculate: '!isValid(datum.tooltip) ? \'\' : datum.tooltip',
             as: 'tooltip'
@@ -60,10 +121,15 @@ export function geomapSpec(options: GeomapSpecOptions = {}): VisualizationSpec {
 
       // Draw nodes
       {
+        name: 'nodes',
         mark: 'point',
-        data: {name: 'nodes', values: options.nodes as any[] || undefined},
-        projection: {type: 'albersUsa'},
+        data: {name: 'nodes'},
+        projection: {type: options.projection as ProjectionType},
         transform: [
+          {
+            filter: 'isValid(datum.latitude)'
+              + (options.projection === 'albersUsa' ? ' && datum.latitude > 18.8' : '')
+          },
           {
             calculate: '!isValid(datum.tooltip) ? \'\' : datum.tooltip',
             as: 'tooltip'
@@ -94,6 +160,10 @@ export function geomapSpec(options: GeomapSpecOptions = {}): VisualizationSpec {
           tooltip: {field: 'tooltip', type: 'nominal'}
         }
       }
-    ]
+    ].filter(l => l.name !== 'delete-me') as any[],
+    datasets: {
+      nodes: options.nodes as any[] || undefined,
+      edges: options.edges as any[] || undefined
+    }
   };
 }

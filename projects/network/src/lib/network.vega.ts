@@ -6,9 +6,18 @@ import { VisualizationNode, VisualizationEdge } from './interfaces';
 export interface NetworkSpecOptions {
   nodes?: VisualizationNode[];
   edges?: VisualizationEdge[];
+  enableTooltip?: boolean;
+  enableZoomPan?: boolean;
 }
 
 export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec {
+  options = {
+    ...{
+      enableTooltip: true
+    },
+    ...options
+  };
+
   return {
     '$schema': 'https://vega.github.io/schema/vega-lite/v4.json',
     description: 'This network visualization presents nodes connected by links. ForceAtlas2, a force-directed layout algorithm, is used to position nodes in two-dimensional space. The algorithm aims to minimize edge crossings and to place nodes so that all edges are of more or less equal length. Nodes can be size and color coded, and edges can be thickness and color coded. An additional data variable can be presented through tooltips on the nodes.',
@@ -20,7 +29,8 @@ export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec
       // Draw edges
       {
         mark: 'rule',
-        data: {name: 'edges', values: options.edges as any[] || undefined},
+        data: {name: 'edges'},
+        selection: options.enableZoomPan ? {grid: {type: 'interval', bind: 'scales'}} : undefined,
         transform: [
           {
             calculate: '!isValid(datum.tooltip) ? \'\' : datum.tooltip',
@@ -43,14 +53,14 @@ export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec
           color: {field: 'strokeColor', type: 'nominal', scale: null},
           strokeWidth: {field: 'strokeWidth', type: 'quantitative', scale: null},
           opacity: {field: 'strokeOpacity', type: 'quantitative', scale: null},
-          tooltip: {field: 'tooltip', type: 'nominal'}
+          tooltip: options.enableTooltip !== false ? {field: 'tooltip', type: 'nominal'} : undefined
         }
       },
 
       // Draw nodes
       {
         mark: 'point',
-        data: {name: 'nodes', values: options.nodes as any[] || undefined},
+        data: {name: 'nodes'},
         transform: [
           {
             calculate: '!isValid(datum.tooltip) ? \'\' : datum.tooltip',
@@ -79,9 +89,13 @@ export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec
           strokeWidth: {field: 'strokeWidth', type: 'quantitative', scale: null},
           strokeOpacity: {field: 'strokeOpacity', type: 'quantitative', scale: null},
           size: {field: 'areaSize', type: 'quantitative', scale: null},
-          tooltip: {field: 'tooltip', type: 'nominal'}
+          tooltip: options.enableTooltip !== false ? {field: 'tooltip', type: 'nominal'} : undefined
         }
       }
-    ]
+    ],
+    datasets: {
+      nodes: options.nodes as any[] || undefined,
+      edges: options.edges as any[] || undefined
+    }
   };
 }

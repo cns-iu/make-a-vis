@@ -40,7 +40,8 @@ module.exports = {
       '@dvl-fw/scatterplot': path.resolve('dist/scatterplot'),
       '@dvl-fw/science-map': path.resolve('dist/science-map'),
       '@dvl-fw/temporal-bargraph': path.resolve('dist/temporal-bargraph'),
-      'geocoder-ts': path.resolve('dist/geocoder-ts')
+      'geocoder-ts': path.resolve('dist/geocoder-ts'),
+      'ngx-vega': path.resolve('dist/ngx-vega')
     },
     extensions: [ '.tsx', '.ts', '.js' ]
   },

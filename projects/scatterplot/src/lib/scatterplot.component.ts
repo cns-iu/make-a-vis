@@ -1,10 +1,9 @@
-import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
 import { OnGraphicSymbolChange, OnPropertyChange } from '@dvl-fw/angular';
 import { GraphicSymbolData, TDatum, Visualization, VisualizationComponent } from '@dvl-fw/core';
 import { DataProcessorService } from '@ngx-dino/core';
+import { Options, Spec } from 'ngx-vega';
 import { Observable, of, Subscription } from 'rxjs';
-import { View } from 'vega';
-import embed from 'vega-embed';
 
 import { VisualizationNode } from './interfaces';
 import { scatterplotSpec, ScatterplotSpecOptions } from './scatterplot.vega';
@@ -18,6 +17,9 @@ import { scatterplotSpec, ScatterplotSpecOptions } from './scatterplot.vega';
 export class ScatterplotComponent implements VisualizationComponent,
     AfterViewInit, OnChanges, OnDestroy, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
+  @Input() propertyDefaults: Partial<ScatterplotSpecOptions> = {
+    enableZoomPan: false
+  };
   @Input() nodeDefaults: Partial<VisualizationNode> = {
     shape: 'circle',
     areaSize: 16,
@@ -25,28 +27,21 @@ export class ScatterplotComponent implements VisualizationComponent,
     strokeColor: '#000007',
     transparency: 0,
     strokeTransparency: 0.25,
-    strokeWidth: 1
+    strokeWidth: 1.5,
   };
+
+  spec: Spec;
+  options: Options = { renderer: 'svg' };
 
   private nodes: TDatum<VisualizationNode>[] = [];
   private nodesSubscription: Subscription;
-  private view: View;
-
-  @ViewChild('visualization', { read: ElementRef }) vizContainer: ElementRef<HTMLElement>;
 
   constructor(private dataProcessorService: DataProcessorService) { }
 
-  async embedVisualization(options: ScatterplotSpecOptions = {}): Promise<void> {
-    if (this.view) {
-      this.view.finalize();
-    }
-    const spec = scatterplotSpec(options);
-    const results = await embed(this.vizContainer.nativeElement, spec, {renderer: 'svg'});
-    this.view = results.view;
-  }
-
-  async doLayout(): Promise<void> {
-    await this.embedVisualization({
+  updateSpec(): void {
+    this.spec = scatterplotSpec({
+      ...this.propertyDefaults,
+      ...this.data.properties,
       nodes: this.nodes || []
     });
   }
@@ -57,7 +52,10 @@ export class ScatterplotComponent implements VisualizationComponent,
     }
     this.nodes = [];
     const nodes$ = this.getGraphicSymbolData<VisualizationNode>('points', this.nodeDefaults);
-    this.nodesSubscription = nodes$.subscribe(nodes => { this.nodes = nodes; this.doLayout(); });
+    this.nodesSubscription = nodes$.subscribe(nodes => {
+      this.nodes = nodes;
+      this.updateSpec();
+    });
   }
 
   ngAfterViewInit(): void {
@@ -78,6 +76,8 @@ export class ScatterplotComponent implements VisualizationComponent,
     if ('nodeDefaults' in changes) {
       this.nodeDefaults = this.data.properties.nodeDefaults;
       this.refreshData();
+    } else {
+      this.updateSpec();
     }
   }
   getGraphicSymbolData<T>(slot: string, defaults: { [gvName: string]: any } = {}): Observable<TDatum<T>[]> {
@@ -90,9 +90,6 @@ export class ScatterplotComponent implements VisualizationComponent,
   ngOnDestroy(): void {
     if (this.nodesSubscription) {
       this.nodesSubscription.unsubscribe();
-    }
-    if (this.view) {
-      this.view.finalize();
     }
   }
 }

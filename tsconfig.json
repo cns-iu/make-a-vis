@@ -87,6 +87,12 @@
       ],
       "geocoder-ts/*": [
         "dist/geocoder-ts/*"
+      ],
+      "ngx-vega": [
+        "dist/ngx-vega"
+      ],
+      "ngx-vega/*": [
+        "dist/ngx-vega/*"
       ]
     }
   }
