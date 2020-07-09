@@ -27,31 +27,31 @@ export class GeomapSettingsComponent implements OnChanges {
     this.optionsHidden = !this.optionsHidden;
   }
 
-  basemapChange(value: 'usa' | 'world') {
+  basemapChange(value: 'usa' | 'world'): void {
     this.basemap = value;
     this.options = {...this.options, basemap: this.basemap, country: this.country};
     this.optionsChange.emit(this.options);
   }
 
-  projectionChange(value: string) {
+  projectionChange(value: string): void {
     this.projection = value;
     this.options = {...this.options, projection: this.projection};
     this.optionsChange.emit(this.options);
   }
 
-  countryChange(value: string) {
+  countryChange(value: string): void {
     this.country = value;
     this.options = {...this.options, country: this.country};
     this.optionsChange.emit(this.options);
   }
 
-  stateChange(value: string) {
+  stateChange(value: string): void {
     this.state = value;
     this.options = {...this.options, state: this.state};
     this.optionsChange.emit(this.options);
   }
 
-  zoomChange(value: boolean) {
+  zoomChange(value: boolean): void {
     this.enableZoomPan = value;
     this.options = {...this.options, enableZoomPan: this.enableZoomPan};
     this.optionsChange.emit(this.options);
@@ -75,6 +75,7 @@ export class GeomapSettingsComponent implements OnChanges {
       this.optionsChange.emit(this.options);
     }
     if ('options' in changes) {
+      this.enableZoomPan = this.options?.enableZoomPan ?? false;
       this.basemap = this.options?.basemap;
       this.country = this.options?.country;
       this.state = this.options?.state;

@@ -59,8 +59,8 @@ export class GeomapComponent implements VisualizationComponent,
 
   readonly basemaps = ['usa', 'world'];
   readonly projections = PROJECTIONS;
-  readonly states$: Observable<string[]> = this.geomapDataService.getStates().pipe(map(l => l.map(s => s.properties.name)));
-  readonly countries$: Observable<string[]> = this.geomapDataService.getCountries().pipe(map(l => l.map(s => s.properties.name)));
+  readonly states$: Observable<string[]> = this.geomapDataService.getStates().pipe(map(l => l.map(s => s.properties.name).sort()));
+  readonly countries$: Observable<string[]> = this.geomapDataService.getCountries().pipe(map(l => l.map(s => s.properties.name).sort()));
 
   private nodes: TDatum<VisualizationNode>[] = [];
   private edges: TDatum<VisualizationEdge>[] = [];
@@ -71,6 +71,7 @@ export class GeomapComponent implements VisualizationComponent,
 
   async updateSpec(newOptions?: GeomapSpecOptions): Promise<void> {
     const options = {...this.propertyDefaults, ...this.data.properties, ...newOptions};
+    this.userOptions = options;
     let patch = patchUsaGeoZoom;
 
     if (options.country && options.enableZoomPan) {
@@ -181,11 +182,7 @@ export class GeomapComponent implements VisualizationComponent,
     if ('edgeDefaults' in changes) {
       this.edgeDefaults = this.data.properties.edgeDefaults;
     }
-    if ('nodeDefaults' in changes || 'edgeDefaults' in changes) {
-      this.refreshData();
-    } else {
-      this.updateSpec();
-    }
+    this.refreshData();
   }
   getGraphicSymbolData<T>(slot: string, defaults: { [gvName: string]: any } = {}): Observable<TDatum<T>[]> {
     if (!this.data?.graphicSymbols[slot]?.graphicVariables?.identifier) {
