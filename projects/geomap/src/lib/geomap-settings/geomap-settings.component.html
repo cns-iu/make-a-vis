@@ -5,7 +5,7 @@
   <div class="geomap-options-panel" [class.hidden]="optionsHidden">
     <mat-form-field appearance="fill">
       <mat-label>Basemap</mat-label>
-      <mat-select (selectionChange)="basemapChange($event.value)" [(value)]="basemap">
+      <mat-select [panelClass]="['selectionPanel']" (selectionChange)="basemapChange($event.value)" [(value)]="basemap">
         <mat-option *ngFor="let basemap of basemaps" [value]="basemap">
           {{basemap}}
         </mat-option>
@@ -14,7 +14,7 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Projection</mat-label>
-      <mat-select (selectionChange)="projectionChange($event.value)" [(value)]="projection">
+      <mat-select [panelClass]="['selectionPanel']" (selectionChange)="projectionChange($event.value)" [(value)]="projection">
         <mat-option *ngFor="let projection of projections" [value]="projection">
           {{projection}}
         </mat-option>
@@ -23,7 +23,7 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Country</mat-label>
-      <mat-select (selectionChange)="countryChange($event.value)" [(value)]="country">
+      <mat-select [panelClass]="['selectionPanel']" (selectionChange)="countryChange($event.value)" [(value)]="country">
         <mat-option>--</mat-option>
         <mat-option *ngFor="let country of countries" [value]="country">
           {{country}}
@@ -33,7 +33,7 @@
 
     <mat-form-field appearance="fill">
       <mat-label>State</mat-label>
-      <mat-select (selectionChange)="stateChange($event.value)" [(value)]="state">
+      <mat-select [panelClass]="['selectionPanel']" (selectionChange)="stateChange($event.value)" [(value)]="state">
         <mat-option>--</mat-option>
         <mat-option *ngFor="let state of states" [value]="state">
           {{state}}

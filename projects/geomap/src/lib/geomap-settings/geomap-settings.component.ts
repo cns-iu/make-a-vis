@@ -22,6 +22,7 @@ export class GeomapSettingsComponent implements OnChanges {
   @Input() enableZoomPan: boolean;
 
   @ViewChild('settings', { static: true, read: ElementRef }) contentElement: ElementRef<HTMLElement>;
+  @ViewChild('selectionPanel', { static: true, read: ElementRef }) optionElement: ElementRef<HTMLElement>;
 
   optionsHidden = true;
 
@@ -87,8 +88,9 @@ export class GeomapSettingsComponent implements OnChanges {
 
   @HostListener('document:click', ['$event.target']) // tslint:disable-line:no-unsafe-any
   close(target: HTMLElement): void {
+    const optionsPanel = document.getElementsByClassName('selectionPanel')[0];
     const { contentElement: { nativeElement: content } = { nativeElement: undefined } } = this;
-    if (content?.contains(target)) {
+    if (content?.contains(target) || optionsPanel?.contains(target)) {
       return;
     }
     this.optionsHidden = true;
