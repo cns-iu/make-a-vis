@@ -10,7 +10,7 @@ export class MapBoxGeocoder implements Geocoder {
             .then(response => response.json())
             .catch(error => { console.warn(error); });
 
-        return this.buildLocation(result) as Location;
+        return this.buildLocation(result);
     }
 
     buildLocation(resultObject: any): Location {
