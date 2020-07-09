@@ -1,16 +1,22 @@
-import { Geocoder } from '@dvl-fw/core';
+import { DefaultGeocoder, Location } from 'geocoder-ts';
 
 import { Award, AwardStats } from './nsf-award';
 import { NSFRecord } from './nsf-record';
 
-export function extractAwards(records: NSFRecord[]): Award[] {
+export async function extractAwards(records: NSFRecord[]): Promise<Award[]> {
   const awardList: Award[] = [];
   const globalStats = new AwardStats();
-  const geocoder = new Geocoder();
+  const geocoder = new DefaultGeocoder();
 
   for (const record of records) {
     const org = record.organization;
-    const location = geocoder.getUSLocation(`${org.city}, ${org.state} ${org.zip5} USA.`);
+
+    let location: Location;
+    if (org.city && org.state) {
+      location = await geocoder.getLocation(`${org.city}, ${org.state} ${org.zip5} USA.`);
+    } else {
+      location = await geocoder.getLocation(org.city);
+    }
     const award = new Award(Object.assign({}, record, {location, globalStats}));
     awardList.push(award);
 

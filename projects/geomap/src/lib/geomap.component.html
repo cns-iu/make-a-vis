@@ -1,2 +1,10 @@
-<ngx-vega [spec]="spec" [options]="options">
-</ngx-vega>
+<dvl-geomap-settings
+  (optionsChange)="updateSpec($event)"
+  [basemaps]="basemaps"
+  [projections]="projections"
+  [countries]="countries$ | async"
+  [states]="states$ | async"
+  [(options)]="userOptions">
+</dvl-geomap-settings>
+
+<ngx-vega [spec]="spec" [options]="options"></ngx-vega>
