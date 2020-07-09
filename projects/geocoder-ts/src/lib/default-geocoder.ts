@@ -16,16 +16,10 @@ export class DefaultGeocoder implements Geocoder {
     pipedGeocoder = new PipedGeocoder([this.usGeocoder, this.citiesGeocoder, this.rateLimitedGeocoder]);
     cachedGeocoder = new CachedGeocoder(this.pipedGeocoder);
 
-    time: number;
-    requestCount = 0;
-
-    constructor(private mapboxAccessToken: string, private mapboxRateLimit: number = 10) {
-        this.time = Date.now();
-    }
+    // @TODO:  Move access token to environment variable.
+    constructor(private mapboxAccessToken: string = 'pk.eyJ1IjoiYmhlcnIyIiwiYSI6ImNrY2V2dDB4MDA5bjgyc215Y3Rpc2cwZW4ifQ.Cy7G4a-vZasggScmRSO8dA', private mapboxRateLimit: number = 10) { }
 
     async getLocation(address: string): Promise<Location> {
-        this.requestCount++;
-        // console.log('Time: ', Date.now() - this.time, '\nRequest #', this.requestCount);
         return await this.cachedGeocoder.getLocation(address);
     }
 }

@@ -11,7 +11,7 @@ export class NSFParsedRawData implements RawData {
   async getData(): Promise<any> {
     if (!this.data) {
       const nsfFileContents = await this.nsfData.getData();
-      this.data = NSFDatabase.fromNSFFile(nsfFileContents);
+      this.data = await NSFDatabase.fromNSFFile(nsfFileContents);
       this.__reconstituted_data__ = true;
     } else if (!this.__reconstituted_data__) {
       this.data = NSFDatabase.fromJSON(this.data);

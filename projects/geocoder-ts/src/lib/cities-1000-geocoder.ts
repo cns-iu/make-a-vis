@@ -34,13 +34,25 @@ export class GlobalCitiesGeocoder implements Geocoder {
     const searchTerms: SearchTerms[] = this.getSearchTerms(address);
     let result;
     let resultIndex;
+    let possibleResults;
 
     for (const [index, terms] of searchTerms.entries()) {
       const { city, country } = terms;
-      result = (await this.cities).find(term =>
-        this.formatSearch(city).includes(this.formatSearch(term.name)) &&
-        this.formatSearch(term.country) === this.formatSearch(country)
-      );
+      if (country !== '') {
+        result = (await this.cities).find(term =>
+          this.formatSearch(city).includes(this.formatSearch(term.name)) &&
+          this.formatSearch(term.country) === this.formatSearch(country)
+        );
+      } else {
+        // If searching by only city, return only if there's only one match to ensure accuracy.
+        possibleResults = (await this.cities).filter(term =>
+          this.formatSearch(city) === this.formatSearch(term.name)
+        );
+        if (possibleResults.length === 1) {
+          result = possibleResults[0];
+        }
+      }
+
       if (result) {
         resultIndex = index;
         break;
@@ -75,11 +87,16 @@ export class GlobalCitiesGeocoder implements Geocoder {
     const searchTerms: SearchTerms[] = [];
     const termsArray = address.split(',');
 
-    if (!address || termsArray.length < 2) {
+    if (!address) {
       return searchTerms;
     }
 
-    if (termsArray.length === 2) {
+    if (termsArray.length === 1) {
+      searchTerms.push({
+        city: termsArray[0],
+        country: ''
+      });
+    } else if (termsArray.length === 2) {
       searchTerms.push({
         city: termsArray[0],
         country: termsArray[1]
@@ -134,48 +151,48 @@ export class GlobalCitiesGeocoder implements Geocoder {
 
     const readCity = (tag: number, city: any, _pbf: Pbf) => {
       switch (tag) {
-        case(1): {
+        case (1): {
           city.cityId = _pbf.readSVarint();
           break;
         }
-        case(2): {
+        case (2): {
           city.name = _pbf.readString();
           break;
         }
-        case(3): {
+        case (3): {
           city.country = _pbf.readString();
           break;
         }
-        case(4): {
+        case (4): {
           city.altName = _pbf.readString();
           break;
         }
-        case(5): {
+        case (5): {
           city.muni = _pbf.readString();
           break;
         }
-        case(6): {
+        case (6): {
           city.muniSub = _pbf.readString();
           break;
         }
-        case(7): {
+        case (7): {
           city.featureCode = _pbf.readString();
           break;
         }
-        case(8): {
+        case (8): {
           city.adminCode = _pbf.readString();
           break;
         }
-        case(9): {
+        case (9): {
           city.population = _pbf.readVarint();
           break;
         }
-        case(10): {
+        case (10): {
           lastLon += _pbf.readSVarint();
           city.loc.coordinates[0] = lastLon / 1e5;
           break;
         }
-        case(11): {
+        case (11): {
           lastLat += _pbf.readSVarint();
           city.loc.coordinates[1] = lastLat / 1e5;
           break;
@@ -196,7 +213,7 @@ export class GlobalCitiesGeocoder implements Geocoder {
           type: 'Point',
           coordinates: [0, 0] // [lon,lat]
         }
-      } as City ));
+      } as City));
     }
 
     return cities;
@@ -204,7 +221,7 @@ export class GlobalCitiesGeocoder implements Geocoder {
 
   parseIsoToCountry(cities: City[]): City[] {
     return cities.map(city => {
-      return {...city, country: isoToCountry(city.country)} as City;
+      return { ...city, country: isoToCountry(city.country) } as City;
     });
   }
 }

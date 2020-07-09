@@ -5,9 +5,7 @@ import { DefaultGeocoder } from 'geocoder-ts';
 export async function extractAuthors(publications: Publication[]): Promise<Author[]> {
   const authors: any = {}, authorList: Author[] = [];
   const globalStats = new AuthorStats();
-  const geocoder = new DefaultGeocoder(
-    'pk.eyJ1IjoiYWRwaGlsbGlwczIwMTciLCJhIjoiY2s1NDNvaHdrMGZidDNobHFkdHB5MG1wcCJ9.NG8JyVzQuA6pP9UfZhlubg'
-  );
+  const geocoder = new DefaultGeocoder();
 
   for (const pub of publications) {
     // pub.authors.forEach(async (name, index) => {

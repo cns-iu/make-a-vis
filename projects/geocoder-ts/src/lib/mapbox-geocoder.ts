@@ -22,11 +22,11 @@ export class MapBoxGeocoder implements Geocoder {
         const latitude = result.center[0];
         const longitude = result.center[1];
 
-        // Adding top level feature to the context list to parse all at once.
         let resultContext = [];
         if (result.context) {
             resultContext = result.context;
         }
+        // Adding top level feature to the context list to parse all at once.
         if (result.id && result.text) {
             resultContext.push({ id: result.id, text: result.text });
         }
@@ -35,19 +35,19 @@ export class MapBoxGeocoder implements Geocoder {
         resultContext.forEach(featureObject => {
             feature = featureObject.id.split('.')[0];
             switch (feature) {
-                case('postcode'): {
+                case ('postcode'): {
                     zip = featureObject.text;
                     break;
                 }
-                case('place'): {
+                case ('place'): {
                     city = featureObject.text;
                     break;
                 }
-                case('region'): {
+                case ('region'): {
                     state = featureObject.text;
                     break;
                 }
-                case('country'): {
+                case ('country'): {
                     country = featureObject.text;
                     break;
                 }

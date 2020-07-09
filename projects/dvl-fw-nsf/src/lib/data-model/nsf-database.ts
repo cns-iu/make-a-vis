@@ -22,9 +22,9 @@ export class NSFDatabase {
     }
   }
 
-  static fromNSFFile(nsfFileContents: string): NSFDatabase {
+  static async fromNSFFile(nsfFileContents: string): Promise<NSFDatabase> {
     const records = parseNSFFile(nsfFileContents);
-    const awards = extractAwards(records);
+    const awards = await extractAwards(records);
     const investigators = extractInvestigators(awards);
     const coPiLinks = extractCoPiLinks(awards);
     layoutCoPiNetwork(investigators, coPiLinks);

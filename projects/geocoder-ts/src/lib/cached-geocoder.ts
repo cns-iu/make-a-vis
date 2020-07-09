@@ -3,20 +3,15 @@ import { Location } from './models/Location';
 
 export class CachedGeocoder implements Geocoder {
     private addressCache: any = {};
-    caches = 0;
 
     constructor(private geocoder: Geocoder) { }
 
     async getLocation(address: string): Promise<Location> {
-        let location: Location;
-
         if (this.contains(address)) {
-            this.caches++;
-            console.log('=====================================\nCACHED SAVED LOOKUPS: ', this.caches);
             return this.lookup(address);
         }
 
-        location = await this.geocoder.getLocation(address);
+        const location: Location = await this.geocoder.getLocation(address);
         this.store(address, location);
         return location;
     }
