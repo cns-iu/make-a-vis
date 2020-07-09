@@ -28,9 +28,9 @@ export class GeomapComponent implements VisualizationComponent,
     ...{
       enableZoomPan: false,
       basemap: 'usa',
-      country: 'United States of America',
-      state: 'Indiana',
-      projection: 'mercator'
+      // country: 'United States of America',
+      // state: 'Indiana',
+      // projection: 'mercator'
     }
   };
   @Input() nodeDefaults: Partial<VisualizationNode> = {
