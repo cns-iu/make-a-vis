@@ -54,7 +54,7 @@ export function temporalBargraphSpec(options: TemporalBargraphSpecOptions = {}):
       x: {
         field: 'x-start',
         type: 'ordinal',
-        axis: {domain: false, ticks: false, grid: true, labelAngle: 0}
+        axis: {domain: false, ticks: false, grid: true, labelAngle: 0, title: null}
       },
       y: {
         field: 'order',
