@@ -48,20 +48,39 @@ export function temporalBargraphSpec(options: TemporalBargraphSpecOptions = {}):
         calculate: '!isValid(datum.transparency) ? 0.75 : 1 - datum.transparency',
         as: 'opacity'
       },
+      {
+        stack: 'areaSize',
+        groupby: [],
+        sort: [{
+          field: 'order'
+        }],
+        as: ['y-start', 'y-end']
+      }
     ],
 
     encoding: {
       x: {
         field: 'x-start',
         type: 'ordinal',
-        axis: {domain: false, ticks: false, grid: true, labelAngle: 0, title: null}
+        axis: {
+          title: null,
+          ticks: false,
+          tickBand: 'extent',
+          labelAngle: 0,
+          grid: true,
+        }
       },
       y: {
-        field: 'order',
-        type: 'ordinal',
+        field: 'y-start',
+        type: 'quantitative',
         sort: '-x',
-        axis: null,
-        title: null
+        axis: null
+      },
+      x2: {
+        field: 'x-end'
+      },
+      y2: {
+        field: 'y-end'
       }
     },
 
@@ -70,14 +89,40 @@ export function temporalBargraphSpec(options: TemporalBargraphSpecOptions = {}):
       {
         mark: 'bar',
         encoding: {
-          x2: { field: 'x-end' },
-          fill: { field: 'color', type: 'nominal', scale: null },
-          fillOpacity: { field: 'opacity', type: 'quantitative', scale: null },
-          stroke: { field: 'strokeColor', type: 'nominal', scale: null },
-          strokeWidth: { field: 'strokeWidth', type: 'quantitative', scale: null },
-          strokeOpacity: { field: 'strokeOpacity', type: 'quantitative', scale: null },
-          size: { field: 'areaSize', type: 'quantitative', legend: null /*, scale: null */ },
-          tooltip: { field: 'tooltip', type: 'nominal' }
+          fill: {
+            field: 'color',
+            type: 'nominal',
+            scale: null
+          },
+          fillOpacity: {
+            field: 'opacity',
+            type: 'quantitative',
+            scale: null
+          },
+          stroke: {
+            field: 'strokeColor',
+            type: 'nominal',
+            scale: null
+          },
+          strokeWidth: {
+            field: 'strokeWidth',
+            type: 'quantitative',
+            scale: null
+          },
+          strokeOpacity: {
+            field: 'strokeOpacity',
+            type: 'quantitative',
+            scale: null
+          },
+          size: {
+            field: 'areaSize',
+            type: 'quantitative',
+            legend: null
+          },
+          tooltip: {
+            field: 'tooltip',
+            type: 'nominal'
+          }
         }
       },
       // Labels
@@ -102,6 +147,7 @@ export function temporalBargraphSpec(options: TemporalBargraphSpecOptions = {}):
         }
       }
     ],
+
     datasets: {
       'nodes': options.nodes as any[]
     }
