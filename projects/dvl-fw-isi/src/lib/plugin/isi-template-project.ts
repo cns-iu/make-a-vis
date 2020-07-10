@@ -9,16 +9,12 @@ import { ScienceMapVisualization } from '@dvl-fw/science-map';
 
 import { ISIDataSource } from './isi-data-source';
 import { ISIParsedRawData } from './isi-parsed-raw-data';
+import { Geocoder, DefaultGeocoder } from 'geocoder-ts';
 
 
 export class ISITemplateProject extends DefaultProject {
-  static async create(isiFileContent: string, fileName?: string): Promise<Project> {
-    const project = new ISITemplateProject(isiFileContent, fileName);
-    await project.prePopulateData();
-    return project;
-  }
 
-  constructor(isiFileContent: string, fileName?: string) {
+  constructor(isiFileContent: string, fileName?: string, private geocoder: Geocoder = new DefaultGeocoder()) {
     super();
     this.rawData = this.getRawData(isiFileContent);
     this.dataSources = this.getDataSources();
@@ -28,9 +24,15 @@ export class ISITemplateProject extends DefaultProject {
     this.visualizations = this.getVisualizations();
   }
 
+  static async create(isiFileContent: string, fileName?: string, geocoder: Geocoder = new DefaultGeocoder()): Promise<Project> {
+    const project = new ISITemplateProject(isiFileContent, fileName, geocoder);
+    await project.prePopulateData();
+    return project;
+  }
+
   getRawData(isiFileContent: string): RawData[] {
     const rawData = new DefaultRawData({id: 'isiFile', template: 'string', data: isiFileContent});
-    const parsedData = new ISIParsedRawData('isiRawData', rawData);
+    const parsedData = new ISIParsedRawData('isiRawData', rawData, null, this.geocoder);
     return [parsedData, rawData];
   }
 
@@ -50,7 +52,7 @@ export class ISITemplateProject extends DefaultProject {
           {id: 'coAuthorLinks', label: 'Co-Author Links'},
           {id: 'subdisciplines', label: 'Subdisciplines'}
         ]
-      }, this),
+      }, this, this.geocoder),
       new ActivityLogDataSource({
         id: 'activityLog',
         properties: { rawData: 'activityLog', keepPreviousActivity: true, freezeLogs: false },

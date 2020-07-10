@@ -11,15 +11,17 @@ import { isArray } from 'lodash';
 import { NSFDataSource } from './nsf-data-source';
 import { NSFParsedRawData } from './nsf-parsed-raw-data';
 import { isNSFCompatibleCSV } from './nsf-validator';
+import { Geocoder, DefaultGeocoder } from 'geocoder-ts';
 
 
 export class NSFTemplateProject extends DefaultProject {
-  static async create(nsfFileContents: string[] | string, fileNames?: string[] | string): Promise<Project> {
+  static async create(nsfFileContents: string[] | string, fileNames?: string[] | string,
+      geocoder: Geocoder = new DefaultGeocoder()): Promise<Project> {
     nsfFileContents = isArray(nsfFileContents) ? nsfFileContents : [nsfFileContents];
     fileNames = isArray(fileNames) || !fileNames ? fileNames : [fileNames];
     // if the csv file has nsf compatible headers,load the CSV data with NSF Template Project
     if (isNSFCompatibleCSV(nsfFileContents[0])) {
-      const project = new NSFTemplateProject(nsfFileContents[0], fileNames[0]);
+      const project = new NSFTemplateProject(nsfFileContents[0], fileNames[0], geocoder);
       await project.prePopulateData();
       return project;
     } else {
@@ -28,7 +30,7 @@ export class NSFTemplateProject extends DefaultProject {
     }
   }
 
-  constructor(nsfFileContent: string, fileName?: string) {
+  constructor(nsfFileContent: string, fileName?: string, private geocoder: Geocoder = new DefaultGeocoder()) {
     super();
     this.rawData = this.getRawData(nsfFileContent);
     this.dataSources = this.getDataSources();
@@ -40,7 +42,7 @@ export class NSFTemplateProject extends DefaultProject {
 
   getRawData(nsfFileContent: string): RawData[] {
     const rawData = new DefaultRawData({id: 'nsfFile', template: 'string', data: nsfFileContent});
-    const parsedData = new NSFParsedRawData('nsfRawData', rawData);
+    const parsedData = new NSFParsedRawData('nsfRawData', rawData, null, this.geocoder);
     return [parsedData, rawData];
   }
 
@@ -58,7 +60,7 @@ export class NSFTemplateProject extends DefaultProject {
           {id: 'investigators', label: 'Investigators'},
           {id: 'coPiLinks', label: 'Co-PI Links'}
         ]
-      }, this),
+      }, this, this.geocoder),
       new ActivityLogDataSource({
         id: 'activityLog',
         properties: { rawData: 'activityLog', keepPreviousActivity: true, freezeLogs: false },

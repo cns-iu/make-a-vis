@@ -18,7 +18,9 @@ export class AdvancedService {
    */
   constructor(private readonly store: Store<MavSelectionState>, private readonly zone: NgZone) {
     this.addAdvancedCheat();
-    this.store.dispatch(new AdvancedToggle(this.advancedEnabled));
+    if (this.store.dispatch) {
+      this.store.dispatch(new AdvancedToggle(this.advancedEnabled));
+    }
   }
 
   /**
