@@ -5,6 +5,7 @@ import { VisualizationNode } from './interfaces';
 
 export interface TemporalBargraphSpecOptions {
   nodes?: VisualizationNode[];
+  enableZoomPan?: boolean;
 }
 
 export function temporalBargraphSpec(options: TemporalBargraphSpecOptions = {}): VisualizationSpec {
@@ -55,6 +56,10 @@ export function temporalBargraphSpec(options: TemporalBargraphSpecOptions = {}):
           field: 'order'
         }],
         as: ['y-start', 'y-end']
+      },
+      {
+        calculate: `(datum['y-start'] + datum['y-end']) / 2`,
+        as: 'y-mid'
       }
     ],
 
@@ -69,18 +74,6 @@ export function temporalBargraphSpec(options: TemporalBargraphSpecOptions = {}):
           labelAngle: 0,
           grid: true,
         }
-      },
-      y: {
-        field: 'y-start',
-        type: 'quantitative',
-        sort: '-x',
-        axis: null
-      },
-      x2: {
-        field: 'x-end'
-      },
-      y2: {
-        field: 'y-end'
       }
     },
 
@@ -89,6 +82,18 @@ export function temporalBargraphSpec(options: TemporalBargraphSpecOptions = {}):
       {
         mark: 'bar',
         encoding: {
+          x2: {
+            field: 'x-end'
+          },
+          y: {
+            field: 'y-start',
+            type: 'quantitative',
+            sort: '-x',
+            axis: null
+          },
+          y2: {
+            field: 'y-end'
+          },
           fill: {
             field: 'color',
             type: 'nominal',
@@ -100,19 +105,10 @@ export function temporalBargraphSpec(options: TemporalBargraphSpecOptions = {}):
             scale: null
           },
           stroke: {
-            field: 'strokeColor',
-            type: 'nominal',
-            scale: null
+            value: 'white'
           },
           strokeWidth: {
-            field: 'strokeWidth',
-            type: 'quantitative',
-            scale: null
-          },
-          strokeOpacity: {
-            field: 'strokeOpacity',
-            type: 'quantitative',
-            scale: null
+            value: 0.5
           },
           size: {
             field: 'areaSize',
@@ -136,6 +132,10 @@ export function temporalBargraphSpec(options: TemporalBargraphSpecOptions = {}):
           fontSize: 7
         },
         encoding: {
+          y: {
+            field: 'y-mid',
+            type: 'quantitative'
+          },
           text: {
             field: 'label',
             type: 'nominal'
