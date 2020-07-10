@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Injectable } from '@angular/core';
 import { ProjectSerializerService } from '@dvl-fw/angular';
 import { ActivityLogRawData, Project } from '@dvl-fw/core';
@@ -16,6 +17,8 @@ import { BehaviorSubject, defer, Observable } from 'rxjs';
 import { LoggingControlService } from '../../../shared/logging/logging-control.service';
 import * as sidenavStore from '../../../toolbar/shared/store';
 import { GetLinkService } from '../get-link/get-link.service';
+import { AdvancedService } from '../advance/advanced.service';
+import { DefaultGeocoder } from 'geocoder-ts';
 
 
 @Injectable({
@@ -35,8 +38,12 @@ export class LoadProjectService {
       private serializer: ProjectSerializerService,
       private loggingControlService: LoggingControlService,
       private store: Store<sidenavStore.SidenavState>,
-      private getLinkService: GetLinkService) {
+      private getLinkService: GetLinkService,
+      private advancedService: AdvancedService,
+      private snackBar: MatSnackBar) {
     const registry = this.serializer.registry;
+
+    const geocoder = new DefaultGeocoder(this.advancedService.advancedEnabled);
 
     registry.registerPlugin(new LegendsPlugin());
     registry.registerPlugin(new GeomapPlugin());
@@ -44,8 +51,8 @@ export class LoadProjectService {
     registry.registerPlugin(new ScatterplotPlugin());
     registry.registerPlugin(new ScienceMapPlugin());
     registry.registerPlugin(new TemporalBargraphPlugin());
-    registry.registerPlugin(new ISIPlugin());
-    registry.registerPlugin(new NSFPlugin());
+    registry.registerPlugin(new ISIPlugin(geocoder));
+    registry.registerPlugin(new NSFPlugin(geocoder));
   }
 
   setSaveActivityLog(project) {
@@ -65,14 +72,25 @@ export class LoadProjectService {
     template: 'isi' | 'nsf' | 'csv' | 'json',
     fileContents: string[] | string, fileNames?: string[] | string
   ): Promise<Project> {
+    const advancedMode = this.advancedService.advancedEnabled;
+    const geocoder = new DefaultGeocoder(advancedMode);
+
+    if (advancedMode && (template === 'nsf' || template === 'isi')) {
+      this.snackBar.open('Advanced geocoding is enabled. NSF or ISI file loading could be slow.', null, {
+        duration: 3000,
+        verticalPosition: 'top',
+        panelClass: 'mav-snackbar-wrapper'
+      });
+    }
+
     fileNames = isArray(fileNames) || !fileNames ? fileNames : [fileNames];
     switch (template) {
       case 'csv':
         // fall through NSFTemplateProject
       case 'nsf':
-        return await NSFTemplateProject.create(fileContents, fileNames);
+        return await NSFTemplateProject.create(fileContents, fileNames, geocoder);
       case 'isi':
-        return await ISITemplateProject.create(fileContents[0], fileNames[0]);
+        return await ISITemplateProject.create(fileContents[0], fileNames[0], geocoder);
       default:
         throw new Error(`Template: ${template} not supported.`);
     }
