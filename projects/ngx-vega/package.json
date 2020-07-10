@@ -1,6 +1,6 @@
 {
   "name": "ngx-vega",
-  "version": "0.0.1",
+  "version": "0.50.0",
   "peerDependencies": {
     "@angular/common": "^8.0.0",
     "@angular/core": "^8.0.0"

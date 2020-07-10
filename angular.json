@@ -790,6 +790,11 @@
           "options": {
             "tsConfig": "projects/geocoder-ts/tsconfig.lib.json",
             "project": "projects/geocoder-ts/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/geocoder-ts/tsconfig.lib.prod.json"
+            }
           }
         },
         "test": {

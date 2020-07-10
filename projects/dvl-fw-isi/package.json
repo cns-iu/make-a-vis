@@ -1,6 +1,6 @@
 {
   "name": "@dvl-fw/isi",
-  "version": "0.20.0",
+  "version": "0.50.0",
   "publishConfig": {
     "access": "public"
   },
@@ -10,9 +10,8 @@
     "lodash": "^4.17.15"
   },
   "peerDependencies": {
-    "@dvl-fw/core": "^0.20.0",
-    "@dvl-fw/ngx-dino": "^0.20.0",
+    "@dvl-fw/core": "^0.50.0",
     "@ngx-dino/core": "^0.10.0",
-    "@ngx-dino/science-map": "^0.10.1"
+    "geocoder-ts": "^0.50.0"
   }
 }
