@@ -2,7 +2,7 @@
 
 Changelog for Make-a-Vis and DVL-FW.
 
-## 0.5.0 - 2020-07-10
+## 0.50.0 - 2020-07-10
 
 ### Added in 0.50.0
 
