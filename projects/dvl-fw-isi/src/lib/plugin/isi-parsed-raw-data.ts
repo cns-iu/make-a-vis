@@ -1,17 +1,18 @@
 import { ObjectFactory, ObjectFactoryRegistry, Project, RawData } from '@dvl-fw/core';
 
 import { ISIDatabase } from '../data-model';
+import { Geocoder } from 'geocoder-ts';
 
 export class ISIParsedRawData implements RawData {
   template = 'isiParsedData';
   private __reconstituted_data__ = false;
 
-  constructor(public id: string, private isiData: RawData, public data: ISIDatabase = null) { }
+  constructor(public id: string, private isiData: RawData, public data: ISIDatabase = null, private geocoder: Geocoder) { }
 
   async getData(): Promise<any> {
     if (!this.data) {
       const isiFileContents = await this.isiData.getData();
-      this.data = await ISIDatabase.fromISIFile(isiFileContents);
+      this.data = await ISIDatabase.fromISIFile(isiFileContents, this.geocoder);
       this.__reconstituted_data__ = true;
     } else if (!this.__reconstituted_data__) {
       this.data = ISIDatabase.fromJSON(this.data);
@@ -30,8 +31,10 @@ export class ISIParsedRawDataFactory implements ObjectFactory<RawData, Project> 
   id = 'isiParsedData';
   type = 'rawData';
 
+  constructor(private geocoder: Geocoder) { }
+
   fromJSON(data: any, _context: Project, _registry: ObjectFactoryRegistry): RawData {
-    return new ISIParsedRawData(data.id, null, data.data);
+    return new ISIParsedRawData(data.id, null, data.data, this.geocoder);
   }
 
   toJSON(instance: RawData, _context: Project, _registry: ObjectFactoryRegistry): any {

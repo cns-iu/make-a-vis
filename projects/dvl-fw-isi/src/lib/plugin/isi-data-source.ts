@@ -6,6 +6,7 @@ import { find, invokeMap, map, pick, reject } from 'lodash';
 
 import { ISIRecord } from '../data-model';
 import { ISIParsedRawData } from './isi-parsed-raw-data';
+import { Geocoder } from 'geocoder-ts';
 
 export interface ISIDataSourceOptions extends DataSourceOptions {
   parsedData?: string;
@@ -23,13 +24,13 @@ export class ISIDataSource implements DataSource {
   recordStreams: RecordStream<ISIRecord>[];
   properties: ISIDataSourceOptions;
 
-  constructor(data: ISIDataSourceArg, project: Project) {
+  constructor(data: ISIDataSourceArg, project: Project, private geocoder: Geocoder) {
     Object.assign(this, data);
 
     const rawData = find(project.rawData, ['id', data.properties.rawData]);
     let parsedData = find(project.rawData, ['id', data.properties.parsedData]);
     if (!parsedData) {
-      parsedData = new ISIParsedRawData(this.properties.parsedData, rawData);
+      parsedData = new ISIParsedRawData(this.properties.parsedData, rawData, null, this.geocoder);
       if (this.properties.saveParsedData) {
         project.rawData.push(parsedData);
         parsedData.getData();
@@ -54,8 +55,10 @@ export class ISIDataSourceFactory implements ObjectFactory<DataSource, Project> 
   id = 'isi';
   type = 'dataSource';
 
+  constructor(private geocoder: Geocoder) { }
+
   async fromJSON(data: any, context: Project, _registry: ObjectFactoryRegistry): Promise<DataSource> {
-    return new ISIDataSource(data, context);
+    return new ISIDataSource(data, context, this.geocoder);
   }
 
   toJSON(instance: DataSource, _context: Project, _registry: ObjectFactoryRegistry): any {

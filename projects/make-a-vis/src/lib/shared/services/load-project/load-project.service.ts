@@ -16,6 +16,8 @@ import { BehaviorSubject, defer, Observable } from 'rxjs';
 import { LoggingControlService } from '../../../shared/logging/logging-control.service';
 import * as sidenavStore from '../../../toolbar/shared/store';
 import { GetLinkService } from '../get-link/get-link.service';
+import { AdvancedService } from '../advance/advanced.service';
+import { DefaultGeocoder } from 'geocoder-ts';
 
 
 @Injectable({
@@ -31,11 +33,14 @@ export class LoadProjectService {
     { label: 'yml', extensions: ['.yml'] }
   ];
 
+  geocoder = new DefaultGeocoder(this.advancedService.advancedEnabled);
+
   constructor(
       private serializer: ProjectSerializerService,
       private loggingControlService: LoggingControlService,
       private store: Store<sidenavStore.SidenavState>,
-      private getLinkService: GetLinkService) {
+      private getLinkService: GetLinkService,
+      private advancedService: AdvancedService) {
     const registry = this.serializer.registry;
 
     registry.registerPlugin(new LegendsPlugin());
@@ -44,8 +49,8 @@ export class LoadProjectService {
     registry.registerPlugin(new ScatterplotPlugin());
     registry.registerPlugin(new ScienceMapPlugin());
     registry.registerPlugin(new TemporalBargraphPlugin());
-    registry.registerPlugin(new ISIPlugin());
-    registry.registerPlugin(new NSFPlugin());
+    registry.registerPlugin(new ISIPlugin(this.geocoder));
+    registry.registerPlugin(new NSFPlugin(this.geocoder));
   }
 
   setSaveActivityLog(project) {
@@ -70,9 +75,9 @@ export class LoadProjectService {
       case 'csv':
         // fall through NSFTemplateProject
       case 'nsf':
-        return await NSFTemplateProject.create(fileContents, fileNames);
+        return await NSFTemplateProject.create(fileContents, this.geocoder, fileNames);
       case 'isi':
-        return await ISITemplateProject.create(fileContents[0], fileNames[0]);
+        return await ISITemplateProject.create(fileContents[0], this.geocoder, fileNames[0]);
       default:
         throw new Error(`Template: ${template} not supported.`);
     }

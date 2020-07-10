@@ -1,12 +1,11 @@
-import { DefaultGeocoder, Location } from 'geocoder-ts';
+import { Geocoder, Location } from 'geocoder-ts';
 
 import { Award, AwardStats } from './nsf-award';
 import { NSFRecord } from './nsf-record';
 
-export async function extractAwards(records: NSFRecord[]): Promise<Award[]> {
+export async function extractAwards(records: NSFRecord[], geocoder: Geocoder): Promise<Award[]> {
   const awardList: Award[] = [];
   const globalStats = new AwardStats();
-  const geocoder = new DefaultGeocoder();
 
   for (const record of records) {
     const org = record.organization;

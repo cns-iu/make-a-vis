@@ -1,17 +1,18 @@
 import { ObjectFactory, ObjectFactoryRegistry, Project, RawData } from '@dvl-fw/core';
 
 import { NSFDatabase } from '../data-model';
+import { Geocoder } from 'geocoder-ts';
 
 export class NSFParsedRawData implements RawData {
   template = 'nsfParsedData';
   private __reconstituted_data__ = false;
 
-  constructor(public id: string, private nsfData: RawData, public data: NSFDatabase = null) { }
+  constructor(public id: string, private nsfData: RawData, private geocoder: Geocoder, public data: NSFDatabase = null) { }
 
   async getData(): Promise<any> {
     if (!this.data) {
       const nsfFileContents = await this.nsfData.getData();
-      this.data = await NSFDatabase.fromNSFFile(nsfFileContents);
+      this.data = await NSFDatabase.fromNSFFile(nsfFileContents, this.geocoder);
       this.__reconstituted_data__ = true;
     } else if (!this.__reconstituted_data__) {
       this.data = NSFDatabase.fromJSON(this.data);

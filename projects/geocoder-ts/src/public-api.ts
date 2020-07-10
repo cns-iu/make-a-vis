@@ -9,3 +9,4 @@ export * from './lib/us-geocoder';
 export * from './lib/mapbox-geocoder';
 export * from './lib/cities-1000-geocoder';
 export * from './lib/models/Location';
+export * from './lib/models/Geocoder';
