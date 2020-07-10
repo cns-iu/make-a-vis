@@ -10,7 +10,7 @@ Changelog for Make-a-Vis and DVL-FW.
 - Replaced all @ngx-dino visualizations with vega-lite based visualizations
 - Geographic map now supports multiple basemaps, projections, zooming/panning, and more
 - All visualizations can be opened directly in vega-editor for additional customization
-- Added world-wide geocoding (Advanced mode includes even more advanced geocoding with an external service)
+- Added world-wide geocoding in advanced mode (press 'a' then 'b' to toggle advanced mode)
 - Fixed a bug where exporting data from tables caused the number of rows to double, see Issue #271
 - Fixed a bug where extra long text in the visualization description concealed the save button when editing, see Issue #270
 
@@ -61,7 +61,7 @@ This is mostly a release to add some minor features and enhancements to be used 
 - Added a a download button to the data tables for downloading as .csv
 - Added paging to the data tables so that all data can be seen
 - Added an offline mode. All features work offline except for sharing. A check is made every two hours to see if there are new updates. If so, a prompt is shown to allow the user to upgrade to latest version.
-- An initial documentation site was created. It is available [here](https://make-a-vis.netlify.com/docs/).
+- An initial documentation site was created. It is available [here](https://make-a-vis.netlify.app/docs/).
 - Improved appearance of record streams in the middle column add/edit visualization feature.
 - Improved CSS structure of the app.
 - ISI and NSF files no longer have to be named .isi or .nsf (respectively) and can remain as .txt or .csv (respectively).

@@ -1,24 +1,32 @@
-# NgxVega
+# Make-A-Vis
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
+[![Shipping faster with ZenHub](https://img.shields.io/badge/Shipping_faster_with-ZenHub-5e60ba.svg?style=flat-square)](https://app.zenhub.com/workspace/o/cns-iu/make-a-vis)
+[![Build Status](https://travis-ci.com/cns-iu/make-a-vis.svg?branch=main)](https://travis-ci.com/cns-iu/make-a-vis)
+[![GitHub last commit](https://img.shields.io/github/last-commit/cns-iu/make-a-vis.svg)](https://github.com/cns-iu/make-a-vis/commits/main)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
+[![View Staging Site](https://img.shields.io/badge/staging-online-brightgreen.svg)](https://make-a-vis.netlify.app/)
+[![View Demo](https://img.shields.io/badge/demo-online-brightgreen.svg)](https://cns-iu.github.io/make-a-vis)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?branch=main&project=cns-iu_make-a-vis&metric=alert_status)](https://sonarcloud.io/dashboard?id=cns-iu_make-a-vis&branch=main)
+[![Documentation Status](https://make-a-vis.netlify.app/docs/images/coverage-badge-documentation.svg)](https://cns-iu.github.io/make-a-vis/docs/)
 
-## Code scaffolding
+dvl-fw library for using dvl-fw with Angular.
 
-Run `ng generate component component-name --project ngx-vega` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-vega`.
-> Note: Don't forget to add `--project ngx-vega` or else it will be added to the default project in your `angular.json` file. 
+## Demo site
 
-## Build
+<https://cns-iu.github.io/make-a-vis/>
 
-Run `ng build ngx-vega` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Visualization Embedding (mav-embed) Demos
 
-## Publishing
+<https://bl.ocks.org/bherr2>
 
-After building your library with `ng build ngx-vega`, go to the dist folder `cd dist/ngx-vega` and run `npm publish`.
+## Change Log
 
-## Running unit tests
+See the [ChangeLog](CHANGELOG.md) for the latest developments.
 
-Run `ng test ngx-vega` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Usage
 
-## Further help
+TODO
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Credits
+
+Make-a-Vis is developed at the [Cyberinfrastructure for Network Science Center at Indiana University](http://cns.iu.edu/)

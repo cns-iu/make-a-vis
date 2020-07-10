@@ -12,7 +12,7 @@ addons:
 cache: npm
 branches:
   only:
-  - master
+  - main
   - develop
   - "/^v\\d+\\.\\d+(\\.\\d+)?(-\\S*)?$/"
 script: skip
@@ -25,9 +25,10 @@ jobs:
     - npm run build:build-info
     - npm run build:libs
     - npm run test
+
   - stage: deploy
     name: Deploy staging to Netlify
-    if: branch = develop AND type = push
+    if: branch = develop
     script:
     - npm run build:build-info
     - npm run build:libs
@@ -44,7 +45,7 @@ jobs:
         branch: develop
   - stage: deploy
     name: Deploy demo to GitHub Pages
-    if: branch = master
+    if: branch = main
     script:
     - npm run build:build-info
     - npm run build:libs
@@ -57,7 +58,8 @@ jobs:
       keep-history: false
       local-dir: dist/make-a-vis-demo
       on:
-        branch: master
+        branch: main
+
   - stage: deploy
     name: Build and publish make-a-vis
     if: tag IS present
@@ -89,8 +91,7 @@ jobs:
     name: Build and publish dvl-fw-isi
     if: tag IS present
     script:
-    - npm run build:dvl-fw-core
-    - npm run build:dvl-fw-isi
+    - npm run build:libs
     before_deploy:
     - cd dist/dvl-fw-isi
     after_deploy: *1
@@ -99,8 +100,7 @@ jobs:
     name: Build and publish dvl-fw-nsf
     if: tag IS present
     script:
-    - npm run build:dvl-fw-core
-    - npm run build:dvl-fw-nsf
+    - npm run build:libs
     before_deploy:
     - cd dist/dvl-fw-nsf
     after_deploy: *1
@@ -110,8 +110,6 @@ jobs:
     if: tag IS present
     script:
     - npm run build:dvl-fw-core
-    - npm run build:dvl-fw-isi
-    - npm run build:dvl-fw-nsf
     - npm run build:dvl-fw-angular
     before_deploy:
     - cd dist/dvl-fw-angular
@@ -121,10 +119,7 @@ jobs:
     name: Build and publish dvl-fw-cli
     if: tag IS present
     script:
-    - npm run build:dvl-fw-core
-    - npm run build:dvl-fw-isi
-    - npm run build:dvl-fw-nsf
-    - npm run build:dvl-fw-cli
+    - npm run build:libs
     before_deploy:
     - cd dist/dvl-fw-cli
     after_deploy: *1
@@ -133,14 +128,105 @@ jobs:
     name: Build and publish mav-embed
     if: tag IS present
     script:
-    - npm run build:dvl-fw
-    - npm run build:mav-embed
+    - npm run build:libs
     - cp projects/mav-embed/README.md dist/mav-embed
     - cp projects/mav-embed/package.json dist/mav-embed
     before_deploy:
     - cd dist/mav-embed
     after_deploy: *1
     deploy: *2
+  - stage: deploy
+    name: Build and publish geocoder-ts
+    if: tag IS present
+    script:
+    - npm run build:geocoder-ts
+    before_deploy:
+    - cd dist/geocoder-ts
+    after_deploy: *1
+    deploy: *2
+  - stage: deploy
+    name: Build and publish geomap
+    if: tag IS present
+    script:
+    - npm run build:dvl-fw-core
+    - npm run build:dvl-fw-angular
+    - npm run build:ngx-vega
+    - npm run build:geomap
+    before_deploy:
+    - cd dist/geomap
+    after_deploy: *1
+    deploy: *2
+  - stage: deploy
+    name: Build and publish legends
+    if: tag IS present
+    script:
+    - npm run build:dvl-fw-core
+    - npm run build:dvl-fw-angular
+    - npm run build:legends
+    before_deploy:
+    - cd dist/legends
+    after_deploy: *1
+    deploy: *2
+  - stage: deploy
+    name: Build and publish network
+    if: tag IS present
+    script:
+    - npm run build:dvl-fw-core
+    - npm run build:dvl-fw-angular
+    - npm run build:ngx-vega
+    - npm run build:network
+    before_deploy:
+    - cd dist/network
+    after_deploy: *1
+    deploy: *2
+  - stage: deploy
+    name: Build and publish ngx-vega
+    if: tag IS present
+    script:
+    - npm run build:dvl-fw-core
+    - npm run build:dvl-fw-angular
+    - npm run build:ngx-vega
+    before_deploy:
+    - cd dist/ngx-vega
+    after_deploy: *1
+    deploy: *2
+  - stage: deploy
+    name: Build and publish scatterplot
+    if: tag IS present
+    script:
+    - npm run build:dvl-fw-core
+    - npm run build:dvl-fw-angular
+    - npm run build:ngx-vega
+    - npm run build:scatterplot
+    before_deploy:
+    - cd dist/scatterplot
+    after_deploy: *1
+    deploy: *2
+  - stage: deploy
+    name: Build and publish science-map
+    if: tag IS present
+    script:
+    - npm run build:dvl-fw-core
+    - npm run build:dvl-fw-angular
+    - npm run build:ngx-vega
+    - npm run build:science-map
+    before_deploy:
+    - cd dist/science-map
+    after_deploy: *1
+    deploy: *2
+  - stage: deploy
+    name: Build and publish temporal-bargraph
+    if: tag IS present
+    script:
+    - npm run build:dvl-fw-core
+    - npm run build:dvl-fw-angular
+    - npm run build:ngx-vega
+    - npm run build:temporal-bargraph
+    before_deploy:
+    - cd dist/temporal-bargraph
+    after_deploy: *1
+    deploy: *2
+
   - stage: test
     name: Run sonar checks
     if: NOT (tag IS present)
