@@ -6,7 +6,7 @@ import { extractInvestigators } from './nsf-extract-investigators';
 import { Investigator } from './nsf-investigator';
 import { layoutCoPiNetwork } from './nsf-layout-copi-network';
 import { parseNSFFile } from './nsf-record';
-import { Geocoder } from 'geocoder-ts';
+import { Geocoder, DefaultGeocoder } from 'geocoder-ts';
 
 // @dynamic
 export class NSFDatabase {
@@ -23,7 +23,7 @@ export class NSFDatabase {
     }
   }
 
-  static async fromNSFFile(nsfFileContents: string, geocoder: Geocoder): Promise<NSFDatabase> {
+  static async fromNSFFile(nsfFileContents: string, geocoder: Geocoder = new DefaultGeocoder()): Promise<NSFDatabase> {
     const records = parseNSFFile(nsfFileContents);
     const awards = await extractAwards(records, geocoder);
     const investigators = extractInvestigators(awards);

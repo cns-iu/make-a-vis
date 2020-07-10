@@ -1,13 +1,14 @@
 import { ObjectFactory, ObjectFactoryRegistry, Project, RawData } from '@dvl-fw/core';
 
 import { ISIDatabase } from '../data-model';
-import { Geocoder } from 'geocoder-ts';
+import { Geocoder, DefaultGeocoder } from 'geocoder-ts';
 
 export class ISIParsedRawData implements RawData {
   template = 'isiParsedData';
   private __reconstituted_data__ = false;
 
-  constructor(public id: string, private isiData: RawData, public data: ISIDatabase = null, private geocoder: Geocoder) { }
+  constructor(public id: string, private isiData: RawData, public data: ISIDatabase = null,
+    private geocoder: Geocoder = new DefaultGeocoder()) { }
 
   async getData(): Promise<any> {
     if (!this.data) {
@@ -31,7 +32,7 @@ export class ISIParsedRawDataFactory implements ObjectFactory<RawData, Project> 
   id = 'isiParsedData';
   type = 'rawData';
 
-  constructor(private geocoder: Geocoder) { }
+  constructor(private geocoder: Geocoder = new DefaultGeocoder()) { }
 
   fromJSON(data: any, _context: Project, _registry: ObjectFactoryRegistry): RawData {
     return new ISIParsedRawData(data.id, null, data.data, this.geocoder);

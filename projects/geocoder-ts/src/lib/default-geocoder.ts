@@ -13,11 +13,11 @@ export class DefaultGeocoder implements Geocoder {
 
     // @TODO:  Move access token to environment variable.
     constructor(
-        private mapboxGeocoderEnabled: boolean,
+        private enableAdvancedGeocoding: boolean = false,
         private mapboxAccessToken: string = 'pk.eyJ1IjoiYmhlcnIyIiwiYSI6ImNrY2V2dDB4MDA5bjgyc215Y3Rpc2cwZW4ifQ.Cy7G4a-vZasggScmRSO8dA',
         private mapboxRateLimit: number = 10
     ) {
-        if (this.mapboxGeocoderEnabled) {
+        if (this.enableAdvancedGeocoding) {
             const usGeocoder = new USGeocoder();
             const citiesGeocoder = new GlobalCitiesGeocoder();
             const mapBoxGeocoder = new MapBoxGeocoder(this.mapboxAccessToken);
@@ -27,10 +27,7 @@ export class DefaultGeocoder implements Geocoder {
             this.geocoder = new CachedGeocoder(pipedGeocoder);
         } else {
             const usGeocoder = new USGeocoder();
-            const citiesGeocoder = new GlobalCitiesGeocoder();
-            const pipedGeocoder = new PipedGeocoder([usGeocoder, citiesGeocoder]);
-
-            this.geocoder = new CachedGeocoder(pipedGeocoder);
+            this.geocoder = new CachedGeocoder(usGeocoder);
         }
     }
 

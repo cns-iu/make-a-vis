@@ -1,13 +1,14 @@
 import { ObjectFactory, ObjectFactoryRegistry, Project, RawData } from '@dvl-fw/core';
 
 import { NSFDatabase } from '../data-model';
-import { Geocoder } from 'geocoder-ts';
+import { Geocoder, DefaultGeocoder } from 'geocoder-ts';
 
 export class NSFParsedRawData implements RawData {
   template = 'nsfParsedData';
   private __reconstituted_data__ = false;
 
-  constructor(public id: string, private nsfData: RawData, private geocoder: Geocoder, public data: NSFDatabase = null) { }
+  constructor(public id: string, private nsfData: RawData, public data: NSFDatabase = null,
+      private geocoder: Geocoder = new DefaultGeocoder()) { }
 
   async getData(): Promise<any> {
     if (!this.data) {

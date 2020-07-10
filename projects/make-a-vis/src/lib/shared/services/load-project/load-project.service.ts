@@ -33,8 +33,6 @@ export class LoadProjectService {
     { label: 'yml', extensions: ['.yml'] }
   ];
 
-  geocoder = new DefaultGeocoder(this.advancedService.advancedEnabled);
-
   constructor(
       private serializer: ProjectSerializerService,
       private loggingControlService: LoggingControlService,
@@ -43,14 +41,16 @@ export class LoadProjectService {
       private advancedService: AdvancedService) {
     const registry = this.serializer.registry;
 
+    const geocoder = new DefaultGeocoder(this.advancedService.advancedEnabled);
+
     registry.registerPlugin(new LegendsPlugin());
     registry.registerPlugin(new GeomapPlugin());
     registry.registerPlugin(new NetworkPlugin());
     registry.registerPlugin(new ScatterplotPlugin());
     registry.registerPlugin(new ScienceMapPlugin());
     registry.registerPlugin(new TemporalBargraphPlugin());
-    registry.registerPlugin(new ISIPlugin(this.geocoder));
-    registry.registerPlugin(new NSFPlugin(this.geocoder));
+    registry.registerPlugin(new ISIPlugin(geocoder));
+    registry.registerPlugin(new NSFPlugin(geocoder));
   }
 
   setSaveActivityLog(project) {
@@ -70,14 +70,16 @@ export class LoadProjectService {
     template: 'isi' | 'nsf' | 'csv' | 'json',
     fileContents: string[] | string, fileNames?: string[] | string
   ): Promise<Project> {
+    const geocoder = new DefaultGeocoder(this.advancedService.advancedEnabled);
+
     fileNames = isArray(fileNames) || !fileNames ? fileNames : [fileNames];
     switch (template) {
       case 'csv':
         // fall through NSFTemplateProject
       case 'nsf':
-        return await NSFTemplateProject.create(fileContents, this.geocoder, fileNames);
+        return await NSFTemplateProject.create(fileContents, fileNames, geocoder);
       case 'isi':
-        return await ISITemplateProject.create(fileContents[0], this.geocoder, fileNames[0]);
+        return await ISITemplateProject.create(fileContents[0], fileNames[0], geocoder);
       default:
         throw new Error(`Template: ${template} not supported.`);
     }

@@ -10,7 +10,7 @@ import { layoutCoAuthorNetwork } from './isi-layout-coauthor-network';
 import { Publication } from './isi-publication';
 import { parseISIFile } from './isi-record';
 import { Subdiscipline } from './isi-subdiscipline';
-import { Geocoder } from 'geocoder-ts';
+import { Geocoder, DefaultGeocoder } from 'geocoder-ts';
 
 // @dynamic
 export class ISIDatabase {
@@ -28,7 +28,7 @@ export class ISIDatabase {
     }
   }
 
-  static async fromISIFile(isiFileContents: string, geocoder: Geocoder): Promise<ISIDatabase> {
+  static async fromISIFile(isiFileContents: string, geocoder: Geocoder = new DefaultGeocoder()): Promise<ISIDatabase> {
     const records = parseISIFile(isiFileContents);
     const publications = extractPublications(records);
     const journals = extractJournals(publications);

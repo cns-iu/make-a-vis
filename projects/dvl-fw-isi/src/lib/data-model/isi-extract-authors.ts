@@ -1,8 +1,8 @@
 import { Author, AuthorStats } from './isi-author';
 import { Publication } from './isi-publication';
-import { Geocoder } from 'geocoder-ts';
+import { Geocoder, DefaultGeocoder } from 'geocoder-ts';
 
-export async function extractAuthors(publications: Publication[], geocoder: Geocoder): Promise<Author[]> {
+export async function extractAuthors(publications: Publication[], geocoder: Geocoder = new DefaultGeocoder()): Promise<Author[]> {
   const authors: any = {}, authorList: Author[] = [];
   const globalStats = new AuthorStats();
 

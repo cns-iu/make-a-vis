@@ -9,12 +9,12 @@ import { ScienceMapVisualization } from '@dvl-fw/science-map';
 
 import { ISIDataSource } from './isi-data-source';
 import { ISIParsedRawData } from './isi-parsed-raw-data';
-import { Geocoder } from 'geocoder-ts';
+import { Geocoder, DefaultGeocoder } from 'geocoder-ts';
 
 
 export class ISITemplateProject extends DefaultProject {
 
-  constructor(isiFileContent: string, private geocoder: Geocoder, fileName?: string) {
+  constructor(isiFileContent: string, fileName?: string, private geocoder: Geocoder = new DefaultGeocoder()) {
     super();
     this.rawData = this.getRawData(isiFileContent);
     this.dataSources = this.getDataSources();
@@ -24,8 +24,8 @@ export class ISITemplateProject extends DefaultProject {
     this.visualizations = this.getVisualizations();
   }
 
-  static async create(isiFileContent: string, geocoder: Geocoder, fileName?: string): Promise<Project> {
-    const project = new ISITemplateProject(isiFileContent, geocoder, fileName);
+  static async create(isiFileContent: string, fileName?: string, geocoder: Geocoder = new DefaultGeocoder()): Promise<Project> {
+    const project = new ISITemplateProject(isiFileContent, fileName, geocoder);
     await project.prePopulateData();
     return project;
   }

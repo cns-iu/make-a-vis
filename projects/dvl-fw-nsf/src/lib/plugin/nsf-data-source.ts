@@ -6,7 +6,7 @@ import { find, invokeMap, map, pick, reject } from 'lodash';
 
 import { NSFRecord } from '../data-model';
 import { NSFParsedRawData } from './nsf-parsed-raw-data';
-import { Geocoder } from 'geocoder-ts';
+import { Geocoder, DefaultGeocoder } from 'geocoder-ts';
 
 export interface NSFDataSourceOptions extends DataSourceOptions {
   parsedData?: string;
@@ -24,13 +24,13 @@ export class NSFDataSource implements DataSource {
   recordStreams: RecordStream<NSFRecord>[];
   properties: NSFDataSourceOptions;
 
-  constructor(data: NSFDataSourceArg, project: Project, private geocoder: Geocoder) {
+  constructor(data: NSFDataSourceArg, project: Project, private geocoder: Geocoder = new DefaultGeocoder()) {
     Object.assign(this, data);
 
     const rawData = find(project.rawData, ['id', data.properties.rawData]);
     let parsedData = find(project.rawData, ['id', data.properties.parsedData]);
     if (!parsedData) {
-      parsedData = new NSFParsedRawData(this.properties.parsedData, rawData, this.geocoder);
+      parsedData = new NSFParsedRawData(this.properties.parsedData, rawData, null, this.geocoder);
       if (this.properties.saveParsedData) {
         project.rawData.push(parsedData);
         parsedData.getData();
@@ -55,7 +55,7 @@ export class NSFDataSourceFactory implements ObjectFactory<DataSource, Project> 
   id = 'nsf';
   type = 'dataSource';
 
-  constructor(private geocoder: Geocoder) { }
+  constructor(private geocoder: Geocoder = new DefaultGeocoder()) { }
 
   fromJSON(data: any, context: Project, _registry: ObjectFactoryRegistry): DataSource {
     return new NSFDataSource(data, context, this.geocoder);
