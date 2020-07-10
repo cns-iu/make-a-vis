@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Injectable } from '@angular/core';
 import { ProjectSerializerService } from '@dvl-fw/angular';
 import { ActivityLogRawData, Project } from '@dvl-fw/core';
@@ -38,7 +39,8 @@ export class LoadProjectService {
       private loggingControlService: LoggingControlService,
       private store: Store<sidenavStore.SidenavState>,
       private getLinkService: GetLinkService,
-      private advancedService: AdvancedService) {
+      private advancedService: AdvancedService,
+      private snackBar: MatSnackBar) {
     const registry = this.serializer.registry;
 
     const geocoder = new DefaultGeocoder(this.advancedService.advancedEnabled);
@@ -70,7 +72,16 @@ export class LoadProjectService {
     template: 'isi' | 'nsf' | 'csv' | 'json',
     fileContents: string[] | string, fileNames?: string[] | string
   ): Promise<Project> {
-    const geocoder = new DefaultGeocoder(this.advancedService.advancedEnabled);
+    const advancedMode = this.advancedService.advancedEnabled;
+    const geocoder = new DefaultGeocoder(advancedMode);
+
+    if (advancedMode && (template === 'nsf' || template === 'isi')) {
+      this.snackBar.open('Advanced geocoding is enabled. NSF or ISI file loading could be slow.', null, {
+        duration: 3000,
+        verticalPosition: 'top',
+        panelClass: 'mav-snackbar-wrapper'
+      });
+    }
 
     fileNames = isArray(fileNames) || !fileNames ? fileNames : [fileNames];
     switch (template) {
