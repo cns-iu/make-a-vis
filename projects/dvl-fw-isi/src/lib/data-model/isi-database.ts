@@ -27,12 +27,12 @@ export class ISIDatabase {
     }
   }
 
-  static async fromISIFile(isiFileContents: string, maboxGeocodingEnabled: boolean): Promise<ISIDatabase> {
+  static async fromISIFile(isiFileContents: string): Promise<ISIDatabase> {
     const records = parseISIFile(isiFileContents);
     const publications = extractPublications(records);
     const journals = extractJournals(publications);
     const subdisciplines = extractSubdisciplines(journals);
-    const authors = await extractAuthors(publications, maboxGeocodingEnabled);
+    const authors = await extractAuthors(publications);
     const coAuthorLinks = extractCoAuthorLinks(publications);
     layoutCoAuthorNetwork(authors, coAuthorLinks);
 

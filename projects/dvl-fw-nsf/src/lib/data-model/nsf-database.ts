@@ -22,9 +22,9 @@ export class NSFDatabase {
     }
   }
 
-  static async fromNSFFile(nsfFileContents: string, maboxGeocodingEnabled: boolean): Promise<NSFDatabase> {
+  static async fromNSFFile(nsfFileContents: string): Promise<NSFDatabase> {
     const records = parseNSFFile(nsfFileContents);
-    const awards = await extractAwards(records, maboxGeocodingEnabled);
+    const awards = await extractAwards(records);
     const investigators = extractInvestigators(awards);
     const coPiLinks = extractCoPiLinks(awards);
     layoutCoPiNetwork(investigators, coPiLinks);

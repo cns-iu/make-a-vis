@@ -12,7 +12,7 @@ import { ISIParsedRawData } from './isi-parsed-raw-data';
 
 
 export class ISITemplateProject extends DefaultProject {
-  static async create(isiFileContent: string, fileName?: string, options?: any): Promise<Project> {
+  static async create(isiFileContent: string, fileName?: string): Promise<Project> {
     const project = new ISITemplateProject(isiFileContent, fileName);
     await project.prePopulateData();
     return project;

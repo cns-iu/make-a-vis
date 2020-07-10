@@ -8,10 +8,10 @@ export class NSFParsedRawData implements RawData {
 
   constructor(public id: string, private nsfData: RawData, public data: NSFDatabase = null) { }
 
-  async getData(maboxGeocodingEnabled: boolean): Promise<any> {
+  async getData(): Promise<any> {
     if (!this.data) {
       const nsfFileContents = await this.nsfData.getData();
-      this.data = await NSFDatabase.fromNSFFile(nsfFileContents, maboxGeocodingEnabled);
+      this.data = await NSFDatabase.fromNSFFile(nsfFileContents);
       this.__reconstituted_data__ = true;
     } else if (!this.__reconstituted_data__) {
       this.data = NSFDatabase.fromJSON(this.data);

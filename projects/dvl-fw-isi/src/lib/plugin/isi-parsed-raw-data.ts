@@ -8,10 +8,10 @@ export class ISIParsedRawData implements RawData {
 
   constructor(public id: string, private isiData: RawData, public data: ISIDatabase = null) { }
 
-  async getData(maboxGeocodingEnabled: boolean): Promise<any> {
+  async getData(): Promise<any> {
     if (!this.data) {
       const isiFileContents = await this.isiData.getData();
-      this.data = await ISIDatabase.fromISIFile(isiFileContents, maboxGeocodingEnabled);
+      this.data = await ISIDatabase.fromISIFile(isiFileContents);
       this.__reconstituted_data__ = true;
     } else if (!this.__reconstituted_data__) {
       this.data = ISIDatabase.fromJSON(this.data);

@@ -16,7 +16,6 @@ import { BehaviorSubject, defer, Observable } from 'rxjs';
 import { LoggingControlService } from '../../../shared/logging/logging-control.service';
 import * as sidenavStore from '../../../toolbar/shared/store';
 import { GetLinkService } from '../get-link/get-link.service';
-import { AdvancedService } from '../advance/advanced.service';
 
 
 @Injectable({
@@ -36,8 +35,7 @@ export class LoadProjectService {
       private serializer: ProjectSerializerService,
       private loggingControlService: LoggingControlService,
       private store: Store<sidenavStore.SidenavState>,
-      private getLinkService: GetLinkService,
-      private advancedService: AdvancedService) {
+      private getLinkService: GetLinkService) {
     const registry = this.serializer.registry;
 
     registry.registerPlugin(new LegendsPlugin());
@@ -72,13 +70,9 @@ export class LoadProjectService {
       case 'csv':
         // fall through NSFTemplateProject
       case 'nsf':
-        return await NSFTemplateProject.create(
-          fileContents, fileNames, { mapboxGeocodingEnabled: this.advancedService.advancedEnabled }
-        );
+        return await NSFTemplateProject.create(fileContents, fileNames);
       case 'isi':
-        return await ISITemplateProject.create(
-          fileContents[0], fileNames[0], { mapboxGeocodingEnabled: this.advancedService.advancedEnabled }
-        );
+        return await ISITemplateProject.create(fileContents[0], fileNames[0]);
       default:
         throw new Error(`Template: ${template} not supported.`);
     }
