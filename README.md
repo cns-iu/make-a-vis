@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.com/cns-iu/make-a-vis.svg?branch=main)](https://travis-ci.com/cns-iu/make-a-vis)
 [![GitHub last commit](https://img.shields.io/github/last-commit/cns-iu/make-a-vis.svg)](https://github.com/cns-iu/make-a-vis/commits/main)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
-[![Old Version](https://img.shields.io/badge/old_version-online-brightgreen.svg)](https://old--make-a-vis.netlify.app/)
+[![Old Version](https://img.shields.io/badge/old_version-online-brightgreen.svg)](https://old--make-a-vis.netlify.app/index.html)
 [![View Staging Site](https://img.shields.io/badge/staging-online-brightgreen.svg)](https://make-a-vis.netlify.app/)
 [![View Demo](https://img.shields.io/badge/demo-online-brightgreen.svg)](https://cns-iu.github.io/make-a-vis)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?branch=main&project=cns-iu_make-a-vis&metric=alert_status)](https://sonarcloud.io/dashboard?id=cns-iu_make-a-vis&branch=main)
