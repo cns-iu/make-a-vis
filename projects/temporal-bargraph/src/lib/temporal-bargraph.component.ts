@@ -40,6 +40,7 @@ export class TemporalBargraphComponent implements VisualizationComponent,
 
   updateSpec(): void {
     this.spec = temporalBargraphSpec({
+      hasYOrder: !!this.data?.graphicSymbols['bars']?.graphicVariables?.hasOwnProperty('y-order'),
       ...this.propertyDefaults,
       ...this.data.properties,
       nodes: this.nodes || []

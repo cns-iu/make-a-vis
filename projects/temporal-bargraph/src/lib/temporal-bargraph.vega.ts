@@ -6,6 +6,7 @@ import { VisualizationNode } from './interfaces';
 export interface TemporalBargraphSpecOptions {
   nodes?: VisualizationNode[];
   enableZoomPan?: boolean;
+  hasYOrder?: boolean;
 }
 
 export function temporalBargraphSpec(options: TemporalBargraphSpecOptions = {}): VisualizationSpec {
@@ -30,7 +31,7 @@ export function temporalBargraphSpec(options: TemporalBargraphSpecOptions = {}):
 
     transform: [
       {
-        calculate: `'' + datum['y-order'] + '-' + datum.identifier`,
+        calculate: `'' + datum['${ options.hasYOrder ? 'y-order' : 'x-start' }'] + '-' + datum.identifier`,
         as: 'order'
       },
       {
@@ -71,7 +72,8 @@ export function temporalBargraphSpec(options: TemporalBargraphSpecOptions = {}):
           title: null,
           domain: false,
           ticks: false,
-          tickBand: 'extent',
+          tickBand: 'center',
+          labelAlign: 'right',
           labelAngle: 0,
           grid: true,
         }
