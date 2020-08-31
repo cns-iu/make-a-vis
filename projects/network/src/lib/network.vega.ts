@@ -8,6 +8,7 @@ export interface NetworkSpecOptions {
   edges?: VisualizationEdge[];
   enableTooltip?: boolean;
   enableZoomPan?: boolean;
+  showNodeLabels?: boolean;
 }
 
 export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec {
@@ -91,8 +92,25 @@ export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec
           size: {field: 'areaSize', type: 'quantitative', scale: null},
           tooltip: options.enableTooltip !== false ? {field: 'tooltip', type: 'nominal'} : undefined
         }
-      }
-    ],
+      },
+
+      // Draw Node Labels
+      {
+        name: options.showNodeLabels ? 'nodeLabels' : 'delete-me',
+        data: { name: 'nodes' },
+        mark: {
+          type: 'text',
+          align: 'left',
+          baseline: 'middle',
+          dx: 6,
+        },
+        encoding: {
+          x: { field: 'x', type: 'quantitative' },
+          y: { field: 'y', type: 'quantitative' },
+          text: { field: 'label', type: 'nominal' },
+        },
+      },
+    ].filter(l => l.name !== 'delete-me') as any[],
     datasets: {
       nodes: options.nodes as any[] || undefined,
       edges: options.edges as any[] || undefined

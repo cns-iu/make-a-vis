@@ -52,6 +52,7 @@ export class NetworkComponent implements VisualizationComponent,
 
   updateSpec(): void {
     this.spec = networkSpec({
+      showNodeLabels: !!this.data?.graphicSymbols['nodes']?.graphicVariables?.label,
       ...this.propertyDefaults,
       ...this.data.properties,
       nodes: this.nodes || [],

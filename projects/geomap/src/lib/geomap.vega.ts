@@ -12,6 +12,7 @@ export interface GeomapSpecOptions {
   state?: string | number;
   projection?: ProjectionType | 'eckert4' | string;
   enableZoomPan?: boolean;
+  showNodeLabels?: boolean;
   basemapZoomLevels?: unknown[];
   basemapSelectedZoomLevel?: number;
   basemapDefaultColor?: string;
@@ -159,6 +160,33 @@ export function geomapSpec(options: GeomapSpecOptions = {}, defaultOptions = DEF
           size: {field: 'areaSize', type: 'quantitative', scale: null},
           tooltip: {field: 'tooltip', type: 'nominal'}
         }
+      },
+
+      // Draw Node Labels
+      {
+        name: options.showNodeLabels ? 'nodeLabels' : 'delete-me',
+        data: { name: 'nodes' },
+        projection: { type: options.projection as ProjectionType },
+        transform: [
+          {
+            filter:
+              'isValid(datum.latitude)' +
+              (options.projection === 'albersUsa'
+                ? ' && datum.latitude > 18.8'
+                : ''),
+          }
+        ],
+        mark: {
+          type: 'text',
+          align: 'left',
+          baseline: 'middle',
+          dx: 6,
+        },
+        encoding: {
+          longitude: { field: 'longitude', type: 'quantitative' },
+          latitude: { field: 'latitude', type: 'quantitative' },
+          text: { field: 'label', type: 'nominal' },
+        },
       }
     ].filter(l => l.name !== 'delete-me') as any[],
     datasets: {

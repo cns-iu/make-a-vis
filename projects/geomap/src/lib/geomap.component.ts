@@ -74,6 +74,8 @@ export class GeomapComponent implements VisualizationComponent,
     this.userOptions = options;
     let patch = patchUsaGeoZoom;
 
+    options.showNodeLabels = !!this.data?.graphicSymbols['nodes']?.graphicVariables?.label;
+
     if (options.country && options.enableZoomPan) {
       const country = await this.geomapDataService.getCountry(options.country);
       if (country) {
