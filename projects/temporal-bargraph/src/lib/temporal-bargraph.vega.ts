@@ -35,6 +35,10 @@ export function temporalBargraphSpec(options: TemporalBargraphSpecOptions = {}):
         as: 'order'
       },
       {
+        calculate: `!isValid(datum.label) ? '' : datum.label`,
+        as: 'label'
+      },
+      {
         calculate: `!isValid(datum.tooltip) ? '' : datum.tooltip`,
         as: 'tooltip'
       },
