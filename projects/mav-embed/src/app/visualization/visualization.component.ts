@@ -1,4 +1,4 @@
-import { Component, Input, NgZone, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import { Component, Input, NgZone, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Project, Visualization } from '@dvl-fw/core';
 import { filter, lowerCase } from 'lodash';
 import { BehaviorSubject, combineLatest, Observable, of, Subject } from 'rxjs';
@@ -11,8 +11,7 @@ import { DataLinkService, DataLinkTarget } from '../shared/services/data-link/da
  */
 @Component({
   selector: 'mav-visualization',
-  template: '<dvl-visualization [data]="visualization$ | async"></dvl-visualization>',
-  encapsulation: ViewEncapsulation.ShadowDom
+  template: '<dvl-visualization [data]="visualization$ | async"></dvl-visualization>'
 })
 export class VisualizationComponent implements DataLinkTarget<Project>, OnChanges, OnInit, OnDestroy {
   /** The identifier of the project component from which to fetch data */

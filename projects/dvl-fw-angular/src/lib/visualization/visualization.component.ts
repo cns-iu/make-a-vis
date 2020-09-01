@@ -1,11 +1,12 @@
 import {
-  Component, ComponentFactoryResolver, ComponentRef, Input, OnChanges, OnInit, SimpleChange, SimpleChanges, Type,
-  ViewContainerRef,
+  Component, ComponentFactoryResolver, ComponentRef, Injector, Input, OnChanges, OnInit,
+  SimpleChange, SimpleChanges, Type, ViewContainerRef
 } from '@angular/core';
 import { GraphicSymbol, Visualization, VisualizationComponent } from '@dvl-fw/core';
 import { forOwn, isEmpty, isFunction } from 'lodash';
 
 import { ClonedVisualization } from './utility';
+
 
 interface VisualizationChange {
   currentValue: Visualization;
@@ -34,7 +35,8 @@ export class DvlFwVisualizationComponent implements OnInit, OnChanges {
 
   constructor(
     private viewContainerRef: ViewContainerRef,
-    private componentFactoryResolver: ComponentFactoryResolver
+    private componentFactoryResolver: ComponentFactoryResolver,
+    private injector: Injector,
   ) { }
 
   ngOnInit() {
@@ -77,7 +79,7 @@ export class DvlFwVisualizationComponent implements OnInit, OnChanges {
     const { componentFactoryResolver, viewContainerRef } = this;
     try {
       const factory = componentFactoryResolver.resolveComponentFactory(componentType);
-      const component = viewContainerRef.createComponent(factory);
+      const component = viewContainerRef.createComponent(factory, null, this.injector);
       return component;
     } catch (error) {
       console.log(`Failed to create visualization component`, error);
