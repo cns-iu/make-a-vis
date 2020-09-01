@@ -2,6 +2,15 @@
 
 Changelog for Make-a-Vis and DVL-FW.
 
+## 0.50.1 - 2020-09-01
+
+### Added in 0.50.1
+
+- Bug fixes to support the upcoming VAC class
+- Fixed styling issue when using mav-embed #294
+- Fixed regression in geomap and network not supporting the label Graphic Variable #288
+- Fixed regression in temporal bar graph, where `x-start` was supposed to be used in the absence of `y-order` #291
+
 ## 0.50.0 - 2020-07-10
 
 ### Added in 0.50.0
