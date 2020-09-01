@@ -1,3 +1,7 @@
+::ng-deep {
+  @import "~vega-embed/vega-embed.scss";
+}
+
 :host {
   div {
     top: 4px;
