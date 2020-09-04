@@ -1,6 +1,6 @@
 {
   "name": "@dvl-fw/mav-embed",
-  "version": "0.50.3",
+  "version": "0.50.5",
   "publishConfig": {
       "access": "public"
   },
@@ -28,11 +28,5 @@
     "Gurjaspal Singh Bedi <gbedi@iu.edu> (https://github.com/gurjaspalbedi)",
     "Shashank Shekhar <shashekh@iu.edu> (https://github.com/KalaRaja)"
   ],
-  "main": "main-es5.js",
-  "files": [
-    "main-es5.js",
-    "main-es2015.js",
-    "README.md",
-    "3rdpartylicenses.txt"
-  ]
+  "main": "main-es5.js"
 }

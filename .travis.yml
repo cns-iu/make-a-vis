@@ -130,8 +130,6 @@ jobs:
     script:
     - npm run build:libs
     - npm run build:mav-embed
-    - cp projects/mav-embed/README.md dist/mav-embed
-    - cp projects/mav-embed/package.json dist/mav-embed
     before_deploy:
     - cd dist/mav-embed
     after_deploy: *1
