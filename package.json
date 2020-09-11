@@ -76,7 +76,7 @@
     "nano-sql": "^1.8.5",
     "ngx-clipboard": "^13.0.1",
     "ngx-markdown": "^9.1.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "papaparse": "^5.2.0",
     "pbf": "^3.2.1",
     "pdfkit-browserify": "^0.8.3-R2",
