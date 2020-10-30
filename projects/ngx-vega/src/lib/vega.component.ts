@@ -52,7 +52,14 @@ export class VegaComponent implements OnChanges, OnDestroy {
 
   private onViewChange(view: View): void {
     const { container, renderer } = this;
-    const viewEl = view.container();
+    let viewEl = view.container();
+    let parentEl: HTMLElement = renderer.parentNode(viewEl);
+
+    // Find top wrapper element
+    while (parentEl !== null) {
+      viewEl = parentEl;
+      parentEl = renderer.parentNode(viewEl);
+    }
 
     this.clearContainer();
     this.viewEl = viewEl;
