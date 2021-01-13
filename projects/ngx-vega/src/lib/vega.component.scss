@@ -1,12 +1,14 @@
-::ng-deep {
-  @import "~vega-embed/vega-embed.scss";
-}
-
 :host {
-  div {
-    top: 4px;
-    width: calc(100% - 12px);
-    height: calc(100% - 4px);
-    margin: auto;
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  & > div {
+    width: 100%;
+    height: 100%;
+  }
+
+  ::ng-deep {
+    @import "~vega-embed/vega-embed.scss";
   }
 }
