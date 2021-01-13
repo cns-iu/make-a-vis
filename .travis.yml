@@ -2,7 +2,8 @@ language: node_js
 node_js:
 - 'node'
 sudo: required
-dist: trusty
+os: linux
+dist: bionic
 addons:
   chrome: stable
   sonarcloud:
