@@ -37,6 +37,7 @@
     "rxjs": "^6.5.3",
     "save-svg-as-png": "^1.4.14",
     "svg-to-pdfkit": "^0.1.7",
+    "tslib": "^2.0.0",
     "typescript-logging": "^0.6.3"
   },
   "peerDependencies": {

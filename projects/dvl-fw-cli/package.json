@@ -26,7 +26,8 @@
     "Adam Phillips <adphil@iu.edu> (https://github.com/adphillips2017)"
   ],
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "tslib": "^2.0.0"
   },
   "peerDependencies": {
     "@angular/common": "^9.0.0",

@@ -33,6 +33,9 @@
     "@angular/core": "^9.0.0",
     "@ngx-dino/core": ">=0.10.0 <1.0.0"
   },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
   "devDependencies": {
     "@types/node": "^14.0.14",
     "xlsx": "^0.16.3"

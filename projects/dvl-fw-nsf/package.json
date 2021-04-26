@@ -27,7 +27,8 @@
   "dependencies": {
     "graphology": "^0.14.1",
     "graphology-layout-forceatlas2": "^0.3.1",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "tslib": "^2.0.0"
   },
   "peerDependencies": {
     "@dvl-fw/core": "^0.50.0",
