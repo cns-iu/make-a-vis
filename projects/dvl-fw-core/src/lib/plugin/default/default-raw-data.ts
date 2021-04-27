@@ -36,7 +36,7 @@ export class DefaultRawData implements RawData {
         this._parsed_data_ = this.getRemoteData();
       }
     }
-    return await this._parsed_data_;
+    return this._parsed_data_;
   }
 
   private async getRemoteData(): Promise<any> {
