@@ -146,7 +146,7 @@
       "prefix": "mav",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/make-a-vis/tsconfig.lib.json",
             "project": "projects/make-a-vis/ng-package.json"
@@ -305,7 +305,7 @@
       "prefix": "dvl",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/dvl-fw-core/tsconfig.lib.json",
             "project": "projects/dvl-fw-core/ng-package.json"
@@ -346,7 +346,7 @@
       "prefix": "dvl",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/dvl-fw-isi/tsconfig.lib.json",
             "project": "projects/dvl-fw-isi/ng-package.json"
@@ -387,7 +387,7 @@
       "prefix": "dvl",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/dvl-fw-nsf/tsconfig.lib.json",
             "project": "projects/dvl-fw-nsf/ng-package.json"
@@ -428,7 +428,7 @@
       "prefix": "dvl",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/dvl-fw-angular/tsconfig.lib.json",
             "project": "projects/dvl-fw-angular/ng-package.json"
@@ -469,7 +469,7 @@
       "prefix": "dvl",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/dvl-fw-cli/tsconfig.lib.json",
             "project": "projects/dvl-fw-cli/ng-package.json"
@@ -509,7 +509,7 @@
       "prefix": "ngx",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/ngx-vega/tsconfig.lib.json",
             "project": "projects/ngx-vega/ng-package.json"
@@ -546,7 +546,7 @@
       "prefix": "dvl",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/science-map/tsconfig.lib.json",
             "project": "projects/science-map/ng-package.json"
@@ -586,7 +586,7 @@
       "prefix": "dvl",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/network/tsconfig.lib.json",
             "project": "projects/network/ng-package.json"
@@ -626,7 +626,7 @@
       "prefix": "dvl",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/geomap/tsconfig.lib.json",
             "project": "projects/geomap/ng-package.json"
@@ -666,7 +666,7 @@
       "prefix": "dvl",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/temporal-bargraph/tsconfig.lib.json",
             "project": "projects/temporal-bargraph/ng-package.json"
@@ -706,7 +706,7 @@
       "prefix": "dvl",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/scatterplot/tsconfig.lib.json",
             "project": "projects/scatterplot/ng-package.json"
@@ -746,7 +746,7 @@
       "prefix": "dvl",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/legends/tsconfig.lib.json",
             "project": "projects/legends/ng-package.json"
@@ -786,7 +786,7 @@
       "prefix": "geo",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/geocoder-ts/tsconfig.lib.json",
             "project": "projects/geocoder-ts/ng-package.json"

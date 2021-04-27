@@ -94,7 +94,6 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1102.10",
-    "@angular-devkit/build-ng-packagr": "^0.1002.0",
     "@angular-devkit/schematics": "^11.2.10",
     "@angular/cli": "^11.2.10",
     "@angular/compiler-cli": "^11.2.11",
@@ -128,9 +127,8 @@
     "shelljs": "^0.8.4",
     "ts-loader": "^9.1.1",
     "ts-node": "^9.1.1",
-    "tsickle": "^0.39.1",
     "tslint": "~6.1.0",
-    "typescript": "~4.2.4",
+    "typescript": "~4.1.0",
     "vega-typings": "^0.21.0",
     "webpack": "^5.35.1",
     "webpack-cli": "^4.6.0",
