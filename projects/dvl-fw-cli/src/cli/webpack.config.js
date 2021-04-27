@@ -28,7 +28,7 @@ class MakeExecutablePlugin {
 
     compiler.hooks.assetEmitted.tap('MakeExecutablePlugin', (file, { targetPath }) => {
       // Set permissions for executables
-      if (this.files.some(f => (f + '.js') === file)) {
+      if (this.files.some(f => f === file)) {
         shell.chmod(755, targetPath);
       }
     });
