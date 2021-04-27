@@ -1,4 +1,4 @@
-import { safeDump, safeLoad } from 'js-yaml';
+import { dump, load } from 'js-yaml';
 
 import { Project, Visualization } from '../interfaces';
 import { ActivityLogPlugin, DefaultPlugin, ObjectFactoryPlugin, ObjectFactoryRegistry } from '../plugin';
@@ -20,11 +20,11 @@ export class ProjectSerializer {
 
   static async toYAML(project: Project, registry: ObjectFactoryRegistry = ProjectSerializer.defaultRegistry): Promise<string> {
     const data = await ProjectSerializer.toJSON(project, registry);
-    return safeDump(data, { skipInvalid: true });
+    return dump(data, { skipInvalid: true });
   }
 
   static async fromYAML(yaml: string, registry: ObjectFactoryRegistry = ProjectSerializer.defaultRegistry): Promise<Project> {
-    return ProjectSerializer.fromJSON(safeLoad(yaml), registry);
+    return ProjectSerializer.fromJSON(load(yaml), registry);
   }
 
   static createVisualization(
