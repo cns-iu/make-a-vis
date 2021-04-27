@@ -6,8 +6,7 @@ module.exports = {
   target: 'node',
   node: {
     __filename: true,
-    __dirname: true,
-    fs: true
+    __dirname: true
   },
   entry: {
     'dvl-fw-validate': path.resolve(__dirname, 'validate-project.ts'),
