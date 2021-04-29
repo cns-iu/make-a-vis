@@ -1,39 +1,43 @@
 var path = require('path');
 var shell = require('shelljs');
 var nodeExternals = require('webpack-node-externals');
-var { ConcatSource } = require('webpack-sources');
+// var { ConcatSource } = require('webpack-sources');
 
 
-class MakeExecutablePlugin {
-  constructor(files) {
-    this.files = files;
-  }
+// NOTE: This is the new way webpack does plugin in version 5.
+// Reenable this code when upgrading.
+// Should only be done when @angular-devkit/build-angular can be upgraded to version 12!
 
-  apply(compiler) {
-    compiler.hooks.thisCompilation.tap('MakeExecutablePlugin', compilation => {
-      compilation.hooks.processAssets.tap('MakeExecutablePlugin', assets => {
-        // Switch js files for executables
-        this.files.forEach(file => {
-          const jsFile = file + '.js';
-          const asset = assets[jsFile];
-          delete assets[jsFile];
+// class MakeExecutablePlugin {
+//   constructor(files) {
+//     this.files = files;
+//   }
 
-          assets[file] = new ConcatSource(
-            '#!/usr/bin/env node\n',
-            asset
-          );
-        });
-      });
-    });
+//   apply(compiler) {
+//     compiler.hooks.thisCompilation.tap('MakeExecutablePlugin', compilation => {
+//       compilation.hooks.processAssets.tap('MakeExecutablePlugin', assets => {
+//         // Switch js files for executables
+//         this.files.forEach(file => {
+//           const jsFile = file + '.js';
+//           const asset = assets[jsFile];
+//           delete assets[jsFile];
 
-    compiler.hooks.assetEmitted.tap('MakeExecutablePlugin', (file, { targetPath }) => {
-      // Set permissions for executables
-      if (this.files.some(f => f === file)) {
-        shell.chmod(755, targetPath);
-      }
-    });
-  }
-}
+//           assets[file] = new ConcatSource(
+//             '#!/usr/bin/env node\n',
+//             asset
+//           );
+//         });
+//       });
+//     });
+
+//     compiler.hooks.assetEmitted.tap('MakeExecutablePlugin', (file, { targetPath }) => {
+//       // Set permissions for executables
+//       if (this.files.some(f => f === file)) {
+//         shell.chmod(755, targetPath);
+//       }
+//     });
+//   }
+// }
 
 
 module.exports = {
@@ -85,9 +89,27 @@ module.exports = {
   },
 
   plugins: [
-    new MakeExecutablePlugin([
-      'dvl-fw-validate',
-      'dvl-fw-import'
-    ])
+    // new MakeExecutablePlugin([
+    //   'dvl-fw-validate',
+    //   'dvl-fw-import'
+    // ])
+
+    // This is the webpack version 4 plugin.
+    // Remove when upgrading to webpack version 5.
+    function () {
+      function mkExecutable(dist, fname) {
+        shell
+          .echo('#!/usr/bin/env node\n')
+          .cat(path.resolve(dist, fname + '.js'))
+          .to(path.resolve(dist, fname));
+        shell.chmod(755, path.resolve(dist, fname));
+        shell.rm(path.resolve(dist, fname + '.js'));
+      }
+      this.plugin('done', function() {
+        var dist = path.resolve('dist', 'dvl-fw-cli');
+        mkExecutable(dist, 'dvl-fw-validate');
+        mkExecutable(dist, 'dvl-fw-import');
+      });
+    }
   ]
 };
