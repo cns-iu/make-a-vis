@@ -1,4 +1,4 @@
-import { safeLoad } from 'js-yaml';
+import { load } from 'js-yaml';
 import { isArray } from 'lodash';
 
 import { parse } from '../../csv';
@@ -36,7 +36,7 @@ export class DefaultRawData implements RawData {
         this._parsed_data_ = this.getRemoteData();
       }
     }
-    return await this._parsed_data_;
+    return this._parsed_data_;
   }
 
   private async getRemoteData(): Promise<any> {
@@ -47,7 +47,7 @@ export class DefaultRawData implements RawData {
       return this.getCSVData(text);
     } else {
       // Assumes either JSON or YAML
-      return this.asObjectStore(safeLoad(text));
+      return this.asObjectStore(load(text));
     }
   }
 

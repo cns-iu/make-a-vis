@@ -9,7 +9,7 @@ import { DataVariable } from '@dvl-fw/core';
 import { Store } from '@ngrx/store';
 import { map as dinoMap } from '@ngx-dino/core';
 import { assign as loAssign, constant as loConstant, map as loMap, memoize as loMemoize } from 'lodash';
-import { MockComponents, MockHelper, MockModule, MockRender } from 'ng-mocks';
+import { MockComponents, MockModule, MockRender, ngMocks } from 'ng-mocks';
 import { of, Subject } from 'rxjs';
 
 import { DragDropModule } from '../../drag-drop/drag-drop.module';
@@ -91,7 +91,7 @@ describe('TableComponent', () => {
       </mav-table>
     `, { data: loAssign({ }, dataSource), columns: dataSource.columns, index: 0 });
 
-    component = MockHelper.findDirective(fixture.debugElement, TableComponent);
+    component = ngMocks.findInstance(TableComponent);
   });
 
   // Tests

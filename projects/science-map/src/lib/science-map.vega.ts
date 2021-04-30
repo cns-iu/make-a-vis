@@ -55,7 +55,13 @@ export function scienceMapSpec(options: ScienceMapSpecOptions = {}): Visualizati
       {
         mark: {type: 'rule', color: options.subdisciplineColor, strokeOpacity: options.subdisciplineStrokeOpacity},
         data: {name: 'subdisciplineEdges'},
-        selection: options.enableZoomPan ? {grid: {type: 'interval', bind: 'scales'}} : undefined,
+        params: options.enableZoomPan ? [
+          {
+            name: 'grid',
+            select: 'interval',
+            bind: 'scales'
+          }
+        ] : [],
         transform: [
           {
             lookup: 'subd_id1',

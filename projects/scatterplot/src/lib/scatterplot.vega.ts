@@ -47,7 +47,13 @@ export function scatterplotSpec(options: ScatterplotSpecOptions = {}): Visualiza
       {
         mark: {type: 'point'},
         data: {name: 'nodes'},
-        selection: options.enableZoomPan ? {grid: {type: 'interval', bind: 'scales'}} : undefined,
+        params: options.enableZoomPan ? [
+          {
+            name: 'grid',
+            select: 'interval',
+            bind: 'scales'
+          }
+        ] : [],
         transform: [
           {
             calculate: '!isValid(datum.tooltip) ? \'\' : datum.tooltip',
