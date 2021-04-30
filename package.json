@@ -33,6 +33,7 @@
     "compodoc": "npx compodoc -p tsconfig.json --output dist/make-a-vis-demo/docs",
     "update-examples": "./dist/dvl-fw/dvl-fw-import isi projects/dvl-fw/src/lib/examples/katy-borner_wos-extract-2018-08-21.isi projects/dvl-fw/src/lib/examples/katy-borner_wos-extract-2018-08-21.yml && ./dist/dvl-fw/dvl-fw-import nsf projects/dvl-fw/src/lib/examples/katy-borner_nsf-extract-2018-10-05.csv projects/dvl-fw/src/lib/examples/katy-borner_nsf-extract-2018-10-05.yml",
     "test": "ng test",
+    "test:wsl": "ng test --browsers=ChromeHeadlessWSL",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -116,7 +117,7 @@
     "jasmine-spec-reporter": "~7.0.0",
     "karma": "~6.3.2",
     "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage-istanbul-reporter": "~3.0.3",
+    "karma-coverage": "^2.0.3",
     "karma-jasmine": "~4.0.1",
     "karma-jasmine-html-reporter": "^1.5.4",
     "ng-mocks": "^11.10.1",
