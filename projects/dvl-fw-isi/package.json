@@ -1,6 +1,6 @@
 {
   "name": "@dvl-fw/isi",
-  "version": "0.50.1",
+  "version": "0.51.0",
   "publishConfig": {
     "access": "public"
   },
@@ -31,7 +31,7 @@
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
-    "@dvl-fw/core": "^0.50.0",
+    "@dvl-fw/core": "^0.51.0",
     "@ngx-dino/core": "^0.10.0",
     "geocoder-ts": "^0.50.0"
   }

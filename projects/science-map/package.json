@@ -1,6 +1,6 @@
 {
   "name": "@dvl-fw/science-map",
-  "version": "0.50.1",
+  "version": "0.51.0",
   "publishConfig": {
     "access": "public"
   },
@@ -29,8 +29,8 @@
     "preprocess-data": "ts-node --project tsconfig.cli.json src/lib/data/preprocess-raw-science-map-data.ts"
   },
   "peerDependencies": {
-    "@angular/common": "^9.0.0",
-    "@angular/core": "^9.0.0",
+    "@angular/common": "^11.0.0",
+    "@angular/core": "^11.0.0",
     "@ngx-dino/core": ">=0.10.0 <1.0.0"
   },
   "dependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@dvl-fw/geomap",
-  "version": "0.50.1",
+  "version": "0.51.0",
   "publishConfig": {
     "access": "public"
   },
@@ -29,9 +29,9 @@
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
-    "@angular/common": "^9.0.0",
-    "@angular/core": "^9.0.0",
-    "@dvl-fw/core": "^0.50.0",
+    "@angular/common": "^11.0.0",
+    "@angular/core": "^11.0.0",
+    "@dvl-fw/core": "^0.51.0",
     "@ngx-dino/legend": "^0.12.3",
     "@ngx-dino/core": ">=0.10.0 <1.0.0"
   }

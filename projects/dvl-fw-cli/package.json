@@ -1,6 +1,6 @@
 {
   "name": "@dvl-fw/cli",
-  "version": "0.50.1",
+  "version": "0.51.0",
   "publishConfig": {
     "access": "public"
   },
@@ -30,10 +30,10 @@
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
-    "@angular/common": "^9.0.0",
-    "@angular/core": "^9.0.0",
-    "@dvl-fw/core": "^0.50.0",
-    "@dvl-fw/isi": "^0.50.0",
-    "@dvl-fw/nsf": "^0.50.0"
+    "@angular/common": "^11.0.0",
+    "@angular/core": "^11.0.0",
+    "@dvl-fw/core": "^0.51.0",
+    "@dvl-fw/isi": "^0.51.0",
+    "@dvl-fw/nsf": "^0.51.0"
   }
 }
