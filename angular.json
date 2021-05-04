@@ -24,7 +24,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
+              "src/favicon.svg",
               "src/assets",
               "src/manifest.json"
             ],
@@ -91,7 +91,7 @@
             ],
             "scripts": [],
             "assets": [
-              "src/favicon.ico",
+              "src/favicon.svg",
               "src/assets",
               "src/manifest.json"
             ],
@@ -202,7 +202,7 @@
             "polyfills": "projects/mav-embed/src/polyfills.ts",
             "tsConfig": "projects/mav-embed/tsconfig.app.json",
             "assets": [
-              "projects/mav-embed/src/favicon.ico",
+              "projects/mav-embed/src/favicon.svg",
               "projects/mav-embed/src/assets"
             ],
             "styles": [
@@ -263,7 +263,7 @@
             "karmaConfig": "projects/mav-embed/karma.conf.js",
             "codeCoverage": true,
             "assets": [
-              "projects/mav-embed/src/favicon.ico",
+              "projects/mav-embed/src/favicon.svg",
               "projects/mav-embed/src/assets"
             ],
             "styles": [

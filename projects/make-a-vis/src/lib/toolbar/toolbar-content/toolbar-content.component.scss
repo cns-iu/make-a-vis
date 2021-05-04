@@ -6,8 +6,15 @@
       padding-right: 0;
 
       .toolbar-title {
+        display: flex;
+        align-items: center;
         font-size: 1.875rem !important;
         padding-left: 1rem;
+
+        .mav-icon {
+          height: 2.5rem;
+          padding: 0.25rem 0;
+        }
       }
 
       .toolbar-spacer {

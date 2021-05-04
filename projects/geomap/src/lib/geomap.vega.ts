@@ -42,7 +42,7 @@ export function geomapSpec(options: GeomapSpecOptions = {}, defaultOptions = DEF
   }
 
   return {
-    '$schema': 'https://vega.github.io/schema/vega-lite/v4.json',
+    '$schema': 'https://vega.github.io/schema/vega-lite/v5.json',
     description: 'US Map: This proportional symbol map shows 50 US states and other jurisdictions using the Albers equal-area conic projection (Alaska and Hawaii are inset). Each dataset record is represented by a circle centered at its geolocation. The area, interior color, and exterior color of each circle may represent numeric attribute values. Minimum and maximum data values are given in the legend.<br><br>World Map: This proportional symbol map shows 252 countries of the world using the equal-area Eckert IV projection. Each dataset record is represented by a circle centered at its geolocation. The area, interior color, and exterior color of each circle may represent numeric attribute values. Minimum and maximum data values are given in the legend.',
     autosize: {type: 'fit', resize: true},
     width: 'container',
