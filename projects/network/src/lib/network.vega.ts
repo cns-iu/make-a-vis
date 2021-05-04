@@ -20,7 +20,7 @@ export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec
   };
 
   return {
-    '$schema': 'https://vega.github.io/schema/vega-lite/v4.json',
+    '$schema': 'https://vega.github.io/schema/vega-lite/v5.json',
     description: 'This network visualization presents nodes connected by links. ForceAtlas2, a force-directed layout algorithm, is used to position nodes in two-dimensional space. The algorithm aims to minimize edge crossings and to place nodes so that all edges are of more or less equal length. Nodes can be size and color coded, and edges can be thickness and color coded. An additional data variable can be presented through tooltips on the nodes.',
     autosize: {type: 'fit', resize: true},
     width: 'container',
