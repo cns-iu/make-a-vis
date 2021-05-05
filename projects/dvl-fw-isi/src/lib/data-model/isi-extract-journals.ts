@@ -14,7 +14,9 @@ export function scienceLocatePublication(pub: Publication): {journalId: number, 
   if (tries.length > 0) {
     const journalId = '' + tries[0].id;
     const weights = journalIdSubdLookup.get(journalId);
-    const subdisciplineId = !weights ? -1 : weights.length === 1 ? weights[0].subd_id : -2;
+    const noSubdisciplineId = weights ? -2 : -1;
+    const subdisciplineId = weights?.length === 1 ? weights[0].subd_id : noSubdisciplineId;
+
     return { journalId: parseInt(journalId, 10), subdisciplineId };
   } else {
     return { journalId: undefined, subdisciplineId: -1 };
