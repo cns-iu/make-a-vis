@@ -1,2 +1,3 @@
 describe('LegendComponent', () => {
+  // Add tests
 });

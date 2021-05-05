@@ -4,7 +4,7 @@ import { GraphicSymbolData, TDatum, Visualization, VisualizationComponent } from
 import { DataProcessorService } from '@ngx-dino/core';
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
 import centroid from '@turf/centroid';
-import { Feature, MultiPolygon, Point, Polygon } from '@turf/helpers';
+import { Feature, MultiPolygon, Polygon } from '@turf/helpers';
 import { Options, Spec } from 'ngx-vega';
 import { Observable, of, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
