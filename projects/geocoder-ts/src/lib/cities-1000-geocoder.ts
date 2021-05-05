@@ -79,9 +79,7 @@ export class GlobalCitiesGeocoder implements Geocoder {
     const normalizedSearch = search.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const deHyphenatedSearch = normalizedSearch.replace(/-/g, ' ');
     const lowerCaseSearch = deHyphenatedSearch.toLowerCase();
-    const trimmedSearch = lowerCaseSearch.trim();
-
-    return trimmedSearch;
+    return lowerCaseSearch.trim();
   }
 
   getSearchTerms(address: string): SearchTerms[] {
@@ -135,8 +133,7 @@ export class GlobalCitiesGeocoder implements Geocoder {
   async getCities1000(): Promise<City[]> {
     const citiesFile = await this.getPbf();
     const citiesObjects = this.pbfToJson(citiesFile);
-    const city = this.parseIsoToCountry(citiesObjects);
-    return city;
+    return this.parseIsoToCountry(citiesObjects);
   }
 
   async getPbf() {
