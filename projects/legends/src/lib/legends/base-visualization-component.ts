@@ -1,6 +1,6 @@
-import { Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
+import { Directive, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
+import { OnGraphicSymbolChange, OnPropertyChange } from '@dvl-fw/angular';
 import { GraphicVariable, Visualization, VisualizationComponent } from '@dvl-fw/core';
-import { OnPropertyChange, OnGraphicSymbolChange } from '@dvl-fw/angular';
 import { BoundField, RawChangeSet } from '@ngx-dino/core';
 import { at, clone, forOwn, identity, mapValues, pick } from 'lodash';
 import { EMPTY as emptyStream, Observable } from 'rxjs';
@@ -28,6 +28,7 @@ export const enum Selector {
 
 const hasOwnProperty = ({}).hasOwnProperty;
 
+@Directive()
 export abstract class BaseVisualizationComponent<P extends SimpleProperties, F extends SimpleFieldGroups>
 implements VisualizationComponent, OnInit, OnChanges, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
@@ -115,7 +116,10 @@ implements VisualizationComponent, OnInit, OnChanges, OnPropertyChange, OnGraphi
 
   reset(groups: (keyof F)[] = Object.keys(this.streams), selector: Selector = Selector.All): void {
     if ((selector & Selector.Stream) !== 0) { // tslint:disable-line:no-bitwise
-      const emptyStreams = groups.reduce((streams, key) => (streams[key] = emptyStream, streams), {} as any);
+      const emptyStreams = groups.reduce((streams, key) => {
+        streams[key] = emptyStream;
+        return streams;
+      }, {} as any);
       const newStreams = this.getStreams(true);
       Object.assign(newStreams, emptyStreams);
       this.streams = newStreams;
