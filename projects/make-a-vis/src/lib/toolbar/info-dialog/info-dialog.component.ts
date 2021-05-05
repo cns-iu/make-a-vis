@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 
-import { buildInfo } from './build-info';
-import { ClosedInfoIcon } from '../shared/store';
 import { SidenavState } from '../../toolbar/shared/store';
+import { ClosedInfoIcon } from '../shared/store';
+import { buildInfo } from './build-info';
 
 
 
@@ -13,7 +13,7 @@ import { SidenavState } from '../../toolbar/shared/store';
   templateUrl: './info-dialog.component.html',
   styleUrls: ['./info-dialog.component.scss']
 })
-export class InfoDialogComponent implements OnInit {
+export class InfoDialogComponent {
   infoItems: Array<InfoItem>;
   footer: Array<any>;
   headerText: string;
@@ -26,8 +26,6 @@ export class InfoDialogComponent implements OnInit {
     this.createContactusContent();
     this.headerText = 'Make-a-Vis';
   }
-
-  ngOnInit() {}
 
   close() {
     this.dialogRef.close();

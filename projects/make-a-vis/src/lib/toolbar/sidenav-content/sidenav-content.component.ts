@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, Input, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { MatAccordion } from '@angular/material/expansion';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivationEnd, Router } from '@angular/router';
@@ -22,7 +22,7 @@ export type ExportType = 'png' | 'svg' | 'pdf';
   templateUrl: './sidenav-content.component.html',
   styleUrls: ['./sidenav-content.component.scss']
 })
-export class SidenavContentComponent implements OnInit {
+export class SidenavContentComponent {
   @ViewChild(MatAccordion, { static: false }) accordion: MatAccordion;
   @ViewChild('clipboardTarget', { static: false }) clipboardTargetEl: ElementRef;
   @ViewChildren('sidenavFileInputTag') fileInputTags: QueryList<ElementRef>;
@@ -82,9 +82,6 @@ export class SidenavContentComponent implements OnInit {
         }
       });
 
-  }
-
-  ngOnInit() {
   }
 
   exportSnapshot(exportType) {

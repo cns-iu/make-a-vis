@@ -1,7 +1,7 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
+import { DataVariable } from '@dvl-fw/core';
 import { Action } from '@ngrx/store';
 
-import { DataVariable, Visualization } from '@dvl-fw/core';
 import * as payloadTypes from './payload-types';
 
 export enum SidenavActionTypes {

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ScienceMapIconComponent } from './science-map-icon.component';
 
@@ -6,12 +6,12 @@ describe('ScienceMapIconComponent', () => {
   let component: ScienceMapIconComponent;
   let fixture: ComponentFixture<ScienceMapIconComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [ ScienceMapIconComponent ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ScienceMapIconComponent);

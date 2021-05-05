@@ -1,5 +1,5 @@
 import { Provider } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DvlFwVisualizationComponent } from '@dvl-fw/angular';
 import { GraphicSymbol, GraphicVariable } from '@dvl-fw/core';
 import { Store } from '@ngrx/store';
@@ -34,13 +34,13 @@ describe('GraphicVariableIconComponent', () => {
     { provide: Store, useValue: mockedStore}
   ];
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [ GraphicVariableIconComponent ].concat(mockComponents),
       providers: mockedProviders
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(GraphicVariableIconComponent);

@@ -1,23 +1,21 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { StoreModule } from '@ngrx/store';
 
-// Submodules
 import { DataViewModule } from './data-view/data-view.module';
 import { LegendViewModule } from './legend-view/legend-view.module';
+import { LightThemeComponent } from './light-theme/light-theme.component';
+import { MakeAVisComponent } from './make-a-vis.component';
 import { ToolbarModule } from './toolbar/toolbar.module';
 import { VisualizationViewModule } from './visualization-view/visualization-view.module';
 
+// Submodules
 // Themes
-import { LightThemeComponent } from './light-theme/light-theme.component';
-
-import { MakeAVisComponent } from './make-a-vis.component';
-import { StoreModule } from '@ngrx/store';
-
 describe('MakeAVisComponent', () => {
   let component: MakeAVisComponent;
   let fixture: ComponentFixture<MakeAVisComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [
         DataViewModule,
         LegendViewModule,
@@ -29,7 +27,7 @@ describe('MakeAVisComponent', () => {
       declarations: [LightThemeComponent, MakeAVisComponent]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MakeAVisComponent);

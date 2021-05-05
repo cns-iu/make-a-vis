@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MockComponents } from 'ng-mocks';
@@ -13,13 +13,13 @@ describe('StartProjectIconComponent', () => {
     MatIcon,
     StartProjectOptionsComponent
   );
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [MatMenuModule],
       declarations: [ StartProjectIconComponent ].concat(mockComponents)
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(StartProjectIconComponent);

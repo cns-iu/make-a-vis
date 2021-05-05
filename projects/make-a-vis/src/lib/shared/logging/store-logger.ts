@@ -1,10 +1,14 @@
 // refer https://angular.io/guide/styleguide#style-03-06 for import line spacing
+import { ActivityLogRawData, Project } from '@dvl-fw/core';
 import { select, Store } from '@ngrx/store';
 import { AbstractCategoryLogger, Category, CategoryLogMessage, RuntimeSettings } from 'typescript-logging';
 
-import { ActivityLogRawData, Project  } from '@dvl-fw/core';
 import { ApplicationState, getLoadedProject } from '../../shared/store';
-import * as fromUi from '../../toolbar/shared/store';
+import { getLoggingToggleSelector, SidenavState } from '../../toolbar/shared/store';
+
+function isActivityLogData(obj: unknown): obj is ActivityLogRawData {
+  return typeof obj === 'object' && obj !== null && obj instanceof ActivityLogRawData;
+}
 
 export class StoreLogger extends AbstractCategoryLogger {
 
@@ -13,7 +17,7 @@ export class StoreLogger extends AbstractCategoryLogger {
     rootCategory: Category, runtimeSettings: RuntimeSettings,
     readonly controller: { isLoggingEnabled(): boolean },
     private store: Store<ApplicationState>,
-    private sidenavStore: Store<fromUi.SidenavState>
+    private sidenavStore: Store<SidenavState>
   ) {
     super(rootCategory, runtimeSettings);
     this.store.pipe(select(getLoadedProject))
@@ -21,10 +25,10 @@ export class StoreLogger extends AbstractCategoryLogger {
       this.project = project;
     });
 
-    this.sidenavStore.pipe(select(fromUi.getLoggingToggleSelector))
+    this.sidenavStore.pipe(select(getLoggingToggleSelector))
       .subscribe((toggleLogging: boolean) => {
         if (this.project && this.project.rawData) {
-        const activityLogRawData = this.project.rawData.find(obj => obj instanceof ActivityLogRawData) as ActivityLogRawData;
+        const activityLogRawData = this.project.rawData.find(isActivityLogData);
         activityLogRawData.saveActivityLog = toggleLogging;
         }
       });
@@ -34,7 +38,7 @@ export class StoreLogger extends AbstractCategoryLogger {
   protected doLog(msg: CategoryLogMessage): void {
     if (this.controller.isLoggingEnabled()) {
       if (this.project && this.project.rawData) {
-        const activityLogRawData = this.project.rawData.find(obj => obj instanceof ActivityLogRawData) as ActivityLogRawData;
+        const activityLogRawData = this.project.rawData.find(isActivityLogData);
         if (activityLogRawData) {
         activityLogRawData.logActivity(msg);
         }

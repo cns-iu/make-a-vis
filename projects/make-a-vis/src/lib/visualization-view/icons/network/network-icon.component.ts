@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./network-icon.component.scss']
 })
 export class NetworkIconComponent {
-
-  constructor() { }
 }

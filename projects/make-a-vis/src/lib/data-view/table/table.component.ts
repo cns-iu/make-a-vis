@@ -1,9 +1,9 @@
-import { Component, Input, OnChanges, OnDestroy, SimpleChanges, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { DataVariable } from '@dvl-fw/core';
 import { Store } from '@ngrx/store';
 import { every as loEvery, forEach as loForEach, get as loGet, includes as loIncludes, map as loMap } from 'lodash';
-import { combineLatest as rxCombineLatest, Observable, of, Subscription, BehaviorSubject } from 'rxjs';
-import { distinctUntilChanged as rxDistinctUntilChanged, map as rxMap, tap as rxTap } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest as rxCombineLatest, Observable, of, Subscription } from 'rxjs';
+import { distinctUntilChanged as rxDistinctUntilChanged, map as rxMap } from 'rxjs/operators';
 
 import { getOpenGVGroupPanelsSelector, isGVPanelOpenSelector } from '../../mav-selection/shared/store';
 import { ActionDispatcherService } from '../../shared/services/actionDispatcher/action-dispatcher.service';

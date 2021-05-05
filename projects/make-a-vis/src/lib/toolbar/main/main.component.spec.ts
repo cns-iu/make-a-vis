@@ -1,20 +1,21 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import 'hammerjs';
 
-import { createStubComponent } from '../../../testing/utility';
-import { MainComponent } from './main.component';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
+
+import { createStubComponent } from '../../../testing/utility';
 import { sidenavStateReducer } from '../shared/store';
+import { MainComponent } from './main.component';
 
 describe('toolbar', () => {
 describe('MainComponent', () => {
   let component: MainComponent;
   let fixture: ComponentFixture<MainComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [
         BrowserAnimationsModule,
         MatSidenavModule,
@@ -29,7 +30,7 @@ describe('MainComponent', () => {
       ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MainComponent);

@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./menu-icon.component.scss']
 })
 export class MenuIconComponent {
-
-  constructor() { }
 }

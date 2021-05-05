@@ -8,9 +8,6 @@ import SVGtoPDF from 'svg-to-pdfkit';
   providedIn: 'root'
 })
 export class ExportToPdfService {
-
-  constructor() { }
-
   getSnapShot(element: HTMLElement, fileName: string, exportToPdfOptions: any, xCordinateOfPdf: number, yCordinateOfPdf: number) {
     const pdfKitDoc = new PDFDocument();
     const stream = pdfKitDoc.pipe(blobStream());

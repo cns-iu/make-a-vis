@@ -125,7 +125,7 @@ export class MainComponent {
         select(getLoadedProjectSelector),
         take(1),
         concatMap(project => this.serializer.createVisualization(type.template, preData, project)),
-        catchError(() => of(preData as Visualization))
+        catchError(() => of(preData))
       ).subscribe((data: Visualization) => {
         this.activeVis = { label: type.label, data };
         this.newVis.emit(this.activeVis);

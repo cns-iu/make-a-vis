@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./horizontal-bar-graph-icon.component.scss']
 })
 export class HorizontalBarGraphIconComponent {
-
-  constructor() { }
 }
