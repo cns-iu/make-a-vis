@@ -8,8 +8,7 @@ import { MakeAVisComponent } from './make-a-vis.component';
 import { ToolbarModule } from './toolbar/toolbar.module';
 import { VisualizationViewModule } from './visualization-view/visualization-view.module';
 
-// Submodules
-// Themes
+
 describe('MakeAVisComponent', () => {
   let component: MakeAVisComponent;
   let fixture: ComponentFixture<MakeAVisComponent>;
