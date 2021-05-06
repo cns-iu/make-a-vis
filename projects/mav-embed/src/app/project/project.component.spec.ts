@@ -1,5 +1,5 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { NgModule, Type } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Shallow } from 'shallow-render';
 
 import { ProjectComponent } from './project.component';
@@ -8,7 +8,6 @@ import { ProjectComponent } from './project.component';
 class TestModule { }
 
 describe('ProjectComponent', () => {
-  let get: <T>(type: Type<T>) => T;
   let component: ProjectComponent;
   let shallow: Shallow<ProjectComponent>;
 
@@ -16,7 +15,7 @@ describe('ProjectComponent', () => {
     shallow = new Shallow(ProjectComponent, TestModule)
       .import(HttpClientTestingModule);
 
-    ({ instance: component, get } = await shallow.render());
+    ({ instance: component } = await shallow.render());
   });
 
   it('should create', () => {
