@@ -16,7 +16,7 @@ export interface IdTableValue {
   weight: number;
 }
 
-function numberAccess(field: string): Operator<any, Number> {
+function numberAccess(field: string): Operator<any, number> {
   return chain(access(field), map(Number));
 }
 

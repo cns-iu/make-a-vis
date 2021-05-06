@@ -19,11 +19,11 @@ describe('AppComponent', () => {
     checkForUpdates: (): void => undefined,
     askToUpdate: (): void => undefined,
   };
-  beforeEach(async(() => {
+  beforeEach(async () => {
     const mockComponents = MockComponents(
       MatIcon
     );
-    TestBed.configureTestingModule({
+    await TestBed.configureTestingModule({
       imports: [
         BrowserModule,
         HttpClientModule,
@@ -35,12 +35,12 @@ describe('AppComponent', () => {
         {provide: AppUpdaterService, useValue: mockedAppUpdaterService}
       ]
     }).compileComponents();
-  }));
+  });
 
-  it('should create the app with a title', async(() => {
+  it('should create the app with a title', async () => {
     fixture = TestBed.createComponent(AppComponent);
     app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
     expect(app.title).toBe('make-a-vis-demo');
-  }));
+  });
 });

@@ -15,7 +15,9 @@ export type AutosizeObj = Record<'width' | 'height', boolean>;
 export type Autosize = boolean | Partial<AutosizeObj>;
 
 
-function empty() {}
+function empty() {
+  // Intentionally empty
+}
 
 
 @Component({
