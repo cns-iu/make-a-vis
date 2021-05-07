@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
+import { Injectable, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
 import { OnGraphicSymbolChange, OnPropertyChange } from '@dvl-fw/angular';
 import { GraphicVariable, Visualization, VisualizationComponent } from '@dvl-fw/core';
 import { BoundField, RawChangeSet } from '@ngx-dino/core';
@@ -28,10 +28,7 @@ export const enum Selector {
 
 const hasOwnProperty = ({}).hasOwnProperty;
 
-@Component({
-  selector: 'dvl-base-visualization',
-  template: ''
-})
+@Injectable()
 export abstract class BaseVisualizationComponent<P extends SimpleProperties, F extends SimpleFieldGroups>
 implements VisualizationComponent, OnInit, OnChanges, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
