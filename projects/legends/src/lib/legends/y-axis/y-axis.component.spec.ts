@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { YAxisComponent } from './y-axis.component';
 
@@ -6,12 +6,12 @@ describe('YAxisComponent', () => {
   let component: YAxisComponent;
   let fixture: ComponentFixture<YAxisComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [ YAxisComponent ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(YAxisComponent);

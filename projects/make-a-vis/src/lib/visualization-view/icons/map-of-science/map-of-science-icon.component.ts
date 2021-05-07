@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./map-of-science-icon.component.scss']
 })
 export class MapOfScienceIconComponent {
-
-  constructor() { }
 }

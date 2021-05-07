@@ -6,6 +6,7 @@ import { catchError, switchAll, tap } from 'rxjs/operators';
 
 import { ProjectSerializerService } from '../../services/project-serializer-service';
 
+
 /** The valid options for selecting static/dynamic legends */
 export type LegendType = 'dynamic-only' | 'static-only' | 'dynamic-preferred' | 'static-preferred';
 
@@ -81,7 +82,7 @@ export class ItemComponent implements OnChanges, OnDestroy {
     const isDisabled = !advanced && variableOpt && variableOpt.advanced;
 
     this.title = variableOpt && variableOpt.label;
-    this.subtitle = variableObj && `${ variableObj.recordSet.label }: ${ variableObj.label }`;
+    this.subtitle = variableObj && `${variableObj.recordSet.label}: ${variableObj.label}`;
 
     const checkedValues = [!isDisabled, template, symbolObj, variableObj];
     if (every(checkedValues)) { return true; }
@@ -94,15 +95,15 @@ export class ItemComponent implements OnChanges, OnDestroy {
   private selectTemplate(variableOpt: GraphicVariableOption): string {
     const { visualization: dynamicVis, staticVisualization: staticVis } = variableOpt;
     switch (this.type) {
-      default: /** Fallthrough */
-      case 'dynamic-preferred':
-        return dynamicVis || staticVis;
       case 'static-preferred':
         return staticVis || dynamicVis;
       case 'dynamic-only':
         return dynamicVis;
       case 'static-only':
         return staticVis;
+      case 'dynamic-preferred': /** Fallthrough */
+      default:
+        return dynamicVis || staticVis;
     }
   }
 
@@ -128,7 +129,7 @@ export class ItemComponent implements OnChanges, OnDestroy {
   private generateItemsSymbol(): GraphicSymbol {
     const { project, template, symbolObj, variableObj } = this;
     const symbol: GraphicSymbol = Object.setPrototypeOf({
-      id: 'items', graphicVariables: { }
+      id: 'items', graphicVariables: {}
     }, symbolObj);
     const variables = symbol.graphicVariables;
 

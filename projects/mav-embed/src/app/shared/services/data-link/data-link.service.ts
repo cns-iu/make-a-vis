@@ -40,7 +40,7 @@ class DataLinkManagerBase {
 
   /** Closes the change observable */
   destroy(): void {
-    this.complete$.next(undefined);
+    this.complete$.next();
     this.complete$.complete();
   }
 }

@@ -15,7 +15,7 @@ export class ProjectSerializerService {
 
   createVisualization(template: string, data: Partial<Visualization>, project: Project): Observable<Visualization> {
     return defer(async () => {
-      return await ProjectSerializer.createVisualization(template, data, project, this.registry);
+      return ProjectSerializer.createVisualization(template, data, project, this.registry);
     });
   }
 

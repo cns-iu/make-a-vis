@@ -44,25 +44,25 @@ export class DefaultProjectFactory implements ObjectFactory<Project, Project> {
   id = 'default';
   type = 'project';
 
-  async fromJSON(data: any, context: Project, registry: ObjectFactoryRegistry): Promise<Project> {
-    const p = context = new DefaultProject();
+  async fromJSON(data: any, _context: Project, registry: ObjectFactoryRegistry): Promise<Project> {
+    const ctx = new DefaultProject();
     // Make sure raw data is parsed first
-    p.rawData = await registry.fromJSONArray<RawData>('rawData', 'default', data.rawData, context);
-    p.metadata = data.metadata || undefined;
-    p.dataSources = await registry.fromJSONArray<DataSource>('dataSource', 'default', data.dataSources, context);
-    p.recordSets = await registry.fromJSONArray<RecordSet>('recordSet', 'default', data.recordSets, context);
-    p.recordSets.forEach(rs => rs.resolveParent(p.recordSets));
-    p.graphicVariables =
-      await registry.fromJSON<GraphicVariable[]>('graphicVariableMappings', 'default', data.graphicVariableMappings, context);
-    p.graphicSymbols =
-      await registry.fromJSONArray<GraphicSymbol>('graphicSymbolMappings', 'default', data.graphicSymbolMappings, context);
-    p.visualizations = await registry.fromJSONArray<Visualization>('visualization', 'default', data.visualizations, context);
-    return p;
+    ctx.rawData = await registry.fromJSONArray<RawData>('rawData', 'default', data.rawData, ctx);
+    ctx.metadata = data.metadata || undefined;
+    ctx.dataSources = await registry.fromJSONArray<DataSource>('dataSource', 'default', data.dataSources, ctx);
+    ctx.recordSets = await registry.fromJSONArray<RecordSet>('recordSet', 'default', data.recordSets, ctx);
+    ctx.recordSets.forEach(rs => rs.resolveParent(ctx.recordSets));
+    ctx.graphicVariables =
+      await registry.fromJSON<GraphicVariable[]>('graphicVariableMappings', 'default', data.graphicVariableMappings, ctx);
+    ctx.graphicSymbols =
+      await registry.fromJSONArray<GraphicSymbol>('graphicSymbolMappings', 'default', data.graphicSymbolMappings, ctx);
+    ctx.visualizations = await registry.fromJSONArray<Visualization>('visualization', 'default', data.visualizations, ctx);
+    return ctx;
   }
 
   async toJSON(instance: Project, _context: Project, registry: ObjectFactoryRegistry): Promise<any> {
     instance.metadata.dateSaved = new Date();
-    const data: any = {
+    return {
       apiVersion: 1,
       metadata: instance.metadata,
       dataSources: await registry.toJSONArray<DataSource>('dataSource', 'default', instance.dataSources, instance),
@@ -74,7 +74,5 @@ export class DefaultProjectFactory implements ObjectFactory<Project, Project> {
       visualizations: await registry.toJSONArray<Visualization>('visualization', 'default', instance.visualizations, instance),
       rawData: await registry.toJSONArray<RawData>('rawData', 'default', instance.rawData, instance),
     };
-
-    return data;
   }
 }

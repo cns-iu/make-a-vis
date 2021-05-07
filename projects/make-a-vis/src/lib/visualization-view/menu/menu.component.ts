@@ -8,6 +8,4 @@ import { Component, Input } from '@angular/core';
 export class MenuComponent {
   @Input() label: string;
   @Input() icon: string;
-
-  constructor() { }
 }

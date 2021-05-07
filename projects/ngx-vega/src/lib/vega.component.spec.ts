@@ -1,2 +1,3 @@
 describe('VegaComponent', () => {
+  // Add tests
 });

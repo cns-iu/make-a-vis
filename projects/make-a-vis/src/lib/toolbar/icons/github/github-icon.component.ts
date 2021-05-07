@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./github-icon.component.scss']
 })
 export class GithubIconComponent {
-
-  constructor() { }
 }

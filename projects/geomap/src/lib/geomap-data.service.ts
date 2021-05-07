@@ -11,8 +11,6 @@ export class GeomapDataService {
   private _countries: Promise<Feature<Polygon|MultiPolygon>[]>;
   private _states: Promise<Feature<Polygon|MultiPolygon>[]>;
 
-  constructor() { }
-
   get countries(): Promise<Feature<Polygon|MultiPolygon>[]> {
     if (!this._countries) {
       this._countries = vegaLoader()

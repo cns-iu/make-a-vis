@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AreaSizeComponent } from './area-size.component';
 
@@ -6,12 +6,12 @@ describe('AreaSizeComponent', () => {
   let component: AreaSizeComponent;
   let fixture: ComponentFixture<AreaSizeComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [ AreaSizeComponent ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AreaSizeComponent);

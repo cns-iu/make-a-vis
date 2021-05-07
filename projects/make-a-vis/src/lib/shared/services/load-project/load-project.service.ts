@@ -88,9 +88,9 @@ export class LoadProjectService {
       case 'csv':
         // fall through NSFTemplateProject
       case 'nsf':
-        return await NSFTemplateProject.create(fileContents, fileNames, geocoder);
+        return NSFTemplateProject.create(fileContents, fileNames, geocoder);
       case 'isi':
-        return await ISITemplateProject.create(fileContents[0], fileNames[0], geocoder);
+        return ISITemplateProject.create(fileContents[0], fileNames[0], geocoder);
       default:
         throw new Error(`Template: ${template} not supported.`);
     }

@@ -36,7 +36,7 @@ export class LegendService {
     return visSubject.asObservable();
   }
 
-  private generateLegendGraphicSymbol(template: string, graphicVariable: GraphicVariable,
+  private generateLegendGraphicSymbol(template: string, graphicVariable: GraphicVariable | undefined,
     sourceGraphicSymbol: GraphicSymbol, project: Project): GraphicSymbol {
 
     const graphicSymbol: GraphicSymbol = new DefaultGraphicSymbol({

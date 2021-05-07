@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DataVariableDropzoneComponent } from './data-variable-dropzone.component';
 
@@ -6,12 +6,12 @@ describe('DataVariableDropzoneComponent', () => {
   let component: DataVariableDropzoneComponent;
   let fixture: ComponentFixture<DataVariableDropzoneComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [ DataVariableDropzoneComponent ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DataVariableDropzoneComponent);

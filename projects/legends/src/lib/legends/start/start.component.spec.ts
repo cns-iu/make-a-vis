@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BoundLegendComponent as NgxBoundComponent } from '@ngx-dino/legend';
 import { MockComponent } from 'ng-mocks';
 
@@ -8,12 +8,12 @@ describe('StartComponent', () => {
   let component: StartComponent;
   let fixture: ComponentFixture<StartComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [ StartComponent, MockComponent(NgxBoundComponent) ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(StartComponent);

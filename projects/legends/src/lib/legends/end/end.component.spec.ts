@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BoundLegendComponent } from '@ngx-dino/legend';
 import { MockComponent } from 'ng-mocks';
 
@@ -8,12 +8,12 @@ describe('EndComponent', () => {
   let component: EndComponent;
   let fixture: ComponentFixture<EndComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [ EndComponent, MockComponent(BoundLegendComponent) ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(EndComponent);

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatCard } from '@angular/material/card';
 import { MockComponents } from 'ng-mocks';
 
@@ -13,8 +13,8 @@ describe('VisualizationTypeComponent', () => {
   let component: VisualizationTypeComponent;
   let fixture: ComponentFixture<VisualizationTypeComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [
         VisualizationTypeComponent,
         MockComponents(
@@ -28,7 +28,7 @@ describe('VisualizationTypeComponent', () => {
       ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(VisualizationTypeComponent);

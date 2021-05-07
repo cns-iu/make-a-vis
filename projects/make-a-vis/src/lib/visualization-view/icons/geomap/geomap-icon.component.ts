@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./geomap-icon.component.scss']
 })
 export class GeomapIconComponent {
-
-  constructor() { }
 }

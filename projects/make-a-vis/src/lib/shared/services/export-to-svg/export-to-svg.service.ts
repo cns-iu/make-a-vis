@@ -5,9 +5,6 @@ import { saveAs } from 'file-saver';
   providedIn: 'root'
 })
 export class ExportToSvgService {
-
-  constructor() { }
-
   getSnapShot(element: any, fileName: string) {
     element.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
     const svgData = element.outerHTML;

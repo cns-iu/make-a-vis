@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TableIconComponent } from './table-icon.component';
 
@@ -6,12 +6,12 @@ describe('TableIconComponent', () => {
   let component: TableIconComponent;
   let fixture: ComponentFixture<TableIconComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [ TableIconComponent ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TableIconComponent);

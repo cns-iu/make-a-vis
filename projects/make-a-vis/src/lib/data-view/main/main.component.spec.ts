@@ -1,12 +1,12 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Store } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { MockComponents } from 'ng-mocks';
 
 import { StartProjectIconComponent } from '../../data-view/icons/start-project-icon/start-project-icon.component';
+import { DataTableState } from '../shared/store';
 import { TableComponent } from '../table/table.component';
 import { MainComponent } from './main.component';
-import { DataTableState } from '../shared/store';
 
 describe('data-view', () => {
 describe('MainComponent', () => {
@@ -29,15 +29,15 @@ describe('MainComponent', () => {
     TableComponent
   );
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [ MainComponent ].concat(mockComponents),
       providers: [ provideMockStore({initialState}) ]
     })
     .compileComponents();
 
     store = TestBed.inject(Store) as unknown as typeof store;
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MainComponent);

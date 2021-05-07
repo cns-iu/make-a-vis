@@ -1,5 +1,5 @@
 import { Provider, SimpleChange } from '@angular/core';
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { MatCard } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
 import { GraphicSymbol, GraphicSymbolOption, RecordStream } from '@dvl-fw/core';
@@ -59,7 +59,7 @@ describe('GraphicSymbolTypeComponent', () => {
         properties: undefined,
         graphicSymbols: { 'graphicKey' : graphicSymbol },
         graphicSymbolOptions: graphicSymbolOptions,
-        toJSON: () => {}
+        toJSON: () => undefined
       },
       label: 'label'
     };
@@ -69,8 +69,8 @@ describe('GraphicSymbolTypeComponent', () => {
     return component;
   };
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       providers: [ mockedProviders ],
       declarations: [
         GraphicSymbolTypeComponent,
@@ -84,7 +84,7 @@ describe('GraphicSymbolTypeComponent', () => {
     store = TestBed.inject(Store) as unknown as typeof store;
     dataService = TestBed.inject(DataService);
     updateService = TestBed.inject(UpdateVisService);
-  }));
+  });
 
   it('should create', async () => {
     const component = createComponent();

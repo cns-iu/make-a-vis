@@ -1,19 +1,19 @@
-import { AfterViewInit, Component, Input, Output, OnChanges, OnDestroy, SimpleChanges, EventEmitter } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
 import { OnGraphicSymbolChange, OnPropertyChange } from '@dvl-fw/angular';
 import { GraphicSymbolData, TDatum, Visualization, VisualizationComponent } from '@dvl-fw/core';
 import { DataProcessorService } from '@ngx-dino/core';
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
 import centroid from '@turf/centroid';
-import { Feature, MultiPolygon, Point, Polygon } from '@turf/helpers';
+import { Feature, MultiPolygon, Polygon } from '@turf/helpers';
 import { Options, Spec } from 'ngx-vega';
 import { Observable, of, Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { GeomapDataService } from './geomap-data.service';
 import { DEFAULT_GEOMAP_SPEC_OPTIONS, geomapSpec, GeomapSpecOptions } from './geomap.vega';
 import { VisualizationEdge, VisualizationNode } from './interfaces';
 import { createGeoZoomPatch, patchUsaGeoZoom } from './utils/geomap-zoom-patch';
 import { PROJECTIONS } from './utils/projections';
-import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -79,7 +79,7 @@ export class GeomapComponent implements VisualizationComponent,
     if (options.country && options.enableZoomPan) {
       const country = await this.geomapDataService.getCountry(options.country);
       if (country) {
-        const center = centroid(country) as Feature<Point>;
+        const center = centroid(country);
         const coords = center.geometry.coordinates as [number, number];
         patch = createGeoZoomPatch({
           center: [0 - coords[0], coords[1]],

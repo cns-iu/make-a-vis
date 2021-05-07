@@ -35,7 +35,7 @@ export class DefaultDataSourceFactory implements ObjectFactory<DataSource, Proje
 
   async fromJSON(data: any, context: Project, registry: ObjectFactoryRegistry): Promise<DataSource> {
     if (data.template !== this.id && registry.hasObjectFactory('dataSource', data.template)) {
-      return await registry.fromJSON<DataSource>('dataSource', data.template, data, context);
+      return registry.fromJSON<DataSource>('dataSource', data.template, data, context);
     }
     return new DefaultDataSource(data, context);
   }

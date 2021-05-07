@@ -51,9 +51,18 @@ export class ISIDatabase {
   }
 
   private reconstitute() {
-    const journals = this.journals.reduce((acc, val) => (acc[val.name] = val, acc), {});
-    const subdisciplines = this.subdisciplines.reduce((acc, val) => (acc[val.id] = val, acc), {});
-    const authors = this.authors.reduce((acc, val) => (acc[val.name] = val, acc), {});
+    const journals = this.journals.reduce((acc, val) => {
+      acc[val.name] = val;
+      return acc;
+    }, {});
+    const subdisciplines = this.subdisciplines.reduce((acc, val) => {
+      acc[val.id] = val;
+      return acc;
+    }, {});
+    const authors = this.authors.reduce((acc, val) => {
+      acc[val.name] = val;
+      return acc;
+    }, {});
 
     this.publications.forEach(p => {
       p.Authors = p.authors.map(a => authors[a]);

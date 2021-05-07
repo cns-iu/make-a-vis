@@ -209,14 +209,13 @@ export class GraphicVariableTypeComponent implements OnChanges, OnDestroy {
     graphicSymbolOption: GraphicSymbolOption
   ): GraphicVariable[] {
     if (this.availableGraphicVariables.length) {
-      const filteredGVs: GraphicVariable[] = this.availableGraphicVariables.filter((gv) => {
+      return this.availableGraphicVariables.filter((gv) => {
         return ((gv.type && gv.type === graphicVariableOption.type)
           && (this.recordStreamMapping && this.recordStreamMapping.get(graphicSymbolOption.id))
           && (gv.recordStream.id === this.recordStreamMapping.get(graphicSymbolOption.id).id)
           && (dataVariable.recordSet.id === gv.recordSet.id)
           && (gv.dataVariable.id === dataVariable.id));
       });
-      return filteredGVs;
     }
     return [];
   }

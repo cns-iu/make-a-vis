@@ -26,7 +26,7 @@ export class NSFTemplateProject extends DefaultProject {
       return project;
     } else {
       // Otherwise, load the CSV data with the default CSV Template Project.
-      return await CSVTemplateProject.create(nsfFileContents, fileNames);
+      return CSVTemplateProject.create(nsfFileContents, fileNames);
     }
   }
 
