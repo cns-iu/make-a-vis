@@ -42,7 +42,10 @@ export class NSFDatabase {
   }
 
   private reconstitute() {
-    const investigators = this.investigators.reduce((acc, val) => (acc[val.name] = val, acc), {});
+    const investigators = this.investigators.reduce((acc, val) => {
+      acc[val.name] = val;
+      return acc;
+    }, {});
 
     this.awards.forEach(a => a.Investigators = a.investigatorNames.map(i => investigators[i]));
     this.coPiLinks.forEach(co => {

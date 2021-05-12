@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AreaSizeLegendComponent } from '@ngx-dino/legend';
 import { MockComponent } from 'ng-mocks';
 
@@ -8,12 +8,12 @@ describe('NodeSizeComponent', () => {
   let component: NodeSizeComponent;
   let fixture: ComponentFixture<NodeSizeComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [ NodeSizeComponent, MockComponent(AreaSizeLegendComponent) ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(NodeSizeComponent);

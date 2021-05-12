@@ -24,7 +24,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
+              "src/favicon.svg",
               "src/assets",
               "src/manifest.json"
             ],
@@ -91,7 +91,7 @@
             ],
             "scripts": [],
             "assets": [
-              "src/favicon.ico",
+              "src/favicon.svg",
               "src/assets",
               "src/manifest.json"
             ],
@@ -146,7 +146,7 @@
       "prefix": "mav",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/make-a-vis/tsconfig.lib.json",
             "project": "projects/make-a-vis/ng-package.json"
@@ -202,7 +202,7 @@
             "polyfills": "projects/mav-embed/src/polyfills.ts",
             "tsConfig": "projects/mav-embed/tsconfig.app.json",
             "assets": [
-              "projects/mav-embed/src/favicon.ico",
+              "projects/mav-embed/src/favicon.svg",
               "projects/mav-embed/src/assets"
             ],
             "styles": [
@@ -255,14 +255,15 @@
           }
         },
         "test": {
-          "builder": "ngx-build-plus:karma",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/mav-embed/src/test.ts",
             "polyfills": "projects/mav-embed/src/polyfills.ts",
             "tsConfig": "projects/mav-embed/tsconfig.spec.json",
             "karmaConfig": "projects/mav-embed/karma.conf.js",
+            "codeCoverage": true,
             "assets": [
-              "projects/mav-embed/src/favicon.ico",
+              "projects/mav-embed/src/favicon.svg",
               "projects/mav-embed/src/assets"
             ],
             "styles": [
@@ -305,7 +306,7 @@
       "prefix": "dvl",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/dvl-fw-core/tsconfig.lib.json",
             "project": "projects/dvl-fw-core/ng-package.json"
@@ -322,7 +323,8 @@
           "options": {
             "main": "projects/dvl-fw-core/src/test.ts",
             "tsConfig": "projects/dvl-fw-core/tsconfig.spec.json",
-            "karmaConfig": "projects/dvl-fw-core/karma.conf.js"
+            "karmaConfig": "projects/dvl-fw-core/karma.conf.js",
+            "codeCoverage": true
           }
         },
         "lint": {
@@ -346,7 +348,7 @@
       "prefix": "dvl",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/dvl-fw-isi/tsconfig.lib.json",
             "project": "projects/dvl-fw-isi/ng-package.json"
@@ -363,7 +365,8 @@
           "options": {
             "main": "projects/dvl-fw-isi/src/test.ts",
             "tsConfig": "projects/dvl-fw-isi/tsconfig.spec.json",
-            "karmaConfig": "projects/dvl-fw-isi/karma.conf.js"
+            "karmaConfig": "projects/dvl-fw-isi/karma.conf.js",
+            "codeCoverage": true
           }
         },
         "lint": {
@@ -387,7 +390,7 @@
       "prefix": "dvl",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/dvl-fw-nsf/tsconfig.lib.json",
             "project": "projects/dvl-fw-nsf/ng-package.json"
@@ -404,7 +407,8 @@
           "options": {
             "main": "projects/dvl-fw-nsf/src/test.ts",
             "tsConfig": "projects/dvl-fw-nsf/tsconfig.spec.json",
-            "karmaConfig": "projects/dvl-fw-nsf/karma.conf.js"
+            "karmaConfig": "projects/dvl-fw-nsf/karma.conf.js",
+            "codeCoverage": true
           }
         },
         "lint": {
@@ -428,7 +432,7 @@
       "prefix": "dvl",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/dvl-fw-angular/tsconfig.lib.json",
             "project": "projects/dvl-fw-angular/ng-package.json"
@@ -445,7 +449,8 @@
           "options": {
             "main": "projects/dvl-fw-angular/src/test.ts",
             "tsConfig": "projects/dvl-fw-angular/tsconfig.spec.json",
-            "karmaConfig": "projects/dvl-fw-angular/karma.conf.js"
+            "karmaConfig": "projects/dvl-fw-angular/karma.conf.js",
+            "codeCoverage": true
           }
         },
         "lint": {
@@ -469,7 +474,7 @@
       "prefix": "dvl",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/dvl-fw-cli/tsconfig.lib.json",
             "project": "projects/dvl-fw-cli/ng-package.json"
@@ -485,7 +490,8 @@
           "options": {
             "main": "projects/dvl-fw-cli/src/test.ts",
             "tsConfig": "projects/dvl-fw-cli/tsconfig.spec.json",
-            "karmaConfig": "projects/dvl-fw-cli/karma.conf.js"
+            "karmaConfig": "projects/dvl-fw-cli/karma.conf.js",
+            "codeCoverage": true
           }
         },
         "lint": {
@@ -509,7 +515,7 @@
       "prefix": "ngx",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/ngx-vega/tsconfig.lib.json",
             "project": "projects/ngx-vega/ng-package.json"
@@ -525,7 +531,8 @@
           "options": {
             "main": "projects/ngx-vega/src/test.ts",
             "tsConfig": "projects/ngx-vega/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-vega/karma.conf.js"
+            "karmaConfig": "projects/ngx-vega/karma.conf.js",
+            "codeCoverage": true
           }
         },
         "lint": {
@@ -546,7 +553,7 @@
       "prefix": "dvl",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/science-map/tsconfig.lib.json",
             "project": "projects/science-map/ng-package.json"
@@ -562,7 +569,8 @@
           "options": {
             "main": "projects/science-map/src/test.ts",
             "tsConfig": "projects/science-map/tsconfig.spec.json",
-            "karmaConfig": "projects/science-map/karma.conf.js"
+            "karmaConfig": "projects/science-map/karma.conf.js",
+            "codeCoverage": true
           }
         },
         "lint": {
@@ -586,7 +594,7 @@
       "prefix": "dvl",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/network/tsconfig.lib.json",
             "project": "projects/network/ng-package.json"
@@ -602,7 +610,8 @@
           "options": {
             "main": "projects/network/src/test.ts",
             "tsConfig": "projects/network/tsconfig.spec.json",
-            "karmaConfig": "projects/network/karma.conf.js"
+            "karmaConfig": "projects/network/karma.conf.js",
+            "codeCoverage": true
           }
         },
         "lint": {
@@ -626,7 +635,7 @@
       "prefix": "dvl",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/geomap/tsconfig.lib.json",
             "project": "projects/geomap/ng-package.json"
@@ -642,7 +651,8 @@
           "options": {
             "main": "projects/geomap/src/test.ts",
             "tsConfig": "projects/geomap/tsconfig.spec.json",
-            "karmaConfig": "projects/geomap/karma.conf.js"
+            "karmaConfig": "projects/geomap/karma.conf.js",
+            "codeCoverage": true
           }
         },
         "lint": {
@@ -666,7 +676,7 @@
       "prefix": "dvl",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/temporal-bargraph/tsconfig.lib.json",
             "project": "projects/temporal-bargraph/ng-package.json"
@@ -682,7 +692,8 @@
           "options": {
             "main": "projects/temporal-bargraph/src/test.ts",
             "tsConfig": "projects/temporal-bargraph/tsconfig.spec.json",
-            "karmaConfig": "projects/temporal-bargraph/karma.conf.js"
+            "karmaConfig": "projects/temporal-bargraph/karma.conf.js",
+            "codeCoverage": true
           }
         },
         "lint": {
@@ -706,7 +717,7 @@
       "prefix": "dvl",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/scatterplot/tsconfig.lib.json",
             "project": "projects/scatterplot/ng-package.json"
@@ -722,7 +733,8 @@
           "options": {
             "main": "projects/scatterplot/src/test.ts",
             "tsConfig": "projects/scatterplot/tsconfig.spec.json",
-            "karmaConfig": "projects/scatterplot/karma.conf.js"
+            "karmaConfig": "projects/scatterplot/karma.conf.js",
+            "codeCoverage": true
           }
         },
         "lint": {
@@ -746,7 +758,7 @@
       "prefix": "dvl",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/legends/tsconfig.lib.json",
             "project": "projects/legends/ng-package.json"
@@ -762,7 +774,8 @@
           "options": {
             "main": "projects/legends/src/test.ts",
             "tsConfig": "projects/legends/tsconfig.spec.json",
-            "karmaConfig": "projects/legends/karma.conf.js"
+            "karmaConfig": "projects/legends/karma.conf.js",
+            "codeCoverage": true
           }
         },
         "lint": {
@@ -786,7 +799,7 @@
       "prefix": "geo",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/geocoder-ts/tsconfig.lib.json",
             "project": "projects/geocoder-ts/ng-package.json"
@@ -802,7 +815,8 @@
           "options": {
             "main": "projects/geocoder-ts/src/test.ts",
             "tsConfig": "projects/geocoder-ts/tsconfig.spec.json",
-            "karmaConfig": "projects/geocoder-ts/karma.conf.js"
+            "karmaConfig": "projects/geocoder-ts/karma.conf.js",
+            "codeCoverage": true
           }
         },
         "lint": {

@@ -10,7 +10,7 @@ export class DraggableDirective {
 
   @Input() mavDraggable: any; // Data
   @Input() zone = 'any-zone';
-  @Input() dropEffect = 'copy';
+  @Input() dropEffect: DataTransfer['effectAllowed'] = 'copy';
 
   constructor(private service: DragDropService) { }
 

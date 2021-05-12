@@ -17,7 +17,7 @@ export class MakeAVisComponent {
   checkUiState: Observable<SidenavState>; // for demo purpose
   checkSaveProject: Observable<Project>;
 
-  constructor(private store: Store<ApplicationState>) {
+  constructor(store: Store<ApplicationState>) {
     this.checkUiState = store.pipe(select('ui'));
     this.checkSaveProject = store.pipe(select(getLoadedProject));
   }

@@ -2,6 +2,13 @@
 
 Changelog for Make-a-Vis and DVL-FW.
 
+## 0.51.0 - 2021-05-12
+
+### Added in 0.51.0
+
+- Updated to Angular 11
+- Updated Vega Lite to 5.0
+
 ## 0.50.1 - 2020-09-01
 
 ### Added in 0.50.1

@@ -1,13 +1,50 @@
 var path = require('path');
 var shell = require('shelljs');
 var nodeExternals = require('webpack-node-externals');
+// var { ConcatSource } = require('webpack-sources');
+
+
+// NOTE: This is the new way webpack does plugin in version 5.
+// Reenable this code when upgrading.
+// Should only be done when @angular-devkit/build-angular can be upgraded to version 12!
+
+// class MakeExecutablePlugin {
+//   constructor(files) {
+//     this.files = files;
+//   }
+
+//   apply(compiler) {
+//     compiler.hooks.thisCompilation.tap('MakeExecutablePlugin', compilation => {
+//       compilation.hooks.processAssets.tap('MakeExecutablePlugin', assets => {
+//         // Switch js files for executables
+//         this.files.forEach(file => {
+//           const jsFile = file + '.js';
+//           const asset = assets[jsFile];
+//           delete assets[jsFile];
+
+//           assets[file] = new ConcatSource(
+//             '#!/usr/bin/env node\n',
+//             asset
+//           );
+//         });
+//       });
+//     });
+
+//     compiler.hooks.assetEmitted.tap('MakeExecutablePlugin', (file, { targetPath }) => {
+//       // Set permissions for executables
+//       if (this.files.some(f => f === file)) {
+//         shell.chmod(755, targetPath);
+//       }
+//     });
+//   }
+// }
+
 
 module.exports = {
   target: 'node',
   node: {
     __filename: true,
-    __dirname: true,
-    fs: true
+    __dirname: true
   },
   entry: {
     'dvl-fw-validate': path.resolve(__dirname, 'validate-project.ts'),
@@ -52,6 +89,13 @@ module.exports = {
   },
 
   plugins: [
+    // new MakeExecutablePlugin([
+    //   'dvl-fw-validate',
+    //   'dvl-fw-import'
+    // ])
+
+    // This is the webpack version 4 plugin.
+    // Remove when upgrading to webpack version 5.
     function () {
       function mkExecutable(dist, fname) {
         shell
@@ -66,6 +110,6 @@ module.exports = {
         mkExecutable(dist, 'dvl-fw-validate');
         mkExecutable(dist, 'dvl-fw-import');
       });
-    },
+    }
   ]
 };

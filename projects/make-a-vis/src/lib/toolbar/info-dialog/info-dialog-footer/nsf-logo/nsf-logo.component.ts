@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'mav-nsf-logo',
   templateUrl: './nsf-logo.component.html',
   styleUrls: ['./nsf-logo.component.scss']
 })
-export class NsfLogoComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+export class NsfLogoComponent { }

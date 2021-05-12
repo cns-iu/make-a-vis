@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./cns-logo-icon.component.scss']
 })
 export class CnsLogoIconComponent {
-
-  constructor() { }
 }

@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./scatter-graph-icon.component.scss']
 })
 export class ScatterGraphIconComponent {
-
-  constructor() { }
 }

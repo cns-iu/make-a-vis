@@ -67,7 +67,6 @@ export class MapBoxGeocoder implements Geocoder {
 
     buildLookupUrl(address: string): string {
         const searchTermString = encodeURI(address);
-        const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchTermString}.json?access_token=${this.accessToken}&autocomplete=false&limit=1`;
-        return url;
+        return `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchTermString}.json?access_token=${this.accessToken}&autocomplete=false&limit=1`;
     }
 }

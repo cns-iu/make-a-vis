@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatCard, MatCardTitle } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatExpansionPanel, MatExpansionPanelHeader, MatExpansionPanelTitle } from '@angular/material/expansion';
@@ -27,7 +27,7 @@ describe('MainComponent', () => {
   let component: MainComponent;
   let fixture: ComponentFixture<MainComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(async () => {
     const mockComponents = MockComponents(
       AddIconComponent,
       CancelIconComponent,
@@ -51,7 +51,7 @@ describe('MainComponent', () => {
       ScatterGraphIconComponent
     );
 
-    TestBed.configureTestingModule({
+    await TestBed.configureTestingModule({
       imports: [
         CommonModule,
 
@@ -64,7 +64,7 @@ describe('MainComponent', () => {
       declarations: [ MainComponent, mockComponents ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MainComponent);

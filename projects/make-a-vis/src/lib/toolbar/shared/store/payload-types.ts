@@ -79,7 +79,7 @@ export interface SetGraphicSymbolRecordSetPayload {
 }
 
 export interface CopyToClipboardSuccessPayload {
-  content: String;
+  content: string;
 }
 
 export interface InfoIcon {

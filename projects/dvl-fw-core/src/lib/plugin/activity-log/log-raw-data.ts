@@ -45,7 +45,8 @@ export class ActivityLogRawData implements RawData {
       await nSQL('activitylog').loadJS('activitylog', activityLog);
     }
 
-    return ActivityLogRawData.db = nSQL('activitylog');
+    ActivityLogRawData.db = nSQL('activitylog');
+    return ActivityLogRawData.db;
   }
 
   private mapActivityLog(activityLog: any): any {

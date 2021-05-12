@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TemporalBargraphComponent } from './temporal-bargraph.component';
 
@@ -6,12 +6,12 @@ describe('TemporalBargraphComponent', () => {
   let component: TemporalBargraphComponent;
   let fixture: ComponentFixture<TemporalBargraphComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [ TemporalBargraphComponent ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TemporalBargraphComponent);

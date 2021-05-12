@@ -35,7 +35,7 @@ export function scatterplotSpec(options: ScatterplotSpecOptions = {}): Visualiza
   };
 
   return {
-    '$schema': 'https://vega.github.io/schema/vega-lite/v4.json',
+    '$schema': 'https://vega.github.io/schema/vega-lite/v5.json',
     description: 'A scatter graph visualization uses Cartesian coordinates as a reference system. In the current MAV, records are represented by circles. Circles are placed based on values for two data variables: one plotted along the x-axis, the other along the y-axis. Circles can be size coded and color coded to represent additional data variables. A third data variable can be added to the graph using tooltips for circles.',
     autosize: {type: 'fit', resize: true},
     width: 'container',
@@ -47,7 +47,13 @@ export function scatterplotSpec(options: ScatterplotSpecOptions = {}): Visualiza
       {
         mark: {type: 'point'},
         data: {name: 'nodes'},
-        selection: options.enableZoomPan ? {grid: {type: 'interval', bind: 'scales'}} : undefined,
+        params: options.enableZoomPan ? [
+          {
+            name: 'grid',
+            select: 'interval',
+            bind: 'scales'
+          }
+        ] : [],
         transform: [
           {
             calculate: '!isValid(datum.tooltip) ? \'\' : datum.tooltip',

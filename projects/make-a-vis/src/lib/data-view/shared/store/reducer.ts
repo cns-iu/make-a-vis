@@ -4,28 +4,23 @@ import { assign } from 'lodash';
 import { DataTableActionsUnion, DataViewActionTypes } from './actions';
 import { DataTableState, INITIAL_DATATABLE_STATE } from './state';
 
-export function dataTableStateReducer (state: DataTableState = INITIAL_DATATABLE_STATE, action: DataTableActionsUnion) {
+export function dataTableStateReducer(state: DataTableState, action: DataTableActionsUnion) {
+    state = state || INITIAL_DATATABLE_STATE;
     const newState: DataTableState = assign({}, state);
 
     switch (action.type) {
         case DataViewActionTypes.ShowChildrenTables:
-            newState.showingDataTableChildren = action.payload;
-            return newState;
-
         case DataViewActionTypes.HideChildrenTables:
             newState.showingDataTableChildren = action.payload;
             return newState;
 
         case DataViewActionTypes.ShowDataRows:
-            newState.showingDataTableRows = action.payload;
-            return newState;
-
         case DataViewActionTypes.HideDataRows:
             newState.showingDataTableRows = action.payload;
             return newState;
 
         default:
-        return state;
+            return state;
     }
 }
 

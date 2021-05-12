@@ -1,11 +1,11 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Provider } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatCard, MatCardContent, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
+import { DvlFwVisualizationComponent } from '@dvl-fw/angular';
+import { Store } from '@ngrx/store';
+import { MockComponents } from 'ng-mocks';
 
 import { GraphicVariableLegendComponent } from './graphic-variable-legend.component';
-import { MockComponents } from 'ng-mocks';
-import { MatCard, MatCardTitle, MatCardSubtitle, MatCardContent } from '@angular/material/card';
-import { DvlFwVisualizationComponent } from '@dvl-fw/angular';
-import { Provider } from '@angular/core';
-import { Store } from '@ngrx/store';
 
 describe('GraphicVariableLegendComponent', () => {
   let component: GraphicVariableLegendComponent;
@@ -21,13 +21,13 @@ describe('GraphicVariableLegendComponent', () => {
   const mockedProviders: Provider[] = [
     { provide: Store, useValue: mockedStore}
   ];
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [ GraphicVariableLegendComponent ].concat(mockComponents),
       providers: [mockedProviders]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(GraphicVariableLegendComponent);

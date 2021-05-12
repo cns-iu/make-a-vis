@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NsfLogoComponent } from './nsf-logo.component';
 
@@ -6,12 +6,12 @@ describe('NsfLogoComponent', () => {
   let component: NsfLogoComponent;
   let fixture: ComponentFixture<NsfLogoComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [ NsfLogoComponent ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(NsfLogoComponent);

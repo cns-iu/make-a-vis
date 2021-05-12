@@ -32,6 +32,6 @@ export class DefaultGeocoder implements Geocoder {
     }
 
     async getLocation(address: string): Promise<Location> {
-        return await this.geocoder.getLocation(address);
+        return this.geocoder.getLocation(address);
     }
 }

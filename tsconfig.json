@@ -93,6 +93,9 @@
       ],
       "ngx-vega/*": [
         "dist/ngx-vega/*"
+      ],
+      "vega-lite": [
+        "node_modules/vega-lite/build/vega-lite"
       ]
     }
   }

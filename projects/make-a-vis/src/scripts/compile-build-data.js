@@ -1,4 +1,4 @@
-/*jshint esversion: 6 */ 
+/*jshint esversion: 6 */
 var fs = require('fs');
 var process = require('child_process');
 
@@ -11,7 +11,6 @@ try {
 
 var version = JSON.parse(packageJson).version;
 process.exec('git log -1 --pretty="%ct" --date=local', {cwd: __dirname}, function(err, stdout, stderr) {
-  lastCommitDate = new Date(Number(stdout.trim())*1000);
   var buildInfo = {
     version,
     lastCommitDate: new Date(Number(stdout.trim())*1000).getTime(),

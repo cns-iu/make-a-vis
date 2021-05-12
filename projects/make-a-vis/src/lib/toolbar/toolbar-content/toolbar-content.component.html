@@ -1,7 +1,14 @@
 <div class="toolbar-content wrapper">
   <mat-toolbar class="mav-toolbar z-depth-1-half">
     <mav-menu-icon (click)="isSidenavOpen = !isSidenavOpen"></mav-menu-icon>
-    <span class="toolbar-title">Make-a-Vis <em *ngIf="advancedEnabled$ | async">Advanced</em></span>
+    <span class="toolbar-title">
+      <svg class="mav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 138 48">
+        <path d="M132 1.5a7.7 7.7 0 00-9.8 4.5l-9.3 25.5L103.6 6A7.6 7.6 0 0089 7a22.9 22.9 0 00-33.4 2.7 18 18 0 00-26-5.3A18 18 0 0019.1 1a18.2 18.2 0 00-18 16.6 7.2 7.2 0 00-.1 1v20.7a7.6 7.6 0 1015.3 0V19.2a2.9 2.9 0 115.7 0v20.1a7.6 7.6 0 1015.3 0V19.2a2.9 2.9 0 115.7 0v20.1A7.6 7.6 0 0058.1 41a22.9 22.9 0 0022.5 4.9 10.5 10.5 0 01-2.3-6.5V30a7.5 7.5 0 01-4.7 1.7 7.6 7.6 0 01-5.7-2.5L55 37.6a4.8 4.8 0 11-4.5-3 4.7 4.7 0 012.7.7l13.1-8.6a7.8 7.8 0 01-.5-2.7 7.6 7.6 0 0112.9-5.6l13-8.6a4.7 4.7 0 01-.1-1.1 4.8 4.8 0 111.6 3.5l-12.8 8.6a7.6 7.6 0 01.7 3.1V39.3a7.7 7.7 0 003 6 6.1 6.1 0 00.8.6 7.6 7.6 0 0011.4-6.6v-8.2l2.3 6.1a15.2 15.2 0 0028.3 0l9.5-26a7.7 7.7 0 00-4.5-9.7z"
+              fill="currentColor" />
+      </svg>
+
+      <em *ngIf="advancedEnabled$ | async">Advanced</em>
+    </span>
     <div class="toolbar-spacer"></div>
     <mav-info-icon></mav-info-icon>
   </mat-toolbar>

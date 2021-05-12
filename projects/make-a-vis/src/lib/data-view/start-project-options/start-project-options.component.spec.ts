@@ -1,10 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Provider } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Store } from '@ngrx/store';
 
 import { StartProjectOptionsComponent } from './start-project-options.component';
-import { Provider } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 describe('StartProjectOptionsComponent', () => {
   let component: StartProjectOptionsComponent;
@@ -17,14 +17,14 @@ describe('StartProjectOptionsComponent', () => {
 
   ];
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       declarations: [ StartProjectOptionsComponent ],
       providers: [mockedProviders]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(StartProjectOptionsComponent);

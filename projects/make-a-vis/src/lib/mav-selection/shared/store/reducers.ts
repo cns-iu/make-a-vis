@@ -8,9 +8,11 @@ import { initialMavSelectionState, MavSelectionState } from './state';
  * @returns the new state
  */
 export function mavSelectionStateReducer(
-  state: MavSelectionState = initialMavSelectionState,
+  state: MavSelectionState,
   action: MavSelectionActionUnion
 ): MavSelectionState {
+  state = state || initialMavSelectionState;
+
   switch (action.type) {
     case MavSelectionActionTypes.GVPanelOpened:
       return { ...state, gvPanelOpen: true };
@@ -47,5 +49,4 @@ export function mavSelectionStateReducer(
       return { ...state, advanced: action.payload };
     }
   }
-  return state;
 }

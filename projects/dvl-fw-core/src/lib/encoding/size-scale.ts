@@ -21,7 +21,7 @@ export class SizeScale {
   getQualitativeSizeFunction(domain: number[]): (value: number) => number {
     const addend = (this.end - this.start) / (domain[1] - domain[0]);
 
-    return (index) =>  this.start + index * addend;
+    return (index) => this.start + index * addend;
   }
 
   quantitative(domain: number[]): Operator<number, number> {
@@ -30,16 +30,17 @@ export class SizeScale {
 
   getQuantitativeSizeFunction(domain: number[]): (value: number) => number {
     switch (this.quantitativeScaleType) {
-      default:
-      case 'linear' : return scaleLinear<number, number>()
-        .domain(domain).range([this.start, this.end]);
-
       case 'log':
         if (domain[0] === 0) {
           domain[0] = 1e-6;
         }
         return scaleLog<number, number>()
-        .domain(domain).range([this.start, this.end]);
+          .domain(domain).range([this.start, this.end]);
+
+      case 'linear':
+      default:
+        return scaleLinear<number, number>()
+          .domain(domain).range([this.start, this.end]);
     }
   }
 }
