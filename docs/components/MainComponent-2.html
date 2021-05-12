@@ -1,0 +1,1910 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>make-a-vis documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">make-a-vis documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>MainComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>projects/make-a-vis/src/lib/mav-selection/main/main.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Mav Selection main component declaration, responsible for displaying the vis-type, graphic-symbol and graphic-variable selection panels</p>
+
+    </p>
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>mav-selection</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./main.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./main.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activeVis">activeVis</a>
+                            </li>
+                            <li>
+                                <a href="#gvSelectionButtonState">gvSelectionButtonState</a>
+                            </li>
+                            <li>
+                                <a href="#mode">mode</a>
+                            </li>
+                            <li>
+                                <a href="#panelState">panelState</a>
+                            </li>
+                            <li>
+                                <a href="#recordStreamMapping">recordStreamMapping</a>
+                            </li>
+                            <li>
+                                <a href="#step">step</a>
+                            </li>
+                            <li>
+                                <a href="#visSelectionButtonState">visSelectionButtonState</a>
+                            </li>
+                            <li>
+                                <a href="#visType">visType</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addVisualization">addVisualization</a>
+                            </li>
+                            <li>
+                                <a href="#closeSelectionPanel">closeSelectionPanel</a>
+                            </li>
+                            <li>
+                                <a href="#gvPanelClosed">gvPanelClosed</a>
+                            </li>
+                            <li>
+                                <a href="#gvPanelOpened">gvPanelOpened</a>
+                            </li>
+                            <li>
+                                <a href="#gvSelectionMade">gvSelectionMade</a>
+                            </li>
+                            <li>
+                                <a href="#isDisabled">isDisabled</a>
+                            </li>
+                            <li>
+                                <a href="#isExpanded">isExpanded</a>
+                            </li>
+                            <li>
+                                <a href="#setStep">setStep</a>
+                            </li>
+                            <li>
+                                <a href="#setVisSelectionButtonState">setVisSelectionButtonState</a>
+                            </li>
+                            <li>
+                                <a href="#stepDone">stepDone</a>
+                            </li>
+                            <li>
+                                <a href="#toggleSelectionPanel">toggleSelectionPanel</a>
+                            </li>
+                            <li>
+                                <a href="#updateRecordStreamMapping">updateRecordStreamMapping</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#newVis">newVis</a>
+                            </li>
+                            <li>
+                                <a href="#selectionPanelClosed">selectionPanelClosed</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(store: Store<any>, serializer: <a href="../injectables/ProjectSerializerService.html">ProjectSerializerService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:64</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of mav-selection main component.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>store</td>
+                                                  
+                                                        <td>
+                                                                    <code>Store&lt;any&gt;</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>reference to Store</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>serializer</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProjectSerializerService.html" target="_self" >ProjectSerializerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>reference to the Project Serializer Service</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="newVis"></a>
+                        <b>newVis</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:26</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Output event-emitter of new visualization added by the selection</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectionPanelClosed"></a>
+                        <b>selectionPanelClosed</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:30</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Output event-emitter of the state of the selection panel</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addVisualization"></a>
+                    <span class="name">
+                        <b>
+                            addVisualization
+                        </b>
+                        <a href="#addVisualization"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addVisualization(type: <a href="../interfaces/VisType.html">VisType</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="115"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:115</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Adds the selected vis-type visualization</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>type</td>
+                                    <td>
+                                                <code><a href="../interfaces/VisType.html" target="_self" >VisType</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>vis-type selected</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeSelectionPanel"></a>
+                    <span class="name">
+                        <b>
+                            closeSelectionPanel
+                        </b>
+                        <a href="#closeSelectionPanel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeSelectionPanel()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="184"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:184</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Closes selection panel and emits the state of the selection panel,
+the mode in which it was closed and the active visualization when it was closed</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gvPanelClosed"></a>
+                    <span class="name">
+                        <b>
+                            gvPanelClosed
+                        </b>
+                        <a href="#gvPanelClosed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>gvPanelClosed()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="222"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:222</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Dispatches the graphic-variable panel closed action in the store</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gvPanelOpened"></a>
+                    <span class="name">
+                        <b>
+                            gvPanelOpened
+                        </b>
+                        <a href="#gvPanelOpened"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>gvPanelOpened()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="215"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:215</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Dispatches the graphic-variable panel opened action in the store</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gvSelectionMade"></a>
+                    <span class="name">
+                        <b>
+                            gvSelectionMade
+                        </b>
+                        <a href="#gvSelectionMade"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>gvSelectionMade(selectionMade: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="208"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:208</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Sets the state of the done button in the graphic variable selection stage</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selectionMade</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>boolean to indicate if a selection was made in the graphic-variable selection stage</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isDisabled"></a>
+                    <span class="name">
+                        <b>
+                            isDisabled
+                        </b>
+                        <a href="#isDisabled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isDisabled(target: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="170"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:170</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Determines whether the panel for the current step is to be disabled</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>target</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>step of the panel to be disabled</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>boolean to indicate if it should be disabled</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isExpanded"></a>
+                    <span class="name">
+                        <b>
+                            isExpanded
+                        </b>
+                        <a href="#isExpanded"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isExpanded(target: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="157"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:157</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Determines whether the panel for the current step is to be expanded</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>target</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>step of the panel to be expanded</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>boolean to indicate if it should be expanded</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setStep"></a>
+                    <span class="name">
+                        <b>
+                            setStep
+                        </b>
+                        <a href="#setStep"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setStep(target: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="148"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:148</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Sets step to a specific value</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>target</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>current step</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setVisSelectionButtonState"></a>
+                    <span class="name">
+                        <b>
+                            setVisSelectionButtonState
+                        </b>
+                        <a href="#setVisSelectionButtonState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setVisSelectionButtonState(visSelected: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="101"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:101</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Sets the button state of the done button vis-type selection stage</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>visSelected</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the vis-type that was selected</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stepDone"></a>
+                    <span class="name">
+                        <b>
+                            stepDone
+                        </b>
+                        <a href="#stepDone"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>stepDone()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="140"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:140</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Increments the step counter</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleSelectionPanel"></a>
+                    <span class="name">
+                        <b>
+                            toggleSelectionPanel
+                        </b>
+                        <a href="#toggleSelectionPanel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleSelectionPanel(eventArgs: <a href="../interfaces/ToggleSelectionPanelType.html">ToggleSelectionPanelType</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:77</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Toggles selection panel</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>eventArgs</td>
+                                    <td>
+                                                <code><a href="../interfaces/ToggleSelectionPanelType.html" target="_self" >ToggleSelectionPanelType</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>provide selection panel state, the mode in which the panel was opened and the active visualization</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateRecordStreamMapping"></a>
+                    <span class="name">
+                        <b>
+                            updateRecordStreamMapping
+                        </b>
+                        <a href="#updateRecordStreamMapping"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateRecordStreamMapping(recordStreamMapping: <a href="../interfaces/RecordStream.html">Map<string | RecordStream></a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="200"
+                            class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:200</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Updates record stream mapping</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>recordStreamMapping</td>
+                                    <td>
+                                                <code><a href="../interfaces/RecordStream.html" target="_self" >Map&lt;string | RecordStream&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>from the graphic-symbol selection stage</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="activeVis"></a>
+                        <span class="name">
+                            <b>
+                            activeVis</b>
+                            <a href="#activeVis"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Vis.html" target="_self" >Vis</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The active visualization in make-a-vis - currently selected tab</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="gvSelectionButtonState"></a>
+                        <span class="name">
+                            <b>
+                            gvSelectionButtonState</b>
+                            <a href="#gvSelectionButtonState"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:64</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The state of the done button in the graphic-variable selection stage</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="mode"></a>
+                        <span class="name">
+                            <b>
+                            mode</b>
+                            <a href="#mode"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#ModeType" target="_self" >ModeType</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Mode in which the selection panel is opened - add/edit</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="panelState"></a>
+                        <span class="name">
+                            <b>
+                            panelState</b>
+                            <a href="#panelState"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:50</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>State of the selection panel, if its open or closed</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="recordStreamMapping"></a>
+                        <span class="name">
+                            <b>
+                            recordStreamMapping</b>
+                            <a href="#recordStreamMapping"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/RecordStream.html" target="_self" >Map&lt;string | RecordStream&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Mapping from graphic-symbol-option-id to RecordStream</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="step"></a>
+                        <span class="name">
+                            <b>
+                            step</b>
+                            <a href="#step"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>0</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:56</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Step number in the selection panel - vis-type selection is step 0,
+graphic-symbol selection is step 1,
+and graphic-variable selection is step 2</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="visSelectionButtonState"></a>
+                        <span class="name">
+                            <b>
+                            visSelectionButtonState</b>
+                            <a href="#visSelectionButtonState"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:60</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The state of the done button in the vis-type selection stage</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="visType"></a>
+                        <span class="name">
+                            <b>
+                            visType</b>
+                            <a href="#visType"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../components/VisualizationTypeComponent.html" target="_self" >VisualizationTypeComponent</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;visType&#x27;, {static: false})<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/make-a-vis/src/lib/mav-selection/main/main.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>View child of this component which refers to VisualizationTypeComponent</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Output, ViewChild } from &#x27;@angular/core&#x27;;
+import { ProjectSerializerService } from &#x27;@dvl-fw/angular&#x27;;
+import { RecordStream, Visualization } from &#x27;@dvl-fw/core&#x27;;
+import { select, Store } from &#x27;@ngrx/store&#x27;;
+import { uniqueId } from &#x27;lodash&#x27;;
+import { of } from &#x27;rxjs&#x27;;
+import { catchError, concatMap, take } from &#x27;rxjs/operators&#x27;;
+
+import { ModeType, ToggleSelectionPanelType, Vis, VisType } from &#x27;../../shared/types&#x27;;
+import { getLoadedProjectSelector } from &#x27;../../toolbar/shared/store&#x27;;
+import { GVPanelClosed, GVPanelOpened } from &#x27;../shared/store&#x27;;
+import { VisualizationTypeComponent } from &#x27;../visualization-type/visualization-type.component&#x27;;
+
+/**
+ * Mav Selection main component declaration, responsible for displaying the vis-type, graphic-symbol and graphic-variable selection panels
+ */
+@Component({
+  selector: &#x27;mav-selection&#x27;,
+  templateUrl: &#x27;./main.component.html&#x27;,
+  styleUrls: [&#x27;./main.component.scss&#x27;]
+})
+export class MainComponent {
+  /**
+   * Output event-emitter of new visualization added by the selection
+   */
+  @Output() newVis &#x3D; new EventEmitter();
+  /**
+   * Output event-emitter of the state of the selection panel
+   */
+  @Output() selectionPanelClosed &#x3D; new EventEmitter();
+  /**
+   * View child of this component which refers to VisualizationTypeComponent
+   */
+  @ViewChild(&#x27;visType&#x27;, { static: false }) visType: VisualizationTypeComponent;
+  /**
+   * Mapping from graphic-symbol-option-id to RecordStream
+   */
+  recordStreamMapping: Map&lt;string, RecordStream&gt;;
+  /**
+   * Mode in which the selection panel is opened - add/edit
+   */
+  mode: ModeType;
+  /**
+   * The active visualization in make-a-vis - currently selected tab
+   */
+  activeVis: Vis;
+  /**
+   * State of the selection panel, if its open or closed
+   */
+  panelState &#x3D; false;
+  /**
+   * Step number in the selection panel - vis-type selection is step 0,
+   * graphic-symbol selection is step 1,
+   * and graphic-variable selection is step 2
+   */
+  step &#x3D; 0;
+  /**
+   * The state of the done button in the vis-type selection stage
+   */
+  visSelectionButtonState &#x3D; false;
+   /**
+   * The state of the done button in the graphic-variable selection stage
+   */
+  gvSelectionButtonState &#x3D; false;
+
+  /**
+   * Creates an instance of mav-selection main component.
+   * @param store reference to Store
+   * @param serializer reference to the Project Serializer Service
+   */
+  constructor(private store: Store&lt;any&gt;, private serializer: ProjectSerializerService) { }
+
+  /**
+   * Toggles selection panel
+   * @param eventArgs provide selection panel state, the mode in which the panel was opened and the active visualization
+   */
+  toggleSelectionPanel(eventArgs: ToggleSelectionPanelType) {
+    this.panelState &#x3D; eventArgs.state;
+    this.mode &#x3D; eventArgs.mode;
+    this.activeVis &#x3D; eventArgs.activeVis;
+
+    if (this.mode &#x3D;&#x3D;&#x3D; &#x27;add&#x27;) {
+      this.step &#x3D; 0;
+    }
+
+    if (this.activeVis &amp;&amp; this.mode &#x3D;&#x3D;&#x3D; &#x27;edit&#x27;) {
+      this.step &#x3D; 1;
+    }
+
+    if (!this.panelState &amp;&amp; this.step &#x3D;&#x3D;&#x3D; 2) {
+      this.gvPanelClosed();
+    }
+
+    this.setVisSelectionButtonState(false);
+  }
+
+  /**
+   * Sets the button state of the done button vis-type selection stage
+   * @param visSelected the vis-type that was selected
+   */
+  setVisSelectionButtonState(visSelected: boolean) {
+    if (this.mode &#x3D;&#x3D;&#x3D; &#x27;add&#x27;) {
+      this.visSelectionButtonState &#x3D; visSelected;
+    }
+
+    if (this.mode &#x3D;&#x3D;&#x3D; &#x27;edit&#x27;) {
+      this.visSelectionButtonState &#x3D; false;
+    }
+  }
+
+  /**
+   * Adds the selected vis-type visualization
+   * @param type vis-type selected
+   */
+  addVisualization(type: VisType) {
+    if (this.mode &#x3D;&#x3D;&#x3D; &#x27;add&#x27;) {
+      const preData: Partial&lt;Visualization&gt; &#x3D; {
+        id: &#x60;visualization-${uniqueId()}&#x60;,
+        template: type.template,
+        properties: {},
+        graphicSymbols: {}
+      };
+
+      this.store.pipe(
+        select(getLoadedProjectSelector),
+        take(1),
+        concatMap(project &#x3D;&gt; this.serializer.createVisualization(type.template, preData, project)),
+        catchError(() &#x3D;&gt; of(preData))
+      ).subscribe((data: Visualization) &#x3D;&gt; {
+        this.activeVis &#x3D; { label: type.label, data };
+        this.newVis.emit(this.activeVis);
+        this.stepDone();
+      });
+    }
+  }
+
+  /**
+   * Increments the step counter
+   */
+  stepDone() {
+    this.step++;
+  }
+
+  /**
+   * Sets step to a specific value
+   * @param target current step
+   */
+  setStep(target: number) {
+    this.step &#x3D; target;
+  }
+
+  /**
+   * Determines whether the panel for the current step is to be expanded
+   * @param target step of the panel to be expanded
+   * @returns boolean to indicate if it should be expanded
+   */
+  isExpanded(target: number) {
+    if (this.step &#x3D;&#x3D;&#x3D; target) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  /**
+   * Determines whether the panel for the current step is to be disabled
+   * @param target step of the panel to be disabled
+   * @returns boolean to indicate if it should be disabled
+   */
+  isDisabled(target: number) {
+    if (this.step &#x3D;&#x3D;&#x3D; target || target &#x3D;&#x3D;&#x3D; this.step - 1) {
+      return false;
+    } else {
+      if (this.mode &#x3D;&#x3D;&#x3D; &#x27;add&#x27;) {
+        return true;
+      }
+    }
+  }
+
+  /**
+   * Closes selection panel and emits the state of the selection panel,
+   * the mode in which it was closed and the active visualization when it was closed
+   */
+  closeSelectionPanel() {
+    this.stepDone();
+    this.panelState &#x3D; false;
+    this.toggleSelectionPanel({
+      state: this.panelState,
+      mode: this.mode,
+      activeVis: this.activeVis
+    });
+
+    this.selectionPanelClosed.emit(this.mode);
+  }
+
+  /**
+   * Updates record stream mapping
+   * @param recordStreamMapping from the graphic-symbol selection stage
+   */
+  updateRecordStreamMapping(recordStreamMapping: Map&lt;string, RecordStream&gt;) {
+    this.recordStreamMapping &#x3D; recordStreamMapping;
+  }
+
+  /**
+   * Sets the state of the done button in the graphic variable selection stage
+   * @param selectionMade boolean to indicate if a selection was made in the graphic-variable selection stage
+   */
+  gvSelectionMade(selectionMade: boolean) {
+    this.gvSelectionButtonState &#x3D; selectionMade;
+  }
+
+  /**
+   * Dispatches the graphic-variable panel opened action in the store
+   */
+  gvPanelOpened(): void {
+    this.store.dispatch(new GVPanelOpened());
+  }
+
+  /**
+   * Dispatches the graphic-variable panel closed action in the store
+   */
+  gvPanelClosed(): void {
+    this.store.dispatch(new GVPanelClosed());
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div [ngClass]&#x3D;&quot;{&#x27;selection-wrapper&#x27;:panelState, &#x27;selection-wrapper-hidden&#x27;: !panelState}&quot;&gt;
+    &lt;span class&#x3D;&quot;selection-title&quot;&gt;Make Visualization&lt;/span&gt;
+
+    &lt;div class&#x3D;&quot;expansion-panel container&quot;&gt;
+        &lt;mat-expansion-panel class&#x3D;&quot;expansion-panel&quot; [expanded]&#x3D;&quot;isExpanded(0)&quot; (opened)&#x3D;&quot;setStep(0)&quot; #visTypePanel&gt;
+            &lt;mat-expansion-panel-header [expandedHeight]&#x3D;&quot;&#x27;3rem&#x27;&quot; class&#x3D;&quot;visualization-type-header&quot;&gt;
+                &lt;mat-panel-title class&#x3D;&quot;title&quot;&gt;
+                    Select Visualization Type
+                &lt;/mat-panel-title&gt;
+            &lt;/mat-expansion-panel-header&gt;
+            &lt;mav-selection-visualization-type [activeVis]&#x3D;&quot;activeVis&quot; [mode]&#x3D;&quot;mode&quot; [panelState]&#x3D;&quot;panelState&quot;
+                (visSelected)&#x3D;&quot;setVisSelectionButtonState($event)&quot; #visType&gt;
+            &lt;/mav-selection-visualization-type&gt;
+            &lt;mat-action-row class&#x3D;&quot;selection-button&quot;&gt;
+                &lt;button *ngIf&#x3D;&quot;visSelectionButtonState&quot; mat-button
+                    (click)&#x3D;&quot;visType.selected?addVisualization(visType.selected):undefined&quot;&gt;Done&lt;/button&gt;
+                &lt;button *ngIf&#x3D;&quot;!visSelectionButtonState&quot; class&#x3D;&quot;disabled&quot; mat-button disabled&gt;Done&lt;/button&gt;
+            &lt;/mat-action-row&gt;
+        &lt;/mat-expansion-panel&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;expansion-panel container&quot;&gt;
+        &lt;mat-expansion-panel class&#x3D;&quot;expansion-panel&quot; [expanded]&#x3D;&quot;isExpanded(1)&quot; (opened)&#x3D;&quot;setStep(1)&quot;
+            [disabled]&#x3D;&quot;isDisabled(1)&quot;&gt;
+            &lt;mat-expansion-panel-header [expandedHeight]&#x3D;&quot;&#x27;3rem&#x27;&quot; class&#x3D;&quot;graphic-symbol-type-header&quot;&gt;
+                &lt;mat-panel-title class&#x3D;&quot;title&quot;&gt;
+                    Select Graphic Symbol Type(s)
+                &lt;/mat-panel-title&gt;
+            &lt;/mat-expansion-panel-header&gt;
+            &lt;mav-selection-graphic-symbol-type [activeVis]&#x3D;&quot;activeVis&quot; [mode]&#x3D;&quot;mode&quot;
+                (recordStreamChange)&#x3D;&quot;updateRecordStreamMapping($event)&quot; #gsSelector&gt;
+            &lt;/mav-selection-graphic-symbol-type&gt;
+            &lt;mat-action-row class&#x3D;&quot;selection-button&quot;&gt;
+                &lt;button *ngIf&#x3D;&quot;recordStreamMapping?.size&quot; mat-button (click)&#x3D;&quot;stepDone()&quot;&gt;Done&lt;/button&gt;
+                &lt;button *ngIf&#x3D;&quot;!recordStreamMapping?.size&quot; class&#x3D;&quot;disabled&quot; mat-button disabled&gt;Done&lt;/button&gt;
+            &lt;/mat-action-row&gt;
+        &lt;/mat-expansion-panel&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;expansion-panel container&quot;&gt;
+        &lt;mat-expansion-panel class&#x3D;&quot;expansion-panel&quot; [expanded]&#x3D;&quot;isExpanded(2)&quot; (opened)&#x3D;&quot;setStep(2)&quot;
+            [disabled]&#x3D;&quot;isDisabled(2)&quot; (opened)&#x3D;&quot;gvPanelOpened()&quot; (closed)&#x3D;&quot;gvPanelClosed()&quot;&gt;
+            &lt;mat-expansion-panel-header [expandedHeight]&#x3D;&quot;&#x27;3rem&#x27;&quot; class&#x3D;&quot;graphic-variable-type-header&quot;&gt;
+                &lt;mat-panel-title class&#x3D;&quot;title&quot;&gt;
+                    Select Graphic Variable Types
+                &lt;/mat-panel-title&gt;
+            &lt;/mat-expansion-panel-header&gt;
+            &lt;mav-selection-graphic-variable-type [activeVis]&#x3D;&quot;step&#x3D;&#x3D;&#x3D;2?gsSelector.activeVis:undefined&quot;
+                [recordStreamMapping]&#x3D;&quot;recordStreamMapping&quot; (gvSelectionMade)&#x3D;&quot;gvSelectionMade($event)&quot;&gt;
+            &lt;/mav-selection-graphic-variable-type&gt;
+            &lt;mat-action-row class&#x3D;&quot;selection-button&quot;&gt;
+                &lt;button mat-button *ngIf&#x3D;&quot;gvSelectionButtonState&quot; (click)&#x3D;&quot;closeSelectionPanel()&quot;&gt;Visualize&lt;/button&gt;
+                &lt;button *ngIf&#x3D;&quot;!gvSelectionButtonState&quot; class&#x3D;&quot;disabled&quot; mat-button disabled&gt;Visualize&lt;/button&gt;
+            &lt;/mat-action-row&gt;
+        &lt;/mat-expansion-panel&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./main.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.selection-wrapper {
+  width: 100%;
+  height: 100%;
+  background: #f5f5f5;
+  overflow-y: auto;
+
+  .selection-title {
+    display: flex;
+    line-height: 2.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+
+  .expansion-panel {
+    &amp;.container {
+      padding: 0 1rem 0.625rem 1rem;
+
+      .visualization-type-header,
+      .graphic-symbol-type-header,
+      .graphic-variable-type-header {
+        display: flex;
+        align-items: center;
+
+        ::ng-deep .mat-expansion-indicator {
+          display: flex;
+        }
+      }
+
+      ::ng-deep mat-expansion-panel-header {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      ::ng-deep .mat-expansion-panel-body {
+        padding: 0 1rem 1rem;
+      }
+
+      ::ng-deep .mat-card {
+        padding: 0.5rem 0.625rem;
+        position: relative;
+      }
+
+      .expansion-panel {
+        background: #ffffff;
+
+        .selection-button {
+          display: flex;
+          justify-content: center;
+          padding: 0;
+
+          button {
+            width: 100%;
+            margin: 0;
+            color: #1e88e5;
+          }
+
+          .disabled {
+            color: #e0e0e0;
+          }
+        }
+
+        .title {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+.selection-wrapper-hidden {
+  display: none;
+  width: 0;
+  height: 0;
+  background: none;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div [ngClass]="{\'selection-wrapper\':panelState, \'selection-wrapper-hidden\': !panelState}">    <span class="selection-title">Make Visualization</span>    <div class="expansion-panel container">        <mat-expansion-panel class="expansion-panel" [expanded]="isExpanded(0)" (opened)="setStep(0)" #visTypePanel>            <mat-expansion-panel-header [expandedHeight]="\'3rem\'" class="visualization-type-header">                <mat-panel-title class="title">                    Select Visualization Type                </mat-panel-title>            </mat-expansion-panel-header>            <mav-selection-visualization-type [activeVis]="activeVis" [mode]="mode" [panelState]="panelState"                (visSelected)="setVisSelectionButtonState($event)" #visType>            </mav-selection-visualization-type>            <mat-action-row class="selection-button">                <button *ngIf="visSelectionButtonState" mat-button                    (click)="visType.selected?addVisualization(visType.selected):undefined">Done</button>                <button *ngIf="!visSelectionButtonState" class="disabled" mat-button disabled>Done</button>            </mat-action-row>        </mat-expansion-panel>    </div>    <div class="expansion-panel container">        <mat-expansion-panel class="expansion-panel" [expanded]="isExpanded(1)" (opened)="setStep(1)"            [disabled]="isDisabled(1)">            <mat-expansion-panel-header [expandedHeight]="\'3rem\'" class="graphic-symbol-type-header">                <mat-panel-title class="title">                    Select Graphic Symbol Type(s)                </mat-panel-title>            </mat-expansion-panel-header>            <mav-selection-graphic-symbol-type [activeVis]="activeVis" [mode]="mode"                (recordStreamChange)="updateRecordStreamMapping($event)" #gsSelector>            </mav-selection-graphic-symbol-type>            <mat-action-row class="selection-button">                <button *ngIf="recordStreamMapping?.size" mat-button (click)="stepDone()">Done</button>                <button *ngIf="!recordStreamMapping?.size" class="disabled" mat-button disabled>Done</button>            </mat-action-row>        </mat-expansion-panel>    </div>    <div class="expansion-panel container">        <mat-expansion-panel class="expansion-panel" [expanded]="isExpanded(2)" (opened)="setStep(2)"            [disabled]="isDisabled(2)" (opened)="gvPanelOpened()" (closed)="gvPanelClosed()">            <mat-expansion-panel-header [expandedHeight]="\'3rem\'" class="graphic-variable-type-header">                <mat-panel-title class="title">                    Select Graphic Variable Types                </mat-panel-title>            </mat-expansion-panel-header>            <mav-selection-graphic-variable-type [activeVis]="step===2?gsSelector.activeVis:undefined"                [recordStreamMapping]="recordStreamMapping" (gvSelectionMade)="gvSelectionMade($event)">            </mav-selection-graphic-variable-type>            <mat-action-row class="selection-button">                <button mat-button *ngIf="gvSelectionButtonState" (click)="closeSelectionPanel()">Visualize</button>                <button *ngIf="!gvSelectionButtonState" class="disabled" mat-button disabled>Visualize</button>            </mat-action-row>        </mat-expansion-panel>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AddIconComponent', 'selector': 'mav-add-icon'},{'name': 'AppComponent', 'selector': 'mav-root'},{'name': 'AppUpdateNotificationComponent', 'selector': 'mav-app-update-notification'},{'name': 'AreaSizeComponent', 'selector': 'dvl-area-size'},{'name': 'CancelIconComponent', 'selector': 'mav-cancel-icon'},{'name': 'CnsLogoComponent', 'selector': 'mav-cns-logo'},{'name': 'CnsLogoIconComponent', 'selector': 'mav-cns-logo-icon'},{'name': 'ColorAreaComponent', 'selector': 'dvl-color-area'},{'name': 'ColorComponent', 'selector': 'dvl-vis-color'},{'name': 'ColorEdgesComponent', 'selector': 'dvl-color-edges'},{'name': 'DataVariableDropzoneComponent', 'selector': 'mav-data-variable-dropzone'},{'name': 'DvlFwVisualizationComponent', 'selector': 'dvl-visualization'},{'name': 'EdgeSizeComponent', 'selector': 'dvl-vis-edge-size'},{'name': 'EditIconComponent', 'selector': 'mav-edit-icon'},{'name': 'EndComponent', 'selector': 'dvl-end'},{'name': 'GeomapComponent', 'selector': 'dvl-geomap'},{'name': 'GeomapIconComponent', 'selector': 'mav-geomap-icon'},{'name': 'GeomapIconComponent', 'selector': 'mav-geomap-icon'},{'name': 'GeomapSettingsComponent', 'selector': 'dvl-geomap-settings'},{'name': 'GithubIconComponent', 'selector': 'mav-github-icon'},{'name': 'GradientComponent', 'selector': 'dvl-gradient'},{'name': 'GraphicSymbolTypeComponent', 'selector': 'mav-selection-graphic-symbol-type'},{'name': 'GraphicVariableIconComponent', 'selector': 'mav-graphic-variable-icon'},{'name': 'GraphicVariableLegendComponent', 'selector': 'mav-graphic-variable-legend'},{'name': 'GraphicVariableTypeComponent', 'selector': 'mav-selection-graphic-variable-type'},{'name': 'HorizontalBarGraphIconComponent', 'selector': 'mav-horizontal-bar-graph-icon'},{'name': 'IdentifierComponent', 'selector': 'dvl-identifier'},{'name': 'InfoDialogComponent', 'selector': 'mav-info-dialog'},{'name': 'InfoIconComponent', 'selector': 'mav-info-icon'},{'name': 'ItemComponent', 'selector': 'dvl-legend-item'},{'name': 'LabelComponent', 'selector': 'dvl-label'},{'name': 'LegendComponent', 'selector': 'dvl-legend'},{'name': 'LegendComponent', 'selector': 'mav-legend'},{'name': 'LightThemeComponent', 'selector': 'mav-light-theme'},{'name': 'MainComponent', 'selector': 'mav-data-view'},{'name': 'MainComponent', 'selector': 'mav-legend-view'},{'name': 'MainComponent', 'selector': 'mav-selection'},{'name': 'MainComponent', 'selector': 'mav-toolbar'},{'name': 'MainComponent', 'selector': 'mav-visualization-view'},{'name': 'MakeAVisComponent', 'selector': 'mav-main'},{'name': 'MapOfScienceIconComponent', 'selector': 'mav-map-of-science-icon'},{'name': 'MenuComponent', 'selector': 'mav-visualization-menu'},{'name': 'MenuIconComponent', 'selector': 'mav-menu-icon'},{'name': 'NetworkComponent', 'selector': 'dvl-network'},{'name': 'NetworkIconComponent', 'selector': 'mav-network-icon'},{'name': 'NetworkIconComponent', 'selector': 'mav-network-icon'},{'name': 'NodeSizeComponent', 'selector': 'dvl-vis-node-size'},{'name': 'NsfLogoComponent', 'selector': 'mav-nsf-logo'},{'name': 'ProjectComponent', 'selector': 'mav-project'},{'name': 'ScatterGraphIconComponent', 'selector': 'mav-scatter-graph-icon'},{'name': 'ScatterGraphIconComponent', 'selector': 'mav-scatter-graph-icon'},{'name': 'ScatterplotComponent', 'selector': 'dvl-scatterplot'},{'name': 'ScienceMapComponent', 'selector': 'dvl-science-map'},{'name': 'ScienceMapIconComponent', 'selector': 'mav-science-map-icon'},{'name': 'ShapeComponent', 'selector': 'dvl-shape'},{'name': 'SiceLogoComponent', 'selector': 'mav-sice-logo'},{'name': 'SidenavContentComponent', 'selector': 'mav-sidenav-content'},{'name': 'SourceComponent', 'selector': 'dvl-source'},{'name': 'StartComponent', 'selector': 'dvl-start'},{'name': 'StartProjectIconComponent', 'selector': 'mav-start-project-icon'},{'name': 'StartProjectOptionsComponent', 'selector': 'mav-start-project-options'},{'name': 'TableComponent', 'selector': 'mav-table'},{'name': 'TableIconComponent', 'selector': 'mav-table-icon'},{'name': 'TargetComponent', 'selector': 'dvl-target'},{'name': 'TemporalBargraphComponent', 'selector': 'dvl-temporal-bargraph'},{'name': 'TemporalBargraphIconComponent', 'selector': 'mav-temporal-bargraph-icon'},{'name': 'ThicknessComponent', 'selector': 'dvl-thickness'},{'name': 'ToolbarContentComponent', 'selector': 'mav-toolbar-content'},{'name': 'VegaComponent', 'selector': 'ngx-vega'},{'name': 'VisualizationComponent', 'selector': 'mav-visualization'},{'name': 'VisualizationTypeComponent', 'selector': 'mav-selection-visualization-type'},{'name': 'XAxisComponent', 'selector': 'dvl-x-axis'},{'name': 'YAxisComponent', 'selector': 'dvl-y-axis'}];
+    var DIRECTIVES = [{'name': 'DraggableDirective', 'selector': '[mavDraggable]'},{'name': 'DroppableDirective', 'selector': '[mavDroppable]'}];
+    var ACTUAL_COMPONENT = {'name': 'MainComponent-2'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MainComponent-2.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

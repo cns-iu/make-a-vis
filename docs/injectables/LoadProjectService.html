@@ -1,0 +1,1240 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>make-a-vis documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">make-a-vis documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li>LoadProjectService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts</code>
+        </p>
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#projectExtensionPool">projectExtensionPool</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#asyncCreateProject">asyncCreateProject</a>
+                            </li>
+                            <li>
+                                <a href="#createProject">createProject</a>
+                            </li>
+                            <li>
+                                <a href="#getProject">getProject</a>
+                            </li>
+                            <li>
+                                <a href="#getProjectFromUrl">getProjectFromUrl</a>
+                            </li>
+                            <li>
+                                <a href="#getSupportedExtension">getSupportedExtension</a>
+                            </li>
+                            <li>
+                                <a href="#loadFile">loadFile</a>
+                            </li>
+                            <li>
+                                <a href="#loadFromProjectJson">loadFromProjectJson</a>
+                            </li>
+                            <li>
+                                <a href="#setSaveActivityLog">setSaveActivityLog</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(serializer: <a href="../injectables/ProjectSerializerService.html">ProjectSerializerService</a>, loggingControlService: <a href="../injectables/LoggingControlService.html">LoggingControlService</a>, store: <a href="../interfaces/SidenavState.html">Store<sidenavStore.SidenavState></a>, getLinkService: <a href="../injectables/GetLinkService.html">GetLinkService</a>, advancedService: <a href="../injectables/AdvancedService.html">AdvancedService</a>, snackBar: MatSnackBar)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:35</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>serializer</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProjectSerializerService.html" target="_self" >ProjectSerializerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>loggingControlService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LoggingControlService.html" target="_self" >LoggingControlService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>store</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/SidenavState.html" target="_self" >Store&lt;sidenavStore.SidenavState&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>getLinkService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GetLinkService.html" target="_self" >GetLinkService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>advancedService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AdvancedService.html" target="_self" >AdvancedService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>snackBar</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatSnackBar</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="asyncCreateProject"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Async</span>
+                            asyncCreateProject
+                        </b>
+                        <a href="#asyncCreateProject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>asyncCreateProject(template: "isi" | "nsf" | "csv" | "json", fileContents: string[] | string, fileNames?: string[] | string)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:71</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>template</td>
+                                    <td>
+                                            <code>&quot;isi&quot; | &quot;nsf&quot; | &quot;csv&quot; | &quot;json&quot;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>fileContents</td>
+                                    <td>
+                                            <code>string[] | string</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>fileNames</td>
+                                    <td>
+                                            <code>string[] | string</code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/Project.html" target="_self" >Promise&lt;Project&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createProject"></a>
+                    <span class="name">
+                        <b>
+                            createProject
+                        </b>
+                        <a href="#createProject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createProject(template: "isi" | "nsf" | "csv" | "json", fileContents: string[] | string, fileNames?: string[] | string)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:64</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>template</td>
+                                    <td>
+                                            <code>&quot;isi&quot; | &quot;nsf&quot; | &quot;csv&quot; | &quot;json&quot;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>fileContents</td>
+                                    <td>
+                                            <code>string[] | string</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>fileNames</td>
+                                    <td>
+                                            <code>string[] | string</code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/Project.html" target="_self" >Observable&lt;Project&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getProject"></a>
+                    <span class="name">
+                        <b>
+                            getProject
+                        </b>
+                        <a href="#getProject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getProject(fileNames: string[], fileExtension: <a href="../interfaces/Project.html">ProjectExtensionType</a>, event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="145"
+                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:145</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>fileNames</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>fileExtension</td>
+                                    <td>
+                                                <code><a href="../interfaces/Project.html" target="_self" >ProjectExtensionType</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getProjectFromUrl"></a>
+                    <span class="name">
+                        <b>
+                            getProjectFromUrl
+                        </b>
+                        <a href="#getProjectFromUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getProjectFromUrl(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, baseUrl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, removeShareUrlFromAddressCallback: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="168"
+                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:168</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>baseUrl</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>removeShareUrlFromAddressCallback</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSupportedExtension"></a>
+                    <span class="name">
+                        <b>
+                            getSupportedExtension
+                        </b>
+                        <a href="#getSupportedExtension"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSupportedExtension(extensionLabel: <a href="../interfaces/Project.html">ProjectExtensionType</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="195"
+                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:195</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>extensionLabel</td>
+                                    <td>
+                                                <code><a href="../interfaces/Project.html" target="_self" >ProjectExtensionType</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadFile"></a>
+                    <span class="name">
+                        <b>
+                            loadFile
+                        </b>
+                        <a href="#loadFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadFile(fileExtension: "isi" | "nsf" | "csv" | "json" | "yml", files: Blob[], fileNames?: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:100</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>fileExtension</td>
+                                    <td>
+                                            <code>&quot;isi&quot; | &quot;nsf&quot; | &quot;csv&quot; | &quot;json&quot; | &quot;yml&quot;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>files</td>
+                                    <td>
+                                            <code>Blob[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>fileNames</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/Project.html" target="_self" >BehaviorSubject&lt;Project&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadFromProjectJson"></a>
+                    <span class="name">
+                        <b>
+                            loadFromProjectJson
+                        </b>
+                        <a href="#loadFromProjectJson"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadFromProjectJson(json: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="138"
+                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:138</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>json</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setSaveActivityLog"></a>
+                    <span class="name">
+                        <b>
+                            setSaveActivityLog
+                        </b>
+                        <a href="#setSaveActivityLog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setSaveActivityLog(project)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:58</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>project</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="projectExtensionPool"></a>
+                        <span class="name">
+                            <b>
+                            projectExtensionPool</b>
+                            <a href="#projectExtensionPool"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+    { label: &#x27;isi&#x27;, extensions: [&#x27;.isi&#x27;] },
+    { label: &#x27;nsf&#x27;, extensions: [&#x27;.nsf&#x27;, &#x27;.csv&#x27;] },
+    { label: &#x27;csv&#x27;, extensions: [&#x27;.nsf&#x27;, &#x27;.csv&#x27;] },
+    { label: &#x27;json&#x27;, extensions: [&#x27;.json&#x27;] },
+    { label: &#x27;yml&#x27;, extensions: [&#x27;.yml&#x27;] }
+  ]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MatSnackBar } from &#x27;@angular/material/snack-bar&#x27;;
+import { Injectable } from &#x27;@angular/core&#x27;;
+import { ProjectSerializerService } from &#x27;@dvl-fw/angular&#x27;;
+import { ActivityLogRawData, Project } from &#x27;@dvl-fw/core&#x27;;
+import { GeomapPlugin } from &#x27;@dvl-fw/geomap&#x27;;
+import { ISIPlugin, ISITemplateProject } from &#x27;@dvl-fw/isi&#x27;;
+import { LegendsPlugin } from &#x27;@dvl-fw/legends&#x27;;
+import { NetworkPlugin } from &#x27;@dvl-fw/network&#x27;;
+import { NSFPlugin, NSFTemplateProject } from &#x27;@dvl-fw/nsf&#x27;;
+import { ScatterplotPlugin } from &#x27;@dvl-fw/scatterplot&#x27;;
+import { ScienceMapPlugin } from &#x27;@dvl-fw/science-map&#x27;;
+import { TemporalBargraphPlugin } from &#x27;@dvl-fw/temporal-bargraph&#x27;;
+import { Store } from &#x27;@ngrx/store&#x27;;
+import { isArray } from &#x27;lodash&#x27;;
+import { BehaviorSubject, defer, Observable } from &#x27;rxjs&#x27;;
+
+import { LoggingControlService } from &#x27;../../../shared/logging/logging-control.service&#x27;;
+import * as sidenavStore from &#x27;../../../toolbar/shared/store&#x27;;
+import { GetLinkService } from &#x27;../get-link/get-link.service&#x27;;
+import { AdvancedService } from &#x27;../advance/advanced.service&#x27;;
+import { DefaultGeocoder } from &#x27;geocoder-ts&#x27;;
+
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class LoadProjectService {
+
+  projectExtensionPool &#x3D; [
+    { label: &#x27;isi&#x27;, extensions: [&#x27;.isi&#x27;] },
+    { label: &#x27;nsf&#x27;, extensions: [&#x27;.nsf&#x27;, &#x27;.csv&#x27;] },
+    { label: &#x27;csv&#x27;, extensions: [&#x27;.nsf&#x27;, &#x27;.csv&#x27;] },
+    { label: &#x27;json&#x27;, extensions: [&#x27;.json&#x27;] },
+    { label: &#x27;yml&#x27;, extensions: [&#x27;.yml&#x27;] }
+  ];
+
+  constructor(
+      private serializer: ProjectSerializerService,
+      private loggingControlService: LoggingControlService,
+      private store: Store&lt;sidenavStore.SidenavState&gt;,
+      private getLinkService: GetLinkService,
+      private advancedService: AdvancedService,
+      private snackBar: MatSnackBar) {
+    const registry &#x3D; this.serializer.registry;
+
+    const geocoder &#x3D; new DefaultGeocoder(this.advancedService.advancedEnabled);
+
+    registry.registerPlugin(new LegendsPlugin());
+    registry.registerPlugin(new GeomapPlugin());
+    registry.registerPlugin(new NetworkPlugin());
+    registry.registerPlugin(new ScatterplotPlugin());
+    registry.registerPlugin(new ScienceMapPlugin());
+    registry.registerPlugin(new TemporalBargraphPlugin());
+    registry.registerPlugin(new ISIPlugin(geocoder));
+    registry.registerPlugin(new NSFPlugin(geocoder));
+  }
+
+  setSaveActivityLog(project) {
+    const activityLogRawData &#x3D; project.rawData.find(obj &#x3D;&gt; obj instanceof ActivityLogRawData) as ActivityLogRawData;
+    activityLogRawData.saveActivityLog &#x3D; this.loggingControlService.isLoggingEnabled();
+    return project;
+  }
+
+  createProject(
+    template: &#x27;isi&#x27; | &#x27;nsf&#x27; | &#x27;csv&#x27; | &#x27;json&#x27;,
+    fileContents: string[] | string, fileNames?: string[] | string
+  ): Observable&lt;Project&gt; {
+    return defer(() &#x3D;&gt; this.asyncCreateProject(template, fileContents, fileNames));
+  }
+
+  private async asyncCreateProject(
+    template: &#x27;isi&#x27; | &#x27;nsf&#x27; | &#x27;csv&#x27; | &#x27;json&#x27;,
+    fileContents: string[] | string, fileNames?: string[] | string
+  ): Promise&lt;Project&gt; {
+    const advancedMode &#x3D; this.advancedService.advancedEnabled;
+    const geocoder &#x3D; new DefaultGeocoder(advancedMode);
+
+    if (advancedMode &amp;&amp; (template &#x3D;&#x3D;&#x3D; &#x27;nsf&#x27; || template &#x3D;&#x3D;&#x3D; &#x27;isi&#x27;)) {
+      this.snackBar.open(&#x27;Advanced geocoding is enabled. NSF or ISI file loading could be slow.&#x27;, null, {
+        duration: 3000,
+        verticalPosition: &#x27;top&#x27;,
+        panelClass: &#x27;mav-snackbar-wrapper&#x27;
+      });
+    }
+
+    fileNames &#x3D; isArray(fileNames) || !fileNames ? fileNames : [fileNames];
+    switch (template) {
+      case &#x27;csv&#x27;:
+        // fall through NSFTemplateProject
+      case &#x27;nsf&#x27;:
+        return NSFTemplateProject.create(fileContents, fileNames, geocoder);
+      case &#x27;isi&#x27;:
+        return ISITemplateProject.create(fileContents[0], fileNames[0], geocoder);
+      default:
+        throw new Error(&#x60;Template: ${template} not supported.&#x60;);
+    }
+  }
+
+
+  loadFile(
+    fileExtension: &#x27;isi&#x27; | &#x27;nsf&#x27; | &#x27;csv&#x27; | &#x27;json&#x27; | &#x27;yml&#x27;,
+    files: Blob[],
+    fileNames?: string[]
+  ): BehaviorSubject&lt;Project&gt; {
+    const projectSubject &#x3D; new BehaviorSubject&lt;Project&gt;(null);
+    const promises &#x3D; [];
+    for (const file of files) {
+      const filePromise &#x3D; new Promise(resolve &#x3D;&gt; {
+        const reader &#x3D; new FileReader();
+        reader.readAsText(file);
+        reader.onload &#x3D; (event: any) &#x3D;&gt; {
+          if (fileExtension !&#x3D;&#x3D; &#x27;yml&#x27;) {
+            resolve(reader.result);
+          } else {
+            this.serializer.fromYAML(event.target.result)
+              .subscribe((project: Project) &#x3D;&gt; {
+                projectSubject.next(this.setSaveActivityLog(project));
+              });
+          }
+        };
+      });
+
+      promises.push(filePromise);
+    }
+
+    Promise.all(promises).then((fileContents: string[]) &#x3D;&gt; {
+      this.createProject(&lt;any&gt;fileExtension, fileContents, fileNames)
+        .subscribe((project: Project) &#x3D;&gt; {
+          projectSubject.next(this.setSaveActivityLog(project));
+        });
+    });
+
+    return projectSubject;
+  }
+
+  /* loads project from json given as an argument
+  */
+  loadFromProjectJson(json: string) {
+    const projectSubject &#x3D; new BehaviorSubject&lt;Project&gt;(null);
+    this.serializer.fromJSON(json)
+      .subscribe((project: Project) &#x3D;&gt; projectSubject.next(project));
+    return projectSubject;
+  }
+
+  getProject(fileNames: string[], fileExtension: ProjectExtensionType, event: any) {
+    this.store.dispatch(new sidenavStore.LoadProjectStarted({
+      loadingProject: true, fileName: fileNames.join(&#x27;|&#x27;), fileExtension: fileExtension
+    }));
+
+    this.loadFile(fileExtension, event.srcElement.files, fileNames)
+      .subscribe((project) &#x3D;&gt; {
+        if (project) { // success
+          this.store.dispatch(new sidenavStore.LoadProjectCompleted(
+            { loadingProject: false, fileName: fileNames.join(&#x27;|&#x27;), fileExtension: fileExtension, project: project }
+          ));
+        } else { // failure
+          this.store.dispatch(new sidenavStore.LoadProjectError(
+            { errorOccurred: true, errorTitle: &#x27;Load Error&#x27;, errorMessage: &#x27;Failed to load new project&#x27; }
+          ));
+        }
+      });
+  }
+
+  /*
+  * given a project object id from the url, this funtion renders it.
+  * used getProject()&#x27;s stuff to write this function, probably need a new action.
+  */
+  getProjectFromUrl(id: string, baseUrl: string, removeShareUrlFromAddressCallback: any) {
+    this.store.dispatch(new sidenavStore.LoadShareUrlStarted(true));
+    const jsonFromIdWatcher &#x3D; this.getLinkService.getJSONfromId(id).subscribe((json: any) &#x3D;&gt; {
+      if (json) {
+        this.loadFromProjectJson(json).subscribe((project) &#x3D;&gt; {
+          removeShareUrlFromAddressCallback();
+          this.store.dispatch(new sidenavStore.LoadShareUrlCompleted(
+            { loadingShareUrl: false, project: project, shareUrl: baseUrl + &#x27;?share&#x3D;&#x27; + id, loadingComplete: true }
+          ));
+        }, err &#x3D;&gt; {
+          this.store.dispatch(new sidenavStore.LoadShareUrlError(
+            { errorOccurred: true, errorTitle: err.name, errorMessage: &#x27;Failed to load new project from URL:&#x27; + err.message }
+          ));
+        });
+      } else {
+        this.store.dispatch(new sidenavStore.LoadShareUrlError(
+          { errorOccurred: true, errorTitle: &#x27;Load Error&#x27;, errorMessage: &#x27;Failed to load new project from URL&#x27; }
+        ));
+      }
+      jsonFromIdWatcher.unsubscribe();
+    }, err &#x3D;&gt; {
+      this.store.dispatch(new sidenavStore.LoadShareUrlError(
+        { errorOccurred: true, errorTitle: err.name, errorMessage: &#x27;Failed to load new project from URL:&#x27; + err.message }
+      ));
+    });
+  }
+
+  getSupportedExtension(extensionLabel: ProjectExtensionType): string {
+    return this.projectExtensionPool.filter((extnObject &#x3D;&gt; {
+      return extnObject.label &#x3D;&#x3D;&#x3D; extensionLabel;
+    }))[0][&#x27;extensions&#x27;].join(&#x27;,&#x27;);
+  }
+}
+
+export type ProjectExtensionType &#x3D; &#x27;isi&#x27; | &#x27;nsf&#x27; | &#x27;csv&#x27; | &#x27;json&#x27; | &#x27;yml&#x27;;
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'LoadProjectService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

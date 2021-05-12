@@ -1,0 +1,731 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>make-a-vis documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">make-a-vis documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Classes</li>
+  <li>DefaultGraphicVariable</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>projects/dvl-fw-core/src/lib/plugin/default/default-graphic-variable.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Implements</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="../interfaces/GraphicVariable.html" target="_self" >GraphicVariable</a></code>
+            </p>
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#dataVariable">dataVariable</a>
+                            </li>
+                            <li>
+                                <a href="#id">id</a>
+                            </li>
+                            <li>
+                                <a href="#label">label</a>
+                            </li>
+                            <li>
+                                <a href="#recordSet">recordSet</a>
+                            </li>
+                            <li>
+                                <a href="#recordStream">recordStream</a>
+                            </li>
+                            <li>
+                                <a href="#selector">selector</a>
+                            </li>
+                            <li>
+                                <a href="#type">type</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#asBoundField">asBoundField</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getDataType">getDataType</a>
+                            </li>
+                            <li>
+                                <a href="#toJSON">toJSON</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(data: <a href="../interfaces/GraphicVariable.html">DefaultGraphicVariableArg</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/dvl-fw-core/src/lib/plugin/default/default-graphic-variable.ts:17</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/GraphicVariable.html" target="_self" >DefaultGraphicVariableArg</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dataVariable"></a>
+                        <span class="name">
+                            <b>
+                            dataVariable</b>
+                            <a href="#dataVariable"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/DataVariable.html" target="_self" >DataVariable</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/dvl-fw-core/src/lib/plugin/default/default-graphic-variable.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="id"></a>
+                        <span class="name">
+                            <b>
+                            id</b>
+                            <a href="#id"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/dvl-fw-core/src/lib/plugin/default/default-graphic-variable.ts:10</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="label"></a>
+                        <span class="name">
+                            <b>
+                            label</b>
+                            <a href="#label"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">projects/dvl-fw-core/src/lib/plugin/default/default-graphic-variable.ts:11</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="recordSet"></a>
+                        <span class="name">
+                            <b>
+                            recordSet</b>
+                            <a href="#recordSet"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/RecordSet.html" target="_self" >RecordSet</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/dvl-fw-core/src/lib/plugin/default/default-graphic-variable.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="recordStream"></a>
+                        <span class="name">
+                            <b>
+                            recordStream</b>
+                            <a href="#recordStream"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/RecordStream.html" target="_self" >RecordStream</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/dvl-fw-core/src/lib/plugin/default/default-graphic-variable.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selector"></a>
+                        <span class="name">
+                            <b>
+                            selector</b>
+                            <a href="#selector"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/dvl-fw-core/src/lib/plugin/default/default-graphic-variable.ts:13</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="type"></a>
+                        <span class="name">
+                            <b>
+                            type</b>
+                            <a href="#type"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/dvl-fw-core/src/lib/plugin/default/default-graphic-variable.ts:12</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="asBoundField"></a>
+                    <span class="name">
+                        <b>
+                            asBoundField
+                        </b>
+                        <a href="#asBoundField"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>asBoundField()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">projects/dvl-fw-core/src/lib/plugin/default/default-graphic-variable.ts:23</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>BoundField&lt;T&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDataType"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            getDataType
+                        </b>
+                        <a href="#getDataType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getDataType()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">projects/dvl-fw-core/src/lib/plugin/default/default-graphic-variable.ts:40</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/enumerations.html#DataType" target="_self" >DataType</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toJSON"></a>
+                    <span class="name">
+                        <b>
+                            toJSON
+                        </b>
+                        <a href="#toJSON"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toJSON()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">projects/dvl-fw-core/src/lib/plugin/default/default-graphic-variable.ts:32</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { access, BoundField, DataType, Field } from &#x27;@ngx-dino/core&#x27;;
+
+import { DataVariable, GraphicVariable, Project, RecordSet, RecordStream } from &#x27;../../interfaces&#x27;;
+import { ObjectFactory, ObjectFactoryRegistry } from &#x27;../object-factory&#x27;;
+
+export type DefaultGraphicVariableArg &#x3D;
+  Pick&lt;GraphicVariable, &#x27;id&#x27; | &#x27;label&#x27; | &#x27;type&#x27; | &#x27;selector&#x27; | &#x27;recordStream&#x27; | &#x27;recordSet&#x27; | &#x27;dataVariable&#x27;&gt;;
+
+export class DefaultGraphicVariable implements GraphicVariable {
+  id: string;
+  label: string;
+  type: string;
+  selector: string;
+
+  recordStream: RecordStream;
+  recordSet: RecordSet;
+  dataVariable: DataVariable;
+
+  constructor(data: DefaultGraphicVariableArg) {
+    Object.assign(this, data);
+  }
+
+  asBoundField&lt;T &#x3D; any&gt;(): BoundField&lt;T&gt; {
+    return new Field&lt;T&gt;({
+      id: this.id,
+      label: this.label,
+      dataType: this.getDataType(),
+      mapping: { [Field.defaultSymbol]: access(this.selector) }
+    }).getBoundField();
+  }
+
+  toJSON(): any {
+    return Object.assign({}, this, {
+      recordStream: this.recordStream.id,
+      recordSet: this.recordSet.id,
+      dataVariable: this.dataVariable.id
+    });
+  }
+
+  private getDataType(): DataType {
+    // TODO: This mapping should be smarter/revised.
+    switch (this.dataVariable.dataType) {
+      case &#x27;integer&#x27;:
+      case DataType.Number:
+        return DataType.Number;
+
+      case DataType.Boolean:
+        return DataType.Boolean;
+
+      default:
+        return DataType.String;
+    }
+  }
+}
+
+export type PartialDefaultGraphicVariableArg &#x3D;
+  Pick&lt;DefaultGraphicVariableArg, &#x27;selector&#x27;&gt; &amp;
+  Partial&lt;Pick&lt;DefaultGraphicVariableArg, &#x27;id&#x27; | &#x27;label&#x27;&gt;&gt;;
+export interface DefaultGraphicVariableMappingArg {
+  recordStream: string;
+  mappings: {
+    [recordSetId: string]: {
+      [dataVariableId: string]: {
+        [type: string]:
+          PartialDefaultGraphicVariableArg[]
+      }
+    }
+  };
+}
+
+export class DefaultGraphicVariableMapping {
+  static fromJSON(allData: DefaultGraphicVariableMappingArg[], project: Project): GraphicVariable[] {
+    const variables: GraphicVariable[] &#x3D; [];
+    for (const data of allData) {
+      const recordStream &#x3D; project.getRecordStream(data.recordStream);
+      for (const [recordSetId, dvMapping] of Object.entries(data.mappings)) {
+        for (const [dataVariableId, gvMapping] of Object.entries(dvMapping)) {
+          for (const [type, gvDatas] of Object.entries(gvMapping)) {
+            const recordSet &#x3D; project.recordSets.find(rs &#x3D;&gt; rs.id &#x3D;&#x3D;&#x3D; recordSetId);
+            const dataVariable &#x3D; recordSet.dataVariables.find(dv &#x3D;&gt; dv.id &#x3D;&#x3D;&#x3D; dataVariableId);
+            const gvDataArray: any[] &#x3D; &lt;any[]&gt;gvDatas;
+            for (const gvData of gvDataArray) {
+              if (!gvData.id &amp;&amp; gvDataArray.length &#x3D;&#x3D;&#x3D; 1) {
+                gvData.id &#x3D; type;
+              }
+              variables.push(new DefaultGraphicVariable({
+                id: gvData.id, label: gvData.label || dataVariable.label || gvData.id, type, selector: gvData.selector,
+                recordStream, recordSet, dataVariable
+              }));
+            }
+          }
+        }
+      }
+    }
+    return variables;
+  }
+
+  static toJSON(graphicVariables: GraphicVariable[]): any[] {
+    const mappings: any &#x3D; {};
+    for (const gvar of graphicVariables) {
+      const recordStream &#x3D; gvar.recordStream.id;
+      const recordSet &#x3D; gvar.recordSet.id;
+      const dataVariable &#x3D; gvar.dataVariable.id;
+      const type &#x3D; gvar.type;
+
+      if (!mappings.hasOwnProperty(recordStream)) {
+        mappings[recordStream] &#x3D; {};
+      }
+      if (!mappings[recordStream].hasOwnProperty(recordSet)) {
+        mappings[recordStream][recordSet] &#x3D; {};
+      }
+      if (!mappings[recordStream][recordSet].hasOwnProperty(dataVariable)) {
+        mappings[recordStream][recordSet][dataVariable] &#x3D; {};
+      }
+      if (!mappings[recordStream][recordSet][dataVariable].hasOwnProperty(type)) {
+        mappings[recordStream][recordSet][dataVariable][type] &#x3D; [];
+      }
+      mappings[recordStream][recordSet][dataVariable][type].push({
+        id: gvar.id,
+        label: gvar.label || gvar.id,
+        selector: gvar.selector
+      });
+    }
+    return Object.entries(mappings).map(([recordStream, rsMapping]) &#x3D;&gt; {
+      return { recordStream, mappings: rsMapping };
+    });
+  }
+}
+
+export class DefaultGraphicVariableMappingFactory implements ObjectFactory&lt;GraphicVariable[], Project&gt; {
+  id &#x3D; &#x27;default&#x27;;
+  type &#x3D; &#x27;graphicVariableMappings&#x27;;
+
+  fromJSON(data: any, context: Project, _registry: ObjectFactoryRegistry): GraphicVariable[] {
+    return DefaultGraphicVariableMapping.fromJSON(data, context);
+  }
+
+  toJSON(instance: GraphicVariable[], _context: Project, _registry: ObjectFactoryRegistry): any {
+    return DefaultGraphicVariableMapping.toJSON(instance);
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'DefaultGraphicVariable.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
