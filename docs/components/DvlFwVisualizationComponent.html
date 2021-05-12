@@ -1,0 +1,1495 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>make-a-vis documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">make-a-vis documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>DvlFwVisualizationComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>projects/dvl-fw-angular/src/lib/visualization/visualization.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>dvl-visualization</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./visualization.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./visualization.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#componentRef">componentRef</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#currentData">currentData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#applyDiff">applyDiff</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#callDvlLifecycleHook">callDvlLifecycleHook</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#createComponent">createComponent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#diff">diff</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#graphicSymbolEquals">graphicSymbolEquals</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#load">load</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnChanges">ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onDataChange">onDataChange</a>
+                            </li>
+                            <li>
+                                <a href="#runDataChangeDetection">runDataChangeDetection</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#unload">unload</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#update">update</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#data">data</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(viewContainerRef: <a href="https://angular.io/api/core/ViewContainerRef" target="_blank">ViewContainerRef</a>, componentFactoryResolver: <a href="https://angular.io/api/core/ComponentFactoryResolver" target="_blank">ComponentFactoryResolver</a>, injector: <a href="https://angular.io/api/core/Injector" target="_blank">Injector</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/dvl-fw-angular/src/lib/visualization/visualization.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>viewContainerRef</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/ViewContainerRef" target="_blank" >ViewContainerRef</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>componentFactoryResolver</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/ComponentFactoryResolver" target="_blank" >ComponentFactoryResolver</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/Injector" target="_blank" >Injector</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="data"></a>
+                        <b>data</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Visualization.html" target="_self" >Visualization</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>undefined</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/dvl-fw-angular/src/lib/visualization/visualization.component.ts:31</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyDiff"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            applyDiff
+                        </b>
+                        <a href="#applyDiff"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>applyDiff(data: Record<string | T>, diff: <a href="https://angular.io/api/core/SimpleChanges" target="_blank">SimpleChanges</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="168"
+                            class="link-to-prism">projects/dvl-fw-angular/src/lib/visualization/visualization.component.ts:168</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                            <code>Record&lt;string | T&gt;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>diff</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="callDvlLifecycleHook"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            callDvlLifecycleHook
+                        </b>
+                        <a href="#callDvlLifecycleHook"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>callDvlLifecycleHook(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, ...args: any[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="189"
+                            class="link-to-prism">projects/dvl-fw-angular/src/lib/visualization/visualization.component.ts:189</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>args</td>
+                                    <td>
+                                            <code>any[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createComponent"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            createComponent
+                        </b>
+                        <a href="#createComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createComponent(componentType: <a href="../components/VisualizationComponent.html">Type<VisualizationComponent></a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">projects/dvl-fw-angular/src/lib/visualization/visualization.component.ts:78</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>componentType</td>
+                                    <td>
+                                                <code><a href="../components/VisualizationComponent.html" target="_self" >Type&lt;VisualizationComponent&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../components/VisualizationComponent.html" target="_self" >ComponentRef&lt;VisualizationComponent&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="diff"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            diff
+                        </b>
+                        <a href="#diff"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>diff(newData: Record<string | T>, oldData: Record<string | T>, eq: (newValue: T,oldValue: T) => void)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="145"
+                            class="link-to-prism">projects/dvl-fw-angular/src/lib/visualization/visualization.component.ts:145</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>newData</td>
+                                    <td>
+                                            <code>Record&lt;string | T&gt;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>oldData</td>
+                                    <td>
+                                            <code>Record&lt;string | T&gt;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>eq</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graphicSymbolEquals"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            graphicSymbolEquals
+                        </b>
+                        <a href="#graphicSymbolEquals"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>graphicSymbolEquals(sym1: <a href="../interfaces/GraphicSymbol.html">GraphicSymbol</a>, sym2: <a href="../interfaces/GraphicSymbol.html">GraphicSymbol</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="174"
+                            class="link-to-prism">projects/dvl-fw-angular/src/lib/visualization/visualization.component.ts:174</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>sym1</td>
+                                    <td>
+                                                <code><a href="../interfaces/GraphicSymbol.html" target="_self" >GraphicSymbol</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>sym2</td>
+                                    <td>
+                                                <code><a href="../interfaces/GraphicSymbol.html" target="_self" >GraphicSymbol</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="load"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            load
+                        </b>
+                        <a href="#load"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>load()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="91"
+                            class="link-to-prism">projects/dvl-fw-angular/src/lib/visualization/visualization.component.ts:91</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <b>
+                            ngOnChanges
+                        </b>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges(changes: <a href="https://angular.io/api/core/SimpleChanges" target="_blank">SimpleChanges</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">projects/dvl-fw-angular/src/lib/visualization/visualization.component.ts:48</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>changes</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">projects/dvl-fw-angular/src/lib/visualization/visualization.component.ts:42</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDataChange"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            onDataChange
+                        </b>
+                        <a href="#onDataChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onDataChange(change: <a href="https://angular.io/api/core/SimpleChange" target="_blank">SimpleChange</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">projects/dvl-fw-angular/src/lib/visualization/visualization.component.ts:58</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>change</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/core/SimpleChange" target="_blank" >SimpleChange</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="runDataChangeDetection"></a>
+                    <span class="name">
+                        <b>
+                            runDataChangeDetection
+                        </b>
+                        <a href="#runDataChangeDetection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>runDataChangeDetection()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">projects/dvl-fw-angular/src/lib/visualization/visualization.component.ts:54</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="unload"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            unload
+                        </b>
+                        <a href="#unload"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>unload()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="114"
+                            class="link-to-prism">projects/dvl-fw-angular/src/lib/visualization/visualization.component.ts:114</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            update
+                        </b>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="126"
+                            class="link-to-prism">projects/dvl-fw-angular/src/lib/visualization/visualization.component.ts:126</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="componentRef"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            componentRef</b>
+                            <a href="#componentRef"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../components/VisualizationComponent.html" target="_self" >ComponentRef&lt;VisualizationComponent&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/dvl-fw-angular/src/lib/visualization/visualization.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="currentData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            currentData</b>
+                            <a href="#currentData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Visualization.html" target="_self" >Visualization</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/dvl-fw-angular/src/lib/visualization/visualization.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Component, ComponentFactoryResolver, ComponentRef, Injector, Input, OnChanges, OnInit,
+  SimpleChange, SimpleChanges, Type, ViewContainerRef
+} from &#x27;@angular/core&#x27;;
+import { GraphicSymbol, Visualization, VisualizationComponent } from &#x27;@dvl-fw/core&#x27;;
+import { forOwn, isEmpty, isFunction } from &#x27;lodash&#x27;;
+
+import { ClonedVisualization } from &#x27;./utility&#x27;;
+
+
+interface VisualizationChange {
+  currentValue: Visualization;
+  previousValue: Visualization;
+  firstChange: boolean;
+}
+
+export interface OnPropertyChange {
+  dvlOnPropertyChange(changes: SimpleChanges): void;
+}
+
+export interface OnGraphicSymbolChange {
+  dvlOnGraphicSymbolChange(changes: SimpleChanges): void;
+}
+
+@Component({
+  selector: &#x27;dvl-visualization&#x27;,
+  templateUrl: &#x27;./visualization.component.html&#x27;,
+  styleUrls: [&#x27;./visualization.component.scss&#x27;]
+})
+export class DvlFwVisualizationComponent implements OnInit, OnChanges {
+  @Input() data: Visualization &#x3D; undefined;
+
+  private componentRef: ComponentRef&lt;VisualizationComponent&gt;;
+  private currentData: Visualization;
+
+  constructor(
+    private viewContainerRef: ViewContainerRef,
+    private componentFactoryResolver: ComponentFactoryResolver,
+    private injector: Injector,
+  ) { }
+
+  ngOnInit() {
+    if (this.data) {
+      this.load();
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (&#x27;data&#x27; in changes) {
+      this.onDataChange(changes[&#x27;data&#x27;]);
+    }
+  }
+
+  runDataChangeDetection(): void {
+    this.onDataChange(new SimpleChange(this.currentData, this.data, false));
+  }
+
+  private onDataChange(change: SimpleChange): void {
+    const { currentValue, previousValue, firstChange }: VisualizationChange &#x3D; change;
+    if (firstChange) { // Let ngOnInit take care of the first load
+      return;
+    }
+
+    if (currentValue) {
+      if (!previousValue || previousValue.component !&#x3D;&#x3D; currentValue.component) {
+        this.unload();
+        this.load();
+      } else {
+        this.update();
+      }
+    } else {
+      if (previousValue) {
+        this.unload();
+      }
+    }
+  }
+
+  private createComponent(componentType: Type&lt;VisualizationComponent&gt;): ComponentRef&lt;VisualizationComponent&gt; {
+    const { componentFactoryResolver, viewContainerRef } &#x3D; this;
+    try {
+      const factory &#x3D; componentFactoryResolver.resolveComponentFactory(componentType);
+      return viewContainerRef.createComponent(factory, null, this.injector);
+    } catch (error) {
+      console.log(&#x60;Failed to create visualization component&#x60;, error);
+      // TODO: Log error
+      // TODO: Create default component?
+      return undefined;
+    }
+  }
+
+  private load(): void {
+    const data &#x3D; this.data;
+    const componentType &#x3D; data.component;
+    if (!componentType) {
+      // TODO: Use logger
+      console.log(&#x60;Visualization Component is missing for type: ${data.template}&#x60;, data);
+      return;
+    }
+
+    const newComponent &#x3D; this.createComponent(componentType);
+    if (!newComponent) {
+      return;
+    }
+
+    const clonedData &#x3D; new ClonedVisualization(data);
+    clonedData.normalize();
+    newComponent.instance.data &#x3D; clonedData;
+    // TODO: Call lifecycle?
+
+    this.componentRef &#x3D; newComponent;
+    this.currentData &#x3D; clonedData;
+  }
+
+  private unload(): void {
+    const { componentRef, viewContainerRef } &#x3D; this;
+    if (!componentRef) {
+      return;
+    }
+
+    viewContainerRef.clear();
+
+    this.componentRef &#x3D; undefined;
+    this.currentData &#x3D; undefined;
+  }
+
+  private update(): void {
+    const { currentData, data } &#x3D; this;
+    const clonedData &#x3D; new ClonedVisualization(data);
+    clonedData.normalize();
+
+    const propDiff &#x3D; this.diff(clonedData.properties, currentData.properties, (v1, v2) &#x3D;&gt; v1 &#x3D;&#x3D;&#x3D; v2);
+    const symDiff &#x3D; this.diff(clonedData.graphicSymbols, currentData.graphicSymbols, this.graphicSymbolEquals.bind(this));
+
+    this.applyDiff(currentData.properties, propDiff);
+    this.applyDiff(currentData.graphicSymbols, symDiff);
+
+    if (!isEmpty(propDiff)) {
+      this.callDvlLifecycleHook(&#x27;dvlOnPropertyChange&#x27;, propDiff);
+    }
+    if (!isEmpty(symDiff)) {
+      this.callDvlLifecycleHook(&#x27;dvlOnGraphicSymbolChange&#x27;, symDiff);
+    }
+  }
+
+  private diff&lt;T&gt;(
+    newData: Record&lt;string, T&gt;,
+    oldData: Record&lt;string, T&gt;,
+    eq: (newValue: T, oldValue: T) &#x3D;&gt; boolean
+  ): SimpleChanges {
+    const hasOwnProperty &#x3D; ({}).hasOwnProperty;
+    const changes: SimpleChanges &#x3D; Object.create(null);
+    forOwn(newData, (value, prop) &#x3D;&gt; {
+      if (!hasOwnProperty.call(oldData, prop)) {
+        changes[prop] &#x3D; new SimpleChange(undefined, value, true);
+      } else if (!eq(value, oldData[prop])) {
+        changes[prop] &#x3D; new SimpleChange(oldData[prop], value, false);
+      }
+    });
+    forOwn(oldData, (value, prop) &#x3D;&gt; {
+      if (!hasOwnProperty.call(newData, prop)) {
+        changes[prop] &#x3D; new SimpleChange(value, undefined, false);
+      }
+    });
+
+    return changes;
+  }
+
+  private applyDiff&lt;T&gt;(data: Record&lt;string, T&gt;, diff: SimpleChanges): void {
+    forOwn(diff, (change, key) &#x3D;&gt; {
+      data[key] &#x3D; change.currentValue;
+    });
+  }
+
+  private graphicSymbolEquals(sym1: GraphicSymbol, sym2: GraphicSymbol): boolean {
+    if (sym1 &#x3D;&#x3D;&#x3D; undefined || sym2 &#x3D;&#x3D;&#x3D; undefined) {
+      return sym1 &#x3D;&#x3D;&#x3D; sym2;
+    }
+
+    const { id: id1, type: type1, recordStream: rs1, graphicVariables: gv1 } &#x3D; sym1;
+    const { id: id2, type: type2, recordStream: rs2, graphicVariables: gv2 } &#x3D; sym2;
+    if (id1 !&#x3D;&#x3D; id2 || type1 !&#x3D;&#x3D; type2 || rs1 !&#x3D;&#x3D; rs2) {
+      return false;
+    } else {
+      const diff &#x3D; this.diff(gv1, gv2, (v1, v2) &#x3D;&gt; v1 &#x3D;&#x3D;&#x3D; v2);
+      return isEmpty(diff);
+    }
+  }
+
+  private callDvlLifecycleHook(name: string, ...args: any[]): void {
+    const ref &#x3D; this.componentRef;
+    const instance &#x3D; ref &amp;&amp; ref.instance;
+    const hook &#x3D; instance &amp;&amp; instance[name];
+    if (isFunction(hook)) {
+      hook.apply(instance, args);
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ng-template&gt;&lt;/ng-template&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./visualization.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">
+::ng-deep .visualization-container .tooltip {
+    border-radius: 4px;
+    padding: .625rem !important;
+    box-shadow: 1px 2px 4px rgba(0,0,0,.4);
+    border: 1px solid #ffffff;
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ng-template></ng-template></div>'
+    var COMPONENTS = [{'name': 'AddIconComponent', 'selector': 'mav-add-icon'},{'name': 'AppComponent', 'selector': 'mav-root'},{'name': 'AppUpdateNotificationComponent', 'selector': 'mav-app-update-notification'},{'name': 'AreaSizeComponent', 'selector': 'dvl-area-size'},{'name': 'CancelIconComponent', 'selector': 'mav-cancel-icon'},{'name': 'CnsLogoComponent', 'selector': 'mav-cns-logo'},{'name': 'CnsLogoIconComponent', 'selector': 'mav-cns-logo-icon'},{'name': 'ColorAreaComponent', 'selector': 'dvl-color-area'},{'name': 'ColorComponent', 'selector': 'dvl-vis-color'},{'name': 'ColorEdgesComponent', 'selector': 'dvl-color-edges'},{'name': 'DataVariableDropzoneComponent', 'selector': 'mav-data-variable-dropzone'},{'name': 'DvlFwVisualizationComponent', 'selector': 'dvl-visualization'},{'name': 'EdgeSizeComponent', 'selector': 'dvl-vis-edge-size'},{'name': 'EditIconComponent', 'selector': 'mav-edit-icon'},{'name': 'EndComponent', 'selector': 'dvl-end'},{'name': 'GeomapComponent', 'selector': 'dvl-geomap'},{'name': 'GeomapIconComponent', 'selector': 'mav-geomap-icon'},{'name': 'GeomapIconComponent', 'selector': 'mav-geomap-icon'},{'name': 'GeomapSettingsComponent', 'selector': 'dvl-geomap-settings'},{'name': 'GithubIconComponent', 'selector': 'mav-github-icon'},{'name': 'GradientComponent', 'selector': 'dvl-gradient'},{'name': 'GraphicSymbolTypeComponent', 'selector': 'mav-selection-graphic-symbol-type'},{'name': 'GraphicVariableIconComponent', 'selector': 'mav-graphic-variable-icon'},{'name': 'GraphicVariableLegendComponent', 'selector': 'mav-graphic-variable-legend'},{'name': 'GraphicVariableTypeComponent', 'selector': 'mav-selection-graphic-variable-type'},{'name': 'HorizontalBarGraphIconComponent', 'selector': 'mav-horizontal-bar-graph-icon'},{'name': 'IdentifierComponent', 'selector': 'dvl-identifier'},{'name': 'InfoDialogComponent', 'selector': 'mav-info-dialog'},{'name': 'InfoIconComponent', 'selector': 'mav-info-icon'},{'name': 'ItemComponent', 'selector': 'dvl-legend-item'},{'name': 'LabelComponent', 'selector': 'dvl-label'},{'name': 'LegendComponent', 'selector': 'dvl-legend'},{'name': 'LegendComponent', 'selector': 'mav-legend'},{'name': 'LightThemeComponent', 'selector': 'mav-light-theme'},{'name': 'MainComponent', 'selector': 'mav-data-view'},{'name': 'MainComponent', 'selector': 'mav-legend-view'},{'name': 'MainComponent', 'selector': 'mav-selection'},{'name': 'MainComponent', 'selector': 'mav-toolbar'},{'name': 'MainComponent', 'selector': 'mav-visualization-view'},{'name': 'MakeAVisComponent', 'selector': 'mav-main'},{'name': 'MapOfScienceIconComponent', 'selector': 'mav-map-of-science-icon'},{'name': 'MenuComponent', 'selector': 'mav-visualization-menu'},{'name': 'MenuIconComponent', 'selector': 'mav-menu-icon'},{'name': 'NetworkComponent', 'selector': 'dvl-network'},{'name': 'NetworkIconComponent', 'selector': 'mav-network-icon'},{'name': 'NetworkIconComponent', 'selector': 'mav-network-icon'},{'name': 'NodeSizeComponent', 'selector': 'dvl-vis-node-size'},{'name': 'NsfLogoComponent', 'selector': 'mav-nsf-logo'},{'name': 'ProjectComponent', 'selector': 'mav-project'},{'name': 'ScatterGraphIconComponent', 'selector': 'mav-scatter-graph-icon'},{'name': 'ScatterGraphIconComponent', 'selector': 'mav-scatter-graph-icon'},{'name': 'ScatterplotComponent', 'selector': 'dvl-scatterplot'},{'name': 'ScienceMapComponent', 'selector': 'dvl-science-map'},{'name': 'ScienceMapIconComponent', 'selector': 'mav-science-map-icon'},{'name': 'ShapeComponent', 'selector': 'dvl-shape'},{'name': 'SiceLogoComponent', 'selector': 'mav-sice-logo'},{'name': 'SidenavContentComponent', 'selector': 'mav-sidenav-content'},{'name': 'SourceComponent', 'selector': 'dvl-source'},{'name': 'StartComponent', 'selector': 'dvl-start'},{'name': 'StartProjectIconComponent', 'selector': 'mav-start-project-icon'},{'name': 'StartProjectOptionsComponent', 'selector': 'mav-start-project-options'},{'name': 'TableComponent', 'selector': 'mav-table'},{'name': 'TableIconComponent', 'selector': 'mav-table-icon'},{'name': 'TargetComponent', 'selector': 'dvl-target'},{'name': 'TemporalBargraphComponent', 'selector': 'dvl-temporal-bargraph'},{'name': 'TemporalBargraphIconComponent', 'selector': 'mav-temporal-bargraph-icon'},{'name': 'ThicknessComponent', 'selector': 'dvl-thickness'},{'name': 'ToolbarContentComponent', 'selector': 'mav-toolbar-content'},{'name': 'VegaComponent', 'selector': 'ngx-vega'},{'name': 'VisualizationComponent', 'selector': 'mav-visualization'},{'name': 'VisualizationTypeComponent', 'selector': 'mav-selection-visualization-type'},{'name': 'XAxisComponent', 'selector': 'dvl-x-axis'},{'name': 'YAxisComponent', 'selector': 'dvl-y-axis'}];
+    var DIRECTIVES = [{'name': 'DraggableDirective', 'selector': '[mavDraggable]'},{'name': 'DroppableDirective', 'selector': '[mavDroppable]'}];
+    var ACTUAL_COMPONENT = {'name': 'DvlFwVisualizationComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DvlFwVisualizationComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,428 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>make-a-vis documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">make-a-vis documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Interfaces</li>
+  <li>OnGraphicSymbolChange</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>projects/dvl-fw-angular/src/lib/visualization/visualization.component.ts</code>
+        </p>
+
+
+
+        <section>
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Methods</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#dvlOnGraphicSymbolChange">dvlOnGraphicSymbolChange</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dvlOnGraphicSymbolChange"></a>
+                    <span class="name">
+                        <b>
+                            dvlOnGraphicSymbolChange
+                        </b>
+                        <a href="#dvlOnGraphicSymbolChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>dvlOnGraphicSymbolChange(changes: <a href="https://angular.io/api/core/SimpleChanges" target="_blank">SimpleChanges</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">projects/dvl-fw-angular/src/lib/visualization/visualization.component.ts:22</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>changes</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Component, ComponentFactoryResolver, ComponentRef, Injector, Input, OnChanges, OnInit,
+  SimpleChange, SimpleChanges, Type, ViewContainerRef
+} from &#x27;@angular/core&#x27;;
+import { GraphicSymbol, Visualization, VisualizationComponent } from &#x27;@dvl-fw/core&#x27;;
+import { forOwn, isEmpty, isFunction } from &#x27;lodash&#x27;;
+
+import { ClonedVisualization } from &#x27;./utility&#x27;;
+
+
+interface VisualizationChange {
+  currentValue: Visualization;
+  previousValue: Visualization;
+  firstChange: boolean;
+}
+
+export interface OnPropertyChange {
+  dvlOnPropertyChange(changes: SimpleChanges): void;
+}
+
+export interface OnGraphicSymbolChange {
+  dvlOnGraphicSymbolChange(changes: SimpleChanges): void;
+}
+
+@Component({
+  selector: &#x27;dvl-visualization&#x27;,
+  templateUrl: &#x27;./visualization.component.html&#x27;,
+  styleUrls: [&#x27;./visualization.component.scss&#x27;]
+})
+export class DvlFwVisualizationComponent implements OnInit, OnChanges {
+  @Input() data: Visualization &#x3D; undefined;
+
+  private componentRef: ComponentRef&lt;VisualizationComponent&gt;;
+  private currentData: Visualization;
+
+  constructor(
+    private viewContainerRef: ViewContainerRef,
+    private componentFactoryResolver: ComponentFactoryResolver,
+    private injector: Injector,
+  ) { }
+
+  ngOnInit() {
+    if (this.data) {
+      this.load();
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (&#x27;data&#x27; in changes) {
+      this.onDataChange(changes[&#x27;data&#x27;]);
+    }
+  }
+
+  runDataChangeDetection(): void {
+    this.onDataChange(new SimpleChange(this.currentData, this.data, false));
+  }
+
+  private onDataChange(change: SimpleChange): void {
+    const { currentValue, previousValue, firstChange }: VisualizationChange &#x3D; change;
+    if (firstChange) { // Let ngOnInit take care of the first load
+      return;
+    }
+
+    if (currentValue) {
+      if (!previousValue || previousValue.component !&#x3D;&#x3D; currentValue.component) {
+        this.unload();
+        this.load();
+      } else {
+        this.update();
+      }
+    } else {
+      if (previousValue) {
+        this.unload();
+      }
+    }
+  }
+
+  private createComponent(componentType: Type&lt;VisualizationComponent&gt;): ComponentRef&lt;VisualizationComponent&gt; {
+    const { componentFactoryResolver, viewContainerRef } &#x3D; this;
+    try {
+      const factory &#x3D; componentFactoryResolver.resolveComponentFactory(componentType);
+      return viewContainerRef.createComponent(factory, null, this.injector);
+    } catch (error) {
+      console.log(&#x60;Failed to create visualization component&#x60;, error);
+      // TODO: Log error
+      // TODO: Create default component?
+      return undefined;
+    }
+  }
+
+  private load(): void {
+    const data &#x3D; this.data;
+    const componentType &#x3D; data.component;
+    if (!componentType) {
+      // TODO: Use logger
+      console.log(&#x60;Visualization Component is missing for type: ${data.template}&#x60;, data);
+      return;
+    }
+
+    const newComponent &#x3D; this.createComponent(componentType);
+    if (!newComponent) {
+      return;
+    }
+
+    const clonedData &#x3D; new ClonedVisualization(data);
+    clonedData.normalize();
+    newComponent.instance.data &#x3D; clonedData;
+    // TODO: Call lifecycle?
+
+    this.componentRef &#x3D; newComponent;
+    this.currentData &#x3D; clonedData;
+  }
+
+  private unload(): void {
+    const { componentRef, viewContainerRef } &#x3D; this;
+    if (!componentRef) {
+      return;
+    }
+
+    viewContainerRef.clear();
+
+    this.componentRef &#x3D; undefined;
+    this.currentData &#x3D; undefined;
+  }
+
+  private update(): void {
+    const { currentData, data } &#x3D; this;
+    const clonedData &#x3D; new ClonedVisualization(data);
+    clonedData.normalize();
+
+    const propDiff &#x3D; this.diff(clonedData.properties, currentData.properties, (v1, v2) &#x3D;&gt; v1 &#x3D;&#x3D;&#x3D; v2);
+    const symDiff &#x3D; this.diff(clonedData.graphicSymbols, currentData.graphicSymbols, this.graphicSymbolEquals.bind(this));
+
+    this.applyDiff(currentData.properties, propDiff);
+    this.applyDiff(currentData.graphicSymbols, symDiff);
+
+    if (!isEmpty(propDiff)) {
+      this.callDvlLifecycleHook(&#x27;dvlOnPropertyChange&#x27;, propDiff);
+    }
+    if (!isEmpty(symDiff)) {
+      this.callDvlLifecycleHook(&#x27;dvlOnGraphicSymbolChange&#x27;, symDiff);
+    }
+  }
+
+  private diff&lt;T&gt;(
+    newData: Record&lt;string, T&gt;,
+    oldData: Record&lt;string, T&gt;,
+    eq: (newValue: T, oldValue: T) &#x3D;&gt; boolean
+  ): SimpleChanges {
+    const hasOwnProperty &#x3D; ({}).hasOwnProperty;
+    const changes: SimpleChanges &#x3D; Object.create(null);
+    forOwn(newData, (value, prop) &#x3D;&gt; {
+      if (!hasOwnProperty.call(oldData, prop)) {
+        changes[prop] &#x3D; new SimpleChange(undefined, value, true);
+      } else if (!eq(value, oldData[prop])) {
+        changes[prop] &#x3D; new SimpleChange(oldData[prop], value, false);
+      }
+    });
+    forOwn(oldData, (value, prop) &#x3D;&gt; {
+      if (!hasOwnProperty.call(newData, prop)) {
+        changes[prop] &#x3D; new SimpleChange(value, undefined, false);
+      }
+    });
+
+    return changes;
+  }
+
+  private applyDiff&lt;T&gt;(data: Record&lt;string, T&gt;, diff: SimpleChanges): void {
+    forOwn(diff, (change, key) &#x3D;&gt; {
+      data[key] &#x3D; change.currentValue;
+    });
+  }
+
+  private graphicSymbolEquals(sym1: GraphicSymbol, sym2: GraphicSymbol): boolean {
+    if (sym1 &#x3D;&#x3D;&#x3D; undefined || sym2 &#x3D;&#x3D;&#x3D; undefined) {
+      return sym1 &#x3D;&#x3D;&#x3D; sym2;
+    }
+
+    const { id: id1, type: type1, recordStream: rs1, graphicVariables: gv1 } &#x3D; sym1;
+    const { id: id2, type: type2, recordStream: rs2, graphicVariables: gv2 } &#x3D; sym2;
+    if (id1 !&#x3D;&#x3D; id2 || type1 !&#x3D;&#x3D; type2 || rs1 !&#x3D;&#x3D; rs2) {
+      return false;
+    } else {
+      const diff &#x3D; this.diff(gv1, gv2, (v1, v2) &#x3D;&gt; v1 &#x3D;&#x3D;&#x3D; v2);
+      return isEmpty(diff);
+    }
+  }
+
+  private callDvlLifecycleHook(name: string, ...args: any[]): void {
+    const ref &#x3D; this.componentRef;
+    const instance &#x3D; ref &amp;&amp; ref.instance;
+    const hook &#x3D; instance &amp;&amp; instance[name];
+    if (isFunction(hook)) {
+      hook.apply(instance, args);
+    }
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'OnGraphicSymbolChange.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

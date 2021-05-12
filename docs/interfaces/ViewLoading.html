@@ -1,0 +1,287 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>make-a-vis documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">make-a-vis documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Interfaces</li>
+  <li>ViewLoading</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>projects/ngx-vega/src/lib/view-manager.service.ts</code>
+        </p>
+
+
+
+        <section>
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#loader">loader</a>
+                                </li>
+                                <li>
+                                        <a href="#type">type</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section>
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="loader"></a>
+                                        <span class="name"><b>loader</b><a href="#loader"><span class="icon ion-ios-link"></span></a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>loader:     <code>Promise&lt;View&gt;</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>Promise&lt;View&gt;</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="type"></a>
+                                        <span class="name"><b>type</b><a href="#type"><span class="icon ion-ios-link"></span></a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>type:     <code></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, OnDestroy } from &#x27;@angular/core&#x27;;
+import { from, Observable, ReplaySubject, Subscription } from &#x27;rxjs&#x27;;
+import { catchError, distinctUntilChanged, filter, map, pluck, shareReplay, startWith, switchAll } from &#x27;rxjs/operators&#x27;;
+import { View } from &#x27;vega&#x27;;
+import embed from &#x27;vega-embed&#x27;;
+
+
+export interface ViewLoading {
+  type: &#x27;loading&#x27;;
+  loader: Promise&lt;View&gt;;
+}
+
+export interface ViewReady {
+  type: &#x27;ready&#x27;;
+  view: View;
+}
+
+export interface ViewError {
+  type: &#x27;error&#x27;;
+  error: unknown;
+}
+
+export type ViewEvent &#x3D; ViewLoading | ViewReady | ViewError;
+
+
+@Injectable()
+export class ViewManagerService implements OnDestroy {
+  private readonly loader$ &#x3D; new ReplaySubject&lt;Observable&lt;ViewEvent&gt;&gt;(1);
+  private subscriptions &#x3D; new Subscription();
+
+  readonly event$ &#x3D; this.loader$.pipe(
+    switchAll(),
+    shareReplay(1)
+  );
+
+  readonly view$ &#x3D; this.event$.pipe(
+    filter((event): event is ViewReady &#x3D;&gt; event.type &#x3D;&#x3D;&#x3D; &#x27;ready&#x27;),
+    pluck(&#x27;view&#x27;)
+  );
+
+  readonly loading$ &#x3D; this.event$.pipe(
+    map(event &#x3D;&gt; event.type &#x3D;&#x3D;&#x3D; &#x27;loading&#x27;),
+    distinctUntilChanged(),
+  );
+
+  readonly error$ &#x3D; this.event$.pipe(
+    filter((event): event is ViewError &#x3D;&gt; event.type &#x3D;&#x3D;&#x3D; &#x27;error&#x27;),
+    pluck(&#x27;error&#x27;)
+  );
+
+  ngOnDestroy(): void {
+    this.loader$.complete();
+    this.subscriptions.unsubscribe();
+  }
+
+  create(...args: Parameters&lt;typeof embed&gt;): void {
+    const loader &#x3D; embed(...args);
+    const subscriptions &#x3D; this.subscriptions;
+    const teardown &#x3D; () &#x3D;&gt; loader.then(result &#x3D;&gt; result.finalize());
+    const subscription &#x3D; new Subscription(teardown);
+    const viewLoader &#x3D; loader.then(result &#x3D;&gt; result.view);
+    const observable &#x3D; from(viewLoader).pipe(
+      map(view &#x3D;&gt; ({ type: &#x27;ready&#x27;, view: view } as ViewReady)),
+      catchError(error &#x3D;&gt; from([{ type: &#x27;error&#x27;, error } as ViewError])),
+      startWith({ type: &#x27;loading&#x27;, loader: viewLoader } as ViewLoading)
+    );
+
+    subscription.add(subscriptions);
+    loader.finally(() &#x3D;&gt; subscriptions.unsubscribe());
+    this.subscriptions &#x3D; subscription;
+    this.loader$.next(observable);
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'ViewLoading.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,1608 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>make-a-vis documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">make-a-vis documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>GeomapComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>projects/geomap/src/lib/geomap.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="../interfaces/VisualizationComponent.html" target="_self" >VisualizationComponent</a></code>
+                    <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+                    <code><a href="../interfaces/OnPropertyChange.html" target="_self" >OnPropertyChange</a></code>
+                    <code><a href="../interfaces/OnGraphicSymbolChange.html" target="_self" >OnGraphicSymbolChange</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>dvl-geomap</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./geomap.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./geomap.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#basemaps">basemaps</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#countries$">countries$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#edges">edges</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#edgesSubscription">edgesSubscription</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#nodes">nodes</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#nodesSubscription">nodesSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#options">options</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#projections">projections</a>
+                            </li>
+                            <li>
+                                <a href="#spec">spec</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#states$">states$</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#dvlOnGraphicSymbolChange">dvlOnGraphicSymbolChange</a>
+                            </li>
+                            <li>
+                                <a href="#dvlOnPropertyChange">dvlOnPropertyChange</a>
+                            </li>
+                            <li>
+                                <a href="#getGraphicSymbolData">getGraphicSymbolData</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit">ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnChanges">ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#refreshData">refreshData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateSpec">updateSpec</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#data">data</a>
+                            </li>
+                            <li>
+                                <a href="#edgeDefaults">edgeDefaults</a>
+                            </li>
+                            <li>
+                                <a href="#nodeDefaults">nodeDefaults</a>
+                            </li>
+                            <li>
+                                <a href="#propertyDefaults">propertyDefaults</a>
+                            </li>
+                            <li>
+                                <a href="#userOptions">userOptions</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(dataProcessorService: DataProcessorService, geomapDataService: <a href="../injectables/GeomapDataService.html">GeomapDataService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:68</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>dataProcessorService</td>
+                                                  
+                                                        <td>
+                                                                    <code>DataProcessorService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>geomapDataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GeomapDataService.html" target="_self" >GeomapDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="data"></a>
+                        <b>data</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Visualization.html" target="_self" >Visualization</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:26</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="edgeDefaults"></a>
+                        <b>edgeDefaults</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Partial&lt;VisualizationEdge&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    shape: &#x27;circle&#x27;,
+    areaSize: 16,
+    color: &#x27;#000&#x27;,
+    strokeColor: &#x27;#000007&#x27;,
+    transparency: 0,
+    strokeTransparency: 0.25,
+    strokeWidth: 1
+  }</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:46</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="nodeDefaults"></a>
+                        <b>nodeDefaults</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Partial&lt;VisualizationNode&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    shape: &#x27;circle&#x27;,
+    areaSize: 16,
+    color: &#x27;#000&#x27;,
+    strokeColor: &#x27;#000007&#x27;,
+    transparency: 0,
+    strokeTransparency: 0.25,
+    strokeWidth: 1
+  }</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:37</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="propertyDefaults"></a>
+                        <b>propertyDefaults</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/GeomapSpecOptions.html" target="_self" >Partial&lt;GeomapSpecOptions&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    ...DEFAULT_GEOMAP_SPEC_OPTIONS,
+    ...{
+      enableZoomPan: false,
+      basemap: &#x27;usa&#x27;,
+      // country: &#x27;United States of America&#x27;,
+      // state: &#x27;Indiana&#x27;,
+      // projection: &#x27;mercator&#x27;
+    }
+  }</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:27</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="userOptions"></a>
+                        <b>userOptions</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/GeomapSpecOptions.html" target="_self" >GeomapSpecOptions</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.propertyDefaults</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:55</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dvlOnGraphicSymbolChange"></a>
+                    <span class="name">
+                        <b>
+                            dvlOnGraphicSymbolChange
+                        </b>
+                        <a href="#dvlOnGraphicSymbolChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>dvlOnGraphicSymbolChange(changes: <a href="https://angular.io/api/core/SimpleChanges" target="_blank">SimpleChanges</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="177"
+                            class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:177</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>changes</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dvlOnPropertyChange"></a>
+                    <span class="name">
+                        <b>
+                            dvlOnPropertyChange
+                        </b>
+                        <a href="#dvlOnPropertyChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>dvlOnPropertyChange(changes: <a href="https://angular.io/api/core/SimpleChanges" target="_blank">SimpleChanges</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="180"
+                            class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:180</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>changes</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getGraphicSymbolData"></a>
+                    <span class="name">
+                        <b>
+                            getGraphicSymbolData
+                        </b>
+                        <a href="#getGraphicSymbolData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getGraphicSymbolData(slot: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, defaults: literal type)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="189"
+                            class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:189</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>slot</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>defaults</td>
+                                    <td>
+                                            <code>literal type</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>{}</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#TDatum" target="_self" >Observable&lt;TDatum[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <b>
+                            ngAfterViewInit
+                        </b>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="157"
+                            class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:157</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <b>
+                            ngOnChanges
+                        </b>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges(changes: <a href="https://angular.io/api/core/SimpleChanges" target="_blank">SimpleChanges</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="172"
+                            class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:172</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>changes</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="196"
+                            class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:196</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refreshData"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            refreshData
+                        </b>
+                        <a href="#refreshData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>refreshData()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="112"
+                            class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:112</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateSpec"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            updateSpec
+                        </b>
+                        <a href="#updateSpec"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateSpec(newOptions?: <a href="../interfaces/GeomapSpecOptions.html">GeomapSpecOptions</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="72"
+                            class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:72</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>newOptions</td>
+                                    <td>
+                                                <code><a href="../interfaces/GeomapSpecOptions.html" target="_self" >GeomapSpecOptions</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="basemaps"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Readonly</span>
+                            basemaps</b>
+                            <a href="#basemaps"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;usa&#x27;, &#x27;world&#x27;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:60</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="countries$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Readonly</span>
+                            countries$</b>
+                            <a href="#countries$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;string[]&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>this.geomapDataService.getCountries().pipe(map(l &#x3D;&gt; l.map(s &#x3D;&gt; s.properties.name).sort()))</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:63</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="edges"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            edges</b>
+                            <a href="#edges"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#TDatum" target="_self" >TDatum&lt;VisualizationEdge&gt;[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:66</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="edgesSubscription"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            edgesSubscription</b>
+                            <a href="#edgesSubscription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subscription</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:68</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="nodes"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            nodes</b>
+                            <a href="#nodes"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#TDatum" target="_self" >TDatum&lt;VisualizationNode&gt;[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:65</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="nodesSubscription"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            nodesSubscription</b>
+                            <a href="#nodesSubscription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subscription</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:67</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="options"></a>
+                        <span class="name">
+                            <b>
+                            options</b>
+                            <a href="#options"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Options" target="_self" >Options</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:58</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="projections"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Readonly</span>
+                            projections</b>
+                            <a href="#projections"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>PROJECTIONS</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:61</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="spec"></a>
+                        <span class="name">
+                            <b>
+                            spec</b>
+                            <a href="#spec"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Spec" target="_self" >Spec</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:57</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="states$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Readonly</span>
+                            states$</b>
+                            <a href="#states$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;string[]&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>this.geomapDataService.getStates().pipe(map(l &#x3D;&gt; l.map(s &#x3D;&gt; s.properties.name).sort()))</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">projects/geomap/src/lib/geomap.component.ts:62</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterViewInit, Component, Input, OnChanges, OnDestroy, SimpleChanges } from &#x27;@angular/core&#x27;;
+import { OnGraphicSymbolChange, OnPropertyChange } from &#x27;@dvl-fw/angular&#x27;;
+import { GraphicSymbolData, TDatum, Visualization, VisualizationComponent } from &#x27;@dvl-fw/core&#x27;;
+import { DataProcessorService } from &#x27;@ngx-dino/core&#x27;;
+import booleanPointInPolygon from &#x27;@turf/boolean-point-in-polygon&#x27;;
+import centroid from &#x27;@turf/centroid&#x27;;
+import { Feature, MultiPolygon, Polygon } from &#x27;@turf/helpers&#x27;;
+import { Options, Spec } from &#x27;ngx-vega&#x27;;
+import { Observable, of, Subscription } from &#x27;rxjs&#x27;;
+import { map } from &#x27;rxjs/operators&#x27;;
+
+import { GeomapDataService } from &#x27;./geomap-data.service&#x27;;
+import { DEFAULT_GEOMAP_SPEC_OPTIONS, geomapSpec, GeomapSpecOptions } from &#x27;./geomap.vega&#x27;;
+import { VisualizationEdge, VisualizationNode } from &#x27;./interfaces&#x27;;
+import { createGeoZoomPatch, patchUsaGeoZoom } from &#x27;./utils/geomap-zoom-patch&#x27;;
+import { PROJECTIONS } from &#x27;./utils/projections&#x27;;
+
+
+@Component({
+  selector: &#x27;dvl-geomap&#x27;,
+  templateUrl: &#x27;./geomap.component.html&#x27;,
+  styleUrls: [&#x27;./geomap.component.scss&#x27;]
+})
+export class GeomapComponent implements VisualizationComponent,
+    AfterViewInit, OnChanges, OnDestroy, OnPropertyChange, OnGraphicSymbolChange {
+  @Input() data: Visualization;
+  @Input() propertyDefaults: Partial&lt;GeomapSpecOptions&gt; &#x3D; {
+    ...DEFAULT_GEOMAP_SPEC_OPTIONS,
+    ...{
+      enableZoomPan: false,
+      basemap: &#x27;usa&#x27;,
+      // country: &#x27;United States of America&#x27;,
+      // state: &#x27;Indiana&#x27;,
+      // projection: &#x27;mercator&#x27;
+    }
+  };
+  @Input() nodeDefaults: Partial&lt;VisualizationNode&gt; &#x3D; {
+    shape: &#x27;circle&#x27;,
+    areaSize: 16,
+    color: &#x27;#000&#x27;,
+    strokeColor: &#x27;#000007&#x27;,
+    transparency: 0,
+    strokeTransparency: 0.25,
+    strokeWidth: 1
+  };
+  @Input() edgeDefaults: Partial&lt;VisualizationEdge&gt; &#x3D; {
+    shape: &#x27;circle&#x27;,
+    areaSize: 16,
+    color: &#x27;#000&#x27;,
+    strokeColor: &#x27;#000007&#x27;,
+    transparency: 0,
+    strokeTransparency: 0.25,
+    strokeWidth: 1
+  };
+  @Input() userOptions: GeomapSpecOptions &#x3D; this.propertyDefaults;
+
+  spec: Spec;
+  options: Options;
+
+  readonly basemaps &#x3D; [&#x27;usa&#x27;, &#x27;world&#x27;];
+  readonly projections &#x3D; PROJECTIONS;
+  readonly states$: Observable&lt;string[]&gt; &#x3D; this.geomapDataService.getStates().pipe(map(l &#x3D;&gt; l.map(s &#x3D;&gt; s.properties.name).sort()));
+  readonly countries$: Observable&lt;string[]&gt; &#x3D; this.geomapDataService.getCountries().pipe(map(l &#x3D;&gt; l.map(s &#x3D;&gt; s.properties.name).sort()));
+
+  private nodes: TDatum&lt;VisualizationNode&gt;[] &#x3D; [];
+  private edges: TDatum&lt;VisualizationEdge&gt;[] &#x3D; [];
+  private nodesSubscription: Subscription;
+  private edgesSubscription: Subscription;
+
+  constructor(private dataProcessorService: DataProcessorService, private geomapDataService: GeomapDataService) { }
+
+  async updateSpec(newOptions?: GeomapSpecOptions): Promise&lt;void&gt; {
+    const options &#x3D; {...this.propertyDefaults, ...this.data.properties, ...newOptions};
+    this.userOptions &#x3D; options;
+    let patch &#x3D; patchUsaGeoZoom;
+
+    options.showNodeLabels &#x3D; !!this.data?.graphicSymbols[&#x27;nodes&#x27;]?.graphicVariables?.label;
+
+    if (options.country &amp;&amp; options.enableZoomPan) {
+      const country &#x3D; await this.geomapDataService.getCountry(options.country);
+      if (country) {
+        const center &#x3D; centroid(country);
+        const coords &#x3D; center.geometry.coordinates as [number, number];
+        patch &#x3D; createGeoZoomPatch({
+          center: [0 - coords[0], coords[1]],
+          zoomLevels: [10, 250000],
+          initialZoom: 400
+        });
+      }
+    }
+
+    this.spec &#x3D; geomapSpec({
+      ...options,
+      nodes: this.nodes || [],
+      edges: this.edges || []
+    });
+
+    if (options.enableZoomPan || patch !&#x3D;&#x3D; patchUsaGeoZoom) {
+      this.options &#x3D; {renderer: &#x27;svg&#x27;, patch};
+    } else {
+      this.options &#x3D; {renderer: &#x27;svg&#x27;};
+    }
+
+    // FIXME: Mother Mary, forgive me my sins
+    const originalVisualization &#x3D; (this.data as unknown as {original: Visualization}).original;
+    if (originalVisualization) {
+      originalVisualization.properties &#x3D; options;
+    }
+    this.data.properties &#x3D; options;
+  }
+
+  async refreshData(): Promise&lt;void&gt; {
+    if (this.nodesSubscription) {
+      this.nodesSubscription.unsubscribe();
+    }
+    if (this.edgesSubscription) {
+      this.edgesSubscription.unsubscribe();
+    }
+
+    const baseOptions &#x3D; {
+      ...this.propertyDefaults,
+      ...this.data.properties
+    };
+    let country: Feature&lt;Polygon|MultiPolygon&gt; | undefined;
+    if (baseOptions.country &amp;&amp; !baseOptions.enableZoomPan) {
+      country &#x3D; await this.geomapDataService.getCountry(baseOptions.country);
+    }
+
+    this.nodes &#x3D; [];
+    const nodes$ &#x3D; this.getGraphicSymbolData&lt;VisualizationNode&gt;(&#x27;nodes&#x27;, this.nodeDefaults);
+    this.nodesSubscription &#x3D; nodes$.subscribe(nodes &#x3D;&gt; {
+      this.nodes &#x3D; nodes.filter(
+        n &#x3D;&gt; isFinite(n.latitude) &amp;&amp; isFinite(n.longitude)
+      );
+      if (country) {
+        this.nodes &#x3D; nodes.filter(n &#x3D;&gt;
+          booleanPointInPolygon([n.longitude, n.latitude], country)
+        );
+      }
+      this.updateSpec();
+    });
+    this.edges &#x3D; [];
+    const edges$ &#x3D; this.getGraphicSymbolData&lt;VisualizationEdge&gt;(&#x27;edges&#x27;, this.edgeDefaults);
+    this.edgesSubscription &#x3D; edges$.subscribe(edges &#x3D;&gt; {
+      this.edges &#x3D; edges.filter(
+        e &#x3D;&gt; isFinite(e.latitude1) &amp;&amp; isFinite(e.longitude1) &amp;&amp; isFinite(e.latitude2) &amp;&amp; isFinite(e.longitude2)
+      );
+      if (country) {
+        this.edges &#x3D; edges.filter(e &#x3D;&gt;
+          booleanPointInPolygon([e.longitude1, e.latitude1], country) &amp;&amp; booleanPointInPolygon([e.longitude2, e.latitude2], country)
+        );
+      }
+      this.updateSpec();
+    });
+  }
+
+  ngAfterViewInit(): void {
+    if (this.data?.properties?.nodeDefaults) {
+      this.nodeDefaults &#x3D; this.data.properties.nodeDefaults;
+    }
+    if (this.data?.properties?.edgeDefaults) {
+      this.edgeDefaults &#x3D; this.data.properties.edgeDefaults;
+    }
+    if (this.data) {
+      if (!this.userOptions) {
+        const options &#x3D; {...this.propertyDefaults, ...this.data.properties, ...this.userOptions};
+        this.userOptions &#x3D; options;
+      }
+      this.refreshData();
+    }
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (&#x27;data&#x27; in changes || &#x27;userOptions&#x27; in changes) {
+      this.refreshData();
+    }
+  }
+  dvlOnGraphicSymbolChange(changes: SimpleChanges): void {
+    if (&#x27;nodes&#x27; in changes || &#x27;edges&#x27; in changes) { this.refreshData(); }
+  }
+  dvlOnPropertyChange(changes: SimpleChanges): void {
+    if (&#x27;nodeDefaults&#x27; in changes) {
+      this.nodeDefaults &#x3D; this.data.properties.nodeDefaults;
+    }
+    if (&#x27;edgeDefaults&#x27; in changes) {
+      this.edgeDefaults &#x3D; this.data.properties.edgeDefaults;
+    }
+    this.refreshData();
+  }
+  getGraphicSymbolData&lt;T&gt;(slot: string, defaults: { [gvName: string]: any } &#x3D; {}): Observable&lt;TDatum&lt;T&gt;[]&gt; {
+    if (!this.data?.graphicSymbols[slot]?.graphicVariables?.identifier) {
+      return of([]);
+    } else {
+      return new GraphicSymbolData(this.dataProcessorService, this.data, slot, defaults).asDataArray();
+    }
+  }
+  ngOnDestroy(): void {
+    if (this.nodesSubscription) {
+      this.nodesSubscription.unsubscribe();
+    }
+    if (this.edgesSubscription) {
+      this.edgesSubscription.unsubscribe();
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;dvl-geomap-settings
+  (optionsChange)&#x3D;&quot;updateSpec($event)&quot;
+  [basemaps]&#x3D;&quot;basemaps&quot;
+  [projections]&#x3D;&quot;projections&quot;
+  [countries]&#x3D;&quot;countries$ | async&quot;
+  [states]&#x3D;&quot;states$ | async&quot;
+  [(options)]&#x3D;&quot;userOptions&quot;&gt;
+&lt;/dvl-geomap-settings&gt;
+
+&lt;ngx-vega [spec]&#x3D;&quot;spec&quot; [options]&#x3D;&quot;options&quot;&gt;&lt;/ngx-vega&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./geomap.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">/* Nothing */
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><dvl-geomap-settings  (optionsChange)="updateSpec($event)"  [basemaps]="basemaps"  [projections]="projections"  [countries]="countries$ | async"  [states]="states$ | async"  [(options)]="userOptions"></dvl-geomap-settings><ngx-vega [spec]="spec" [options]="options"></ngx-vega></div>'
+    var COMPONENTS = [{'name': 'AddIconComponent', 'selector': 'mav-add-icon'},{'name': 'AppComponent', 'selector': 'mav-root'},{'name': 'AppUpdateNotificationComponent', 'selector': 'mav-app-update-notification'},{'name': 'AreaSizeComponent', 'selector': 'dvl-area-size'},{'name': 'CancelIconComponent', 'selector': 'mav-cancel-icon'},{'name': 'CnsLogoComponent', 'selector': 'mav-cns-logo'},{'name': 'CnsLogoIconComponent', 'selector': 'mav-cns-logo-icon'},{'name': 'ColorAreaComponent', 'selector': 'dvl-color-area'},{'name': 'ColorComponent', 'selector': 'dvl-vis-color'},{'name': 'ColorEdgesComponent', 'selector': 'dvl-color-edges'},{'name': 'DataVariableDropzoneComponent', 'selector': 'mav-data-variable-dropzone'},{'name': 'DvlFwVisualizationComponent', 'selector': 'dvl-visualization'},{'name': 'EdgeSizeComponent', 'selector': 'dvl-vis-edge-size'},{'name': 'EditIconComponent', 'selector': 'mav-edit-icon'},{'name': 'EndComponent', 'selector': 'dvl-end'},{'name': 'GeomapComponent', 'selector': 'dvl-geomap'},{'name': 'GeomapIconComponent', 'selector': 'mav-geomap-icon'},{'name': 'GeomapIconComponent', 'selector': 'mav-geomap-icon'},{'name': 'GeomapSettingsComponent', 'selector': 'dvl-geomap-settings'},{'name': 'GithubIconComponent', 'selector': 'mav-github-icon'},{'name': 'GradientComponent', 'selector': 'dvl-gradient'},{'name': 'GraphicSymbolTypeComponent', 'selector': 'mav-selection-graphic-symbol-type'},{'name': 'GraphicVariableIconComponent', 'selector': 'mav-graphic-variable-icon'},{'name': 'GraphicVariableLegendComponent', 'selector': 'mav-graphic-variable-legend'},{'name': 'GraphicVariableTypeComponent', 'selector': 'mav-selection-graphic-variable-type'},{'name': 'HorizontalBarGraphIconComponent', 'selector': 'mav-horizontal-bar-graph-icon'},{'name': 'IdentifierComponent', 'selector': 'dvl-identifier'},{'name': 'InfoDialogComponent', 'selector': 'mav-info-dialog'},{'name': 'InfoIconComponent', 'selector': 'mav-info-icon'},{'name': 'ItemComponent', 'selector': 'dvl-legend-item'},{'name': 'LabelComponent', 'selector': 'dvl-label'},{'name': 'LegendComponent', 'selector': 'dvl-legend'},{'name': 'LegendComponent', 'selector': 'mav-legend'},{'name': 'LightThemeComponent', 'selector': 'mav-light-theme'},{'name': 'MainComponent', 'selector': 'mav-data-view'},{'name': 'MainComponent', 'selector': 'mav-legend-view'},{'name': 'MainComponent', 'selector': 'mav-selection'},{'name': 'MainComponent', 'selector': 'mav-toolbar'},{'name': 'MainComponent', 'selector': 'mav-visualization-view'},{'name': 'MakeAVisComponent', 'selector': 'mav-main'},{'name': 'MapOfScienceIconComponent', 'selector': 'mav-map-of-science-icon'},{'name': 'MenuComponent', 'selector': 'mav-visualization-menu'},{'name': 'MenuIconComponent', 'selector': 'mav-menu-icon'},{'name': 'NetworkComponent', 'selector': 'dvl-network'},{'name': 'NetworkIconComponent', 'selector': 'mav-network-icon'},{'name': 'NetworkIconComponent', 'selector': 'mav-network-icon'},{'name': 'NodeSizeComponent', 'selector': 'dvl-vis-node-size'},{'name': 'NsfLogoComponent', 'selector': 'mav-nsf-logo'},{'name': 'ProjectComponent', 'selector': 'mav-project'},{'name': 'ScatterGraphIconComponent', 'selector': 'mav-scatter-graph-icon'},{'name': 'ScatterGraphIconComponent', 'selector': 'mav-scatter-graph-icon'},{'name': 'ScatterplotComponent', 'selector': 'dvl-scatterplot'},{'name': 'ScienceMapComponent', 'selector': 'dvl-science-map'},{'name': 'ScienceMapIconComponent', 'selector': 'mav-science-map-icon'},{'name': 'ShapeComponent', 'selector': 'dvl-shape'},{'name': 'SiceLogoComponent', 'selector': 'mav-sice-logo'},{'name': 'SidenavContentComponent', 'selector': 'mav-sidenav-content'},{'name': 'SourceComponent', 'selector': 'dvl-source'},{'name': 'StartComponent', 'selector': 'dvl-start'},{'name': 'StartProjectIconComponent', 'selector': 'mav-start-project-icon'},{'name': 'StartProjectOptionsComponent', 'selector': 'mav-start-project-options'},{'name': 'TableComponent', 'selector': 'mav-table'},{'name': 'TableIconComponent', 'selector': 'mav-table-icon'},{'name': 'TargetComponent', 'selector': 'dvl-target'},{'name': 'TemporalBargraphComponent', 'selector': 'dvl-temporal-bargraph'},{'name': 'TemporalBargraphIconComponent', 'selector': 'mav-temporal-bargraph-icon'},{'name': 'ThicknessComponent', 'selector': 'dvl-thickness'},{'name': 'ToolbarContentComponent', 'selector': 'mav-toolbar-content'},{'name': 'VegaComponent', 'selector': 'ngx-vega'},{'name': 'VisualizationComponent', 'selector': 'mav-visualization'},{'name': 'VisualizationTypeComponent', 'selector': 'mav-selection-visualization-type'},{'name': 'XAxisComponent', 'selector': 'dvl-x-axis'},{'name': 'YAxisComponent', 'selector': 'dvl-y-axis'}];
+    var DIRECTIVES = [{'name': 'DraggableDirective', 'selector': '[mavDraggable]'},{'name': 'DroppableDirective', 'selector': '[mavDroppable]'}];
+    var ACTUAL_COMPONENT = {'name': 'GeomapComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'GeomapComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

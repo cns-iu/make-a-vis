@@ -1,0 +1,2108 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>make-a-vis documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">make-a-vis documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>SidenavContentComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts</code>
+</p>
+
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>mav-sidenav-content</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./sidenav-content.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./sidenav-content.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#accordion">accordion</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#baseUrl">baseUrl</a>
+                            </li>
+                            <li>
+                                <a href="#clipboardMsg">clipboardMsg</a>
+                            </li>
+                            <li>
+                                <a href="#clipboardTargetEl">clipboardTargetEl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#exportService">exportService</a>
+                            </li>
+                            <li>
+                                <a href="#exportSnapshotType">exportSnapshotType</a>
+                            </li>
+                            <li>
+                                <a href="#exportTypes">exportTypes</a>
+                            </li>
+                            <li>
+                                <a href="#fileInputTags">fileInputTags</a>
+                            </li>
+                            <li>
+                                <a href="#isLoggingEnabled">isLoggingEnabled</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#loadProjectService">loadProjectService</a>
+                            </li>
+                            <li>
+                                <a href="#panelOpenState">panelOpenState</a>
+                            </li>
+                            <li>
+                                <a href="#project">project</a>
+                            </li>
+                            <li>
+                                <a href="#projectExtensions">projectExtensions</a>
+                            </li>
+                            <li>
+                                <a href="#shareUrl">shareUrl</a>
+                            </li>
+                            <li>
+                                <a href="#shareUrlFieldDisabled">shareUrlFieldDisabled</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#snackBar">snackBar</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#copyToClipboard">copyToClipboard</a>
+                            </li>
+                            <li>
+                                <a href="#exportSnapshot">exportSnapshot</a>
+                            </li>
+                            <li>
+                                <a href="#getUrlLink">getUrlLink</a>
+                            </li>
+                            <li>
+                                <a href="#isValidFileExtension">isValidFileExtension</a>
+                            </li>
+                            <li>
+                                <a href="#readNewFile">readNewFile</a>
+                            </li>
+                            <li>
+                                <a href="#removeShareUrlFromAddress">removeShareUrlFromAddress</a>
+                            </li>
+                            <li>
+                                <a href="#saveProject">saveProject</a>
+                            </li>
+                            <li>
+                                <a href="#selectTextFromElement">selectTextFromElement</a>
+                            </li>
+                            <li>
+                                <a href="#toggleLogging">toggleLogging</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#panelsOpenState">panelsOpenState</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#panelsOpenState">panelsOpenState</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(saveProjectService: <a href="../injectables/SaveProjectService.html">SaveProjectService</a>, store: <a href="../interfaces/SidenavState.html">Store<sidenavStore.SidenavState></a>, loadProjectService: <a href="../injectables/LoadProjectService.html">LoadProjectService</a>, exportService: <a href="../injectables/ExportService.html">ExportService</a>, loggingControlService: <a href="../injectables/LoggingControlService.html">LoggingControlService</a>, projectSerializer: <a href="../injectables/ProjectSerializerService.html">ProjectSerializerService</a>, getLinkService: <a href="../injectables/GetLinkService.html">GetLinkService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, clipboardService: ClipboardService, snackBar: MatSnackBar, readNewFileService: <a href="../injectables/ReadNewFileService.html">ReadNewFileService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>saveProjectService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SaveProjectService.html" target="_self" >SaveProjectService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>store</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/SidenavState.html" target="_self" >Store&lt;sidenavStore.SidenavState&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>loadProjectService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LoadProjectService.html" target="_self" >LoadProjectService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>exportService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ExportService.html" target="_self" >ExportService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>loggingControlService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LoggingControlService.html" target="_self" >LoggingControlService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>projectSerializer</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProjectSerializerService.html" target="_self" >ProjectSerializerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>getLinkService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GetLinkService.html" target="_self" >GetLinkService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>clipboardService</td>
+                                                  
+                                                        <td>
+                                                                    <code>ClipboardService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>snackBar</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatSnackBar</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>readNewFileService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ReadNewFileService.html" target="_self" >ReadNewFileService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="panelsOpenState"></a>
+                        <b>panelsOpenState</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:29</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="copyToClipboard"></a>
+                    <span class="name">
+                        <b>
+                            copyToClipboard
+                        </b>
+                        <a href="#copyToClipboard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>copyToClipboard(text: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="189"
+                            class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:189</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>text</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="exportSnapshot"></a>
+                    <span class="name">
+                        <b>
+                            exportSnapshot
+                        </b>
+                        <a href="#exportSnapshot"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>exportSnapshot(exportType)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:87</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>exportType</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUrlLink"></a>
+                    <span class="name">
+                        <b>
+                            getUrlLink
+                        </b>
+                        <a href="#getUrlLink"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUrlLink()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="122"
+                            class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:122</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isValidFileExtension"></a>
+                    <span class="name">
+                        <b>
+                            isValidFileExtension
+                        </b>
+                        <a href="#isValidFileExtension"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isValidFileExtension(selectedExtensionOnButton: <a href="../interfaces/Project.html">ProjectExtensionType</a>, fileExtensionFromFile: <a href="../interfaces/Project.html">ProjectExtensionType</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="97"
+                            class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:97</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selectedExtensionOnButton</td>
+                                    <td>
+                                                <code><a href="../interfaces/Project.html" target="_self" >ProjectExtensionType</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>fileExtensionFromFile</td>
+                                    <td>
+                                                <code><a href="../interfaces/Project.html" target="_self" >ProjectExtensionType</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="readNewFile"></a>
+                    <span class="name">
+                        <b>
+                            readNewFile
+                        </b>
+                        <a href="#readNewFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>readNewFile(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, selectedExtension: <a href="../interfaces/Project.html">ProjectExtensionType</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="106"
+                            class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:106</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Reads the project file</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>: File selection JavaScript event</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>selectedExtension</td>
+                                    <td>
+                                                <code><a href="../interfaces/Project.html" target="_self" >ProjectExtensionType</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The project file type selected by the user for opening the new project</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeShareUrlFromAddress"></a>
+                    <span class="name">
+                        <b>
+                            removeShareUrlFromAddress
+                        </b>
+                        <a href="#removeShareUrlFromAddress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeShareUrlFromAddress()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="228"
+                            class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:228</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveProject"></a>
+                    <span class="name">
+                        <b>
+                            saveProject
+                        </b>
+                        <a href="#saveProject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>saveProject()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="178"
+                            class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:178</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectTextFromElement"></a>
+                    <span class="name">
+                        <b>
+                            selectTextFromElement
+                        </b>
+                        <a href="#selectTextFromElement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectTextFromElement(ele: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="216"
+                            class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:216</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ele</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleLogging"></a>
+                    <span class="name">
+                        <b>
+                            toggleLogging
+                        </b>
+                        <a href="#toggleLogging"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleLogging()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="184"
+                            class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:184</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="accordion"></a>
+                        <span class="name">
+                            <b>
+                            accordion</b>
+                            <a href="#accordion"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>MatAccordion</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(MatAccordion, {static: false})<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="baseUrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            baseUrl</b>
+                            <a href="#baseUrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="clipboardMsg"></a>
+                        <span class="name">
+                            <b>
+                            clipboardMsg</b>
+                            <a href="#clipboardMsg"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;Copy to clipboard failed!&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="clipboardTargetEl"></a>
+                        <span class="name">
+                            <b>
+                            clipboardTargetEl</b>
+                            <a href="#clipboardTargetEl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;clipboardTarget&#x27;, {static: false})<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="exportService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            exportService</b>
+                            <a href="#exportService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/ExportService.html" target="_self" >ExportService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:52</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="exportSnapshotType"></a>
+                        <span class="name">
+                            <b>
+                            exportSnapshotType</b>
+                            <a href="#exportSnapshotType"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>null</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>null</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="exportTypes"></a>
+                        <span class="name">
+                            <b>
+                            exportTypes</b>
+                            <a href="#exportTypes"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#ExportType" target="_self" >ExportType[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;png&#x27;, &#x27;svg&#x27;, &#x27;pdf&#x27;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fileInputTags"></a>
+                        <span class="name">
+                            <b>
+                            fileInputTags</b>
+                            <a href="#fileInputTags"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>QueryList&lt;ElementRef&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChildren(&#x27;sidenavFileInputTag&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isLoggingEnabled"></a>
+                        <span class="name">
+                            <b>
+                            isLoggingEnabled</b>
+                            <a href="#isLoggingEnabled"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:45</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="loadProjectService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            loadProjectService</b>
+                            <a href="#loadProjectService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/LoadProjectService.html" target="_self" >LoadProjectService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:51</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="panelOpenState"></a>
+                        <span class="name">
+                            <b>
+                            panelOpenState</b>
+                            <a href="#panelOpenState"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="project"></a>
+                        <span class="name">
+                            <b>
+                            project</b>
+                            <a href="#project"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Project.html" target="_self" >Project</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>undefined</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="projectExtensions"></a>
+                        <span class="name">
+                            <b>
+                            projectExtensions</b>
+                            <a href="#projectExtensions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Project.html" target="_self" >ProjectExtensionType[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;yml&#x27;, &#x27;nsf&#x27;, &#x27;isi&#x27;, &#x27;csv&#x27;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="shareUrl"></a>
+                        <span class="name">
+                            <b>
+                            shareUrl</b>
+                            <a href="#shareUrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="shareUrlFieldDisabled"></a>
+                        <span class="name">
+                            <b>
+                            shareUrlFieldDisabled</b>
+                            <a href="#shareUrlFieldDisabled"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="snackBar"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            snackBar</b>
+                            <a href="#snackBar"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>MatSnackBar</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:58</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="panelsOpenState"></a>
+                        <span class="name"><b>panelsOpenState</b><a href="#panelsOpenState"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>panelsOpenState(sidenavOpenState: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/make-a-vis/src/lib/toolbar/sidenav-content/sidenav-content.component.ts:29</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>sidenavOpenState</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ElementRef, Input, QueryList, ViewChild, ViewChildren } from &#x27;@angular/core&#x27;;
+import { MatAccordion } from &#x27;@angular/material/expansion&#x27;;
+import { MatSnackBar } from &#x27;@angular/material/snack-bar&#x27;;
+import { ActivationEnd, Router } from &#x27;@angular/router&#x27;;
+import { ProjectSerializerService } from &#x27;@dvl-fw/angular&#x27;;
+import { Project } from &#x27;@dvl-fw/core&#x27;;
+import { select, Store } from &#x27;@ngrx/store&#x27;;
+import { ClipboardService } from &#x27;ngx-clipboard&#x27;;
+
+import { LoggingControlService } from &#x27;../../shared/logging/logging-control.service&#x27;;
+import { ExportService } from &#x27;../../shared/services/export/export.service&#x27;;
+import { GetLinkService } from &#x27;../../shared/services/get-link/get-link.service&#x27;;
+import { LoadProjectService, ProjectExtensionType } from &#x27;../../shared/services/load-project/load-project.service&#x27;;
+import { ReadNewFileService } from &#x27;../../shared/services/read-new-file/read-new-file.service&#x27;;
+import { SaveProjectService } from &#x27;../shared/services/save-project/save-project.service&#x27;;
+import * as sidenavStore from &#x27;../shared/store&#x27;;
+
+export type ExportType &#x3D; &#x27;png&#x27; | &#x27;svg&#x27; | &#x27;pdf&#x27;;
+
+@Component({
+  selector: &#x27;mav-sidenav-content&#x27;,
+  templateUrl: &#x27;./sidenav-content.component.html&#x27;,
+  styleUrls: [&#x27;./sidenav-content.component.scss&#x27;]
+})
+export class SidenavContentComponent {
+  @ViewChild(MatAccordion, { static: false }) accordion: MatAccordion;
+  @ViewChild(&#x27;clipboardTarget&#x27;, { static: false }) clipboardTargetEl: ElementRef;
+  @ViewChildren(&#x27;sidenavFileInputTag&#x27;) fileInputTags: QueryList&lt;ElementRef&gt;;
+  @Input() set panelsOpenState(sidenavOpenState: boolean) {
+    if (!sidenavOpenState &amp;&amp; this.accordion) {
+      this.accordion.closeAll();
+    } else {
+      this.shareUrl &#x3D; &#x27;&#x27;;
+    }
+  }
+
+  exportSnapshotType &#x3D; null;
+  panelOpenState &#x3D; true;
+  projectExtensions: ProjectExtensionType[] &#x3D; [&#x27;yml&#x27;, &#x27;nsf&#x27;, &#x27;isi&#x27;, &#x27;csv&#x27;];
+  exportTypes: ExportType[] &#x3D; [&#x27;png&#x27;, &#x27;svg&#x27;, &#x27;pdf&#x27;];
+  project: Project &#x3D; undefined;
+  shareUrlFieldDisabled: boolean;
+  private baseUrl: string;
+  shareUrl &#x3D; &#x27;&#x27;;
+  isLoggingEnabled &#x3D;  true;
+  clipboardMsg &#x3D; &#x27;Copy to clipboard failed!&#x27;;
+
+  constructor(
+    private saveProjectService: SaveProjectService,
+    private store: Store&lt;sidenavStore.SidenavState&gt;,
+    public loadProjectService: LoadProjectService,
+    public exportService: ExportService,
+    private loggingControlService: LoggingControlService,
+    private projectSerializer: ProjectSerializerService,
+    private getLinkService: GetLinkService,
+    private router: Router,
+    private clipboardService: ClipboardService,
+    public snackBar: MatSnackBar,
+    private readNewFileService: ReadNewFileService
+  ) {
+      loggingControlService.enableLogging();
+      this.isLoggingEnabled &#x3D; loggingControlService.isLoggingEnabled();
+      this.shareUrlFieldDisabled &#x3D; true;
+      this.store.pipe(select(sidenavStore.getLoadedProjectSelector))
+        .subscribe((project: Project) &#x3D;&gt; {
+          if (project) {
+            this.project &#x3D; project;
+          }
+      });
+      this.baseUrl &#x3D; window.document.location.origin;
+      this.baseUrl +&#x3D; window.location.pathname || &#x27;/&#x27;;
+      /* based on router state event, calculate the query param.
+      * Call the getProjectFromUrl() if shared id is found in the URL.
+      */
+      const routerStateWatcher &#x3D; this.router.events.subscribe(routerstate &#x3D;&gt; {
+        if (routerstate instanceof ActivationEnd ) {
+          const projObjId &#x3D; routerstate.snapshot.queryParams.share;
+          if (projObjId) {
+            this.loadProjectService.getProjectFromUrl(projObjId, this.baseUrl, this.removeShareUrlFromAddress);
+          }
+          routerStateWatcher.unsubscribe();
+        }
+      });
+
+  }
+
+  exportSnapshot(exportType) {
+    if (exportType &#x3D;&#x3D;&#x3D; &#x27;png&#x27;) {
+      this.exportService.exportToPng();
+    } else if (exportType &#x3D;&#x3D;&#x3D; &#x27;svg&#x27;) {
+        this.exportService.exportToSvg();
+      } else if (exportType &#x3D;&#x3D;&#x3D; &#x27;pdf&#x27;) {
+          this.exportService.exportToPdf();
+        }
+  }
+
+  isValidFileExtension(selectedExtensionOnButton: ProjectExtensionType, fileExtensionFromFile: ProjectExtensionType) {
+    return this.loadProjectService.getSupportedExtension(selectedExtensionOnButton).split(&#x27;,&#x27;).indexOf(&#x27;.&#x27; + fileExtensionFromFile) !&#x3D;&#x3D; -1;
+  }
+
+  /**
+   * Reads the project file
+   * @param event : File selection JavaScript event
+   * @param selectedExtension The project file type selected by the user for opening the new project
+   */
+  readNewFile(event: any, selectedExtension: ProjectExtensionType) {
+    this.readNewFileService.load(event, selectedExtension, this.fileInputTags);
+  }
+
+  /*
+  * This function get Project state from a store/reducer,
+  * then sends that state to a service that does an http post
+  * request to an endpoint.
+  * The response of that endpoint is an object id.
+  * uses document to get  url and append the id to form
+  * a share url.
+  * disables the textfield if it is waiting for response, and
+  * enables it after getting the response.
+  * unsubscribe after all of the above occurs, and subscribe again
+  * if clicked again.
+  */
+  getUrlLink()  {
+    this.shareUrlFieldDisabled &#x3D; true;
+    /* dispatch an action stating create url has started */
+    this.store.dispatch(new sidenavStore.CreateShareUrlStarted(true));
+    /* get project state from the reducer*/
+    const stateObs &#x3D; this.store.pipe(select(sidenavStore.getLoadedProjectSelector))
+        .subscribe((prj: Project) &#x3D;&gt; {
+          if (prj) {
+            this.projectSerializer.toJSON(prj).subscribe(
+              prj_json &#x3D;&gt; {
+                this.getLinkService.getJSONobjId(prj_json).subscribe(
+                  object_id &#x3D;&gt; {
+                    /* {&#x27;id&#x27;: &#x27;someid&#x27;} */
+                    this.shareUrl &#x3D;  this.baseUrl + &#x27;?share&#x3D;&#x27; + object_id[&#x27;id&#x27;];
+                    this.shareUrlFieldDisabled &#x3D; false;
+                    /* dispatch an action stating create url has completed */
+                    this.store.dispatch(new sidenavStore.CreateShareUrlCompleted({
+                      shareUrl: this.shareUrl,
+                      creatingShareUrl: false,
+                      project: prj
+                    }));
+                  }, err &#x3D;&gt; {
+                    this.shareUrl &#x3D;  &#x27;&#x27;;
+                    this.shareUrlFieldDisabled &#x3D; true;
+                    this.store.dispatch(new sidenavStore.CreateShareUrlError({
+                      errorOccurred: true,
+                      errorTitle: err.name,
+                      errorMessage: err.message
+                    }));
+                  });
+
+              },
+              /* dispatch an action stating create url has thrown an error */
+              err &#x3D;&gt; {this.shareUrlFieldDisabled &#x3D; true;
+                this.shareUrl &#x3D;  &#x27;&#x27;;
+                this.store.dispatch(new sidenavStore.CreateShareUrlError({
+                errorOccurred: true,
+                errorTitle: err.name,
+                errorMessage: err.message
+              })); } );
+          } else {
+            this.shareUrlFieldDisabled &#x3D; true;
+            this.shareUrl &#x3D;  &#x27;&#x27;;
+            this.store.dispatch(new sidenavStore.CreateShareUrlError({
+              errorOccurred: true,
+              errorTitle: &#x27;Project state not found&#x27;,
+              errorMessage: &#x27;Looks like you have no active projects openened&#x27;
+            }));
+            console.error(&#x27;getUrlLink()&#x27; , &#x27;could not get Project state from store&#x27;);
+          }
+
+      });
+      /* unsubscribed because get link would trigger on every project load */
+      stateObs.unsubscribe();
+  }
+
+  saveProject() {
+    if (this.project) {
+      this.saveProjectService.save(this.project);
+    }
+  }
+
+  toggleLogging() {
+    this.loggingControlService.toggleLogging();
+    this.isLoggingEnabled &#x3D; this.loggingControlService.isLoggingEnabled();
+  }
+
+  copyToClipboard(text: string) {
+      let isCopySuccessfull &#x3D; false;
+      let errorObj &#x3D; {name: &#x27;Copy to clipboard failed.&#x27;,
+                      message: &#x27;Copy to clipboard failed.&#x27;};
+      try {
+        isCopySuccessfull &#x3D; this.clipboardService.copyFromContent(text);
+      } catch (error) {
+        isCopySuccessfull &#x3D; false;
+        errorObj &#x3D; error;
+      }
+      if (isCopySuccessfull) {
+        this.clipboardMsg &#x3D; &#x27;Copied to clipboard!&#x27;;
+        this.store.dispatch(new sidenavStore.CopyToClipboardSuccess({
+          content: text
+        }) );
+      } else {
+        this.clipboardMsg &#x3D; &#x27;Copy to clipboard failed!&#x27;;
+        this.store.dispatch(new sidenavStore.CopyToClipboardError({
+          errorOccurred: true,
+          content: text,
+          errorTitle: errorObj.name,
+          errorMessage: errorObj.message
+        }) );
+      }
+    }
+
+  /* below are non angular ways of some features */
+  selectTextFromElement(ele: any): boolean {
+    // copies to clipboard as well
+    this.copyToClipboard(this.shareUrl);
+    try {
+    ele.select();
+    } catch (err) {
+      console.log(&#x27;select share url failed - clipboard&#x27;);
+      return false;
+    }
+    return true;
+  }
+
+  removeShareUrlFromAddress() {
+    if (window.history &amp;&amp; window.history.pushState) {
+      window.history.pushState(&#x27;mav&#x27;, &#x27;mav&#x27;, &#x27;/&#x27;);
+      return true;
+    }
+    return false;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;mav-sidenav wrapper&quot;&gt;
+  &lt;mat-accordion [multi]&#x3D;&quot;true&quot;&gt;
+    &lt;!-- .first panel allows to override default behavior of .cdk-program-focused --&gt;
+    &lt;mat-expansion-panel class&#x3D;&quot;mat-elevation-z0 first-panel&quot; (opened)&#x3D;&quot;panelOpenState&#x3D;true&quot;
+      (closed)&#x3D;&quot;panelOpenState&#x3D;false&quot;&gt;
+      &lt;mat-expansion-panel-header [expandedHeight]&#x3D;&quot;&#x27;3rem&#x27;&quot;&gt;
+        &lt;mat-panel-title&gt;
+          &lt;div class&#x3D;&quot;expansion-title&quot;&gt;
+            &lt;mat-icon class&#x3D;&quot;mav-new-project-icon icon&quot;&gt;add_circle_outline&lt;/mat-icon&gt;
+            &lt;span&gt;Start Project&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/mat-panel-title&gt;
+      &lt;/mat-expansion-panel-header&gt;
+      &lt;p class&#x3D;&quot;expansion-content&quot;&gt;
+        &lt;span *ngFor&#x3D;&quot;let extension of projectExtensions&quot;&gt;
+          &lt;label [for]&#x3D;&quot;&#x27;mav-sidenav-start-project-&#x27; + extension&quot; class&#x3D;&quot;custom-file-upload button&quot; mat-stroked-button
+            isRoundButton&gt;
+            {{extension &#x3D;&#x3D;&#x3D; &#x27;yml&#x27; ? &#x27;Open Project&#x27; : extension.toUpperCase()}}
+          &lt;/label&gt;
+          &lt;input #sidenavFileInputTag [id]&#x3D;&quot;&#x27;mav-sidenav-start-project-&#x27; + extension&quot; type&#x3D;&quot;file&quot; class&#x3D;&quot;get-data&quot;
+            (change)&#x3D;&quot;readNewFile($event, extension.toLowerCase())&quot;
+            [accept]&#x3D;&quot;loadProjectService.getSupportedExtension(extension)&quot; [multiple] &#x3D; &quot;extension &#x3D;&#x3D;&#x3D; &#x27;csv&#x27; ? &#x27;multiple&#x27; : &#x27;&#x27;&quot; /&gt;
+        &lt;/span&gt;
+      &lt;/p&gt;
+    &lt;/mat-expansion-panel&gt;
+    &lt;mat-divider&gt;&lt;/mat-divider&gt;
+
+    &lt;mat-expansion-panel class&#x3D;&quot;mat-elevation-z0&quot; (opened)&#x3D;&quot;panelOpenState&#x3D;true&quot; (closed)&#x3D;&quot;panelOpenState&#x3D;false&quot;&gt;
+      &lt;mat-expansion-panel-header [expandedHeight]&#x3D;&quot;&#x27;3rem&#x27;&quot;&gt;
+        &lt;mat-panel-title&gt;
+          &lt;div class&#x3D;&quot;expansion-title&quot;&gt;
+            &lt;mat-icon class&#x3D;&quot;mav-share-icon icon&quot;&gt;share&lt;/mat-icon&gt;
+            &lt;span&gt;Share&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/mat-panel-title&gt;
+      &lt;/mat-expansion-panel-header&gt;
+      &lt;div class&#x3D;&quot;expansion-content share-url-container&quot;&gt;
+        &lt;mat-form-field color&#x3D;&quot;mav-primary&quot; appearance&#x3D;&quot;outline&quot; class&#x3D;&quot;share-url&quot;&gt;
+          &lt;input matInput placeholder&#x3D;&quot;&quot; (mouseenter)&#x3D;&quot;$event.stopImmediatePropagation()&quot;
+            (mouseleave)&#x3D;&quot;clipboardTarget.hide()&quot; [matTooltipShowDelay]&#x3D;&quot;100&quot; [matTooltipHideDelay]&#x3D;&quot;1500&quot;
+            [matTooltip]&#x3D;&quot;clipboardMsg&quot; readonly class&#x3D;&quot;url-text&quot; [disabled]&#x3D;&quot;shareUrlFieldDisabled&quot;
+            (click)&#x3D;&quot;selectTextFromElement($event.target);clipboardTarget.show()&quot; [value]&#x3D;&quot;shareUrl&quot;
+            #clipboardTarget&#x3D;&quot;matTooltip&quot;&gt;
+
+          &lt;button matSuffix mat-stroked-button class&#x3D;&quot;link-button&quot; *ngIf&#x3D;&quot;shareUrl&quot;
+            (mouseleave)&#x3D;&quot;clipboardTarget.hide()&quot;
+            (click)&#x3D;&quot;copyToClipboard(shareUrl);clipboardTarget.show()&quot;&gt;Copy&lt;/button&gt;
+          &lt;button matSuffix mat-stroked-button class&#x3D;&quot;link-button&quot; *ngIf&#x3D;&quot;!shareUrl&quot;
+            (click)&#x3D;&quot;getUrlLink()&quot;&gt;Link&lt;/button&gt;
+        &lt;/mat-form-field&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;expansion-content&quot;&gt;
+        &lt;span *ngFor&#x3D;&quot;let exportType of exportTypes&quot;&gt;
+          &lt;button [disabled]&#x3D;&quot;!exportService.visualizationElement&quot; mat-stroked-button isRoundButton
+            (click)&#x3D;&quot;exportSnapshot(exportType.toLowerCase())&quot; class&#x3D;&quot;button&quot;&gt;{{exportType.toUpperCase()}}&lt;/button&gt;
+        &lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/mat-expansion-panel&gt;
+    &lt;mat-divider&gt;&lt;/mat-divider&gt;
+  &lt;/mat-accordion&gt;
+
+  &lt;div class&#x3D;&quot;title&quot;&gt;
+    &lt;div class&#x3D;&quot;label&quot;&gt;
+      &lt;mat-icon class&#x3D;&quot;mav-save-icon icon&quot;&gt;save&lt;/mat-icon&gt;
+      &lt;span (click)&#x3D;&quot;saveProject()&quot;&gt;Save Project&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;mat-divider&gt;&lt;/mat-divider&gt;
+  &lt;div class&#x3D;&quot;title&quot;&gt;
+    &lt;div class&#x3D;&quot;label&quot;&gt;
+      &lt;mat-icon class&#x3D;&quot;mav-logging-icon icon&quot;&gt;list&lt;/mat-icon&gt;
+      &lt;span&gt;Logging&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;mat-slide-toggle class&#x3D;&quot;log-toggle&quot; [checked]&#x3D;&quot;isLoggingEnabled&quot; (change)&#x3D;&quot;toggleLogging()&quot;&gt;&lt;/mat-slide-toggle&gt;
+  &lt;/div&gt;
+  &lt;mat-divider&gt;&lt;/mat-divider&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./sidenav-content.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.mav-sidenav {
+  &amp;.wrapper {
+    min-width: 20rem;
+    width: 20vw;
+    height: 90vh;
+
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header {
+      &amp;:not([aria-disabled&#x3D;&quot;true&quot;]) {
+        &amp;.cdk-keyboard-focused,
+        &amp;.cdk-program-focused {
+          background: none;
+        }
+      }
+    }
+
+    ::ng-deep .mat-expansion-panel-body {
+      padding: 0 1rem 1rem;
+    }
+
+    ::ng-deep .mat-expansion-indicator {
+      display: flex;
+    }
+
+    .mat-expansion-panel-header {
+      padding: 0 0.5rem;
+    }
+
+    .title,
+    .expansion-title {
+      display: flex;
+      align-items: center;
+      height: 3rem;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .title {
+      margin-right: 0.5rem;
+
+      .icon {
+        margin: 0 0.5rem;
+      }
+
+      .label {
+        display: flex;
+        align-items: center;
+      }
+
+      .toggle {
+        padding: 0.5rem;
+      }
+    }
+
+    .expansion-title {
+      .icon {
+        margin-right: 0.5rem;
+      }
+    }
+
+    .expansion-title:hover,
+    .first-panel,
+    .first-panel.mat-expanded:hover {
+      background: none;
+    }
+
+    .first-panel:hover,
+    .mav-sidenav .title:hover {
+      cursor: pointer;
+    }
+
+    .share-url-container {
+      margin-bottom: -0.5rem;
+
+      .share-url {
+        .link-button {
+          font-size: 0.875rem;
+          top: -0.5rem;
+          right: -0.5rem;
+          height: 2.5rem;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .expansion-content {
+      display: flex;
+      justify-content: center;
+      padding-left: 1rem;
+      padding-right: 2rem;
+
+      .field {
+        width: 10rem;
+      }
+
+      .button-toggle {
+        width: 3.5rem;
+        text-align: center;
+      }
+
+      .button {
+        border: 1px solid transparent;
+        white-space: nowrap;
+        font-size: 0.875rem;
+        border-radius: 1rem;
+        cursor: pointer;
+        height: 1.875rem;
+        line-height: 1.875rem;
+        margin-left: 0.25rem;
+        margin-right: 0.25rem;
+      }
+
+      .custom-file-upload {
+        padding: 0.5rem 1.1rem;
+      }
+
+      .get-data {
+        display: none;
+      }
+    }
+  }
+}
+
+::ng-deep .mat-expansion-panel-spacing {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="mav-sidenav wrapper">  <mat-accordion [multi]="true">    <!-- .first panel allows to override default behavior of .cdk-program-focused -->    <mat-expansion-panel class="mat-elevation-z0 first-panel" (opened)="panelOpenState=true"      (closed)="panelOpenState=false">      <mat-expansion-panel-header [expandedHeight]="\'3rem\'">        <mat-panel-title>          <div class="expansion-title">            <mat-icon class="mav-new-project-icon icon">add_circle_outline</mat-icon>            <span>Start Project</span>          </div>        </mat-panel-title>      </mat-expansion-panel-header>      <p class="expansion-content">        <span *ngFor="let extension of projectExtensions">          <label [for]="\'mav-sidenav-start-project-\' + extension" class="custom-file-upload button" mat-stroked-button            isRoundButton>            {{extension === \'yml\' ? \'Open Project\' : extension.toUpperCase()}}          </label>          <input #sidenavFileInputTag [id]="\'mav-sidenav-start-project-\' + extension" type="file" class="get-data"            (change)="readNewFile($event, extension.toLowerCase())"            [accept]="loadProjectService.getSupportedExtension(extension)" [multiple] = "extension === \'csv\' ? \'multiple\' : \'\'" />        </span>      </p>    </mat-expansion-panel>    <mat-divider></mat-divider>    <mat-expansion-panel class="mat-elevation-z0" (opened)="panelOpenState=true" (closed)="panelOpenState=false">      <mat-expansion-panel-header [expandedHeight]="\'3rem\'">        <mat-panel-title>          <div class="expansion-title">            <mat-icon class="mav-share-icon icon">share</mat-icon>            <span>Share</span>          </div>        </mat-panel-title>      </mat-expansion-panel-header>      <div class="expansion-content share-url-container">        <mat-form-field color="mav-primary" appearance="outline" class="share-url">          <input matInput placeholder="" (mouseenter)="$event.stopImmediatePropagation()"            (mouseleave)="clipboardTarget.hide()" [matTooltipShowDelay]="100" [matTooltipHideDelay]="1500"            [matTooltip]="clipboardMsg" readonly class="url-text" [disabled]="shareUrlFieldDisabled"            (click)="selectTextFromElement($event.target);clipboardTarget.show()" [value]="shareUrl"            #clipboardTarget="matTooltip">          <button matSuffix mat-stroked-button class="link-button" *ngIf="shareUrl"            (mouseleave)="clipboardTarget.hide()"            (click)="copyToClipboard(shareUrl);clipboardTarget.show()">Copy</button>          <button matSuffix mat-stroked-button class="link-button" *ngIf="!shareUrl"            (click)="getUrlLink()">Link</button>        </mat-form-field>      </div>      <div class="expansion-content">        <span *ngFor="let exportType of exportTypes">          <button [disabled]="!exportService.visualizationElement" mat-stroked-button isRoundButton            (click)="exportSnapshot(exportType.toLowerCase())" class="button">{{exportType.toUpperCase()}}</button>        </span>      </div>    </mat-expansion-panel>    <mat-divider></mat-divider>  </mat-accordion>  <div class="title">    <div class="label">      <mat-icon class="mav-save-icon icon">save</mat-icon>      <span (click)="saveProject()">Save Project</span>    </div>  </div>  <mat-divider></mat-divider>  <div class="title">    <div class="label">      <mat-icon class="mav-logging-icon icon">list</mat-icon>      <span>Logging</span>    </div>    <mat-slide-toggle class="log-toggle" [checked]="isLoggingEnabled" (change)="toggleLogging()"></mat-slide-toggle>  </div>  <mat-divider></mat-divider></div></div>'
+    var COMPONENTS = [{'name': 'AddIconComponent', 'selector': 'mav-add-icon'},{'name': 'AppComponent', 'selector': 'mav-root'},{'name': 'AppUpdateNotificationComponent', 'selector': 'mav-app-update-notification'},{'name': 'AreaSizeComponent', 'selector': 'dvl-area-size'},{'name': 'CancelIconComponent', 'selector': 'mav-cancel-icon'},{'name': 'CnsLogoComponent', 'selector': 'mav-cns-logo'},{'name': 'CnsLogoIconComponent', 'selector': 'mav-cns-logo-icon'},{'name': 'ColorAreaComponent', 'selector': 'dvl-color-area'},{'name': 'ColorComponent', 'selector': 'dvl-vis-color'},{'name': 'ColorEdgesComponent', 'selector': 'dvl-color-edges'},{'name': 'DataVariableDropzoneComponent', 'selector': 'mav-data-variable-dropzone'},{'name': 'DvlFwVisualizationComponent', 'selector': 'dvl-visualization'},{'name': 'EdgeSizeComponent', 'selector': 'dvl-vis-edge-size'},{'name': 'EditIconComponent', 'selector': 'mav-edit-icon'},{'name': 'EndComponent', 'selector': 'dvl-end'},{'name': 'GeomapComponent', 'selector': 'dvl-geomap'},{'name': 'GeomapIconComponent', 'selector': 'mav-geomap-icon'},{'name': 'GeomapIconComponent', 'selector': 'mav-geomap-icon'},{'name': 'GeomapSettingsComponent', 'selector': 'dvl-geomap-settings'},{'name': 'GithubIconComponent', 'selector': 'mav-github-icon'},{'name': 'GradientComponent', 'selector': 'dvl-gradient'},{'name': 'GraphicSymbolTypeComponent', 'selector': 'mav-selection-graphic-symbol-type'},{'name': 'GraphicVariableIconComponent', 'selector': 'mav-graphic-variable-icon'},{'name': 'GraphicVariableLegendComponent', 'selector': 'mav-graphic-variable-legend'},{'name': 'GraphicVariableTypeComponent', 'selector': 'mav-selection-graphic-variable-type'},{'name': 'HorizontalBarGraphIconComponent', 'selector': 'mav-horizontal-bar-graph-icon'},{'name': 'IdentifierComponent', 'selector': 'dvl-identifier'},{'name': 'InfoDialogComponent', 'selector': 'mav-info-dialog'},{'name': 'InfoIconComponent', 'selector': 'mav-info-icon'},{'name': 'ItemComponent', 'selector': 'dvl-legend-item'},{'name': 'LabelComponent', 'selector': 'dvl-label'},{'name': 'LegendComponent', 'selector': 'dvl-legend'},{'name': 'LegendComponent', 'selector': 'mav-legend'},{'name': 'LightThemeComponent', 'selector': 'mav-light-theme'},{'name': 'MainComponent', 'selector': 'mav-data-view'},{'name': 'MainComponent', 'selector': 'mav-legend-view'},{'name': 'MainComponent', 'selector': 'mav-selection'},{'name': 'MainComponent', 'selector': 'mav-toolbar'},{'name': 'MainComponent', 'selector': 'mav-visualization-view'},{'name': 'MakeAVisComponent', 'selector': 'mav-main'},{'name': 'MapOfScienceIconComponent', 'selector': 'mav-map-of-science-icon'},{'name': 'MenuComponent', 'selector': 'mav-visualization-menu'},{'name': 'MenuIconComponent', 'selector': 'mav-menu-icon'},{'name': 'NetworkComponent', 'selector': 'dvl-network'},{'name': 'NetworkIconComponent', 'selector': 'mav-network-icon'},{'name': 'NetworkIconComponent', 'selector': 'mav-network-icon'},{'name': 'NodeSizeComponent', 'selector': 'dvl-vis-node-size'},{'name': 'NsfLogoComponent', 'selector': 'mav-nsf-logo'},{'name': 'ProjectComponent', 'selector': 'mav-project'},{'name': 'ScatterGraphIconComponent', 'selector': 'mav-scatter-graph-icon'},{'name': 'ScatterGraphIconComponent', 'selector': 'mav-scatter-graph-icon'},{'name': 'ScatterplotComponent', 'selector': 'dvl-scatterplot'},{'name': 'ScienceMapComponent', 'selector': 'dvl-science-map'},{'name': 'ScienceMapIconComponent', 'selector': 'mav-science-map-icon'},{'name': 'ShapeComponent', 'selector': 'dvl-shape'},{'name': 'SiceLogoComponent', 'selector': 'mav-sice-logo'},{'name': 'SidenavContentComponent', 'selector': 'mav-sidenav-content'},{'name': 'SourceComponent', 'selector': 'dvl-source'},{'name': 'StartComponent', 'selector': 'dvl-start'},{'name': 'StartProjectIconComponent', 'selector': 'mav-start-project-icon'},{'name': 'StartProjectOptionsComponent', 'selector': 'mav-start-project-options'},{'name': 'TableComponent', 'selector': 'mav-table'},{'name': 'TableIconComponent', 'selector': 'mav-table-icon'},{'name': 'TargetComponent', 'selector': 'dvl-target'},{'name': 'TemporalBargraphComponent', 'selector': 'dvl-temporal-bargraph'},{'name': 'TemporalBargraphIconComponent', 'selector': 'mav-temporal-bargraph-icon'},{'name': 'ThicknessComponent', 'selector': 'dvl-thickness'},{'name': 'ToolbarContentComponent', 'selector': 'mav-toolbar-content'},{'name': 'VegaComponent', 'selector': 'ngx-vega'},{'name': 'VisualizationComponent', 'selector': 'mav-visualization'},{'name': 'VisualizationTypeComponent', 'selector': 'mav-selection-visualization-type'},{'name': 'XAxisComponent', 'selector': 'dvl-x-axis'},{'name': 'YAxisComponent', 'selector': 'dvl-y-axis'}];
+    var DIRECTIVES = [{'name': 'DraggableDirective', 'selector': '[mavDraggable]'},{'name': 'DroppableDirective', 'selector': '[mavDroppable]'}];
+    var ACTUAL_COMPONENT = {'name': 'SidenavContentComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SidenavContentComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

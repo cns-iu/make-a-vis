@@ -1,0 +1,682 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>make-a-vis documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">make-a-vis documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Classes</li>
+  <li>NormalizedField</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>projects/dvl-fw-core/src/lib/templates/csv-template-project.ts</code>
+        </p>
+
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#key">key</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#splitSequence">splitSequence</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#variableType">variableType</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#fullKey">fullKey</a>
+                                </li>
+                                <li>
+                                    <a href="#selector">selector</a>
+                                </li>
+                                <li>
+                                    <a href="#selectorObj">selectorObj</a>
+                                </li>
+                                <li>
+                                    <a href="#isMapping">isMapping</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, dataType: <a href="../undefineds/DataType.html">DataType</a>, columnNumber: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/dvl-fw-core/src/lib/templates/csv-template-project.ts:26</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>field</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dataType</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../miscellaneous/enumerations.html#DataType" target="_self" >DataType</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>columnNumber</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="key"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Readonly</span>
+                            key</b>
+                            <a href="#key"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/dvl-fw-core/src/lib/templates/csv-template-project.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="splitSequence"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                                <span class="modifier">Readonly</span>
+                            splitSequence</b>
+                            <a href="#splitSequence"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;$$&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/dvl-fw-core/src/lib/templates/csv-template-project.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="variableType"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Readonly</span>
+                                <span class="modifier">Optional</span>
+                            variableType</b>
+                            <a href="#variableType"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/GraphicVariable.html" target="_self" >GraphicVariableType</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>undefined</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/dvl-fw-core/src/lib/templates/csv-template-project.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+
+
+            <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fullKey"></a>
+                        <span class="name"><b>fullKey</b><a href="#fullKey"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>fullKey()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/dvl-fw-core/src/lib/templates/csv-template-project.ts:20</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selector"></a>
+                        <span class="name"><b>selector</b><a href="#selector"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>selector()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/dvl-fw-core/src/lib/templates/csv-template-project.ts:24</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectorObj"></a>
+                        <span class="name"><b>selectorObj</b><a href="#selectorObj"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>selectorObj()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/dvl-fw-core/src/lib/templates/csv-template-project.ts:25</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isMapping"></a>
+                        <span class="name"><b>isMapping</b><a href="#isMapping"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>isMapping()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/dvl-fw-core/src/lib/templates/csv-template-project.ts:26</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  castArray, filter, find, includes, map, partition, range, reverse, some, toLower, trim, uniqBy, zipWith,
+} from &#x27;lodash&#x27;;
+
+import { parse, ParseMeta, ParseResult } from &#x27;../csv&#x27;;
+import {
+  DataSource, DataType, DataVariable, GraphicVariable, GraphicVariableType, Project, RawData, RecordSet,
+} from &#x27;../interfaces&#x27;;
+import {
+  ActivityLogDataSource, DefaultDataSource, DefaultGraphicVariableMapping, DefaultProject, DefaultRawData, DefaultRecordSet,
+} from &#x27;../plugin&#x27;;
+
+type StringTransform &#x3D; (value: string) &#x3D;&gt; string;
+
+class NormalizedField {
+  static readonly splitSequence &#x3D; &#x27;$$&#x27;;
+
+  readonly key: string;
+  readonly variableType?: GraphicVariableType &#x3D; undefined;
+  get fullKey(): string {
+    const suffix &#x3D; NormalizedField.splitSequence + this.variableType;
+    return this.key + (this.variableType ? suffix : &#x27;&#x27;);
+  }
+  get selector(): string { return this.field; }
+  get selectorObj(): { selector: string } { return { selector: this.selector }; }
+  get isMapping(): boolean { return this.variableType !&#x3D;&#x3D; undefined; }
+
+  constructor(private field: string, readonly dataType: DataType, columnNumber: number) {
+    const normalized &#x3D; this.key &#x3D; trim(toLower(field));
+    if (normalized &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
+      this.field &#x3D; &#x60;Column ${columnNumber}&#x60;;
+      this.key &#x3D; toLower(this.field);
+    }
+
+    const index &#x3D; normalized.indexOf(NormalizedField.splitSequence);
+    if (index !&#x3D;&#x3D; -1) {
+      const type &#x3D; normalized.slice(index + NormalizedField.splitSequence.length);
+      this.key &#x3D; normalized.slice(0, index);
+      this.variableType &#x3D; find(GraphicVariableType, value &#x3D;&gt; toLower(value) &#x3D;&#x3D;&#x3D; type);
+    }
+  }
+}
+
+export class CSVTemplateProject extends DefaultProject {
+  static async create(csvFileContents: string[] | string, fileNames?: string[] | string): Promise&lt;Project&gt; {
+    const project &#x3D; new CSVTemplateProject(csvFileContents, fileNames);
+    await project.prePopulateData();
+    return project;
+  }
+
+  constructor(csvFileContents: string[] | string, fileNames?: string[] | string) {
+    super();
+    const names &#x3D; castArray(fileNames);
+    const contents &#x3D; castArray(csvFileContents);
+    for (let index &#x3D; 0; index &lt; contents.length; index++) {
+      const suffixer: StringTransform &#x3D; value &#x3D;&gt; &#x60;${value}${index + 1}&#x60;;
+      const name &#x3D; names[index] || &#x27;&#x27;;
+      const parsed &#x3D; this.getParsedData(contents[index]);
+      // TODO put errors in log
+      const [regularFields, mappingFields] &#x3D; this.normalizeFields(parsed.meta);
+
+      // Order is very important here!
+      this.rawData.push(this.createRawData(contents[index], suffixer));
+      this.dataSources.push(this.createDataSource(suffixer));
+      this.recordSets.push(this.createRecordSet(name, regularFields, suffixer));
+      this.graphicVariables.push(...this.createGraphicVariables(regularFields, mappingFields, suffixer));
+    }
+
+    this.dataSources.push(
+      new ActivityLogDataSource({
+        id: &#x27;activityLog&#x27;,
+        properties: { rawData: &#x27;activityLog&#x27;, keepPreviousActivity: true, freezeLogs: false },
+        recordStreams: [{ id: &#x27;activityLog&#x27;, label: &#x27;Activity Log&#x27; }]
+      }, this)
+    );
+  }
+
+  async prePopulateData() {
+    await Promise.all(this.rawData.map(r &#x3D;&gt; r.getData()));
+  }
+
+  private getParsedData(raw: string): ParseResult {
+    return parse(raw, {
+      header: true,
+      dynamicTyping: true,
+      skipEmptyLines: true
+    });
+  }
+
+  private normalizeFields(meta: ParseMeta): [NormalizedField[], NormalizedField[]] {
+    const normalized &#x3D; zipWith(
+      meta.fields, meta.typings, range(meta.fields.length),
+      (field, dataType, columnNumber) &#x3D;&gt; new NormalizedField(field, dataType, columnNumber)
+    );
+    const [mapping, regular] &#x3D; partition(normalized, &#x27;isMapping&#x27;);
+
+    const regularUniq &#x3D; reverse(uniqBy(reverse(regular), &#x27;key&#x27;));
+    const mappingUniq &#x3D; reverse(uniqBy(reverse(mapping), &#x27;fullKey&#x27;));
+
+    // Add missing regular fields
+    for (const field of mappingUniq) {
+      if (!some(regularUniq, [&#x27;key&#x27;, field.key])) {
+        regularUniq.push(new NormalizedField(field.key, DataType.UNKNOWN, 0));
+      }
+    }
+
+    return [regularUniq, mappingUniq];
+  }
+
+  private createRawData(csvData: string, suffixer: StringTransform): RawData {
+    return new DefaultRawData({
+      id: suffixer(&#x27;csvData&#x27;),
+      template: &#x27;csv&#x27;,
+      data: csvData
+    });
+  }
+
+  private createDataSource(suffixer: StringTransform): DataSource {
+    return new DefaultDataSource({
+      id: suffixer(&#x27;csvDataSource&#x27;),
+      properties: {
+        rawData: suffixer(&#x27;csvData&#x27;)
+      },
+      recordStreams: [{
+        id: suffixer(&#x27;csvData&#x27;),
+        label: suffixer(&#x27;CSV Data &#x27;)
+      }]
+    }, this);
+  }
+
+  private createDataVariableArgs(
+    field: NormalizedField
+  ): Pick&lt;DataVariable, &#x27;id&#x27; | &#x27;label&#x27; | &#x27;dataType&#x27; | &#x27;scaleType&#x27;&gt; {
+    return {
+      id: field.selector,
+      label: field.selector,
+      dataType: field.dataType,
+      scaleType: &#x27;???&#x27;
+    };
+  }
+
+  private createRecordSet(name: string, fields: NormalizedField[], suffixer: StringTransform): RecordSet {
+    return new DefaultRecordSet({
+      id: suffixer(&#x27;csvData&#x27;),
+      label: suffixer(&#x27;CSV Data &#x27;),
+      labelPlural: suffixer(&#x27;CSV Data &#x27;),
+      description: name,
+      defaultRecordStream: suffixer(&#x27;csvData&#x27;),
+      dataVariables: map(fields, this.createDataVariableArgs)
+    }, this);
+  }
+
+  private createMapping(
+    field: NormalizedField,
+    mappingFields: NormalizedField[]
+  ): { [T in GraphicVariableType]?: [{ selector: string }] } {
+    const defaultSelector: () &#x3D;&gt; [{ selector: string }] &#x3D; () &#x3D;&gt; [field.selectorObj];
+    const mapping: { [T in GraphicVariableType]?: [{ selector: string }] } &#x3D; {
+      [GraphicVariableType.IDENTIFIER]: defaultSelector(),
+      [GraphicVariableType.AXIS]: defaultSelector(),
+      [GraphicVariableType.TEXT]: defaultSelector(),
+      [GraphicVariableType.TOOLTIP]: defaultSelector(),
+      [GraphicVariableType.LABEL]: defaultSelector(),
+      [GraphicVariableType.INPUT]: defaultSelector(),
+      [GraphicVariableType.ORDER]: defaultSelector()
+    };
+
+    // The following are guesses and likely not correct
+    if (field.dataType &#x3D;&#x3D;&#x3D; DataType.NUMBER || field.dataType &#x3D;&#x3D;&#x3D; DataType.INTEGER) {
+      mapping[GraphicVariableType.AREA_SIZE] &#x3D; defaultSelector();
+      mapping[GraphicVariableType.STROKE_WIDTH] &#x3D; defaultSelector();
+      mapping[GraphicVariableType.FONT_SIZE] &#x3D; defaultSelector();
+    }
+    if (field.dataType &#x3D;&#x3D;&#x3D; DataType.STRING &amp;&amp; includes(field.key, &#x27;color&#x27;)) {
+      mapping[GraphicVariableType.COLOR] &#x3D; defaultSelector();
+      mapping[GraphicVariableType.STROKE_COLOR] &#x3D; defaultSelector();
+    }
+
+    // Use the field name as a graphic variable type.
+    // Use Case: User formats their csv to have color in color column, etc.
+    const type &#x3D; find(GraphicVariableType, value &#x3D;&gt; toLower(value) &#x3D;&#x3D;&#x3D; field.key);
+    if (type) {
+      mapping[type] &#x3D; defaultSelector();
+    }
+
+    // Override with predefined mappings
+    for (const mappingField of filter(mappingFields, [&#x27;key&#x27;, field.key])) {
+      mapping[mappingField.variableType] &#x3D; [mappingField.selectorObj];
+    }
+
+    return mapping;
+  }
+
+  private createGraphicVariables(
+    regularFields: NormalizedField[],
+    mappingFields: NormalizedField[],
+    suffixer: StringTransform
+  ): GraphicVariable[] {
+    const variables: { [id: string]: { [T in GraphicVariableType]?: [{ selector: string }] } } &#x3D; {};
+    for (const field of regularFields) {
+      variables[field.selector] &#x3D; this.createMapping(field, mappingFields);
+    }
+
+    return DefaultGraphicVariableMapping.fromJSON([{
+      recordStream: suffixer(&#x27;csvData&#x27;),
+      mappings: {
+        [suffixer(&#x27;csvData&#x27;)]: variables
+      }
+    }], this);
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'NormalizedField.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

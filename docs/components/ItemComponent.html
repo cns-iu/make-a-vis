@@ -1,0 +1,1373 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>make-a-vis documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">make-a-vis documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ItemComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>projects/dvl-fw-angular/src/lib/legend/item/item.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Renderes a single legend with a title and subtitle</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>dvl-legend-item</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./item.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./item.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#innerVisualization$">innerVisualization$</a>
+                            </li>
+                            <li>
+                                <a href="#subtitle">subtitle</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#symbolObj">symbolObj</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#template">template</a>
+                            </li>
+                            <li>
+                                <a href="#title">title</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#variableObj">variableObj</a>
+                            </li>
+                            <li>
+                                <a href="#visualization$">visualization$</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#clear">clear</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#generateItemsSymbol">generateItemsSymbol</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#generateLegend">generateLegend</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnChanges">ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#selectTemplate">selectTemplate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setValues">setValues</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#update">update</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#advanced">advanced</a>
+                            </li>
+                            <li>
+                                <a href="#project">project</a>
+                            </li>
+                            <li>
+                                <a href="#symbol">symbol</a>
+                            </li>
+                            <li>
+                                <a href="#type">type</a>
+                            </li>
+                            <li>
+                                <a href="#variable">variable</a>
+                            </li>
+                            <li>
+                                <a href="#visualization">visualization</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(serializer: <a href="../injectables/ProjectSerializerService.html">ProjectSerializerService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/dvl-fw-angular/src/lib/legend/item/item.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>serializer</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProjectSerializerService.html" target="_self" >ProjectSerializerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="advanced"></a>
+                        <b>advanced</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/dvl-fw-angular/src/lib/legend/item/item.component.ts:34</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="project"></a>
+                        <b>project</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Project.html" target="_self" >Project</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/dvl-fw-angular/src/lib/legend/item/item.component.ts:26</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The project to which the legend belongs </p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="symbol"></a>
+                        <b>symbol</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/dvl-fw-angular/src/lib/legend/item/item.component.ts:30</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The symbol for the legend </p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="type"></a>
+                        <b>type</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#LegendType" target="_self" >LegendType</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/dvl-fw-angular/src/lib/legend/item/item.component.ts:33</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="variable"></a>
+                        <b>variable</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/dvl-fw-angular/src/lib/legend/item/item.component.ts:32</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The variable to display a legend for </p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="visualization"></a>
+                        <b>visualization</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Visualization.html" target="_self" >Visualization</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/dvl-fw-angular/src/lib/legend/item/item.component.ts:28</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The visualization to which the legend belongs </p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clear"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            clear
+                        </b>
+                        <a href="#clear"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clear()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">projects/dvl-fw-angular/src/lib/legend/item/item.component.ts:69</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateItemsSymbol"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            generateItemsSymbol
+                        </b>
+                        <a href="#generateItemsSymbol"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>generateItemsSymbol()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="129"
+                            class="link-to-prism">projects/dvl-fw-angular/src/lib/legend/item/item.component.ts:129</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/GraphicSymbol.html" target="_self" >GraphicSymbol</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateLegend"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            generateLegend
+                        </b>
+                        <a href="#generateLegend"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>generateLegend()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">projects/dvl-fw-angular/src/lib/legend/item/item.component.ts:110</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>ObservableInput&lt;Visualization&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <b>
+                            ngOnChanges
+                        </b>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges(changes: <a href="https://angular.io/api/core/SimpleChanges" target="_blank">SimpleChanges</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">projects/dvl-fw-angular/src/lib/legend/item/item.component.ts:48</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>changes</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">projects/dvl-fw-angular/src/lib/legend/item/item.component.ts:60</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectTemplate"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            selectTemplate
+                        </b>
+                        <a href="#selectTemplate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>selectTemplate(variableOpt: <a href="../interfaces/GraphicVariableOption.html">GraphicVariableOption</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="95"
+                            class="link-to-prism">projects/dvl-fw-angular/src/lib/legend/item/item.component.ts:95</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>variableOpt</td>
+                                    <td>
+                                                <code><a href="../interfaces/GraphicVariableOption.html" target="_self" >GraphicVariableOption</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setValues"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            setValues
+                        </b>
+                        <a href="#setValues"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setValues()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">projects/dvl-fw-angular/src/lib/legend/item/item.component.ts:73</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            update
+                        </b>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">projects/dvl-fw-angular/src/lib/legend/item/item.component.ts:64</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="innerVisualization$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            innerVisualization$</b>
+                            <a href="#innerVisualization$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new BehaviorSubject&lt;ObservableInput&lt;Visualization&gt;&gt;(EMPTY_VIS)</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/dvl-fw-angular/src/lib/legend/item/item.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="subtitle"></a>
+                        <span class="name">
+                            <b>
+                            subtitle</b>
+                            <a href="#subtitle"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>undefined</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/dvl-fw-angular/src/lib/legend/item/item.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="symbolObj"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            symbolObj</b>
+                            <a href="#symbolObj"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/GraphicSymbol.html" target="_self" >GraphicSymbol</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>undefined</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/dvl-fw-angular/src/lib/legend/item/item.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="template"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            template</b>
+                            <a href="#template"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>undefined</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/dvl-fw-angular/src/lib/legend/item/item.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="title"></a>
+                        <span class="name">
+                            <b>
+                            title</b>
+                            <a href="#title"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>undefined</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/dvl-fw-angular/src/lib/legend/item/item.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="variableObj"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            variableObj</b>
+                            <a href="#variableObj"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/GraphicVariable.html" target="_self" >GraphicVariable</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>undefined</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/dvl-fw-angular/src/lib/legend/item/item.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="visualization$"></a>
+                        <span class="name">
+                            <b>
+                            visualization$</b>
+                            <a href="#visualization$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>this.innerVisualization$.pipe(switchAll())</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/dvl-fw-angular/src/lib/legend/item/item.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnChanges, OnDestroy, SimpleChanges } from &#x27;@angular/core&#x27;;
+import { GraphicSymbol, GraphicVariable, GraphicVariableOption, Project, Visualization } from &#x27;@dvl-fw/core&#x27;;
+import { every, find, forEach, propertyOf, some } from &#x27;lodash&#x27;;
+import { BehaviorSubject, ObservableInput } from &#x27;rxjs&#x27;;
+import { catchError, switchAll, tap } from &#x27;rxjs/operators&#x27;;
+
+import { ProjectSerializerService } from &#x27;../../services/project-serializer-service&#x27;;
+
+
+/** The valid options for selecting static/dynamic legends */
+export type LegendType &#x3D; &#x27;dynamic-only&#x27; | &#x27;static-only&#x27; | &#x27;dynamic-preferred&#x27; | &#x27;static-preferred&#x27;;
+
+/** Data representing an empty visualization */
+const EMPTY_VIS: ObservableInput&lt;Visualization&gt; &#x3D; [undefined];
+
+/**
+ * Renderes a single legend with a title and subtitle
+ */
+@Component({
+  selector: &#x27;dvl-legend-item&#x27;,
+  templateUrl: &#x27;./item.component.html&#x27;,
+  styleUrls: [&#x27;./item.component.scss&#x27;]
+})
+export class ItemComponent implements OnChanges, OnDestroy {
+  /** The project to which the legend belongs */
+  @Input() project: Project;
+  /** The visualization to which the legend belongs */
+  @Input() visualization: Visualization;
+  /** The symbol for the legend */
+  @Input() symbol: string;
+  /** The variable to display a legend for */
+  @Input() variable: string;
+  @Input() type: LegendType;
+  @Input() advanced: boolean;
+
+  title: string &#x3D; undefined;
+  subtitle: string &#x3D; undefined;
+
+  private template: string &#x3D; undefined;
+  private symbolObj: GraphicSymbol &#x3D; undefined;
+  private variableObj: GraphicVariable &#x3D; undefined;
+
+  private innerVisualization$ &#x3D; new BehaviorSubject&lt;ObservableInput&lt;Visualization&gt;&gt;(EMPTY_VIS);
+  visualization$ &#x3D; this.innerVisualization$.pipe(switchAll());
+
+  constructor(private serializer: ProjectSerializerService) { }
+
+  ngOnChanges(changes: SimpleChanges) {
+    const { project, visualization, symbol, variable } &#x3D; this;
+    const checkedValues &#x3D; [project, visualization, symbol, variable];
+    const checkedProperties &#x3D; [&#x27;project&#x27;, &#x27;visualization&#x27;, &#x27;symbol&#x27;, &#x27;variable&#x27;, &#x27;type&#x27;, &#x27;advanced&#x27;];
+
+    if (!every(checkedValues) || !this.setValues()) {
+      this.clear();
+    } else if (some(checkedProperties, propertyOf(changes))) {
+      this.update();
+    }
+  }
+
+  ngOnDestroy() {
+    this.clear();
+  }
+
+  private update(): void {
+    const legend &#x3D; this.generateLegend();
+    this.innerVisualization$.next(legend);
+  }
+
+  private clear(): void {
+    this.innerVisualization$.next(EMPTY_VIS);
+  }
+
+  private setValues(): boolean {
+    const { visualization, symbol, variable, advanced } &#x3D; this;
+    const symbolOpt &#x3D; find(visualization.graphicSymbolOptions, [&#x27;id&#x27;, symbol]);
+    const variableOpt &#x3D; symbolOpt &amp;&amp; find(symbolOpt.graphicVariableOptions, ({ id, type }) &#x3D;&gt; {
+      return id ? id &#x3D;&#x3D;&#x3D; variable : type &#x3D;&#x3D;&#x3D; variable;
+    });
+    const template &#x3D; this.template &#x3D; variableOpt &amp;&amp; this.selectTemplate(variableOpt);
+    const symbolObj &#x3D; this.symbolObj &#x3D; visualization.graphicSymbols[symbol];
+    const variableObj &#x3D; this.variableObj &#x3D; symbolObj &amp;&amp; symbolObj.graphicVariables[variable];
+    const isDisabled &#x3D; !advanced &amp;&amp; variableOpt &amp;&amp; variableOpt.advanced;
+
+    this.title &#x3D; variableOpt &amp;&amp; variableOpt.label;
+    this.subtitle &#x3D; variableObj &amp;&amp; &#x60;${variableObj.recordSet.label}: ${variableObj.label}&#x60;;
+
+    const checkedValues &#x3D; [!isDisabled, template, symbolObj, variableObj];
+    if (every(checkedValues)) { return true; }
+    // Clear internals for consistent state (all or nothing set)
+    this.title &#x3D; this.subtitle &#x3D; this.template &#x3D; undefined;
+    this.symbolObj &#x3D; this.variableObj &#x3D; undefined;
+    return false;
+  }
+
+  private selectTemplate(variableOpt: GraphicVariableOption): string {
+    const { visualization: dynamicVis, staticVisualization: staticVis } &#x3D; variableOpt;
+    switch (this.type) {
+      case &#x27;static-preferred&#x27;:
+        return staticVis || dynamicVis;
+      case &#x27;dynamic-only&#x27;:
+        return dynamicVis;
+      case &#x27;static-only&#x27;:
+        return staticVis;
+      case &#x27;dynamic-preferred&#x27;: /** Fallthrough */
+      default:
+        return dynamicVis || staticVis;
+    }
+  }
+
+  private generateLegend(): ObservableInput&lt;Visualization&gt; {
+    const { project, template, symbolObj, variableObj } &#x3D; this;
+    // Snapshot properties used by generateItemsSymbol
+    // It is called inside an observable and therefore properties may have changed between
+    // this call and the call to generateItemsSymbol
+    const snapshot: ItemComponent &#x3D; Object.setPrototypeOf({
+      project, template, symbolObj, variableObj
+    }, this);
+    const preData: Partial&lt;Visualization&gt; &#x3D; {
+      id: &#x60;legend-item-${template}&#x60;, template, properties: {}, graphicSymbols: {}
+    };
+
+    if (!template) { return EMPTY_VIS; }
+    return this.serializer.createVisualization(template, preData, null).pipe(
+      tap(vis &#x3D;&gt; vis.graphicSymbols[&#x27;items&#x27;] &#x3D; snapshot.generateItemsSymbol()),
+      catchError(_error &#x3D;&gt; [EMPTY_VIS])
+    );
+  }
+
+  private generateItemsSymbol(): GraphicSymbol {
+    const { project, template, symbolObj, variableObj } &#x3D; this;
+    const symbol: GraphicSymbol &#x3D; Object.setPrototypeOf({
+      id: &#x27;items&#x27;, graphicVariables: {}
+    }, symbolObj);
+    const variables &#x3D; symbol.graphicVariables;
+
+    // Copy special GraphicVariables
+    variables[&#x27;identifier&#x27;] &#x3D; symbolObj.graphicVariables[&#x27;identifier&#x27;];
+    variables[variableObj.type] &#x3D; variableObj;
+    if (template &#x3D;&#x3D;&#x3D; &#x27;color&#x27;) { variables[&#x27;color&#x27;] &#x3D; variableObj; }
+
+    // Copy GraphicVariables with the same DataVariable
+    const sourceDataVariable &#x3D; variableObj.dataVariable;
+    forEach(project.graphicVariables, variable &#x3D;&gt; {
+      const { type, dataVariable } &#x3D; variable;
+      if (dataVariable &#x3D;&#x3D;&#x3D; sourceDataVariable &amp;&amp; !variables[type]) {
+        variables[type] &#x3D; variable;
+      }
+    });
+
+    return symbol;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mat-card class&#x3D;&quot;dvl-legend-item container&quot; *ngIf&#x3D;&quot;visualization$ | async as vis&quot;&gt;
+  &lt;mat-card-title class&#x3D;&quot;title&quot;&gt;{{ title }}&lt;/mat-card-title&gt;
+  &lt;mat-card-subtitle class&#x3D;&quot;subtitle&quot;&gt;{{ subtitle }}&lt;/mat-card-subtitle&gt;
+  &lt;mat-card-content class&#x3D;&quot;content&quot;&gt;
+    &lt;dvl-visualization [data]&#x3D;&quot;vis&quot;&gt;&lt;/dvl-visualization&gt;
+  &lt;/mat-card-content&gt;
+&lt;/mat-card&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./item.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.dvl-legend-item.container {
+  box-sizing: border-box;
+  height: 12rem;
+  min-width: 11rem;
+  margin: 0.25rem;
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
+  text-align: center;
+  overflow-y: auto;
+
+  .title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #212121;
+  }
+
+  .subtitle {
+    margin-bottom: 0.5rem;
+    color: #757575;
+  }
+
+  ::ng-deep .dvl-static-legend-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 4.375rem;
+
+    svg {
+      height: 3rem;
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-card class="dvl-legend-item container" *ngIf="visualization$ | async as vis">  <mat-card-title class="title">{{ title }}</mat-card-title>  <mat-card-subtitle class="subtitle">{{ subtitle }}</mat-card-subtitle>  <mat-card-content class="content">    <dvl-visualization [data]="vis"></dvl-visualization>  </mat-card-content></mat-card></div>'
+    var COMPONENTS = [{'name': 'AddIconComponent', 'selector': 'mav-add-icon'},{'name': 'AppComponent', 'selector': 'mav-root'},{'name': 'AppUpdateNotificationComponent', 'selector': 'mav-app-update-notification'},{'name': 'AreaSizeComponent', 'selector': 'dvl-area-size'},{'name': 'CancelIconComponent', 'selector': 'mav-cancel-icon'},{'name': 'CnsLogoComponent', 'selector': 'mav-cns-logo'},{'name': 'CnsLogoIconComponent', 'selector': 'mav-cns-logo-icon'},{'name': 'ColorAreaComponent', 'selector': 'dvl-color-area'},{'name': 'ColorComponent', 'selector': 'dvl-vis-color'},{'name': 'ColorEdgesComponent', 'selector': 'dvl-color-edges'},{'name': 'DataVariableDropzoneComponent', 'selector': 'mav-data-variable-dropzone'},{'name': 'DvlFwVisualizationComponent', 'selector': 'dvl-visualization'},{'name': 'EdgeSizeComponent', 'selector': 'dvl-vis-edge-size'},{'name': 'EditIconComponent', 'selector': 'mav-edit-icon'},{'name': 'EndComponent', 'selector': 'dvl-end'},{'name': 'GeomapComponent', 'selector': 'dvl-geomap'},{'name': 'GeomapIconComponent', 'selector': 'mav-geomap-icon'},{'name': 'GeomapIconComponent', 'selector': 'mav-geomap-icon'},{'name': 'GeomapSettingsComponent', 'selector': 'dvl-geomap-settings'},{'name': 'GithubIconComponent', 'selector': 'mav-github-icon'},{'name': 'GradientComponent', 'selector': 'dvl-gradient'},{'name': 'GraphicSymbolTypeComponent', 'selector': 'mav-selection-graphic-symbol-type'},{'name': 'GraphicVariableIconComponent', 'selector': 'mav-graphic-variable-icon'},{'name': 'GraphicVariableLegendComponent', 'selector': 'mav-graphic-variable-legend'},{'name': 'GraphicVariableTypeComponent', 'selector': 'mav-selection-graphic-variable-type'},{'name': 'HorizontalBarGraphIconComponent', 'selector': 'mav-horizontal-bar-graph-icon'},{'name': 'IdentifierComponent', 'selector': 'dvl-identifier'},{'name': 'InfoDialogComponent', 'selector': 'mav-info-dialog'},{'name': 'InfoIconComponent', 'selector': 'mav-info-icon'},{'name': 'ItemComponent', 'selector': 'dvl-legend-item'},{'name': 'LabelComponent', 'selector': 'dvl-label'},{'name': 'LegendComponent', 'selector': 'dvl-legend'},{'name': 'LegendComponent', 'selector': 'mav-legend'},{'name': 'LightThemeComponent', 'selector': 'mav-light-theme'},{'name': 'MainComponent', 'selector': 'mav-data-view'},{'name': 'MainComponent', 'selector': 'mav-legend-view'},{'name': 'MainComponent', 'selector': 'mav-selection'},{'name': 'MainComponent', 'selector': 'mav-toolbar'},{'name': 'MainComponent', 'selector': 'mav-visualization-view'},{'name': 'MakeAVisComponent', 'selector': 'mav-main'},{'name': 'MapOfScienceIconComponent', 'selector': 'mav-map-of-science-icon'},{'name': 'MenuComponent', 'selector': 'mav-visualization-menu'},{'name': 'MenuIconComponent', 'selector': 'mav-menu-icon'},{'name': 'NetworkComponent', 'selector': 'dvl-network'},{'name': 'NetworkIconComponent', 'selector': 'mav-network-icon'},{'name': 'NetworkIconComponent', 'selector': 'mav-network-icon'},{'name': 'NodeSizeComponent', 'selector': 'dvl-vis-node-size'},{'name': 'NsfLogoComponent', 'selector': 'mav-nsf-logo'},{'name': 'ProjectComponent', 'selector': 'mav-project'},{'name': 'ScatterGraphIconComponent', 'selector': 'mav-scatter-graph-icon'},{'name': 'ScatterGraphIconComponent', 'selector': 'mav-scatter-graph-icon'},{'name': 'ScatterplotComponent', 'selector': 'dvl-scatterplot'},{'name': 'ScienceMapComponent', 'selector': 'dvl-science-map'},{'name': 'ScienceMapIconComponent', 'selector': 'mav-science-map-icon'},{'name': 'ShapeComponent', 'selector': 'dvl-shape'},{'name': 'SiceLogoComponent', 'selector': 'mav-sice-logo'},{'name': 'SidenavContentComponent', 'selector': 'mav-sidenav-content'},{'name': 'SourceComponent', 'selector': 'dvl-source'},{'name': 'StartComponent', 'selector': 'dvl-start'},{'name': 'StartProjectIconComponent', 'selector': 'mav-start-project-icon'},{'name': 'StartProjectOptionsComponent', 'selector': 'mav-start-project-options'},{'name': 'TableComponent', 'selector': 'mav-table'},{'name': 'TableIconComponent', 'selector': 'mav-table-icon'},{'name': 'TargetComponent', 'selector': 'dvl-target'},{'name': 'TemporalBargraphComponent', 'selector': 'dvl-temporal-bargraph'},{'name': 'TemporalBargraphIconComponent', 'selector': 'mav-temporal-bargraph-icon'},{'name': 'ThicknessComponent', 'selector': 'dvl-thickness'},{'name': 'ToolbarContentComponent', 'selector': 'mav-toolbar-content'},{'name': 'VegaComponent', 'selector': 'ngx-vega'},{'name': 'VisualizationComponent', 'selector': 'mav-visualization'},{'name': 'VisualizationTypeComponent', 'selector': 'mav-selection-visualization-type'},{'name': 'XAxisComponent', 'selector': 'dvl-x-axis'},{'name': 'YAxisComponent', 'selector': 'dvl-y-axis'}];
+    var DIRECTIVES = [{'name': 'DraggableDirective', 'selector': '[mavDraggable]'},{'name': 'DroppableDirective', 'selector': '[mavDroppable]'}];
+    var ACTUAL_COMPONENT = {'name': 'ItemComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ItemComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

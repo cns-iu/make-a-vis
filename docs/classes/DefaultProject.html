@@ -1,0 +1,775 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>make-a-vis documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">make-a-vis documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Classes</li>
+  <li>DefaultProject</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>projects/dvl-fw-core/src/lib/plugin/default/default-project.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Implements</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="../interfaces/Project.html" target="_self" >Project</a></code>
+            </p>
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#apiVersion">apiVersion</a>
+                            </li>
+                            <li>
+                                <a href="#dataSources">dataSources</a>
+                            </li>
+                            <li>
+                                <a href="#graphicSymbols">graphicSymbols</a>
+                            </li>
+                            <li>
+                                <a href="#graphicVariables">graphicVariables</a>
+                            </li>
+                            <li>
+                                <a href="#metadata">metadata</a>
+                            </li>
+                            <li>
+                                <a href="#rawData">rawData</a>
+                            </li>
+                            <li>
+                                <a href="#recordSets">recordSets</a>
+                            </li>
+                            <li>
+                                <a href="#visualizations">visualizations</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#findObjects">findObjects</a>
+                            </li>
+                            <li>
+                                <a href="#getRecordStream">getRecordStream</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(data: <a href="../interfaces/Project.html">DefaultProjectArg</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/dvl-fw-core/src/lib/plugin/default/default-project.ts:14</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/Project.html" target="_self" >DefaultProjectArg</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="apiVersion"></a>
+                        <span class="name">
+                            <b>
+                            apiVersion</b>
+                            <a href="#apiVersion"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;1&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">projects/dvl-fw-core/src/lib/plugin/default/default-project.ts:7</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dataSources"></a>
+                        <span class="name">
+                            <b>
+                            dataSources</b>
+                            <a href="#dataSources"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>DataSource[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">projects/dvl-fw-core/src/lib/plugin/default/default-project.ts:9</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="graphicSymbols"></a>
+                        <span class="name">
+                            <b>
+                            graphicSymbols</b>
+                            <a href="#graphicSymbols"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/GraphicSymbol.html" target="_self" >GraphicSymbol[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/dvl-fw-core/src/lib/plugin/default/default-project.ts:12</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="graphicVariables"></a>
+                        <span class="name">
+                            <b>
+                            graphicVariables</b>
+                            <a href="#graphicVariables"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/GraphicVariable.html" target="_self" >GraphicVariable[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">projects/dvl-fw-core/src/lib/plugin/default/default-project.ts:11</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="metadata"></a>
+                        <span class="name">
+                            <b>
+                            metadata</b>
+                            <a href="#metadata"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{ dateCreated: new Date() }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">projects/dvl-fw-core/src/lib/plugin/default/default-project.ts:8</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rawData"></a>
+                        <span class="name">
+                            <b>
+                            rawData</b>
+                            <a href="#rawData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/RawData.html" target="_self" >RawData[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/dvl-fw-core/src/lib/plugin/default/default-project.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="recordSets"></a>
+                        <span class="name">
+                            <b>
+                            recordSets</b>
+                            <a href="#recordSets"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/RecordSet.html" target="_self" >RecordSet[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/dvl-fw-core/src/lib/plugin/default/default-project.ts:10</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="visualizations"></a>
+                        <span class="name">
+                            <b>
+                            visualizations</b>
+                            <a href="#visualizations"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Visualization[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/dvl-fw-core/src/lib/plugin/default/default-project.ts:13</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findObjects"></a>
+                    <span class="name">
+                        <b>
+                            findObjects
+                        </b>
+                        <a href="#findObjects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>findObjects(data: T[], search: literal type)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">projects/dvl-fw-core/src/lib/plugin/default/default-project.ts:31</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                            <code>T[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>search</td>
+                                    <td>
+                                            <code>literal type</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>T[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRecordStream"></a>
+                    <span class="name">
+                        <b>
+                            getRecordStream
+                        </b>
+                        <a href="#getRecordStream"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getRecordStream(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">projects/dvl-fw-core/src/lib/plugin/default/default-project.ts:20</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/RecordStream.html" target="_self" >RecordStream&lt;T&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DataSource, GraphicSymbol, GraphicVariable, Project, RawData, RecordSet, RecordStream, Visualization } from &#x27;../../interfaces&#x27;;
+import { ObjectFactory, ObjectFactoryRegistry } from &#x27;../object-factory&#x27;;
+
+export type DefaultProjectArg &#x3D; any; // FIXME: This is likely incorrect
+
+export class DefaultProject implements Project {
+  apiVersion &#x3D; &#x27;1&#x27;;
+  metadata: any &#x3D; { dateCreated: new Date() };
+  dataSources: DataSource[] &#x3D; [];
+  recordSets: RecordSet[] &#x3D; [];
+  graphicVariables: GraphicVariable[] &#x3D; [];
+  graphicSymbols: GraphicSymbol[] &#x3D; [];
+  visualizations: Visualization[] &#x3D; [];
+  rawData: RawData[] &#x3D; [];
+
+  constructor(data: DefaultProjectArg &#x3D; {}) {
+    Object.assign(this, data);
+  }
+
+  getRecordStream&lt;T&gt;(id: string): RecordStream&lt;T&gt; {
+    for (const dataSource of this.dataSources) {
+      for (const stream of dataSource.recordStreams) {
+        if (stream.id &#x3D;&#x3D;&#x3D; id) {
+          return stream;
+        }
+      }
+    }
+    return null;
+  }
+
+  findObjects&lt;T&gt;(data: T[], search: { [key: string]: any; }): T[] {
+    return data.filter((d) &#x3D;&gt; {
+      for (const key in search) {
+        if (search[key] !&#x3D;&#x3D; d[key]) {
+          return false;
+        }
+      }
+      return true;
+    });
+  }
+}
+
+export class DefaultProjectFactory implements ObjectFactory&lt;Project, Project&gt; {
+  id &#x3D; &#x27;default&#x27;;
+  type &#x3D; &#x27;project&#x27;;
+
+  async fromJSON(data: any, _context: Project, registry: ObjectFactoryRegistry): Promise&lt;Project&gt; {
+    const ctx &#x3D; new DefaultProject();
+    // Make sure raw data is parsed first
+    ctx.rawData &#x3D; await registry.fromJSONArray&lt;RawData&gt;(&#x27;rawData&#x27;, &#x27;default&#x27;, data.rawData, ctx);
+    ctx.metadata &#x3D; data.metadata || undefined;
+    ctx.dataSources &#x3D; await registry.fromJSONArray&lt;DataSource&gt;(&#x27;dataSource&#x27;, &#x27;default&#x27;, data.dataSources, ctx);
+    ctx.recordSets &#x3D; await registry.fromJSONArray&lt;RecordSet&gt;(&#x27;recordSet&#x27;, &#x27;default&#x27;, data.recordSets, ctx);
+    ctx.recordSets.forEach(rs &#x3D;&gt; rs.resolveParent(ctx.recordSets));
+    ctx.graphicVariables &#x3D;
+      await registry.fromJSON&lt;GraphicVariable[]&gt;(&#x27;graphicVariableMappings&#x27;, &#x27;default&#x27;, data.graphicVariableMappings, ctx);
+    ctx.graphicSymbols &#x3D;
+      await registry.fromJSONArray&lt;GraphicSymbol&gt;(&#x27;graphicSymbolMappings&#x27;, &#x27;default&#x27;, data.graphicSymbolMappings, ctx);
+    ctx.visualizations &#x3D; await registry.fromJSONArray&lt;Visualization&gt;(&#x27;visualization&#x27;, &#x27;default&#x27;, data.visualizations, ctx);
+    return ctx;
+  }
+
+  async toJSON(instance: Project, _context: Project, registry: ObjectFactoryRegistry): Promise&lt;any&gt; {
+    instance.metadata.dateSaved &#x3D; new Date();
+    return {
+      apiVersion: 1,
+      metadata: instance.metadata,
+      dataSources: await registry.toJSONArray&lt;DataSource&gt;(&#x27;dataSource&#x27;, &#x27;default&#x27;, instance.dataSources, instance),
+      recordSets: await registry.toJSONArray&lt;RecordSet&gt;(&#x27;recordSet&#x27;, &#x27;default&#x27;, instance.recordSets, instance),
+      graphicVariableMappings:
+        await registry.toJSON&lt;GraphicVariable[]&gt;(&#x27;graphicVariableMappings&#x27;, &#x27;default&#x27;, instance.graphicVariables, instance),
+      graphicSymbolMappings:
+        await registry.toJSONArray&lt;GraphicSymbol&gt;(&#x27;graphicSymbolMappings&#x27;, &#x27;default&#x27;, instance.graphicSymbols, instance),
+      visualizations: await registry.toJSONArray&lt;Visualization&gt;(&#x27;visualization&#x27;, &#x27;default&#x27;, instance.visualizations, instance),
+      rawData: await registry.toJSONArray&lt;RawData&gt;(&#x27;rawData&#x27;, &#x27;default&#x27;, instance.rawData, instance),
+    };
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'DefaultProject.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
