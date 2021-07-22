@@ -136,6 +136,6 @@
     "webpack-cli": "^4.6.0",
     "webpack-node-externals": "^3.0.0",
     "webpack-sources": "^2.2.0",
-    "xlsx": "^0.16.9"
+    "xlsx": "^0.17.0"
   }
 }
