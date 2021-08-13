@@ -15,6 +15,7 @@ import { LoggingControlService } from './shared/logging/logging-control.service'
 import { reducers } from './shared/store/reducer';
 import { ToolbarModule } from './toolbar/toolbar.module';
 import { VisualizationViewModule } from './visualization-view/visualization-view.module';
+import { TrackingPopupComponent } from './tracking-popup/tracking-popup.component';
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import { VisualizationViewModule } from './visualization-view/visualization-view
     }),
     EffectsModule.forRoot([LogActions])
   ],
-  declarations: [LightThemeComponent, MakeAVisComponent],
+  declarations: [LightThemeComponent, MakeAVisComponent, TrackingPopupComponent],
   exports: [MakeAVisComponent, ToolbarModule],
   // providers: [
   //   { provide: LoggerFactory, useExisting: TypescriptLoggerFactory },
