@@ -9,7 +9,7 @@ import { TrackingState } from '../services/tracking-state';
   styleUrls: ['./tracking-popup.component.scss']
 })
 export class TrackingPopupComponent {
-  @HostBinding('class') readonly clsName = 'ccf-tracking-popup';
+  @HostBinding('class') readonly clsName = 'mav-tracking-popup';
 
   container: HTMLElement;
 

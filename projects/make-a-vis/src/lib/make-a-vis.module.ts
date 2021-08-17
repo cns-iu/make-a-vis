@@ -15,6 +15,7 @@ import { LoggingControlService } from './shared/logging/logging-control.service'
 import { reducers } from './shared/store/reducer';
 import { ToolbarModule } from './toolbar/toolbar.module';
 import { VisualizationViewModule } from './visualization-view/visualization-view.module';
+import { TrackingState } from 'src/app/services/tracking-state';
 
 
 @NgModule({
@@ -45,8 +46,14 @@ import { VisualizationViewModule } from './visualization-view/visualization-view
   // ]
 })
 export class MakeAVisModule {
-  constructor(loggingControl: LoggingControlService, logger: Logger) {
+  constructor(loggingControl: LoggingControlService, logger: Logger, tracking: TrackingState) {
     // For unknown reasons logger is undefined in --prod mode! A temporary workaround has been implemented in log.ts
     // logger.setLevel(LogLevel.Trace);
+
+    if (tracking.snapshot.allowTelemetry) {
+      loggingControl.enableLogging();
+    } else {
+      loggingControl.disableLogging();
+    }
   }
 }
