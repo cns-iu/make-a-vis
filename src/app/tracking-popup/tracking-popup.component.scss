@@ -1,9 +1,13 @@
 :host {
   display: flex;
   align-items: center;
+  min-width: 400px;
+  color: rgba(255, 255, 255, 0.7);
+  background: #323232;
+  z-index: 9999;
 
   p {
-    margin: 0;
+    margin: 24px;
   }
 
   button {

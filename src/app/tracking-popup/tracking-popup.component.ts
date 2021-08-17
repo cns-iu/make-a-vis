@@ -1,4 +1,4 @@
-import { Component, ElementRef, Inject } from '@angular/core';
+import { Component, ElementRef, Inject, HostBinding } from '@angular/core';
 import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 import { TrackingState } from '../services/tracking-state';
 
@@ -9,6 +9,7 @@ import { TrackingState } from '../services/tracking-state';
   styleUrls: ['./tracking-popup.component.scss']
 })
 export class TrackingPopupComponent {
+  @HostBinding('class') readonly clsName = 'ccf-tracking-popup';
 
   container: HTMLElement;
 
@@ -26,4 +27,11 @@ export class TrackingPopupComponent {
     this.dismiss();
   }
 
+  showButton(button: 'opt-in' | 'opt-out'): boolean {
+    if (this.tracking.snapshot.allowTelemetry === undefined) {
+      return true;
+    } else {
+      return button === 'opt-in' ? !this.tracking.snapshot.allowTelemetry : this.tracking.snapshot.allowTelemetry;
+    }
+  }
 }
