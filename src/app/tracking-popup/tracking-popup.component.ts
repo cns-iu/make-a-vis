@@ -1,12 +1,12 @@
 import { Component, ElementRef, Inject } from '@angular/core';
 import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
-import { TrackingState } from '../shared/store/tracking-state';
+import { TrackingState } from '../services/tracking-state';
 
 
 @Component({
   selector: 'mav-tracking-popup',
   templateUrl: './tracking-popup.component.html',
-  styleUrls: ['./tracking-popup.component.css']
+  styleUrls: ['./tracking-popup.component.scss']
 })
 export class TrackingPopupComponent {
 

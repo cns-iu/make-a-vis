@@ -9,8 +9,12 @@ export interface TrackingStateModel {
 }
 
 export const LOCAL_STORAGE_ALLOW_TELEMETRY_KEY = 'ALLOW_TELEMETRY';
-export const INITIAL_TELEMETRY_SETTING  = localStorage.getItem(LOCAL_STORAGE_ALLOW_TELEMETRY_KEY) === null ? undefined
-  : localStorage.getItem(LOCAL_STORAGE_ALLOW_TELEMETRY_KEY)?.toLowerCase() === 'true';
+export const INITIAL_TELEMETRY_SETTING  = getTelemetryStorageSetting();
+
+function getTelemetryStorageSetting(): boolean | undefined {
+  const value = localStorage.getItem(LOCAL_STORAGE_ALLOW_TELEMETRY_KEY);
+  return value === null ? undefined : value.toLowerCase() === 'true';
+}
 
 @StateRepository()
 @State<TrackingStateModel>({
@@ -21,13 +25,15 @@ export const INITIAL_TELEMETRY_SETTING  = localStorage.getItem(LOCAL_STORAGE_ALL
 })
 @Injectable()
 export class TrackingState extends NgxsImmutableDataRepository<TrackingStateModel> {
-
   @DataAction()
   setAllowTelemetry(allowTelemetry: boolean): void {
+    const oldValue = getTelemetryStorageSetting();
     localStorage.setItem(LOCAL_STORAGE_ALLOW_TELEMETRY_KEY, allowTelemetry.toString());
     this.ctx.patchState({ allowTelemetry });
 
-    // This ensures that if telemetry is disabled that it _WONT_ send anything to Google Analytics
-    location.reload();
+    if (oldValue !== undefined || allowTelemetry === false) {
+      // This ensures that if telemetry is disabled that it _WONT_ send anything to Google Analytics
+      location.reload();
+    }
   }
 }

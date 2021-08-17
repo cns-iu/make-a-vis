@@ -16,17 +16,11 @@ import { reducers } from './shared/store/reducer';
 import { ToolbarModule } from './toolbar/toolbar.module';
 import { VisualizationViewModule } from './visualization-view/visualization-view.module';
 
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { TrackingPopupComponent } from './tracking-popup/tracking-popup.component';
-import { NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
-import { INITIAL_TELEMETRY_SETTING } from './shared/store/tracking-state';
-import { environment } from '../environments/environment';
-
 
 @NgModule({
   imports: [
     CommonModule,
-    DataViewModule, DragDropModule, LegendViewModule, MavSelectionModule, ToolbarModule, VisualizationViewModule, MatSnackBarModule,
+    DataViewModule, DragDropModule, LegendViewModule, MavSelectionModule, ToolbarModule, VisualizationViewModule,
     StoreModule.forRoot(reducers, {
       runtimeChecks: {
         strictStateImmutability: false,
@@ -37,11 +31,9 @@ import { environment } from '../environments/environment';
         strictActionTypeUniqueness: false,
       }
     }),
-    EffectsModule.forRoot([LogActions]),
-    NgxGoogleAnalyticsModule.forRoot(INITIAL_TELEMETRY_SETTING === false ? '' : environment.googleAnalyticsTag),
-    NgxGoogleAnalyticsRouterModule,
+    EffectsModule.forRoot([LogActions])
   ],
-  declarations: [LightThemeComponent, MakeAVisComponent, TrackingPopupComponent],
+  declarations: [LightThemeComponent, MakeAVisComponent],
   exports: [MakeAVisComponent, ToolbarModule],
   // providers: [
   //   { provide: LoggerFactory, useExisting: TypescriptLoggerFactory },
