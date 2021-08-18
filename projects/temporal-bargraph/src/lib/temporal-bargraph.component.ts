@@ -32,11 +32,23 @@ export class TemporalBargraphComponent implements VisualizationComponent,
 
   spec: Spec;
   options: Options = { renderer: 'svg' };
+  expanded = false;
+
+  optionsHidden = true;
 
   private nodes: TDatum<VisualizationNode>[] = [];
   private nodesSubscription: Subscription;
-
+  
   constructor(private dataProcessorService: DataProcessorService) { }
+
+  togglePanel() {
+    this.optionsHidden = !this.optionsHidden;
+  }
+
+  toggleExpanded() {
+    this.expanded = !this.expanded;
+    this.updateSpec()
+  }
 
   updateSpec(): void {
     this.spec = temporalBargraphSpec({
@@ -44,7 +56,7 @@ export class TemporalBargraphComponent implements VisualizationComponent,
       ...this.propertyDefaults,
       ...this.data.properties,
       nodes: this.nodes || []
-    });
+    }, this.expanded);
   }
 
   refreshData(): void {
