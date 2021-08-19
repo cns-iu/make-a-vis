@@ -59,6 +59,31 @@
               "serviceWorker": true,
               "ngswConfigPath": "src/ngsw-config.json"
             }
+          },
+          "staging": {
+            "budgets": [
+              {
+                "type": "anyComponentStyle",
+                "maximumWarning": "6kb"
+              }
+            ],
+            "fileReplacements": [
+              {
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.staging.ts"
+              }
+            ],
+            "optimization": true,
+            "outputHashing": "all",
+            "sourceMap": false,
+            "extractCss": true,
+            "namedChunks": false,
+            "aot": true,
+            "extractLicenses": true,
+            "vendorChunk": false,
+            "buildOptimizer": true,
+            "serviceWorker": true,
+            "ngswConfigPath": "src/ngsw-config.json"
           }
         },
         "serve": {
@@ -69,6 +94,9 @@
           "configurations": {
             "production": {
               "browserTarget": "make-a-vis-demo:build:production"
+            },
+            "staging": {
+              "browserTarget": "make-a-vis-demo:build:staging"
             }
           }
         },
@@ -125,6 +153,9 @@
           "configurations": {
             "production": {
               "devServerTarget": "make-a-vis-demo:serve:production"
+            },
+            "staging": {
+              "devServerTarget": "make-a-vis-demo:serve:staging"
             }
           }
         },
