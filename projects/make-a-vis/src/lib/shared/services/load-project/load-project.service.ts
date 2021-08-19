@@ -1,5 +1,5 @@
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ProjectSerializerService } from '@dvl-fw/angular';
 import { ActivityLogRawData, Project } from '@dvl-fw/core';
 import { GeomapPlugin } from '@dvl-fw/geomap';
@@ -11,14 +11,14 @@ import { ScatterplotPlugin } from '@dvl-fw/scatterplot';
 import { ScienceMapPlugin } from '@dvl-fw/science-map';
 import { TemporalBargraphPlugin } from '@dvl-fw/temporal-bargraph';
 import { Store } from '@ngrx/store';
+import { DefaultGeocoder } from 'geocoder-ts';
 import { isArray } from 'lodash';
-import { BehaviorSubject, defer, Observable } from 'rxjs';
+import { BehaviorSubject, defer, Observable, Subject } from 'rxjs';
 
 import { LoggingControlService } from '../../../shared/logging/logging-control.service';
 import * as sidenavStore from '../../../toolbar/shared/store';
-import { GetLinkService } from '../get-link/get-link.service';
 import { AdvancedService } from '../advance/advanced.service';
-import { DefaultGeocoder } from 'geocoder-ts';
+import { GetLinkService } from '../get-link/get-link.service';
 
 
 @Injectable({
@@ -35,12 +35,12 @@ export class LoadProjectService {
   ];
 
   constructor(
-      private serializer: ProjectSerializerService,
-      private loggingControlService: LoggingControlService,
-      private store: Store<sidenavStore.SidenavState>,
-      private getLinkService: GetLinkService,
-      private advancedService: AdvancedService,
-      private snackBar: MatSnackBar) {
+    private serializer: ProjectSerializerService,
+    private loggingControlService: LoggingControlService,
+    private store: Store<sidenavStore.SidenavState>,
+    private getLinkService: GetLinkService,
+    private advancedService: AdvancedService,
+    private snackBar: MatSnackBar) {
     const registry = this.serializer.registry;
 
     const geocoder = new DefaultGeocoder(this.advancedService.advancedEnabled);
@@ -86,7 +86,7 @@ export class LoadProjectService {
     fileNames = isArray(fileNames) || !fileNames ? fileNames : [fileNames];
     switch (template) {
       case 'csv':
-        // fall through NSFTemplateProject
+      // fall through NSFTemplateProject
       case 'nsf':
         return NSFTemplateProject.create(fileContents, fileNames, geocoder);
       case 'isi':
@@ -101,11 +101,11 @@ export class LoadProjectService {
     fileExtension: 'isi' | 'nsf' | 'csv' | 'json' | 'yml',
     files: Blob[],
     fileNames?: string[]
-  ): BehaviorSubject<Project> {
-    const projectSubject = new BehaviorSubject<Project>(null);
+  ): Subject<Project> {
+    const projectSubject = new Subject<Project>();
     const promises = [];
     for (const file of files) {
-      const filePromise = new Promise(resolve => {
+      const filePromise = new Promise(resolve => setTimeout(() => {
         const reader = new FileReader();
         reader.readAsText(file);
         reader.onload = (event: any) => {
@@ -118,7 +118,7 @@ export class LoadProjectService {
               });
           }
         };
-      });
+      }));
 
       promises.push(filePromise);
     }
@@ -136,7 +136,7 @@ export class LoadProjectService {
   /* loads project from json given as an argument
   */
   loadFromProjectJson(json: string) {
-    const projectSubject = new BehaviorSubject<Project>(null);
+    const projectSubject = new Subject<Project>();
     this.serializer.fromJSON(json)
       .subscribe((project: Project) => projectSubject.next(project));
     return projectSubject;
@@ -148,7 +148,7 @@ export class LoadProjectService {
     }));
 
     this.loadFile(fileExtension, event.srcElement.files, fileNames)
-      .subscribe((project) => {
+      .subscribe(project => {
         if (project) { // success
           this.store.dispatch(new sidenavStore.LoadProjectCompleted(
             { loadingProject: false, fileName: fileNames.join('|'), fileExtension: fileExtension, project: project }
