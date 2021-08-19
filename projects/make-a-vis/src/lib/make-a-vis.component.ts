@@ -28,7 +28,6 @@ export class MakeAVisComponent {
         case SidenavActionTypes.LoadProjectStarted:
         case SidenavActionTypes.LoadShareUrlStarted:
           this.loading = true;
-          console.log('loading')
           cdr.markForCheck();
           break;
 
@@ -37,7 +36,6 @@ export class MakeAVisComponent {
         case SidenavActionTypes.LoadShareUrlCompleted:
         case SidenavActionTypes.LoadShareUrlError:
           this.loading = false;
-          console.log('not loading')
           cdr.markForCheck();
           break;
       }
