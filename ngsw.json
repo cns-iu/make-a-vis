@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1620849856461,
+  "timestamp": 1629382523520,
   "index": "/make-a-vis/index.html",
   "assetGroups": [
     {
@@ -13,13 +13,13 @@
       "urls": [
         "/make-a-vis/favicon.svg",
         "/make-a-vis/index.html",
-        "/make-a-vis/main-es2015.33e8a3b38c99ecba50af.js",
-        "/make-a-vis/main-es5.33e8a3b38c99ecba50af.js",
-        "/make-a-vis/polyfills-es2015.a770ce832c9adc14abe7.js",
-        "/make-a-vis/polyfills-es5.174300f56818c93893ea.js",
-        "/make-a-vis/runtime-es2015.a4dadbc03350107420a4.js",
-        "/make-a-vis/runtime-es5.a4dadbc03350107420a4.js",
-        "/make-a-vis/styles.e6270c168916339f112f.css"
+        "/make-a-vis/main-es2015.js",
+        "/make-a-vis/main-es5.js",
+        "/make-a-vis/polyfills-es2015.js",
+        "/make-a-vis/polyfills-es5.js",
+        "/make-a-vis/runtime-es2015.js",
+        "/make-a-vis/runtime-es5.js",
+        "/make-a-vis/styles.css"
       ],
       "patterns": []
     },
@@ -31,29 +31,29 @@
         "ignoreVary": true
       },
       "urls": [
-        "/make-a-vis/MaterialIcons-Regular.4674f8ded773cb03e824.eot",
-        "/make-a-vis/MaterialIcons-Regular.5e7382c63da0098d634a.ttf",
-        "/make-a-vis/MaterialIcons-Regular.83bebaf37c09c7e1c3ee.woff",
-        "/make-a-vis/MaterialIcons-Regular.cff684e59ffb052d72cb.woff2"
+        "/make-a-vis/MaterialIcons-Regular.eot",
+        "/make-a-vis/MaterialIcons-Regular.ttf",
+        "/make-a-vis/MaterialIcons-Regular.woff",
+        "/make-a-vis/MaterialIcons-Regular.woff2"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "/make-a-vis/MaterialIcons-Regular.4674f8ded773cb03e824.eot": "26fb8cecb5512223277b4d290a24492a0f09ede1",
-    "/make-a-vis/MaterialIcons-Regular.5e7382c63da0098d634a.ttf": "fc05de31234e0090f7ddc28ce1b23af4026cb1da",
-    "/make-a-vis/MaterialIcons-Regular.83bebaf37c09c7e1c3ee.woff": "c6c953c2ccb2ca9abb21db8dbf473b5a435f0082",
-    "/make-a-vis/MaterialIcons-Regular.cff684e59ffb052d72cb.woff2": "09963592e8c953cc7e14e3fb0a5b05d5042e8435",
+    "/make-a-vis/MaterialIcons-Regular.eot": "26fb8cecb5512223277b4d290a24492a0f09ede1",
+    "/make-a-vis/MaterialIcons-Regular.ttf": "fc05de31234e0090f7ddc28ce1b23af4026cb1da",
+    "/make-a-vis/MaterialIcons-Regular.woff": "c6c953c2ccb2ca9abb21db8dbf473b5a435f0082",
+    "/make-a-vis/MaterialIcons-Regular.woff2": "09963592e8c953cc7e14e3fb0a5b05d5042e8435",
     "/make-a-vis/favicon.svg": "9035fb71285590a8f8b2918becedd9f091220d5b",
-    "/make-a-vis/index.html": "ab2e1b8fe64fd61b6b0f4391b20581695671ef9a",
-    "/make-a-vis/main-es2015.33e8a3b38c99ecba50af.js": "f039e566d360c8fce44a92d858759b057c3f7b4e",
-    "/make-a-vis/main-es5.33e8a3b38c99ecba50af.js": "f31e7504c75930463e06d02d85d269fdd3b10b24",
-    "/make-a-vis/polyfills-es2015.a770ce832c9adc14abe7.js": "b781f6723ec3a789640a4e9f9108b22c6cef4684",
-    "/make-a-vis/polyfills-es5.174300f56818c93893ea.js": "724a6a2e55c07eaf3f81a25b0e4ec3c2db17c939",
-    "/make-a-vis/runtime-es2015.a4dadbc03350107420a4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/make-a-vis/runtime-es5.a4dadbc03350107420a4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/make-a-vis/styles.e6270c168916339f112f.css": "2c65c3e03359924b2dac69e5b82413f1c5a49820"
+    "/make-a-vis/index.html": "fd04cdbbbfac9c0c0a36cb1cb5f1a52d6fc45476",
+    "/make-a-vis/main-es2015.js": "a8dd8ff64daea61c2eb331b563235f354cfddb3f",
+    "/make-a-vis/main-es5.js": "22505193b0182b2b1968cd967a04b7488984b169",
+    "/make-a-vis/polyfills-es2015.js": "b781f6723ec3a789640a4e9f9108b22c6cef4684",
+    "/make-a-vis/polyfills-es5.js": "724a6a2e55c07eaf3f81a25b0e4ec3c2db17c939",
+    "/make-a-vis/runtime-es2015.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/make-a-vis/runtime-es5.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/make-a-vis/styles.css": "14ef3e2242f1b3bc7136b6536ea773a2d14a21af"
   },
   "navigationUrls": [
     {
