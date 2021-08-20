@@ -20,4 +20,11 @@ export class SpinnerOverlayComponent {
 
   /** Optional text description displayed alongside the spinner. */
   @Input() text: string;
+
+  /** Whether to show only text and no spinner */
+  @Input() textOnly: boolean | string | null | undefined;
+
+  get textOnlyAsBoolean(): boolean {
+    return this.textOnly != null && `${this.textOnly}` !== 'false';
+  }
 }
