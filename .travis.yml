@@ -19,47 +19,47 @@ branches:
 script: skip
 jobs:
   include:
-  - stage: test
-    name: Run Tests
-    if: NOT (tag IS present)
-    script:
-    - npm run build:build-info
-    - npm run build:libs
-    - npm run test
+  # - stage: test
+  #   name: Run Tests
+  #   if: NOT (tag IS present)
+  #   script:
+  #   - npm run build:build-info
+  #   - npm run build:libs
+  #   - npm run test
 
-  - stage: deploy
-    name: Deploy staging to Netlify
-    if: branch = develop
-    script:
-    - npm run build:build-info
-    - npm run build:libs
-    - npm run build -- --base-href=/
-    - npm run compodoc
-    deploy:
-      provider: pages
-      target-branch: staging
-      skip-cleanup: true
-      github-token: "$GITHUB_TOKEN"
-      keep-history: false
-      local-dir: dist/make-a-vis-demo
-      on:
-        branch: develop
-  - stage: deploy
-    name: Deploy demo to GitHub Pages
-    if: branch = main
-    script:
-    - npm run build:build-info
-    - npm run build:libs
-    - npm run build -- --base-href=/make-a-vis/
-    - npm run compodoc
-    deploy:
-      provider: pages
-      skip-cleanup: true
-      github-token: "$GITHUB_TOKEN"
-      keep-history: false
-      local-dir: dist/make-a-vis-demo
-      on:
-        branch: main
+  # - stage: deploy
+  #   name: Deploy staging to Netlify
+  #   if: branch = develop
+  #   script:
+  #   - npm run build:build-info
+  #   - npm run build:libs
+  #   - npm run build -- --base-href=/
+  #   - npm run compodoc
+  #   deploy:
+  #     provider: pages
+  #     target-branch: staging
+  #     skip-cleanup: true
+  #     github-token: "$GITHUB_TOKEN"
+  #     keep-history: false
+  #     local-dir: dist/make-a-vis-demo
+  #     on:
+  #       branch: develop
+  # - stage: deploy
+  #   name: Deploy demo to GitHub Pages
+  #   if: branch = main
+  #   script:
+  #   - npm run build:build-info
+  #   - npm run build:libs
+  #   - npm run build -- --base-href=/make-a-vis/
+  #   - npm run compodoc
+  #   deploy:
+  #     provider: pages
+  #     skip-cleanup: true
+  #     github-token: "$GITHUB_TOKEN"
+  #     keep-history: false
+  #     local-dir: dist/make-a-vis-demo
+  #     on:
+  #       branch: main
 
   - stage: deploy
     name: Build and publish make-a-vis
@@ -227,16 +227,16 @@ jobs:
     after_deploy: *1
     deploy: *2
 
-  - stage: test
-    name: Run sonar checks
-    if: NOT (tag IS present)
-    script:
-    - sonar-scanner -X
-  - stage: test
-    name: Run linter
-    if: NOT (tag IS present)
-    script:
-    - npm run lint
+  # - stage: test
+  #   name: Run sonar checks
+  #   if: NOT (tag IS present)
+  #   script:
+  #   - sonar-scanner -X
+  # - stage: test
+  #   name: Run linter
+  #   if: NOT (tag IS present)
+  #   script:
+  #   - npm run lint
 notifications:
   slack:
     secure: mDjJjSgHV82ZjLFFqx9PbMiVHXZ+BpIKvO/YIaYn2w0O08OFoDQaen4qMl61sjXC8Ow4RQVb07n7jgpo4UDaQJA66gRDblR4J1/HjUB2NrgWV0qSm8U5FjHQXF6dw6oruvMlD6Zi98KfY2/5Sf5KnH9zvRqi8hxMm+LtVwk5LaeV4w4OFZzrr3Grb33YUK8UiSZ5Zd4eA2X2Ln23Lu53J46b8I017rq9EqiNYh87dfkoePIsDAQtIc7AAOegyd/HrzvFcIN+joVtcIGjkP1A19GH4ZxaA28uIHlKwIFVebJDatMDEFzg4CM8f2EJYFG1suDb2PTZIRC5pg5VPGSD1bxmr/vKsHR/wtYs1e6zGuS/tonS4wo32GnGaFlo1+c5AzNqX7MelVf5Oc814Kowgdpku7J+RQq80HQOt1IximPfHZ4sUDbNinvYcrl+ptSYJ/jDWlrKSxwzdLGiUl2PGasxG9OnWU0+CRe0qm1rijpGjYEwJwbYnJMFAOso0jV6+OPuBqjo9RipaXx85wRP8fkpO2zkBsGl3Ant1R9P8WoNw+8A+y82S0lauYoCVLd8QVBA5HLDWuGjkV1lwnk1DBBjLP+Erri2PmImW+qujOkfpOgplzhh+b12wh34FkieXOylxKV+j3UaHMnhrA2gXHnkdr+dPAGPDR1frZWkTp8=
