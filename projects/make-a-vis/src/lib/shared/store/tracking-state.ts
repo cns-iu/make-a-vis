@@ -14,7 +14,7 @@ function getTelemetryStorageSetting(): boolean | undefined {
 
 export const INITIAL_TRACKING_STATE: TrackingStateModel = {
   allowTelemetry: INITIAL_TELEMETRY_SETTING
-}
+};
 
 @Injectable({
   providedIn: 'root',

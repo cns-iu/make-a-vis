@@ -15,7 +15,8 @@ import { tap, throttleTime } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit {
   title = 'make-a-vis-demo';
-  constructor(private readonly appUpdaterService: AppUpdaterService, elementRef: ElementRef<HTMLElement>, ga: GoogleAnalyticsService, readonly tracking: TrackingState, readonly snackbar: MatSnackBar) {
+  constructor(private readonly appUpdaterService: AppUpdaterService, elementRef: ElementRef<HTMLElement>, ga: GoogleAnalyticsService,
+    readonly tracking: TrackingState, readonly snackbar: MatSnackBar) {
     if (!isDevMode()) {
       appUpdaterService.checkForUpdates();
       appUpdaterService.askToUpdate();
@@ -31,10 +32,9 @@ export class AppComponent implements OnInit {
     ).subscribe();
   }
 
-  
   ngOnInit(): void {
     const snackBar = this.snackbar.openFromComponent(TrackingPopupComponent, {
-      data: {preClose: () => {snackBar.dismiss();} },
+      data: { preClose: () => { snackBar.dismiss(); } },
       duration: this.tracking.snapshot.allowTelemetry === undefined ? Infinity : 3000
     });
   }

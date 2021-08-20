@@ -14,7 +14,8 @@ import { GoogleAnalyticsService } from 'ngx-google-analytics';
 export class LoggingControlService {
   private _enabled = true;
 
-  constructor(factory: TypescriptLoggerFactory, private store: Store<ApplicationState>, private sidenavStore: Store<SidenavState>, private ga: GoogleAnalyticsService) {
+  constructor(factory: TypescriptLoggerFactory, private store: Store<ApplicationState>, private sidenavStore: Store<SidenavState>,
+    private ga: GoogleAnalyticsService) {
     factory.configure(LoggerType.Custom, undefined, (root, setting) => {
       return new StoreLogger(root, setting, this, this.store, this.sidenavStore, this.ga);
     });
