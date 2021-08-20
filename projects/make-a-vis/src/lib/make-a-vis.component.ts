@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Project } from '@dvl-fw/core';
 import { Actions } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
@@ -19,7 +19,7 @@ export class MakeAVisComponent {
   checkSaveProject: Observable<Project>;
   loading = false;
 
-  constructor(store: Store<ApplicationState>, actions: Actions, cdr: ChangeDetectorRef) {
+  constructor(store: Store<ApplicationState>, actions: Actions) {
     this.checkUiState = store.pipe(select('ui'));
     this.checkSaveProject = store.pipe(select(getLoadedProject));
 
@@ -28,7 +28,6 @@ export class MakeAVisComponent {
         case SidenavActionTypes.LoadProjectStarted:
         case SidenavActionTypes.LoadShareUrlStarted:
           this.loading = true;
-          cdr.markForCheck();
           break;
 
         case SidenavActionTypes.LoadProjectCompleted:
@@ -36,7 +35,6 @@ export class MakeAVisComponent {
         case SidenavActionTypes.LoadShareUrlCompleted:
         case SidenavActionTypes.LoadShareUrlError:
           this.loading = false;
-          cdr.markForCheck();
           break;
       }
     });
