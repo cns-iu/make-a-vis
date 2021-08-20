@@ -13,7 +13,7 @@ import { TemporalBargraphPlugin } from '@dvl-fw/temporal-bargraph';
 import { Store } from '@ngrx/store';
 import { DefaultGeocoder } from 'geocoder-ts';
 import { isArray } from 'lodash';
-import { BehaviorSubject, defer, Observable, Subject } from 'rxjs';
+import { defer, Observable, Subject } from 'rxjs';
 
 import { LoggingControlService } from '../../../shared/logging/logging-control.service';
 import * as sidenavStore from '../../../toolbar/shared/store';
@@ -40,7 +40,8 @@ export class LoadProjectService {
     private store: Store<sidenavStore.SidenavState>,
     private getLinkService: GetLinkService,
     private advancedService: AdvancedService,
-    private snackBar: MatSnackBar) {
+    private snackBar: MatSnackBar
+  ) {
     const registry = this.serializer.registry;
 
     const geocoder = new DefaultGeocoder(this.advancedService.advancedEnabled);
@@ -118,7 +119,7 @@ export class LoadProjectService {
               });
           }
         };
-      }));
+      }, 500));
 
       promises.push(filePromise);
     }
