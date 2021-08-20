@@ -4,8 +4,7 @@ import { AppUpdaterService } from './services/app-updater.service';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
-import { TrackingPopupComponent } from './tracking-popup/tracking-popup.component';
-import { TrackingState } from './services/tracking-state';
+import { TrackingState, TrackingPopupComponent } from 'make-a-vis';
 import { fromEvent } from 'rxjs';
 import { tap, throttleTime } from 'rxjs/operators';
 

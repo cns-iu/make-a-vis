@@ -15,7 +15,7 @@ import { LoggingControlService } from './shared/logging/logging-control.service'
 import { reducers } from './shared/store/reducer';
 import { ToolbarModule } from './toolbar/toolbar.module';
 import { VisualizationViewModule } from './visualization-view/visualization-view.module';
-import { TrackingState } from 'src/app/services/tracking-state';
+import { TrackingState } from './shared/store/tracking-state';
 
 
 @NgModule({

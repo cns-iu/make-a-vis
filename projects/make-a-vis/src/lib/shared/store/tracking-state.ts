@@ -1,8 +1,4 @@
 import { Injectable } from '@angular/core';
-import { DataAction, StateRepository } from '@ngxs-labs/data/decorators';
-import { NgxsImmutableDataRepository } from '@ngxs-labs/data/repositories';
-import { State } from '@ngxs/store';
-
 
 export interface TrackingStateModel {
   allowTelemetry?: boolean;
@@ -16,20 +12,25 @@ function getTelemetryStorageSetting(): boolean | undefined {
   return value === null ? undefined : value.toLowerCase() === 'true';
 }
 
-@StateRepository()
-@State<TrackingStateModel>({
-  name: 'tracking',
-  defaults: {
-    allowTelemetry: INITIAL_TELEMETRY_SETTING
-  }
+export const INITIAL_TRACKING_STATE: TrackingStateModel = {
+  allowTelemetry: INITIAL_TELEMETRY_SETTING
+}
+
+@Injectable({
+  providedIn: 'root',
 })
-@Injectable()
-export class TrackingState extends NgxsImmutableDataRepository<TrackingStateModel> {
-  @DataAction()
+export class TrackingState {
+
+  snapshot: TrackingStateModel;
+
+  constructor() {
+    this.snapshot = INITIAL_TRACKING_STATE;
+  }
+
   setAllowTelemetry(allowTelemetry: boolean): void {
     const oldValue = getTelemetryStorageSetting();
     localStorage.setItem(LOCAL_STORAGE_ALLOW_TELEMETRY_KEY, allowTelemetry.toString());
-    this.ctx.patchState({ allowTelemetry });
+    this.snapshot.allowTelemetry = allowTelemetry;
 
     if (oldValue !== undefined || allowTelemetry === false) {
       // This ensures that if telemetry is disabled that it _WONT_ send anything to Google Analytics

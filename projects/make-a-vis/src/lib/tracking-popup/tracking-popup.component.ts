@@ -1,6 +1,6 @@
 import { Component, ElementRef, Inject, HostBinding } from '@angular/core';
 import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
-import { TrackingState } from '../services/tracking-state';
+import { TrackingState } from '../shared/store/tracking-state';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class TrackingPopupComponent {
   container: HTMLElement;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  constructor(elementRef: ElementRef<HTMLElement>, readonly tracking: TrackingState, @Inject(MAT_SNACK_BAR_DATA) public data: any) {
+  constructor(elementRef: ElementRef<HTMLElement>, @Inject(MAT_SNACK_BAR_DATA) public data: any, private tracking: TrackingState) {
     this.container = elementRef.nativeElement;
   }
 
