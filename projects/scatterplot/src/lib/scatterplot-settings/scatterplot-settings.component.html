@@ -1,0 +1,8 @@
+<div class="scatterplot-settings-container" #settings>
+  <mat-icon class="scatterplot-settings-icon" [class.active]="!optionsHidden"
+    aria-hidden="false" (click)="togglePanel()">settings</mat-icon>
+
+  <div class="scatterplot-options-panel" [class.hidden]="optionsHidden">
+    <mat-checkbox (change)="zoomChange(!enableZoomPan)" [(checked)]="enableZoomPan">Enable Zoom/Pan</mat-checkbox>
+  </div>
+</div>
