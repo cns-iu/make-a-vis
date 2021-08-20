@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ProjectSerializerService } from '@dvl-fw/angular';
 import { ActivityLogRawData, Project } from '@dvl-fw/core';
@@ -14,9 +15,13 @@ import { Store } from '@ngrx/store';
 import { DefaultGeocoder } from 'geocoder-ts';
 import { isArray } from 'lodash';
 import { defer, Observable, Subject } from 'rxjs';
+import { map, take } from 'rxjs/operators';
 
 import { LoggingControlService } from '../../../shared/logging/logging-control.service';
 import * as sidenavStore from '../../../toolbar/shared/store';
+import {
+  ConfirmationDialogComponent, ConfirmationDialogOptions,
+} from '../../components/confirmation-dialog/confirmation-dialog.component';
 import { AdvancedService } from '../advance/advanced.service';
 import { GetLinkService } from '../get-link/get-link.service';
 
@@ -40,7 +45,8 @@ export class LoadProjectService {
     private store: Store<sidenavStore.SidenavState>,
     private getLinkService: GetLinkService,
     private advancedService: AdvancedService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog
   ) {
     const registry = this.serializer.registry;
 
@@ -84,17 +90,38 @@ export class LoadProjectService {
       });
     }
 
-    fileNames = isArray(fileNames) || !fileNames ? fileNames : [fileNames];
+    const names = isArray(fileNames) || !fileNames ? fileNames : [fileNames];
+    const contents = isArray(fileContents) ? fileContents : [fileContents];
+
+    const loadCsvOrNsf = () => NSFTemplateProject.create(contents, names, geocoder);
+    const loadIsi = () => ISITemplateProject.create(contents[0], names[0], geocoder)
+    let load: () => Promise<Project> = async () => {
+      throw new Error(`Template: ${template} not supported.`);
+    };
+    let isLargeInput = false;
+
     switch (template) {
       case 'csv':
       // fall through NSFTemplateProject
       case 'nsf':
-        return NSFTemplateProject.create(fileContents, fileNames, geocoder);
+        load = loadCsvOrNsf;
+        isLargeInput = this.isLargeCsvInput(contents);
+        break;
+
       case 'isi':
-        return ISITemplateProject.create(fileContents[0], fileNames[0], geocoder);
-      default:
-        throw new Error(`Template: ${template} not supported.`);
+        load = loadIsi;
+        isLargeInput = this.isLargeIsiInput(contents[0]);
+        break;
     }
+
+    if (isLargeInput) {
+      const confirmation = this.confirmContinueLargeInputLoading().pipe(take(1));
+      if (!(await confirmation.toPromise())) {
+        throw new Error('Loading of large input file canceled');
+      }
+    }
+
+    return load();
   }
 
 
@@ -126,8 +153,9 @@ export class LoadProjectService {
 
     Promise.all(promises).then((fileContents: string[]) => {
       this.createProject(<any>fileExtension, fileContents, fileNames)
-        .subscribe((project: Project) => {
-          projectSubject.next(this.setSaveActivityLog(project));
+        .subscribe({
+          next: project => projectSubject.next(this.setSaveActivityLog(project)),
+          error: err => projectSubject.error(err)
         });
     });
 
@@ -149,16 +177,20 @@ export class LoadProjectService {
     }));
 
     this.loadFile(fileExtension, event.srcElement.files, fileNames)
-      .subscribe(project => {
-        if (project) { // success
-          this.store.dispatch(new sidenavStore.LoadProjectCompleted(
-            { loadingProject: false, fileName: fileNames.join('|'), fileExtension: fileExtension, project: project }
-          ));
-        } else { // failure
-          this.store.dispatch(new sidenavStore.LoadProjectError(
-            { errorOccurred: true, errorTitle: 'Load Error', errorMessage: 'Failed to load new project' }
-          ));
+      .pipe(map(project => {
+        if (!project) {
+          throw new Error('Failed to load - Unknown cause');
         }
+
+        return project;
+      }))
+      .subscribe({
+        next: project => this.store.dispatch(new sidenavStore.LoadProjectCompleted(
+          { loadingProject: false, fileName: fileNames.join('|'), fileExtension: fileExtension, project: project }
+        )),
+        error: () => this.store.dispatch(new sidenavStore.LoadProjectError(
+          { errorOccurred: true, errorTitle: 'Load Error', errorMessage: 'Failed to load new project' }
+        ))
       });
   }
 
@@ -197,6 +229,40 @@ export class LoadProjectService {
     return this.projectExtensionPool.filter((extnObject => {
       return extnObject.label === extensionLabel;
     }))[0]['extensions'].join(',');
+  }
+
+  private confirmContinueLargeInputLoading(): Observable<boolean> {
+    const ref = this.dialog.open<ConfirmationDialogComponent, ConfirmationDialogOptions, boolean>(
+      ConfirmationDialogComponent,
+      {
+        // width, height?
+        closeOnNavigation: true,
+        disableClose: true,
+        data: {
+          title: 'Continue loading large dataset?',
+          content: '', // TODO
+          acceptText: 'Continue',
+          cancelText: 'Cancel'
+        }
+      }
+    );
+
+    return ref.afterClosed();
+  }
+
+  private isLargeCsvInput(contents: string[]): boolean {
+    const lineCount = contents.reduce<number>(
+      (count, content) => count + content.split(/\r\n|\r|\n/).length,
+      0
+    );
+
+    return lineCount > 5000;
+  }
+
+  private isLargeIsiInput(contents: string): boolean {
+    const lineCount = contents.split(/\r\n|\r|\n/).length;
+
+    return lineCount > 20000;
   }
 }
 
