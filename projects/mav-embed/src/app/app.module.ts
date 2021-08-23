@@ -8,12 +8,24 @@ import { LegendComponent } from './legend/legend.component';
 import { ProjectComponent } from './project/project.component';
 import { VisualizationComponent } from './visualization/visualization.component';
 
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { TrackingPopupModule } from './tracking-popup/tracking-popup.module';
+import { NgxGoogleAnalyticsModule } from 'ngx-google-analytics';
+import { environment } from '../environments/environment';
+import { INITIAL_TELEMETRY_SETTING } from './shared/services/tracking.state';
+
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
-    DvlFwAngularModule
+    DvlFwAngularModule,
+    MatSnackBarModule,
+    TrackingPopupModule,
+    NgxGoogleAnalyticsModule.forRoot(
+      INITIAL_TELEMETRY_SETTING === false ? '' : environment.googleAnalyticsTag, [
+      { command: 'set', values: [{ app: 'mav-embed' }] }
+    ]),
   ],
   declarations: [
     LegendComponent,
