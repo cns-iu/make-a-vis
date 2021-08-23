@@ -256,13 +256,13 @@ export class LoadProjectService {
       0
     );
 
-    return lineCount > 5000;
+    return lineCount > 7000;
   }
 
   private isLargeIsiInput(contents: string): boolean {
     const lineCount = contents.split(/\r\n|\r|\n/).length;
 
-    return lineCount > 20000;
+    return lineCount > 40000;
   }
 }
 
