@@ -32,18 +32,20 @@ export class TemporalBargraphComponent implements VisualizationComponent,
 
   spec: Spec;
   options: Options = { renderer: 'svg' };
+  userOptions: TemporalBargraphSpecOptions;
 
   private nodes: TDatum<VisualizationNode>[] = [];
   private nodesSubscription: Subscription;
 
   constructor(private dataProcessorService: DataProcessorService) { }
 
-  updateSpec(): void {
+  updateSpec(options?: TemporalBargraphSpecOptions): void {
     this.spec = temporalBargraphSpec({
       hasYOrder: !!this.data?.graphicSymbols['bars']?.graphicVariables?.hasOwnProperty('y-order'),
       ...this.propertyDefaults,
       ...this.data.properties,
-      nodes: this.nodes || []
+      nodes: this.nodes || [],
+      ...options
     });
   }
 
