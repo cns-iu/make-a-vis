@@ -240,7 +240,7 @@ export class LoadProjectService {
         disableClose: true,
         data: {
           title: 'Continue loading large dataset?',
-          content: '', // TODO
+          content: 'Large datasets (> 5,000 records) may take a long time to load and use excessive memory.',
           acceptText: 'Continue',
           cancelText: 'Cancel'
         }
