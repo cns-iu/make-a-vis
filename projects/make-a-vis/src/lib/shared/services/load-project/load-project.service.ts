@@ -94,7 +94,7 @@ export class LoadProjectService {
     const contents = isArray(fileContents) ? fileContents : [fileContents];
 
     const loadCsvOrNsf = () => NSFTemplateProject.create(contents, names, geocoder);
-    const loadIsi = () => ISITemplateProject.create(contents[0], names[0], geocoder)
+    const loadIsi = () => ISITemplateProject.create(contents[0], names[0], geocoder);
     let load: () => Promise<Project> = async () => {
       throw new Error(`Template: ${template} not supported.`);
     };
