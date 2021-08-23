@@ -4,14 +4,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { MakeAVisModule } from 'make-a-vis';
+import { MakeAVisModule, TrackingPopupModule, INITIAL_TELEMETRY_SETTING } from 'make-a-vis';
 
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AppUpdateNotificationComponent } from './app-update-notification/app-update-notification.component';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { TrackingPopupModule, INITIAL_TELEMETRY_SETTING } from 'make-a-vis';
 import { NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
 
 const appRoutes: Routes = [

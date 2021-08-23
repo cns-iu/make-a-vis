@@ -6,10 +6,7 @@ import { AbstractCategoryLogger, Category, CategoryLogMessage, RuntimeSettings }
 import { ApplicationState, getLoadedProject } from '../../shared/store';
 import { getLoggingToggleSelector, SidenavState } from '../../toolbar/shared/store';
 
-import { ElementRef } from '@angular/core';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
-import { fromEvent } from 'rxjs';
-import { tap, throttleTime } from 'rxjs/operators';
 
 function isActivityLogData(obj: unknown): obj is ActivityLogRawData {
   return typeof obj === 'object' && obj !== null && obj instanceof ActivityLogRawData;
