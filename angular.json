@@ -58,32 +58,32 @@
               "buildOptimizer": true,
               "serviceWorker": true,
               "ngswConfigPath": "src/ngsw-config.json"
+            },
+            "staging": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.staging.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "serviceWorker": true,
+              "ngswConfigPath": "src/ngsw-config.json"
             }
-          },
-          "staging": {
-            "budgets": [
-              {
-                "type": "anyComponentStyle",
-                "maximumWarning": "6kb"
-              }
-            ],
-            "fileReplacements": [
-              {
-                "replace": "src/environments/environment.ts",
-                "with": "src/environments/environment.staging.ts"
-              }
-            ],
-            "optimization": true,
-            "outputHashing": "all",
-            "sourceMap": false,
-            "extractCss": true,
-            "namedChunks": false,
-            "aot": true,
-            "extractLicenses": true,
-            "vendorChunk": false,
-            "buildOptimizer": true,
-            "serviceWorker": true,
-            "ngswConfigPath": "src/ngsw-config.json"
           }
         },
         "serve": {
@@ -186,6 +186,10 @@
             "production": {
               "project": "projects/make-a-vis/ng-package.prod.json",
               "tsConfig": "projects/make-a-vis/tsconfig.lib.prod.json"
+            },
+            "staging": {
+              "project": "projects/make-a-vis/ng-package.prod.json",
+              "tsConfig": "projects/make-a-vis/tsconfig.lib.prod.json"
             }
           }
         },
@@ -265,6 +269,30 @@
                   "maximumError": "20mb"
                 }
               ]
+            },
+            "staging": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/mav-embed/src/environments/environment.ts",
+                  "with": "projects/mav-embed/src/environments/environment.staging.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "none",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "20mb"
+                }
+              ]
             }
           }
         },
@@ -276,6 +304,9 @@
           "configurations": {
             "production": {
               "browserTarget": "mav-embed:build:production"
+            },
+            "staging": {
+              "browserTarget": "mav-embed:build:staging"
             }
           }
         },
@@ -325,6 +356,9 @@
           "configurations": {
             "production": {
               "devServerTarget": "mav-embed:serve:production"
+            },
+            "staging": {
+              "devServerTarget": "mav-embed:serve:staging"
             }
           }
         }
@@ -344,6 +378,10 @@
           },
           "configurations": {
             "production": {
+              "project": "projects/dvl-fw-core/ng-package.json",
+              "tsConfig": "projects/dvl-fw-core/tsconfig.lib.prod.json"
+            },
+            "staging": {
               "project": "projects/dvl-fw-core/ng-package.json",
               "tsConfig": "projects/dvl-fw-core/tsconfig.lib.prod.json"
             }
@@ -388,6 +426,10 @@
             "production": {
               "project": "projects/dvl-fw-isi/ng-package.json",
               "tsConfig": "projects/dvl-fw-isi/tsconfig.lib.prod.json"
+            },
+            "staging": {
+              "project": "projects/dvl-fw-isi/ng-package.json",
+              "tsConfig": "projects/dvl-fw-isi/tsconfig.lib.prod.json"
             }
           }
         },
@@ -428,6 +470,10 @@
           },
           "configurations": {
             "production": {
+              "project": "projects/dvl-fw-nsf/ng-package.json",
+              "tsConfig": "projects/dvl-fw-nsf/tsconfig.lib.prod.json"
+            },
+            "staging": {
               "project": "projects/dvl-fw-nsf/ng-package.json",
               "tsConfig": "projects/dvl-fw-nsf/tsconfig.lib.prod.json"
             }
@@ -472,6 +518,10 @@
             "production": {
               "project": "projects/dvl-fw-angular/ng-package.json",
               "tsConfig": "projects/dvl-fw-angular/tsconfig.lib.prod.json"
+            },
+            "staging": {
+              "project": "projects/dvl-fw-angular/ng-package.json",
+              "tsConfig": "projects/dvl-fw-angular/tsconfig.lib.prod.json"
             }
           }
         },
@@ -512,6 +562,9 @@
           },
           "configurations": {
             "production": {
+              "tsConfig": "projects/dvl-fw-cli/tsconfig.lib.prod.json"
+            },
+            "staging": {
               "tsConfig": "projects/dvl-fw-cli/tsconfig.lib.prod.json"
             }
           }
@@ -554,6 +607,9 @@
           "configurations": {
             "production": {
               "tsConfig": "projects/ngx-vega/tsconfig.lib.prod.json"
+            },
+            "staging": {
+              "tsConfig": "projects/ngx-vega/tsconfig.lib.prod.json"
             }
           }
         },
@@ -591,6 +647,9 @@
           },
           "configurations": {
             "production": {
+              "tsConfig": "projects/science-map/tsconfig.lib.prod.json"
+            },
+            "staging": {
               "tsConfig": "projects/science-map/tsconfig.lib.prod.json"
             }
           }
@@ -633,6 +692,9 @@
           "configurations": {
             "production": {
               "tsConfig": "projects/network/tsconfig.lib.prod.json"
+            },
+            "staging": {
+              "tsConfig": "projects/network/tsconfig.lib.prod.json"
             }
           }
         },
@@ -674,6 +736,9 @@
           "configurations": {
             "production": {
               "tsConfig": "projects/geomap/tsconfig.lib.prod.json"
+            },
+            "staging": {
+              "tsConfig": "projects/geomap/tsconfig.lib.prod.json"
             }
           }
         },
@@ -714,7 +779,10 @@
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/geomap/tsconfig.lib.prod.json"
+              "tsConfig": "projects/temporal-bargraph/tsconfig.lib.prod.json"
+            },
+            "staging": {
+              "tsConfig": "projects/temporal-bargraph/tsconfig.lib.prod.json"
             }
           }
         },
@@ -755,7 +823,10 @@
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/geomap/tsconfig.lib.prod.json"
+              "tsConfig": "projects/scatterplot/tsconfig.lib.prod.json"
+            },
+            "staging": {
+              "tsConfig": "projects/scatterplot/tsconfig.lib.prod.json"
             }
           }
         },
@@ -796,7 +867,10 @@
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/geomap/tsconfig.lib.prod.json"
+              "tsConfig": "projects/legends/tsconfig.lib.prod.json"
+            },
+            "staging": {
+              "tsConfig": "projects/legends/tsconfig.lib.prod.json"
             }
           }
         },
@@ -837,6 +911,9 @@
           },
           "configurations": {
             "production": {
+              "tsConfig": "projects/geocoder-ts/tsconfig.lib.prod.json"
+            },
+            "staging": {
               "tsConfig": "projects/geocoder-ts/tsconfig.lib.prod.json"
             }
           }
