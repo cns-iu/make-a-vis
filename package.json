@@ -55,7 +55,6 @@
     "@ngrx/store": "^11.1.1",
     "@ngx-dino/core": "^0.11.0",
     "@ngx-dino/legend": "^0.13.0",
-    "@ngxs/store": "^3.7.2",
     "@turf/boolean-point-in-polygon": "^6.3.0",
     "@turf/centroid": "^6.3.0",
     "@turf/helpers": "^6.3.0",
