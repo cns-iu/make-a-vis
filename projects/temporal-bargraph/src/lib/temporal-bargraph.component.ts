@@ -18,7 +18,7 @@ export class TemporalBargraphComponent implements VisualizationComponent,
     AfterViewInit, OnChanges, OnDestroy, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
   @Input() propertyDefaults: Partial<TemporalBargraphSpecOptions> = {
-
+    expanded: false
   };
   @Input() nodeDefaults: Partial<VisualizationNode> = {
     shape: 'circle',
@@ -47,16 +47,18 @@ export class TemporalBargraphComponent implements VisualizationComponent,
 
   toggleExpanded() {
     this.expanded = !this.expanded;
-    this.updateSpec()
+    this.updateSpec({expanded: this.expanded})
   }
 
-  updateSpec(): void {
+  updateSpec(newOptions?: TemporalBargraphSpecOptions): void {
     this.spec = temporalBargraphSpec({
       hasYOrder: !!this.data?.graphicSymbols['bars']?.graphicVariables?.hasOwnProperty('y-order'),
       ...this.propertyDefaults,
       ...this.data.properties,
-      nodes: this.nodes || []
-    }, this.expanded);
+      nodes: this.nodes || [],
+      ...this.data.properties.expanded,
+      ...newOptions
+    });
   }
 
   refreshData(): void {
