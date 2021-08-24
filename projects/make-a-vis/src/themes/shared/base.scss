@@ -1,6 +1,18 @@
 // "Modern" theme styling goes here.
 // Most themes will import this file after defining variables
 
+.mav-spinner-overlay {
+  background-color: $gray-accent-1;
+
+  .content {
+    color: $black;
+  }
+
+  .mat-spinner circle {
+    stroke: $black;
+  }
+}
+
 .mat-expansion-indicator::after {
   color: $primary;
 }
