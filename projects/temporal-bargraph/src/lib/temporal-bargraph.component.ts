@@ -47,7 +47,7 @@ export class TemporalBargraphComponent implements VisualizationComponent,
 
   toggleExpanded() {
     this.expanded = !this.expanded;
-    this.updateSpec({expanded: this.expanded})
+    this.updateSpec({expanded: this.expanded});
   }
 
   updateSpec(newOptions?: TemporalBargraphSpecOptions): void {
