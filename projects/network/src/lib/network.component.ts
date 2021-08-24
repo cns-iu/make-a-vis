@@ -42,6 +42,7 @@ export class NetworkComponent implements VisualizationComponent,
 
   spec: Spec;
   options: Options = { renderer: 'svg' };
+  userOptions: NetworkSpecOptions;
 
   private nodes: TDatum<VisualizationNode>[] = [];
   private edges: TDatum<VisualizationEdge>[] = [];
@@ -50,13 +51,14 @@ export class NetworkComponent implements VisualizationComponent,
 
   constructor(private dataProcessorService: DataProcessorService) { }
 
-  updateSpec(): void {
+  updateSpec(options?: NetworkSpecOptions): void {
     this.spec = networkSpec({
       showNodeLabels: !!this.data?.graphicSymbols['nodes']?.graphicVariables?.label,
       ...this.propertyDefaults,
       ...this.data.properties,
       nodes: this.nodes || [],
-      edges: this.edges || []
+      edges: this.edges || [],
+      ...options
     });
   }
 
