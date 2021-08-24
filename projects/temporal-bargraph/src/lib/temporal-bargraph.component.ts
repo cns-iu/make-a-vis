@@ -38,7 +38,7 @@ export class TemporalBargraphComponent implements VisualizationComponent,
 
   private nodes: TDatum<VisualizationNode>[] = [];
   private nodesSubscription: Subscription;
-  
+
   constructor(private dataProcessorService: DataProcessorService) { }
 
   togglePanel() {
