@@ -32,17 +32,19 @@ export class ScienceMapComponent implements VisualizationComponent,
 
   spec: Spec;
   options: Options = { renderer: 'svg' };
+  userOptions: ScienceMapSpecOptions;
 
   private nodes: TDatum<VisualizationNode>[] = [];
   private nodesSubscription: Subscription;
 
   constructor(private dataProcessorService: DataProcessorService) { }
 
-  updateSpec(): void {
+  updateSpec(options?: ScienceMapSpecOptions): void {
     this.spec = scienceMapSpec({
       ...this.propertyDefaults,
       ...this.data.properties,
-      nodes: this.nodes || []
+      nodes: this.nodes || [],
+      ...options
     });
   }
 
