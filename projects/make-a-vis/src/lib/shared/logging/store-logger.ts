@@ -6,6 +6,8 @@ import { AbstractCategoryLogger, Category, CategoryLogMessage, RuntimeSettings }
 import { ApplicationState, getLoadedProject } from '../../shared/store';
 import { getLoggingToggleSelector, SidenavState } from '../../toolbar/shared/store';
 
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
+
 function isActivityLogData(obj: unknown): obj is ActivityLogRawData {
   return typeof obj === 'object' && obj !== null && obj instanceof ActivityLogRawData;
 }
@@ -17,7 +19,8 @@ export class StoreLogger extends AbstractCategoryLogger {
     rootCategory: Category, runtimeSettings: RuntimeSettings,
     readonly controller: { isLoggingEnabled(): boolean },
     private store: Store<ApplicationState>,
-    private sidenavStore: Store<SidenavState>
+    private sidenavStore: Store<SidenavState>,
+    private ga: GoogleAnalyticsService
   ) {
     super(rootCategory, runtimeSettings);
     this.store.pipe(select(getLoadedProject))
@@ -40,7 +43,8 @@ export class StoreLogger extends AbstractCategoryLogger {
       if (this.project && this.project.rawData) {
         const activityLogRawData = this.project.rawData.find(isActivityLogData);
         if (activityLogRawData) {
-        activityLogRawData.logActivity(msg);
+          activityLogRawData.logActivity(msg);
+          this.ga.event('logActivity', 'logData', msg.messageAsString);
         }
       }
     }

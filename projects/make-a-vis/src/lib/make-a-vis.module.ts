@@ -10,17 +10,20 @@ import { LegendViewModule } from './legend-view/legend-view.module';
 import { LightThemeComponent } from './light-theme/light-theme.component';
 import { MakeAVisComponent } from './make-a-vis.component';
 import { MavSelectionModule } from './mav-selection/mav-selection.module';
+import { SpinnerOverlayModule } from './shared/components/spinner-overlay/spinner-overlay.module';
 import { LogActions } from './shared/logging/log';
 import { LoggingControlService } from './shared/logging/logging-control.service';
 import { reducers } from './shared/store/reducer';
 import { ToolbarModule } from './toolbar/toolbar.module';
 import { VisualizationViewModule } from './visualization-view/visualization-view.module';
+import { TrackingState } from './shared/store/tracking-state';
 
 
 @NgModule({
   imports: [
     CommonModule,
     DataViewModule, DragDropModule, LegendViewModule, MavSelectionModule, ToolbarModule, VisualizationViewModule,
+    SpinnerOverlayModule,
     StoreModule.forRoot(reducers, {
       runtimeChecks: {
         strictStateImmutability: false,
@@ -45,8 +48,14 @@ import { VisualizationViewModule } from './visualization-view/visualization-view
   // ]
 })
 export class MakeAVisModule {
-  constructor(loggingControl: LoggingControlService, logger: Logger) {
+  constructor(loggingControl: LoggingControlService, logger: Logger, tracking: TrackingState) {
     // For unknown reasons logger is undefined in --prod mode! A temporary workaround has been implemented in log.ts
     // logger.setLevel(LogLevel.Trace);
+
+    if (tracking.snapshot.allowTelemetry) {
+      loggingControl.enableLogging();
+    } else {
+      loggingControl.disableLogging();
+    }
   }
 }

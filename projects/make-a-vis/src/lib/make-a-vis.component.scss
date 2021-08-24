@@ -2,6 +2,7 @@
   &.wrapper {
     .mav-main-view {
       display: flex;
+      position: relative;
       height: calc(100vh - 2.5rem); /* equals (total) minus (toolbar-height set inside .mav-toolbar equal to 2.5rem) */
       align-items: stretch;
       overflow: hidden;
