@@ -6,6 +6,7 @@ import { LoggerType } from 'typescript-logging';
 import { ApplicationState } from '../../shared/store';
 import { SidenavState, ToggleLogging } from '../../toolbar/shared/store';
 import { StoreLogger } from './store-logger';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +14,10 @@ import { StoreLogger } from './store-logger';
 export class LoggingControlService {
   private _enabled = true;
 
-  constructor(factory: TypescriptLoggerFactory, private store: Store<ApplicationState>, private sidenavStore: Store<SidenavState>) {
+  constructor(factory: TypescriptLoggerFactory, private store: Store<ApplicationState>, private sidenavStore: Store<SidenavState>,
+    private ga: GoogleAnalyticsService) {
     factory.configure(LoggerType.Custom, undefined, (root, setting) => {
-      return new StoreLogger(root, setting, this, this.store, this.sidenavStore);
+      return new StoreLogger(root, setting, this, this.store, this.sidenavStore, this.ga);
     });
   }
 
@@ -32,7 +34,6 @@ export class LoggingControlService {
   }
 
   toggleLogging(): void {
-
     this._enabled = !this._enabled;
     this.sidenavStore.dispatch(new ToggleLogging(this._enabled));
   }

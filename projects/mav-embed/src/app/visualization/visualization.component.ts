@@ -5,6 +5,9 @@ import { BehaviorSubject, combineLatest, Observable, of, Subject } from 'rxjs';
 import { catchError, distinctUntilChanged, map, switchAll } from 'rxjs/operators';
 
 import { DataLinkService, DataLinkTarget } from '../shared/services/data-link/data-link.service';
+import { TrackingPopupComponent, TrackingState } from 'make-a-vis';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 /**
  * Visualization display component
@@ -38,7 +41,8 @@ export class VisualizationComponent implements DataLinkTarget<Project>, OnChange
    * @param linker The data linker service
    * @param zone Angular's zone
    */
-  constructor(private linker: DataLinkService, private zone: NgZone) { }
+  constructor(private linker: DataLinkService, private zone: NgZone,
+    readonly tracking: TrackingState, readonly snackbar: MatSnackBar) { }
 
   /**
    * Angular's on change hook
@@ -54,6 +58,11 @@ export class VisualizationComponent implements DataLinkTarget<Project>, OnChange
    * Angular's on init hook
    */
   ngOnInit() {
+    const snackBar = this.snackbar.openFromComponent(TrackingPopupComponent, {
+      data: { preClose: () => { snackBar.dismiss(); } },
+      duration: this.tracking.snapshot.allowTelemetry === undefined ? Infinity : 3000
+    });
+
     this.linker.registerTarget(this);
     this.setProject();
   }
