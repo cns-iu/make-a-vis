@@ -5,8 +5,7 @@ import { BehaviorSubject, combineLatest, Observable, of, Subject } from 'rxjs';
 import { catchError, distinctUntilChanged, map, switchAll } from 'rxjs/operators';
 
 import { DataLinkService, DataLinkTarget } from '../shared/services/data-link/data-link.service';
-import { TrackingPopupComponent } from '../tracking-popup/tracking-popup.component';
-import { TrackingState } from '../shared/services/tracking.state';
+import { TrackingPopupComponent, TrackingState } from 'make-a-vis';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 

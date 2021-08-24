@@ -9,10 +9,9 @@ import { ProjectComponent } from './project/project.component';
 import { VisualizationComponent } from './visualization/visualization.component';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { TrackingPopupModule } from './tracking-popup/tracking-popup.module';
+import { TrackingPopupModule, INITIAL_TELEMETRY_SETTING } from 'make-a-vis';
 import { NgxGoogleAnalyticsModule } from 'ngx-google-analytics';
 import { environment } from '../environments/environment';
-import { INITIAL_TELEMETRY_SETTING } from './shared/services/tracking.state';
 
 
 @NgModule({
