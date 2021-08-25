@@ -51,14 +51,15 @@ export class TemporalBargraphComponent implements VisualizationComponent,
   }
 
   updateSpec(newOptions?: TemporalBargraphSpecOptions): void {
+    const options = {...this.propertyDefaults, ...this.data.properties, ...newOptions};
+
     this.spec = temporalBargraphSpec({
+      ...options,
       hasYOrder: !!this.data?.graphicSymbols['bars']?.graphicVariables?.hasOwnProperty('y-order'),
-      ...this.propertyDefaults,
-      ...this.data.properties,
-      nodes: this.nodes || [],
-      ...this.data.properties.expanded,
-      ...newOptions
+      nodes: this.nodes || []
     });
+
+    this.data.properties = options;
   }
 
   refreshData(): void {
