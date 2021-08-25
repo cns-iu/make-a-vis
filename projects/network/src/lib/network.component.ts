@@ -51,15 +51,22 @@ export class NetworkComponent implements VisualizationComponent,
 
   constructor(private dataProcessorService: DataProcessorService) { }
 
-  updateSpec(options?: NetworkSpecOptions): void {
+  updateSpec(newOptions: NetworkSpecOptions = {}): void {
+    const options = {...this.propertyDefaults, ...this.data.properties, ...newOptions};
+    this.userOptions = options;
+
     this.spec = networkSpec({
       showNodeLabels: !!this.data?.graphicSymbols['nodes']?.graphicVariables?.label,
-      ...this.propertyDefaults,
-      ...this.data.properties,
       nodes: this.nodes || [],
       edges: this.edges || [],
       ...options
     });
+
+    const originalVisualization = (this.data as unknown as {original: Visualization}).original;
+    if (originalVisualization) {
+      originalVisualization.properties = options;
+    }
+    this.data.properties = options;
   }
 
   refreshData(): void {

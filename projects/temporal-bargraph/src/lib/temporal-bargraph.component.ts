@@ -39,14 +39,20 @@ export class TemporalBargraphComponent implements VisualizationComponent,
 
   constructor(private dataProcessorService: DataProcessorService) { }
 
-  updateSpec(options?: TemporalBargraphSpecOptions): void {
+  updateSpec(newOptions: TemporalBargraphSpecOptions = {}): void {
+    const options = {...this.propertyDefaults, ...this.data.properties, ...newOptions};
+    this.userOptions = options;
+
     this.spec = temporalBargraphSpec({
-      hasYOrder: !!this.data?.graphicSymbols['bars']?.graphicVariables?.hasOwnProperty('y-order'),
-      ...this.propertyDefaults,
-      ...this.data.properties,
       nodes: this.nodes || [],
       ...options
     });
+
+    const originalVisualization = (this.data as unknown as {original: Visualization}).original;
+    if (originalVisualization) {
+      originalVisualization.properties = options;
+    }
+    this.data.properties = options;
   }
 
   refreshData(): void {

@@ -39,13 +39,20 @@ export class ScienceMapComponent implements VisualizationComponent,
 
   constructor(private dataProcessorService: DataProcessorService) { }
 
-  updateSpec(options?: ScienceMapSpecOptions): void {
+  updateSpec(newOptions: ScienceMapSpecOptions = {}): void {
+    const options = {...this.propertyDefaults, ...this.data.properties, ...newOptions};
+    this.userOptions = options;
+
     this.spec = scienceMapSpec({
-      ...this.propertyDefaults,
-      ...this.data.properties,
       nodes: this.nodes || [],
       ...options
     });
+
+    const originalVisualization = (this.data as unknown as {original: Visualization}).original;
+    if (originalVisualization) {
+      originalVisualization.properties = options;
+    }
+    this.data.properties = options;
   }
 
   refreshData(): void {

@@ -39,14 +39,20 @@ export class ScatterplotComponent implements VisualizationComponent,
 
   constructor(private dataProcessorService: DataProcessorService) { }
 
-  updateSpec(options?: ScatterplotSpecOptions): void {
-    console.log('options: ', options);
+  updateSpec(newOptions: ScatterplotSpecOptions = {}): void {
+    const options = {...this.propertyDefaults, ...this.data.properties, ...newOptions};
+    this.userOptions = options;
+
     this.spec = scatterplotSpec({
-      ...this.propertyDefaults,
-      ...this.data.properties,
       nodes: this.nodes || [],
       ...options
     });
+
+    const originalVisualization = (this.data as unknown as {original: Visualization}).original;
+    if (originalVisualization) {
+      originalVisualization.properties = options;
+    }
+    this.data.properties = options;
   }
 
   refreshData(): void {
