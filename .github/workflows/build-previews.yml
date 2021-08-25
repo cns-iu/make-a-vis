@@ -28,7 +28,7 @@ jobs:
       - run: npm run build:build-info
       - run: npm run build:libs
       - name: Build Make-a-Vis
-        run: npm run build -- --output-hashing=none --base-href=/
+        run: npm run build -- --output-hashing=none --base-href=/ --configuration=staging
 
       - uses: jsmrcaga/action-netlify-deploy@master
         with:
