@@ -1,5 +1,4 @@
 import { VisualizationSpec } from 'vega-embed';
-
 import { VisualizationNode } from './interfaces';
 
 
@@ -7,6 +6,7 @@ export interface TemporalBargraphSpecOptions {
   nodes?: VisualizationNode[];
   enableZoomPan?: boolean;
   hasYOrder?: boolean;
+  expanded?: boolean;
 }
 
 export function temporalBargraphSpec(options: TemporalBargraphSpecOptions = {}): VisualizationSpec {
@@ -136,7 +136,7 @@ export function temporalBargraphSpec(options: TemporalBargraphSpecOptions = {}):
           baseline: 'middle',
           dx: -3,
           limit: 150,
-          fontSize: 7
+          fontSize: options.expanded ? 12 : 7
         },
         encoding: {
           y: {

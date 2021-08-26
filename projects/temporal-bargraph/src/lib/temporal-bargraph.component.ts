@@ -18,7 +18,7 @@ export class TemporalBargraphComponent implements VisualizationComponent,
     AfterViewInit, OnChanges, OnDestroy, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
   @Input() propertyDefaults: Partial<TemporalBargraphSpecOptions> = {
-
+    expanded: false
   };
   @Input() nodeDefaults: Partial<VisualizationNode> = {
     shape: 'circle',
@@ -33,6 +33,8 @@ export class TemporalBargraphComponent implements VisualizationComponent,
   spec: Spec;
   options: Options = { renderer: 'svg' };
   userOptions: TemporalBargraphSpecOptions;
+  expanded = false;
+  optionsHidden = true;
 
   private nodes: TDatum<VisualizationNode>[] = [];
   private nodesSubscription: Subscription;
@@ -42,8 +44,10 @@ export class TemporalBargraphComponent implements VisualizationComponent,
   updateSpec(newOptions: TemporalBargraphSpecOptions = {}): void {
     const options = {...this.propertyDefaults, ...this.data.properties, ...newOptions};
     this.userOptions = options;
+    this.data.properties = options;
 
     this.spec = temporalBargraphSpec({
+      hasYOrder: !!this.data?.graphicSymbols['bars']?.graphicVariables?.hasOwnProperty('y-order'),
       nodes: this.nodes || [],
       ...options
     });
@@ -52,7 +56,15 @@ export class TemporalBargraphComponent implements VisualizationComponent,
     if (originalVisualization) {
       originalVisualization.properties = options;
     }
-    this.data.properties = options;
+  }
+
+  togglePanel() {
+    this.optionsHidden = !this.optionsHidden;
+  }
+
+  toggleExpanded() {
+    this.expanded = !this.expanded;
+    this.updateSpec({expanded: this.expanded} as TemporalBargraphSpecOptions);
   }
 
   refreshData(): void {
