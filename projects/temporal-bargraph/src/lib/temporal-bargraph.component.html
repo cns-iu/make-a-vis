@@ -1,2 +1,12 @@
-<ngx-vega [spec]="spec" [options]="options">
+<div class="temporal-settings-container" #settings>
+  <mat-icon class="temporal-settings-icon" [class.active]="!optionsHidden"
+    aria-hidden="false" (click)="togglePanel()">settings</mat-icon>
+
+  <div class="temporal-options-panel" [class.hidden]="optionsHidden">
+    <mat-checkbox (change)="toggleExpanded()" [(checked)]="expanded">Expand Graph</mat-checkbox>
+  </div>
+</div>
+
+
+<ngx-vega [spec]="spec" [options]="options" [class.expanded]="expanded">
 </ngx-vega>
