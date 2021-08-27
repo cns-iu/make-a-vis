@@ -20,8 +20,8 @@ export class NetworkComponent implements VisualizationComponent,
   @Input() data: Visualization;
   @Input() propertyDefaults: Partial<NetworkSpecOptions> = {
     enableZoomPan: false,
-    nodeSize: 100,
-    edgeWidth: 100
+    nodeSizeScalar: 100,
+    edgeWidthScalar: 100
   };
   @Input() nodeDefaults: Partial<VisualizationNode> = {
     shape: 'circle',
