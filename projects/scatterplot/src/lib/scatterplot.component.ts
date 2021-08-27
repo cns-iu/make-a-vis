@@ -32,18 +32,27 @@ export class ScatterplotComponent implements VisualizationComponent,
 
   spec: Spec;
   options: Options = { renderer: 'svg' };
+  userOptions: ScatterplotSpecOptions = {};
 
   private nodes: TDatum<VisualizationNode>[] = [];
   private nodesSubscription: Subscription;
 
   constructor(private dataProcessorService: DataProcessorService) { }
 
-  updateSpec(): void {
+  updateSpec(newOptions: ScatterplotSpecOptions = {}): void {
+    const options = {...this.propertyDefaults, ...this.data.properties, ...newOptions};
+    this.userOptions = options;
+
     this.spec = scatterplotSpec({
-      ...this.propertyDefaults,
-      ...this.data.properties,
-      nodes: this.nodes || []
+      nodes: this.nodes || [],
+      ...options
     });
+
+    const originalVisualization = (this.data as unknown as {original: Visualization}).original;
+    if (originalVisualization) {
+      originalVisualization.properties = options;
+    }
+    this.data.properties = options;
   }
 
   refreshData(): void {

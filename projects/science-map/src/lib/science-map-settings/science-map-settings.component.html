@@ -1,0 +1,8 @@
+<div class="science-map-settings-container" #settings>
+  <mat-icon class="science-map-settings-icon" [class.active]="!optionsHidden"
+    aria-hidden="false" (click)="togglePanel()">settings</mat-icon>
+
+  <div class="science-map-options-panel" [class.hidden]="optionsHidden">
+    <mat-checkbox (change)="zoomChange(!enableZoomPan)" [(checked)]="enableZoomPan">Enable Zoom/Pan</mat-checkbox>
+  </div>
+</div>

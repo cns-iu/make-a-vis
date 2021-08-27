@@ -32,33 +32,27 @@ export class TemporalBargraphComponent implements VisualizationComponent,
 
   spec: Spec;
   options: Options = { renderer: 'svg' };
-  expanded = false;
-
-  optionsHidden = true;
+  userOptions: TemporalBargraphSpecOptions;
 
   private nodes: TDatum<VisualizationNode>[] = [];
   private nodesSubscription: Subscription;
 
   constructor(private dataProcessorService: DataProcessorService) { }
 
-  togglePanel() {
-    this.optionsHidden = !this.optionsHidden;
-  }
-
-  toggleExpanded() {
-    this.expanded = !this.expanded;
-    this.updateSpec({expanded: this.expanded});
-  }
-
-  updateSpec(newOptions?: TemporalBargraphSpecOptions): void {
+  updateSpec(newOptions: TemporalBargraphSpecOptions = {}): void {
     const options = {...this.propertyDefaults, ...this.data.properties, ...newOptions};
+    this.userOptions = options;
 
     this.spec = temporalBargraphSpec({
-      ...options,
       hasYOrder: !!this.data?.graphicSymbols['bars']?.graphicVariables?.hasOwnProperty('y-order'),
-      nodes: this.nodes || []
+      nodes: this.nodes || [],
+      ...options
     });
 
+    const originalVisualization = (this.data as unknown as {original: Visualization}).original;
+    if (originalVisualization) {
+      originalVisualization.properties = options;
+    }
     this.data.properties = options;
   }
 
@@ -74,6 +68,16 @@ export class TemporalBargraphComponent implements VisualizationComponent,
     });
   }
 
+  getExpanded(): boolean {
+    if (!this.userOptions) {
+      return false;
+    }
+    if (!this.userOptions.expanded) {
+      return false;
+    }
+    return this.userOptions.expanded;
+  }
+
   ngAfterViewInit(): void {
     if (this.data?.properties?.nodeDefaults) {
       this.nodeDefaults = this.data.properties.nodeDefaults;
@@ -82,12 +86,15 @@ export class TemporalBargraphComponent implements VisualizationComponent,
       this.refreshData();
     }
   }
+
   ngOnChanges(changes: SimpleChanges): void {
     if ('data' in changes) { this.refreshData(); }
   }
+
   dvlOnGraphicSymbolChange(changes: SimpleChanges): void {
     if ('bars' in changes) { this.refreshData(); }
   }
+
   dvlOnPropertyChange(changes: SimpleChanges): void {
     if ('nodeDefaults' in changes) {
       this.nodeDefaults = this.data.properties.nodeDefaults;
@@ -96,6 +103,7 @@ export class TemporalBargraphComponent implements VisualizationComponent,
       this.updateSpec();
     }
   }
+
   getGraphicSymbolData<T>(slot: string, defaults: { [gvName: string]: any } = {}): Observable<TDatum<T>[]> {
     if (!this.data?.graphicSymbols[slot]?.graphicVariables?.identifier) {
       return of([]);
@@ -103,6 +111,7 @@ export class TemporalBargraphComponent implements VisualizationComponent,
       return new GraphicSymbolData(this.dataProcessorService, this.data, slot, defaults).asDataArray();
     }
   }
+
   ngOnDestroy(): void {
     if (this.nodesSubscription) {
       this.nodesSubscription.unsubscribe();

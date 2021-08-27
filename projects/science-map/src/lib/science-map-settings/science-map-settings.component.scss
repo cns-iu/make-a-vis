@@ -1,0 +1,42 @@
+.science-map-settings-container {
+  position: absolute;
+  top: 0px;
+  z-index: 1;
+
+  .science-map-settings-icon {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    cursor: pointer;
+    color: #1e88ff;
+
+    &.active {
+      color: #757575;
+      opacity: 0.9;
+    }
+  }
+
+  .science-map-options-panel {
+    position: absolute;
+    top: 50px;
+    left: 12px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid transparent;
+    padding: 8px;
+    border-radius: 4px;
+    opacity: 0.9;
+
+    // TODO: put colors in theme
+    border-color: #e0e0e0;
+    background-color: white;
+
+    &.hidden {
+      display: none;
+    }
+  }
+}
+
+mat-form-field {
+  opacity: 1
+}
