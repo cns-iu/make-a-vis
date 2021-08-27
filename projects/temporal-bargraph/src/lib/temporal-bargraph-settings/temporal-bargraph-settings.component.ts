@@ -8,7 +8,7 @@ import { TemporalBargraphSpecOptions } from '../temporal-bargraph.vega';
 })
 export class TemporalSettingsComponent implements OnChanges {
   @Input() options: TemporalBargraphSpecOptions;
-  @Input() enableZoomPan: boolean;
+  @Input() expanded = false;
 
   @Output() optionsChange = new EventEmitter<TemporalBargraphSpecOptions>();
 
@@ -21,15 +21,15 @@ export class TemporalSettingsComponent implements OnChanges {
     this.optionsHidden = !this.optionsHidden;
   }
 
-  zoomChange(value: boolean): void {
-    this.enableZoomPan = value;
-    this.options = {...this.options, enableZoomPan: this.enableZoomPan};
+  toggleExpanded() {
+    this.expanded = !this.expanded;
+    this.options = {...this.options, expanded: this.expanded};
     this.optionsChange.emit(this.options);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if ('options' in changes) {
-      this.enableZoomPan = this.options?.enableZoomPan ?? false;
+      this.expanded = this.options?.expanded ?? false;
     }
   }
 

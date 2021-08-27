@@ -3,6 +3,6 @@
     aria-hidden="false" (click)="togglePanel()">settings</mat-icon>
 
   <div class="temporal-options-panel" [class.hidden]="optionsHidden">
-    <mat-checkbox (change)="zoomChange(!enableZoomPan)" [(checked)]="enableZoomPan">Enable Zoom/Pan</mat-checkbox>
+    <mat-checkbox (change)="toggleExpanded()" [(checked)]="expanded">Expand Graph</mat-checkbox>
   </div>
 </div>
