@@ -9,6 +9,8 @@ import { NetworkSpecOptions } from '../network.vega';
 export class NetworkSettingsComponent implements OnChanges {
   @Input() options: NetworkSpecOptions;
   @Input() enableZoomPan: boolean;
+  @Input() nodeSizeScalar = 100;
+  @Input() edgeWidthScalar = 100;
 
   @Output() optionsChange = new EventEmitter<NetworkSpecOptions>();
 
@@ -24,6 +26,18 @@ export class NetworkSettingsComponent implements OnChanges {
   zoomChange(value: boolean): void {
     this.enableZoomPan = value;
     this.options = {...this.options, enableZoomPan: this.enableZoomPan};
+    this.optionsChange.emit(this.options);
+  }
+
+  nodeSizeChange(value: number): void {
+    this.nodeSizeScalar = value;
+    this.options = {...this.options, nodeSizeScalar: this.nodeSizeScalar};
+    this.optionsChange.emit(this.options);
+  }
+
+  edgeWidthChange(value: number): void {
+    this.edgeWidthScalar = value;
+    this.options = {...this.options, edgeWidthScalar: this.edgeWidthScalar};
     this.optionsChange.emit(this.options);
   }
 

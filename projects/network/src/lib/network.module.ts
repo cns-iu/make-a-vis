@@ -3,6 +3,7 @@ import { NgxVegaModule } from 'ngx-vega';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSliderModule } from '@angular/material/slider';
 
 import { NetworkComponent } from './network.component';
 import { NetworkSettingsComponent } from './network-settings/network-settings.component';
@@ -12,7 +13,8 @@ import { NetworkSettingsComponent } from './network-settings/network-settings.co
   imports: [
     NgxVegaModule,
     MatIconModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSliderModule
   ],
   declarations: [NetworkComponent, NetworkSettingsComponent],
   exports: [NetworkComponent]
