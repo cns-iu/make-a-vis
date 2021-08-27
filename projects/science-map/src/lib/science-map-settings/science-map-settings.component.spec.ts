@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SienceMapSettingsComponent } from './science-map-settings.component';
+import { ScienceMapSettingsComponent } from './science-map-settings.component';
 
 describe('SienceMapSettingsComponent', () => {
-  let component: SienceMapSettingsComponent;
-  let fixture: ComponentFixture<SienceMapSettingsComponent>;
+  let component: ScienceMapSettingsComponent;
+  let fixture: ComponentFixture<ScienceMapSettingsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SienceMapSettingsComponent ]
+      declarations: [ ScienceMapSettingsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SienceMapSettingsComponent);
+    fixture = TestBed.createComponent(ScienceMapSettingsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
