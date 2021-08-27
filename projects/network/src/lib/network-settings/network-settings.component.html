@@ -4,5 +4,19 @@
 
   <div class="network-options-panel" [class.hidden]="optionsHidden">
     <mat-checkbox (change)="zoomChange(!enableZoomPan)" [(checked)]="enableZoomPan">Enable Zoom/Pan</mat-checkbox>
+    <div class="slider">
+      <div class="slider-label-container">
+        <label class="slider-label">Node size:</label>
+        <label class="slider-value">{{nodeSize}}%</label>
+      </div>
+      <mat-slider (change)="nodeSizeChange($event.value)" [value]="nodeSize" [step]="1" [min]="0" [max]="100"></mat-slider>
+    </div>
+    <div class="slider">
+      <div class="slider-label-container">
+        <label class="slider-label">Edge width:</label>
+        <label class="slider-value">{{edgeWidth}}%</label>
+      </div>
+      <mat-slider (change)="edgeWidthChange($event.value)" [value]="edgeWidth" [step]="1" [min]="0" [max]="100"></mat-slider>
+    </div>
   </div>
 </div>

@@ -31,6 +31,16 @@
     border-color: #e0e0e0;
     background-color: white;
 
+    .slider {
+      display: flex;
+      flex-direction: column;
+      padding-top: 1rem;
+
+      .slider-label {
+        padding-right: 1rem;
+      }
+    }
+
     &.hidden {
       display: none;
     }
