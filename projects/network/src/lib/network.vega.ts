@@ -48,7 +48,7 @@ export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec
             as: 'opacity'
           },
           {
-            calculate: `${options.edgeWidthScalar} == 100 ? datum.strokeWidth : datum.strokeWidth * ${options.edgeWidthScalar} / 100`,
+            calculate: options.edgeWidthScalar === 100 ? 'datum.strokeWidth' : `datum.strokeWidth * ${options.edgeWidthScalar / 100}`,
             as: 'scaledStrokeWidth'
           },
         ],
@@ -86,7 +86,7 @@ export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec
             as: 'opacity'
           },
           {
-            calculate: `${options.nodeSizeScalar} == 100 ? datum.areaSize : datum.areaSize * ${options.nodeSizeScalar} / 100`,
+            calculate: options.nodeSizeScalar === 100 ? 'datum.areaSize' : `datum.areaSize * ${options.nodeSizeScalar / 100}`,
             as: 'scaledAreaSize'
           },
         ],
