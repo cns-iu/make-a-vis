@@ -1,0 +1,3 @@
+describe('ConfirmationDialogComponent', () => {
+  // Add tests
+});

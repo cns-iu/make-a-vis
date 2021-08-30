@@ -10,6 +10,7 @@ import { LegendViewModule } from './legend-view/legend-view.module';
 import { LightThemeComponent } from './light-theme/light-theme.component';
 import { MakeAVisComponent } from './make-a-vis.component';
 import { MavSelectionModule } from './mav-selection/mav-selection.module';
+import { ConfirmationDialogModule } from './shared/components/confirmation-dialog/confirmation-dialog.module';
 import { SpinnerOverlayModule } from './shared/components/spinner-overlay/spinner-overlay.module';
 import { LogActions } from './shared/logging/log';
 import { LoggingControlService } from './shared/logging/logging-control.service';
@@ -23,7 +24,7 @@ import { TrackingState } from './shared/store/tracking-state';
   imports: [
     CommonModule,
     DataViewModule, DragDropModule, LegendViewModule, MavSelectionModule, ToolbarModule, VisualizationViewModule,
-    SpinnerOverlayModule,
+    SpinnerOverlayModule, ConfirmationDialogModule,
     StoreModule.forRoot(reducers, {
       runtimeChecks: {
         strictStateImmutability: false,

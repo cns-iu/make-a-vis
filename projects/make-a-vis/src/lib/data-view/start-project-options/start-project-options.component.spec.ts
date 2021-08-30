@@ -1,6 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Provider } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
 
@@ -13,8 +14,8 @@ describe('StartProjectOptionsComponent', () => {
   const mockedSnackBar = {dismiss: () => undefined };
   const mockedProviders: Provider[] = [
     { provide: Store, useValue: mockedStore},
-    { provide: MatSnackBar, useValue: mockedSnackBar}
-
+    { provide: MatSnackBar, useValue: mockedSnackBar},
+    { provide: MatDialog, useValue: {} }
   ];
 
   beforeEach(async () => {
