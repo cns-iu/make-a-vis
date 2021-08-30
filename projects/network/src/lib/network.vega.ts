@@ -9,6 +9,8 @@ export interface NetworkSpecOptions {
   enableTooltip?: boolean;
   enableZoomPan?: boolean;
   showNodeLabels?: boolean;
+  nodeSizeScalar?: number;
+  edgeWidthScalar?: number;
 }
 
 export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec {
@@ -45,6 +47,10 @@ export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec
             calculate: '!isValid(datum.transparency) ? 1 : 1 - datum.transparency',
             as: 'opacity'
           },
+          {
+            calculate: options.edgeWidthScalar === 100 ? 'datum.strokeWidth' : `datum.strokeWidth * ${options.edgeWidthScalar / 100}`,
+            as: 'scaledStrokeWidth'
+          },
         ],
         encoding: {
           x: {field: 'sourceX', type: 'quantitative', axis: null},
@@ -52,7 +58,7 @@ export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec
           x2: {field: 'targetX', type: 'quantitative'},
           y2: {field: 'targetY', type: 'quantitative'},
           color: {field: 'strokeColor', type: 'nominal', scale: null},
-          strokeWidth: {field: 'strokeWidth', type: 'quantitative', scale: null},
+          strokeWidth: {field: 'scaledStrokeWidth', type: 'quantitative', scale: null},
           opacity: {field: 'strokeOpacity', type: 'quantitative', scale: null},
           tooltip: options.enableTooltip !== false ? {field: 'tooltip', type: 'nominal'} : undefined
         }
@@ -79,6 +85,10 @@ export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec
             calculate: '!isValid(datum.transparency) ? 0.75 : 1 - datum.transparency',
             as: 'opacity'
           },
+          {
+            calculate: options.nodeSizeScalar === 100 ? 'datum.areaSize' : `datum.areaSize * ${options.nodeSizeScalar / 100}`,
+            as: 'scaledAreaSize'
+          },
         ],
         encoding: {
           x: {field: 'x', type: 'quantitative', axis: null},
@@ -89,7 +99,7 @@ export function networkSpec(options: NetworkSpecOptions = {}): VisualizationSpec
           stroke: {field: 'strokeColor', type: 'nominal', scale: null},
           strokeWidth: {field: 'strokeWidth', type: 'quantitative', scale: null},
           strokeOpacity: {field: 'strokeOpacity', type: 'quantitative', scale: null},
-          size: {field: 'areaSize', type: 'quantitative', scale: null},
+          size: {field: 'scaledAreaSize', type: 'quantitative', scale: null},
           tooltip: options.enableTooltip !== false ? {field: 'tooltip', type: 'nominal'} : undefined
         }
       },

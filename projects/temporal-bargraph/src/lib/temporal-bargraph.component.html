@@ -1,2 +1,7 @@
-<ngx-vega [spec]="spec" [options]="options">
+<dvl-temporal-settings
+  (optionsChange)="updateSpec($event)"
+  [(options)]="userOptions">
+</dvl-temporal-settings>
+
+<ngx-vega [spec]="spec" [options]="options" [class.expanded]="getExpanded()">
 </ngx-vega>

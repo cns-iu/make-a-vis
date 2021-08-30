@@ -1,0 +1,22 @@
+<div class="network-settings-container" #settings>
+  <mat-icon class="network-settings-icon" [class.active]="!optionsHidden"
+    aria-hidden="false" (click)="togglePanel()">settings</mat-icon>
+
+  <div class="network-options-panel" [class.hidden]="optionsHidden">
+    <mat-checkbox (change)="zoomChange(!enableZoomPan)" [(checked)]="enableZoomPan">Enable Zoom/Pan</mat-checkbox>
+    <div class="slider">
+      <div class="slider-label-container">
+        <label class="slider-label">Re-scale Nodes:</label>
+        <label class="slider-value">{{nodeSizeScalar}}%</label>
+      </div>
+      <mat-slider (change)="nodeSizeChange($event.value)" [value]="nodeSizeScalar" [step]="1" [min]="0" [max]="200"></mat-slider>
+    </div>
+    <div class="slider">
+      <div class="slider-label-container">
+        <label class="slider-label">Edge width:</label>
+        <label class="slider-value">{{edgeWidthScalar}}%</label>
+      </div>
+      <mat-slider (change)="edgeWidthChange($event.value)" [value]="edgeWidthScalar" [step]="1" [min]="0" [max]="200"></mat-slider>
+    </div>
+  </div>
+</div>

@@ -19,7 +19,9 @@ export class NetworkComponent implements VisualizationComponent,
     AfterViewInit, OnChanges, OnDestroy, OnPropertyChange, OnGraphicSymbolChange {
   @Input() data: Visualization;
   @Input() propertyDefaults: Partial<NetworkSpecOptions> = {
-    enableZoomPan: false
+    enableZoomPan: false,
+    nodeSizeScalar: 100,
+    edgeWidthScalar: 100
   };
   @Input() nodeDefaults: Partial<VisualizationNode> = {
     shape: 'circle',
@@ -42,6 +44,7 @@ export class NetworkComponent implements VisualizationComponent,
 
   spec: Spec;
   options: Options = { renderer: 'svg' };
+  userOptions: NetworkSpecOptions;
 
   private nodes: TDatum<VisualizationNode>[] = [];
   private edges: TDatum<VisualizationEdge>[] = [];
@@ -50,14 +53,22 @@ export class NetworkComponent implements VisualizationComponent,
 
   constructor(private dataProcessorService: DataProcessorService) { }
 
-  updateSpec(): void {
+  updateSpec(newOptions: NetworkSpecOptions = {}): void {
+    const options = {...this.propertyDefaults, ...this.data.properties, ...newOptions};
+    this.userOptions = options;
+
     this.spec = networkSpec({
       showNodeLabels: !!this.data?.graphicSymbols['nodes']?.graphicVariables?.label,
-      ...this.propertyDefaults,
-      ...this.data.properties,
       nodes: this.nodes || [],
-      edges: this.edges || []
+      edges: this.edges || [],
+      ...options
     });
+
+    const originalVisualization = (this.data as unknown as {original: Visualization}).original;
+    if (originalVisualization) {
+      originalVisualization.properties = options;
+    }
+    this.data.properties = options;
   }
 
   refreshData(): void {
