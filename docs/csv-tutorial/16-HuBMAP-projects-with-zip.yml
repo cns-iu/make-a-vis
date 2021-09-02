@@ -1,0 +1,1128 @@
+apiVersion: 1
+metadata:
+  dateCreated: 2019-01-07T18:46:29.760Z
+  dateSaved: 2021-08-26T17:49:46.674Z
+dataSources:
+  - id: csvDataSource
+    template: default
+    properties:
+      rawData: csvRawData
+    recordStreams:
+      - id: csvData
+        label: CSV Data
+  - id: activityLog
+    template: activityLog
+    properties:
+      rawData: activityLog
+      keepPreviousActivity: true
+      freezeLogs: false
+    recordStreams:
+      - id: activityLog
+        label: Activity Log
+recordSets:
+  - id: csvData
+    label: CSV Data
+    labelPlural: CSV Data
+    description: 16-HuBMAP-projects-with-zip.MAV.csv
+    defaultRecordStream: csvData
+    dataVariables:
+      - id: FOA
+        label: FOA
+        dataType: text
+        scaleType: '???'
+      - id: Type
+        label: Type
+        dataType: text
+        scaleType: '???'
+      - id: Project Number
+        label: Project Number
+        dataType: text
+        scaleType: '???'
+      - id: Organization Name
+        label: Organization Name
+        dataType: text
+        scaleType: '???'
+      - id: Organization ZIP
+        label: Organization ZIP
+        dataType: text
+        scaleType: '???'
+      - id: Total Budget
+        label: Total Budget
+        dataType: integer
+        scaleType: '???'
+      - id: Random
+        label: Random
+        dataType: text
+        scaleType: '???'
+      - id: identifier
+        label: identifier
+        dataType: integer
+        scaleType: '???'
+      - id: Type_color
+        label: Type_color
+        dataType: text
+        scaleType: '???'
+      - id: Organization Name_color
+        label: Organization Name_color
+        dataType: text
+        scaleType: '???'
+      - id: Total Budget_areaSize
+        label: Total Budget_areaSize
+        dataType: number
+        scaleType: '???'
+      - id: latitude
+        label: latitude
+        dataType: number
+        scaleType: '???'
+      - id: longitude
+        label: longitude
+        dataType: number
+        scaleType: '???'
+graphicVariableMappings:
+  - recordStream: csvData
+    mappings:
+      csvData:
+        FOA:
+          identifier:
+            - id: identifier
+              label: FOA
+              selector: FOA
+          axis:
+            - id: axis
+              label: FOA
+              selector: FOA
+          text:
+            - id: text
+              label: FOA
+              selector: FOA
+          tooltip:
+            - id: tooltip
+              label: FOA
+              selector: FOA
+          label:
+            - id: label
+              label: FOA
+              selector: FOA
+          input:
+            - id: input
+              label: FOA
+              selector: FOA
+          order:
+            - id: order
+              label: FOA
+              selector: FOA
+          FOA:
+            - id: FOA
+              label: FOA
+              selector: FOA
+        Type:
+          identifier:
+            - id: identifier
+              label: Type
+              selector: Type
+          axis:
+            - id: axis
+              label: Type
+              selector: Type
+          text:
+            - id: text
+              label: Type
+              selector: Type
+          tooltip:
+            - id: tooltip
+              label: Type
+              selector: Type
+          label:
+            - id: label
+              label: Type
+              selector: Type
+          input:
+            - id: input
+              label: Type
+              selector: Type
+          order:
+            - id: order
+              label: Type
+              selector: Type
+          Type:
+            - id: Type
+              label: Type
+              selector: Type
+        Project Number:
+          identifier:
+            - id: identifier
+              label: Project Number
+              selector: Project Number
+          axis:
+            - id: axis
+              label: Project Number
+              selector: Project Number
+          text:
+            - id: text
+              label: Project Number
+              selector: Project Number
+          tooltip:
+            - id: tooltip
+              label: Project Number
+              selector: Project Number
+          label:
+            - id: label
+              label: Project Number
+              selector: Project Number
+          input:
+            - id: input
+              label: Project Number
+              selector: Project Number
+          order:
+            - id: order
+              label: Project Number
+              selector: Project Number
+          Project Number:
+            - id: Project Number
+              label: Project Number
+              selector: Project Number
+        Organization Name:
+          identifier:
+            - id: identifier
+              label: Organization Name
+              selector: Organization Name
+          axis:
+            - id: axis
+              label: Organization Name
+              selector: Organization Name
+          text:
+            - id: text
+              label: Organization Name
+              selector: Organization Name
+          tooltip:
+            - id: tooltip
+              label: Organization Name
+              selector: Organization Name
+          label:
+            - id: label
+              label: Organization Name
+              selector: Organization Name
+          input:
+            - id: input
+              label: Organization Name
+              selector: Organization Name
+          order:
+            - id: order
+              label: Organization Name
+              selector: Organization Name
+          Organization Name:
+            - id: Organization Name
+              label: Organization Name
+              selector: Organization Name
+        Organization ZIP:
+          identifier:
+            - id: identifier
+              label: Organization ZIP
+              selector: Organization ZIP
+          axis:
+            - id: axis
+              label: Organization ZIP
+              selector: Organization ZIP
+          text:
+            - id: text
+              label: Organization ZIP
+              selector: Organization ZIP
+          tooltip:
+            - id: tooltip
+              label: Organization ZIP
+              selector: Organization ZIP
+          label:
+            - id: label
+              label: Organization ZIP
+              selector: Organization ZIP
+          input:
+            - id: input
+              label: Organization ZIP
+              selector: Organization ZIP
+          order:
+            - id: order
+              label: Organization ZIP
+              selector: Organization ZIP
+          Organization ZIP:
+            - id: Organization ZIP
+              label: Organization ZIP
+              selector: Organization ZIP
+        Total Budget:
+          identifier:
+            - id: identifier
+              label: Total Budget
+              selector: Total Budget
+          axis:
+            - id: axis
+              label: Total Budget
+              selector: Total Budget
+          text:
+            - id: text
+              label: Total Budget
+              selector: Total Budget
+          tooltip:
+            - id: tooltip
+              label: Total Budget
+              selector: Total Budget
+          label:
+            - id: label
+              label: Total Budget
+              selector: Total Budget
+          input:
+            - id: input
+              label: Total Budget
+              selector: Total Budget
+          order:
+            - id: order
+              label: Total Budget
+              selector: Total Budget
+          areaSize:
+            - id: areaSize
+              label: Total Budget
+              selector: Total Budget
+          strokeWidth:
+            - id: strokeWidth
+              label: Total Budget
+              selector: Total Budget
+          fontSize:
+            - id: fontSize
+              label: Total Budget
+              selector: Total Budget
+          Total Budget:
+            - id: Total Budget
+              label: Total Budget
+              selector: Total Budget
+        Random:
+          identifier:
+            - id: identifier
+              label: Random
+              selector: Random
+          axis:
+            - id: axis
+              label: Random
+              selector: Random
+          text:
+            - id: text
+              label: Random
+              selector: Random
+          tooltip:
+            - id: tooltip
+              label: Random
+              selector: Random
+          label:
+            - id: label
+              label: Random
+              selector: Random
+          input:
+            - id: input
+              label: Random
+              selector: Random
+          order:
+            - id: order
+              label: Random
+              selector: Random
+          Random:
+            - id: Random
+              label: Random
+              selector: Random
+        identifier:
+          identifier:
+            - id: identifier
+              label: identifier
+              selector: identifier
+          axis:
+            - id: axis
+              label: identifier
+              selector: identifier
+          text:
+            - id: text
+              label: identifier
+              selector: identifier
+          tooltip:
+            - id: tooltip
+              label: identifier
+              selector: identifier
+          label:
+            - id: label
+              label: identifier
+              selector: identifier
+          input:
+            - id: input
+              label: identifier
+              selector: identifier
+          order:
+            - id: order
+              label: identifier
+              selector: identifier
+          areaSize:
+            - id: areaSize
+              label: identifier
+              selector: identifier
+          strokeWidth:
+            - id: strokeWidth
+              label: identifier
+              selector: identifier
+          fontSize:
+            - id: fontSize
+              label: identifier
+              selector: identifier
+        Type_color:
+          identifier:
+            - id: identifier
+              label: Type_color
+              selector: Type_color
+          axis:
+            - id: axis
+              label: Type_color
+              selector: Type_color
+          text:
+            - id: text
+              label: Type_color
+              selector: Type_color
+          tooltip:
+            - id: tooltip
+              label: Type_color
+              selector: Type_color
+          label:
+            - id: label
+              label: Type_color
+              selector: Type_color
+          input:
+            - id: input
+              label: Type_color
+              selector: Type_color
+          order:
+            - id: order
+              label: Type_color
+              selector: Type_color
+          color:
+            - id: color
+              label: Type_color
+              selector: Type_color
+          strokeColor:
+            - id: strokeColor
+              label: Type_color
+              selector: Type_color
+          Type_color:
+            - id: Type_color
+              label: Type_color
+              selector: Type_color
+        Organization Name_color:
+          identifier:
+            - id: identifier
+              label: Organization Name_color
+              selector: Organization Name_color
+          axis:
+            - id: axis
+              label: Organization Name_color
+              selector: Organization Name_color
+          text:
+            - id: text
+              label: Organization Name_color
+              selector: Organization Name_color
+          tooltip:
+            - id: tooltip
+              label: Organization Name_color
+              selector: Organization Name_color
+          label:
+            - id: label
+              label: Organization Name_color
+              selector: Organization Name_color
+          input:
+            - id: input
+              label: Organization Name_color
+              selector: Organization Name_color
+          order:
+            - id: order
+              label: Organization Name_color
+              selector: Organization Name_color
+          color:
+            - id: color
+              label: Organization Name_color
+              selector: Organization Name_color
+          strokeColor:
+            - id: strokeColor
+              label: Organization Name_color
+              selector: Organization Name_color
+          Organization Name_color:
+            - id: Organization Name_color
+              label: Organization Name_color
+              selector: Organization Name_color
+        Total Budget_areaSize:
+          identifier:
+            - id: identifier
+              label: Total Budget_areaSize
+              selector: Total Budget_areaSize
+          axis:
+            - id: axis
+              label: Total Budget_areaSize
+              selector: Total Budget_areaSize
+          text:
+            - id: text
+              label: Total Budget_areaSize
+              selector: Total Budget_areaSize
+          tooltip:
+            - id: tooltip
+              label: Total Budget_areaSize
+              selector: Total Budget_areaSize
+          label:
+            - id: label
+              label: Total Budget_areaSize
+              selector: Total Budget_areaSize
+          input:
+            - id: input
+              label: Total Budget_areaSize
+              selector: Total Budget_areaSize
+          order:
+            - id: order
+              label: Total Budget_areaSize
+              selector: Total Budget_areaSize
+          areaSize:
+            - id: areaSize
+              label: Total Budget_areaSize
+              selector: Total Budget_areaSize
+          strokeWidth:
+            - id: strokeWidth
+              label: Total Budget_areaSize
+              selector: Total Budget_areaSize
+          fontSize:
+            - id: fontSize
+              label: Total Budget_areaSize
+              selector: Total Budget_areaSize
+          Total Budget_areaSize:
+            - id: Total Budget_areaSize
+              label: Total Budget_areaSize
+              selector: Total Budget_areaSize
+        latitude:
+          identifier:
+            - id: identifier
+              label: latitude
+              selector: latitude
+          axis:
+            - id: axis
+              label: latitude
+              selector: latitude
+          text:
+            - id: text
+              label: latitude
+              selector: latitude
+          tooltip:
+            - id: tooltip
+              label: latitude
+              selector: latitude
+          label:
+            - id: label
+              label: latitude
+              selector: latitude
+          input:
+            - id: input
+              label: latitude
+              selector: latitude
+          order:
+            - id: order
+              label: latitude
+              selector: latitude
+          areaSize:
+            - id: areaSize
+              label: latitude
+              selector: latitude
+          strokeWidth:
+            - id: strokeWidth
+              label: latitude
+              selector: latitude
+          fontSize:
+            - id: fontSize
+              label: latitude
+              selector: latitude
+          latitude:
+            - id: latitude
+              label: latitude
+              selector: latitude
+        longitude:
+          identifier:
+            - id: identifier
+              label: longitude
+              selector: longitude
+          axis:
+            - id: axis
+              label: longitude
+              selector: longitude
+          text:
+            - id: text
+              label: longitude
+              selector: longitude
+          tooltip:
+            - id: tooltip
+              label: longitude
+              selector: longitude
+          label:
+            - id: label
+              label: longitude
+              selector: longitude
+          input:
+            - id: input
+              label: longitude
+              selector: longitude
+          order:
+            - id: order
+              label: longitude
+              selector: longitude
+          areaSize:
+            - id: areaSize
+              label: longitude
+              selector: longitude
+          strokeWidth:
+            - id: strokeWidth
+              label: longitude
+              selector: longitude
+          fontSize:
+            - id: fontSize
+              label: longitude
+              selector: longitude
+          longitude:
+            - id: longitude
+              label: longitude
+              selector: longitude
+graphicSymbolMappings:
+  - id: csvDataPoints
+    type: area
+    recordStream: csvData
+    graphicVariables: {}
+  - id: nodes-1350
+    type: area
+    recordStream: csvData
+    graphicVariables:
+      identifier:
+        recordSet: csvData
+        dataVariable: Project Number
+        graphicVariableType: identifier
+        graphicVariableId: identifier
+      latitude:
+        recordSet: csvData
+        dataVariable: latitude
+        graphicVariableType: latitude
+        graphicVariableId: latitude
+      longitude:
+        recordSet: csvData
+        dataVariable: longitude
+        graphicVariableType: longitude
+        graphicVariableId: longitude
+      color:
+        recordSet: csvData
+        dataVariable: Type_color
+        graphicVariableType: color
+        graphicVariableId: color
+      areaSize:
+        recordSet: csvData
+        dataVariable: Total Budget_areaSize
+        graphicVariableType: areaSize
+        graphicVariableId: areaSize
+      label:
+        recordSet: csvData
+        dataVariable: Type
+        graphicVariableType: text
+        graphicVariableId: text
+      tooltip:
+        recordSet: csvData
+        dataVariable: Organization Name
+        graphicVariableType: text
+        graphicVariableId: text
+visualizations:
+  - id: visualization-1295
+    template: geomap
+    properties:
+      basemapDefaultColor: white
+      basemapDefaultStrokeColor: '#bebebe'
+      basemapDefaultStrokeWidth: 0.85
+      basemap: usa
+      projection: albersUsa
+      enableZoomPan: false
+      showNodeLabels: true
+    graphicSymbols:
+      nodes: nodes-1350
+rawData:
+  - id: csvRawData
+    template: json
+    data:
+      csvData:
+        - FOA: RFA-RM-17-025
+          Type: TC
+          Project Number: 1UG3HL145593-01
+          Organization Name: PURDUE UNIVERSITY
+          Organization ZIP: 47907-2114
+          Total Budget: 375000
+          Random: null
+          identifier: 1
+          Type_color: '#42a5f5'
+          Organization Name_color: '#a6cee3'
+          Total Budget_areaSize: 244.230769230769
+          latitude: 40.4249
+          longitude: -86.9162
+        - FOA: RFA-RM-17-025
+          Type: TC
+          Project Number: 1UG3HL145600-01
+          Organization Name: HARVARD UNIVERSITY
+          Organization ZIP: 02138-5319
+          Total Budget: 420000
+          Random: null
+          identifier: 2
+          Type_color: '#42a5f5'
+          Organization Name_color: '#1f78b4'
+          Total Budget_areaSize: 261.538461538462
+          latitude: 42.377
+          longitude: -71.1256
+        - FOA: RFA-RM-17-025
+          Type: TC
+          Project Number: 1UG3HL145609-01
+          Organization Name: CALIFORNIA INSTITUTE OF TECHNOLOGY
+          Organization ZIP: 91125-0001
+          Total Budget: 375000
+          Random: null
+          identifier: 3
+          Type_color: '#42a5f5'
+          Organization Name_color: '#b2df8a'
+          Total Budget_areaSize: 244.230769230769
+          latitude: 34.1478
+          longitude: -118.1445
+        - FOA: RFA-RM-17-025
+          Type: TC
+          Project Number: 1UG3HL145623-01
+          Organization Name: STANFORD UNIVERSITY
+          Organization ZIP: 94304-1222
+          Total Budget: 380000
+          Random: null
+          identifier: 4
+          Type_color: '#42a5f5'
+          Organization Name_color: '#33a02c'
+          Total Budget_areaSize: 246.153846153846
+          latitude: 37.4334
+          longitude: -122.1842
+        - FOA: RFA-RM-17-027
+          Type: TMC
+          Project Number: 1U54AI142766-01
+          Organization Name: UNIVERSITY OF FLORIDA
+          Organization ZIP: 32611-5500
+          Total Budget: 1000000
+          Random: null
+          identifier: 5
+          Type_color: '#ffc400'
+          Organization Name_color: '#fb9a99'
+          Total Budget_areaSize: 484.615384615385
+          latitude: 29.6813
+          longitude: -82.3539
+        - FOA: RFA-RM-17-027
+          Type: TMC
+          Project Number: 1U54DK120058-01
+          Organization Name: VANDERBILT UNIVERSITY
+          Organization ZIP: 37240-7749
+          Total Budget: 450000
+          Random: null
+          identifier: 6
+          Type_color: '#ffc400'
+          Organization Name_color: '#e31a1c'
+          Total Budget_areaSize: 273.076923076923
+          latitude: 36.1866
+          longitude: -86.7852
+        - FOA: RFA-RM-17-027
+          Type: TMC
+          Project Number: 1U54HG010426-01
+          Organization Name: STANFORD UNIVERSITY
+          Organization ZIP: 94304-1222
+          Total Budget: 1100000
+          Random: 2x
+          identifier: 7
+          Type_color: '#ffc400'
+          Organization Name_color: '#33a02c'
+          Total Budget_areaSize: 523.076923076923
+          latitude: 37.4334
+          longitude: -122.1842
+        - FOA: RFA-RM-17-027
+          Type: TMC
+          Project Number: 1U54HL145594-01
+          Organization Name: VANDERBILT UNIVERSITY
+          Organization ZIP: 37240-7749
+          Total Budget: 449999
+          Random: 2x
+          identifier: 8
+          Type_color: '#ffc400'
+          Organization Name_color: '#e31a1c'
+          Total Budget_areaSize: 273.076538461538
+          latitude: 36.1866
+          longitude: -86.7852
+        - FOA: RFA-RM-17-027
+          Type: TMC
+          Project Number: 1U54HL145608-01
+          Organization Name: UNIVERSITY OF CALIFORNIA, SAN DIEGO
+          Organization ZIP: 92093-0934
+          Total Budget: 1300000
+          Random: null
+          identifier: 9
+          Type_color: '#ffc400'
+          Organization Name_color: '#cab2d6'
+          Total Budget_areaSize: 600
+          latitude: 32.8473
+          longitude: -117.2742
+        - FOA: RFA-RM-17-027
+          Type: TMC
+          Project Number: 1U54HL145611-01
+          Organization Name: CALIFORNIA INSTITUTE OF TECHNOLOGY
+          Organization ZIP: 91125-0001
+          Total Budget: 1132748
+          Random: null
+          identifier: 10
+          Type_color: '#ffc400'
+          Organization Name_color: '#6a3d9a'
+          Total Budget_areaSize: 535.672307692308
+          latitude: 34.1478
+          longitude: -118.1445
+        - FOA: RFA-RM-18-001
+          Type: HIVE
+          Project Number: 1OT2OD026663-01
+          Organization Name: UNIVERSITY OF SOUTH DAKOTA
+          Organization ZIP: 57069-2307
+          Total Budget: 570152
+          Random: null
+          identifier: 11
+          Type_color: '#c51162'
+          Organization Name_color: '#ffff99'
+          Total Budget_areaSize: 319.289230769231
+          latitude: 42.7951
+          longitude: -96.9258
+        - FOA: RFA-RM-18-001
+          Type: HIVE
+          Project Number: 1OT2OD026671-01
+          Organization Name: INDIANA UNIVERSITY BLOOMINGTON
+          Organization ZIP: 47401-3654
+          Total Budget: 330000
+          Random: null
+          identifier: 12
+          Type_color: '#c51162'
+          Organization Name_color: '#b15928'
+          Total Budget_areaSize: 226.923076923077
+          latitude: 39.1401
+          longitude: -86.5083
+        - FOA: RFA-RM-18-001
+          Type: HIVE
+          Project Number: 1OT2OD026673-01
+          Organization Name: NEW YORK GENOME CENTER
+          Organization ZIP: 10013-1941
+          Total Budget: 348938
+          Random: null
+          identifier: 13
+          Type_color: '#c51162'
+          Organization Name_color: '#fdbf6f'
+          Total Budget_areaSize: 234.206923076923
+          latitude: 40.7185
+          longitude: -74.0025
+        - FOA: RFA-RM-18-001
+          Type: HIVE
+          Project Number: 1OT2OD026675-01
+          Organization Name: CARNEGIE-MELLON UNIVERSITY
+          Organization ZIP: 15213-3815
+          Total Budget: 596978
+          Random: null
+          identifier: 14
+          Type_color: '#c51162'
+          Organization Name_color: '#ff7f00'
+          Total Budget_areaSize: 329.606923076923
+          latitude: 40.444
+          longitude: -79.9552
+        - FOA: RFA-RM-18-001
+          Type: HIVE
+          Project Number: 1OT2OD026677-01
+          Organization Name: HARVARD MEDICAL SCHOOL
+          Organization ZIP: 02115-6027
+          Total Budget: 299929
+          Random: null
+          identifier: 15
+          Type_color: '#c51162'
+          Organization Name_color: '#bdbdbd'
+          Total Budget_areaSize: 215.357307692308
+          latitude: 42.3427
+          longitude: -71.0922
+        - FOA: RFA-RM-18-001
+          Type: HIVE
+          Project Number: 1OT2OD026682-01
+          Organization Name: CARNEGIE-MELLON UNIVERSITY
+          Organization ZIP: 15213-3815
+          Total Budget: 349996
+          Random: null
+          identifier: 16
+          Type_color: '#c51162'
+          Organization Name_color: '#000000'
+          Total Budget_areaSize: 234.613846153846
+          latitude: 40.444
+          longitude: -79.9552
+  - id: activityLog
+    template: activityLog
+    data:
+      activityLog:
+        - logid: 1
+          actionName: '[UI] Project Loaded'
+          date: 1/7/2019, 1:46:29 PM
+          time: 1546886789799
+          loadingProject: false
+          fileName: 16-HuBMAP-projects-with-zip.MAV.csv
+          fileExtension: csv
+        - logid: 2
+          actionName: '[UI] Set Active Visualization'
+          date: 1/7/2019, 1:46:29 PM
+          time: 1546886789800
+          visualizationIndex: 0
+          visualization:
+            id: SG01
+            template: scattergraph
+            properties:
+              enableTooltip: true
+              gridlines: true
+              showAxisLabels: false
+              showAxisIndicators: false
+            graphicSymbols:
+              points: csvDataPoints
+        - logid: 3
+          actionName: '[UI] Add New Visualization'
+          date: 1/7/2019, 1:46:37 PM
+          time: 1546886797207
+          visualizationIndex: 1
+          visualization:
+            id: visualization-1295
+            template: geomap
+            properties: {}
+            graphicSymbols: {}
+        - logid: 4
+          actionName: '[UI] Set Active Visualization'
+          date: 1/7/2019, 1:46:37 PM
+          time: 1546886797207
+          visualizationIndex: 1
+          visualization:
+            id: visualization-1295
+            template: geomap
+            properties: {}
+            graphicSymbols: {}
+        - logid: 5
+          actionName: '[UI] Set Record Stream'
+          date: 1/7/2019, 1:46:40 PM
+          time: 1546886800400
+          slot: nodes
+          symbol:
+            id: nodes-1350
+            type: area
+            recordStream: csvData
+            graphicVariables: {}
+          visualization:
+            id: visualization-1295
+            template: geomap
+            properties: {}
+            graphicSymbols:
+              nodes: nodes-1350
+        - logid: 6
+          actionName: '[UI] Set Graphic Variable'
+          date: 1/7/2019, 1:46:51 PM
+          time: 1546886811354
+          id: identifier
+          slot: nodes
+          variable:
+            id: identifier
+            label: Project Number
+            type: identifier
+            selector: Project Number
+            recordStream: csvData
+            recordSet: csvData
+            dataVariable: Project Number
+          visualization:
+            id: visualization-1295
+            template: geomap
+            properties: {}
+            graphicSymbols:
+              nodes: nodes-1350
+        - logid: 7
+          actionName: '[UI] Set Graphic Variable'
+          date: 1/7/2019, 1:46:58 PM
+          time: 1546886818992
+          id: latitude
+          slot: nodes
+          variable:
+            id: latitude
+            label: latitude
+            type: latitude
+            selector: latitude
+            recordStream: csvData
+            recordSet: csvData
+            dataVariable: latitude
+          visualization:
+            id: visualization-1295
+            template: geomap
+            properties: {}
+            graphicSymbols:
+              nodes: nodes-1350
+        - logid: 8
+          actionName: '[UI] Set Graphic Variable'
+          date: 1/7/2019, 1:47:00 PM
+          time: 1546886820833
+          id: longitude
+          slot: nodes
+          variable:
+            id: longitude
+            label: longitude
+            type: longitude
+            selector: longitude
+            recordStream: csvData
+            recordSet: csvData
+            dataVariable: longitude
+          visualization:
+            id: visualization-1295
+            template: geomap
+            properties: {}
+            graphicSymbols:
+              nodes: nodes-1350
+        - logid: 9
+          actionName: '[UI] Set Graphic Variable'
+          date: 1/7/2019, 1:47:06 PM
+          time: 1546886826683
+          id: color
+          slot: nodes
+          variable:
+            id: color
+            label: Type_color
+            type: color
+            selector: Type_color
+            recordStream: csvData
+            recordSet: csvData
+            dataVariable: Type_color
+          visualization:
+            id: visualization-1295
+            template: geomap
+            properties: {}
+            graphicSymbols:
+              nodes: nodes-1350
+        - logid: 10
+          actionName: '[UI] Set Graphic Variable'
+          date: 1/7/2019, 1:47:10 PM
+          time: 1546886830273
+          id: areaSize
+          slot: nodes
+          variable:
+            id: areaSize
+            label: Total Budget_areaSize
+            type: areaSize
+            selector: Total Budget_areaSize
+            recordStream: csvData
+            recordSet: csvData
+            dataVariable: Total Budget_areaSize
+          visualization:
+            id: visualization-1295
+            template: geomap
+            properties: {}
+            graphicSymbols:
+              nodes: nodes-1350
+        - logid: 11
+          actionName: '[UI] Set Graphic Variable'
+          date: 1/7/2019, 1:47:20 PM
+          time: 1546886840333
+          id: label
+          slot: nodes
+          variable:
+            id: text
+            label: Type
+            type: text
+            selector: Type
+            recordStream: csvData
+            recordSet: csvData
+            dataVariable: Type
+          visualization:
+            id: visualization-1295
+            template: geomap
+            properties: {}
+            graphicSymbols:
+              nodes: nodes-1350
+        - logid: 12
+          actionName: '[UI] Set Graphic Variable'
+          date: 1/7/2019, 1:47:27 PM
+          time: 1546886847503
+          id: tooltip
+          slot: nodes
+          variable:
+            id: text
+            label: Organization Name
+            type: text
+            selector: Organization Name
+            recordStream: csvData
+            recordSet: csvData
+            dataVariable: Organization Name
+          visualization:
+            id: visualization-1295
+            template: geomap
+            properties: {}
+            graphicSymbols:
+              nodes: nodes-1350
+        - logid: 13
+          actionName: '[UI] Create Share URL'
+          date: 1/7/2019, 1:47:48 PM
+          time: 1546886868051
+        - logid: 14
+          actionName: '[UI] Create Share URL Completed'
+          date: 1/7/2019, 1:47:48 PM
+          time: 1546886868196
+          shareUrl: https://make-a-vis.netlify.com/?share=58da4e3c6c9a398
+          creatingShareUrl: false
+        - logid: 15
+          actionName: '[UI] Successfully Copied To Clipboard'
+          date: 1/7/2019, 1:47:49 PM
+          time: 1546886869467
+          content: https://make-a-vis.netlify.com/?share=58da4e3c6c9a398
+        - logid: 16
+          actionName: '[UI] Save Project'
+          date: 1/7/2019, 1:48:31 PM
+          time: 1546886911301
+        - actionName: '[UI] Project Loaded'
+          date: 8/26/2021, 1:49:33 PM
+          time: 1630000173386
+          logid: 17
+          loadingProject: false
+          fileName: 16-HuBMAP-projects-with-zip.yml
+          fileExtension: yml
+        - actionName: '[UI] Set Active Visualization'
+          date: 8/26/2021, 1:49:33 PM
+          time: 1630000173389
+          logid: 18
+          visualizationIndex: 0
+          visualization:
+            id: SG01
+            template: scattergraph
+            properties:
+              enableTooltip: true
+              gridlines: true
+              showAxisLabels: false
+              showAxisIndicators: false
+            graphicSymbols:
+              points: csvDataPoints
+        - actionName: '[UI] Remove Visualization'
+          date: 8/26/2021, 1:49:36 PM
+          time: 1630000176416
+          logid: 19
+          visualizationIndex: 0
+          visualization:
+            id: SG01
+            template: scattergraph
+            properties:
+              enableTooltip: true
+              gridlines: true
+              showAxisLabels: false
+              showAxisIndicators: false
+            graphicSymbols:
+              points: csvDataPoints
+        - actionName: '[UI] Set Active Visualization'
+          date: 8/26/2021, 1:49:36 PM
+          time: 1630000176419
+          logid: 20
+          visualizationIndex: 0
+          visualization:
+            id: visualization-1295
+            template: geomap
+            properties: {}
+            graphicSymbols:
+              nodes: nodes-1350
+        - actionName: '[UI] Save Project'
+          date: 8/26/2021, 1:49:46 PM
+          time: 1630000186676
+          logid: 21
