@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -38,7 +39,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>AppUpdaterService</li>
+  <li >AppUpdaterService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,6 +63,7 @@
 
 
 
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -75,10 +77,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#checkUpdateInterval">checkUpdateInterval</a>
+                                <a href="#checkUpdateInterval" >checkUpdateInterval</a>
                             </li>
                             <li>
-                                <a href="#isSnackbarloaded">isSnackbarloaded</a>
+                                <a href="#isSnackbarloaded" >isSnackbarloaded</a>
                             </li>
                         </ul>
                     </td>
@@ -93,19 +95,19 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#askToUpdate">askToUpdate</a>
+                                <a href="#askToUpdate" >askToUpdate</a>
                             </li>
                             <li>
-                                <a href="#checkForUpdates">checkForUpdates</a>
+                                <a href="#checkForUpdates" >checkForUpdates</a>
                             </li>
                             <li>
-                                <a href="#closeSnackbar">closeSnackbar</a>
+                                <a href="#closeSnackbar" >closeSnackbar</a>
                             </li>
                             <li>
-                                <a href="#openSnackBar">openSnackBar</a>
+                                <a href="#openSnackBar" >openSnackBar</a>
                             </li>
                             <li>
-                                <a href="#updateApp">updateApp</a>
+                                <a href="#updateApp" >updateApp</a>
                             </li>
                         </ul>
                     </td>
@@ -125,7 +127,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(appRef: <a href="https://angular.io/api/core/ApplicationRef" target="_blank">ApplicationRef</a>, updates: <a href="../undefineds/date.html">SwUpdate</a>, snackbar: MatSnackBar)</code>
+<code>constructor(appRef: <a href="https://angular.io/api/core/ApplicationRef" target="_blank">ApplicationRef</a>, updates: <a href="../undefineds/date.html" target="_self">SwUpdate</a>, snackbar: MatSnackBar)</code>
                     </td>
                 </tr>
                         <tr>
@@ -203,9 +205,7 @@
                 <td class="col-md-4">
                     <a name="askToUpdate"></a>
                     <span class="name">
-                        <b>
-                            askToUpdate
-                        </b>
+                        <span ><b>askToUpdate</b></span>
                         <a href="#askToUpdate"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -245,9 +245,7 @@ When an update is available, it displays a snackbar notifying the user about the
                 <td class="col-md-4">
                     <a name="checkForUpdates"></a>
                     <span class="name">
-                        <b>
-                            checkForUpdates
-                        </b>
+                        <span ><b>checkForUpdates</b></span>
                         <a href="#checkForUpdates"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -288,9 +286,7 @@ Subsription calls the checkForUpdates function to poll if there&#39;s an update 
                 <td class="col-md-4">
                     <a name="closeSnackbar"></a>
                     <span class="name">
-                        <b>
-                            closeSnackbar
-                        </b>
+                        <span ><b>closeSnackbar</b></span>
                         <a href="#closeSnackbar"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -329,9 +325,7 @@ Subsription calls the checkForUpdates function to poll if there&#39;s an update 
                 <td class="col-md-4">
                     <a name="openSnackBar"></a>
                     <span class="name">
-                        <b>
-                            openSnackBar
-                        </b>
+                        <span ><b>openSnackBar</b></span>
                         <a href="#openSnackBar"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -372,9 +366,7 @@ When &#39;REFRESH&#39; button is pressed, updateApp function is called.</p>
                 <td class="col-md-4">
                     <a name="updateApp"></a>
                     <span class="name">
-                        <b>
-                            updateApp
-                        </b>
+                        <span ><b>updateApp</b></span>
                         <a href="#updateApp"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -410,61 +402,59 @@ When &#39;REFRESH&#39; button is pressed, updateApp function is called.</p>
 </section>
             <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkUpdateInterval"></a>
+                    <span class="name">
+                        <span ><b>checkUpdateInterval</b></span>
+                        <a href="#checkUpdateInterval"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="checkUpdateInterval"></a>
-                        <span class="name">
-                            <b>
-                            checkUpdateInterval</b>
-                            <a href="#checkUpdateInterval"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>1000 * 60 * 60 * 2</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>1000 * 60 * 60 * 2</code>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/services/app-updater.service.ts:14</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/services/app-updater.service.ts:14</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSnackbarloaded"></a>
+                    <span class="name">
+                        <span ><b>isSnackbarloaded</b></span>
+                        <a href="#isSnackbarloaded"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="isSnackbarloaded"></a>
-                        <span class="name">
-                            <b>
-                            isSnackbarloaded</b>
-                            <a href="#isSnackbarloaded"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>false</code>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/services/app-updater.service.ts:13</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/services/app-updater.service.ts:13</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -584,9 +574,9 @@ export class AppUpdaterService {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

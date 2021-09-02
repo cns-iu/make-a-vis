@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -38,7 +39,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>GeomapDataService</li>
+  <li >GeomapDataService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,6 +63,7 @@
 
 
 
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -76,11 +78,11 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#_countries">_countries</a>
+                                <a href="#_countries" >_countries</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#_states">_states</a>
+                                <a href="#_states" >_states</a>
                             </li>
                         </ul>
                     </td>
@@ -95,18 +97,18 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#getCountries">getCountries</a>
+                                <a href="#getCountries" >getCountries</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getCountry">getCountry</a>
+                                <a href="#getCountry" >getCountry</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getState">getState</a>
+                                <a href="#getState" >getState</a>
                             </li>
                             <li>
-                                <a href="#getStates">getStates</a>
+                                <a href="#getStates" >getStates</a>
                             </li>
                         </ul>
                     </td>
@@ -125,10 +127,10 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                    <a href="#countries">countries</a>
+                                    <a href="#countries" >countries</a>
                                 </li>
                                 <li>
-                                    <a href="#states">states</a>
+                                    <a href="#states" >states</a>
                                 </li>
                             </ul>
                         </td>
@@ -149,9 +151,7 @@
                 <td class="col-md-4">
                     <a name="getCountries"></a>
                     <span class="name">
-                        <b>
-                            getCountries
-                        </b>
+                        <span ><b>getCountries</b></span>
                         <a href="#getCountries"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -188,10 +188,8 @@
                 <td class="col-md-4">
                     <a name="getCountry"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            getCountry
-                        </b>
+                        <span class="modifier">Async</span>
+                        <span ><b>getCountry</b></span>
                         <a href="#getCountry"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -260,10 +258,8 @@
                 <td class="col-md-4">
                     <a name="getState"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            getState
-                        </b>
+                        <span class="modifier">Async</span>
+                        <span ><b>getState</b></span>
                         <a href="#getState"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -332,9 +328,7 @@
                 <td class="col-md-4">
                     <a name="getStates"></a>
                     <span class="name">
-                        <b>
-                            getStates
-                        </b>
+                        <span ><b>getStates</b></span>
                         <a href="#getStates"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -368,65 +362,63 @@
 </section>
             <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_countries"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_countries</b></span>
+                        <a href="#_countries"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="_countries"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            _countries</b>
-                            <a href="#_countries"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>Promise&lt;Feature[]&gt;</code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Promise&lt;Feature[]&gt;</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">projects/geomap/src/lib/geomap-data.service.ts:11</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">projects/geomap/src/lib/geomap-data.service.ts:11</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_states"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_states</b></span>
+                        <a href="#_states"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="_states"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            _states</b>
-                            <a href="#_states"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>Promise&lt;Feature[]&gt;</code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Promise&lt;Feature[]&gt;</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/geomap/src/lib/geomap-data.service.ts:12</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/geomap/src/lib/geomap-data.service.ts:12</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
             <section>
@@ -576,9 +568,9 @@ export class GeomapDataService {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

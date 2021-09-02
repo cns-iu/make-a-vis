@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>DataVariableDropzoneComponent</li>
+  <li
+  >
+  DataVariableDropzoneComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -63,6 +66,7 @@
 <p class="comment">
     <code>projects/make-a-vis/src/lib/legend-view/data-variable-dropzone/data-variable-dropzone.component.ts</code>
 </p>
+
 
 
 
@@ -125,14 +129,14 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#_graphicVariableChange">_graphicVariableChange</a>
+                                <a href="#_graphicVariableChange" >_graphicVariableChange</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#availableGraphicVariables">availableGraphicVariables</a>
+                                <a href="#availableGraphicVariables" >availableGraphicVariables</a>
                             </li>
                             <li>
-                                <a href="#selectionClass">selectionClass</a>
+                                <a href="#selectionClass" >selectionClass</a>
                             </li>
                         </ul>
                     </td>
@@ -147,13 +151,19 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#dataVariableDropped">dataVariableDropped</a>
+                                <a href="#dataVariableDropped" >dataVariableDropped</a>
                             </li>
                             <li>
-                                <a href="#mappableGraphicVariables">mappableGraphicVariables</a>
+                                <a href="#mappableGraphicVariables" >mappableGraphicVariables</a>
                             </li>
                             <li>
-                                <a href="#onDragDropEvent">onDragDropEvent</a>
+                                <a href="#onDragDropEvent" >onDragDropEvent</a>
+                            </li>
+                            <li>
+                                <a href="#onMouseOut" >onMouseOut</a>
+                            </li>
+                            <li>
+                                <a href="#onMouseOver" >onMouseOver</a>
                             </li>
                         </ul>
                     </td>
@@ -168,10 +178,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#graphicVariableOption">graphicVariableOption</a>
+                                <a href="#graphicVariableOption" >graphicVariableOption</a>
                             </li>
                             <li>
-                                <a href="#recordStream">recordStream</a>
+                                <a href="#recordStream" >recordStream</a>
                             </li>
                         </ul>
                     </td>
@@ -186,7 +196,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#graphicVariableChange">graphicVariableChange</a>
+                                <a href="#graphicVariableChange" >graphicVariableChange</a>
                             </li>
                         </ul>
                     </td>
@@ -202,10 +212,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#mouseout">mouseout</a>
+                                <a href="#mouseout" >mouseout</a>
                             </li>
                             <li>
-                                <a href="#mouseover">mouseover</a>
+                                <a href="#mouseover" >mouseover</a>
                             </li>
                         </ul>
                     </td>
@@ -220,7 +230,7 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                    <a href="#acceptsDrop">acceptsDrop</a>
+                                    <a href="#acceptsDrop" >acceptsDrop</a>
                                 </li>
                             </ul>
                         </td>
@@ -235,7 +245,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(store: <a href="../interfaces/ApplicationState.html">Store<ApplicationState></a>, hoverService: <a href="../injectables/DataVariableHoverService.html">DataVariableHoverService</a>)</code>
+<code>constructor(store: <a href="../interfaces/ApplicationState.html" target="_self">Store&lt;ApplicationState&gt;</a>, hoverService: <a href="../injectables/DataVariableHoverService.html" target="_self">DataVariableHoverService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -367,9 +377,7 @@
                 <td class="col-md-4">
                     <a name="mouseout"></a>
                     <span class="name">
-                        <b>
-                            mouseout
-                        </b>
+                        <span ><b>mouseout</b></span>
                         <a href="#mouseout"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -397,9 +405,7 @@
                 <td class="col-md-4">
                     <a name="mouseover"></a>
                     <span class="name">
-                        <b>
-                            mouseover
-                        </b>
+                        <span ><b>mouseover</b></span>
                         <a href="#mouseover"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -433,16 +439,14 @@
                 <td class="col-md-4">
                     <a name="dataVariableDropped"></a>
                     <span class="name">
-                        <b>
-                            dataVariableDropped
-                        </b>
+                        <span ><b>dataVariableDropped</b></span>
                         <a href="#dataVariableDropped"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>dataVariableDropped(selectedDataVariable: <a href="../interfaces/DataVariable.html">DataVariable</a>)</code>
+<code>dataVariableDropped(selectedDataVariable: <a href="../interfaces/DataVariable.html" target="_self">DataVariable</a>)</code>
                 </td>
             </tr>
 
@@ -503,16 +507,14 @@
                 <td class="col-md-4">
                     <a name="mappableGraphicVariables"></a>
                     <span class="name">
-                        <b>
-                            mappableGraphicVariables
-                        </b>
+                        <span ><b>mappableGraphicVariables</b></span>
                         <a href="#mappableGraphicVariables"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>mappableGraphicVariables(dataVariable: <a href="../interfaces/DataVariable.html">DataVariable</a>)</code>
+<code>mappableGraphicVariables(dataVariable: <a href="../interfaces/DataVariable.html" target="_self">DataVariable</a>)</code>
                 </td>
             </tr>
 
@@ -573,16 +575,14 @@
                 <td class="col-md-4">
                     <a name="onDragDropEvent"></a>
                     <span class="name">
-                        <b>
-                            onDragDropEvent
-                        </b>
+                        <span ><b>onDragDropEvent</b></span>
                         <a href="#onDragDropEvent"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>onDragDropEvent(event: <a href="../undefineds/DragDropEvent.html">DragDropEvent</a>)</code>
+<code>onDragDropEvent(event: <a href="../undefineds/DragDropEvent.html" target="_self">DragDropEvent</a>)</code>
                 </td>
             </tr>
 
@@ -637,104 +637,189 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onMouseOut"></a>
+                    <span class="name">
+                        <span ><b>onMouseOut</b></span>
+                        <a href="#onMouseOut"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onMouseOut()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@HostListener(&#x27;mouseout&#x27;, undefined)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">projects/make-a-vis/src/lib/legend-view/data-variable-dropzone/data-variable-dropzone.component.ts:58</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onMouseOver"></a>
+                    <span class="name">
+                        <span ><b>onMouseOver</b></span>
+                        <a href="#onMouseOver"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onMouseOver()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@HostListener(&#x27;mouseover&#x27;, undefined)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">projects/make-a-vis/src/lib/legend-view/data-variable-dropzone/data-variable-dropzone.component.ts:53</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
     <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_graphicVariableChange"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_graphicVariableChange</b></span>
+                        <a href="#_graphicVariableChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="_graphicVariableChange"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            _graphicVariableChange</b>
-                            <a href="#_graphicVariableChange"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new EventEmitter&lt;GraphicVariable&gt;()</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new EventEmitter&lt;GraphicVariable&gt;()</code>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/make-a-vis/src/lib/legend-view/data-variable-dropzone/data-variable-dropzone.component.ts:25</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/make-a-vis/src/lib/legend-view/data-variable-dropzone/data-variable-dropzone.component.ts:25</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="availableGraphicVariables"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>availableGraphicVariables</b></span>
+                        <a href="#availableGraphicVariables"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="availableGraphicVariables"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            availableGraphicVariables</b>
-                            <a href="#availableGraphicVariables"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../interfaces/GraphicVariable.html" target="_self" >GraphicVariable[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/GraphicVariable.html" target="_self" >GraphicVariable[]</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/make-a-vis/src/lib/legend-view/data-variable-dropzone/data-variable-dropzone.component.ts:24</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>[]</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/make-a-vis/src/lib/legend-view/data-variable-dropzone/data-variable-dropzone.component.ts:24</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectionClass"></a>
+                    <span class="name">
+                        <span ><b>selectionClass</b></span>
+                        <a href="#selectionClass"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="selectionClass"></a>
-                        <span class="name">
-                            <b>
-                            selectionClass</b>
-                            <a href="#selectionClass"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/make-a-vis/src/lib/legend-view/data-variable-dropzone/data-variable-dropzone.component.ts:22</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;&#x27;</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/make-a-vis/src/lib/legend-view/data-variable-dropzone/data-variable-dropzone.component.ts:22</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
     <section>
@@ -888,7 +973,7 @@ export class DataVariableDropzoneComponent {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="dropTarget wrapper"  (mavDroppable)="dataVariableDropped($event)"  (dragDropEvents)="onDragDropEvent($event)"  [acceptsDrop]="acceptsDrop">  <ng-content></ng-content></div></div>'
-    var COMPONENTS = [{'name': 'AddIconComponent', 'selector': 'mav-add-icon'},{'name': 'AppComponent', 'selector': 'mav-root'},{'name': 'AppUpdateNotificationComponent', 'selector': 'mav-app-update-notification'},{'name': 'AreaSizeComponent', 'selector': 'dvl-area-size'},{'name': 'CancelIconComponent', 'selector': 'mav-cancel-icon'},{'name': 'CnsLogoComponent', 'selector': 'mav-cns-logo'},{'name': 'CnsLogoIconComponent', 'selector': 'mav-cns-logo-icon'},{'name': 'ColorAreaComponent', 'selector': 'dvl-color-area'},{'name': 'ColorComponent', 'selector': 'dvl-vis-color'},{'name': 'ColorEdgesComponent', 'selector': 'dvl-color-edges'},{'name': 'DataVariableDropzoneComponent', 'selector': 'mav-data-variable-dropzone'},{'name': 'DvlFwVisualizationComponent', 'selector': 'dvl-visualization'},{'name': 'EdgeSizeComponent', 'selector': 'dvl-vis-edge-size'},{'name': 'EditIconComponent', 'selector': 'mav-edit-icon'},{'name': 'EndComponent', 'selector': 'dvl-end'},{'name': 'GeomapComponent', 'selector': 'dvl-geomap'},{'name': 'GeomapIconComponent', 'selector': 'mav-geomap-icon'},{'name': 'GeomapIconComponent', 'selector': 'mav-geomap-icon'},{'name': 'GeomapSettingsComponent', 'selector': 'dvl-geomap-settings'},{'name': 'GithubIconComponent', 'selector': 'mav-github-icon'},{'name': 'GradientComponent', 'selector': 'dvl-gradient'},{'name': 'GraphicSymbolTypeComponent', 'selector': 'mav-selection-graphic-symbol-type'},{'name': 'GraphicVariableIconComponent', 'selector': 'mav-graphic-variable-icon'},{'name': 'GraphicVariableLegendComponent', 'selector': 'mav-graphic-variable-legend'},{'name': 'GraphicVariableTypeComponent', 'selector': 'mav-selection-graphic-variable-type'},{'name': 'HorizontalBarGraphIconComponent', 'selector': 'mav-horizontal-bar-graph-icon'},{'name': 'IdentifierComponent', 'selector': 'dvl-identifier'},{'name': 'InfoDialogComponent', 'selector': 'mav-info-dialog'},{'name': 'InfoIconComponent', 'selector': 'mav-info-icon'},{'name': 'ItemComponent', 'selector': 'dvl-legend-item'},{'name': 'LabelComponent', 'selector': 'dvl-label'},{'name': 'LegendComponent', 'selector': 'dvl-legend'},{'name': 'LegendComponent', 'selector': 'mav-legend'},{'name': 'LightThemeComponent', 'selector': 'mav-light-theme'},{'name': 'MainComponent', 'selector': 'mav-data-view'},{'name': 'MainComponent', 'selector': 'mav-legend-view'},{'name': 'MainComponent', 'selector': 'mav-selection'},{'name': 'MainComponent', 'selector': 'mav-toolbar'},{'name': 'MainComponent', 'selector': 'mav-visualization-view'},{'name': 'MakeAVisComponent', 'selector': 'mav-main'},{'name': 'MapOfScienceIconComponent', 'selector': 'mav-map-of-science-icon'},{'name': 'MenuComponent', 'selector': 'mav-visualization-menu'},{'name': 'MenuIconComponent', 'selector': 'mav-menu-icon'},{'name': 'NetworkComponent', 'selector': 'dvl-network'},{'name': 'NetworkIconComponent', 'selector': 'mav-network-icon'},{'name': 'NetworkIconComponent', 'selector': 'mav-network-icon'},{'name': 'NodeSizeComponent', 'selector': 'dvl-vis-node-size'},{'name': 'NsfLogoComponent', 'selector': 'mav-nsf-logo'},{'name': 'ProjectComponent', 'selector': 'mav-project'},{'name': 'ScatterGraphIconComponent', 'selector': 'mav-scatter-graph-icon'},{'name': 'ScatterGraphIconComponent', 'selector': 'mav-scatter-graph-icon'},{'name': 'ScatterplotComponent', 'selector': 'dvl-scatterplot'},{'name': 'ScienceMapComponent', 'selector': 'dvl-science-map'},{'name': 'ScienceMapIconComponent', 'selector': 'mav-science-map-icon'},{'name': 'ShapeComponent', 'selector': 'dvl-shape'},{'name': 'SiceLogoComponent', 'selector': 'mav-sice-logo'},{'name': 'SidenavContentComponent', 'selector': 'mav-sidenav-content'},{'name': 'SourceComponent', 'selector': 'dvl-source'},{'name': 'StartComponent', 'selector': 'dvl-start'},{'name': 'StartProjectIconComponent', 'selector': 'mav-start-project-icon'},{'name': 'StartProjectOptionsComponent', 'selector': 'mav-start-project-options'},{'name': 'TableComponent', 'selector': 'mav-table'},{'name': 'TableIconComponent', 'selector': 'mav-table-icon'},{'name': 'TargetComponent', 'selector': 'dvl-target'},{'name': 'TemporalBargraphComponent', 'selector': 'dvl-temporal-bargraph'},{'name': 'TemporalBargraphIconComponent', 'selector': 'mav-temporal-bargraph-icon'},{'name': 'ThicknessComponent', 'selector': 'dvl-thickness'},{'name': 'ToolbarContentComponent', 'selector': 'mav-toolbar-content'},{'name': 'VegaComponent', 'selector': 'ngx-vega'},{'name': 'VisualizationComponent', 'selector': 'mav-visualization'},{'name': 'VisualizationTypeComponent', 'selector': 'mav-selection-visualization-type'},{'name': 'XAxisComponent', 'selector': 'dvl-x-axis'},{'name': 'YAxisComponent', 'selector': 'dvl-y-axis'}];
+    var COMPONENTS = [{'name': 'AddIconComponent', 'selector': 'mav-add-icon'},{'name': 'AppComponent', 'selector': 'mav-root'},{'name': 'AppUpdateNotificationComponent', 'selector': 'mav-app-update-notification'},{'name': 'AreaSizeComponent', 'selector': 'dvl-area-size'},{'name': 'CancelIconComponent', 'selector': 'mav-cancel-icon'},{'name': 'CnsLogoComponent', 'selector': 'mav-cns-logo'},{'name': 'CnsLogoIconComponent', 'selector': 'mav-cns-logo-icon'},{'name': 'ColorAreaComponent', 'selector': 'dvl-color-area'},{'name': 'ColorComponent', 'selector': 'dvl-vis-color'},{'name': 'ColorEdgesComponent', 'selector': 'dvl-color-edges'},{'name': 'ConfirmationDialogComponent', 'selector': 'mav-confirmation-dialog'},{'name': 'DataVariableDropzoneComponent', 'selector': 'mav-data-variable-dropzone'},{'name': 'DvlFwVisualizationComponent', 'selector': 'dvl-visualization'},{'name': 'EdgeSizeComponent', 'selector': 'dvl-vis-edge-size'},{'name': 'EditIconComponent', 'selector': 'mav-edit-icon'},{'name': 'EndComponent', 'selector': 'dvl-end'},{'name': 'GeomapComponent', 'selector': 'dvl-geomap'},{'name': 'GeomapIconComponent', 'selector': 'mav-geomap-icon'},{'name': 'GeomapIconComponent', 'selector': 'mav-geomap-icon'},{'name': 'GeomapSettingsComponent', 'selector': 'dvl-geomap-settings'},{'name': 'GithubIconComponent', 'selector': 'mav-github-icon'},{'name': 'GradientComponent', 'selector': 'dvl-gradient'},{'name': 'GraphicSymbolTypeComponent', 'selector': 'mav-selection-graphic-symbol-type'},{'name': 'GraphicVariableIconComponent', 'selector': 'mav-graphic-variable-icon'},{'name': 'GraphicVariableLegendComponent', 'selector': 'mav-graphic-variable-legend'},{'name': 'GraphicVariableTypeComponent', 'selector': 'mav-selection-graphic-variable-type'},{'name': 'HorizontalBarGraphIconComponent', 'selector': 'mav-horizontal-bar-graph-icon'},{'name': 'IdentifierComponent', 'selector': 'dvl-identifier'},{'name': 'InfoDialogComponent', 'selector': 'mav-info-dialog'},{'name': 'InfoIconComponent', 'selector': 'mav-info-icon'},{'name': 'ItemComponent', 'selector': 'dvl-legend-item'},{'name': 'LabelComponent', 'selector': 'dvl-label'},{'name': 'LegendComponent', 'selector': 'dvl-legend'},{'name': 'LegendComponent', 'selector': 'mav-legend'},{'name': 'LightThemeComponent', 'selector': 'mav-light-theme'},{'name': 'MainComponent', 'selector': 'mav-data-view'},{'name': 'MainComponent', 'selector': 'mav-legend-view'},{'name': 'MainComponent', 'selector': 'mav-selection'},{'name': 'MainComponent', 'selector': 'mav-toolbar'},{'name': 'MainComponent', 'selector': 'mav-visualization-view'},{'name': 'MakeAVisComponent', 'selector': 'mav-main'},{'name': 'MapOfScienceIconComponent', 'selector': 'mav-map-of-science-icon'},{'name': 'MenuComponent', 'selector': 'mav-visualization-menu'},{'name': 'MenuIconComponent', 'selector': 'mav-menu-icon'},{'name': 'NetworkComponent', 'selector': 'dvl-network'},{'name': 'NetworkIconComponent', 'selector': 'mav-network-icon'},{'name': 'NetworkIconComponent', 'selector': 'mav-network-icon'},{'name': 'NetworkSettingsComponent', 'selector': 'dvl-network-settings'},{'name': 'NodeSizeComponent', 'selector': 'dvl-vis-node-size'},{'name': 'NsfLogoComponent', 'selector': 'mav-nsf-logo'},{'name': 'ProjectComponent', 'selector': 'mav-project'},{'name': 'ScatterGraphIconComponent', 'selector': 'mav-scatter-graph-icon'},{'name': 'ScatterGraphIconComponent', 'selector': 'mav-scatter-graph-icon'},{'name': 'ScatterplotComponent', 'selector': 'dvl-scatterplot'},{'name': 'ScatterplotSettingsComponent', 'selector': 'dvl-scatterplot-settings'},{'name': 'ScienceMapComponent', 'selector': 'dvl-science-map'},{'name': 'ScienceMapIconComponent', 'selector': 'mav-science-map-icon'},{'name': 'ScienceMapSettingsComponent', 'selector': 'dvl-science-map-settings'},{'name': 'ShapeComponent', 'selector': 'dvl-shape'},{'name': 'SiceLogoComponent', 'selector': 'mav-sice-logo'},{'name': 'SidenavContentComponent', 'selector': 'mav-sidenav-content'},{'name': 'SourceComponent', 'selector': 'dvl-source'},{'name': 'SpinnerOverlayComponent', 'selector': 'mav-spinner-overlay'},{'name': 'StartComponent', 'selector': 'dvl-start'},{'name': 'StartProjectIconComponent', 'selector': 'mav-start-project-icon'},{'name': 'StartProjectOptionsComponent', 'selector': 'mav-start-project-options'},{'name': 'TableComponent', 'selector': 'mav-table'},{'name': 'TableIconComponent', 'selector': 'mav-table-icon'},{'name': 'TargetComponent', 'selector': 'dvl-target'},{'name': 'TemporalBargraphComponent', 'selector': 'dvl-temporal-bargraph'},{'name': 'TemporalBargraphIconComponent', 'selector': 'mav-temporal-bargraph-icon'},{'name': 'TemporalSettingsComponent', 'selector': 'dvl-temporal-settings'},{'name': 'ThicknessComponent', 'selector': 'dvl-thickness'},{'name': 'ToolbarContentComponent', 'selector': 'mav-toolbar-content'},{'name': 'TrackingPopupComponent', 'selector': 'mav-tracking-popup'},{'name': 'VegaComponent', 'selector': 'ngx-vega'},{'name': 'VisualizationComponent', 'selector': 'mav-visualization'},{'name': 'VisualizationTypeComponent', 'selector': 'mav-selection-visualization-type'},{'name': 'XAxisComponent', 'selector': 'dvl-x-axis'},{'name': 'YAxisComponent', 'selector': 'dvl-y-axis'}];
     var DIRECTIVES = [{'name': 'DraggableDirective', 'selector': '[mavDraggable]'},{'name': 'DroppableDirective', 'selector': '[mavDroppable]'}];
     var ACTUAL_COMPONENT = {'name': 'DataVariableDropzoneComponent'};
 </script>
@@ -931,9 +1016,9 @@ export class DataVariableDropzoneComponent {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

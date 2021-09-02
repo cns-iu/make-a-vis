@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -37,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Directives</li>
-  <li>DroppableDirective</li>
+  <li >DroppableDirective</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -57,6 +58,7 @@
         <p class="comment">
             <code>projects/make-a-vis/src/lib/drag-drop/droppable.directive.ts</code>
         </p>
+
 
 
             <p class="comment">
@@ -95,15 +97,15 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#_zones">_zones</a>
+                                <a href="#_zones" >_zones</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#acceptsCurrentDrop">acceptsCurrentDrop</a>
+                                <a href="#acceptsCurrentDrop" >acceptsCurrentDrop</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#eventSubscription">eventSubscription</a>
+                                <a href="#eventSubscription" >eventSubscription</a>
                             </li>
                         </ul>
                     </td>
@@ -118,7 +120,13 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#onDragOver" >onDragOver</a>
+                            </li>
+                            <li>
+                                <a href="#onDrop" >onDrop</a>
                             </li>
                         </ul>
                     </td>
@@ -133,10 +141,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#acceptsDrop">acceptsDrop</a>
+                                <a href="#acceptsDrop" >acceptsDrop</a>
                             </li>
                             <li>
-                                <a href="#zones">zones</a>
+                                <a href="#zones" >zones</a>
                             </li>
                         </ul>
                     </td>
@@ -151,10 +159,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#dragDropEvents">dragDropEvents</a>
+                                <a href="#dragDropEvents" >dragDropEvents</a>
                             </li>
                             <li>
-                                <a href="#mavDroppable">mavDroppable</a>
+                                <a href="#mavDroppable" >mavDroppable</a>
                             </li>
                         </ul>
                     </td>
@@ -170,10 +178,13 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#dragenter">dragenter</a>
+                                <a href="#dragenter" >dragenter</a>
                             </li>
                             <li>
-                                <a href="#drop">drop</a>
+                                <a href="#dragover" >dragover</a>
+                            </li>
+                            <li>
+                                <a href="#drop" >drop</a>
                             </li>
                         </ul>
                     </td>
@@ -188,7 +199,7 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                    <a href="#zones">zones</a>
+                                    <a href="#zones" >zones</a>
                                 </li>
                             </ul>
                         </td>
@@ -203,7 +214,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(service: <a href="../injectables/DragDropService.html">DragDropService</a>)</code>
+<code>constructor(service: <a href="../injectables/DragDropService.html" target="_self">DragDropService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -355,9 +366,34 @@
                     <i>Arguments : </i><code>'$event' </code>
                 </td>
             </tr>
+
+
             <tr>
                 <td class="col-md-4">
-<code>dragenter(event: DragEvent)</code>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">projects/make-a-vis/src/lib/drag-drop/droppable.directive.ts:45</a></div>
+                </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dragover"></a>
+                    <span class="name">
+                        <b>
+                            dragover
+                        </b>
+                        <a href="#dragover"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <i>Arguments : </i><code>'$event' </code>
                 </td>
             </tr>
 
@@ -385,11 +421,6 @@
                     </span>
                 </td>
             </tr>
-            <tr>
-                <td class="col-md-4">
-<code>drop()</code>
-                </td>
-            </tr>
 
 
             <tr>
@@ -414,9 +445,7 @@
                 <td class="col-md-4">
                     <a name="ngOnDestroy"></a>
                     <span class="name">
-                        <b>
-                            ngOnDestroy
-                        </b>
+                        <span ><b>ngOnDestroy</b></span>
                         <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -447,100 +476,216 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDragOver"></a>
+                    <span class="name">
+                        <span ><b>onDragOver</b></span>
+                        <a href="#onDragOver"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onDragOver(event: DragEvent)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@HostListener(&#x27;dragenter&#x27;, [&#x27;$event&#x27;])<br />@HostListener(&#x27;dragover&#x27;, [&#x27;$event&#x27;])<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">projects/make-a-vis/src/lib/drag-drop/droppable.directive.ts:45</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>DragEvent</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDrop"></a>
+                    <span class="name">
+                        <span ><b>onDrop</b></span>
+                        <a href="#onDrop"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onDrop()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@HostListener(&#x27;drop&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">projects/make-a-vis/src/lib/drag-drop/droppable.directive.ts:50</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
             <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_zones"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_zones</b></span>
+                        <a href="#_zones"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="_zones"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            _zones</b>
-                            <a href="#_zones"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;any-zone&#x27;]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>string[]</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/make-a-vis/src/lib/drag-drop/droppable.directive.ts:12</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>[&#x27;any-zone&#x27;]</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/make-a-vis/src/lib/drag-drop/droppable.directive.ts:12</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="acceptsCurrentDrop"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>acceptsCurrentDrop</b></span>
+                        <a href="#acceptsCurrentDrop"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="acceptsCurrentDrop"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            acceptsCurrentDrop</b>
-                            <a href="#acceptsCurrentDrop"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>false</code>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/make-a-vis/src/lib/drag-drop/droppable.directive.ts:13</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/make-a-vis/src/lib/drag-drop/droppable.directive.ts:13</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eventSubscription"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>eventSubscription</b></span>
+                        <a href="#eventSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="eventSubscription"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            eventSubscription</b>
-                            <a href="#eventSubscription"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>Subscription</code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Subscription</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/make-a-vis/src/lib/drag-drop/droppable.directive.ts:14</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/make-a-vis/src/lib/drag-drop/droppable.directive.ts:14</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
             <section>
@@ -559,7 +704,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                        <span class="accessor"><b>set</b><code>zones(zone)</code></span>
+                        <span class="accessor"><b>set</b><code>zones(zone: string | string[])</code></span>
                     </td>
                 </tr>
                             <tr>
@@ -576,6 +721,7 @@
                                             <thead>
                                                 <tr>
                                                     <td>Name</td>
+                                                        <td>Type</td>
                                                     <td>Optional</td>
                                                 </tr>
                                             </thead>
@@ -583,6 +729,9 @@
                                                     <tr>
                                                             <td>zone</td>
                                                     
+                                                            <td>
+                                                                        <code>string | string[]</code>
+                                                            </td>
                                                     
                                                         <td>
                                                                 No
@@ -706,9 +855,9 @@ export class DroppableDirective implements OnDestroy {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -42,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>DataLinkManagerBase</li>
+  <li >DataLinkManagerBase</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -63,11 +64,12 @@
             <code>projects/mav-embed/src/app/shared/services/data-link/data-link.service.ts</code>
         </p>
 
+
             <p class="comment">
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Base class with common functionality for managers </p>
+                <p>Base class with common functionality for managers</p>
 
             </p>
 
@@ -87,11 +89,11 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#change$">change$</a>
+                                <a href="#change$" >change$</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#complete$">complete$</a>
+                                <a href="#complete$" >complete$</a>
                             </li>
                         </ul>
                     </td>
@@ -106,7 +108,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#destroy">destroy</a>
+                                <a href="#destroy" >destroy</a>
                             </li>
                         </ul>
                     </td>
@@ -178,75 +180,73 @@
 
             <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="change$"></a>
+                    <span class="name">
+                        <span ><b>change$</b></span>
+                        <a href="#change$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="change$"></a>
-                        <span class="name">
-                            <b>
-                            change$</b>
-                            <a href="#change$"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>Observable&lt;any&gt;</code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Observable&lt;any&gt;</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/mav-embed/src/app/shared/services/data-link/data-link.service.ts:29</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/mav-embed/src/app/shared/services/data-link/data-link.service.ts:29</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>The observable emitting when something changes </p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The observable emitting when something changes</p>
 </div>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="complete$"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>complete$</b></span>
+                        <a href="#complete$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="complete$"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            complete$</b>
-                            <a href="#complete$"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new Subject&lt;any&gt;()</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new Subject&lt;any&gt;()</code>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/mav-embed/src/app/shared/services/data-link/data-link.service.ts:31</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/mav-embed/src/app/shared/services/data-link/data-link.service.ts:31</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Subject used to close the change observable </p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Subject used to close the change observable</p>
 </div>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
             <section>
@@ -260,9 +260,7 @@
                 <td class="col-md-4">
                     <a name="destroy"></a>
                     <span class="name">
-                        <b>
-                            destroy
-                        </b>
+                        <span ><b>destroy</b></span>
                         <a href="#destroy"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -284,7 +282,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Closes the change observable </p>
+                    <div class="io-description"><p>Closes the change observable</p>
 </div>
 
                     <div class="io-description">
@@ -547,9 +545,9 @@ export class DataLinkService implements OnDestroy {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

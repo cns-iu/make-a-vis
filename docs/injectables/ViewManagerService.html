@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -38,7 +39,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>ViewManagerService</li>
+  <li >ViewManagerService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,6 +63,7 @@
 
 
 
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -76,28 +78,28 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Readonly</span>
-                                <a href="#error$">error$</a>
+                                <a href="#error$" >error$</a>
                             </li>
                             <li>
                                     <span class="modifier">Readonly</span>
-                                <a href="#event$">event$</a>
+                                <a href="#event$" >event$</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#loader$">loader$</a>
+                                <a href="#loader$" >loader$</a>
                             </li>
                             <li>
                                     <span class="modifier">Readonly</span>
-                                <a href="#loading$">loading$</a>
+                                <a href="#loading$" >loading$</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#subscriptions">subscriptions</a>
+                                <a href="#subscriptions" >subscriptions</a>
                             </li>
                             <li>
                                     <span class="modifier">Readonly</span>
-                                <a href="#view$">view$</a>
+                                <a href="#view$" >view$</a>
                             </li>
                         </ul>
                     </td>
@@ -112,10 +114,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#create">create</a>
+                                <a href="#create" >create</a>
                             </li>
                             <li>
-                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
                             </li>
                         </ul>
                     </td>
@@ -141,9 +143,7 @@
                 <td class="col-md-4">
                     <a name="create"></a>
                     <span class="name">
-                        <b>
-                            create
-                        </b>
+                        <span ><b>create</b></span>
                         <a href="#create"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -211,9 +211,7 @@
                 <td class="col-md-4">
                     <a name="ngOnDestroy"></a>
                     <span class="name">
-                        <b>
-                            ngOnDestroy
-                        </b>
+                        <span ><b>ngOnDestroy</b></span>
                         <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -247,184 +245,178 @@
 </section>
             <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="error$"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>error$</b></span>
+                        <a href="#error$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="error$"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Readonly</span>
-                            error$</b>
-                            <a href="#error$"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>this.event$.pipe(
+                        <i>Default value : </i><code>this.event$.pipe(
     filter((event): event is ViewError &#x3D;&gt; event.type &#x3D;&#x3D;&#x3D; &#x27;error&#x27;),
     pluck(&#x27;error&#x27;)
   )</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/ngx-vega/src/lib/view-manager.service.ts:46</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="event$"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Readonly</span>
-                            event$</b>
-                            <a href="#event$"><span class="icon ion-ios-link"></span></a>
-                        </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>this.loader$.pipe(
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/ngx-vega/src/lib/view-manager.service.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="event$"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>event$</b></span>
+                        <a href="#event$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.loader$.pipe(
     switchAll(),
     shareReplay(1)
   )</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/ngx-vega/src/lib/view-manager.service.ts:31</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="loader$"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                                <span class="modifier">Readonly</span>
-                            loader$</b>
-                            <a href="#loader$"><span class="icon ion-ios-link"></span></a>
-                        </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new ReplaySubject&lt;Observable&lt;ViewEvent&gt;&gt;(1)</code>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/ngx-vega/src/lib/view-manager.service.ts:31</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/ngx-vega/src/lib/view-manager.service.ts:28</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader$"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>loader$</b></span>
+                        <a href="#loader$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="loading$"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Readonly</span>
-                            loading$</b>
-                            <a href="#loading$"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new ReplaySubject&lt;Observable&lt;ViewEvent&gt;&gt;(1)</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>this.event$.pipe(
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/ngx-vega/src/lib/view-manager.service.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading$"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>loading$</b></span>
+                        <a href="#loading$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.event$.pipe(
     map(event &#x3D;&gt; event.type &#x3D;&#x3D;&#x3D; &#x27;loading&#x27;),
     distinctUntilChanged(),
   )</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/ngx-vega/src/lib/view-manager.service.ts:41</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="subscriptions"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            subscriptions</b>
-                            <a href="#subscriptions"><span class="icon ion-ios-link"></span></a>
-                        </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new Subscription()</code>
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/ngx-vega/src/lib/view-manager.service.ts:41</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/ngx-vega/src/lib/view-manager.service.ts:29</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>subscriptions</b></span>
+                        <a href="#subscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="view$"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Readonly</span>
-                            view$</b>
-                            <a href="#view$"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new Subscription()</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>this.event$.pipe(
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/ngx-vega/src/lib/view-manager.service.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="view$"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>view$</b></span>
+                        <a href="#view$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.event$.pipe(
     filter((event): event is ViewReady &#x3D;&gt; event.type &#x3D;&#x3D;&#x3D; &#x27;ready&#x27;),
     pluck(&#x27;view&#x27;)
   )</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/ngx-vega/src/lib/view-manager.service.ts:36</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/ngx-vega/src/lib/view-manager.service.ts:36</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -543,9 +535,9 @@ export class ViewManagerService implements OnDestroy {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

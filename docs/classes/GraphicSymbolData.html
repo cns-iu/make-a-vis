@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -42,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>GraphicSymbolData</li>
+  <li >GraphicSymbolData</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -67,6 +68,7 @@
 
 
 
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -82,22 +84,22 @@
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#defaultValues">defaultValues</a>
+                                <a href="#defaultValues" >defaultValues</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#graphicSymbol">graphicSymbol</a>
+                                <a href="#graphicSymbol" >graphicSymbol</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#requiredFields">requiredFields</a>
+                                <a href="#requiredFields" >requiredFields</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#visualization">visualization</a>
+                                <a href="#visualization" >visualization</a>
                             </li>
                         </ul>
                     </td>
@@ -112,24 +114,24 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#applyChangeSet">applyChangeSet</a>
+                                <a href="#applyChangeSet" >applyChangeSet</a>
                             </li>
                             <li>
-                                <a href="#asChangeSet">asChangeSet</a>
+                                <a href="#asChangeSet" >asChangeSet</a>
                             </li>
                             <li>
-                                <a href="#asDataArray">asDataArray</a>
+                                <a href="#asDataArray" >asDataArray</a>
                             </li>
                             <li>
-                                <a href="#asRawChangeSet">asRawChangeSet</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#createProcessor">createProcessor</a>
+                                <a href="#asRawChangeSet" >asRawChangeSet</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#graphicSymbolBoundFields">graphicSymbolBoundFields</a>
+                                <a href="#createProcessor" >createProcessor</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#graphicSymbolBoundFields" >graphicSymbolBoundFields</a>
                             </li>
                         </ul>
                     </td>
@@ -149,7 +151,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(dataProcessorCreator: DataProcessorService, visualization: <a href="../interfaces/Visualization.html">Visualization</a>, graphicSymbol: <a href="../interfaces/GraphicSymbol.html">string | GraphicSymbol</a>, defaultValues: literal type, postprocessingFields: literal type)</code>
+<code>constructor(dataProcessorCreator: DataProcessorService, visualization: <a href="../interfaces/Visualization.html" target="_self">Visualization</a>, graphicSymbol: <a href="../interfaces/GraphicSymbol.html" target="_self">string | GraphicSymbol</a>, defaultValues: literal type, postprocessingFields: literal type)</code>
                     </td>
                 </tr>
                         <tr>
@@ -242,135 +244,131 @@
 
             <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defaultValues"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>defaultValues</b></span>
+                        <a href="#defaultValues"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="defaultValues"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                                <span class="modifier">Readonly</span>
-                            defaultValues</b>
-                            <a href="#defaultValues"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>literal type</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/dvl-fw-core/src/lib/util/graphic-symbol-data.ts:19</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>{}</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/dvl-fw-core/src/lib/util/graphic-symbol-data.ts:19</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graphicSymbol"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>graphicSymbol</b></span>
+                        <a href="#graphicSymbol"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="graphicSymbol"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                                <span class="modifier">Readonly</span>
-                            graphicSymbol</b>
-                            <a href="#graphicSymbol"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../interfaces/GraphicSymbol.html" target="_self" >GraphicSymbol</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/GraphicSymbol.html" target="_self" >GraphicSymbol</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/dvl-fw-core/src/lib/util/graphic-symbol-data.ts:14</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/dvl-fw-core/src/lib/util/graphic-symbol-data.ts:14</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="requiredFields"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>requiredFields</b></span>
+                        <a href="#requiredFields"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="requiredFields"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                                <span class="modifier">Readonly</span>
-                            requiredFields</b>
-                            <a href="#requiredFields"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;identifier&#x27;]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>string[]</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/dvl-fw-core/src/lib/util/graphic-symbol-data.ts:13</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>[&#x27;identifier&#x27;]</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/dvl-fw-core/src/lib/util/graphic-symbol-data.ts:13</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visualization"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>visualization</b></span>
+                        <a href="#visualization"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="visualization"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                                <span class="modifier">Readonly</span>
-                            visualization</b>
-                            <a href="#visualization"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../interfaces/Visualization.html" target="_self" >Visualization</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/Visualization.html" target="_self" >Visualization</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/dvl-fw-core/src/lib/util/graphic-symbol-data.ts:17</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/dvl-fw-core/src/lib/util/graphic-symbol-data.ts:17</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
             <section>
@@ -384,9 +382,7 @@
                 <td class="col-md-4">
                     <a name="applyChangeSet"></a>
                     <span class="name">
-                        <b>
-                            applyChangeSet
-                        </b>
+                        <span ><b>applyChangeSet</b></span>
                         <a href="#applyChangeSet"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -466,9 +462,7 @@
                 <td class="col-md-4">
                     <a name="asChangeSet"></a>
                     <span class="name">
-                        <b>
-                            asChangeSet
-                        </b>
+                        <span ><b>asChangeSet</b></span>
                         <a href="#asChangeSet"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -505,9 +499,7 @@
                 <td class="col-md-4">
                     <a name="asDataArray"></a>
                     <span class="name">
-                        <b>
-                            asDataArray
-                        </b>
+                        <span ><b>asDataArray</b></span>
                         <a href="#asDataArray"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -544,9 +536,7 @@
                 <td class="col-md-4">
                     <a name="asRawChangeSet"></a>
                     <span class="name">
-                        <b>
-                            asRawChangeSet
-                        </b>
+                        <span ><b>asRawChangeSet</b></span>
                         <a href="#asRawChangeSet"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -583,10 +573,8 @@
                 <td class="col-md-4">
                     <a name="createProcessor"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            createProcessor
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>createProcessor</b></span>
                         <a href="#createProcessor"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -624,10 +612,8 @@
                 <td class="col-md-4">
                     <a name="graphicSymbolBoundFields"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            graphicSymbolBoundFields
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>graphicSymbolBoundFields</b></span>
                         <a href="#graphicSymbolBoundFields"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -635,7 +621,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>graphicSymbolBoundFields(graphicSymbol: <a href="../interfaces/GraphicSymbol.html">GraphicSymbol</a>, defaults: literal type)</code>
+                    <code>graphicSymbolBoundFields(graphicSymbol: <a href="../interfaces/GraphicSymbol.html" target="_self">GraphicSymbol</a>, defaults: literal type)</code>
                 </td>
             </tr>
 
@@ -845,9 +831,9 @@ export class GraphicSymbolData&lt;T &#x3D; any&gt; {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

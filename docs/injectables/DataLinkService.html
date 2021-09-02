@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -38,7 +39,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>DataLinkService</li>
+  <li >DataLinkService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,6 +59,7 @@
         <p class="comment">
             <code>projects/mav-embed/src/app/shared/services/data-link/data-link.service.ts</code>
         </p>
+
 
             <p class="comment">
                 <h3>Description</h3>
@@ -83,19 +85,19 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#change$">change$</a>
+                                <a href="#change$" >change$</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#relinkSubscription">relinkSubscription</a>
+                                <a href="#relinkSubscription" >relinkSubscription</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#sources">sources</a>
+                                <a href="#sources" >sources</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#targets">targets</a>
+                                <a href="#targets" >targets</a>
                             </li>
                         </ul>
                     </td>
@@ -110,31 +112,31 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#register">register</a>
+                                <a href="#register" >register</a>
                             </li>
                             <li>
-                                <a href="#registerSource">registerSource</a>
+                                <a href="#registerSource" >registerSource</a>
                             </li>
                             <li>
-                                <a href="#registerTarget">registerTarget</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#relink">relink</a>
+                                <a href="#registerTarget" >registerTarget</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#unregister">unregister</a>
+                                <a href="#relink" >relink</a>
                             </li>
                             <li>
-                                <a href="#unregisterSource">unregisterSource</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#unregister" >unregister</a>
                             </li>
                             <li>
-                                <a href="#unregisterTarget">unregisterTarget</a>
+                                <a href="#unregisterSource" >unregisterSource</a>
+                            </li>
+                            <li>
+                                <a href="#unregisterTarget" >unregisterTarget</a>
                             </li>
                         </ul>
                     </td>
@@ -215,9 +217,7 @@
                 <td class="col-md-4">
                     <a name="ngOnDestroy"></a>
                     <span class="name">
-                        <b>
-                            ngOnDestroy
-                        </b>
+                        <span ><b>ngOnDestroy</b></span>
                         <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -257,10 +257,8 @@ Cleans up subscriptions</p>
                 <td class="col-md-4">
                     <a name="register"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            register
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>register</b></span>
                         <a href="#register"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -268,7 +266,7 @@ Cleans up subscriptions</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>register(object: T, group: <a href="../classes/DataLinkManagerBase.html">Map<T | DataLinkManagerBase></a>, managerType: <a href="../classes/DataLinkManagerBase.html">Type<DataLinkManagerBase></a>)</code>
+                    <code>register(object: T, group: <a href="../classes/DataLinkManagerBase.html" target="_self">Map&lt;T | DataLinkManagerBase&gt;</a>, managerType: <a href="../classes/DataLinkManagerBase.html" target="_self">Type&lt;DataLinkManagerBase&gt;</a>)</code>
                 </td>
             </tr>
 
@@ -376,16 +374,14 @@ Cleans up subscriptions</p>
                 <td class="col-md-4">
                     <a name="registerSource"></a>
                     <span class="name">
-                        <b>
-                            registerSource
-                        </b>
+                        <span ><b>registerSource</b></span>
                         <a href="#registerSource"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>registerSource(source: <a href="../interfaces/DataLinkSource.html">DataLinkSource<T></a>)</code>
+<code>registerSource(source: <a href="../interfaces/DataLinkSource.html" target="_self">DataLinkSource&lt;T&gt;</a>)</code>
                 </td>
             </tr>
 
@@ -461,16 +457,14 @@ Cleans up subscriptions</p>
                 <td class="col-md-4">
                     <a name="registerTarget"></a>
                     <span class="name">
-                        <b>
-                            registerTarget
-                        </b>
+                        <span ><b>registerTarget</b></span>
                         <a href="#registerTarget"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>registerTarget(target: <a href="../interfaces/DataLinkTarget.html">DataLinkTarget<T></a>)</code>
+<code>registerTarget(target: <a href="../interfaces/DataLinkTarget.html" target="_self">DataLinkTarget&lt;T&gt;</a>)</code>
                 </td>
             </tr>
 
@@ -546,10 +540,8 @@ Cleans up subscriptions</p>
                 <td class="col-md-4">
                     <a name="relink"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            relink
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>relink</b></span>
                         <a href="#relink"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -589,10 +581,8 @@ Cleans up subscriptions</p>
                 <td class="col-md-4">
                     <a name="unregister"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            unregister
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>unregister</b></span>
                         <a href="#unregister"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -600,7 +590,7 @@ Cleans up subscriptions</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>unregister(object: T, group: <a href="../classes/DataLinkManagerBase.html">Map<T | DataLinkManagerBase></a>)</code>
+                    <code>unregister(object: T, group: <a href="../classes/DataLinkManagerBase.html" target="_self">Map&lt;T | DataLinkManagerBase&gt;</a>)</code>
                 </td>
             </tr>
 
@@ -692,16 +682,14 @@ Cleans up subscriptions</p>
                 <td class="col-md-4">
                     <a name="unregisterSource"></a>
                     <span class="name">
-                        <b>
-                            unregisterSource
-                        </b>
+                        <span ><b>unregisterSource</b></span>
                         <a href="#unregisterSource"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>unregisterSource(source: <a href="../interfaces/DataLinkSource.html">DataLinkSource<T></a>)</code>
+<code>unregisterSource(source: <a href="../interfaces/DataLinkSource.html" target="_self">DataLinkSource&lt;T&gt;</a>)</code>
                 </td>
             </tr>
 
@@ -777,16 +765,14 @@ Cleans up subscriptions</p>
                 <td class="col-md-4">
                     <a name="unregisterTarget"></a>
                     <span class="name">
-                        <b>
-                            unregisterTarget
-                        </b>
+                        <span ><b>unregisterTarget</b></span>
                         <a href="#unregisterTarget"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>unregisterTarget(target: <a href="../interfaces/DataLinkTarget.html">DataLinkTarget<T></a>)</code>
+<code>unregisterTarget(target: <a href="../interfaces/DataLinkTarget.html" target="_self">DataLinkTarget&lt;T&gt;</a>)</code>
                 </td>
             </tr>
 
@@ -859,142 +845,138 @@ Cleans up subscriptions</p>
 </section>
             <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="change$"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>change$</b></span>
+                        <a href="#change$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="change$"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            change$</b>
-                            <a href="#change$"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new Subject&lt;Observable&lt;any&gt;&gt;()</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new Subject&lt;Observable&lt;any&gt;&gt;()</code>
+                                <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">projects/mav-embed/src/app/shared/services/data-link/data-link.service.ts:93</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">projects/mav-embed/src/app/shared/services/data-link/data-link.service.ts:93</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>The subject to which changes are sent </p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The subject to which changes are sent</p>
 </div>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="relinkSubscription"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>relinkSubscription</b></span>
+                        <a href="#relinkSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="relinkSubscription"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            relinkSubscription</b>
-                            <a href="#relinkSubscription"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>Subscription</code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Subscription</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">projects/mav-embed/src/app/shared/services/data-link/data-link.service.ts:95</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">projects/mav-embed/src/app/shared/services/data-link/data-link.service.ts:95</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>The update subscription </p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The update subscription</p>
 </div>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sources"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>sources</b></span>
+                        <a href="#sources"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="sources"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            sources</b>
-                            <a href="#sources"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new Map&lt;DataLinkSource&lt;any&gt;, DataLinkSourceManager&lt;any&gt;&gt;()</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new Map&lt;DataLinkSource&lt;any&gt;, DataLinkSourceManager&lt;any&gt;&gt;()</code>
+                                <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">projects/mav-embed/src/app/shared/services/data-link/data-link.service.ts:88</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">projects/mav-embed/src/app/shared/services/data-link/data-link.service.ts:88</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>A map from objects to their manager </p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>A map from objects to their manager</p>
 </div>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="targets"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>targets</b></span>
+                        <a href="#targets"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="targets"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            targets</b>
-                            <a href="#targets"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new Map&lt;DataLinkTarget&lt;any&gt;, DataLinkTargetManager&lt;any&gt;&gt;()</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new Map&lt;DataLinkTarget&lt;any&gt;, DataLinkTargetManager&lt;any&gt;&gt;()</code>
+                                <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">projects/mav-embed/src/app/shared/services/data-link/data-link.service.ts:90</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">projects/mav-embed/src/app/shared/services/data-link/data-link.service.ts:90</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>A map from objects to their manager </p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>A map from objects to their manager</p>
 </div>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -1248,9 +1230,9 @@ export class DataLinkService implements OnDestroy {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

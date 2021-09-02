@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -43,7 +44,9 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>LoadShareUrlCompletedPayload</li>
+  <li
+  >
+  LoadShareUrlCompletedPayload</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -66,6 +69,7 @@
 
 
 
+
         <section>
             <h3 id="index">Index</h3>
             <table class="table table-sm table-bordered index-table">
@@ -79,16 +83,28 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#loadingComplete">loadingComplete</a>
+                                        <a href="#loadingComplete" 
+>
+                                            loadingComplete
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#loadingShareUrl">loadingShareUrl</a>
+                                        <a href="#loadingShareUrl" 
+>
+                                            loadingShareUrl
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#project">project</a>
+                                        <a href="#project" 
+>
+                                            project
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#shareUrl">shareUrl</a>
+                                        <a href="#shareUrl" 
+>
+                                            shareUrl
+                                        </a>
                                 </li>
                             </ul>
                         </td>
@@ -106,7 +122,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="loadingComplete"></a>
-                                        <span class="name"><b>loadingComplete</b><a href="#loadingComplete"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>loadingComplete</b>
+                                            <a href="#loadingComplete">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -135,7 +155,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="loadingShareUrl"></a>
-                                        <span class="name"><b>loadingShareUrl</b><a href="#loadingShareUrl"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>loadingShareUrl</b>
+                                            <a href="#loadingShareUrl">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -164,7 +188,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="project"></a>
-                                        <span class="name"><b>project</b><a href="#project"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>project</b>
+                                            <a href="#project">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -193,7 +221,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="shareUrl"></a>
-                                        <span class="name"><b>shareUrl</b><a href="#shareUrl"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>shareUrl</b>
+                                            <a href="#shareUrl">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -348,9 +380,9 @@ export interface CopyToClipboardErrorPayload {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1629382523520,
+  "timestamp": 1630593836625,
   "index": "/make-a-vis/index.html",
   "assetGroups": [
     {
@@ -47,13 +47,13 @@
     "/make-a-vis/MaterialIcons-Regular.woff2": "09963592e8c953cc7e14e3fb0a5b05d5042e8435",
     "/make-a-vis/favicon.svg": "9035fb71285590a8f8b2918becedd9f091220d5b",
     "/make-a-vis/index.html": "fd04cdbbbfac9c0c0a36cb1cb5f1a52d6fc45476",
-    "/make-a-vis/main-es2015.js": "a8dd8ff64daea61c2eb331b563235f354cfddb3f",
-    "/make-a-vis/main-es5.js": "22505193b0182b2b1968cd967a04b7488984b169",
+    "/make-a-vis/main-es2015.js": "70eb9d00538dd2b730f58db605521eee1a60cab5",
+    "/make-a-vis/main-es5.js": "cb1842f79869fa578441b585e780207d9ad132ed",
     "/make-a-vis/polyfills-es2015.js": "b781f6723ec3a789640a4e9f9108b22c6cef4684",
-    "/make-a-vis/polyfills-es5.js": "724a6a2e55c07eaf3f81a25b0e4ec3c2db17c939",
+    "/make-a-vis/polyfills-es5.js": "2824be6b015e050167d4a5e3596415b3256c42bb",
     "/make-a-vis/runtime-es2015.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "/make-a-vis/runtime-es5.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/make-a-vis/styles.css": "14ef3e2242f1b3bc7136b6536ea773a2d14a21af"
+    "/make-a-vis/styles.css": "25ffa868615c71ab505add18bd802cb9fa8f6240"
   },
   "navigationUrls": [
     {

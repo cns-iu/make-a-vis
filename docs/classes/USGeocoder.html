@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -42,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>USGeocoder</li>
+  <li >USGeocoder</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,6 +63,7 @@
         <p class="comment">
             <code>projects/geocoder-ts/src/lib/us-geocoder.ts</code>
         </p>
+
 
 
 
@@ -86,17 +88,17 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#cityStateRegexCache">cityStateRegexCache</a>
+                                <a href="#cityStateRegexCache" >cityStateRegexCache</a>
                             </li>
                             <li>
                                     <span class="modifier">Readonly</span>
-                                <a href="#lookupUSLocationOp">lookupUSLocationOp</a>
+                                <a href="#lookupUSLocationOp" >lookupUSLocationOp</a>
                             </li>
                             <li>
-                                <a href="#stateRegEx">stateRegEx</a>
+                                <a href="#stateRegEx" >stateRegEx</a>
                             </li>
                             <li>
-                                <a href="#zipRegEx">zipRegEx</a>
+                                <a href="#zipRegEx" >zipRegEx</a>
                             </li>
                         </ul>
                     </td>
@@ -111,16 +113,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#getLocation">getLocation</a>
+                                <a href="#getLocation" >getLocation</a>
                             </li>
                             <li>
-                                <a href="#getUSLocationByCityState">getUSLocationByCityState</a>
+                                <a href="#getUSLocationByCityState" >getUSLocationByCityState</a>
                             </li>
                             <li>
-                                <a href="#getUSLocationByZipCode">getUSLocationByZipCode</a>
+                                <a href="#getUSLocationByZipCode" >getUSLocationByZipCode</a>
                             </li>
                             <li>
-                                <a href="#getUSLocationsByState">getUSLocationsByState</a>
+                                <a href="#getUSLocationsByState" >getUSLocationsByState</a>
                             </li>
                         </ul>
                     </td>
@@ -155,121 +157,117 @@
 
             <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cityStateRegexCache"></a>
+                    <span class="name">
+                        <span ><b>cityStateRegexCache</b></span>
+                        <a href="#cityStateRegexCache"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="cityStateRegexCache"></a>
-                        <span class="name">
-                            <b>
-                            cityStateRegexCache</b>
-                            <a href="#cityStateRegexCache"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/geocoder-ts/src/lib/us-geocoder.ts:13</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>{}</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/geocoder-ts/src/lib/us-geocoder.ts:13</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lookupUSLocationOp"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>lookupUSLocationOp</b></span>
+                        <a href="#lookupUSLocationOp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="lookupUSLocationOp"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Readonly</span>
-                            lookupUSLocationOp</b>
-                            <a href="#lookupUSLocationOp"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../interfaces/Location.html" target="_self" >Operator&lt;string | Location&gt;</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/Location.html" target="_self" >Operator&lt;string | Location&gt;</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/geocoder-ts/src/lib/us-geocoder.ts:10</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/geocoder-ts/src/lib/us-geocoder.ts:10</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stateRegEx"></a>
+                    <span class="name">
+                        <span ><b>stateRegEx</b></span>
+                        <a href="#stateRegEx"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="stateRegEx"></a>
-                        <span class="name">
-                            <b>
-                            stateRegEx</b>
-                            <a href="#stateRegEx"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new RegExp(&#x60;[^0-9a-z\-](${STATES.join(&#x27;|&#x27;)})[^0-9a-z]&#x60;, &#x27;igm&#x27;)</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new RegExp(&#x60;[^0-9a-z\-](${STATES.join(&#x27;|&#x27;)})[^0-9a-z]&#x60;, &#x27;igm&#x27;)</code>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/geocoder-ts/src/lib/us-geocoder.ts:12</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/geocoder-ts/src/lib/us-geocoder.ts:12</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="zipRegEx"></a>
+                    <span class="name">
+                        <span ><b>zipRegEx</b></span>
+                        <a href="#zipRegEx"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="zipRegEx"></a>
-                        <span class="name">
-                            <b>
-                            zipRegEx</b>
-                            <a href="#zipRegEx"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>/[^0-9a-z\-](\d{5})[^0-9a-z]/igm</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>/[^0-9a-z\-](\d{5})[^0-9a-z]/igm</code>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">projects/geocoder-ts/src/lib/us-geocoder.ts:11</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">projects/geocoder-ts/src/lib/us-geocoder.ts:11</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
             <section>
@@ -283,9 +281,7 @@
                 <td class="col-md-4">
                     <a name="getLocation"></a>
                     <span class="name">
-                        <b>
-                            getLocation
-                        </b>
+                        <span ><b>getLocation</b></span>
                         <a href="#getLocation"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -353,9 +349,7 @@
                 <td class="col-md-4">
                     <a name="getUSLocationByCityState"></a>
                     <span class="name">
-                        <b>
-                            getUSLocationByCityState
-                        </b>
+                        <span ><b>getUSLocationByCityState</b></span>
                         <a href="#getUSLocationByCityState"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -423,9 +417,7 @@
                 <td class="col-md-4">
                     <a name="getUSLocationByZipCode"></a>
                     <span class="name">
-                        <b>
-                            getUSLocationByZipCode
-                        </b>
+                        <span ><b>getUSLocationByZipCode</b></span>
                         <a href="#getUSLocationByZipCode"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -493,9 +485,7 @@
                 <td class="col-md-4">
                     <a name="getUSLocationsByState"></a>
                     <span class="name">
-                        <b>
-                            getUSLocationsByState
-                        </b>
+                        <span ><b>getUSLocationsByState</b></span>
                         <a href="#getUSLocationsByState"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -671,9 +661,9 @@ export class USGeocoder implements Geocoder {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

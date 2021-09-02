@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -38,7 +39,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>LegendService</li>
+  <li >LegendService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,6 +63,7 @@
 
 
 
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -77,11 +79,11 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#createLegend">createLegend</a>
+                                <a href="#createLegend" >createLegend</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#generateLegendGraphicSymbol">generateLegendGraphicSymbol</a>
+                                <a href="#generateLegendGraphicSymbol" >generateLegendGraphicSymbol</a>
                             </li>
                         </ul>
                     </td>
@@ -101,7 +103,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(store: <a href="../interfaces/SidenavState.html">Store<SidenavState></a>, serializer: <a href="../injectables/ProjectSerializerService.html">ProjectSerializerService</a>)</code>
+<code>constructor(store: <a href="../interfaces/SidenavState.html" target="_self">Store&lt;SidenavState&gt;</a>, serializer: <a href="../injectables/ProjectSerializerService.html" target="_self">ProjectSerializerService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -167,10 +169,8 @@
                 <td class="col-md-4">
                     <a name="createLegend"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            createLegend
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>createLegend</b></span>
                         <a href="#createLegend"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -178,7 +178,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createLegend(template: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, gv: <a href="../interfaces/GraphicVariable.html">GraphicVariable</a>, gs: <a href="../interfaces/GraphicSymbol.html">GraphicSymbol</a>)</code>
+                    <code>createLegend(template: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, gv: <a href="../interfaces/GraphicVariable.html" target="_self">GraphicVariable</a>, gs: <a href="../interfaces/GraphicSymbol.html" target="_self">GraphicSymbol</a>)</code>
                 </td>
             </tr>
 
@@ -263,10 +263,8 @@
                 <td class="col-md-4">
                     <a name="generateLegendGraphicSymbol"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            generateLegendGraphicSymbol
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>generateLegendGraphicSymbol</b></span>
                         <a href="#generateLegendGraphicSymbol"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -274,7 +272,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>generateLegendGraphicSymbol(template: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, graphicVariable: <a href="../interfaces/GraphicVariable.html">GraphicVariable | undefined</a>, sourceGraphicSymbol: <a href="../interfaces/GraphicSymbol.html">GraphicSymbol</a>, project: <a href="../interfaces/Project.html">Project</a>)</code>
+                    <code>generateLegendGraphicSymbol(template: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, graphicVariable: <a href="../interfaces/GraphicVariable.html" target="_self">GraphicVariable | undefined</a>, sourceGraphicSymbol: <a href="../interfaces/GraphicSymbol.html" target="_self">GraphicSymbol</a>, project: <a href="../interfaces/Project.html" target="_self">Project</a>)</code>
                 </td>
             </tr>
 
@@ -474,9 +472,9 @@ export class LegendService {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

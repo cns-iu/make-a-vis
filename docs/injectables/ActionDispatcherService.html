@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -38,7 +39,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>ActionDispatcherService</li>
+  <li >ActionDispatcherService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,6 +63,7 @@
 
 
 
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -76,10 +78,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#toggleDataTableChildren">toggleDataTableChildren</a>
+                                <a href="#toggleDataTableChildren" >toggleDataTableChildren</a>
                             </li>
                             <li>
-                                <a href="#toggleDataTableRows">toggleDataTableRows</a>
+                                <a href="#toggleDataTableRows" >toggleDataTableRows</a>
                             </li>
                         </ul>
                     </td>
@@ -99,7 +101,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(dataTableStore: <a href="../interfaces/DataTableState.html">Store<dataViewStore.DataTableState></a>)</code>
+<code>constructor(dataTableStore: <a href="../interfaces/DataTableState.html" target="_self">Store&lt;dataViewStore.DataTableState&gt;</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -153,16 +155,14 @@
                 <td class="col-md-4">
                     <a name="toggleDataTableChildren"></a>
                     <span class="name">
-                        <b>
-                            toggleDataTableChildren
-                        </b>
+                        <span ><b>toggleDataTableChildren</b></span>
                         <a href="#toggleDataTableChildren"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>toggleDataTableChildren(payload: <a href="../interfaces/ToggleDataTableChildren.html">payloadTypes.ToggleDataTableChildren</a>)</code>
+<code>toggleDataTableChildren(payload: <a href="../interfaces/ToggleDataTableChildren.html" target="_self">payloadTypes.ToggleDataTableChildren</a>)</code>
                 </td>
             </tr>
 
@@ -223,16 +223,14 @@
                 <td class="col-md-4">
                     <a name="toggleDataTableRows"></a>
                     <span class="name">
-                        <b>
-                            toggleDataTableRows
-                        </b>
+                        <span ><b>toggleDataTableRows</b></span>
                         <a href="#toggleDataTableRows"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>toggleDataTableRows(payload: <a href="../interfaces/ToggleDataTableRows.html">payloadTypes.ToggleDataTableRows</a>)</code>
+<code>toggleDataTableRows(payload: <a href="../interfaces/ToggleDataTableRows.html" target="_self">payloadTypes.ToggleDataTableRows</a>)</code>
                 </td>
             </tr>
 
@@ -362,9 +360,9 @@ export class ActionDispatcherService {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

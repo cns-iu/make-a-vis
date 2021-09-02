@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -38,7 +39,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>LoadProjectService</li>
+  <li >LoadProjectService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,6 +63,7 @@
 
 
 
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -75,7 +77,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#projectExtensionPool">projectExtensionPool</a>
+                                <a href="#projectExtensionPool" >projectExtensionPool</a>
                             </li>
                         </ul>
                     </td>
@@ -92,28 +94,40 @@
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
-                                <a href="#asyncCreateProject">asyncCreateProject</a>
+                                <a href="#asyncCreateProject" >asyncCreateProject</a>
                             </li>
                             <li>
-                                <a href="#createProject">createProject</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#confirmContinueLargeInputLoading" >confirmContinueLargeInputLoading</a>
                             </li>
                             <li>
-                                <a href="#getProject">getProject</a>
+                                <a href="#createProject" >createProject</a>
                             </li>
                             <li>
-                                <a href="#getProjectFromUrl">getProjectFromUrl</a>
+                                <a href="#getProject" >getProject</a>
                             </li>
                             <li>
-                                <a href="#getSupportedExtension">getSupportedExtension</a>
+                                <a href="#getProjectFromUrl" >getProjectFromUrl</a>
                             </li>
                             <li>
-                                <a href="#loadFile">loadFile</a>
+                                <a href="#getSupportedExtension" >getSupportedExtension</a>
                             </li>
                             <li>
-                                <a href="#loadFromProjectJson">loadFromProjectJson</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#isLargeCsvInput" >isLargeCsvInput</a>
                             </li>
                             <li>
-                                <a href="#setSaveActivityLog">setSaveActivityLog</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#isLargeIsiInput" >isLargeIsiInput</a>
+                            </li>
+                            <li>
+                                <a href="#loadFile" >loadFile</a>
+                            </li>
+                            <li>
+                                <a href="#loadFromProjectJson" >loadFromProjectJson</a>
+                            </li>
+                            <li>
+                                <a href="#setSaveActivityLog" >setSaveActivityLog</a>
                             </li>
                         </ul>
                     </td>
@@ -133,12 +147,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(serializer: <a href="../injectables/ProjectSerializerService.html">ProjectSerializerService</a>, loggingControlService: <a href="../injectables/LoggingControlService.html">LoggingControlService</a>, store: <a href="../interfaces/SidenavState.html">Store<sidenavStore.SidenavState></a>, getLinkService: <a href="../injectables/GetLinkService.html">GetLinkService</a>, advancedService: <a href="../injectables/AdvancedService.html">AdvancedService</a>, snackBar: MatSnackBar)</code>
+<code>constructor(serializer: <a href="../injectables/ProjectSerializerService.html" target="_self">ProjectSerializerService</a>, loggingControlService: <a href="../injectables/LoggingControlService.html" target="_self">LoggingControlService</a>, store: <a href="../interfaces/SidenavState.html" target="_self">Store&lt;sidenavStore.SidenavState&gt;</a>, getLinkService: <a href="../injectables/GetLinkService.html" target="_self">GetLinkService</a>, advancedService: <a href="../injectables/AdvancedService.html" target="_self">AdvancedService</a>, snackBar: MatSnackBar, dialog: MatDialog)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:40</a></div>
                             </td>
                         </tr>
 
@@ -227,6 +241,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>dialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -247,11 +273,9 @@
                 <td class="col-md-4">
                     <a name="asyncCreateProject"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            <span class="modifier">Async</span>
-                            asyncCreateProject
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>asyncCreateProject</b></span>
                         <a href="#asyncCreateProject"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -266,8 +290,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="71"
-                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:71</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:78</a></div>
                 </td>
             </tr>
 
@@ -342,11 +366,48 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="confirmContinueLargeInputLoading"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>confirmContinueLargeInputLoading</b></span>
+                        <a href="#confirmContinueLargeInputLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>confirmContinueLargeInputLoading()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="234"
+                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:234</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;boolean&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="createProject"></a>
                     <span class="name">
-                        <b>
-                            createProject
-                        </b>
+                        <span ><b>createProject</b></span>
                         <a href="#createProject"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -360,8 +421,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:71</a></div>
                 </td>
             </tr>
 
@@ -438,24 +499,22 @@
                 <td class="col-md-4">
                     <a name="getProject"></a>
                     <span class="name">
-                        <b>
-                            getProject
-                        </b>
+                        <span ><b>getProject</b></span>
                         <a href="#getProject"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getProject(fileNames: string[], fileExtension: <a href="../interfaces/Project.html">ProjectExtensionType</a>, event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+<code>getProject(fileNames: string[], fileExtension: <a href="../interfaces/Project.html" target="_self">ProjectExtensionType</a>, event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="145"
-                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:145</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="174"
+                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:174</a></div>
                 </td>
             </tr>
 
@@ -532,9 +591,7 @@
                 <td class="col-md-4">
                     <a name="getProjectFromUrl"></a>
                     <span class="name">
-                        <b>
-                            getProjectFromUrl
-                        </b>
+                        <span ><b>getProjectFromUrl</b></span>
                         <a href="#getProjectFromUrl"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -548,8 +605,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="168"
-                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:168</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="201"
+                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:201</a></div>
                 </td>
             </tr>
 
@@ -626,24 +683,22 @@
                 <td class="col-md-4">
                     <a name="getSupportedExtension"></a>
                     <span class="name">
-                        <b>
-                            getSupportedExtension
-                        </b>
+                        <span ><b>getSupportedExtension</b></span>
                         <a href="#getSupportedExtension"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getSupportedExtension(extensionLabel: <a href="../interfaces/Project.html">ProjectExtensionType</a>)</code>
+<code>getSupportedExtension(extensionLabel: <a href="../interfaces/Project.html" target="_self">ProjectExtensionType</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="195"
-                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:195</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="228"
+                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:228</a></div>
                 </td>
             </tr>
 
@@ -694,11 +749,149 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="isLargeCsvInput"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>isLargeCsvInput</b></span>
+                        <a href="#isLargeCsvInput"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isLargeCsvInput(contents: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="253"
+                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:253</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>contents</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLargeIsiInput"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>isLargeIsiInput</b></span>
+                        <a href="#isLargeIsiInput"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isLargeIsiInput(contents: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="262"
+                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:262</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>contents</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="loadFile"></a>
                     <span class="name">
-                        <b>
-                            loadFile
-                        </b>
+                        <span ><b>loadFile</b></span>
                         <a href="#loadFile"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -712,8 +905,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="100"
-                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:100</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="128"
+                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:128</a></div>
                 </td>
             </tr>
 
@@ -774,7 +967,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/Project.html" target="_self" >BehaviorSubject&lt;Project&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/Project.html" target="_self" >Subject&lt;Project&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -790,9 +983,7 @@
                 <td class="col-md-4">
                     <a name="loadFromProjectJson"></a>
                     <span class="name">
-                        <b>
-                            loadFromProjectJson
-                        </b>
+                        <span ><b>loadFromProjectJson</b></span>
                         <a href="#loadFromProjectJson"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -806,8 +997,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="138"
-                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:138</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="167"
+                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:167</a></div>
                 </td>
             </tr>
 
@@ -860,9 +1051,7 @@
                 <td class="col-md-4">
                     <a name="setSaveActivityLog"></a>
                     <span class="name">
-                        <b>
-                            setSaveActivityLog
-                        </b>
+                        <span ><b>setSaveActivityLog</b></span>
                         <a href="#setSaveActivityLog"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -876,8 +1065,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:58</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:65</a></div>
                 </td>
             </tr>
 
@@ -923,55 +1112,55 @@
 </section>
             <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="projectExtensionPool"></a>
+                    <span class="name">
+                        <span ><b>projectExtensionPool</b></span>
+                        <a href="#projectExtensionPool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="projectExtensionPool"></a>
-                        <span class="name">
-                            <b>
-                            projectExtensionPool</b>
-                            <a href="#projectExtensionPool"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>[]</code>
+
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code>[]</code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>[
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
     { label: &#x27;isi&#x27;, extensions: [&#x27;.isi&#x27;] },
     { label: &#x27;nsf&#x27;, extensions: [&#x27;.nsf&#x27;, &#x27;.csv&#x27;] },
     { label: &#x27;csv&#x27;, extensions: [&#x27;.nsf&#x27;, &#x27;.csv&#x27;] },
     { label: &#x27;json&#x27;, extensions: [&#x27;.json&#x27;] },
     { label: &#x27;yml&#x27;, extensions: [&#x27;.yml&#x27;] }
   ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:34</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/make-a-vis/src/lib/shared/services/load-project/load-project.service.ts:29</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MatSnackBar } from &#x27;@angular/material/snack-bar&#x27;;
-import { Injectable } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { MatDialog } from &#x27;@angular/material/dialog&#x27;;
+import { MatSnackBar } from &#x27;@angular/material/snack-bar&#x27;;
 import { ProjectSerializerService } from &#x27;@dvl-fw/angular&#x27;;
 import { ActivityLogRawData, Project } from &#x27;@dvl-fw/core&#x27;;
 import { GeomapPlugin } from &#x27;@dvl-fw/geomap&#x27;;
@@ -983,14 +1172,18 @@ import { ScatterplotPlugin } from &#x27;@dvl-fw/scatterplot&#x27;;
 import { ScienceMapPlugin } from &#x27;@dvl-fw/science-map&#x27;;
 import { TemporalBargraphPlugin } from &#x27;@dvl-fw/temporal-bargraph&#x27;;
 import { Store } from &#x27;@ngrx/store&#x27;;
+import { DefaultGeocoder } from &#x27;geocoder-ts&#x27;;
 import { isArray } from &#x27;lodash&#x27;;
-import { BehaviorSubject, defer, Observable } from &#x27;rxjs&#x27;;
+import { defer, Observable, Subject } from &#x27;rxjs&#x27;;
+import { map, take } from &#x27;rxjs/operators&#x27;;
 
 import { LoggingControlService } from &#x27;../../../shared/logging/logging-control.service&#x27;;
 import * as sidenavStore from &#x27;../../../toolbar/shared/store&#x27;;
-import { GetLinkService } from &#x27;../get-link/get-link.service&#x27;;
+import {
+  ConfirmationDialogComponent, ConfirmationDialogOptions,
+} from &#x27;../../components/confirmation-dialog/confirmation-dialog.component&#x27;;
 import { AdvancedService } from &#x27;../advance/advanced.service&#x27;;
-import { DefaultGeocoder } from &#x27;geocoder-ts&#x27;;
+import { GetLinkService } from &#x27;../get-link/get-link.service&#x27;;
 
 
 @Injectable({
@@ -1007,12 +1200,14 @@ export class LoadProjectService {
   ];
 
   constructor(
-      private serializer: ProjectSerializerService,
-      private loggingControlService: LoggingControlService,
-      private store: Store&lt;sidenavStore.SidenavState&gt;,
-      private getLinkService: GetLinkService,
-      private advancedService: AdvancedService,
-      private snackBar: MatSnackBar) {
+    private serializer: ProjectSerializerService,
+    private loggingControlService: LoggingControlService,
+    private store: Store&lt;sidenavStore.SidenavState&gt;,
+    private getLinkService: GetLinkService,
+    private advancedService: AdvancedService,
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog
+  ) {
     const registry &#x3D; this.serializer.registry;
 
     const geocoder &#x3D; new DefaultGeocoder(this.advancedService.advancedEnabled);
@@ -1055,17 +1250,38 @@ export class LoadProjectService {
       });
     }
 
-    fileNames &#x3D; isArray(fileNames) || !fileNames ? fileNames : [fileNames];
+    const names &#x3D; isArray(fileNames) || !fileNames ? fileNames : [fileNames];
+    const contents &#x3D; isArray(fileContents) ? fileContents : [fileContents];
+
+    const loadCsvOrNsf &#x3D; () &#x3D;&gt; NSFTemplateProject.create(contents, names, geocoder);
+    const loadIsi &#x3D; () &#x3D;&gt; ISITemplateProject.create(contents[0], names[0], geocoder);
+    let load: () &#x3D;&gt; Promise&lt;Project&gt; &#x3D; async () &#x3D;&gt; {
+      throw new Error(&#x60;Template: ${template} not supported.&#x60;);
+    };
+    let isLargeInput &#x3D; false;
+
     switch (template) {
       case &#x27;csv&#x27;:
-        // fall through NSFTemplateProject
+      // fall through NSFTemplateProject
       case &#x27;nsf&#x27;:
-        return NSFTemplateProject.create(fileContents, fileNames, geocoder);
+        load &#x3D; loadCsvOrNsf;
+        isLargeInput &#x3D; this.isLargeCsvInput(contents);
+        break;
+
       case &#x27;isi&#x27;:
-        return ISITemplateProject.create(fileContents[0], fileNames[0], geocoder);
-      default:
-        throw new Error(&#x60;Template: ${template} not supported.&#x60;);
+        load &#x3D; loadIsi;
+        isLargeInput &#x3D; this.isLargeIsiInput(contents[0]);
+        break;
     }
+
+    if (isLargeInput) {
+      const confirmation &#x3D; this.confirmContinueLargeInputLoading().pipe(take(1));
+      if (!(await confirmation.toPromise())) {
+        throw new Error(&#x27;Loading of large input file canceled&#x27;);
+      }
+    }
+
+    return load();
   }
 
 
@@ -1073,11 +1289,11 @@ export class LoadProjectService {
     fileExtension: &#x27;isi&#x27; | &#x27;nsf&#x27; | &#x27;csv&#x27; | &#x27;json&#x27; | &#x27;yml&#x27;,
     files: Blob[],
     fileNames?: string[]
-  ): BehaviorSubject&lt;Project&gt; {
-    const projectSubject &#x3D; new BehaviorSubject&lt;Project&gt;(null);
+  ): Subject&lt;Project&gt; {
+    const projectSubject &#x3D; new Subject&lt;Project&gt;();
     const promises &#x3D; [];
     for (const file of files) {
-      const filePromise &#x3D; new Promise(resolve &#x3D;&gt; {
+      const filePromise &#x3D; new Promise(resolve &#x3D;&gt; setTimeout(() &#x3D;&gt; {
         const reader &#x3D; new FileReader();
         reader.readAsText(file);
         reader.onload &#x3D; (event: any) &#x3D;&gt; {
@@ -1090,15 +1306,16 @@ export class LoadProjectService {
               });
           }
         };
-      });
+      }, 500));
 
       promises.push(filePromise);
     }
 
     Promise.all(promises).then((fileContents: string[]) &#x3D;&gt; {
       this.createProject(&lt;any&gt;fileExtension, fileContents, fileNames)
-        .subscribe((project: Project) &#x3D;&gt; {
-          projectSubject.next(this.setSaveActivityLog(project));
+        .subscribe({
+          next: project &#x3D;&gt; projectSubject.next(this.setSaveActivityLog(project)),
+          error: err &#x3D;&gt; projectSubject.error(err)
         });
     });
 
@@ -1108,7 +1325,7 @@ export class LoadProjectService {
   /* loads project from json given as an argument
   */
   loadFromProjectJson(json: string) {
-    const projectSubject &#x3D; new BehaviorSubject&lt;Project&gt;(null);
+    const projectSubject &#x3D; new Subject&lt;Project&gt;();
     this.serializer.fromJSON(json)
       .subscribe((project: Project) &#x3D;&gt; projectSubject.next(project));
     return projectSubject;
@@ -1120,16 +1337,20 @@ export class LoadProjectService {
     }));
 
     this.loadFile(fileExtension, event.srcElement.files, fileNames)
-      .subscribe((project) &#x3D;&gt; {
-        if (project) { // success
-          this.store.dispatch(new sidenavStore.LoadProjectCompleted(
-            { loadingProject: false, fileName: fileNames.join(&#x27;|&#x27;), fileExtension: fileExtension, project: project }
-          ));
-        } else { // failure
-          this.store.dispatch(new sidenavStore.LoadProjectError(
-            { errorOccurred: true, errorTitle: &#x27;Load Error&#x27;, errorMessage: &#x27;Failed to load new project&#x27; }
-          ));
+      .pipe(map(project &#x3D;&gt; {
+        if (!project) {
+          throw new Error(&#x27;Failed to load - Unknown cause&#x27;);
         }
+
+        return project;
+      }))
+      .subscribe({
+        next: project &#x3D;&gt; this.store.dispatch(new sidenavStore.LoadProjectCompleted(
+          { loadingProject: false, fileName: fileNames.join(&#x27;|&#x27;), fileExtension: fileExtension, project: project }
+        )),
+        error: () &#x3D;&gt; this.store.dispatch(new sidenavStore.LoadProjectError(
+          { errorOccurred: true, errorTitle: &#x27;Load Error&#x27;, errorMessage: &#x27;Failed to load new project&#x27; }
+        ))
       });
   }
 
@@ -1168,6 +1389,40 @@ export class LoadProjectService {
     return this.projectExtensionPool.filter((extnObject &#x3D;&gt; {
       return extnObject.label &#x3D;&#x3D;&#x3D; extensionLabel;
     }))[0][&#x27;extensions&#x27;].join(&#x27;,&#x27;);
+  }
+
+  private confirmContinueLargeInputLoading(): Observable&lt;boolean&gt; {
+    const ref &#x3D; this.dialog.open&lt;ConfirmationDialogComponent, ConfirmationDialogOptions, boolean&gt;(
+      ConfirmationDialogComponent,
+      {
+        // width, height?
+        closeOnNavigation: true,
+        disableClose: true,
+        data: {
+          title: &#x27;Continue loading large dataset?&#x27;,
+          content: &#x27;Large datasets (&gt; 5,000 records) may take a long time to load and use excessive memory.&#x27;,
+          acceptText: &#x27;Continue&#x27;,
+          cancelText: &#x27;Cancel&#x27;
+        }
+      }
+    );
+
+    return ref.afterClosed();
+  }
+
+  private isLargeCsvInput(contents: string[]): boolean {
+    const lineCount &#x3D; contents.reduce&lt;number&gt;(
+      (count, content) &#x3D;&gt; count + content.split(/\r\n|\r|\n/).length,
+      0
+    );
+
+    return lineCount &gt; 7000;
+  }
+
+  private isLargeIsiInput(contents: string): boolean {
+    const lineCount &#x3D; contents.split(/\r\n|\r|\n/).length;
+
+    return lineCount &gt; 40000;
   }
 }
 
@@ -1211,9 +1466,9 @@ export type ProjectExtensionType &#x3D; &#x27;isi&#x27; | &#x27;nsf&#x27; | &#x2
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 
