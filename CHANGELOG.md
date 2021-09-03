@@ -2,6 +2,20 @@
 
 Changelog for Make-a-Vis and DVL-FW.
 
+## 0.52.0 - 2021-09-03
+
+### Added in 0.52.0
+
+- Migrated from Travis CI to GitHub Actions (TODO: npm publishing)
+- Added a project loading message while loading data
+- Added a dialog that appears when there are too many records (roughly >5,000 records) to make sure the user wishes to continue
+- Added Google Analytics with custom event logging (same as show up in projects)
+- Added visualization settings to all visualizations
+  - Added zoom/pan option to scatterplot, map of science, and network visualization
+  - Added node/edge scaling options to network visualization
+  - Added option to expand the Temporal Bar Graph
+- Added an initial CSV Tutorial
+
 ## 0.51.0 - 2021-05-12
 
 ### Added in 0.51.0
